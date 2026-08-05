@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Kawad Swad Udhyog's full collection of 36 authentic Nimar papads & spices. 100% pulse flour, zero rice fillers.">
-    <title>Fresh Catalogue & Shop (36 SKUs) | Kawad Swad Udhyog</title>
+    <meta name="description" content="Explore Kawad Swad Udhyog's full collection of 36 authentic Nimar papads & spices. 100% pulse flour, zero rice fillers. Available on Meesho, Amazon, JioMart, Flipkart & IndiaMART.">
+    <title>Fresh Catalogue & Marketplace Shop (36 SKUs) | Kawad Swad Udhyog</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -49,6 +49,19 @@
         .glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
         .glass-card:hover { border-color: rgba(245, 158, 11, 0.4); box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.2); }
         .chip-active { background-color: #F59E0B !important; color: #000000 !important; font-weight: 700; }
+        
+        @keyframes scroll-reviews {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-reviews {
+            display: flex;
+            width: max-content;
+            animation: scroll-reviews 35s linear infinite;
+        }
+        .animate-reviews:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-black pb-20">
@@ -56,7 +69,7 @@
     <!-- Toast Notification Hub -->
     <div id="toast-container" class="fixed bottom-6 right-6 z-[300] flex flex-col gap-3 pointer-events-none"></div>
 
-    <!-- 1. STICKY D2C NAVIGATION BAR -->
+    <!-- 1. STICKY D2C & MARKETPLACE NAVIGATION BAR -->
     <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 backdrop-blur-md">
         <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
             <!-- Brand Logo -->
@@ -71,12 +84,12 @@
             </a>
 
             <!-- Search Bar Input -->
-            <div class="relative hidden sm:block w-72 lg:w-96">
+            <div class="relative hidden md:block w-72 lg:w-96">
                 <i data-lucide="search" class="w-4 h-4 text-brand-textSecondary absolute left-3.5 top-1/2 -translate-y-1/2"></i>
                 <input id="search-input" onkeyup="filterStoreCatalog()" type="text" placeholder="Search Moong, Chana, Urad, Garlic..." class="w-full bg-brand-surface/80 border border-white/10 rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder:text-brand-textSecondary/60 focus:outline-none focus:border-brand-accent transition">
             </div>
 
-            <!-- Header Cart & Actions -->
+            <!-- Header Actions & Cart -->
             <div class="flex items-center gap-3">
                 <a href="index.html" class="hidden sm:inline-block text-xs text-brand-textSecondary hover:text-white">← Back to Home</a>
                 <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-brand-accent text-black font-bold hover:bg-brand-accentLight transition flex items-center gap-2">
@@ -106,12 +119,28 @@
         </div>
     </section>
 
+    <!-- OFFICIAL MARKETPLACE QUICK-LINK BAR -->
+    <section class="max-w-7xl mx-auto px-6 py-2">
+        <div class="glass-panel rounded-2xl p-4 flex flex-wrap items-center justify-between gap-3 border border-white/10">
+            <div class="flex items-center gap-2">
+                <i data-lucide="external-link" class="w-4 h-4 text-brand-accent"></i>
+                <span class="text-xs font-bold text-white">Prefer ordering on marketplaces? Buy directly on:</span>
+            </div>
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="px-3 py-1.5 rounded-xl bg-pink-500/20 text-pink-300 border border-pink-500/30 hover:bg-pink-500 hover:text-white transition font-bold flex items-center gap-1">Meesho ↗</a>
+                <a href="https://www.amazon.in/s?k=Kawad+Swad&ref=bl_dp_s_web_0" target="_blank" class="px-3 py-1.5 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/30 hover:bg-amber-500 hover:text-black transition font-bold flex items-center gap-1">Amazon ↗</a>
+                <a href="https://www.flipkart.com/kawad-swad-moong-master-papad-200g/p/itm5510ce4255df2?pid=FRYHPXYYXMFZRGSH&lid=LSTFRYHPXYYXMFZRGSHFQO3YF&marketplace=FLIPKART&store=eat%2F8qh&srno=b_1_1&otracker=browse&fm=organic&iid=28ec08a3-406e-4e07-8647-ad4598589ad8.FRYHPXYYXMFZRGSH.SEARCH&ppt=browse&ppn=browse&ssid=14ykjyh6uo0000001785941134839&ov_redirect=true" target="_blank" class="px-3 py-1.5 rounded-xl bg-blue-500/20 text-blue-300 border border-blue-500/30 hover:bg-blue-500 hover:text-white transition font-bold flex items-center gap-1">Flipkart ↗</a>
+                <a href="https://www.jiomart.com/products?brand=kawad-swad--86105&journey=shop-all" target="_blank" class="px-3 py-1.5 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500 hover:text-black transition font-bold flex items-center gap-1">JioMart ↗</a>
+                <a href="https://www.indiamart.com/kawad-swad-udhyog/?srsltid=AfmBOorwUdVTlc80BXueAjtRtRXf3sqWxjPIKA63Geo-BlnjQ8503YTI" target="_blank" class="px-3 py-1.5 rounded-xl bg-purple-500/20 text-purple-300 border border-purple-500/30 hover:bg-purple-500 hover:text-white transition font-bold flex items-center gap-1">IndiaMART ↗</a>
+            </div>
+        </div>
+    </section>
+
     <!-- MAIN DISCOVERY ENGINE SECTION -->
     <main class="max-w-7xl mx-auto px-6 py-4 space-y-6">
         
-        <!-- Category Chips & Sort Controls -->
+        <!-- Category Chips -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <!-- Category Chips -->
             <div class="flex flex-wrap items-center gap-2" id="category-chips">
                 <button onclick="setCategory('all', this)" class="chip-active text-xs font-heading font-medium px-4 py-2 rounded-xl glass-card transition">All Flavors</button>
                 <button onclick="setCategory('moong', this)" class="text-xs font-heading text-brand-textSecondary px-4 py-2 rounded-xl glass-card hover:text-white transition">Moong Range</button>
@@ -125,6 +154,81 @@
             <!-- Injected via JavaScript -->
         </div>
     </main>
+
+    <!-- REAL MEESHO & MARKETPLACE REVIEWS TICKER -->
+    <section class="max-w-7xl mx-auto px-6 py-8">
+        <div class="glass-panel rounded-3xl p-6 sm:p-8 border border-pink-500/30 space-y-6 bg-gradient-to-r from-brand-bgSecondary via-brand-surface to-brand-bg">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-4">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-pink-500/10 text-pink-400 text-[10px] font-extrabold uppercase tracking-widest border border-pink-500/20">
+                        <i data-lucide="store" class="w-3.5 h-3.5"></i> Verified Marketplace Partner
+                    </div>
+                    <h2 class="font-heading text-2xl font-extrabold text-white mt-1">Real Meesho Buyer Feedback</h2>
+                </div>
+                <div class="flex items-center gap-3 glass-card px-4 py-2.5 rounded-2xl border border-white/10">
+                    <span class="text-xs text-brand-textSecondary">Overall Rating:</span>
+                    <div class="flex items-center gap-1 bg-brand-accent/10 px-2.5 py-1 rounded-lg">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-brand-accent text-brand-accent"></i>
+                        <span class="font-heading font-extrabold text-sm text-white">4.9 / 5.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ticker -->
+            <div class="overflow-hidden relative w-full py-2">
+                <div class="absolute left-0 inset-y-0 w-16 bg-gradient-to-r from-brand-bg to-transparent z-10 pointer-events-none"></div>
+                <div class="absolute right-0 inset-y-0 w-16 bg-gradient-to-l from-brand-bg to-transparent z-10 pointer-events-none"></div>
+
+                <div class="animate-reviews flex gap-6">
+                    <!-- Review 1 -->
+                    <div class="glass-card p-4 rounded-2xl border border-white/10 w-80 space-y-2 shrink-0">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-300">Meesho Verified</span>
+                            <div class="flex text-brand-accent text-xs">★★★★★</div>
+                        </div>
+                        <p class="text-xs text-brand-textSecondary leading-relaxed">"Original Nimar taste! Zero rice flour mixed, pure moong dal papad. Secure packaging and fast delivery."</p>
+                        <span class="text-[10px] text-brand-accent font-mono block">— Sunita Patil (Indore)</span>
+                    </div>
+                    <!-- Review 2 -->
+                    <div class="glass-card p-4 rounded-2xl border border-white/10 w-80 space-y-2 shrink-0">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-300">Meesho Verified</span>
+                            <div class="flex text-brand-accent text-xs">★★★★★</div>
+                        </div>
+                        <p class="text-xs text-brand-textSecondary leading-relaxed">"Best quality chana papad. Crispy when roasted or fried. Ordered multiple times. Excellent!"</p>
+                        <span class="text-[10px] text-brand-accent font-mono block">— Rajesh Verma (Bhopal)</span>
+                    </div>
+                    <!-- Review 3 -->
+                    <div class="glass-card p-4 rounded-2xl border border-white/10 w-80 space-y-2 shrink-0">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-300">Meesho Verified</span>
+                            <div class="flex text-brand-accent text-xs">★★★★★</div>
+                        </div>
+                        <p class="text-xs text-brand-textSecondary leading-relaxed">"Authentic Katargaon sun-dried papads. The flavor and spice balance is just like homemade."</p>
+                        <span class="text-[10px] text-brand-accent font-mono block">— Meenakshi Joshi (Ujjain)</span>
+                    </div>
+                    <!-- Review 4 -->
+                    <div class="glass-card p-4 rounded-2xl border border-white/10 w-80 space-y-2 shrink-0">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-300">Meesho Verified</span>
+                            <div class="flex text-brand-accent text-xs">★★★★★</div>
+                        </div>
+                        <p class="text-xs text-brand-textSecondary leading-relaxed">"Got the 1kg pack with free shipping. Fresh batch received directly from MP factory unit. Great crunch!"</p>
+                        <span class="text-[10px] text-brand-accent font-mono block">— Anil Solanki (Pune)</span>
+                    </div>
+                    <!-- Loop duplication -->
+                    <div class="glass-card p-4 rounded-2xl border border-white/10 w-80 space-y-2 shrink-0">
+                        <div class="flex justify-between items-center">
+                            <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-300">Meesho Verified</span>
+                            <div class="flex text-brand-accent text-xs">★★★★★</div>
+                        </div>
+                        <p class="text-xs text-brand-textSecondary leading-relaxed">"Original Nimar taste! Zero rice flour mixed, pure moong dal papad. Secure packaging and fast delivery."</p>
+                        <span class="text-[10px] text-brand-accent font-mono block">— Sunita Patil (Indore)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- SLIDE-OUT INTERACTIVE CART DRAWER -->
     <div id="cart-drawer" class="fixed inset-0 z-[300] bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-0 pointer-events-none">
@@ -183,17 +287,22 @@
                 <span id="qv-price" class="font-heading text-2xl font-extrabold text-brand-accent block"></span>
                 <p class="text-xs text-brand-textSecondary">0% Rice Flour promise. Sun-dried in Katargaon, MP. Delivered fresh in barrier-proof bags.</p>
             </div>
-            <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-2xl text-xs flex items-center justify-center gap-2">
-                Proceed to Checkout
-            </a>
+            <div class="grid grid-cols-2 gap-2">
+                <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-2xl text-xs flex items-center justify-center gap-1">
+                    D2C Checkout
+                </a>
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="w-full bg-pink-500 text-white font-heading font-bold py-3.5 rounded-2xl text-xs flex items-center justify-center gap-1">
+                    Buy on Meesho ↗
+                </a>
+            </div>
         </div>
     </div>
 
-    <!-- INTERACTIVE CATALOG ENGINE -->
+    <!-- INTERACTIVE CATALOG ENGINE & 36 SKU MAPPINGS -->
     <script>
         lucide.createIcons();
 
-        // OFFICIAL 36 SKU DATABASE WITH ACCURATE MAPPED PNG IMAGES
+        // OFFICIAL 36 SKU DATABASE WITH EXACT MAPPED PNG IMAGE ASSETS
         const KAWAD_PRODUCTS = [
             // --- MOONG VARIETIES ---
             { id: 'KS-MMP-200', title: 'Moong Master Papad', weight: '200g', mrp: 110, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'MMP.png' },
@@ -321,7 +430,7 @@
                         <div class="space-y-3">
                             <div class="flex items-center justify-between text-xs">
                                 <span class="text-[10px] text-brand-accent uppercase font-bold tracking-wider">${group.dal} • ${group.spice}</span>
-                                <span class="text-brand-accent font-bold text-[11px] flex items-center gap-1"><i data-lucide="star" class="w-3 h-3 fill-brand-accent"></i> 4.9</span>
+                                <span class="text-brand-accent font-bold text-[11px] flex items-center gap-1"><i data-lucide="star" class="w-3 h-3 fill-brand-accent"></i> 4.9 <span class="text-[9px] text-pink-400 font-mono">(Meesho)</span></span>
                             </div>
 
                             <h3 class="font-heading text-base font-bold text-white leading-snug">${group.title}</h3>

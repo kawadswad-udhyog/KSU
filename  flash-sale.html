@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R5YNWTG2MC');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Limited Time Flash Sale - Kawad Swad Udhyog. Exclusive deals on handcrafted Nimar papads with 0% rice fillers. Up to 35% OFF!">
+    <title>Flash Sale | Kawad Swad Udhyog</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0B0B0B',
+                            bgSecondary: '#141414',
+                            surface: '#1C1C1C',
+                            accent: '#F59E0B',
+                            accentLight: '#FFD166',
+                            danger: '#EF4444',
+                            success: '#22C55E',
+                            textPrimary: '#FFFFFF',
+                            textSecondary: '#CFCFCF'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Sora & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0B0B;
+            color: #FFFFFF;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Sora', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(28, 28, 28, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.2);
+        }
+        .pulse-border {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { border-color: rgba(245, 158, 11, 0.3); }
+            50% { border-color: rgba(245, 158, 11, 0.8); box-shadow: 0 0 25px rgba(245, 158, 11, 0.25); }
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0B0B0B; }
+        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-black">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-[300] flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- 1. Urgent Announcement Top Bar -->
+    <div class="bg-gradient-to-r from-brand-accent via-amber-400 to-brand-accent text-black font-heading font-extrabold text-[11px] uppercase tracking-widest py-2 px-4 text-center flex items-center justify-center gap-2">
+        <i data-lucide="zap" class="w-4 h-4 fill-black animate-bounce"></i>
+        <span>Katargaon Fresh Batch Direct Discount • Ends Midnight!</span>
+        <i data-lucide="zap" class="w-4 h-4 fill-black animate-bounce"></i>
+    </div>
+
+    <!-- 2. Navigation Bar -->
+    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 transition-all duration-300">
+        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all duration-300">
+                    <span class="font-heading font-extrabold text-xl">K</span>
+                </div>
+                <div>
+                    <span class="font-heading text-lg font-bold tracking-tight text-white block leading-none">KAWAD SWAD</span>
+                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">FLASH SALE DESK</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-brand-textSecondary">
+                <a href="index.html" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="home" class="w-3.5 h-3.5"></i> Home</a>
+                <a href="products.html" class="hover:text-white transition-colors">Catalogue</a>
+                <a href="flash-sale.html" class="text-brand-accent font-semibold flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5"></i> Flash Sale</a>
+                <a href="reviews.html" class="hover:text-white transition-colors">Customer Stories</a>
+                <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <!-- Header CTAs -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/919630976867?text=Hi,%20I%20want%20to%20claim%20Flash%20Sale%20Deals" target="_blank" class="flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> Claim via WhatsApp
+                </a>
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
+            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
+                <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</a>
+                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
+                <a href="flash-sale.html" class="p-3 bg-brand-surface rounded-xl text-brand-accent flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> Flash Sale</a>
+                <a href="https://wa.me/919630976867" class="p-3 bg-brand-accent text-black rounded-xl text-center font-bold flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 pt-10 pb-24">
+
+        <!-- 3. Hero Countdown Banner -->
+        <section class="glass-panel rounded-3xl p-8 md:p-12 border border-brand-accent/40 pulse-border mb-16 text-center relative overflow-hidden">
+            <div class="absolute -top-20 -left-20 w-64 h-64 bg-brand-accent/15 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold mb-6">
+                <i data-lucide="clock" class="w-4 h-4"></i> Limited Stock Fresh Dispatch
+            </span>
+
+            <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4 tracking-tight">
+                Nimar Festival Flash Sale
+            </h1>
+            <p class="text-brand-textSecondary text-xs sm:text-sm max-w-xl mx-auto mb-8 leading-relaxed">
+                Direct factory pricing on pure 0% rice flour papad bundles. Unbeatable prices on Moong, Chana, and Special Combos for the next few hours!
+            </p>
+
+            <!-- Countdown Timer Blocks -->
+            <div class="flex justify-center items-center gap-3 sm:gap-6 font-mono mb-8">
+                <div class="glass-card px-4 py-3 sm:px-6 sm:py-4 rounded-2xl border border-white/10 min-w-[70px]">
+                    <span id="hours" class="font-heading text-2xl sm:text-4xl font-extrabold text-brand-accent block">05</span>
+                    <span class="text-[9px] uppercase tracking-wider text-brand-textSecondary font-sans">Hours</span>
+                </div>
+                <span class="text-2xl font-bold text-brand-accent">:</span>
+                <div class="glass-card px-4 py-3 sm:px-6 sm:py-4 rounded-2xl border border-white/10 min-w-[70px]">
+                    <span id="minutes" class="font-heading text-2xl sm:text-4xl font-extrabold text-brand-accent block">42</span>
+                    <span class="text-[9px] uppercase tracking-wider text-brand-textSecondary font-sans">Minutes</span>
+                </div>
+                <span class="text-2xl font-bold text-brand-accent">:</span>
+                <div class="glass-card px-4 py-3 sm:px-6 sm:py-4 rounded-2xl border border-white/10 min-w-[70px]">
+                    <span id="seconds" class="font-heading text-2xl sm:text-4xl font-extrabold text-brand-accent block">18</span>
+                    <span class="text-[9px] uppercase tracking-wider text-brand-textSecondary font-sans">Seconds</span>
+                </div>
+            </div>
+
+            <div class="inline-flex items-center gap-2 text-xs text-brand-success font-semibold bg-brand-success/10 border border-brand-success/20 px-4 py-2 rounded-full">
+                <i data-lucide="truck" class="w-4 h-4"></i> FREE Express Shipping on all orders above ₹500!
+            </div>
+        </section>
+
+        <!-- 4. Flash Sale Product Cards Grid -->
+        <section class="space-y-8">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="font-heading text-2xl font-extrabold text-white">Live Flash Deals</h2>
+                    <p class="text-xs text-brand-textSecondary">Exclusive discounts valid until timer expires.</p>
+                </div>
+                <span class="text-xs font-mono text-brand-accent">3 Exclusive Offers</span>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Deal 1: Moong Special 1kg Super Saver -->
+                <div class="glass-card rounded-3xl p-6 border border-white/10 flex flex-col justify-between relative group">
+                    <span class="absolute top-4 right-4 bg-brand-danger text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                        SAVE 30%
+                    </span>
+
+                    <div>
+                        <div class="h-48 rounded-2xl bg-brand-surface border border-white/5 p-4 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
+                            <img src="mascot3.png" alt="Moong Special 1kg" class="h-40 object-contain" onerror="this.src='logo.png'">
+                        </div>
+
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-accent block mb-1">100% Pure Moong Dal</span>
+                        <h3 class="font-heading text-lg font-bold text-white mb-2">Moong Khatta Meetha 1kg Mega Pack</h3>
+                        <p class="text-xs text-brand-textSecondary leading-relaxed mb-4">
+                            Traditional Nimar spice blend with zero rice flour adulteration.
+                        </p>
+
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="font-heading text-2xl font-extrabold text-white">₹280</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹400</span>
+                        </div>
+
+                        <!-- Stock Progress -->
+                        <div class="space-y-1 mb-6">
+                            <div class="flex justify-between text-[10px] font-bold">
+                                <span class="text-brand-accent">82% Claimed</span>
+                                <span class="text-brand-textSecondary">Only 9 Left</span>
+                            </div>
+                            <div class="w-full bg-brand-surface h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-brand-accent h-full w-[82%]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-xl text-xs hover:bg-brand-accentLight transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="zap" class="w-4 h-4"></i> Claim Deal Now
+                    </a>
+                </div>
+
+                <!-- Deal 2: Ultimate Nimar Combo Pack (Featured) -->
+                <div class="glass-panel rounded-3xl p-6 border-brand-accent/50 flex flex-col justify-between relative group bg-gradient-to-b from-brand-surface to-brand-bgSecondary md:-translate-y-2">
+                    <span class="absolute top-4 right-4 bg-brand-accent text-black text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                        BEST VALUE • 35% OFF
+                    </span>
+
+                    <div>
+                        <div class="h-48 rounded-2xl bg-brand-surface/60 border border-white/10 p-4 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
+                            <img src="logo.png" alt="Nimar Combo Pack" class="h-40 object-contain">
+                        </div>
+
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-accent block mb-1">Moong + Chana Combo</span>
+                        <h3 class="font-heading text-lg font-bold text-white mb-2">Family Starter Combo (1.5kg Total)</h3>
+                        <p class="text-xs text-brand-textSecondary leading-relaxed mb-4">
+                            Includes 500g Moong, 500g Chana Masala, and 500g Khatta Meetha Papad.
+                        </p>
+
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="font-heading text-2xl font-extrabold text-white">₹390</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹600</span>
+                        </div>
+
+                        <!-- Stock Progress -->
+                        <div class="space-y-1 mb-6">
+                            <div class="flex justify-between text-[10px] font-bold">
+                                <span class="text-brand-accent">94% Claimed</span>
+                                <span class="text-brand-danger">Only 3 Left!</span>
+                            </div>
+                            <div class="w-full bg-brand-surface h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-brand-danger h-full w-[94%]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-xl text-xs hover:bg-brand-accentLight transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
+                        <i data-lucide="zap" class="w-4 h-4"></i> Claim Deal Now
+                    </a>
+                </div>
+
+                <!-- Deal 3: Chana Masala Crunch 1kg Saver -->
+                <div class="glass-card rounded-3xl p-6 border border-white/10 flex flex-col justify-between relative group">
+                    <span class="absolute top-4 right-4 bg-brand-danger text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                        SAVE 25%
+                    </span>
+
+                    <div>
+                        <div class="h-48 rounded-2xl bg-brand-surface border border-white/5 p-4 flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
+                            <img src="mascot3.png" alt="Chana Masala 1kg" class="h-40 object-contain" onerror="this.src='logo.png'">
+                        </div>
+
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-accent block mb-1">Spicy Black Pepper Mix</span>
+                        <h3 class="font-heading text-lg font-bold text-white mb-2">Chana Masala Crunch 1kg Pack</h3>
+                        <p class="text-xs text-brand-textSecondary leading-relaxed mb-4">
+                            Extra crisp roasted chana pulse dough infused with Katargaon spices.
+                        </p>
+
+                        <div class="flex items-baseline gap-3 mb-4">
+                            <span class="font-heading text-2xl font-extrabold text-white">₹300</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹400</span>
+                        </div>
+
+                        <!-- Stock Progress -->
+                        <div class="space-y-1 mb-6">
+                            <div class="flex justify-between text-[10px] font-bold">
+                                <span class="text-brand-accent">65% Claimed</span>
+                                <span class="text-brand-textSecondary">14 Remaining</span>
+                            </div>
+                            <div class="w-full bg-brand-surface h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-brand-accent h-full w-[65%]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-xl text-xs hover:bg-brand-accentLight transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="zap" class="w-4 h-4"></i> Claim Deal Now
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 5. Footer -->
+    <footer class="bg-brand-bgSecondary border-t border-white/10 pt-16 pb-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 mb-12 text-center md:text-left">
+            <div>
+                <span class="font-heading text-xl font-bold text-white block mb-2">KAWAD SWAD UDHYOG</span>
+                <p class="text-brand-textSecondary text-xs leading-relaxed max-w-sm">
+                    Handcrafted authentic Nimar snacks made with 0% rice fillers from Katargaon, MP.
+                </p>
+            </div>
+
+            <div class="inline-flex flex-col items-center px-5 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-xs">
+                <span class="text-brand-accent font-semibold text-[10px] uppercase tracking-wider mb-0.5">FSSAI License No.</span>
+                <span class="text-white font-mono font-bold tracking-widest">21425890001224</span>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-textSecondary gap-4">
+            <p>© 2026 KAWAD SWAD UDHYOG. All rights reserved.</p>
+            <p class="tracking-widest uppercase">Flash Sale Desk • Katargaon, MP</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Countdown Timer Logic
+        let totalSeconds = 5 * 3600 + 42 * 60 + 18;
+        setInterval(() => {
+            if (totalSeconds <= 0) return;
+            totalSeconds--;
+            const hrs = Math.floor(totalSeconds / 3600);
+            const mins = Math.floor((totalSeconds % 3600) / 60);
+            const secs = totalSeconds % 60;
+
+            document.getElementById('hours').innerText = String(hrs).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(mins).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(secs).padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <!-- Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-R5YNWTG2MC');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About Kawad Swad Udhyog - Learn about our traditional roots in Katargaon, Nimar, our 0% rice papad philosophy, and our commitment to authentic family heritage.">
-    <title>About Us | Kawad Swad Udhyog</title>
+    <meta name="description" content="Discover the heritage of Kawad Swad Udhyog. Handcrafted sun-dried papads made in Katargaon, MP using 100% pulse flour and zero rice fillers.">
+    <title>Our Nimar Heritage & Purity Mission | Kawad Swad Udhyog</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,7 +34,7 @@
         }
     </script>
 
-    <!-- Google Fonts: Sora & Inter -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -52,245 +43,161 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0B0B0B;
-            color: #FFFFFF;
-        }
-        h1, h2, h3, h4, h5, h6, .font-heading {
-            font-family: 'Sora', sans-serif;
-        }
-        .glass-panel {
-            background: rgba(28, 28, 28, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .glass-card {
-            background: rgba(20, 20, 20, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glass-card:hover {
-            border-color: rgba(245, 158, 11, 0.3);
-            box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.15);
-        }
-        .animate-float {
-            animation: float 5s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0B0B; }
-        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
+        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; }
+        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Sora', sans-serif; }
+        .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: rgba(245, 158, 11, 0.3); box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.15); }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-accent selection:text-black">
+<body class="antialiased selection:bg-brand-accent selection:text-black pb-20">
 
-    <!-- 1. Sticky Navigation Bar -->
-    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 transition-all duration-300">
+    <!-- 1. STICKY D2C NAVIGATION BAR -->
+    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
-            <!-- Brand Logo -->
             <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all duration-300">
+                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all">
                     <span class="font-heading font-extrabold text-xl">K</span>
                 </div>
                 <div>
                     <span class="font-heading text-lg font-bold tracking-tight text-white block leading-none">KAWAD SWAD</span>
-                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">UDHYOG • KATARGAON</span>
+                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">OUR HERITAGE</span>
                 </div>
             </a>
 
-            <!-- Navigation Links -->
-            <div class="hidden lg:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-brand-textSecondary">
-                <a href="index.html" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="home" class="w-3.5 h-3.5"></i> Home</a>
-                <a href="products.html" class="hover:text-white transition-colors">Catalogue</a>
-                <a href="about.html" class="text-brand-accent font-semibold flex items-center gap-1.5"><i data-lucide="info" class="w-3.5 h-3.5"></i> About Us</a>
-                <a href="reviews.html" class="hover:text-white transition-colors">Customer Stories</a>
-                <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+            <div class="hidden md:flex items-center gap-6 text-xs uppercase tracking-wider text-brand-textSecondary font-medium">
+                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="products.html" class="hover:text-white transition">Catalogue</a>
+                <a href="flash-sale.html" class="hover:text-white transition">Flash Sale</a>
+                <a href="reviews.html" class="hover:text-white transition">Reviews</a>
             </div>
 
-            <!-- Header CTAs -->
-            <div class="flex items-center gap-3">
-                <a href="https://wa.me/919630976867" target="_blank" class="flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Order
-                </a>
-                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
-                    <i data-lucide="menu" class="w-5 h-5"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
-            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
-                <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</a>
-                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
-                <a href="about.html" class="p-3 bg-brand-surface rounded-xl text-brand-accent flex items-center gap-2"><i data-lucide="info" class="w-4 h-4"></i> About Us</a>
-                <a href="https://wa.me/919630976867" class="p-3 bg-brand-accent text-black rounded-xl text-center font-bold flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
-                </a>
-            </div>
+            <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
+                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                <span class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">1</span>
+            </a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 pt-12 pb-24">
+    <!-- 2. HERO STORY SECTION -->
+    <section class="max-w-7xl mx-auto px-6 pt-12 pb-8">
+        <div class="glass-panel rounded-3xl p-8 sm:p-14 border border-white/10 relative overflow-hidden bg-gradient-to-br from-brand-bgSecondary via-brand-surface to-brand-bg text-center space-y-6">
+            <div class="absolute -top-20 -left-20 w-72 h-72 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <!-- 2. Header / Hero Section -->
-        <header class="text-center max-w-3xl mx-auto mb-16">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold mb-6">
-                <i data-lucide="sparkles" class="w-4 h-4"></i> "Swad Bhara Safar" • A Journey of Consistency
-            </div>
-            <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4 tracking-tight">
-                Our Story & Heritage
+            <span class="text-xs font-mono uppercase tracking-[0.3em] text-brand-accent font-bold">Katargaon, Madhya Pradesh</span>
+            
+            <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white max-w-3xl mx-auto leading-tight">
+                Preserving the Ancient Taste of <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-amber-200 to-white">
+                    Nimar’s Handcrafted Legacy
+                </span>
             </h1>
-            <p class="text-brand-textSecondary text-sm sm:text-base leading-relaxed">
-                Founded on uncompromised quality, hard work, and family values in Katargaon, Nimar.
+
+            <p class="text-xs sm:text-base text-brand-textSecondary max-w-2xl mx-auto leading-relaxed">
+                In an era of mass factory automation and cheap starch fillers, Kawad Swad Udhyog stands as a guardian of pure, sun-dried, pulse-flour papads crafted by local women artisans along the banks of Nimar.
             </p>
-        </header>
 
-        <!-- 3. Our Foundation Block -->
-        <section class="glass-panel rounded-3xl p-8 md:p-12 border border-brand-accent/30 mb-16 relative overflow-hidden">
-            <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="grid lg:grid-cols-12 gap-10 items-center">
-                <div class="lg:col-span-8">
-                    <span class="text-brand-accent font-semibold text-xs tracking-widest uppercase block mb-1">Katargaon Roots</span>
-                    <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-white mb-6">
-                        Built on Daily Consistency & Traditional Gutai
-                    </h2>
-                    <p class="text-brand-textSecondary text-xs sm:text-sm leading-relaxed mb-4">
-                        Kawad Swad Udhyog is a dedicated family-run food manufacturing facility based in <strong class="text-white">Katargaon, Nimar (MP)</strong>. Our story is simple: daily discipline, meticulous raw material selection, and authentic processing methods passed down through generations.
-                    </p>
-                    <p class="text-brand-textSecondary text-xs sm:text-sm leading-relaxed">
-                        Every papad is a result of thorough <strong class="text-brand-accent">Guthai & Mathai</strong>. We believe that true regional taste comes from following traditional sun-drying techniques without taking shortcut industrial compromises.
-                    </p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto pt-6 text-center border-t border-white/10">
+                <div class="space-y-1">
+                    <span class="font-heading text-2xl font-extrabold text-brand-accent block">100%</span>
+                    <span class="text-[10px] uppercase font-mono text-brand-textSecondary">Pulse Flour</span>
                 </div>
-
-                <div class="lg:col-span-4 flex justify-center">
-                    <div class="glass-card rounded-2xl p-6 text-center border border-white/10 w-full max-w-xs">
-                        <img src="mascot3.png" alt="Mascot" class="w-28 h-28 object-contain mx-auto mb-4 animate-float" onerror="this.src='logo.png'">
-                        <span class="text-xs font-bold text-white block">100% Quality Focus</span>
-                        <span class="text-[10px] text-brand-textSecondary">Katargaon Facility</span>
-                    </div>
+                <div class="space-y-1">
+                    <span class="font-heading text-2xl font-extrabold text-brand-accent block">0%</span>
+                    <span class="text-[10px] uppercase font-mono text-brand-textSecondary">Rice Flour Filler</span>
+                </div>
+                <div class="space-y-1">
+                    <span class="font-heading text-2xl font-extrabold text-brand-accent block">10,000+</span>
+                    <span class="text-[10px] uppercase font-mono text-brand-textSecondary">Happy Homes</span>
+                </div>
+                <div class="space-y-1">
+                    <span class="font-heading text-2xl font-extrabold text-brand-accent block">Katargaon</span>
+                    <span class="text-[10px] uppercase font-mono text-brand-textSecondary">Artisanal Unit</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 4. Key Value Pillars -->
-        <div class="grid md:grid-cols-2 gap-8 mb-16">
-            <!-- Pillar 1: Direct Production -->
-            <div class="glass-card rounded-3xl p-8 flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-2xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent mb-6">
-                        <i data-lucide="factory" class="w-6 h-6"></i>
+    <!-- 3. THE PURITY MANIFESTO -->
+    <main class="max-w-7xl mx-auto px-6 py-8 space-y-12">
+        
+        <!-- Section: Why No Rice Flour -->
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-6 space-y-4">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold">The Purity Standard</span>
+                <h2 class="font-heading text-2xl sm:text-3xl font-bold text-white leading-snug">
+                    Why Commercial Brands Add Rice Flour — And Why We Never Will
+                </h2>
+                <p class="text-xs sm:text-sm text-brand-textSecondary leading-relaxed">
+                    Most mass-produced commercial papads cut costs by mixing up to 30–40% cheap rice flour or starch into their dough. While this increases profits, it destroys the authentic snap, leaves a heavy residue, and diminishes digestible protein.
+                </p>
+                <div class="glass-card p-4 rounded-2xl border border-brand-accent/30 space-y-2">
+                    <div class="flex items-center gap-2 text-brand-accent font-bold text-xs">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i> The Kawad Swad Guarantee
                     </div>
-                    <h3 class="font-heading text-xl font-bold text-white mb-3">Direct Production Control</h3>
-                    <p class="text-brand-textSecondary text-xs sm:text-sm leading-relaxed">
-                        We maintain 100% in-house supervision over our manufacturing unit. Direct monitoring at every step ensures that each packet delivers the exact same crisp texture and balanced spice profile our customers rely on.
+                    <p class="text-xs text-brand-textSecondary">
+                        We use strictly premium Yellow Moong, Chana, and Urad dal ground fresh in small batches. Combined with authentic Hing (Asafoetida) and coarse black pepper, our papads offer effortless digestion and unmatched aroma.
                     </p>
-                </div>
-                <div class="pt-6 mt-6 border-t border-white/5 flex items-center gap-2 text-xs text-brand-accent font-semibold">
-                    <i data-lucide="check-circle-2" class="w-4 h-4"></i> Hygienic Sun-Drying Facility
                 </div>
             </div>
 
-            <!-- Pillar 2: Zero Rice Mission -->
-            <div class="glass-card rounded-3xl p-8 flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-2xl bg-brand-danger/10 border border-brand-danger/30 flex items-center justify-center text-brand-danger mb-6">
-                        <i data-lucide="shield-alert" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="font-heading text-xl font-bold text-white mb-3">0% Rice Flour Promise</h3>
-                    <p class="text-brand-textSecondary text-xs sm:text-sm leading-relaxed">
-                        Authentic Nimari papad should be pure pulse base. We strictly <strong class="text-white">do not use cheap rice flour fillers</strong> in our recipes. This commitment ensures superior crunch, high protein quality, and lighter digestion.
+            <div class="lg:col-span-6 glass-panel rounded-3xl p-6 border border-white/10 flex items-center justify-center min-h-[280px] relative overflow-hidden">
+                <img src="mascot3.png" alt="Pure Nimar Papad Crafting" class="w-64 h-64 object-contain relative z-10" onerror="this.src='logo.png'">
+                <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-brand-accent/20 rounded-full blur-2xl"></div>
+            </div>
+        </div>
+
+        <!-- Section: Step-by-Step Artisanal Process -->
+        <div class="space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold">Craftsmanship</span>
+                <h2 class="font-heading text-2xl font-extrabold text-white">How Our Papads Are Crafted</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Step 1 -->
+                <div class="glass-card rounded-3xl p-6 border border-white/10 space-y-3 relative">
+                    <span class="w-8 h-8 rounded-xl bg-brand-accent text-black font-extrabold text-xs flex items-center justify-center font-mono">01</span>
+                    <h3 class="font-heading text-base font-bold text-white">Moath & Dal Selection</h3>
+                    <p class="text-xs text-brand-textSecondary leading-relaxed">
+                        Only whole pulses are sourced directly from trusted regional farmers. Pulses are double-cleaned to eliminate grit before slow milling.
                     </p>
                 </div>
-                <div class="pt-6 mt-6 border-t border-white/5 flex items-center gap-2 text-xs text-brand-success font-semibold">
-                    <i data-lucide="check-circle-2" class="w-4 h-4"></i> 100% Pure Moong, Chana & Urad
+
+                <!-- Step 2 -->
+                <div class="glass-card rounded-3xl p-6 border border-white/10 space-y-3 relative">
+                    <span class="w-8 h-8 rounded-xl bg-brand-accent text-black font-extrabold text-xs flex items-center justify-center font-mono">02</span>
+                    <h3 class="font-heading text-base font-bold text-white">Traditional Mathai & Hand-Rolling</h3>
+                    <p class="text-xs text-brand-textSecondary leading-relaxed">
+                        Local women artisans beat the dough (Mathai) using wooden mallets to achieve maximum elasticity without adding synthetic dough conditioners.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-card rounded-3xl p-6 border border-white/10 space-y-3 relative">
+                    <span class="w-8 h-8 rounded-xl bg-brand-accent text-black font-extrabold text-xs flex items-center justify-center font-mono">03</span>
+                    <h3 class="font-heading text-base font-bold text-white">Sun-Drying & Moisture Sealing</h3>
+                    <p class="text-xs text-brand-textSecondary leading-relaxed">
+                        Papads are dried under clean solar rays in Katargaon and immediately sealed in barrier pouches to lock in natural crispness.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <!-- 5. Respect & Responsibility / Family Banner -->
-        <section class="glass-panel rounded-3xl p-8 md:p-12 border border-brand-accent/30 mb-16 relative overflow-hidden bg-gradient-to-r from-brand-surface via-brand-bgSecondary to-brand-surface">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-                <div class="max-w-2xl">
-                    <span class="text-brand-accent font-semibold text-xs tracking-widest uppercase block mb-2">Our Core Foundation</span>
-                    <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-white mb-4">
-                        Family First & Honest Craft
-                    </h2>
-                    <blockquote class="text-brand-textSecondary text-sm md:text-base italic leading-relaxed border-l-2 border-brand-accent pl-4">
-                        "Kawad Swad Udhyog is officially registered in our mother's name. It represents the family-driven spirit, honesty, and responsibility we pour into our food products every single day."
-                    </blockquote>
-                </div>
-
-                <div class="glass-card px-8 py-6 rounded-2xl border border-white/10 text-center shrink-0">
-                    <i data-lucide="heart" class="w-8 h-8 text-brand-danger fill-brand-danger mx-auto mb-2"></i>
-                    <p class="text-[10px] uppercase tracking-wider text-brand-textSecondary font-bold">Brand Philosophy</p>
-                    <p class="font-heading font-bold text-white text-lg">Honesty in Every Batch</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. Vision Pillars -->
-        <section class="glass-card rounded-3xl p-8 md:p-12 border border-white/10 text-center max-w-4xl mx-auto">
-            <span class="text-brand-accent font-semibold text-xs tracking-widest uppercase block mb-1">Looking Forward</span>
-            <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-white mb-4">Our Vision</h2>
-            <p class="text-brand-textSecondary text-xs md:text-sm max-w-2xl mx-auto mb-8 leading-relaxed">
-                To expand Kawad Swad Udhyog into a globally recognized D2C brand while maintaining strict quality control, disciplined production, and preserving authentic Nimar taste in every Indian kitchen.
+        <!-- Section: CTA Banner -->
+        <div class="glass-panel rounded-3xl p-8 border border-brand-accent/40 text-center space-y-4 bg-gradient-to-r from-brand-surface via-brand-bgSecondary to-brand-surface">
+            <h3 class="font-heading text-xl sm:text-2xl font-bold text-white">Experience Genuine Nimar Taste Today</h3>
+            <p class="text-xs text-brand-textSecondary max-w-lg mx-auto">
+                Delivered fresh from Katargaon directly to your kitchen. Free express shipping on all orders over ₹499.
             </p>
-
-            <div class="flex flex-wrap justify-center gap-4">
-                <div class="glass-panel px-6 py-3 rounded-xl border border-white/10 text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                    <i data-lucide="award" class="w-4 h-4 text-brand-accent"></i> Discipline
-                </div>
-                <div class="glass-panel px-6 py-3 rounded-xl border border-white/10 text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                    <i data-lucide="shield-check" class="w-4 h-4 text-brand-accent"></i> Uncompromised Quality
-                </div>
-                <div class="glass-panel px-6 py-3 rounded-xl border border-white/10 text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                    <i data-lucide="repeat" class="w-4 h-4 text-brand-accent"></i> Batch Consistency
-                </div>
-            </div>
-        </section>
-
+            <a href="products.html" class="inline-flex items-center gap-2 bg-brand-accent text-black font-heading font-bold px-8 py-3.5 rounded-2xl text-xs hover:bg-brand-accentLight transition shadow-lg shadow-brand-accent/20">
+                <i data-lucide="shopping-bag" class="w-4 h-4"></i> Explore Our Fresh Catalogue
+            </a>
+        </div>
     </main>
 
-    <!-- 7. Footer -->
-    <footer class="bg-brand-bgSecondary border-t border-white/10 pt-16 pb-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 mb-12 text-center md:text-left">
-            <div>
-                <span class="font-heading text-xl font-bold text-white block mb-2">KAWAD SWAD UDHYOG</span>
-                <p class="text-brand-textSecondary text-xs leading-relaxed max-w-sm">
-                    Handcrafted authentic Nimar snacks made with 0% rice fillers from Katargaon, MP.
-                </p>
-            </div>
-
-            <div class="inline-flex flex-col items-center px-5 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-xs">
-                <span class="text-brand-accent font-semibold text-[10px] uppercase tracking-wider mb-0.5">FSSAI License No.</span>
-                <span class="text-white font-mono font-bold tracking-widest">21425890001224</span>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-textSecondary gap-4">
-            <p>© 2026 KAWAD SWAD UDHYOG. All rights reserved.</p>
-            <p class="tracking-widest uppercase">Swad Bhara Safar • Katargaon, Nimar</p>
-        </div>
-    </footer>
-
-    <!-- Interactive Scripts -->
     <script>
-        // Initialize Lucide Icons
         lucide.createIcons();
-
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
     </script>
 </body>
 </html>

@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <!-- Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-R5YNWTG2MC');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore the official Kawad Swad Udhyog product catalogue - Moong, Chana, Urad Papad, and Premium Seasonings with 0% rice fillers. Direct WhatsApp ordering available.">
-    <title>Official Catalogue | Kawad Swad Udhyog</title>
+    <meta name="description" content="Explore Kawad Swad Udhyog's full collection of authentic Nimar papads & spices. 100% pulse flour, zero rice fillers.">
+    <title>Fresh Catalogue & Shop | Kawad Swad Udhyog</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,7 +34,7 @@
         }
     </script>
 
-    <!-- Google Fonts: Sora & Inter -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -52,366 +43,378 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0B0B0B;
-            color: #FFFFFF;
-        }
-        h1, h2, h3, h4, h5, h6, .font-heading {
-            font-family: 'Sora', sans-serif;
-        }
-        .glass-panel {
-            background: rgba(28, 28, 28, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .glass-card {
-            background: rgba(20, 20, 20, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .glass-card:hover {
-            border-color: rgba(245, 158, 11, 0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.15);
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0B0B; }
-        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
+        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; }
+        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Sora', sans-serif; }
+        .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: rgba(245, 158, 11, 0.4); box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.2); }
+        .chip-active { background-color: #F59E0B !important; color: #000000 !important; font-weight: 700; }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-accent selection:text-black">
+<body class="antialiased selection:bg-brand-accent selection:text-black pb-20">
 
-    <!-- Toast Notification Container -->
+    <!-- Toast Notification Hub -->
     <div id="toast-container" class="fixed bottom-6 right-6 z-[300] flex flex-col gap-3 pointer-events-none"></div>
 
-    <!-- 1. Sticky Glass Navigation -->
-    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 transition-all duration-300">
+    <!-- 1. STICKY D2C NAVIGATION BAR -->
+    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 backdrop-blur-md">
         <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
             <!-- Brand Logo -->
             <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all duration-300">
+                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all">
                     <span class="font-heading font-extrabold text-xl">K</span>
                 </div>
                 <div>
                     <span class="font-heading text-lg font-bold tracking-tight text-white block leading-none">KAWAD SWAD</span>
-                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">UDHYOG • KATARGAON</span>
+                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">CATALOGUE</span>
                 </div>
             </a>
 
-            <!-- Navigation Links -->
-            <div class="hidden lg:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-brand-textSecondary">
-                <a href="index.html" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="home" class="w-3.5 h-3.5"></i> Home</a>
-                <a href="products.html" class="text-brand-accent font-semibold flex items-center gap-1.5"><i data-lucide="grid" class="w-3.5 h-3.5"></i> Catalogue</a>
-                <a href="reviews.html" class="hover:text-white transition-colors">Customer Stories</a>
-                <a href="https://wa.me/919630976867" target="_blank" class="hover:text-white transition-colors">Bulk Inquiry</a>
+            <!-- Search Bar Input (Instant Live Filter) -->
+            <div class="relative hidden sm:block w-72 lg:w-96">
+                <i data-lucide="search" class="w-4 h-4 text-brand-textSecondary absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                <input id="search-input" onkeyup="filterProducts()" type="text" placeholder="Search Moong, Chana, Hing, Combos..." class="w-full bg-brand-surface/80 border border-white/10 rounded-xl pl-10 pr-4 py-2 text-xs text-white placeholder:text-brand-textSecondary/60 focus:outline-none focus:border-brand-accent transition">
             </div>
 
-            <!-- Action Buttons -->
+            <!-- Header Cart & Actions -->
             <div class="flex items-center gap-3">
-                <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 hover:border-brand-accent/50 text-white transition-all">
+                <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
                     <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-brand-accent text-black font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center">0</span>
-                </button>
-                <a href="https://wa.me/919630976867" target="_blank" class="hidden sm:flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i> Order on WhatsApp
-                </a>
-                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
-                    <i data-lucide="menu" class="w-5 h-5"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
-            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
-                <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</a>
-                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-brand-accent flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
-                <a href="reviews.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="message-square" class="w-4 h-4"></i> Reviews</a>
-                <a href="https://wa.me/919630976867" class="p-3 bg-brand-accent text-black rounded-xl text-center font-bold flex items-center justify-center gap-2">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+                    <span class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">1</span>
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- 2. Header Section -->
-    <header class="pt-12 pb-16 text-center max-w-4xl mx-auto px-6">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold mb-6">
-            <i data-lucide="sparkles" class="w-4 h-4"></i> Authentic Nimar Heritage Recipes
-        </div>
-        <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4 tracking-tight">
-            Premium Collection
-        </h1>
-        <p class="text-brand-textSecondary text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-            100% Lentil Base • Zero Added Rice Flour • Handcrafted Sun-Dried Excellence from Katargaon, MP.
-        </p>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-6 pb-24">
-
-        <!-- 3. Category Filter Tabs -->
-        <div class="flex flex-wrap items-center justify-center gap-3 mb-16">
-            <button onclick="filterCategory('all')" class="cat-btn active px-6 py-2.5 rounded-xl bg-brand-accent text-black font-heading font-bold text-xs transition-all">
-                All Products
-            </button>
-            <button onclick="filterCategory('moong')" class="cat-btn px-6 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 font-heading font-medium text-xs transition-all">
-                Moong Collection
-            </button>
-            <button onclick="filterCategory('chana')" class="cat-btn px-6 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 font-heading font-medium text-xs transition-all">
-                Chana Collection
-            </button>
-            <button onclick="filterCategory('urad')" class="cat-btn px-6 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 font-heading font-medium text-xs transition-all">
-                Urad Special
-            </button>
-            <button onclick="filterCategory('masala')" class="cat-btn px-6 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 font-heading font-medium text-xs transition-all">
-                Seasonings
-            </button>
+    <!-- CATALOGUE HEADER -->
+    <section class="max-w-7xl mx-auto px-6 pt-8 pb-4">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-white/10 pb-6">
+            <div>
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold"> Katargaon Fresh Batch</span>
+                <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white mt-1">Our Taste Collection</h1>
+            </div>
+            <span class="text-xs text-brand-textSecondary font-mono">Showing <span id="product-count" class="text-brand-accent font-bold">6</span> Authentic Products</span>
         </div>
 
-        <!-- 4. Dynamic Product Grid -->
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Dynamically populated by JS -->
+        <!-- Mobile Search Input -->
+        <div class="mt-4 sm:hidden">
+            <div class="relative w-full">
+                <i data-lucide="search" class="w-4 h-4 text-brand-textSecondary absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                <input id="search-input-mobile" onkeyup="filterProductsMobile()" type="text" placeholder="Search papad by ingredient..." class="w-full bg-brand-surface border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white">
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN DISCOVERY ENGINE SECTION -->
+    <main class="max-w-7xl mx-auto px-6 py-4">
+        
+        <!-- Category Chips & Sort Controls -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+            <!-- Category Chips -->
+            <div class="flex flex-wrap items-center gap-2" id="category-chips">
+                <button onclick="setCategory('all', this)" class="chip-active text-xs font-heading font-medium px-4 py-2 rounded-xl glass-card transition">All Products</button>
+                <button onclick="setCategory('moong', this)" class="text-xs font-heading text-brand-textSecondary px-4 py-2 rounded-xl glass-card hover:text-white transition">Moong Special</button>
+                <button onclick="setCategory('chana', this)" class="text-xs font-heading text-brand-textSecondary px-4 py-2 rounded-xl glass-card hover:text-white transition">Chana Masala</button>
+                <button onclick="setCategory('spicy', this)" class="text-xs font-heading text-brand-textSecondary px-4 py-2 rounded-xl glass-card hover:text-white transition">Spicy Feast</button>
+                <button onclick="setCategory('combo', this)" class="text-xs font-heading text-brand-textSecondary px-4 py-2 rounded-xl glass-card hover:text-white transition">Value Combos</button>
+            </div>
+
+            <!-- Sort By Dropdown -->
+            <div class="flex items-center gap-2 self-end md:self-auto">
+                <span class="text-xs text-brand-textSecondary font-medium">Sort By:</span>
+                <select id="sort-select" onchange="sortProducts()" class="bg-brand-surface border border-white/10 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-accent">
+                    <option value="featured">Featured / Popular</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Highest Rated</option>
+                </select>
+            </div>
         </div>
 
+        <!-- DYNAMIC PRODUCT GRID -->
+        <div id="products-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- PRODUCT CARD 1 -->
+            <div class="product-item glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between group" data-category="moong" data-price="160" data-rating="4.9" data-title="moong special khatta meetha papad">
+                <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+                <span class="absolute top-4 left-4 z-10 bg-brand-accent text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                    Bestseller
+                </span>
+
+                <a href="product-detail.html" class="block rounded-2xl bg-brand-surface/50 p-6 text-center mb-4 overflow-hidden relative">
+                    <img src="mascot3.png" alt="Moong Special Papad" class="w-full h-48 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='logo.png'">
+                    <span class="absolute bottom-2 right-2 text-[9px] font-mono bg-black/60 px-2 py-0.5 rounded border border-white/10 text-brand-textSecondary">0% Rice Flour</span>
+                </a>
+
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-[10px] text-brand-accent uppercase font-bold tracking-wider">Moong Dal • Medium Spice</span>
+                        <div class="flex items-center gap-1 text-brand-accent font-bold text-[11px]">
+                            <i data-lucide="star" class="w-3 h-3 fill-brand-accent"></i> 4.9 (128)
+                        </div>
+                    </div>
+
+                    <a href="product-detail.html" class="font-heading text-base font-bold text-white hover:text-brand-accent transition block leading-snug">
+                        Moong Special Khatta Meetha Papad
+                    </a>
+
+                    <div class="flex items-baseline justify-between pt-1">
+                        <div>
+                            <span class="font-heading text-xl font-extrabold text-white">₹160</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through ml-1.5">₹200</span>
+                        </div>
+                        <span class="text-[10px] font-mono text-brand-success bg-brand-success/10 px-2 py-0.5 rounded">Save ₹40</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 pt-2">
+                        <button onclick="openQuickView('Moong Special Khatta Meetha', '₹160', 'mascot3.png')" class="glass-panel border border-white/10 text-white hover:border-brand-accent py-2.5 rounded-xl text-xs font-semibold transition">
+                            Quick View
+                        </button>
+                        <a href="checkout.html" class="bg-brand-accent text-black font-heading font-bold py-2.5 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1">
+                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 2 -->
+            <div class="product-item glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between group" data-category="chana" data-price="180" data-rating="4.8" data-title="chana masala crunch papad">
+                <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+
+                <a href="product-detail.html" class="block rounded-2xl bg-brand-surface/50 p-6 text-center mb-4 overflow-hidden relative">
+                    <img src="logo.png" alt="Chana Masala Papad" class="w-full h-48 object-contain mx-auto group-hover:scale-105 transition-transform duration-500">
+                    <span class="absolute bottom-2 right-2 text-[9px] font-mono bg-black/60 px-2 py-0.5 rounded border border-white/10 text-brand-textSecondary">Sun-Dried</span>
+                </a>
+
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-[10px] text-brand-accent uppercase font-bold tracking-wider">Chana Dal • Extra Crunch</span>
+                        <div class="flex items-center gap-1 text-brand-accent font-bold text-[11px]">
+                            <i data-lucide="star" class="w-3 h-3 fill-brand-accent"></i> 4.8 (94)
+                        </div>
+                    </div>
+
+                    <a href="product-detail.html" class="font-heading text-base font-bold text-white hover:text-brand-accent transition block leading-snug">
+                        Chana Masala Crunch Papad
+                    </a>
+
+                    <div class="flex items-baseline justify-between pt-1">
+                        <div>
+                            <span class="font-heading text-xl font-extrabold text-white">₹180</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through ml-1.5">₹220</span>
+                        </div>
+                        <span class="text-[10px] font-mono text-brand-success bg-brand-success/10 px-2 py-0.5 rounded">Save ₹40</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 pt-2">
+                        <button onclick="openQuickView('Chana Masala Crunch', '₹180', 'logo.png')" class="glass-panel border border-white/10 text-white hover:border-brand-accent py-2.5 rounded-xl text-xs font-semibold transition">
+                            Quick View
+                        </button>
+                        <a href="checkout.html" class="bg-brand-accent text-black font-heading font-bold py-2.5 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1">
+                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 3 -->
+            <div class="product-item glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between group" data-category="spicy" data-price="190" data-rating="4.9" data-title="teekha nimar spicy hing papad">
+                <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+                <span class="absolute top-4 left-4 z-10 bg-brand-danger text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                    🌶️ Spicy
+                </span>
+
+                <a href="product-detail.html" class="block rounded-2xl bg-brand-surface/50 p-6 text-center mb-4 overflow-hidden relative">
+                    <img src="mascot3.png" alt="Teekha Nimar Papad" class="w-full h-48 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='logo.png'">
+                </a>
+
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-[10px] text-brand-danger uppercase font-bold tracking-wider">Urad & Black Pepper</span>
+                        <div class="flex items-center gap-1 text-brand-accent font-bold text-[11px]">
+                            <i data-lucide="star" class="w-3 h-3 fill-brand-accent"></i> 4.9 (210)
+                        </div>
+                    </div>
+
+                    <a href="product-detail.html" class="font-heading text-base font-bold text-white hover:text-brand-accent transition block leading-snug">
+                        Teekha Nimar Heavy Hing Papad
+                    </a>
+
+                    <div class="flex items-baseline justify-between pt-1">
+                        <div>
+                            <span class="font-heading text-xl font-extrabold text-white">₹190</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through ml-1.5">₹230</span>
+                        </div>
+                        <span class="text-[10px] font-mono text-brand-success bg-brand-success/10 px-2 py-0.5 rounded">Save ₹40</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 pt-2">
+                        <button onclick="openQuickView('Teekha Nimar Heavy Hing', '₹190', 'mascot3.png')" class="glass-panel border border-white/10 text-white hover:border-brand-accent py-2.5 rounded-xl text-xs font-semibold transition">
+                            Quick View
+                        </button>
+                        <a href="checkout.html" class="bg-brand-accent text-black font-heading font-bold py-2.5 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1">
+                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 4 -->
+            <div class="product-item glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between group" data-category="combo" data-price="499" data-rating="5.0" data-title="family feast mega combo pack">
+                <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+                <span class="absolute top-4 left-4 z-10 bg-brand-success text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">
+                    Free Shipping
+                </span>
+
+                <a href="product-detail.html" class="block rounded-2xl bg-brand-surface/50 p-6 text-center mb-4 overflow-hidden relative">
+                    <img src="logo.png" alt="Family Combo Pack" class="w-full h-48 object-contain mx-auto group-hover:scale-105 transition-transform duration-500">
+                </a>
+
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-[10px] text-brand-accent uppercase font-bold tracking-wider">3 Packs (1.5 kg Total)</span>
+                        <div class="flex items-center gap-1 text-brand-accent font-bold text-[11px]">
+                            <i data-lucide="star" class="w-3 h-3 fill-brand-accent"></i> 5.0 (88)
+                        </div>
+                    </div>
+
+                    <a href="product-detail.html" class="font-heading text-base font-bold text-white hover:text-brand-accent transition block leading-snug">
+                        Family Taste Trio Combo Pack
+                    </a>
+
+                    <div class="flex items-baseline justify-between pt-1">
+                        <div>
+                            <span class="font-heading text-xl font-extrabold text-white">₹499</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through ml-1.5">₹620</span>
+                        </div>
+                        <span class="text-[10px] font-mono text-brand-success bg-brand-success/10 px-2 py-0.5 rounded">Save ₹121</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 pt-2">
+                        <button onclick="openQuickView('Family Taste Trio Combo', '₹499', 'logo.png')" class="glass-panel border border-white/10 text-white hover:border-brand-accent py-2.5 rounded-xl text-xs font-semibold transition">
+                            Quick View
+                        </button>
+                        <a href="checkout.html" class="bg-brand-accent text-black font-heading font-bold py-2.5 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1">
+                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
 
-    <!-- 5. Cart Drawer -->
-    <div id="cart-drawer" class="fixed inset-0 z-[250] bg-black/80 backdrop-blur-sm hidden transition-opacity duration-300">
-        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-brand-bgSecondary border-l border-white/10 p-6 flex flex-col justify-between overflow-y-auto">
-            <div>
-                <div class="flex justify-between items-center pb-4 border-b border-white/10 mb-6">
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-accent"></i>
-                        <h3 class="font-heading font-bold text-lg text-white">Your Cart</h3>
-                    </div>
-                    <button onclick="toggleCartDrawer()" class="text-brand-textSecondary hover:text-white">
-                        <i data-lucide="x" class="w-5 h-5"></i>
-                    </button>
-                </div>
-
-                <div id="cart-items-container" class="space-y-4">
-                    <!-- Cart items rendered by JS -->
-                </div>
+    <!-- QUICK VIEW MODAL -->
+    <div id="quickview-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[300] flex items-center justify-center p-4 hidden">
+        <div class="glass-panel max-w-lg w-full rounded-3xl p-6 border border-brand-accent/40 relative space-y-4">
+            <button onclick="closeQuickView()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-brand-surface flex items-center justify-center text-white">
+                ✕
+            </button>
+            <img id="qv-img" src="" class="w-32 h-32 object-contain mx-auto bg-brand-surface rounded-2xl p-2">
+            <div class="text-center space-y-2">
+                <h3 id="qv-title" class="font-heading text-xl font-bold text-white"></h3>
+                <span id="qv-price" class="font-heading text-2xl font-extrabold text-brand-accent block"></span>
+                <p class="text-xs text-brand-textSecondary">0% Rice Flour promise. Sun-dried in Katargaon, MP. Delivered fresh in barrier-proof bags.</p>
             </div>
-
-            <div class="border-t border-white/10 pt-6 mt-6">
-                <div class="flex justify-between text-sm mb-2">
-                    <span class="text-brand-textSecondary">Subtotal</span>
-                    <span id="cart-subtotal" class="font-bold text-white">₹0</span>
-                </div>
-                <div class="flex justify-between text-sm mb-6">
-                    <span class="text-brand-textSecondary">Delivery Charge</span>
-                    <span class="text-brand-success font-medium">Calculated on WhatsApp</span>
-                </div>
-                <a id="cart-checkout-btn" href="#" target="_blank" class="block w-full bg-brand-accent text-black font-heading font-bold py-4 rounded-xl text-center text-sm hover:bg-brand-accentLight transition-all">
-                    Proceed to Order on WhatsApp
-                </a>
-            </div>
+            <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-2xl text-xs flex items-center justify-center gap-2">
+                Proceed to Checkout
+            </a>
         </div>
     </div>
 
-    <!-- 6. Footer -->
-    <footer class="bg-brand-bgSecondary border-t border-white/10 pt-16 pb-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 mb-12 text-center md:text-left">
-            <div>
-                <span class="font-heading text-xl font-bold text-white block mb-2">KAWAD SWAD UDHYOG</span>
-                <p class="text-brand-textSecondary text-xs leading-relaxed max-w-sm">
-                    Handcrafted authentic Nimar snacks made with 0% rice fillers from Katargaon, MP.
-                </p>
-            </div>
-
-            <div class="inline-flex flex-col items-center px-5 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-xs">
-                <span class="text-brand-accent font-semibold text-[10px] uppercase tracking-wider mb-0.5">FSSAI License No.</span>
-                <span class="text-white font-mono font-bold tracking-widest">21425890001224</span>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-textSecondary gap-4">
-            <p>© 2026 KAWAD SWAD UDHYOG. All rights reserved.</p>
-            <p class="tracking-widest uppercase">Purity • Tradition • Authenticity</p>
-        </div>
-    </footer>
-
-    <!-- Interactive Scripts -->
     <script>
-        // Catalog Master Data
-        const productsData = [
-            // Moong
-            { id: 'm1', name: "Moong Classic", cat: "moong", taste: "Classic & Mild", bestWith: "Daily Meals", price: 180, img: "MMP.png" },
-            { id: 'm2', name: "Moong Garlic", cat: "moong", taste: "Savory Garlic-Forward", bestWith: "Lunch & Starters", price: 185, img: "MMPG.png" },
-            { id: 'm3', name: "Moong Punjabi", cat: "moong", taste: "Bold Desi Masala", bestWith: "Tea-Time & Travel", price: 190, img: "MMPPM.png" },
-            { id: 'm4', name: "Moong Kasuri", cat: "moong", taste: "Herbal & Aromatic", bestWith: "Premium Dining", price: 190, img: "MMPKM.png" },
-            { id: 'm5', name: "Moong Green Chilli", cat: "moong", taste: "Fresh Spicy Kick", bestWith: "Evening Snacks", price: 185, img: "MMPGC.png" },
-            { id: 'm6', name: "Moong Pudina", cat: "moong", taste: "Minty & Vibrant", bestWith: "Summer Meals", price: 185, img: "MMPP.png" },
-            { id: 'm7', name: "Moong Jeera", cat: "moong", taste: "Earthy Cumin", bestWith: "Dal-Rice Plates", price: 180, img: "MMPJ.png" },
-            
-            // Chana
-            { id: 'c1', name: "Chana Classic", cat: "chana", taste: "Rich & Traditional", bestWith: "Daily Meals", price: 190, img: "CCP.png" },
-            { id: 'c2', name: "Chana Khata Mitha", cat: "chana", taste: "Sweet-Tangy Fusion", bestWith: "Family Sharing", price: 195, img: "CCPKM.png" },
-            { id: 'c3', name: "Chana Punjabi", cat: "chana", taste: "Strong Masala Depth", bestWith: "Gatherings & Chai", price: 195, img: "CCPPM.png" },
-            { id: 'c4', name: "Chana Tomato", cat: "chana", taste: "Tangy Savory", bestWith: "Kids Snacks", price: 190, img: "CCPT.png" },
-            { id: 'c5', name: "Chana Garlic", cat: "chana", taste: "Deep Garlic Layers", bestWith: "Snack Platters", price: 195, img: "CCPG.png" },
-            
-            // Urad
-            { id: 'u1', name: "Urad Classic", cat: "urad", taste: "Black Gram Protein Base", bestWith: "Festive Meals", price: 200, img: "UGP.png" },
-            { id: 'u2', name: "Urad Garlic", cat: "urad", taste: "Bold Garlic Finish", bestWith: "Dinner Sides", price: 205, img: "UGPG.png" },
-            
-            // Seasonings
-            { id: 's1', name: "Black Gold Masala", cat: "masala", taste: "Rich Roasted Black Pepper", bestWith: "Papad & Chaat Sprinkles", price: 120, img: "KBGM.png" },
-            { id: 's2', name: "Lal Cht Masala", cat: "masala", taste: "Tangy Red Spice Mix", bestWith: "Roasted Snacks & Salads", price: 120, img: "KLCM.png" }
-        ];
+        lucide.createIcons();
 
-        let cart = [];
+        let currentCategory = 'all';
 
-        function renderProducts(filter = 'all') {
-            const grid = document.getElementById('product-grid');
-            grid.innerHTML = '';
-
-            const filtered = filter === 'all' 
-                ? productsData 
-                : productsData.filter(p => p.cat === filter);
-
-            filtered.forEach(p => {
-                const card = document.createElement('div');
-                card.className = 'glass-card rounded-3xl p-5 flex flex-col justify-between group';
-                card.innerHTML = `
-                    <div>
-                        <div class="relative rounded-2xl bg-brand-surface/50 p-6 mb-5 overflow-hidden flex items-center justify-center min-h-[200px]">
-                            <img src="${p.img}" alt="${p.name}" class="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-xl" onerror="this.src='mascot3.png'">
-                        </div>
-
-                        <span class="text-[10px] font-bold text-brand-accent uppercase tracking-widest block mb-1">${p.cat} Collection</span>
-                        <h3 class="font-heading text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">${p.name}</h3>
-                        
-                        <div class="space-y-1.5 mb-6 text-xs">
-                            <p class="text-brand-textSecondary"><span class="text-white font-medium">Taste:</span> ${p.taste}</p>
-                            <p class="text-brand-textSecondary"><span class="text-white font-medium">Best with:</span> ${p.bestWith}</p>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="flex items-baseline gap-2 mb-4">
-                            <span class="font-heading text-xl font-extrabold text-white">₹${p.price}</span>
-                            <span class="text-[10px] text-brand-success font-semibold">0% Rice Pure</span>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-2">
-                            <button onclick="addToCart('${p.name}', ${p.price})" class="w-full bg-brand-surface hover:bg-white/10 text-white font-heading font-semibold text-xs py-3 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-1.5">
-                                <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add
-                            </button>
-                            <a href="https://wa.me/919630976867?text=${encodeURIComponent('Hi, I want to order ' + p.name)}" target="_blank" class="w-full bg-brand-accent hover:bg-brand-accentLight text-black font-heading font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5">
-                                Order Now
-                            </a>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
+        function setCategory(cat, btnEl) {
+            currentCategory = cat;
+            document.querySelectorAll('#category-chips button').forEach(b => {
+                b.classList.remove('chip-active');
+                b.classList.add('text-brand-textSecondary');
             });
-
-            lucide.createIcons();
+            btnEl.classList.add('chip-active');
+            btnEl.classList.remove('text-brand-textSecondary');
+            filterProducts();
         }
 
-        function filterCategory(cat) {
-            const buttons = document.querySelectorAll('.cat-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-brand-accent', 'text-black', 'active');
-                btn.classList.add('bg-brand-surface', 'text-white');
+        function filterProducts() {
+            const query = (document.getElementById('search-input')?.value || '').toLowerCase();
+            const items = document.querySelectorAll('.product-item');
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                const cat = item.getAttribute('data-category');
+                const title = item.getAttribute('data-title');
+                
+                const matchesCat = currentCategory === 'all' || cat === currentCategory;
+                const matchesSearch = title.includes(query);
+
+                if (matchesCat && matchesSearch) {
+                    item.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
             });
 
-            event.target.classList.remove('bg-brand-surface', 'text-white');
-            event.target.classList.add('bg-brand-accent', 'text-black', 'active');
-
-            renderProducts(cat);
+            document.getElementById('product-count').innerText = visibleCount;
         }
 
-        function updateCartUI() {
-            const container = document.getElementById('cart-items-container');
-            const subtotalEl = document.getElementById('cart-subtotal');
-            const badgeEl = document.getElementById('cart-badge');
-            
-            if (cart.length === 0) {
-                container.innerHTML = `<p class="text-xs text-brand-textSecondary text-center py-8">Your cart is empty.</p>`;
-                subtotalEl.innerText = '₹0';
-                badgeEl.innerText = '0';
-                return;
-            }
+        function filterProductsMobile() {
+            const query = document.getElementById('search-input-mobile').value.toLowerCase();
+            document.getElementById('search-input').value = query;
+            filterProducts();
+        }
 
-            let html = '';
-            let total = 0;
-            let totalQty = 0;
+        function sortProducts() {
+            const val = document.getElementById('sort-select').value;
+            const grid = document.getElementById('products-grid');
+            const items = Array.from(grid.children);
 
-            cart.forEach((item, index) => {
-                total += item.price * item.qty;
-                totalQty += item.qty;
-                html += `
-                    <div class="flex items-center justify-between p-3 rounded-xl bg-brand-surface border border-white/5">
-                        <div>
-                            <p class="text-xs font-bold text-white">${item.name}</p>
-                            <p class="text-[11px] text-brand-accent font-semibold">₹${item.price} x ${item.qty}</p>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded-md bg-brand-bg text-white flex items-center justify-center text-xs border border-white/10">-</button>
-                            <span class="text-xs font-bold text-white">${item.qty}</span>
-                            <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded-md bg-brand-bg text-white flex items-center justify-center text-xs border border-white/10">+</button>
-                        </div>
-                    </div>
-                `;
+            items.sort((a, b) => {
+                const priceA = parseFloat(a.getAttribute('data-price'));
+                const priceB = parseFloat(b.getAttribute('data-price'));
+                const ratingA = parseFloat(a.getAttribute('data-rating'));
+                const ratingB = parseFloat(b.getAttribute('data-rating'));
+
+                if (val === 'price-low') return priceA - priceB;
+                if (val === 'price-high') return priceB - priceA;
+                if (val === 'rating') return ratingB - ratingA;
+                return 0; // default / featured
             });
 
-            container.innerHTML = html;
-            subtotalEl.innerText = `₹${total}`;
-            badgeEl.innerText = totalQty;
-
-            const whatsappMsg = encodeURIComponent(`Hi, I would like to place an order from Catalogue:\n` + cart.map(i => `- ${i.name} (${i.qty}x)`).join('\n') + `\nTotal: ₹${total}`);
-            document.getElementById('cart-checkout-btn').href = `https://wa.me/919630976867?text=${whatsappMsg}`;
+            items.forEach(item => grid.appendChild(item));
         }
 
-        function addToCart(name, price) {
-            const existing = cart.find(i => i.name === name);
-            if (existing) {
-                existing.qty += 1;
+        function toggleWishlist(btn) {
+            btn.classList.toggle('text-brand-danger');
+            const icon = btn.querySelector('i');
+            if (btn.classList.contains('text-brand-danger')) {
+                icon.setAttribute('fill', '#EF4444');
             } else {
-                cart.push({ name, price, qty: 1 });
+                icon.removeAttribute('fill');
             }
-            updateCartUI();
-            triggerToast(`Added "${name}" to cart!`);
-            toggleCartDrawer();
         }
 
-        function changeQty(index, delta) {
-            cart[index].qty += delta;
-            if (cart[index].qty <= 0) {
-                cart.splice(index, 1);
-            }
-            updateCartUI();
+        function openQuickView(title, price, imgSrc) {
+            document.getElementById('qv-title').innerText = title;
+            document.getElementById('qv-price').innerText = price;
+            document.getElementById('qv-img').src = imgSrc;
+            document.getElementById('quickview-modal').classList.remove('hidden');
         }
 
-        function toggleCartDrawer() {
-            document.getElementById('cart-drawer').classList.toggle('hidden');
+        function closeQuickView() {
+            document.getElementById('quickview-modal').classList.add('hidden');
         }
-
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
-
-        function triggerToast(message) {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = 'glass-panel text-white text-xs font-semibold px-4 py-3 rounded-xl border border-brand-accent/40 shadow-2xl flex items-center gap-2 animate-bounce';
-            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-brand-accent"></i> ${message}`;
-            container.appendChild(toast);
-            lucide.createIcons();
-            setTimeout(() => toast.remove(), 3000);
-        }
-
-        // Initialize Page
-        renderProducts();
-        updateCartUI();
     </script>
 </body>
 </html>

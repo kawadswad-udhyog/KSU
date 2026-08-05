@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <!-- Google Tag Manager / Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-R5YNWTG2MC');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kawad Swad Udhyog - Authentic Nimar Papad & Spices handcrafted in Katargaon, MP. 0% Rice Flour purity promise. Direct D2C ordering.">
-    <title>Kawad Swad Udhyog | Authentic Nimar Taste & Pure Pulse Papads</title>
+    <meta name="description" content="Kawad Swad Udhyog - Authentic Nimar Sun-Dried Papads made with 100% pure pulse flour and 0% rice fillers direct from Katargaon, MP.">
+    <title>Kawad Swad Udhyog | Authentic Sun-Dried Nimar Papads</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -52,39 +43,34 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; }
+        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; overflow-x: hidden; }
         h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Sora', sans-serif; }
         .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        .glass-card:hover { border-color: rgba(245, 158, 11, 0.3); box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.15); }
-
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(2deg); }
-        }
-        @keyframes floatDelayed {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-16px) rotate(-2deg); }
-        }
-        .animate-float-slow { animation: floatSlow 6s ease-in-out infinite; }
-        .animate-float-delayed { animation: floatDelayed 7s ease-in-out infinite 1s; }
+        .glass-card:hover { border-color: rgba(245, 158, 11, 0.35); box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.18); }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0B0B; }
+        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-accent selection:text-black">
+<body class="antialiased selection:bg-brand-accent selection:text-black pb-12">
 
-    <!-- Toast Notification Hub -->
-    <div id="toast-container" class="fixed bottom-20 md:bottom-6 right-6 z-[300] flex flex-col gap-3 pointer-events-none"></div>
+    <!-- TOAST NOTIFICATION HUB -->
+    <div id="toast-hub" class="fixed bottom-6 right-6 z-[400] flex flex-col gap-3 pointer-events-none"></div>
 
-    <!-- 1. TOP ROTATING ANNOUNCEMENT SYSTEM -->
-    <div class="bg-gradient-to-r from-amber-600 via-brand-accent to-amber-600 text-black py-2 px-4 text-center font-heading font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 relative z-[110]">
-        <i data-lucide="sparkles" class="w-3.5 h-3.5 fill-black"></i>
-        <span id="announcement-text">Free Pan-India Express Shipping on Orders Above ₹499!</span>
-        <i data-lucide="sparkles" class="w-3.5 h-3.5 fill-black"></i>
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-brand-danger via-amber-500 to-brand-accent text-black font-heading font-extrabold text-[11px] py-1.5 px-4 text-center tracking-wide uppercase flex items-center justify-center gap-2">
+        <span>🔥 FLASH SALE LIVE: Extra 10% OFF with code <span class="bg-black text-white px-2 py-0.5 rounded font-mono">SWAD10</span></span>
+        <span class="hidden sm:inline">• FREE Express Shipping on orders above ₹499</span>
     </div>
 
-    <!-- 2. STICKY D2C NAVIGATION BAR -->
-    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 transition-all duration-300">
+    <!-- 1. STICKY GLASS NAVIGATION BAR -->
+    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 backdrop-blur-md">
         <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
+            
             <!-- Brand Logo -->
             <a href="index.html" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all duration-300">
@@ -92,269 +78,521 @@
                 </div>
                 <div>
                     <span class="font-heading text-lg font-bold tracking-tight text-white block leading-none">KAWAD SWAD</span>
-                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">UDHYOG • KATARGAON</span>
+                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">KATARGAON HERITAGE</span>
                 </div>
             </a>
 
             <!-- Navigation Links -->
-            <div class="hidden lg:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-brand-textSecondary">
-                <a href="index.html" class="text-brand-accent font-semibold flex items-center gap-1.5"><i data-lucide="home" class="w-3.5 h-3.5"></i> Home</a>
-                <a href="products.html" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="grid" class="w-3.5 h-3.5"></i> Catalogue</a>
-                <a href="flash-sale.html" class="hover:text-white transition-colors flex items-center gap-1"><i data-lucide="zap" class="w-3.5 h-3.5 text-brand-accent fill-brand-accent"></i> Flash Sale</a>
-                <a href="about.html" class="hover:text-white transition-colors">Our Legacy</a>
-                <a href="reviews.html" class="hover:text-white transition-colors">Reviews</a>
-                <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+            <div class="hidden lg:flex items-center gap-8 text-xs uppercase tracking-wider text-brand-textSecondary font-medium">
+                <a href="#catalogue" class="hover:text-brand-accent transition">Products</a>
+                <a href="#flash-sale" class="hover:text-brand-accent transition flex items-center gap-1 text-brand-danger font-bold"><i data-lucide="zap" class="w-3.5 h-3.5 fill-brand-danger"></i> Flash Sale</a>
+                <a href="about.html" class="hover:text-brand-accent transition">Our Story</a>
+                <a href="reviews.html" class="hover:text-brand-accent transition">Reviews</a>
+                <a href="track-order.html" class="hover:text-brand-accent transition">Track Order</a>
             </div>
 
-            <!-- Header Actions -->
+            <!-- Action Controls -->
             <div class="flex items-center gap-3">
-                <button onclick="toggleCartDrawer(true)" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
-                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                    <span id="header-cart-count" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">1</span>
+                <button onclick="toggleWishlistModal()" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
+                    <i data-lucide="heart" class="w-5 h-5"></i>
+                    <span id="wishlist-badge" class="absolute -top-1.5 -right-1.5 w-4 h-4 bg-brand-danger text-white font-bold text-[9px] rounded-full flex items-center justify-center">0</span>
                 </button>
-                <a href="https://wa.me/919630976867" target="_blank" class="hidden sm:flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Order
-                </a>
+
+                <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-brand-accent text-black font-bold hover:bg-brand-accentLight transition flex items-center gap-2">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cart-badge" class="w-5 h-5 bg-black text-brand-accent font-extrabold text-[10px] rounded-full flex items-center justify-center">1</span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- 3. CINEMATIC HERO SECTION -->
-    <section class="relative min-h-[85vh] bg-brand-bg overflow-hidden flex items-center justify-center pt-6 pb-16 px-4 sm:px-8 border-b border-white/10">
+    <!-- 2. CINEMATIC HERO SECTION WITH LIVE STATS -->
+    <section class="max-w-7xl mx-auto px-6 pt-8 pb-12">
+        <div class="glass-panel rounded-3xl p-8 sm:p-14 border border-white/10 relative overflow-hidden bg-gradient-to-br from-brand-bgSecondary via-brand-surface to-brand-bg">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-accent/15 rounded-full blur-3xl pointer-events-none"></div>
 
-        <!-- Background Light Orbs -->
-        <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-brand-accent/15 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="absolute -bottom-10 -right-10 w-[400px] h-[400px] bg-amber-600/10 rounded-full blur-[140px] pointer-events-none"></div>
-
-        <!-- Floating Ingredient Visual Elements -->
-        <div class="absolute top-16 left-[8%] hidden xl:flex items-center gap-2 glass-panel px-3.5 py-2 rounded-2xl border border-white/10 text-[11px] font-semibold text-white animate-float-slow shadow-2xl z-20 pointer-events-none">
-            <span class="w-6 h-6 rounded-xl bg-brand-accent/20 flex items-center justify-center text-brand-accent font-bold">🌿</span>
-            <span>Whole Black Pepper & Hing</span>
-        </div>
-
-        <div class="absolute bottom-24 left-[5%] hidden xl:flex items-center gap-2.5 glass-card px-4 py-2.5 rounded-2xl border border-brand-accent/30 text-xs font-bold text-white animate-float-delayed shadow-2xl z-20 pointer-events-none">
-            <div class="w-7 h-7 rounded-xl bg-brand-accent text-black flex items-center justify-center font-bold">
-                <i data-lucide="sun" class="w-4 h-4"></i>
-            </div>
-            <div>
-                <span class="block text-[10px] text-brand-textSecondary uppercase tracking-widest font-mono">Traditional Craft</span>
-                <span class="text-white font-heading">100% Sun-Dried Batch</span>
-            </div>
-        </div>
-
-        <div class="absolute top-28 right-[6%] hidden xl:flex items-center gap-3 glass-card px-4 py-2.5 rounded-2xl border border-brand-success/30 text-xs font-bold text-white animate-float-slow shadow-2xl z-20 pointer-events-none">
-            <div class="w-7 h-7 rounded-xl bg-brand-success/20 text-brand-success flex items-center justify-center">
-                <i data-lucide="shield-check" class="w-4 h-4"></i>
-            </div>
-            <div>
-                <span class="block text-[10px] text-brand-success uppercase tracking-widest font-mono">Purity Guaranteed</span>
-                <span class="text-white font-heading">0% Rice Flour / Fillers</span>
-            </div>
-        </div>
-
-        <!-- HERO CONTENT -->
-        <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center relative z-10">
-            
-            <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-brand-accent/20 via-amber-500/10 to-brand-accent/20 border border-brand-accent/40 text-brand-accent text-xs font-semibold shadow-lg">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-accent"></span>
-                    </span>
-                    <span class="uppercase tracking-widest text-[10px] sm:text-xs font-bold">Direct From Katargaon Factory • Limited Stock</span>
-                </div>
-
-                <h1 class="font-heading text-4xl sm:text-6xl xl:text-7xl font-extrabold text-white leading-[1.08] tracking-tight">
-                    Authentic Nimar Taste. <br class="hidden sm:inline"/>
-                    <span class="bg-gradient-to-r from-brand-accent via-amber-300 to-amber-500 bg-clip-text text-transparent">Zero Rice Compromise.</span>
-                </h1>
-
-                <p class="text-brand-textSecondary text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
-                    Handcrafted using pure Moong, Chana, and Urad dal pulse dough in Katargaon, MP. Sun-dried with traditional <strong class="text-white font-semibold">Guthai & Mathai</strong> for an unforgettable crisp crunch.
-                </p>
-
-                <!-- Animated Counter & Rating Bar -->
-                <div class="pt-2 pb-2 flex flex-wrap justify-center lg:justify-start items-center gap-6 text-xs text-brand-textSecondary">
-                    <div class="flex items-center gap-3 glass-panel px-4 py-2.5 rounded-2xl border border-white/10">
-                        <div class="w-8 h-8 rounded-xl bg-brand-accent/15 border border-brand-accent/30 flex items-center justify-center text-brand-accent">
-                            <i data-lucide="package-check" class="w-4 h-4"></i>
-                        </div>
-                        <div class="text-left">
-                            <div class="flex items-center gap-1 font-heading font-extrabold text-white text-base font-mono">
-                                <span id="hero-sold-count">14,280</span>+
-                            </div>
-                            <span class="text-[9px] uppercase tracking-wider text-brand-textSecondary font-semibold">Packs Delivered</span>
-                        </div>
+            <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-bold uppercase tracking-widest">
+                        <i data-lucide="shield-check" class="w-4 h-4"></i> 100% Pure Pulse Flour • 0% Rice Starch
                     </div>
 
-                    <div class="flex items-center gap-3 glass-panel px-4 py-2.5 rounded-2xl border border-white/10">
-                        <div class="flex gap-0.5 text-brand-accent">
-                            <i data-lucide="star" class="w-3.5 h-3.5 fill-brand-accent"></i>
-                            <i data-lucide="star" class="w-3.5 h-3.5 fill-brand-accent"></i>
-                            <i data-lucide="star" class="w-3.5 h-3.5 fill-brand-accent"></i>
-                            <i data-lucide="star" class="w-3.5 h-3.5 fill-brand-accent"></i>
-                            <i data-lucide="star" class="w-3.5 h-3.5 fill-brand-accent"></i>
-                        </div>
-                        <div class="text-left">
-                            <span class="font-heading font-bold text-white block leading-none">4.9 / 5.0 Rating</span>
-                            <span class="text-[9px] text-brand-textSecondary font-semibold">1,200+ Verified Reviews</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="pt-3 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                    <a href="products.html" class="w-full sm:w-auto bg-brand-accent text-black font-heading font-bold px-8 py-4 rounded-2xl text-xs sm:text-sm hover:bg-brand-accentLight transition-all duration-300 shadow-xl shadow-brand-accent/25 flex items-center justify-center gap-2.5 group">
-                        <span>Explore Fresh Catalogue</span>
-                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-
-                    <a href="flash-sale.html" class="w-full sm:w-auto glass-panel border border-brand-accent/40 text-brand-accent font-heading font-bold px-7 py-4 rounded-2xl text-xs sm:text-sm hover:bg-brand-accent/10 transition-all flex items-center justify-center gap-2">
-                        <i data-lucide="zap" class="w-4 h-4 fill-brand-accent"></i>
-                        <span>View Today's Deals (Up to 35% OFF)</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- RIGHT COLUMN: Interactive Product Preview Card -->
-            <div class="lg:col-span-5 flex justify-center relative">
-                <div class="glass-panel p-6 sm:p-8 rounded-[32px] border border-brand-accent/40 relative max-w-md w-full shadow-2xl group hover:border-brand-accent transition-all duration-500">
-                    
-                    <div class="absolute -top-4 -right-4 z-20 bg-gradient-to-r from-brand-danger to-red-600 text-white font-heading font-extrabold text-[11px] uppercase tracking-wider px-4 py-2 rounded-2xl shadow-xl border border-white/20 animate-bounce">
-                        🔥 Flash Deal: 20% OFF
-                    </div>
-
-                    <a href="product-detail.html" class="block relative rounded-2xl bg-gradient-to-b from-brand-surface to-brand-bgSecondary border border-white/5 p-8 text-center overflow-hidden mb-6">
-                        <img src="mascot3.png" alt="Kawad Swad Moong Special Papad" class="w-full h-64 object-contain mx-auto transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)]" onerror="this.src='logo.png'">
-                        <span class="absolute bottom-3 left-3 bg-brand-bg/80 backdrop-blur-md px-3 py-1 rounded-xl border border-white/10 text-[10px] font-mono text-brand-accent">
-                            Pack of 500g • Net Vol.
+                    <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white leading-tight">
+                        Authentic Sun-Dried <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-amber-200 to-white">
+                            Nimar Papads
                         </span>
-                    </a>
+                    </h1>
 
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-start">
+                    <p class="text-xs sm:text-base text-brand-textSecondary max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Handcrafted by women artisans in Katargaon, MP using traditional Guthai & Mathai techniques. Uncompromised crunch and digestible spice in every bite.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#catalogue" class="bg-brand-accent text-black font-heading font-extrabold px-8 py-4 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
+                            <i data-lucide="shopping-bag" class="w-4 h-4"></i> Shop Fresh Batch
+                        </a>
+                        <a href="#flash-sale" class="glass-card text-white font-heading font-bold px-8 py-4 rounded-2xl text-xs hover:border-brand-danger transition flex items-center justify-center gap-2">
+                            <i data-lucide="zap" class="w-4 h-4 text-brand-danger fill-brand-danger"></i> View Flash Deals
+                        </a>
+                    </div>
+
+                    <!-- Live Social Proof Stats Counter -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 text-center lg:text-left">
+                        <div>
+                            <span class="font-heading text-2xl font-extrabold text-white block">10,000+</span>
+                            <span class="text-[10px] uppercase font-mono text-brand-textSecondary">Happy Homes</span>
+                        </div>
+                        <div>
+                            <span class="font-heading text-2xl font-extrabold text-brand-accent block">4.9 / 5.0</span>
+                            <span class="text-[10px] uppercase font-mono text-brand-textSecondary">1,200+ Reviews</span>
+                        </div>
+                        <div>
+                            <span class="font-heading text-2xl font-extrabold text-brand-success block">Katargaon</span>
+                            <span class="text-[10px] uppercase font-mono text-brand-textSecondary">Artisanal Unit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic & Dynamic Offer Floating Card -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="w-72 h-72 sm:w-80 sm:h-80 rounded-3xl bg-brand-surface border border-white/10 p-6 flex items-center justify-center relative shadow-2xl">
+                        <img src="mascot3.png" alt="Kawad Swad Papad" class="w-full h-full object-contain animate-pulse" onerror="this.src='logo.png'">
+                        
+                        <!-- Floating Trust Badge -->
+                        <div class="absolute -bottom-4 -left-4 glass-panel px-4 py-2.5 rounded-2xl border border-brand-accent/40 flex items-center gap-3 shadow-xl">
+                            <div class="w-8 h-8 rounded-xl bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold text-xs">0%</div>
                             <div>
-                                <span class="text-[10px] font-bold uppercase tracking-widest text-brand-accent block">Nimar Signature Bestseller</span>
-                                <a href="product-detail.html" class="font-heading text-lg font-bold text-white hover:text-brand-accent transition">Moong Special Khatta Meetha</a>
-                            </div>
-                            <div class="text-right">
-                                <span class="font-heading text-2xl font-extrabold text-white block">₹160</span>
-                                <span class="text-xs text-brand-textSecondary/60 line-through">₹200</span>
+                                <span class="text-[10px] font-bold text-white block">Zero Rice Flour</span>
+                                <span class="text-[9px] text-brand-textSecondary">Pure Moong & Chana</span>
                             </div>
                         </div>
-
-                        <button onclick="toggleCartDrawer(true)" class="w-full bg-brand-surface border border-white/10 hover:border-brand-accent text-white hover:text-brand-accent font-heading font-bold py-3.5 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
-                            <i data-lucide="shopping-bag" class="w-4 h-4"></i> Quick Add to Order
-                        </button>
                     </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. REAL-TIME FLASH SALE ENGINE -->
+    <section id="flash-sale" class="max-w-7xl mx-auto px-6 py-8">
+        <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-brand-danger/40 relative overflow-hidden bg-gradient-to-br from-brand-bgSecondary to-brand-surface">
+            
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-white/10 pb-6 mb-8">
+                <div class="space-y-1">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-danger/20 text-brand-danger text-[10px] font-extrabold uppercase tracking-widest border border-brand-danger/30">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-danger opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-danger"></span>
+                        </span>
+                        Limited Factory Stock
+                    </div>
+                    <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-white">Live Flash Deals Zone</h2>
+                </div>
+
+                <!-- Live Countdown Timer Component -->
+                <div class="glass-card px-5 py-3 rounded-2xl border border-brand-danger/30 flex items-center gap-4">
+                    <span class="text-xs font-bold uppercase text-brand-textSecondary flex items-center gap-1">
+                        <i data-lucide="clock" class="w-4 h-4 text-brand-danger"></i> Ends In:
+                    </span>
+                    <div class="flex items-center gap-2 font-mono">
+                        <span id="timer-h" class="bg-brand-surface border border-white/10 px-2.5 py-1 rounded text-sm font-bold text-white">02</span>:
+                        <span id="timer-m" class="bg-brand-surface border border-white/10 px-2.5 py-1 rounded text-sm font-bold text-white">14</span>:
+                        <span id="timer-s" class="bg-brand-surface border border-white/10 px-2.5 py-1 rounded text-sm font-bold text-white">52</span>:
+                        <span id="timer-ms" class="bg-brand-danger/20 border border-brand-danger/40 px-2 py-1 rounded text-sm font-bold text-brand-danger">8</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flash Deal Cards -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Deal 1 -->
+                <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="bg-brand-danger text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">🔥 35% OFF</span>
+                        <span class="text-[10px] font-mono text-brand-textSecondary">500g Pack</span>
+                    </div>
+                    <img src="mascot3.png" class="w-full h-36 object-contain" onerror="this.src='logo.png'">
+                    <div>
+                        <h3 class="font-heading text-sm font-bold text-white">Moong Khatta Meetha Flash Pack</h3>
+                        <div class="flex items-baseline gap-2 mt-1">
+                            <span class="font-heading text-xl font-extrabold text-white">₹130</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹200</span>
+                        </div>
+                    </div>
+                    <!-- Claim Progress Bar -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-[10px] font-semibold">
+                            <span class="text-brand-danger">84% Claimed</span>
+                            <span class="text-brand-textSecondary">Only 12 Left</span>
+                        </div>
+                        <div class="w-full bg-brand-surface h-2 rounded-full overflow-hidden border border-white/5">
+                            <div class="bg-gradient-to-r from-amber-500 to-brand-danger h-full w-[84%]"></div>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Moong Khatta Meetha Flash Pack', 130, 'mascot3.png')" class="w-full bg-brand-danger text-white font-heading font-bold py-3 rounded-xl text-xs hover:bg-red-600 transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 fill-white"></i> Claim Deal
+                    </button>
+                </div>
+
+                <!-- Deal 2 -->
+                <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="bg-brand-accent text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">⚡ 25% OFF</span>
+                        <span class="text-[10px] font-mono text-brand-textSecondary">500g Pack</span>
+                    </div>
+                    <img src="logo.png" class="w-full h-36 object-contain">
+                    <div>
+                        <h3 class="font-heading text-sm font-bold text-white">Chana Masala Heavy Hing Pack</h3>
+                        <div class="flex items-baseline gap-2 mt-1">
+                            <span class="font-heading text-xl font-extrabold text-white">₹150</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹200</span>
+                        </div>
+                    </div>
+                    <!-- Claim Progress Bar -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-[10px] font-semibold">
+                            <span class="text-brand-accent">65% Claimed</span>
+                            <span class="text-brand-textSecondary">Only 24 Left</span>
+                        </div>
+                        <div class="w-full bg-brand-surface h-2 rounded-full overflow-hidden border border-white/5">
+                            <div class="bg-gradient-to-r from-brand-accent to-amber-300 h-full w-[65%]"></div>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('Chana Masala Heavy Hing Pack', 150, 'logo.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 fill-black"></i> Claim Deal
+                    </button>
+                </div>
+
+                <!-- Deal 3 -->
+                <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-4">
+                    <div class="flex justify-between items-start">
+                        <span class="bg-brand-success text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">🎁 MEGA BUNDLE</span>
+                        <span class="text-[10px] font-mono text-brand-textSecondary">1.5 kg (3 Packs)</span>
+                    </div>
+                    <img src="mascot3.png" class="w-full h-36 object-contain" onerror="this.src='logo.png'">
+                    <div>
+                        <h3 class="font-heading text-sm font-bold text-white">All-In-One Nimar Family Feast</h3>
+                        <div class="flex items-baseline gap-2 mt-1">
+                            <span class="font-heading text-xl font-extrabold text-white">₹425</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹600</span>
+                        </div>
+                    </div>
+                    <!-- Claim Progress Bar -->
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-[10px] font-semibold">
+                            <span class="text-brand-danger">92% Claimed</span>
+                            <span class="text-brand-textSecondary">Only 6 Left</span>
+                        </div>
+                        <div class="w-full bg-brand-surface h-2 rounded-full overflow-hidden border border-white/5">
+                            <div class="bg-gradient-to-r from-red-500 to-brand-danger h-full w-[92%]"></div>
+                        </div>
+                    </div>
+                    <button onclick="addToCart('All-In-One Nimar Family Feast', 425, 'mascot3.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 fill-black"></i> Claim Bundle
+                    </button>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- 4. BRAND PROOF & TRUST BAR -->
-    <section class="py-10 border-b border-white/10 bg-brand-bgSecondary/60">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div class="glass-card p-5 rounded-2xl">
-                <i data-lucide="shield-check" class="w-6 h-6 text-brand-accent mx-auto mb-2"></i>
-                <h4 class="font-heading text-xs font-bold text-white">0% Rice Flour</h4>
-                <p class="text-[10px] text-brand-textSecondary mt-0.5">Pure Moong & Urad Pulse Dough</p>
+    <!-- 4. PRODUCT DISCOVERY & CATALOGUE SECTION -->
+    <main id="catalogue" class="max-w-7xl mx-auto px-6 py-8 space-y-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-4">
+            <div>
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold">100% Pulse Dough</span>
+                <h2 class="font-heading text-2xl font-extrabold text-white">Explore Full Collection</h2>
             </div>
-            <div class="glass-card p-5 rounded-2xl">
-                <i data-lucide="sun" class="w-6 h-6 text-brand-accent mx-auto mb-2"></i>
-                <h4 class="font-heading text-xs font-bold text-white">Traditional Sun-Dried</h4>
-                <p class="text-[10px] text-brand-textSecondary mt-0.5">Katargaon Heritage Craft</p>
-            </div>
-            <div class="glass-card p-5 rounded-2xl">
-                <i data-lucide="truck" class="w-6 h-6 text-brand-accent mx-auto mb-2"></i>
-                <h4 class="font-heading text-xs font-bold text-white">Fresh Batch Shipping</h4>
-                <p class="text-[10px] text-brand-textSecondary mt-0.5">Direct Pan-India Dispatch</p>
-            </div>
-            <div class="glass-card p-5 rounded-2xl">
-                <i data-lucide="award" class="w-6 h-6 text-brand-accent mx-auto mb-2"></i>
-                <h4 class="font-heading text-xs font-bold text-white">FSSAI Certified</h4>
-                <p class="text-[10px] text-brand-textSecondary mt-0.5">Lic #21425890001224</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. SLIDE-OUT CART DRAWER COMPONENT -->
-    <div id="cart-drawer-overlay" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[200] opacity-0 pointer-events-none transition-opacity duration-300"></div>
-
-    <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-brand-bgSecondary border-l border-white/10 z-[210] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col shadow-2xl">
-        <div class="p-5 glass-panel border-b border-white/10 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-accent"></i>
-                <h3 class="font-heading font-extrabold text-base text-white">Your Tasting Basket</h3>
-            </div>
-            <button onclick="toggleCartDrawer(false)" class="w-8 h-8 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-white">
-                <i data-lucide="x" class="w-4 h-4"></i>
-            </button>
-        </div>
-
-        <div class="bg-brand-surface/80 p-4 border-b border-white/5 space-y-2">
-            <div class="flex justify-between text-xs font-semibold">
-                <span class="text-brand-accent flex items-center gap-1.5"><i data-lucide="truck" class="w-3.5 h-3.5"></i> Add ₹339 more for FREE Delivery!</span>
-                <span class="text-brand-textSecondary font-mono">32%</span>
-            </div>
-            <div class="w-full bg-brand-bg h-2 rounded-full overflow-hidden border border-white/5">
-                <div class="bg-gradient-to-r from-brand-accent to-amber-300 h-full w-[32%] rounded-full"></div>
+            
+            <!-- Category Filter Pills -->
+            <div class="flex flex-wrap items-center gap-2">
+                <button onclick="filterCategory('all', this)" class="chip-active text-xs font-heading bg-brand-accent text-black font-bold px-4 py-2 rounded-xl">All</button>
+                <button onclick="filterCategory('moong', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Moong Special</button>
+                <button onclick="filterCategory('chana', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Chana Masala</button>
+                <button onclick="filterCategory('combo', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Value Combos</button>
             </div>
         </div>
 
-        <div class="flex-1 overflow-y-auto p-5 space-y-4">
-            <div class="glass-card p-4 rounded-2xl border border-white/10 flex gap-4">
-                <img src="mascot3.png" class="w-16 h-16 object-contain rounded-xl bg-brand-surface p-1" onerror="this.src='logo.png'">
-                <div class="flex-1 space-y-1">
-                    <h4 class="font-heading text-xs font-bold text-white">Moong Special Khatta Meetha</h4>
-                    <span class="text-[10px] text-brand-textSecondary font-mono">Pack: 500g</span>
-                    <div class="flex justify-between items-center pt-2">
-                        <span class="font-heading text-sm font-extrabold text-white">₹160</span>
+        <!-- Dynamic Product Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Product 1 -->
+            <div class="product-card glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between" data-category="moong">
+                <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+                <div class="rounded-2xl bg-brand-surface/50 p-6 text-center mb-4">
+                    <img src="mascot3.png" class="w-full h-44 object-contain mx-auto" onerror="this.src='logo.png'">
+                </div>
+                <div class="space-y-3">
+                    <span class="text-[10px] text-brand-accent uppercase font-bold tracking-wider">Moong Dal • Medium Spice</span>
+                    <h3 class="font-heading text-base font-bold text-white">Moong Special Khatta Meetha Papad</h3>
+                    <div class="flex items-baseline justify-between">
+                        <span class="font-heading text-xl font-extrabold text-white">₹160 <span class="text-xs font-normal text-brand-textSecondary/60 line-through">₹200</span></span>
+                        <span class="text-[10px] text-brand-success bg-brand-success/10 px-2 py-0.5 rounded">Save ₹40</span>
                     </div>
+                    <button onclick="addToCart('Moong Special Khatta Meetha Papad', 160, 'mascot3.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add To Cart
+                    </button>
                 </div>
             </div>
-        </div>
 
-        <div class="p-5 glass-panel border-t border-white/10 space-y-3">
-            <div class="flex justify-between text-sm font-bold text-white">
-                <span>Total Amount</span>
-                <span class="font-heading text-base font-extrabold text-brand-accent">₹220</span>
+            <!-- Product 2 -->
+            <div class="product-card glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between" data-category="chana">
+                <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+                <div class="rounded-2xl bg-brand-surface/50 p-6 text-center mb-4">
+                    <img src="logo.png" class="w-full h-44 object-contain mx-auto">
+                </div>
+                <div class="space-y-3">
+                    <span class="text-[10px] text-brand-accent uppercase font-bold tracking-wider">Chana Dal • Extra Crunch</span>
+                    <h3 class="font-heading text-base font-bold text-white">Chana Masala Crunch Papad</h3>
+                    <div class="flex items-baseline justify-between">
+                        <span class="font-heading text-xl font-extrabold text-white">₹180 <span class="text-xs font-normal text-brand-textSecondary/60 line-through">₹220</span></span>
+                        <span class="text-[10px] text-brand-success bg-brand-success/10 px-2 py-0.5 rounded">Save ₹40</span>
+                    </div>
+                    <button onclick="addToCart('Chana Masala Crunch Papad', 180, 'logo.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add To Cart
+                    </button>
+                </div>
             </div>
-            <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-2xl text-xs hover:bg-brand-accentLight transition-all flex items-center justify-center gap-2">
-                <span>Proceed to Express Checkout</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-        </div>
-    </aside>
 
-    <!-- Scripts -->
+            <!-- Product 3 -->
+            <div class="product-card glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between" data-category="combo">
+                <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                </button>
+                <div class="rounded-2xl bg-brand-surface/50 p-6 text-center mb-4">
+                    <img src="mascot3.png" class="w-full h-44 object-contain mx-auto" onerror="this.src='logo.png'">
+                </div>
+                <div class="space-y-3">
+                    <span class="text-[10px] text-brand-success uppercase font-bold tracking-wider">3 Packs (1.5 kg) • Free Shipping</span>
+                    <h3 class="font-heading text-base font-bold text-white">Family Taste Trio Combo Pack</h3>
+                    <div class="flex items-baseline justify-between">
+                        <span class="font-heading text-xl font-extrabold text-white">₹499 <span class="text-xs font-normal text-brand-textSecondary/60 line-through">₹620</span></span>
+                        <span class="text-[10px] text-brand-success bg-brand-success/10 px-2 py-0.5 rounded">Save ₹121</span>
+                    </div>
+                    <button onclick="addToCart('Family Taste Trio Combo Pack', 499, 'mascot3.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add To Cart
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 5. SLIDE-OUT INTERACTIVE CART DRAWER -->
+    <div id="cart-drawer" class="fixed inset-0 z-[300] bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div id="cart-panel" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-brand-surface border-l border-white/10 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300">
+            
+            <div class="space-y-4">
+                <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                    <h3 class="font-heading text-lg font-bold text-white flex items-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-accent"></i> Your Order Cart
+                    </h3>
+                    <button onclick="toggleCartDrawer()" class="text-brand-textSecondary hover:text-white p-1">✕</button>
+                </div>
+
+                <!-- Free Shipping Progress Meter -->
+                <div class="glass-panel p-3.5 rounded-2xl border border-white/10 space-y-2">
+                    <div class="flex justify-between text-xs">
+                        <span id="shipping-text" class="text-brand-textSecondary font-medium">Add ₹339 more for <strong>FREE Shipping</strong></span>
+                        <span id="shipping-percent" class="text-brand-accent font-bold font-mono">32%</span>
+                    </div>
+                    <div class="w-full bg-brand-bg h-2 rounded-full overflow-hidden border border-white/5">
+                        <div id="shipping-bar" class="bg-brand-accent h-full w-[32%] transition-all duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Cart Items List Container -->
+                <div id="cart-items" class="space-y-3 max-h-[50vh] overflow-y-auto pr-1">
+                    <!-- Dynamic Items Injected Here -->
+                </div>
+            </div>
+
+            <!-- Cart Footer & Checkout Button -->
+            <div class="border-t border-white/10 pt-4 space-y-3">
+                <div class="flex justify-between items-baseline">
+                    <span class="text-xs text-brand-textSecondary">Subtotal:</span>
+                    <span id="cart-subtotal" class="font-heading text-xl font-extrabold text-white">₹160</span>
+                </div>
+                <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-extrabold py-4 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
+                    Proceed to Express Checkout <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 6. FOOTER -->
+    <footer class="max-w-7xl mx-auto px-6 pt-12 pb-6 border-t border-white/10 mt-12 text-xs text-brand-textSecondary space-y-8">
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <span class="font-heading text-base font-bold text-white block">KAWAD SWAD UDHYOG</span>
+                <p class="leading-relaxed">Handcrafted Nimar papads sun-dried in Katargaon, MP. 100% pulse flour, zero rice starch.</p>
+                <span class="text-[10px] font-mono text-brand-accent block">FSSAI Lic #21425890001224</span>
+            </div>
+            <div class="space-y-2">
+                <span class="font-heading text-xs font-bold text-white block uppercase tracking-wider">Quick Navigation</span>
+                <ul class="space-y-1.5">
+                    <li><a href="#catalogue" class="hover:text-white transition">Full Catalogue</a></li>
+                    <li><a href="#flash-sale" class="hover:text-white transition">Flash Sale Deals</a></li>
+                    <li><a href="about.html" class="hover:text-white transition">Katargaon Heritage</a></li>
+                    <li><a href="reviews.html" class="hover:text-white transition">Customer Reviews</a></li>
+                </ul>
+            </div>
+            <div class="space-y-2">
+                <span class="font-heading text-xs font-bold text-white block uppercase tracking-wider">Customer Care</span>
+                <ul class="space-y-1.5">
+                    <li><a href="track-order.html" class="hover:text-white transition">Track Your Order</a></li>
+                    <li><a href="policies.html" class="hover:text-white transition">Shipping & Return Policy</a></li>
+                    <li><a href="policies.html" class="hover:text-white transition">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="space-y-3">
+                <span class="font-heading text-xs font-bold text-white block uppercase tracking-wider">Direct Support</span>
+                <p>WhatsApp: +91 96309 76867</p>
+                <p>Location: Katargaon, MP 451224</p>
+            </div>
+        </div>
+        <div class="text-center pt-6 border-t border-white/5 text-[10px] text-brand-textSecondary/50 font-mono">
+            © 2026 Kawad Swad Udhyog. All Rights Reserved. Crafted for D2C Excellence.
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT ENGINE -->
     <script>
         lucide.createIcons();
 
-        // Auto Rotating Announcements
-        const announcements = [
-            "Free Pan-India Express Shipping on Orders Above ₹499!",
-            "0% Rice Flour Guarantee • Handmade in Katargaon, MP",
-            "Flash Sale Active: Up to 35% OFF on Combo Packs Today!"
-        ];
-        let annIndex = 0;
+        // 1. Live Countdown Timer
+        let h = 2, m = 14, s = 52, ms = 8;
         setInterval(() => {
-            annIndex = (annIndex + 1) % announcements.length;
-            const el = document.getElementById('announcement-text');
-            if (el) el.innerText = announcements[annIndex];
-        }, 4000);
+            ms--;
+            if (ms < 0) { ms = 9; s--; if (s < 0) { s = 59; m--; if (m < 0) { m = 59; h--; } } }
+            document.getElementById('timer-h').innerText = h.toString().padStart(2, '0');
+            document.getElementById('timer-m').innerText = m.toString().padStart(2, '0');
+            document.getElementById('timer-s').innerText = s.toString().padStart(2, '0');
+            document.getElementById('timer-ms').innerText = ms;
+        }, 100);
 
-        function toggleCartDrawer(open) {
+        // 2. Interactive Cart Drawer & State Management
+        let cart = [
+            { name: 'Moong Special Khatta Meetha Papad', price: 160, qty: 1, img: 'mascot3.png' }
+        ];
+
+        function toggleCartDrawer() {
             const drawer = document.getElementById('cart-drawer');
-            const overlay = document.getElementById('cart-drawer-overlay');
-            if (open) {
-                drawer.classList.remove('translate-x-full');
-                overlay.classList.remove('opacity-0', 'pointer-events-none');
+            const panel = document.getElementById('cart-panel');
+            if (drawer.classList.contains('opacity-0')) {
+                drawer.classList.remove('opacity-0', 'pointer-events-none');
+                panel.classList.remove('translate-x-full');
             } else {
-                drawer.classList.add('translate-x-full');
-                overlay.classList.add('opacity-0', 'pointer-events-none');
+                drawer.classList.add('opacity-0', 'pointer-events-none');
+                panel.classList.add('translate-x-full');
             }
+            renderCart();
+        }
+
+        function addToCart(name, price, img) {
+            const existing = cart.find(i => i.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, qty: 1, img });
+            }
+            showToast(`Added ${name} to cart!`);
+            renderCart();
+            toggleCartDrawer();
+        }
+
+        function renderCart() {
+            const itemsContainer = document.getElementById('cart-items');
+            itemsContainer.innerHTML = '';
+            let total = 0;
+            let count = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price * item.qty;
+                count += item.qty;
+                itemsContainer.innerHTML += `
+                    <div class="glass-card p-3 rounded-xl flex items-center gap-3 border border-white/10">
+                        <img src="${item.img}" class="w-12 h-12 object-contain bg-brand-surface rounded-lg p-1" onerror="this.src='logo.png'">
+                        <div class="flex-1">
+                            <h4 class="text-xs font-bold text-white leading-tight">${item.name}</h4>
+                            <span class="text-xs text-brand-accent font-bold">₹${item.price}</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-brand-surface border border-white/10 rounded-lg px-2 py-1">
+                            <button onclick="updateQty(${index}, -1)" class="text-xs text-brand-textSecondary hover:text-white">-</button>
+                            <span class="text-xs font-bold text-white">${item.qty}</span>
+                            <button onclick="updateQty(${index}, 1)" class="text-xs text-brand-textSecondary hover:text-white">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('cart-badge').innerText = count;
+            document.getElementById('cart-subtotal').innerText = `₹${total}`;
+
+            // Free Shipping Progress Calculation (Goal: ₹499)
+            const goal = 499;
+            const diff = goal - total;
+            const bar = document.getElementById('shipping-bar');
+            const text = document.getElementById('shipping-text');
+            const percentText = document.getElementById('shipping-percent');
+
+            if (diff <= 0) {
+                bar.style.width = '100%';
+                text.innerHTML = '🎉 You unlocked <strong>FREE Express Shipping!</strong>';
+                percentText.innerText = '100%';
+            } else {
+                const pct = Math.min(100, Math.round((total / goal) * 100));
+                bar.style.width = `${pct}%`;
+                text.innerHTML = `Add ₹${diff} more for <strong>FREE Shipping</strong>`;
+                percentText.innerText = `${pct}%`;
+            }
+        }
+
+        function updateQty(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) cart.splice(index, 1);
+            renderCart();
+        }
+
+        // 3. Category Filter Logic
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('#catalogue button').forEach(b => {
+                b.classList.remove('bg-brand-accent', 'text-black', 'font-bold');
+                b.classList.add('text-brand-textSecondary');
+            });
+            btn.classList.add('bg-brand-accent', 'text-black', 'font-bold');
+            
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(c => {
+                if (cat === 'all' || c.getAttribute('data-category') === cat) {
+                    c.style.display = 'flex';
+                } else {
+                    c.style.display = 'none';
+                }
+            });
+        }
+
+        // 4. Toast Hub Notification
+        function showToast(msg) {
+            const hub = document.getElementById('toast-hub');
+            const toast = document.createElement('div');
+            toast.className = 'glass-panel px-4 py-3 rounded-xl border border-brand-accent/40 text-xs font-bold text-white shadow-xl animate-bounce';
+            toast.innerText = msg;
+            hub.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        }
+
+        function toggleWishlist(btn) {
+            const icon = btn.querySelector('i');
+            btn.classList.toggle('text-brand-danger');
+            showToast('Wishlist updated!');
         }
     </script>
 </body>

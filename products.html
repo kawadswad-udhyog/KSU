@@ -193,63 +193,66 @@
     <script>
         lucide.createIcons();
 
-        // OFFICIAL 36 SKU DATABASE
+        // OFFICIAL 36 SKU DATABASE WITH ACCURATE MAPPED PNG IMAGES
         const KAWAD_PRODUCTS = [
-            { id: 'KS-MMP-200', title: 'Moong Master Papad', weight: '200g', mrp: 110, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'mascot3.png' },
-            { id: 'KS-MMP-500', title: 'Moong Master Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'mascot3.png' },
-            { id: 'KS-MMP-1000', title: 'Moong Master Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'mascot3.png' },
+            // --- MOONG VARIETIES ---
+            { id: 'KS-MMP-200', title: 'Moong Master Papad', weight: '200g', mrp: 110, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'MMP.png' },
+            { id: 'KS-MMP-500', title: 'Moong Master Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'MMP.png' },
+            { id: 'KS-MMP-1000', title: 'Moong Master Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'MMP.png' },
 
-            { id: 'KS-MGP-200', title: 'Moong Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'mascot3.png' },
-            { id: 'KS-MGP-500', title: 'Moong Garlic Papad', weight: '500g', mrp: 309, price: 259, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'mascot3.png' },
-            { id: 'KS-MGP-1000', title: 'Moong Garlic Papad', weight: '1000g', mrp: 619, price: 539, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'mascot3.png' },
+            { id: 'KS-MGP-200', title: 'Moong Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'MMPG.png' },
+            { id: 'KS-MGP-500', title: 'Moong Garlic Papad', weight: '500g', mrp: 309, price: 259, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'MMPG.png' },
+            { id: 'KS-MGP-1000', title: 'Moong Garlic Papad', weight: '1000g', mrp: 619, price: 539, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'MMPG.png' },
 
-            { id: 'KS-MJP-200', title: 'Moong Jeera Papad', weight: '200g', mrp: 109, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'mascot3.png' },
-            { id: 'KS-MJP-500', title: 'Moong Jeera Papad', weight: '500g', mrp: 279, price: 229, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'mascot3.png' },
-            { id: 'KS-MJP-1000', title: 'Moong Jeera Papad', weight: '1000g', mrp: 559, price: 489, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'mascot3.png' },
+            { id: 'KS-MJP-200', title: 'Moong Jeera Papad', weight: '200g', mrp: 109, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'MMPJ.png' },
+            { id: 'KS-MJP-500', title: 'Moong Jeera Papad', weight: '500g', mrp: 279, price: 229, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'MMPJ.png' },
+            { id: 'KS-MJP-1000', title: 'Moong Jeera Papad', weight: '1000g', mrp: 559, price: 489, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'MMPJ.png' },
 
-            { id: 'KS-MPP-200', title: 'Moong Pudhina Papad', weight: '200g', mrp: 105, price: 85, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'mascot3.png' },
-            { id: 'KS-MPP-500', title: 'Moong Pudhina Papad', weight: '500g', mrp: 265, price: 219, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'mascot3.png' },
-            { id: 'KS-MPP-1000', title: 'Moong Pudhina Papad', weight: '1000g', mrp: 529, price: 459, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'mascot3.png' },
+            { id: 'KS-MPP-200', title: 'Moong Pudhina Papad', weight: '200g', mrp: 105, price: 85, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'MMPP.png' },
+            { id: 'KS-MPP-500', title: 'Moong Pudhina Papad', weight: '500g', mrp: 265, price: 219, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'MMPP.png' },
+            { id: 'KS-MPP-1000', title: 'Moong Pudhina Papad', weight: '1000g', mrp: 529, price: 459, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'MMPP.png' },
 
-            { id: 'KS-MGCP-200', title: 'Moong Green Chilli Papad', weight: '200g', mrp: 105, price: 85, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'mascot3.png' },
-            { id: 'KS-MGCP-500', title: 'Moong Green Chilli Papad', weight: '500g', mrp: 265, price: 219, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'mascot3.png' },
-            { id: 'KS-MGCP-1000', title: 'Moong Green Chilli Papad', weight: '1000g', mrp: 529, price: 459, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'mascot3.png' },
+            { id: 'KS-MGCP-200', title: 'Moong Green Chilli Papad', weight: '200g', mrp: 105, price: 85, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'MMPGC.png' },
+            { id: 'KS-MGCP-500', title: 'Moong Green Chilli Papad', weight: '500g', mrp: 265, price: 219, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'MMPGC.png' },
+            { id: 'KS-MGCP-1000', title: 'Moong Green Chilli Papad', weight: '1000g', mrp: 529, price: 459, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'MMPGC.png' },
 
-            { id: 'KS-MKMP-200', title: 'Moong Kasuri Methi Papad', weight: '200g', mrp: 109, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'mascot3.png' },
-            { id: 'KS-MKMP-500', title: 'Moong Kasuri Methi Papad', weight: '500g', mrp: 229, price: 189, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'mascot3.png' },
-            { id: 'KS-MKMP-1000', title: 'Moong Kasuri Methi Papad', weight: '1000g', mrp: 559, price: 489, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'mascot3.png' },
+            { id: 'KS-MKMP-200', title: 'Moong Kasuri Methi Papad', weight: '200g', mrp: 109, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'MMPKM.png' },
+            { id: 'KS-MKMP-500', title: 'Moong Kasuri Methi Papad', weight: '500g', mrp: 229, price: 189, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'MMPKM.png' },
+            { id: 'KS-MKMP-1000', title: 'Moong Kasuri Methi Papad', weight: '1000g', mrp: 559, price: 489, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'MMPKM.png' },
 
-            { id: 'KS-MPMP-200', title: 'Moong Punjabi Masala Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'mascot3.png' },
-            { id: 'KS-MPMP-500', title: 'Moong Punjabi Masala Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'mascot3.png' },
-            { id: 'KS-MPMP-1000', title: 'Moong Punjabi Masala Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'mascot3.png' },
+            { id: 'KS-MPMP-200', title: 'Moong Punjabi Masala Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'MMPPM.png' },
+            { id: 'KS-MPMP-500', title: 'Moong Punjabi Masala Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'MMPPM.png' },
+            { id: 'KS-MPMP-1000', title: 'Moong Punjabi Masala Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'MMPPM.png' },
 
-            { id: 'KS-CCP-200', title: 'Chana Chotu Papad', weight: '200g', mrp: 110, price: 89, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'logo.png' },
-            { id: 'KS-CCP-500', title: 'Chana Chotu Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'logo.png' },
-            { id: 'KS-CCP-1000', title: 'Chana Chotu Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'logo.png' },
+            // --- CHANA VARIETIES ---
+            { id: 'KS-CCP-200', title: 'Chana Chotu Papad', weight: '200g', mrp: 110, price: 89, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'CCP.png' },
+            { id: 'KS-CCP-500', title: 'Chana Chotu Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'CCP.png' },
+            { id: 'KS-CCP-1000', title: 'Chana Chotu Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'CCP.png' },
 
-            { id: 'KS-CGP-200', title: 'Chana Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'logo.png' },
-            { id: 'KS-CGP-500', title: 'Chana Garlic Papad', weight: '500g', mrp: 309, price: 259, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'logo.png' },
-            { id: 'KS-CGP-1000', title: 'Chana Garlic Papad', weight: '1000g', mrp: 619, price: 539, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'logo.png' },
+            { id: 'KS-CGP-200', title: 'Chana Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'CCPG.png' },
+            { id: 'KS-CGP-500', title: 'Chana Garlic Papad', weight: '500g', mrp: 309, price: 259, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'CCPG.png' },
+            { id: 'KS-CGP-1000', title: 'Chana Garlic Papad', weight: '1000g', mrp: 619, price: 539, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'CCPG.png' },
 
-            { id: 'KS-CKM-200', title: 'Chana Khata Mitha Papad', weight: '200g', mrp: 99, price: 79, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'logo.png' },
-            { id: 'KS-CKM-500', title: 'Chana Khata Mitha Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'logo.png' },
-            { id: 'KS-CKM-1000', title: 'Chana Khata Mitha Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'logo.png' },
+            { id: 'KS-CKM-200', title: 'Chana Khata Mitha Papad', weight: '200g', mrp: 99, price: 79, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'CCPKM.png' },
+            { id: 'KS-CKM-500', title: 'Chana Khata Mitha Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'CCPKM.png' },
+            { id: 'KS-CKM-1000', title: 'Chana Khata Mitha Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'CCPKM.png' },
 
-            { id: 'KS-CTP-200', title: 'Chana Tomato Papad', weight: '200g', mrp: 99, price: 79, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'logo.png' },
-            { id: 'KS-CTP-500', title: 'Chana Tomato Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'logo.png' },
-            { id: 'KS-CTP-1000', title: 'Chana Tomato Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'logo.png' },
+            { id: 'KS-CTP-200', title: 'Chana Tomato Papad', weight: '200g', mrp: 99, price: 79, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'CCPT.png' },
+            { id: 'KS-CTP-500', title: 'Chana Tomato Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'CCPT.png' },
+            { id: 'KS-CTP-1000', title: 'Chana Tomato Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'CCPT.png' },
 
-            { id: 'KS-CPM-200', title: 'Chana Punjabi Masala Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'logo.png' },
-            { id: 'KS-CPM-500', title: 'Chana Punjabi Masala Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'logo.png' },
-            { id: 'KS-CPM-1000', title: 'Chana Punjabi Masala Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'logo.png' },
+            { id: 'KS-CPM-200', title: 'Chana Punjabi Masala Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'CCPPM.png' },
+            { id: 'KS-CPM-500', title: 'Chana Punjabi Masala Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'CCPPM.png' },
+            { id: 'KS-CPM-1000', title: 'Chana Punjabi Masala Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'CCPPM.png' },
 
-            { id: 'KS-UGP-200', title: 'Urad Guru Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'mascot3.png' },
-            { id: 'KS-UGP-500', title: 'Urad Guru Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'mascot3.png' },
-            { id: 'KS-UGP-1000', title: 'Urad Guru Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'mascot3.png' },
+            // --- URAD VARIETIES ---
+            { id: 'KS-UGP-200', title: 'Urad Guru Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'UGP.png' },
+            { id: 'KS-UGP-500', title: 'Urad Guru Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'UGP.png' },
+            { id: 'KS-UGP-1000', title: 'Urad Guru Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'UGP.png' },
 
-            { id: 'KS-UGG-200', title: 'Urad Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'mascot3.png' },
-            { id: 'KS-UGG-500', title: 'Urad Garlic Papad', weight: '500g', mrp: 319, price: 269, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'mascot3.png' },
-            { id: 'KS-UGG-1000', title: 'Urad Garlic Papad', weight: '1000g', mrp: 639, price: 559, shipping: 0, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'mascot3.png' }
+            { id: 'KS-UGG-200', title: 'Urad Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'UGPG.png' },
+            { id: 'KS-UGG-500', title: 'Urad Garlic Papad', weight: '500g', mrp: 319, price: 269, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'UGPG.png' },
+            { id: 'KS-UGG-1000', title: 'Urad Garlic Papad', weight: '1000g', mrp: 639, price: 559, shipping: 0, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'UGPG.png' }
         ];
 
         let currentCategory = 'all';
@@ -311,7 +314,7 @@
                         </span>
 
                         <div class="rounded-2xl bg-brand-surface/50 p-6 text-center mb-4 relative overflow-hidden">
-                            <img src="${group.img}" alt="${group.title}" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='logo.png'">
+                            <img id="img-${idx}" src="${defaultVar.img}" alt="${group.title}" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='logo.png'">
                             <span id="sku-tag-${idx}" class="absolute bottom-2 right-2 text-[9px] font-mono bg-black/70 px-2 py-0.5 rounded border border-white/10 text-brand-textSecondary">${defaultVar.id}</span>
                         </div>
 
@@ -347,7 +350,7 @@
                             </div>
 
                             <div class="grid grid-cols-2 gap-2 pt-1">
-                                <button onclick="openQuickView('${group.title}', '₹${defaultVar.price}', '${group.img}')" class="glass-panel border border-white/10 text-white hover:border-brand-accent py-2.5 rounded-xl text-xs font-semibold transition">
+                                <button onclick="openQuickView('${group.title}', '₹${defaultVar.price}', document.getElementById('img-${idx}').src)" class="glass-panel border border-white/10 text-white hover:border-brand-accent py-2.5 rounded-xl text-xs font-semibold transition">
                                     Quick View
                                 </button>
                                 <button id="add-btn-${idx}" onclick="addToCartBySku('${defaultVar.id}')" class="bg-brand-accent text-black font-heading font-bold py-2.5 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1">
@@ -369,6 +372,7 @@
             document.getElementById(`price-${cardIdx}`).innerText = `₹${product.price}`;
             document.getElementById(`mrp-${cardIdx}`).innerText = `₹${product.mrp}`;
             document.getElementById(`sku-tag-${cardIdx}`).innerText = product.id;
+            document.getElementById(`img-${cardIdx}`).src = product.img;
 
             const shipEl = document.getElementById(`ship-info-${cardIdx}`);
             const badgeEl = document.getElementById(`badge-${cardIdx}`);

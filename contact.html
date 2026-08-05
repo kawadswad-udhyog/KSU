@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en" class="scroll-smooth">
 <head>
+    <!-- Google Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -11,142 +12,320 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>संपर्क करें | Kawad Swad Udhyog</title>
+    <meta name="description" content="Contact Kawad Swad Udhyog - Reach out for order inquiries, wholesale distribution, or customer feedback. Katargaon, Nimar, Madhya Pradesh.">
+    <title>Contact Us | Kawad Swad Udhyog</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Playfair+Display:wght@700;900&family=Hind:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0B0B0B',
+                            bgSecondary: '#141414',
+                            surface: '#1C1C1C',
+                            accent: '#F59E0B',
+                            accentLight: '#FFD166',
+                            danger: '#EF4444',
+                            success: '#22C55E',
+                            textPrimary: '#FFFFFF',
+                            textSecondary: '#CFCFCF'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Sora & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-        :root { --amber-deep: #d97706; --amber-light: #fffaf0; }
-        body { font-family: 'Hind', 'Poppins', sans-serif; background-color: var(--amber-light); scroll-behavior: smooth; }
-        .brand-font { font-family: 'Playfair Display', serif; font-style: normal; }
-        
-        .contact-card { background: white; border-radius: 2.5rem; border: 1px solid rgba(217, 119, 6, 0.1); transition: all 0.4s ease; }
-        .input-style { background: #f9fafb; border: 2px solid #eee; border-radius: 1.5rem; padding: 1.2rem; width: 100%; font-weight: 600; transition: all 0.3s; }
-        .input-style:focus { border-color: #d97706; outline: none; background: white; box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.05); }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0B0B;
+            color: #FFFFFF;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Sora', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(28, 28, 28, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.15);
+        }
+        .input-style {
+            background: rgba(28, 28, 28, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.875rem;
+            padding: 0.875rem 1rem;
+            width: 100%;
+            color: #FFFFFF;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+        .input-style:focus {
+            border-color: #F59E0B;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0B0B; }
+        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
     </style>
 </head>
-<body class="text-gray-900 pb-20">
+<body class="antialiased selection:bg-brand-accent selection:text-black">
 
-    <nav class="fixed top-0 left-0 right-0 z-[100] p-4">
-        <div class="max-w-7xl mx-auto bg-white/90 backdrop-blur-lg rounded-[2rem] px-6 py-3 flex justify-between items-center shadow-xl border border-white/50">
-            <div class="flex items-center gap-3">
-                <img src="logo.png" alt="Logo" class="w-10">
-                <p class="brand-font text-amber-900 font-black hidden sm:block uppercase tracking-tighter">Kawad Swad</p>
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-[300] flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- 1. Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 transition-all duration-300">
+        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all duration-300">
+                    <span class="font-heading font-extrabold text-xl">K</span>
+                </div>
+                <div>
+                    <span class="font-heading text-lg font-bold tracking-tight text-white block leading-none">KAWAD SWAD</span>
+                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">UDHYOG • KATARGAON</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-brand-textSecondary">
+                <a href="index.html" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="home" class="w-3.5 h-3.5"></i> Home</a>
+                <a href="products.html" class="hover:text-white transition-colors">Catalogue</a>
+                <a href="reviews.html" class="hover:text-white transition-colors">Customer Stories</a>
+                <a href="gallery.html" class="hover:text-white transition-colors">Gallery</a>
+                <a href="contact.html" class="text-brand-accent font-semibold flex items-center gap-1.5"><i data-lucide="phone-call" class="w-3.5 h-3.5"></i> Contact</a>
             </div>
-            <div class="flex gap-5 items-center text-[10px] font-black uppercase tracking-widest text-gray-500">
-                <a href="index.html" class="hover:text-amber-600 transition">Home</a>
-                <a href="products.html" class="hover:text-amber-600 transition">Catalogue</a>
-                <a href="gallery.html" class="hover:text-amber-600 transition">Gallery</a>
-                <a href="https://wa.me/919630976867" class="bg-amber-600 text-white px-5 py-2.5 rounded-xl shadow-lg hover:scale-105 transition">Order 💬</a>
+
+            <!-- Header CTAs -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/919630976867" target="_blank" class="flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Order
+                </a>
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
+            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
+                <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</a>
+                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
+                <a href="contact.html" class="p-3 bg-brand-surface rounded-xl text-brand-accent flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Contact</a>
+                <a href="https://wa.me/919630976867" class="p-3 bg-brand-accent text-black rounded-xl text-center font-bold flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+                </a>
             </div>
         </div>
     </nav>
 
-    <div class="h-32"></div>
+    <main class="max-w-7xl mx-auto px-6 pt-12 pb-24">
 
-    <main class="max-w-6xl mx-auto px-6">
-        <header class="text-center mb-16">
-            <span class="text-amber-600 font-black text-[10px] uppercase tracking-[0.4em] mb-4 block">Get In Touch</span>
-            <h1 class="brand-font text-5xl md:text-7xl text-amber-900 mb-4 font-black uppercase">Contact Us</h1>
-            <p class="text-gray-500 font-bold text-xs uppercase tracking-[0.2em]">कवाड़ स्वाद - कतारगाँव, निमाड़</p>
+        <!-- 2. Header Section -->
+        <header class="text-center max-w-3xl mx-auto mb-16">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold mb-6">
+                <i data-lucide="headphones" class="w-4 h-4"></i> Direct Brand Support
+            </div>
+            <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4 tracking-tight">
+                Get In Touch
+            </h1>
+            <p class="text-brand-textSecondary text-sm sm:text-base leading-relaxed">
+                Connect with our team at Katargaon, Nimar for personal orders, wholesale inquiries, or general feedback.
+            </p>
         </header>
 
-        <div class="grid lg:grid-cols-2 gap-12 items-stretch">
+        <!-- 3. Main Contact Grid -->
+        <div class="grid lg:grid-cols-12 gap-8 items-stretch mb-20">
             
-            <div class="space-y-6">
-                <div class="contact-card p-10 bg-amber-900 text-white shadow-2xl relative overflow-hidden h-full">
-                    <div class="relative z-10">
-                        <h3 class="text-3xl font-black brand-font text-amber-400 mb-8 uppercase">Connect With Us</h3>
-                        
-                        <div class="space-y-8">
-                            <div class="flex items-start gap-6">
-                                <div class="text-3xl">📍</div>
+            <!-- Left Info Panel -->
+            <div class="lg:col-span-5 flex flex-col justify-between">
+                <div class="glass-card rounded-3xl p-8 border border-brand-accent/30 h-full relative overflow-hidden flex flex-col justify-between">
+                    <div class="absolute -top-20 -left-20 w-56 h-56 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div>
+                        <span class="text-brand-accent font-semibold text-xs tracking-widest uppercase block mb-1">Official Contact Info</span>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-8">Kawad Swad Head Office</h3>
+
+                        <div class="space-y-6">
+                            <!-- Location -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent shrink-0">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
                                 <div>
-                                    <p class="text-[10px] font-black uppercase tracking-widest text-amber-500 mb-1">Our Factory</p>
-                                    <p class="text-lg font-bold leading-tight uppercase">Katargaon, Nimar<br><span class="opacity-70 font-medium">Madhya Pradesh</span></p>
+                                    <p class="text-[10px] font-bold uppercase tracking-wider text-brand-textSecondary mb-0.5">Manufacturing Factory</p>
+                                    <p class="text-sm font-semibold text-white">Katargaon, Nimar Region</p>
+                                    <p class="text-xs text-brand-textSecondary">Madhya Pradesh, India</p>
                                 </div>
                             </div>
 
-                            <div class="flex items-start gap-6">
-                                <div class="text-3xl">📞</div>
+                            <!-- Phone -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-success/10 border border-brand-success/30 flex items-center justify-center text-brand-success shrink-0">
+                                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                                </div>
                                 <div>
-                                    <p class="text-[10px] font-black uppercase tracking-widest text-amber-500 mb-1">Call / WhatsApp</p>
-                                    <p class="text-2xl font-black">9630976867</p>
+                                    <p class="text-[10px] font-bold uppercase tracking-wider text-brand-textSecondary mb-0.5">Call & WhatsApp</p>
+                                    <p class="text-lg font-bold text-white font-mono">+91 9630976867</p>
+                                    <p class="text-xs text-brand-success">Instant Response via WhatsApp</p>
                                 </div>
                             </div>
 
-                            <div class="flex items-start gap-6">
-                                <div class="text-3xl">⏰</div>
+                            <!-- Working Hours -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center text-brand-accent shrink-0">
+                                    <i data-lucide="clock" class="w-5 h-5"></i>
+                                </div>
                                 <div>
-                                    <p class="text-[10px] font-black uppercase tracking-widest text-amber-500 mb-1">Working Hours</p>
-                                    <p class="text-lg font-bold">Mon - Sat: 9AM to 7PM</p>
-                                    <p class="text-xs text-amber-200 opacity-60">Sunday: Open for Orders Only</p>
+                                    <p class="text-[10px] font-bold uppercase tracking-wider text-brand-textSecondary mb-0.5">Business Hours</p>
+                                    <p class="text-xs font-semibold text-white">Mon - Sat: 9:00 AM – 7:00 PM</p>
+                                    <p class="text-[11px] text-brand-textSecondary">Sunday: Open for Online Orders</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="absolute -right-10 -bottom-10 text-[10rem] font-black opacity-5 pointer-events-none uppercase">Nimar</div>
+
+                    <div class="pt-8 mt-8 border-t border-white/10 flex items-center justify-between text-xs">
+                        <span class="text-brand-textSecondary">FSSAI Certified Unit</span>
+                        <span class="font-mono text-brand-accent font-bold">#21425890001224</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="contact-card p-8 md:p-12 shadow-xl border-t-4 border-amber-600">
-                <h3 class="brand-font text-3xl text-amber-900 mb-2 font-black uppercase">Send a Message</h3>
-                <p class="text-[10px] text-gray-400 font-black mb-10 uppercase tracking-widest">हमें अपनी क्वेरी भेजें</p>
-                
-                <form action="https://formspree.io/f/xaqajebq" method="POST" class="space-y-6">
-                    <div>
-                        <label class="text-[10px] font-black uppercase text-gray-400 ml-4 mb-2 block">Your Name</label>
-                        <input type="text" name="name" placeholder="आपका नाम" class="input-style text-gray-700" required>
-                    </div>
-                    
-                    <div>
-                        <label class="text-[10px] font-black uppercase text-gray-400 ml-4 mb-2 block">Mobile Number</label>
-                        <input type="tel" name="phone" placeholder="00000 00000" class="input-style text-gray-700" required>
-                    </div>
+            <!-- Right Form Panel -->
+            <div class="lg:col-span-7">
+                <div class="glass-panel rounded-3xl p-8 md:p-10 border border-white/10">
+                    <h3 class="font-heading text-2xl font-bold text-white mb-2">Send Us a Direct Message</h3>
+                    <p class="text-xs text-brand-textSecondary mb-8">Fill in your requirements below and our team will get back to you shortly.</p>
 
-                    <div>
-                        <label class="text-[10px] font-black uppercase text-gray-400 ml-4 mb-2 block">Interest Area</label>
-                        <select name="interest" class="input-style text-gray-700 appearance-none">
-                            <option value="Order Inquiry">Order Inquiry (पसंद का आर्डर)</option>
-                            <option value="Feedback">Feedback (आपका सुझाव)</option>
-                            <option value="Wholesale">Bulk/Wholesale (थोक पूछताछ)</option>
-                            <option value="Custom">Custom Making (कस्टम मेकिंग)</option>
-                        </select>
-                    </div>
+                    <form action="https://formspree.io/f/xaqajebq" method="POST" onsubmit="triggerToast('Message sent successfully!')" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-2">Your Name</label>
+                                <input type="text" name="name" placeholder="Full Name" class="input-style" required>
+                            </div>
 
-                    <div>
-                        <label class="text-[10px] font-black uppercase text-gray-400 ml-4 mb-2 block">Your Message</label>
-                        <textarea name="message" rows="4" placeholder="How can we help you?" class="input-style text-gray-700" required></textarea>
-                    </div>
+                            <div>
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-2">Mobile Number</label>
+                                <input type="tel" name="phone" placeholder="+91 00000 00000" class="input-style" required>
+                            </div>
+                        </div>
 
-                    <button type="submit" class="w-full bg-amber-600 text-white py-5 rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl hover:bg-amber-700 hover:-translate-y-1 transition-all active:scale-95">
-                        Submit Message 🚀
-                    </button>
-                </form>
+                        <div>
+                            <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-2">Interest Area</label>
+                            <select name="interest" class="input-style appearance-none bg-brand-surface text-white">
+                                <option value="Order Inquiry">Order Inquiry (Retail Pack Purchase)</option>
+                                <option value="Wholesale">Bulk / Wholesale Inquiry (Distributor)</option>
+                                <option value="Feedback">Product Feedback & Reviews</option>
+                                <option value="Custom">Custom / Event Bulk Order</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-2">Your Message</label>
+                            <textarea name="message" rows="4" placeholder="How can we assist you today?" class="input-style" required></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-accent text-black font-heading font-bold py-4 rounded-xl text-xs hover:bg-brand-accentLight transition-all shadow-lg shadow-brand-accent/20 flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i> Submit Inquiry Message
+                        </button>
+                    </form>
+                </div>
             </div>
+
         </div>
 
-        <div class="mt-20 text-center">
-            <p class="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-8">Quick Buy Options</p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="https://www.amazon.in/l/27943762031?me=ACMM6YLMRPEH1" target="_blank" class="bg-white px-8 py-4 rounded-2xl border border-amber-100 shadow-sm hover:shadow-lg transition flex items-center gap-4">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="h-4">
-                    <span class="text-[10px] font-black uppercase tracking-widest">Amazon Store</span>
+        <!-- 4. Quick Partner Marketplaces -->
+        <section class="text-center max-w-2xl mx-auto glass-card rounded-3xl p-8 border border-white/10">
+            <span class="text-brand-accent font-semibold text-xs tracking-widest uppercase block mb-1">Direct Buying Portals</span>
+            <h4 class="font-heading font-bold text-lg text-white mb-6">Prefer Shopping on Online Marketplaces?</h4>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://www.amazon.in/l/27943762031?me=ACMM6YLMRPEH1" target="_blank" class="glass-panel px-6 py-3 rounded-xl flex items-center gap-3 hover:border-brand-accent/50 transition-all">
+                    <i data-lucide="shopping-cart" class="w-4 h-4 text-brand-accent"></i>
+                    <span class="text-xs font-bold text-white">Amazon Official Store</span>
                 </a>
-                <a href="https://meesho.com/papad-combo-pack-of-2-moong--chana--homemade-type-jain-papad--crispy--fresh/p/er636t" target="_blank" class="bg-white px-8 py-4 rounded-2xl border border-amber-100 shadow-sm hover:shadow-lg transition flex items-center gap-4">
-                    <span class="text-pink-600 font-black text-lg italic tracking-tighter">meesho</span>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-pink-600">Special Combo</span>
+
+                <a href="https://meesho.com/papad-combo-pack-of-2-moong--chana--homemade-type-jain-papad--crispy--fresh/p/er636t" target="_blank" class="glass-panel px-6 py-3 rounded-xl flex items-center gap-3 hover:border-pink-500/50 transition-all">
+                    <i data-lucide="baggage-claim" class="w-4 h-4 text-pink-500"></i>
+                    <span class="text-xs font-bold text-white">Meesho Store</span>
                 </a>
             </div>
-        </div>
+        </section>
+
     </main>
 
-    <footer class="mt-32 text-center py-16 bg-white border-t border-amber-100">
-        <div class="inline-flex flex-col items-center px-8 py-4 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-xl mb-8">
-            <p class="text-[8px] font-black uppercase tracking-[0.3em] text-amber-500 mb-1">FSSAI License No.</p>
-            <p class="text-xs font-black text-white tracking-widest">21425890001224</p>
+    <!-- 5. Footer -->
+    <footer class="bg-brand-bgSecondary border-t border-white/10 pt-16 pb-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 mb-12 text-center md:text-left">
+            <div>
+                <span class="font-heading text-xl font-bold text-white block mb-2">KAWAD SWAD UDHYOG</span>
+                <p class="text-brand-textSecondary text-xs leading-relaxed max-w-sm">
+                    Handcrafted authentic Nimar snacks made with 0% rice fillers from Katargaon, MP.
+                </p>
+            </div>
+
+            <div class="inline-flex flex-col items-center px-5 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-xs">
+                <span class="text-brand-accent font-semibold text-[10px] uppercase tracking-wider mb-0.5">FSSAI License No.</span>
+                <span class="text-white font-mono font-bold tracking-widest">21425890001224</span>
+            </div>
         </div>
-        <p class="text-[10px] font-black uppercase tracking-[0.5em] text-gray-400 italic">© 2026 KAWAD SWAD UDHYOG • स्वाद भरा सफ़र</p>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-textSecondary gap-4">
+            <p>© 2026 KAWAD SWAD UDHYOG. All rights reserved.</p>
+            <p class="tracking-widest uppercase">Purity • Tradition • Authenticity</p>
+        </div>
     </footer>
 
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function triggerToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'glass-panel text-white text-xs font-semibold px-4 py-3 rounded-xl border border-brand-accent/40 shadow-2xl flex items-center gap-2 animate-bounce';
+            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-brand-accent"></i> ${message}`;
+            container.appendChild(toast);
+            lucide.createIcons();
+            setTimeout(() => toast.remove(), 3000);
+        }
+    </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en" class="scroll-smooth">
 <head>
+    <!-- Google Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -11,168 +12,365 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bulk Inquiry | Kawad Swad Udhyog</title>
+    <meta name="description" content="B2B Bulk Inquiry & Wholesale Orders | Kawad Swad Udhyog. Direct factory supply for distributors, kirana stores, marts, and wedding caterers across India.">
+    <title>Bulk Inquiry & Wholesale | Kawad Swad Udhyog</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Playfair+Display:wght@700;900&family=Hind:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0B0B0B',
+                            bgSecondary: '#141414',
+                            surface: '#1C1C1C',
+                            accent: '#F59E0B',
+                            accentLight: '#FFD166',
+                            danger: '#EF4444',
+                            success: '#22C55E',
+                            textPrimary: '#FFFFFF',
+                            textSecondary: '#CFCFCF'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Sora & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-        :root { --amber-deep: #d97706; --amber-light: #fffaf0; }
-        body { font-family: 'Hind', 'Poppins', sans-serif; background-color: var(--amber-light); scroll-behavior: smooth; }
-        .brand-font { font-family: 'Playfair Display', serif; font-style: normal; }
-        
-        .bulk-card { background: white; border-radius: 2.5rem; border: 1px solid rgba(217, 119, 6, 0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .bulk-card:hover { transform: translateY(-10px); border-color: #d97706; box-shadow: 0 25px 50px -12px rgba(217, 119, 6, 0.15); }
-        
-        .input-field { background: #f9fafb; border: 2px solid #eee; border-radius: 1.5rem; padding: 1.2rem; width: 100%; font-weight: 600; transition: all 0.3s; }
-        .input-field:focus { border-color: #d97706; outline: none; background: white; box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.05); }
-        .factory-badge { background: linear-gradient(90deg, #92400e, #d97706); }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0B0B;
+            color: #FFFFFF;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Sora', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(28, 28, 28, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.15);
+        }
+        .input-style {
+            background: rgba(28, 28, 28, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.875rem;
+            padding: 0.875rem 1rem;
+            width: 100%;
+            color: #FFFFFF;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+        .input-style:focus {
+            border-color: #F59E0B;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0B0B; }
+        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
     </style>
 </head>
-<body class="text-gray-900 pb-20">
+<body class="antialiased selection:bg-brand-accent selection:text-black">
 
-    <nav class="fixed top-0 left-0 right-0 z-[100] p-4">
-        <div class="max-w-7xl mx-auto bg-white/90 backdrop-blur-lg rounded-[2rem] px-6 py-3 flex justify-between items-center shadow-xl border border-white/50">
-            <div class="flex items-center gap-3">
-                <img src="logo.png" alt="Logo" class="w-10">
-                <div class="hidden sm:block">
-                    <p class="brand-font text-amber-900 font-black leading-none uppercase">Kawad Swad</p>
-                    <p class="text-[7px] uppercase tracking-widest text-amber-600 font-bold">Manufacturer & Supplier</p>
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-[300] flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- 1. Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 transition-all duration-300">
+        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all duration-300">
+                    <span class="font-heading font-extrabold text-xl">K</span>
                 </div>
+                <div>
+                    <span class="font-heading text-lg font-bold tracking-tight text-white block leading-none">KAWAD SWAD</span>
+                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">UDHYOG • B2B SUPPLY</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden lg:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-brand-textSecondary">
+                <a href="index.html" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="home" class="w-3.5 h-3.5"></i> Home</a>
+                <a href="products.html" class="hover:text-white transition-colors">Catalogue</a>
+                <a href="reviews.html" class="hover:text-white transition-colors">Customer Stories</a>
+                <a href="gallery.html" class="hover:text-white transition-colors">Gallery</a>
+                <a href="bulk.html" class="text-brand-accent font-semibold flex items-center gap-1.5"><i data-lucide="truck" class="w-3.5 h-3.5"></i> Bulk Inquiry</a>
             </div>
-            <div class="flex gap-5 items-center text-[10px] font-black uppercase tracking-widest text-gray-500">
-                <a href="index.html" class="hover:text-amber-600 transition">Home</a>
-                <a href="products.html" class="hover:text-amber-600 transition">Catalogue</a>
-                <a href="gallery.html" class="hover:text-amber-600 transition">Gallery</a>
-                <a href="https://wa.me/919630976867?text=Bulk+Inquiry" class="factory-badge text-white px-5 py-2.5 rounded-xl shadow-lg hover:scale-105 transition uppercase">Bulk Inquiry 💬</a>
+
+            <!-- Header CTAs -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/919630976867?text=Hi,%20I%20have%20a%20B2B%20Wholesale%20Inquiry" target="_blank" class="flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp B2B Desk
+                </a>
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
+            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
+                <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</a>
+                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
+                <a href="bulk.html" class="p-3 bg-brand-surface rounded-xl text-brand-accent flex items-center gap-2"><i data-lucide="truck" class="w-4 h-4"></i> Wholesale</a>
+                <a href="https://wa.me/919630976867" class="p-3 bg-brand-accent text-black rounded-xl text-center font-bold flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
+                </a>
             </div>
         </div>
     </nav>
 
-    <div class="h-32"></div>
+    <main class="max-w-7xl mx-auto px-6 pt-12 pb-24">
 
-    <main class="max-w-6xl mx-auto px-6">
-        
-        <header class="text-center mb-12">
-            <span class="bg-amber-100 text-amber-700 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-4 inline-block">B2B Opportunities</span>
-            <h1 class="brand-font text-5xl md:text-7xl font-black text-amber-900 mb-4 uppercase">Bulk Orders</h1>
-            <p class="text-gray-500 font-bold tracking-widest uppercase text-xs">Direct Factory Supply | Katargaon, Nimar</p>
+        <!-- 2. Header Section -->
+        <header class="text-center max-w-3xl mx-auto mb-12">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold mb-6">
+                <i data-lucide="building-2" class="w-4 h-4"></i> Direct Manufacturing & Wholesale
+            </div>
+            <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white mb-4 tracking-tight">
+                Bulk Supply Opportunities
+            </h1>
+            <p class="text-brand-textSecondary text-sm sm:text-base leading-relaxed">
+                Direct factory rate logistics from Katargaon, Nimar. Partner with us for guaranteed purity, 0% rice fillers, and consistent high-margin supply.
+            </p>
         </header>
 
+        <!-- 3. Certification Micro Badges -->
         <div class="flex flex-wrap justify-center gap-6 mb-16">
-            <div class="flex items-center gap-4 bg-white px-8 py-4 rounded-[2.5rem] border border-amber-100 shadow-xl">
-                <div class="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center text-2xl">🛡️</div>
-                <div>
-                    <p class="text-[10px] font-black uppercase text-gray-400 tracking-widest leading-none mb-1">Food Safety</p>
-                    <p class="text-sm font-black text-amber-900 leading-none">FSSAI Certified</p>
+            <div class="glass-card px-6 py-3.5 rounded-2xl flex items-center gap-3 border border-white/10">
+                <div class="w-9 h-9 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-[10px] uppercase font-bold text-brand-textSecondary">Quality Standard</p>
+                    <p class="text-xs font-bold text-white">FSSAI Certified Unit</p>
                 </div>
             </div>
-            <div class="flex items-center gap-4 bg-zinc-900 px-8 py-4 rounded-[2.5rem] shadow-xl text-white">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="h-4 invert">
-                <div>
-                    <p class="text-[10px] font-black uppercase text-zinc-500 tracking-widest leading-none mb-1">Amazon India</p>
-                    <p class="text-sm font-black text-amber-500 leading-none">Verified Seller</p>
+
+            <div class="glass-card px-6 py-3.5 rounded-2xl flex items-center gap-3 border border-white/10">
+                <div class="w-9 h-9 rounded-xl bg-brand-success/10 flex items-center justify-center text-brand-success">
+                    <i data-lucide="package-check" class="w-5 h-5"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-[10px] uppercase font-bold text-brand-textSecondary">Verified Logistics</p>
+                    <p class="text-xs font-bold text-white">Pan-India Express Freight</p>
                 </div>
             </div>
         </div>
 
+        <!-- 4. Tiered Partnership Cards Grid -->
         <div class="grid md:grid-cols-3 gap-8 mb-20">
-            <div class="bulk-card p-10">
-                <h3 class="text-2xl font-black text-amber-900 mb-2 uppercase">Distributors</h3>
-                <p class="text-[10px] font-bold text-amber-600 uppercase tracking-widest mb-6 border-b border-amber-50 pb-4">State/District Level</p>
-                <ul class="space-y-4 text-sm font-medium text-gray-600 mb-8">
-                    <li>✅ Lowest Factory Rates</li>
-                    <li>✅ Consistent Supply</li>
-                    <li>✅ Quality Guaranteed</li>
-                </ul>
-                <p class="text-[9px] font-black text-gray-400 uppercase">Min Order: 100kg+</p>
+            <!-- Tier 1: State Distributors -->
+            <div class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent mb-6">
+                        <i data-lucide="store" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-1">Distributors</h3>
+                    <p class="text-[10px] font-semibold text-brand-accent uppercase tracking-widest pb-4 border-b border-white/10 mb-6">State / District Level</p>
+
+                    <ul class="space-y-3.5 text-xs text-brand-textSecondary mb-8">
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-brand-success"></i> Lowest Factory Direct Margins</li>
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-brand-success"></i> Priority Manufacturing Slots</li>
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-brand-success"></i> Consistent Batch Quality</li>
+                    </ul>
+                </div>
+                <div class="pt-4 border-t border-white/5">
+                    <span class="text-[10px] font-mono font-semibold text-brand-textSecondary uppercase tracking-wider">Min Batch: 100 kg+</span>
+                </div>
             </div>
 
-            <div class="bulk-card p-10 bg-amber-900 text-white md:scale-110 z-10 shadow-2xl">
-                <h3 class="text-2xl font-black text-amber-400 mb-2 uppercase">Retail Shops</h3>
-                <p class="text-[10px] font-bold text-amber-200 uppercase tracking-widest mb-6 border-b border-white/10 pb-4">Kirana & Marts</p>
-                <ul class="space-y-4 text-sm font-medium opacity-90 mb-8">
-                    <li>⭐ High Profit Margins</li>
-                    <li>⭐ Premium Packaging</li>
-                    <li>⭐ 0% Rice Promise</li>
-                </ul>
-                <p class="text-[9px] font-black text-amber-500 uppercase">Fresh Batch Stock</p>
+            <!-- Tier 2: Retail Supermarts (Highlighted Card) -->
+            <div class="glass-panel rounded-3xl p-8 flex flex-col justify-between border-brand-accent/40 relative overflow-hidden bg-gradient-to-b from-brand-surface to-brand-bgSecondary md:-translate-y-2">
+                <span class="absolute top-4 right-4 bg-brand-accent text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Most Popular</span>
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-brand-accent text-black flex items-center justify-center font-bold mb-6">
+                        <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-1">Retail Stores</h3>
+                    <p class="text-[10px] font-semibold text-brand-accent uppercase tracking-widest pb-4 border-b border-white/10 mb-6">Kirana & Supermarts</p>
+
+                    <ul class="space-y-3.5 text-xs text-brand-textSecondary mb-8">
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> High Consumer Repeat Rate</li>
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> Moisture-Sealed Luxury Packaging</li>
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> 0% Rice Filler Pure Lentil Seal</li>
+                    </ul>
+                </div>
+                <div class="pt-4 border-t border-white/10">
+                    <span class="text-[10px] font-mono font-semibold text-brand-accent uppercase tracking-wider">Fresh Batch Shipment Guarantee</span>
+                </div>
             </div>
 
-            <div class="bulk-card p-10">
-                <h3 class="text-2xl font-black text-amber-900 mb-2 uppercase">Custom Service</h3>
-                <p class="text-[10px] font-bold text-amber-600 uppercase tracking-widest mb-6 border-b border-amber-50 pb-4">Events & Weddings</p>
-                <ul class="space-y-4 text-sm font-medium text-gray-600 mb-8">
-                    <li>📍 Bulk Party Orders</li>
-                    <li>📍 Authentic Handmade</li>
-                    <li>📍 Traditional Recipes</li>
-                </ul>
-                <p class="text-[9px] font-black text-gray-400 uppercase">Nimar Special</p>
+            <!-- Tier 3: Catering & Events -->
+            <div class="glass-card rounded-3xl p-8 flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-2xl bg-brand-surface border border-white/10 flex items-center justify-center text-brand-accent mb-6">
+                        <i data-lucide="utensils" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-1">Custom Events</h3>
+                    <p class="text-[10px] font-semibold text-brand-accent uppercase tracking-widest pb-4 border-b border-white/10 mb-6">Weddings & Catering</p>
+
+                    <ul class="space-y-3.5 text-xs text-brand-textSecondary mb-8">
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-brand-success"></i> Authentic Handmade Bulk Packs</li>
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-brand-success"></i> Regional Nimar Spice Variations</li>
+                        <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-brand-success"></i> Custom Quantity Packaging</li>
+                    </ul>
+                </div>
+                <div class="pt-4 border-t border-white/5">
+                    <span class="text-[10px] font-mono font-semibold text-brand-textSecondary uppercase tracking-wider">Special Party Logistics</span>
+                </div>
             </div>
         </div>
 
-        <div class="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-amber-100 max-w-5xl mx-auto">
-            <div class="flex flex-col md:flex-row">
-                <div class="bg-zinc-900 md:w-2/5 p-12 text-white flex flex-col justify-center">
-                    <h2 class="brand-font text-4xl font-black mb-6 uppercase">Partner With Us</h2>
-                    <p class="text-gray-400 font-medium mb-10 leading-relaxed text-sm">
-                        हम निमाड़ के असली स्वाद को थोक दरों पर सप्लाई करते हैं। अपना विवरण भरें, हमारी टीम आपसे जल्द संपर्क करेगी।
-                    </p>
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-amber-600 rounded-xl flex items-center justify-center">📞</div>
-                            <div><p class="text-[8px] font-black uppercase text-amber-600 tracking-widest">Contact</p><p class="text-sm font-bold">9630976867</p></div>
+        <!-- 5. Interactive Form Section -->
+        <div class="glass-panel rounded-3xl border border-white/10 overflow-hidden max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-12">
+                <!-- Left Details Banner -->
+                <div class="md:col-span-5 bg-gradient-to-br from-brand-surface to-brand-bgSecondary p-8 md:p-10 border-b md:border-b-0 md:border-r border-white/10 flex flex-col justify-between">
+                    <div>
+                        <span class="text-brand-accent font-semibold text-xs tracking-widest uppercase block mb-1">Direct Factory Connect</span>
+                        <h2 class="font-heading text-2xl font-bold text-white mb-4">Partner With Us</h2>
+                        <p class="text-xs text-brand-textSecondary leading-relaxed mb-8">
+                            Supply authentic Nimar taste to your region at wholesale factory rates. Complete the inquiry form and our wholesale desk will contact you within 24 business hours.
+                        </p>
+
+                        <div class="space-y-5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent">
+                                    <i data-lucide="phone-call" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase font-bold text-brand-textSecondary">B2B Helpline</p>
+                                    <p class="text-xs font-bold text-white font-mono">+91 9630976867</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent">
+                                    <i data-lucide="factory" class="w-4 h-4"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] uppercase font-bold text-brand-textSecondary">Factory Location</p>
+                                    <p class="text-xs font-bold text-white">Katargaon, Nimar, MP</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-amber-600 rounded-xl flex items-center justify-center">🏭</div>
-                            <div><p class="text-[8px] font-black uppercase text-amber-600 tracking-widest">Location</p><p class="text-sm font-bold">Katargaon, Nimar</p></div>
-                        </div>
+                    </div>
+
+                    <div class="pt-8 mt-8 border-t border-white/10">
+                        <p class="text-[10px] text-brand-textSecondary font-mono uppercase tracking-widest">100% Pure Pulse • Sun Dried Craft</p>
                     </div>
                 </div>
 
-                <div class="flex-1 p-10 md:p-14">
-                    <form action="https://formspree.io/f/xaqajebq" method="POST" class="grid md:grid-cols-2 gap-6">
-                        <div class="md:col-span-2">
-                            <label class="text-[9px] font-black uppercase text-gray-400 ml-4 mb-2 block tracking-widest">Company / Shop Name</label>
-                            <input type="text" name="Business Name" placeholder="आपकी दुकान या फर्म का नाम" class="input-field" required>
-                        </div>
+                <!-- Right B2B Form -->
+                <div class="md:col-span-7 p-8 md:p-10">
+                    <form action="https://formspree.io/f/xaqajebq" method="POST" onsubmit="triggerToast('Wholesale Inquiry Submitted!')" class="space-y-5">
                         <div>
-                            <label class="text-[9px] font-black uppercase text-gray-400 ml-4 mb-2 block tracking-widest">Owner Name</label>
-                            <input type="text" name="Owner Name" placeholder="आपका नाम" class="input-field" required>
+                            <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-2">Company / Shop Name</label>
+                            <input type="text" name="Business Name" placeholder="Firm or Shop Name" class="input-style" required>
                         </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-2">Owner Name</label>
+                                <input type="text" name="Owner Name" placeholder="Contact Person" class="input-style" required>
+                            </div>
+                            <div>
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-2">Mobile Number</label>
+                                <input type="tel" name="Phone Number" placeholder="+91 00000 00000" class="input-style" required>
+                            </div>
+                        </div>
+
                         <div>
-                            <label class="text-[9px] font-black uppercase text-gray-400 ml-4 mb-2 block tracking-widest">Mobile Number</label>
-                            <input type="tel" name="Phone Number" placeholder="00000 00000" class="input-field" required>
-                        </div>
-                        <div class="md:col-span-2">
-                            <label class="text-[9px] font-black uppercase text-gray-400 ml-4 mb-2 block tracking-widest">Approx Order Quantity</label>
-                            <select name="Order Quantity" class="input-field appearance-none">
-                                <option>Retail Trial (10-50 kg)</option>
-                                <option>Wholesale Order (50-100 kg)</option>
-                                <option>Bulk Distribution (200kg+)</option>
-                                <option>Custom Event Order</option>
+                            <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-2">Estimated Order Quantity</label>
+                            <select name="Order Quantity" class="input-style appearance-none bg-brand-surface text-white">
+                                <option value="Retail Trial (10-50 kg)">Retail Trial Batch (10 – 50 kg)</option>
+                                <option value="Wholesale Order (50-100 kg)">Wholesale Store Batch (50 – 100 kg)</option>
+                                <option value="Bulk Distribution (200kg+)">Bulk Distribution Supply (200 kg+)</option>
+                                <option value="Custom Event Order">Custom Wedding / Event Catering</option>
                             </select>
                         </div>
-                        <div class="md:col-span-2 mt-4">
-                            <button type="submit" class="w-full bg-amber-600 text-white py-5 rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl hover:bg-amber-700 transition-all active:scale-95">
-                                Submit Inquiry 🚀
-                            </button>
-                        </div>
+
+                        <button type="submit" class="w-full bg-brand-accent text-black font-heading font-bold py-4 rounded-xl text-xs hover:bg-brand-accentLight transition-all shadow-lg shadow-brand-accent/20 flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i> Submit B2B Inquiry
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
 
-        <p class="text-center mt-16 text-gray-400 font-black text-[10px] uppercase tracking-[0.5em] italic">
-            Zero Rice Quality • Sun Dried • Authentic Taste
-        </p>
     </main>
 
-    <footer class="mt-32 text-center py-16 bg-white border-t border-amber-100">
-        <div class="inline-flex flex-col items-center px-8 py-4 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-xl mb-8">
-            <p class="text-[8px] font-black uppercase tracking-[0.3em] text-amber-500 mb-1">FSSAI License No.</p>
-            <p class="text-xs font-black text-white tracking-widest">21425890001224</p>
+    <!-- 6. Footer -->
+    <footer class="bg-brand-bgSecondary border-t border-white/10 pt-16 pb-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 mb-12 text-center md:text-left">
+            <div>
+                <span class="font-heading text-xl font-bold text-white block mb-2">KAWAD SWAD UDHYOG</span>
+                <p class="text-brand-textSecondary text-xs leading-relaxed max-w-sm">
+                    Handcrafted authentic Nimar snacks made with 0% rice fillers from Katargaon, MP.
+                </p>
+            </div>
+
+            <div class="inline-flex flex-col items-center px-5 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-xs">
+                <span class="text-brand-accent font-semibold text-[10px] uppercase tracking-wider mb-0.5">FSSAI License No.</span>
+                <span class="text-white font-mono font-bold tracking-widest">21425890001224</span>
+            </div>
         </div>
-        <p class="text-[10px] font-black uppercase tracking-[0.5em] text-gray-400 italic">© 2026 KAWAD SWAD UDHYOG • KATARGAON</p>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-textSecondary gap-4">
+            <p>© 2026 KAWAD SWAD UDHYOG. All rights reserved.</p>
+            <p class="tracking-widest uppercase">Wholesale Logistics • Katargaon, MP</p>
+        </div>
     </footer>
 
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function triggerToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'glass-panel text-white text-xs font-semibold px-4 py-3 rounded-xl border border-brand-accent/40 shadow-2xl flex items-center gap-2 animate-bounce';
+            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-brand-accent"></i> ${message}`;
+            container.appendChild(toast);
+            lucide.createIcons();
+            setTimeout(() => toast.remove(), 3000);
+        }
+    </script>
 </body>
 </html>

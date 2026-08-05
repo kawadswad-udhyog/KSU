@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R5YNWTG2MC');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure Express Checkout - Kawad Swad Udhyog. Authentic handcrafted Nimar papad delivered directly to your doorstep.">
+    <title>Secure Checkout | Kawad Swad Udhyog</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0B0B0B',
+                            bgSecondary: '#141414',
+                            surface: '#1C1C1C',
+                            accent: '#F59E0B',
+                            accentLight: '#FFD166',
+                            danger: '#EF4444',
+                            success: '#22C55E',
+                            textPrimary: '#FFFFFF',
+                            textSecondary: '#CFCFCF'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Sora & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0B0B;
+            color: #FFFFFF;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Sora', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(28, 28, 28, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.15);
+        }
+        .input-style {
+            background: rgba(28, 28, 28, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.875rem;
+            padding: 0.875rem 1rem;
+            width: 100%;
+            color: #FFFFFF;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+        .input-style:focus {
+            border-color: #F59E0B;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+        }
+        .payment-radio:checked + label {
+            border-color: #F59E0B;
+            background-color: rgba(245, 158, 11, 0.12);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0B0B0B; }
+        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-black">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-[300] flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- Minimal Header -->
+    <header class="sticky top-0 z-[100] px-4 md:px-8 py-3 glass-panel border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-9 h-9 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent">
+                    <span class="font-heading font-extrabold text-lg">K</span>
+                </div>
+                <div>
+                    <span class="font-heading text-base font-bold tracking-tight text-white block leading-none">KAWAD SWAD</span>
+                    <span class="text-[8px] font-semibold text-brand-accent tracking-[0.25em] uppercase">EXPRESS CHECKOUT</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-2 text-xs text-brand-success font-semibold bg-brand-success/10 border border-brand-success/20 px-3 py-1.5 rounded-full">
+                <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                <span>256-Bit SSL Encrypted</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-10">
+        
+        <!-- Header Title -->
+        <div class="mb-8">
+            <a href="product-detail.html" class="inline-flex items-center gap-1.5 text-xs text-brand-textSecondary hover:text-white transition mb-2">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Product Detail
+            </a>
+            <h1 class="font-heading text-3xl font-extrabold text-white">Complete Your Order</h1>
+        </div>
+
+        <form id="checkout-form" onsubmit="handleCheckoutSubmit(event)" class="grid lg:grid-cols-12 gap-10 items-start">
+            
+            <!-- Left Column: Address & Payment Details -->
+            <div class="lg:col-span-7 space-y-8">
+                
+                <!-- 1. Customer Information -->
+                <section class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10">
+                    <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+                        <div class="w-8 h-8 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent font-bold text-xs">1</div>
+                        <h2 class="font-heading text-lg font-bold text-white">Delivery Address</h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-1.5">Full Name</label>
+                                <input type="text" name="name" placeholder="Your Name" class="input-style" required>
+                            </div>
+                            <div>
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-1.5">WhatsApp Mobile Number</label>
+                                <input type="tel" name="phone" placeholder="+91 00000 00000" class="input-style" required>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-1.5">Street Address / House No.</label>
+                            <input type="text" name="address" placeholder="Flat / House No. / Building / Colony" class="input-style" required>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4">
+                            <div>
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-1.5">Pincode</label>
+                                <input type="text" name="pincode" placeholder="451111" class="input-style" required>
+                            </div>
+                            <div>
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-1.5">City</label>
+                                <input type="text" name="city" placeholder="Indore / Khargone" class="input-style" required>
+                            </div>
+                            <div>
+                                <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-1.5">State</label>
+                                <input type="text" name="state" value="Madhya Pradesh" class="input-style" required>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Payment Options -->
+                <section class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10">
+                    <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+                        <div class="w-8 h-8 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent font-bold text-xs">2</div>
+                        <h2 class="font-heading text-lg font-bold text-white">Select Payment Mode</h2>
+                    </div>
+
+                    <div class="space-y-3">
+                        <!-- Option 1: WhatsApp Order (Default & Fast) -->
+                        <div>
+                            <input type="radio" name="payment_method" id="pay_wa" value="WhatsApp" class="payment-radio hidden" checked>
+                            <label for="pay_wa" class="glass-card p-4 rounded-2xl border border-white/10 flex items-center justify-between cursor-pointer transition block">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-xl bg-brand-success/20 text-brand-success flex items-center justify-center">
+                                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs font-bold text-white block">WhatsApp Express Checkout</span>
+                                        <span class="text-[10px] text-brand-textSecondary">Confirm details via instant WhatsApp message</span>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] bg-brand-success/20 text-brand-success font-bold px-2.5 py-1 rounded-full uppercase">Instant</span>
+                            </label>
+                        </div>
+
+                        <!-- Option 2: UPI / QR Code -->
+                        <div>
+                            <input type="radio" name="payment_method" id="pay_upi" value="UPI" class="payment-radio hidden">
+                            <label for="pay_upi" class="glass-card p-4 rounded-2xl border border-white/10 flex items-center justify-between cursor-pointer transition block">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-xl bg-brand-accent/20 text-brand-accent flex items-center justify-center">
+                                        <i data-lucide="qr-code" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs font-bold text-white block">UPI / GPay / PhonePe / Paytm</span>
+                                        <span class="text-[10px] text-brand-textSecondary">Direct UPI transfer to factory account</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Option 3: Cash on Delivery -->
+                        <div>
+                            <input type="radio" name="payment_method" id="pay_cod" value="COD" class="payment-radio hidden">
+                            <label for="pay_cod" class="glass-card p-4 rounded-2xl border border-white/10 flex items-center justify-between cursor-pointer transition block">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-xl bg-brand-surface text-brand-textSecondary flex items-center justify-center">
+                                        <i data-lucide="banknote" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs font-bold text-white block">Cash on Delivery (COD)</span>
+                                        <span class="text-[10px] text-brand-textSecondary">Pay cash upon doorstep delivery</span>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column: Order Summary Card -->
+            <div class="lg:col-span-5 space-y-6 sticky top-24">
+                
+                <section class="glass-panel p-6 sm:p-8 rounded-3xl border border-brand-accent/30">
+                    <h2 class="font-heading text-lg font-bold text-white mb-6 pb-4 border-b border-white/10">Order Summary</h2>
+
+                    <!-- Item 1 -->
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center gap-4">
+                            <img src="mascot3.png" class="w-14 h-14 object-contain rounded-xl bg-brand-surface p-1 border border-white/10" onerror="this.src='logo.png'">
+                            <div class="flex-1">
+                                <span class="text-xs font-bold text-white block">Moong Special Khatta Meetha Papad</span>
+                                <span class="text-[10px] text-brand-textSecondary">500g Pack • Qty: 2</span>
+                            </div>
+                            <span class="text-xs font-bold font-mono text-white">₹320</span>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <img src="logo.png" class="w-14 h-14 object-contain rounded-xl bg-brand-surface p-1 border border-white/10">
+                            <div class="flex-1">
+                                <span class="text-xs font-bold text-white block">Chana Masala Crunch Papad</span>
+                                <span class="text-[10px] text-brand-textSecondary">500g Pack • Qty: 1</span>
+                            </div>
+                            <span class="text-xs font-bold font-mono text-white">₹180</span>
+                        </div>
+                    </div>
+
+                    <!-- Free Shipping Unlocked Badge -->
+                    <div class="bg-brand-success/10 border border-brand-success/30 p-3 rounded-2xl flex items-center gap-2 text-brand-success text-xs font-semibold mb-6">
+                        <i data-lucide="truck" class="w-4 h-4"></i>
+                        <span>Congratulations! FREE Express Delivery Unlocked!</span>
+                    </div>
+
+                    <!-- Promo Code Field -->
+                    <div class="mb-6">
+                        <div class="flex gap-2">
+                            <input type="text" id="promo-code" placeholder="PROMO CODE (e.g. NIMAR10)" class="input-style text-xs">
+                            <button type="button" onclick="applyPromo()" class="bg-brand-surface border border-white/10 hover:border-brand-accent text-brand-accent px-4 py-2.5 rounded-xl text-xs font-bold shrink-0">
+                                Apply
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Price Calculations -->
+                    <div class="space-y-2.5 pt-4 border-t border-white/10 text-xs">
+                        <div class="flex justify-between text-brand-textSecondary">
+                            <span>Subtotal</span>
+                            <span class="font-mono text-white">₹500</span>
+                        </div>
+                        <div class="flex justify-between text-brand-textSecondary">
+                            <span>Shipping Charge</span>
+                            <span class="font-mono text-brand-success">FREE</span>
+                        </div>
+                        <div id="discount-row" class="hidden flex justify-between text-brand-accent">
+                            <span>Discount (NIMAR10)</span>
+                            <span class="font-mono">-₹50</span>
+                        </div>
+                        <div class="flex justify-between text-sm font-bold pt-3 border-t border-white/10">
+                            <span class="text-white">Total Amount Payable</span>
+                            <span id="total-price" class="font-mono text-brand-accent text-lg">₹500</span>
+                        </div>
+                    </div>
+
+                    <!-- Submit Order Button -->
+                    <button type="submit" class="w-full mt-6 bg-brand-accent text-black font-heading font-bold py-4 rounded-2xl text-xs hover:bg-brand-accentLight transition-all shadow-lg shadow-brand-accent/20 flex items-center justify-center gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4"></i> Place Order Now
+                    </button>
+                </section>
+
+                <!-- Guarantee Card -->
+                <div class="glass-card p-5 rounded-2xl border border-white/5 flex items-center gap-4">
+                    <i data-lucide="shield-check" class="w-8 h-8 text-brand-accent shrink-0"></i>
+                    <p class="text-[11px] text-brand-textSecondary leading-relaxed">
+                        <strong class="text-white">100% Satisfaction Guarantee:</strong> Handcrafted from Katargaon with 0% rice fillers. Direct factory fresh dispatch.
+                    </p>
+                </div>
+
+            </div>
+
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-8 text-center text-xs text-brand-textSecondary mt-12">
+        <p>© 2026 KAWAD SWAD UDHYOG. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        function applyPromo() {
+            const code = document.getElementById('promo-code').value.trim().toUpperCase();
+            if (code === 'NIMAR10') {
+                document.getElementById('discount-row').classList.remove('hidden');
+                document.getElementById('total-price').innerText = '₹450';
+                triggerToast('Promo Code NIMAR10 Applied! Saved ₹50.');
+            } else {
+                triggerToast('Invalid Promo Code. Try NIMAR10');
+            }
+        }
+
+        function handleCheckoutSubmit(e) {
+            e.preventDefault();
+            const form = e.target;
+            const name = form.name.value;
+            const phone = form.phone.value;
+            const address = form.address.value;
+            const city = form.city.value;
+            const pincode = form.pincode.value;
+            const payment = form.payment_method.value;
+
+            const message = `*NEW ORDER - KAWAD SWAD UDHYOG*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${address}, ${city} - ${pincode}%0A*Payment Mode:* ${payment}%0A*Total Amount:* ₹500`;
+
+            triggerToast('Redirecting to confirm order...');
+            setTimeout(() => {
+                window.location.href = `https://wa.me/919630976867?text=${message}`;
+            }, 1200);
+        }
+
+        function triggerToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'glass-panel text-white text-xs font-semibold px-4 py-3 rounded-xl border border-brand-accent/40 shadow-2xl flex items-center gap-2 animate-bounce';
+            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-brand-accent"></i> ${message}`;
+            container.appendChild(toast);
+            lucide.createIcons();
+            setTimeout(() => toast.remove(), 3000);
+        }
+    </script>
+</body>
+</html>

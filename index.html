@@ -64,7 +64,7 @@
     <!-- ANNOUNCEMENT BAR -->
     <div class="bg-gradient-to-r from-brand-danger via-amber-500 to-brand-accent text-black font-heading font-extrabold text-[11px] py-1.5 px-4 text-center tracking-wide uppercase flex items-center justify-center gap-2">
         <span>🔥 FLASH SALE LIVE: Extra 10% OFF with code <span class="bg-black text-white px-2 py-0.5 rounded font-mono">SWAD10</span></span>
-        <span class="hidden sm:inline">• FREE Express Shipping on orders above ₹499</span>
+        <span class="hidden sm:inline">• FREE Express Shipping on 1000g packs & orders above ₹499</span>
     </div>
 
     <!-- 1. STICKY GLASS NAVIGATION BAR -->
@@ -88,19 +88,20 @@
                 <a href="#flash-sale" class="hover:text-brand-accent transition flex items-center gap-1 text-brand-danger font-bold"><i data-lucide="zap" class="w-3.5 h-3.5 fill-brand-danger"></i> Flash Sale</a>
                 <a href="about.html" class="hover:text-brand-accent transition">Our Story</a>
                 <a href="reviews.html" class="hover:text-brand-accent transition">Reviews</a>
-                <a href="track-order.html" class="hover:text-brand-accent transition">Track Order</a>
+                <a href="distributor.html" class="hover:text-brand-accent transition text-brand-accent font-bold">Distributor Hub</a>
+                <a href="work-with-us.html" class="hover:text-brand-accent transition">Work With Us</a>
             </div>
 
             <!-- Action Controls -->
             <div class="flex items-center gap-3">
-                <button onclick="toggleWishlistModal()" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
+                <button onclick="showToast('Wishlist feature active!')" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
                     <i data-lucide="heart" class="w-5 h-5"></i>
                     <span id="wishlist-badge" class="absolute -top-1.5 -right-1.5 w-4 h-4 bg-brand-danger text-white font-bold text-[9px] rounded-full flex items-center justify-center">0</span>
                 </button>
 
                 <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-brand-accent text-black font-bold hover:bg-brand-accentLight transition flex items-center gap-2">
                     <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                    <span id="cart-badge" class="w-5 h-5 bg-black text-brand-accent font-extrabold text-[10px] rounded-full flex items-center justify-center">1</span>
+                    <span id="cart-badge" class="w-5 h-5 bg-black text-brand-accent font-extrabold text-[10px] rounded-full flex items-center justify-center">0</span>
                 </button>
             </div>
         </div>
@@ -126,7 +127,7 @@
                     </h1>
 
                     <p class="text-xs sm:text-base text-brand-textSecondary max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        Handcrafted by women artisans in Katargaon, MP using traditional Guthai & Mathai techniques. Uncompromised crunch and digestible spice in every bite.
+                        Handcrafted by women artisans in Katargaon, MP using traditional Guthai & Mathai techniques. 12 signature flavors across Moong, Chana, and Urad dal.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -165,7 +166,7 @@
                             <div class="w-8 h-8 rounded-xl bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold text-xs">0%</div>
                             <div>
                                 <span class="text-[10px] font-bold text-white block">Zero Rice Flour</span>
-                                <span class="text-[9px] text-brand-textSecondary">Pure Moong & Chana</span>
+                                <span class="text-[9px] text-brand-textSecondary">Moong • Chana • Urad</span>
                             </div>
                         </div>
                     </div>
@@ -210,15 +211,16 @@
                 <!-- Deal 1 -->
                 <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-4">
                     <div class="flex justify-between items-start">
-                        <span class="bg-brand-danger text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">🔥 35% OFF</span>
-                        <span class="text-[10px] font-mono text-brand-textSecondary">500g Pack</span>
+                        <span class="bg-brand-danger text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">🔥 20% OFF</span>
+                        <span class="text-[10px] font-mono text-brand-textSecondary">SKU: KS-MMP-500</span>
                     </div>
                     <img src="mascot3.png" class="w-full h-36 object-contain" onerror="this.src='logo.png'">
                     <div>
-                        <h3 class="font-heading text-sm font-bold text-white">Moong Khatta Meetha Flash Pack</h3>
+                        <h3 class="font-heading text-sm font-bold text-white">Moong Master Papad</h3>
+                        <span class="text-[10px] text-brand-textSecondary">500g Pack</span>
                         <div class="flex items-baseline gap-2 mt-1">
-                            <span class="font-heading text-xl font-extrabold text-white">₹130</span>
-                            <span class="text-xs text-brand-textSecondary/60 line-through">₹200</span>
+                            <span class="font-heading text-xl font-extrabold text-white">₹199</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹249</span>
                         </div>
                     </div>
                     <!-- Claim Progress Bar -->
@@ -231,7 +233,7 @@
                             <div class="bg-gradient-to-r from-amber-500 to-brand-danger h-full w-[84%]"></div>
                         </div>
                     </div>
-                    <button onclick="addToCart('Moong Khatta Meetha Flash Pack', 130, 'mascot3.png')" class="w-full bg-brand-danger text-white font-heading font-bold py-3 rounded-xl text-xs hover:bg-red-600 transition flex items-center justify-center gap-1.5">
+                    <button onclick="addToCartBySku('KS-MMP-500')" class="w-full bg-brand-danger text-white font-heading font-bold py-3 rounded-xl text-xs hover:bg-red-600 transition flex items-center justify-center gap-1.5">
                         <i data-lucide="zap" class="w-3.5 h-3.5 fill-white"></i> Claim Deal
                     </button>
                 </div>
@@ -239,15 +241,16 @@
                 <!-- Deal 2 -->
                 <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-4">
                     <div class="flex justify-between items-start">
-                        <span class="bg-brand-accent text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">⚡ 25% OFF</span>
-                        <span class="text-[10px] font-mono text-brand-textSecondary">500g Pack</span>
+                        <span class="bg-brand-accent text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">⚡ 21% OFF</span>
+                        <span class="text-[10px] font-mono text-brand-textSecondary">SKU: KS-CKM-500</span>
                     </div>
                     <img src="logo.png" class="w-full h-36 object-contain">
                     <div>
-                        <h3 class="font-heading text-sm font-bold text-white">Chana Masala Heavy Hing Pack</h3>
+                        <h3 class="font-heading text-sm font-bold text-white">Chana Khata Mitha Papad</h3>
+                        <span class="text-[10px] text-brand-textSecondary">500g Pack</span>
                         <div class="flex items-baseline gap-2 mt-1">
-                            <span class="font-heading text-xl font-extrabold text-white">₹150</span>
-                            <span class="text-xs text-brand-textSecondary/60 line-through">₹200</span>
+                            <span class="font-heading text-xl font-extrabold text-white">₹199</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹249</span>
                         </div>
                     </div>
                     <!-- Claim Progress Bar -->
@@ -260,7 +263,7 @@
                             <div class="bg-gradient-to-r from-brand-accent to-amber-300 h-full w-[65%]"></div>
                         </div>
                     </div>
-                    <button onclick="addToCart('Chana Masala Heavy Hing Pack', 150, 'logo.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
+                    <button onclick="addToCartBySku('KS-CKM-500')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
                         <i data-lucide="zap" class="w-3.5 h-3.5 fill-black"></i> Claim Deal
                     </button>
                 </div>
@@ -268,15 +271,16 @@
                 <!-- Deal 3 -->
                 <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-4">
                     <div class="flex justify-between items-start">
-                        <span class="bg-brand-success text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">🎁 MEGA BUNDLE</span>
-                        <span class="text-[10px] font-mono text-brand-textSecondary">1.5 kg (3 Packs)</span>
+                        <span class="bg-brand-success text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">🎁 FREE SHIPPING</span>
+                        <span class="text-[10px] font-mono text-brand-textSecondary">SKU: KS-UGP-1000</span>
                     </div>
                     <img src="mascot3.png" class="w-full h-36 object-contain" onerror="this.src='logo.png'">
                     <div>
-                        <h3 class="font-heading text-sm font-bold text-white">All-In-One Nimar Family Feast</h3>
+                        <h3 class="font-heading text-sm font-bold text-white">Urad Guru Papad</h3>
+                        <span class="text-[10px] text-brand-textSecondary">1000g Family Pack (Free Shipping)</span>
                         <div class="flex items-baseline gap-2 mt-1">
-                            <span class="font-heading text-xl font-extrabold text-white">₹425</span>
-                            <span class="text-xs text-brand-textSecondary/60 line-through">₹600</span>
+                            <span class="font-heading text-xl font-extrabold text-white">₹529</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹599</span>
                         </div>
                     </div>
                     <!-- Claim Progress Bar -->
@@ -289,8 +293,8 @@
                             <div class="bg-gradient-to-r from-red-500 to-brand-danger h-full w-[92%]"></div>
                         </div>
                     </div>
-                    <button onclick="addToCart('All-In-One Nimar Family Feast', 425, 'mascot3.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
-                        <i data-lucide="zap" class="w-3.5 h-3.5 fill-black"></i> Claim Bundle
+                    <button onclick="addToCartBySku('KS-UGP-1000')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 fill-black"></i> Claim 1kg Pack
                     </button>
                 </div>
             </div>
@@ -302,85 +306,22 @@
     <main id="catalogue" class="max-w-7xl mx-auto px-6 py-8 space-y-6">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-4">
             <div>
-                <span class="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold">100% Pulse Dough</span>
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold">100% Pulse Dough • 36 SKUs</span>
                 <h2 class="font-heading text-2xl font-extrabold text-white">Explore Full Collection</h2>
             </div>
             
             <!-- Category Filter Pills -->
-            <div class="flex flex-wrap items-center gap-2">
-                <button onclick="filterCategory('all', this)" class="chip-active text-xs font-heading bg-brand-accent text-black font-bold px-4 py-2 rounded-xl">All</button>
-                <button onclick="filterCategory('moong', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Moong Special</button>
-                <button onclick="filterCategory('chana', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Chana Masala</button>
-                <button onclick="filterCategory('combo', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Value Combos</button>
+            <div class="flex flex-wrap items-center gap-2" id="category-pills">
+                <button onclick="filterCategory('all', this)" class="chip-active text-xs font-heading bg-brand-accent text-black font-bold px-4 py-2 rounded-xl">All Flavors</button>
+                <button onclick="filterCategory('moong', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Moong Range</button>
+                <button onclick="filterCategory('chana', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Chana Range</button>
+                <button onclick="filterCategory('urad', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Urad Range</button>
             </div>
         </div>
 
-        <!-- Dynamic Product Grid -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            <!-- Product 1 -->
-            <div class="product-card glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between" data-category="moong">
-                <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
-                    <i data-lucide="heart" class="w-4 h-4"></i>
-                </button>
-                <div class="rounded-2xl bg-brand-surface/50 p-6 text-center mb-4">
-                    <img src="mascot3.png" class="w-full h-44 object-contain mx-auto" onerror="this.src='logo.png'">
-                </div>
-                <div class="space-y-3">
-                    <span class="text-[10px] text-brand-accent uppercase font-bold tracking-wider">Moong Dal • Medium Spice</span>
-                    <h3 class="font-heading text-base font-bold text-white">Moong Special Khatta Meetha Papad</h3>
-                    <div class="flex items-baseline justify-between">
-                        <span class="font-heading text-xl font-extrabold text-white">₹160 <span class="text-xs font-normal text-brand-textSecondary/60 line-through">₹200</span></span>
-                        <span class="text-[10px] text-brand-success bg-brand-success/10 px-2 py-0.5 rounded">Save ₹40</span>
-                    </div>
-                    <button onclick="addToCart('Moong Special Khatta Meetha Papad', 160, 'mascot3.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
-                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add To Cart
-                    </button>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="product-card glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between" data-category="chana">
-                <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
-                    <i data-lucide="heart" class="w-4 h-4"></i>
-                </button>
-                <div class="rounded-2xl bg-brand-surface/50 p-6 text-center mb-4">
-                    <img src="logo.png" class="w-full h-44 object-contain mx-auto">
-                </div>
-                <div class="space-y-3">
-                    <span class="text-[10px] text-brand-accent uppercase font-bold tracking-wider">Chana Dal • Extra Crunch</span>
-                    <h3 class="font-heading text-base font-bold text-white">Chana Masala Crunch Papad</h3>
-                    <div class="flex items-baseline justify-between">
-                        <span class="font-heading text-xl font-extrabold text-white">₹180 <span class="text-xs font-normal text-brand-textSecondary/60 line-through">₹220</span></span>
-                        <span class="text-[10px] text-brand-success bg-brand-success/10 px-2 py-0.5 rounded">Save ₹40</span>
-                    </div>
-                    <button onclick="addToCart('Chana Masala Crunch Papad', 180, 'logo.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
-                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add To Cart
-                    </button>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="product-card glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between" data-category="combo">
-                <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
-                    <i data-lucide="heart" class="w-4 h-4"></i>
-                </button>
-                <div class="rounded-2xl bg-brand-surface/50 p-6 text-center mb-4">
-                    <img src="mascot3.png" class="w-full h-44 object-contain mx-auto" onerror="this.src='logo.png'">
-                </div>
-                <div class="space-y-3">
-                    <span class="text-[10px] text-brand-success uppercase font-bold tracking-wider">3 Packs (1.5 kg) • Free Shipping</span>
-                    <h3 class="font-heading text-base font-bold text-white">Family Taste Trio Combo Pack</h3>
-                    <div class="flex items-baseline justify-between">
-                        <span class="font-heading text-xl font-extrabold text-white">₹499 <span class="text-xs font-normal text-brand-textSecondary/60 line-through">₹620</span></span>
-                        <span class="text-[10px] text-brand-success bg-brand-success/10 px-2 py-0.5 rounded">Save ₹121</span>
-                    </div>
-                    <button onclick="addToCart('Family Taste Trio Combo Pack', 499, 'mascot3.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
-                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add To Cart
-                    </button>
-                </div>
-            </div>
-
+        <!-- Dynamic Grouped Product Grid -->
+        <div id="products-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamic Flavor Cards Injected via JavaScript -->
         </div>
     </main>
 
@@ -399,26 +340,37 @@
                 <!-- Free Shipping Progress Meter -->
                 <div class="glass-panel p-3.5 rounded-2xl border border-white/10 space-y-2">
                     <div class="flex justify-between text-xs">
-                        <span id="shipping-text" class="text-brand-textSecondary font-medium">Add ₹339 more for <strong>FREE Shipping</strong></span>
-                        <span id="shipping-percent" class="text-brand-accent font-bold font-mono">32%</span>
+                        <span id="shipping-text" class="text-brand-textSecondary font-medium">Add ₹499 for <strong>FREE Shipping</strong></span>
+                        <span id="shipping-percent" class="text-brand-accent font-bold font-mono">0%</span>
                     </div>
                     <div class="w-full bg-brand-bg h-2 rounded-full overflow-hidden border border-white/5">
-                        <div id="shipping-bar" class="bg-brand-accent h-full w-[32%] transition-all duration-500"></div>
+                        <div id="shipping-bar" class="bg-brand-accent h-full w-[0%] transition-all duration-500"></div>
                     </div>
                 </div>
 
                 <!-- Cart Items List Container -->
                 <div id="cart-items" class="space-y-3 max-h-[50vh] overflow-y-auto pr-1">
-                    <!-- Dynamic Items Injected Here -->
+                    <!-- Dynamic Cart Items Injected Here -->
                 </div>
             </div>
 
             <!-- Cart Footer & Checkout Button -->
             <div class="border-t border-white/10 pt-4 space-y-3">
-                <div class="flex justify-between items-baseline">
-                    <span class="text-xs text-brand-textSecondary">Subtotal:</span>
-                    <span id="cart-subtotal" class="font-heading text-xl font-extrabold text-white">₹160</span>
+                <div class="space-y-1 text-xs">
+                    <div class="flex justify-between text-brand-textSecondary">
+                        <span>Items Subtotal:</span>
+                        <span id="cart-subtotal" class="font-mono text-white font-bold">₹0</span>
+                    </div>
+                    <div class="flex justify-between text-brand-textSecondary">
+                        <span>Shipping Fee:</span>
+                        <span id="cart-shipping" class="font-mono text-brand-accent font-bold">₹0</span>
+                    </div>
+                    <div class="flex justify-between items-baseline pt-2 border-t border-white/5 text-sm">
+                        <span class="font-bold text-white">Total Amount:</span>
+                        <span id="cart-total" class="font-heading text-xl font-extrabold text-brand-accent">₹0</span>
+                    </div>
                 </div>
+                
                 <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-extrabold py-4 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
                     Proceed to Express Checkout <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
@@ -445,11 +397,12 @@
                 </ul>
             </div>
             <div class="space-y-2">
-                <span class="font-heading text-xs font-bold text-white block uppercase tracking-wider">Customer Care</span>
+                <span class="font-heading text-xs font-bold text-white block uppercase tracking-wider">Business & Careers</span>
                 <ul class="space-y-1.5">
+                    <li><a href="distributor.html" class="hover:text-white transition text-brand-accent font-semibold">Become a Distributor</a></li>
+                    <li><a href="media.html" class="hover:text-white transition">Media & Press Kit</a></li>
+                    <li><a href="work-with-us.html" class="hover:text-white transition">Work With Us</a></li>
                     <li><a href="track-order.html" class="hover:text-white transition">Track Your Order</a></li>
-                    <li><a href="policies.html" class="hover:text-white transition">Shipping & Return Policy</a></li>
-                    <li><a href="policies.html" class="hover:text-white transition">Privacy Policy</a></li>
                 </ul>
             </div>
             <div class="space-y-3">
@@ -467,7 +420,69 @@
     <script>
         lucide.createIcons();
 
-        // 1. Live Countdown Timer
+        // 1. OFFICIAL KAWAD SWAD PRODUCT DATABASE (36 SKUs)
+        const KAWAD_PRODUCTS = [
+            // --- MOONG VARIETIES ---
+            { id: 'KS-MMP-200', title: 'Moong Master Papad', weight: '200g', mrp: 110, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'mascot3.png' },
+            { id: 'KS-MMP-500', title: 'Moong Master Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'mascot3.png' },
+            { id: 'KS-MMP-1000', title: 'Moong Master Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'mascot3.png' },
+
+            { id: 'KS-MGP-200', title: 'Moong Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'mascot3.png' },
+            { id: 'KS-MGP-500', title: 'Moong Garlic Papad', weight: '500g', mrp: 309, price: 259, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'mascot3.png' },
+            { id: 'KS-MGP-1000', title: 'Moong Garlic Papad', weight: '1000g', mrp: 619, price: 539, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'mascot3.png' },
+
+            { id: 'KS-MJP-200', title: 'Moong Jeera Papad', weight: '200g', mrp: 109, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'mascot3.png' },
+            { id: 'KS-MJP-500', title: 'Moong Jeera Papad', weight: '500g', mrp: 279, price: 229, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'mascot3.png' },
+            { id: 'KS-MJP-1000', title: 'Moong Jeera Papad', weight: '1000g', mrp: 559, price: 489, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'mascot3.png' },
+
+            { id: 'KS-MPP-200', title: 'Moong Pudhina Papad', weight: '200g', mrp: 105, price: 85, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'mascot3.png' },
+            { id: 'KS-MPP-500', title: 'Moong Pudhina Papad', weight: '500g', mrp: 265, price: 219, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'mascot3.png' },
+            { id: 'KS-MPP-1000', title: 'Moong Pudhina Papad', weight: '1000g', mrp: 529, price: 459, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'mascot3.png' },
+
+            { id: 'KS-MGCP-200', title: 'Moong Green Chilli Papad', weight: '200g', mrp: 105, price: 85, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'mascot3.png' },
+            { id: 'KS-MGCP-500', title: 'Moong Green Chilli Papad', weight: '500g', mrp: 265, price: 219, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'mascot3.png' },
+            { id: 'KS-MGCP-1000', title: 'Moong Green Chilli Papad', weight: '1000g', mrp: 529, price: 459, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'mascot3.png' },
+
+            { id: 'KS-MKMP-200', title: 'Moong Kasuri Methi Papad', weight: '200g', mrp: 109, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'mascot3.png' },
+            { id: 'KS-MKMP-500', title: 'Moong Kasuri Methi Papad', weight: '500g', mrp: 229, price: 189, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'mascot3.png' },
+            { id: 'KS-MKMP-1000', title: 'Moong Kasuri Methi Papad', weight: '1000g', mrp: 559, price: 489, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'mascot3.png' },
+
+            { id: 'KS-MPMP-200', title: 'Moong Punjabi Masala Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'mascot3.png' },
+            { id: 'KS-MPMP-500', title: 'Moong Punjabi Masala Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'mascot3.png' },
+            { id: 'KS-MPMP-1000', title: 'Moong Punjabi Masala Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'mascot3.png' },
+
+            // --- CHANA VARIETIES ---
+            { id: 'KS-CCP-200', title: 'Chana Chotu Papad', weight: '200g', mrp: 110, price: 89, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'logo.png' },
+            { id: 'KS-CCP-500', title: 'Chana Chotu Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'logo.png' },
+            { id: 'KS-CCP-1000', title: 'Chana Chotu Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'logo.png' },
+
+            { id: 'KS-CGP-200', title: 'Chana Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'logo.png' },
+            { id: 'KS-CGP-500', title: 'Chana Garlic Papad', weight: '500g', mrp: 309, price: 259, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'logo.png' },
+            { id: 'KS-CGP-1000', title: 'Chana Garlic Papad', weight: '1000g', mrp: 619, price: 539, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'logo.png' },
+
+            { id: 'KS-CKM-200', title: 'Chana Khata Mitha Papad', weight: '200g', mrp: 99, price: 79, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'logo.png' },
+            { id: 'KS-CKM-500', title: 'Chana Khata Mitha Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'logo.png' },
+            { id: 'KS-CKM-1000', title: 'Chana Khata Mitha Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'logo.png' },
+
+            { id: 'KS-CTP-200', title: 'Chana Tomato Papad', weight: '200g', mrp: 99, price: 79, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'logo.png' },
+            { id: 'KS-CTP-500', title: 'Chana Tomato Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'logo.png' },
+            { id: 'KS-CTP-1000', title: 'Chana Tomato Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'logo.png' },
+
+            { id: 'KS-CPM-200', title: 'Chana Punjabi Masala Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'logo.png' },
+            { id: 'KS-CPM-500', title: 'Chana Punjabi Masala Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'logo.png' },
+            { id: 'KS-CPM-1000', title: 'Chana Punjabi Masala Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'logo.png' },
+
+            // --- URAD VARIETIES ---
+            { id: 'KS-UGP-200', title: 'Urad Guru Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'mascot3.png' },
+            { id: 'KS-UGP-500', title: 'Urad Guru Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'mascot3.png' },
+            { id: 'KS-UGP-1000', title: 'Urad Guru Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'mascot3.png' },
+
+            { id: 'KS-UGG-200', title: 'Urad Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'mascot3.png' },
+            { id: 'KS-UGG-500', title: 'Urad Garlic Papad', weight: '500g', mrp: 319, price: 269, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'mascot3.png' },
+            { id: 'KS-UGG-1000', title: 'Urad Garlic Papad', weight: '1000g', mrp: 639, price: 559, shipping: 0, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'mascot3.png' }
+        ];
+
+        // 2. LIVE COUNTDOWN TIMER
         let h = 2, m = 14, s = 52, ms = 8;
         setInterval(() => {
             ms--;
@@ -478,10 +493,148 @@
             document.getElementById('timer-ms').innerText = ms;
         }, 100);
 
-        // 2. Interactive Cart Drawer & State Management
-        let cart = [
-            { name: 'Moong Special Khatta Meetha Papad', price: 160, qty: 1, img: 'mascot3.png' }
-        ];
+        // 3. DYNAMIC STORE RENDERER (GROUPED BY FLAVOR WITH WEIGHT SWITCHER)
+        function renderStoreCatalog(categoryFilter = 'all') {
+            const grid = document.getElementById('products-grid');
+            if (!grid) return;
+
+            // Group items by Flavor Title
+            const grouped = {};
+            KAWAD_PRODUCTS.forEach(item => {
+                if (!grouped[item.title]) {
+                    grouped[item.title] = {
+                        title: item.title,
+                        category: item.category,
+                        dal: item.dal,
+                        spice: item.spice,
+                        img: item.img,
+                        variants: []
+                    };
+                }
+                grouped[item.title].variants.push(item);
+            });
+
+            const groupsArray = Object.values(grouped);
+            const filtered = categoryFilter === 'all' 
+                ? groupsArray 
+                : groupsArray.filter(g => g.category === categoryFilter);
+
+            grid.innerHTML = filtered.map((group, idx) => {
+                // Default variant (500g or first available)
+                const defaultVar = group.variants.find(v => v.weight === '500g') || group.variants[0];
+
+                return `
+                    <div class="product-item glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between group" id="card-${idx}">
+                        <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+
+                        <!-- Product Badge -->
+                        <span id="badge-${idx}" class="absolute top-4 left-4 z-10 text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${defaultVar.shipping === 0 ? 'bg-brand-success text-black' : 'bg-brand-accent text-black'}">
+                            ${defaultVar.shipping === 0 ? 'Free Shipping' : '0% Rice Flour'}
+                        </span>
+
+                        <div class="rounded-2xl bg-brand-surface/50 p-6 text-center mb-4 relative overflow-hidden">
+                            <img src="${group.img}" alt="${group.title}" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='logo.png'">
+                            <span id="sku-tag-${idx}" class="absolute bottom-2 right-2 text-[9px] font-mono bg-black/70 px-2 py-0.5 rounded border border-white/10 text-brand-textSecondary">${defaultVar.id}</span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-xs">
+                                <span class="text-[10px] text-brand-accent uppercase font-bold tracking-wider">${group.dal} • ${group.spice}</span>
+                                <span class="text-brand-accent font-bold text-[11px] flex items-center gap-1"><i data-lucide="star" class="w-3 h-3 fill-brand-accent"></i> 4.9</span>
+                            </div>
+
+                            <h3 class="font-heading text-base font-bold text-white leading-snug">${group.title}</h3>
+
+                            <!-- Weight Selector Pills -->
+                            <div class="space-y-1">
+                                <span class="text-[10px] text-brand-textSecondary font-medium">Select Pack Weight:</span>
+                                <div class="grid grid-cols-3 gap-1.5">
+                                    ${group.variants.map(v => `
+                                        <button onclick="selectVariant(${idx}, '${v.id}')" 
+                                                id="btn-${v.id}"
+                                                class="variant-btn-${idx} py-1.5 rounded-lg text-[10px] font-bold border transition ${v.id === defaultVar.id ? 'bg-brand-accent text-black border-brand-accent' : 'bg-brand-surface text-brand-textSecondary border-white/10 hover:border-brand-accent'}">
+                                            ${v.weight}
+                                        </button>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <!-- Price Display -->
+                            <div class="flex items-baseline justify-between pt-2">
+                                <div>
+                                    <span id="price-${idx}" class="font-heading text-2xl font-extrabold text-white">₹${defaultVar.price}</span>
+                                    <span id="mrp-${idx}" class="text-xs text-brand-textSecondary/60 line-through ml-1.5">₹${defaultVar.mrp}</span>
+                                </div>
+                                <span id="ship-info-${idx}" class="text-[10px] font-mono ${defaultVar.shipping === 0 ? 'text-brand-success bg-brand-success/10' : 'text-brand-accent bg-brand-accent/10'} px-2 py-0.5 rounded font-bold">
+                                    ${defaultVar.shipping === 0 ? 'Free Delivery' : '+₹49 Shipping'}
+                                </span>
+                            </div>
+
+                            <button id="add-btn-${idx}" onclick="addToCartBySku('${defaultVar.id}')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
+                                <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add <span id="btn-wt-${idx}">${defaultVar.weight}</span> To Cart
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+        }
+
+        // 4. INTERACTIVE VARIANT SWITCHER
+        function selectVariant(cardIdx, skuId) {
+            const product = KAWAD_PRODUCTS.find(p => p.id === skuId);
+            if (!product) return;
+
+            document.getElementById(`price-${cardIdx}`).innerText = `₹${product.price}`;
+            document.getElementById(`mrp-${cardIdx}`).innerText = `₹${product.mrp}`;
+            document.getElementById(`sku-tag-${cardIdx}`).innerText = product.id;
+            document.getElementById(`btn-wt-${cardIdx}`).innerText = product.weight;
+
+            const shipEl = document.getElementById(`ship-info-${cardIdx}`);
+            const badgeEl = document.getElementById(`badge-${cardIdx}`);
+            if (product.shipping === 0) {
+                shipEl.innerText = 'Free Delivery';
+                shipEl.className = 'text-[10px] font-mono text-brand-success bg-brand-success/10 px-2 py-0.5 rounded font-bold';
+                badgeEl.innerText = 'Free Shipping';
+                badgeEl.className = 'absolute top-4 left-4 z-10 text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-brand-success text-black';
+            } else {
+                shipEl.innerText = '+₹49 Shipping';
+                shipEl.className = 'text-[10px] font-mono text-brand-accent bg-brand-accent/10 px-2 py-0.5 rounded font-bold';
+                badgeEl.innerText = '0% Rice Flour';
+                badgeEl.className = 'absolute top-4 left-4 z-10 text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-brand-accent text-black';
+            }
+
+            document.querySelectorAll(`.variant-btn-${cardIdx}`).forEach(btn => {
+                btn.className = 'variant-btn-' + cardIdx + ' py-1.5 rounded-lg text-[10px] font-bold border transition bg-brand-surface text-brand-textSecondary border-white/10 hover:border-brand-accent';
+            });
+            const selectedBtn = document.getElementById(`btn-${skuId}`);
+            if (selectedBtn) {
+                selectedBtn.className = 'variant-btn-' + cardIdx + ' py-1.5 rounded-lg text-[10px] font-bold border transition bg-brand-accent text-black border-brand-accent';
+            }
+
+            document.getElementById(`add-btn-${cardIdx}`).setAttribute('onclick', `addToCartBySku('${product.id}')`);
+        }
+
+        // 5. CART STATE & DRAWER MANAGEMENT
+        let cart = [];
+
+        function addToCartBySku(skuId) {
+            const p = KAWAD_PRODUCTS.find(item => item.id === skuId);
+            if (!p) return;
+
+            const existing = cart.find(i => i.id === p.id);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...p, qty: 1 });
+            }
+            showToast(`Added ${p.title} (${p.weight}) to cart!`);
+            renderCart();
+            toggleCartDrawer();
+        }
 
         function toggleCartDrawer() {
             const drawer = document.getElementById('cart-drawer');
@@ -496,63 +649,71 @@
             renderCart();
         }
 
-        function addToCart(name, price, img) {
-            const existing = cart.find(i => i.name === name);
-            if (existing) {
-                existing.qty++;
-            } else {
-                cart.push({ name, price, qty: 1, img });
-            }
-            showToast(`Added ${name} to cart!`);
-            renderCart();
-            toggleCartDrawer();
-        }
-
         function renderCart() {
             const itemsContainer = document.getElementById('cart-items');
             itemsContainer.innerHTML = '';
-            let total = 0;
+            let subtotal = 0;
+            let totalShipping = 0;
             let count = 0;
 
-            cart.forEach((item, index) => {
-                total += item.price * item.qty;
-                count += item.qty;
-                itemsContainer.innerHTML += `
-                    <div class="glass-card p-3 rounded-xl flex items-center gap-3 border border-white/10">
-                        <img src="${item.img}" class="w-12 h-12 object-contain bg-brand-surface rounded-lg p-1" onerror="this.src='logo.png'">
-                        <div class="flex-1">
-                            <h4 class="text-xs font-bold text-white leading-tight">${item.name}</h4>
-                            <span class="text-xs text-brand-accent font-bold">₹${item.price}</span>
-                        </div>
-                        <div class="flex items-center gap-2 bg-brand-surface border border-white/10 rounded-lg px-2 py-1">
-                            <button onclick="updateQty(${index}, -1)" class="text-xs text-brand-textSecondary hover:text-white">-</button>
-                            <span class="text-xs font-bold text-white">${item.qty}</span>
-                            <button onclick="updateQty(${index}, 1)" class="text-xs text-brand-textSecondary hover:text-white">+</button>
-                        </div>
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = `
+                    <div class="text-center py-10 space-y-2">
+                        <i data-lucide="shopping-bag" class="w-10 h-10 mx-auto text-brand-textSecondary opacity-40"></i>
+                        <p class="text-xs text-brand-textSecondary">Your cart is currently empty.</p>
                     </div>
                 `;
-            });
+            } else {
+                cart.forEach((item, index) => {
+                    subtotal += item.price * item.qty;
+                    count += item.qty;
+                    if (item.shipping > 0) totalShipping += item.shipping;
+
+                    itemsContainer.innerHTML += `
+                        <div class="glass-card p-3 rounded-xl flex items-center gap-3 border border-white/10">
+                            <img src="${item.img}" class="w-12 h-12 object-contain bg-brand-surface rounded-lg p-1" onerror="this.src='logo.png'">
+                            <div class="flex-1">
+                                <h4 class="text-xs font-bold text-white leading-tight">${item.title}</h4>
+                                <span class="text-[10px] text-brand-textSecondary block">${item.weight} • SKU: ${item.id}</span>
+                                <span class="text-xs text-brand-accent font-bold">₹${item.price}</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-brand-surface border border-white/10 rounded-lg px-2 py-1">
+                                <button onclick="updateQty(${index}, -1)" class="text-xs text-brand-textSecondary hover:text-white">-</button>
+                                <span class="text-xs font-bold text-white">${item.qty}</span>
+                                <button onclick="updateQty(${index}, 1)" class="text-xs text-brand-textSecondary hover:text-white">+</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // Free Shipping logic: Order over ₹499 waives standard ₹49 shipping
+            if (subtotal >= 499) totalShipping = 0;
 
             document.getElementById('cart-badge').innerText = count;
-            document.getElementById('cart-subtotal').innerText = `₹${total}`;
+            document.getElementById('cart-subtotal').innerText = `₹${subtotal}`;
+            document.getElementById('cart-shipping').innerText = totalShipping === 0 ? 'FREE' : `₹${totalShipping}`;
+            document.getElementById('cart-total').innerText = `₹${subtotal + totalShipping}`;
 
-            // Free Shipping Progress Calculation (Goal: ₹499)
+            // Shipping Bar Progress (Goal: ₹499)
             const goal = 499;
-            const diff = goal - total;
             const bar = document.getElementById('shipping-bar');
             const text = document.getElementById('shipping-text');
             const percentText = document.getElementById('shipping-percent');
 
-            if (diff <= 0) {
+            if (subtotal >= goal) {
                 bar.style.width = '100%';
                 text.innerHTML = '🎉 You unlocked <strong>FREE Express Shipping!</strong>';
                 percentText.innerText = '100%';
             } else {
-                const pct = Math.min(100, Math.round((total / goal) * 100));
+                const diff = goal - subtotal;
+                const pct = Math.min(100, Math.round((subtotal / goal) * 100));
                 bar.style.width = `${pct}%`;
                 text.innerHTML = `Add ₹${diff} more for <strong>FREE Shipping</strong>`;
                 percentText.innerText = `${pct}%`;
             }
+
+            lucide.createIcons();
         }
 
         function updateQty(index, change) {
@@ -561,25 +722,19 @@
             renderCart();
         }
 
-        // 3. Category Filter Logic
+        // 6. CATEGORY FILTER PILLS
         function filterCategory(cat, btn) {
-            document.querySelectorAll('#catalogue button').forEach(b => {
+            document.querySelectorAll('#category-pills button').forEach(b => {
                 b.classList.remove('bg-brand-accent', 'text-black', 'font-bold');
                 b.classList.add('text-brand-textSecondary');
             });
             btn.classList.add('bg-brand-accent', 'text-black', 'font-bold');
+            btn.classList.remove('text-brand-textSecondary');
             
-            const cards = document.querySelectorAll('.product-card');
-            cards.forEach(c => {
-                if (cat === 'all' || c.getAttribute('data-category') === cat) {
-                    c.style.display = 'flex';
-                } else {
-                    c.style.display = 'none';
-                }
-            });
+            renderStoreCatalog(cat);
         }
 
-        // 4. Toast Hub Notification
+        // 7. TOAST NOTIFICATIONS
         function showToast(msg) {
             const hub = document.getElementById('toast-hub');
             const toast = document.createElement('div');
@@ -590,10 +745,14 @@
         }
 
         function toggleWishlist(btn) {
-            const icon = btn.querySelector('i');
             btn.classList.toggle('text-brand-danger');
             showToast('Wishlist updated!');
         }
+
+        // INITIALIZE CATALOG ON PAGE LOAD
+        document.addEventListener('DOMContentLoaded', () => {
+            renderStoreCatalog('all');
+        });
     </script>
 </body>
 </html>

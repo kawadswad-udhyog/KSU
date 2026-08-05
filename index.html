@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en" class="scroll-smooth">
 <head>
+    <!-- Google Tag Manager -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -11,173 +12,781 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kawad Swad Udhyog - Authentic Nimar Papad. Moong, Chana, and Urad Papad with 0% Rice. Freshly made in Katargaon, MP.">
-    <title>Kawad Swad | स्वाद भरा सफ़र</title>
+    <meta name="description" content="Kawad Swad Udhyog - Premium Authentic Nimar Papad & Traditional Indian Snacks. Moong, Chana, and Urad Papad with 0% Rice. Freshly made in Katargaon, MP.">
+    <title>Kawad Swad Udhyog | Premium Indian Heritage Foods</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0B0B0B',
+                            bgSecondary: '#141414',
+                            surface: '#1C1C1C',
+                            accent: '#F59E0B',
+                            accentLight: '#FFD166',
+                            danger: '#EF4444',
+                            success: '#22C55E',
+                            textPrimary: '#FFFFFF',
+                            textSecondary: '#CFCFCF',
+                            lightSec: '#FFF8F1'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Sora & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Playfair+Display:wght@700;900&family=Hind:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        :root { --amber-deep: #d97706; --amber-light: #fffaf0; }
-        body { font-family: 'Hind', 'Poppins', sans-serif; background-color: var(--amber-light); scroll-behavior: smooth; overflow-x: hidden; }
-        .brand-font { font-family: 'Playfair Display', serif; font-style: normal; }
-        .animate-float { animation: float 4s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
-        .animate-marquee { animation: marquee 30s linear infinite; }
-        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        .popup-scale { animation: popupScale 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        @keyframes popupScale { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0B0B;
+            color: #FFFFFF;
+        }
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Sora', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(28, 28, 28, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.15);
+        }
+        .marquee-track {
+            display: flex;
+            width: 200%;
+            animation: marquee 25s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1deg); }
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0B0B; }
+        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
     </style>
 </head>
-<body class="text-gray-900">
+<body class="antialiased selection:bg-brand-accent selection:text-black">
 
-    <div id="contestPopup" class="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm px-6">
-        <div class="bg-white rounded-[3rem] max-w-sm w-full p-8 text-center relative shadow-2xl border-4 border-amber-600 popup-scale">
-            <button onclick="document.getElementById('contestPopup').style.display='none'" class="absolute top-6 right-6 text-gray-400 hover:text-black font-bold">✕</button>
-            <div class="text-6xl mb-4">🎁</div>
-            <h2 class="brand-font text-3xl font-black text-amber-900 mb-2 uppercase">Lucky Draw Live!</h2>
-            <p class="text-gray-600 font-bold mb-8 text-sm leading-relaxed">हर पैकेट पर जीतने का एक मौका! इस रविवार के विजेता आप हो सकते हैं। 🎯</p>
-            <a href="#contest" onclick="document.getElementById('contestPopup').style.display='none'" class="block w-full bg-amber-600 text-white py-4 rounded-2xl font-black uppercase tracking-widest text-xs shadow-xl hover:bg-amber-700 transition-all">एंट्री कैसे करें? देखें 🚀</a>
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-[300] flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- 1. Top Ticker Marquee -->
+    <div class="bg-gradient-to-r from-brand-accent to-brand-accentLight py-2.5 overflow-hidden text-black font-semibold text-xs tracking-wider uppercase relative z-[110]">
+        <div class="marquee-track flex gap-12 items-center">
+            <span class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 fill-black"></i> FLASH SALE IS LIVE - UP TO 30% OFF</span>
+            <span class="flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4"></i> 100% AUTHENTIC NIMAR PAPAD</span>
+            <span class="flex items-center gap-2"><i data-lucide="gift" class="w-4 h-4"></i> LUCKY DRAW: WIN CASHBACK ON EVERY PACKET</span>
+            <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4"></i> 0% RICE USED - 100% PURE LENTILS</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4 fill-black"></i> FLASH SALE IS LIVE - UP TO 30% OFF</span>
+            <span class="flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4"></i> 100% AUTHENTIC NIMAR PAPAD</span>
+            <span class="flex items-center gap-2"><i data-lucide="gift" class="w-4 h-4"></i> LUCKY DRAW: WIN CASHBACK ON EVERY PACKET</span>
+            <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4"></i> 0% RICE USED - 100% PURE LENTILS</span>
         </div>
     </div>
 
-    <div class="bg-amber-700 py-3 overflow-hidden text-white font-bold text-xs md:text-sm uppercase tracking-[0.2em] shadow-md relative z-[110]">
-        <div class="whitespace-nowrap animate-marquee flex gap-10">
-            <span>🎉 Swad Bhara Safar | स्वाद भरा सफ़र 🎉</span>
-            <span>🔥 Nimar's Finest Moong & Chana Daily 🔥</span>
-            <span>🎁 Har Packet Par Jeetne Ka Mauka | हर पैकेट पर जीत 🎁</span>
-            <span>✨ Zero Rice Used | शुद्ध मसाले ✨</span>
-        </div>
-    </div>
+    <!-- 2. Sticky Glass Header / Navigation -->
+    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 transition-all duration-300">
+        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all duration-300">
+                    <span class="font-heading font-extrabold text-xl">K</span>
+                </div>
+                <div>
+                    <span class="font-heading text-lg font-bold tracking-tight text-white block leading-none">KAWAD SWAD</span>
+                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">UDHYOG • KATARGAON</span>
+                </div>
+            </a>
 
-    <nav class="fixed top-12 left-0 right-0 z-[100] p-3 md:p-5">
-        <div class="max-w-7xl mx-auto bg-white/90 backdrop-blur-lg rounded-[2rem] px-6 py-3 flex justify-between items-center shadow-xl border border-white/50">
+            <!-- Desktop Nav Links -->
+            <div class="hidden lg:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-brand-textSecondary">
+                <a href="index.html" class="text-brand-accent font-semibold flex items-center gap-1.5"><i data-lucide="home" class="w-3.5 h-3.5"></i> Home</a>
+                <a href="#flash-sale" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="flame" class="w-3.5 h-3.5 text-brand-danger"></i> Flash Sale</a>
+                <a href="#products" class="hover:text-white transition-colors">Catalogue</a>
+                <a href="#contest" class="hover:text-white transition-colors">Lucky Draw</a>
+                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+            </div>
+
+            <!-- Action Buttons -->
             <div class="flex items-center gap-3">
-                <img src="logo.png" alt="Logo" class="w-10 md:w-12">
-                <p class="brand-font text-amber-900 font-black leading-none text-lg uppercase hidden sm:block">Kawad Swad</p>
-            </div>
-            <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-gray-500">
-                <a href="index.html" class="hover:text-amber-600 transition-colors">Home</a>
-                <a href="products.html" class="hover:text-amber-600 transition-colors">Catalogue</a>
-                <a href="bulk.html" class="hover:text-amber-600 transition-colors">Bulk Inquiry</a>
-                <a href="about.html" class="hover:text-amber-600 transition-colors">About Us</a>
-                <a href="gallery.html" class="hover:text-amber-600 transition-colors">Gallery</a>
-                <a href="contact.html" class="hover:text-amber-600 transition-colors">Contact</a>
-            </div>
-            <div class="flex items-center gap-2">
-                <a href="https://wa.me/919630976867" class="bg-green-600 text-white px-5 py-2.5 rounded-2xl text-[10px] font-black uppercase shadow-lg flex items-center gap-2">Order 💬</a>
-                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-amber-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 hover:border-brand-accent/50 text-white transition-all">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-brand-accent text-black font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center">2</span>
+                </button>
+                <a href="https://wa.me/919630976867" target="_blank" class="hidden sm:flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Order
+                </a>
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden lg:hidden mt-2 bg-white rounded-[2rem] p-6 shadow-2xl border border-amber-100">
-            <div class="grid grid-cols-2 gap-4 text-center text-[10px] font-black uppercase tracking-widest">
-                <a href="index.html" class="p-4 bg-amber-50 text-amber-900 rounded-2xl">Home</a>
-                <a href="products.html" class="p-4 bg-amber-50 text-amber-900 rounded-2xl">Catalogue</a>
-                <a href="bulk.html" class="p-4 bg-amber-50 text-amber-900 rounded-2xl">Bulk</a>
-                <a href="about.html" class="p-4 bg-amber-50 text-amber-900 rounded-2xl">About Us</a>
-                <a href="gallery.html" class="p-4 bg-amber-50 text-amber-900 rounded-2xl">Gallery</a>
-                <a href="contact.html" class="p-4 bg-amber-600 text-white rounded-2xl">Contact</a>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
+            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
+                <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-brand-accent flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</a>
+                <a href="#flash-sale" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="flame" class="w-4 h-4 text-brand-danger"></i> Flash Sale</a>
+                <a href="#products" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
+                <a href="#contest" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="gift" class="w-4 h-4"></i> Contest</a>
+                <a href="https://wa.me/919630976867" class="col-span-2 p-3 bg-brand-accent text-black rounded-xl text-center font-bold flex items-center justify-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> Direct WhatsApp Order
+                </a>
             </div>
         </div>
     </nav>
 
-    <header class="relative pt-48 pb-20 px-6 hero-bg overflow-hidden min-h-[90vh] flex items-center text-center lg:text-left">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full">
-            <div>
-                <h1 class="brand-font text-6xl md:text-8xl text-amber-900 mb-4 font-black leading-tight uppercase">Kawad Swad <br> <span class="text-amber-600">Udhyog</span></h1>
-                <p class="text-xl md:text-2xl text-gray-600 font-bold mb-6">"स्वाद भरा सफ़र"</p>
-                <p class="text-amber-700 font-black text-lg md:text-xl mb-10 bg-amber-100 inline-block px-4 py-1 rounded-lg">हर पैकेट पर जीतने का एक मौका 🎁</p>
-                <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-                    <a href="products.html" class="bg-amber-600 text-white px-8 py-4 rounded-2xl shadow-xl font-black uppercase text-[10px] tracking-widest">Explore Catalogue</a>
-                    <a href="#contest" class="bg-zinc-900 text-amber-400 px-8 py-4 rounded-2xl shadow-xl font-black uppercase text-[10px] tracking-widest">Har Packet Jeet 🔥</a>
+    <!-- 3. Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center pt-8 pb-16 px-6 overflow-hidden">
+        <!-- Radial Gradient Background Layer -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Text Content -->
+            <div class="lg:col-span-7 text-center lg:text-left">
+                <!-- Flash Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-semibold mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+                    <i data-lucide="zap" class="w-3.5 h-3.5"></i> Limited Time Flash Sale • Up to 30% Off
+                </div>
+
+                <h1 class="font-heading text-4xl sm:text-6xl xl:text-7xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
+                    Pure Tradition. <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-brand-accentLight to-amber-200">
+                        Unmatched Taste.
+                    </span>
+                </h1>
+
+                <p class="text-brand-textSecondary text-base sm:text-lg max-w-xl mb-8 leading-relaxed font-normal mx-auto lg:mx-0">
+                    Experience authentic Nimar Moong & Chana Papad handcrafted with zero rice fillers, premium spices, and rich heritage.
+                </p>
+
+                <!-- Action CTAs -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+                    <a href="#flash-sale" class="w-full sm:w-auto bg-brand-accent text-black font-heading font-bold px-8 py-4 rounded-xl text-sm hover:bg-brand-accentLight transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
+                        <i data-lucide="shopping-cart" class="w-4 h-4"></i> Shop Flash Deals Now
+                    </a>
+                    <a href="#contest" class="w-full sm:w-auto bg-brand-surface border border-white/15 text-white font-heading font-semibold px-8 py-4 rounded-xl text-sm hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="gift" class="w-4 h-4 text-brand-accent"></i> Enter Lucky Draw
+                    </a>
+                </div>
+
+                <!-- Trust Strip Micro Components -->
+                <div class="pt-8 border-t border-white/10 grid grid-cols-3 gap-4 text-left">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-lg bg-brand-surface border border-white/10 flex items-center justify-center text-brand-accent">
+                            <i data-lucide="shield-check" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">0% Rice</p>
+                            <p class="text-[10px] text-brand-textSecondary">100% Pure Pulse</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-lg bg-brand-surface border border-white/10 flex items-center justify-center text-brand-accent">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">FSSAI Certified</p>
+                            <p class="text-[10px] text-brand-textSecondary">Hygiene Tested</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-lg bg-brand-surface border border-white/10 flex items-center justify-center text-brand-accent">
+                            <i data-lucide="truck" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Fast Delivery</p>
+                            <p class="text-[10px] text-brand-textSecondary">Pan India Express</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="relative flex justify-center">
-                <img src="mascot3.png" alt="Mascot" class="w-full max-w-sm md:max-w-md animate-float drop-shadow-2xl">
-                <div class="absolute -bottom-5 -right-5 bg-white p-6 rounded-[2rem] shadow-2xl border border-amber-100 hidden md:block">
-                    <p class="text-[10px] font-black text-amber-600 uppercase mb-1">Purity Guaranteed</p>
-                    <p class="text-xl font-black text-gray-800 tracking-tighter uppercase">0% RICE USED</p>
+
+            <!-- Right Visual / Mascot Card -->
+            <div class="lg:col-span-5 flex justify-center relative">
+                <div class="relative w-full max-w-md">
+                    <div class="glass-card rounded-3xl p-6 border border-white/10 relative overflow-hidden text-center">
+                        <div class="absolute -top-12 -right-12 w-40 h-40 bg-brand-accent/20 rounded-full blur-2xl"></div>
+                        <img src="mascot3.png" alt="Kawad Swad Mascot" class="w-full h-auto object-contain animate-float drop-shadow-2xl my-4">
+                        
+                        <!-- Floating Badge 1 -->
+                        <div class="absolute top-6 left-6 glass-panel px-3 py-2 rounded-xl flex items-center gap-2 border border-brand-accent/30 shadow-2xl">
+                            <i data-lucide="star" class="w-4 h-4 fill-brand-accent text-brand-accent"></i>
+                            <span class="text-xs font-bold text-white">4.9 / 5.0 Rating</span>
+                        </div>
+
+                        <!-- Floating Badge 2 -->
+                        <div class="absolute bottom-6 right-6 glass-panel px-4 py-2.5 rounded-xl border border-white/10 text-left">
+                            <p class="text-[10px] uppercase tracking-wider text-brand-textSecondary font-semibold">Authentic Nimar Taste</p>
+                            <p class="text-xs font-bold text-brand-accent">Katargaon, MP</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <section class="py-20 bg-white border-y border-amber-100">
+    <!-- 4. Flash Sale Counter Section -->
+    <section id="flash-sale" class="py-12 bg-brand-bgSecondary border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="glass-panel rounded-3xl p-8 border border-brand-accent/20 relative overflow-hidden">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-brand-danger/10 border border-brand-danger/30 flex items-center justify-center text-brand-danger">
+                            <i data-lucide="flame" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-heading text-xl md:text-2xl font-bold text-white">Today's Flash Deals</h2>
+                            <p class="text-xs text-brand-textSecondary">Limited stock remaining. Offers end strictly at midnight!</p>
+                        </div>
+                    </div>
+
+                    <!-- Live Countdown Timer Component -->
+                    <div class="flex items-center gap-3">
+                        <div class="text-center">
+                            <div id="cd-hours" class="w-12 h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center font-heading text-lg font-bold text-brand-accent">04</div>
+                            <span class="text-[10px] text-brand-textSecondary uppercase mt-1 block">Hrs</span>
+                        </div>
+                        <span class="text-brand-accent font-bold text-xl">:</span>
+                        <div class="text-center">
+                            <div id="cd-mins" class="w-12 h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center font-heading text-lg font-bold text-brand-accent">42</div>
+                            <span class="text-[10px] text-brand-textSecondary uppercase mt-1 block">Mins</span>
+                        </div>
+                        <span class="text-brand-accent font-bold text-xl">:</span>
+                        <div class="text-center">
+                            <div id="cd-secs" class="w-12 h-12 rounded-xl bg-brand-surface border border-white/10 flex items-center justify-center font-heading text-lg font-bold text-brand-accent">18</div>
+                            <span class="text-[10px] text-brand-textSecondary uppercase mt-1 block">Secs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Product Grid / Catalog -->
+    <section id="products" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+            <div>
+                <span class="text-brand-accent font-semibold text-xs tracking-widest uppercase mb-2 block">Handcrafted Excellence</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-white">Our Premium Catalogue</h2>
+            </div>
+            <p class="text-brand-textSecondary text-xs md:text-sm max-w-md mt-3 md:mt-0">
+                100% Lentils • No Added Rice Flour • Traditional Sun-Dried Process
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Product Card 1 -->
+            <div class="glass-card rounded-3xl p-5 flex flex-col justify-between group transition-all duration-300">
+                <div>
+                    <!-- Product Top Header -->
+                    <div class="relative rounded-2xl bg-brand-surface/50 p-6 mb-5 overflow-hidden flex items-center justify-center min-h-[220px]">
+                        <span class="absolute top-3 left-3 bg-brand-danger text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Save 25%</span>
+                        <button onclick="triggerToast('Added to Wishlist!')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-brand-bg/60 border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition-colors">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        <img src="mascot3.png" alt="Special Moong Papad" class="w-36 h-36 object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="flex text-brand-accent"><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i></div>
+                        <span class="text-[11px] text-brand-textSecondary font-medium">(128 Reviews)</span>
+                    </div>
+
+                    <h3 class="font-heading text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">Special Moong Papad</h3>
+                    <p class="text-brand-textSecondary text-xs mb-4 line-clamp-2">Crispy traditional Moong papad with black pepper and authentic spices.</p>
+
+                    <!-- Stock Progress Indicator -->
+                    <div class="mb-5">
+                        <div class="flex justify-between text-[11px] mb-1.5 font-medium">
+                            <span class="text-brand-textSecondary">Available Stock</span>
+                            <span class="text-brand-accent font-bold">14 Left</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-brand-surface rounded-full overflow-hidden">
+                            <div class="bg-brand-accent h-full rounded-full" style="width: 28%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <!-- Pricing -->
+                    <div class="flex items-baseline gap-2 mb-4">
+                        <span class="font-heading text-2xl font-extrabold text-white">₹180</span>
+                        <span class="text-xs text-brand-textSecondary line-through">₹240</span>
+                        <span class="text-[11px] text-brand-success font-semibold">In Stock</span>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="addToCart('Special Moong Papad', 180)" class="w-full bg-brand-surface hover:bg-white/10 text-white font-heading font-semibold text-xs py-3 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-1.5">
+                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add
+                        </button>
+                        <a href="https://wa.me/919630976867?text=Hi,%20I%20want%20to%20order%20Special%20Moong%20Papad" target="_blank" class="w-full bg-brand-accent hover:bg-brand-accentLight text-black font-heading font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5">
+                            Buy Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="glass-card rounded-3xl p-5 flex flex-col justify-between group transition-all duration-300">
+                <div>
+                    <div class="relative rounded-2xl bg-brand-surface/50 p-6 mb-5 overflow-hidden flex items-center justify-center min-h-[220px]">
+                        <span class="absolute top-3 left-3 bg-brand-accent text-black text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Bestseller</span>
+                        <button onclick="triggerToast('Added to Wishlist!')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-brand-bg/60 border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition-colors">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        <img src="mascot3.png" alt="Special Chana Papad" class="w-36 h-36 object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="flex text-brand-accent"><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i></div>
+                        <span class="text-[11px] text-brand-textSecondary font-medium">(210 Reviews)</span>
+                    </div>
+
+                    <h3 class="font-heading text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">Special Chana Papad</h3>
+                    <p class="text-brand-textSecondary text-xs mb-4 line-clamp-2">Rich crunchy Chana dal papad seasoned with premium Hing and Black Salt.</p>
+
+                    <div class="mb-5">
+                        <div class="flex justify-between text-[11px] mb-1.5 font-medium">
+                            <span class="text-brand-textSecondary">Available Stock</span>
+                            <span class="text-brand-accent font-bold">8 Left</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-brand-surface rounded-full overflow-hidden">
+                            <div class="bg-brand-accent h-full rounded-full" style="width: 15%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-baseline gap-2 mb-4">
+                        <span class="font-heading text-2xl font-extrabold text-white">₹190</span>
+                        <span class="text-xs text-brand-textSecondary line-through">₹250</span>
+                        <span class="text-[11px] text-brand-success font-semibold">In Stock</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="addToCart('Special Chana Papad', 190)" class="w-full bg-brand-surface hover:bg-white/10 text-white font-heading font-semibold text-xs py-3 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-1.5">
+                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add
+                        </button>
+                        <a href="https://wa.me/919630976867?text=Hi,%20I%20want%20to%20order%20Special%20Chana%20Papad" target="_blank" class="w-full bg-brand-accent hover:bg-brand-accentLight text-black font-heading font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5">
+                            Buy Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 3 (Combo Deal) -->
+            <div class="glass-card rounded-3xl p-5 flex flex-col justify-between group transition-all duration-300 border-brand-accent/40">
+                <div>
+                    <div class="relative rounded-2xl bg-brand-surface/50 p-6 mb-5 overflow-hidden flex items-center justify-center min-h-[220px]">
+                        <span class="absolute top-3 left-3 bg-gradient-to-r from-brand-accent to-amber-200 text-black text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Value Pack</span>
+                        <button onclick="triggerToast('Added to Wishlist!')" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-brand-bg/60 border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition-colors">
+                            <i data-lucide="heart" class="w-4 h-4"></i>
+                        </button>
+                        <img src="mascot3.png" alt="Family Combo Pack" class="w-36 h-36 object-contain group-hover:scale-110 transition-transform duration-500">
+                    </div>
+
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="flex text-brand-accent"><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i></div>
+                        <span class="text-[11px] text-brand-textSecondary font-medium">(340 Reviews)</span>
+                    </div>
+
+                    <h3 class="font-heading text-lg font-bold text-white mb-2 group-hover:text-brand-accent transition-colors">Nimar Deluxe Combo (Pack of 2)</h3>
+                    <p class="text-brand-textSecondary text-xs mb-4 line-clamp-2">Includes 1x Moong Papad & 1x Chana Papad. Best value for authentic home taste.</p>
+
+                    <div class="mb-5">
+                        <div class="flex justify-between text-[11px] mb-1.5 font-medium">
+                            <span class="text-brand-textSecondary">Available Stock</span>
+                            <span class="text-brand-accent font-bold">22 Left</span>
+                        </div>
+                        <div class="w-full h-1.5 bg-brand-surface rounded-full overflow-hidden">
+                            <div class="bg-brand-accent h-full rounded-full" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-baseline gap-2 mb-4">
+                        <span class="font-heading text-2xl font-extrabold text-white">₹350</span>
+                        <span class="text-xs text-brand-textSecondary line-through">₹490</span>
+                        <span class="text-[11px] text-brand-success font-semibold">Save ₹140</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="addToCart('Nimar Deluxe Combo', 350)" class="w-full bg-brand-surface hover:bg-white/10 text-white font-heading font-semibold text-xs py-3 rounded-xl border border-white/10 transition-all flex items-center justify-center gap-1.5">
+                            <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add
+                        </button>
+                        <a href="https://wa.me/919630976867?text=Hi,%20I%20want%20to%20order%20Nimar%20Deluxe%20Combo" target="_blank" class="w-full bg-brand-accent hover:bg-brand-accentLight text-black font-heading font-bold text-xs py-3 rounded-xl transition-all flex items-center justify-center gap-1.5">
+                            Buy Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Marketplace Partner Section -->
+    <section class="py-16 bg-brand-bgSecondary border-y border-white/5">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <span class="text-amber-600 font-black text-[10px] uppercase tracking-[0.4em] mb-2 block">Available Online</span>
-            <h2 class="brand-font text-4xl md:text-6xl text-amber-900 font-black mb-12 uppercase">अब घर बैठे मंगवाएं</h2>
-            <div class="flex flex-wrap justify-center gap-8">
-                <a href="https://www.amazon.in/l/27943762031?me=ACMM6YLMRPEH1" target="_blank" class="bg-white p-8 rounded-3xl w-72 border border-zinc-100 hover:shadow-2xl transition-all group">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="h-6 mx-auto mb-6">
-                    <div class="bg-zinc-900 text-amber-500 py-3 rounded-xl font-black uppercase text-[10px]">Shop on Amazon 🛒</div>
+            <span class="text-brand-accent font-semibold text-xs tracking-widest uppercase mb-2 block">Direct Buying Partners</span>
+            <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-8">Also Available On Marketplaces</h2>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://www.amazon.in/l/27943762031?me=ACMM6YLMRPEH1" target="_blank" class="glass-card px-8 py-5 rounded-2xl flex items-center gap-4 hover:border-brand-accent/50 transition-all group">
+                    <i data-lucide="shopping-cart" class="w-6 h-6 text-brand-accent"></i>
+                    <div class="text-left">
+                        <p class="text-[10px] text-brand-textSecondary uppercase font-semibold">Official Store</p>
+                        <p class="font-heading font-bold text-white text-sm group-hover:text-brand-accent transition-colors">Amazon India</p>
+                    </div>
                 </a>
-                <a href="https://meesho.com/papad-combo-pack-of-2-moong--chana--homemade-type-jain-papad--crispy--fresh/p/er636t" target="_blank" class="bg-white p-8 rounded-3xl w-72 border border-zinc-100 hover:shadow-2xl transition-all group">
-                    <span class="text-pink-600 font-black text-3xl italic block mb-6">meesho</span>
-                    <div class="bg-pink-600 text-white py-3 rounded-xl font-black uppercase text-[10px]">Shop on Meesho 🛍️</div>
+
+                <a href="https://meesho.com/papad-combo-pack-of-2-moong--chana--homemade-type-jain-papad--crispy--fresh/p/er636t" target="_blank" class="glass-card px-8 py-5 rounded-2xl flex items-center gap-4 hover:border-pink-500/50 transition-all group">
+                    <i data-lucide="baggage-claim" class="w-6 h-6 text-pink-500"></i>
+                    <div class="text-left">
+                        <p class="text-[10px] text-brand-textSecondary uppercase font-semibold">Verified Seller</p>
+                        <p class="font-heading font-bold text-white text-sm group-hover:text-pink-400 transition-colors">Meesho Store</p>
+                    </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="contest" class="py-24 bg-zinc-900 text-white relative">
-        <div class="max-w-6xl mx-auto px-6 relative z-10">
-            <header class="text-center mb-16">
-                <h2 class="brand-font text-5xl md:text-7xl font-black mb-4 uppercase">स्वाद भी, इनाम भी!</h2>
-                <p class="text-amber-500 font-black uppercase tracking-widest text-xs">हर रविवार जीतें ₹50 तक का कैशबैक या फ्री पापड़</p>
-            </header>
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <div class="bg-zinc-800 p-8 rounded-[2.5rem] border border-zinc-700">
-                        <h4 class="font-black text-xl mb-2 uppercase">1. हर पैकेट खरीदें और पाएं मौका 🎯</h4>
-                        <p class="text-gray-400 text-sm">कवाड़ स्वाद का हर पैकेट आपको रविवार के लकी ड्रा में एक एंट्री दिलाता है।</p>
+    <!-- 7. Contest & Lucky Draw Section -->
+    <section id="contest" class="py-24 px-6 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto glass-panel rounded-3xl p-8 md:p-12 border border-brand-accent/30 relative">
+            <div class="absolute -top-24 -right-24 w-64 h-64 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-accent/10 text-brand-accent text-xs font-semibold mb-4">
+                        <i data-lucide="gift" class="w-4 h-4"></i> Weekly Lucky Draw Program
                     </div>
-                    <div class="bg-zinc-800 p-8 rounded-[2.5rem] border border-zinc-700">
-                        <h4 class="font-black text-xl mb-2 uppercase">2. जितनी खरीद, उतने मौके 🔥</h4>
-                        <p class="text-gray-400 text-sm">प्रोडक्ट के साथ अपनी फोटो खींचें और नीचे दिए गए फॉर्म में सबमिट करें।</p>
+                    <h2 class="font-heading text-3xl md:text-4xl font-extrabold text-white mb-4">
+                        Buy Any Pack & Win Up to ₹50 Cashback!
+                    </h2>
+                    <p class="text-brand-textSecondary text-sm mb-6 leading-relaxed">
+                        Every purchase of Kawad Swad Udhyog entitles you to a direct entry in our Sunday Lucky Draw. Simply upload your purchase bill or product image to register.
+                    </p>
+
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center gap-3 text-xs text-brand-textSecondary">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-accent"></i> 1 Purchase Packet = 1 Valid Draw Entry
+                        </div>
+                        <div class="flex items-center gap-3 text-xs text-brand-textSecondary">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-accent"></i> Winners announced every Sunday night
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://forms.gle/WW8RwThbZwBHkqicA" target="_blank" onclick="fireConfetti()" class="bg-brand-accent text-black font-heading font-bold px-6 py-3.5 rounded-xl text-xs hover:bg-brand-accentLight transition-all flex items-center gap-2">
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i> Submit Entry Form
+                        </a>
                     </div>
                 </div>
-                <div class="bg-amber-600 rounded-[3rem] p-10 text-center relative overflow-hidden group">
-                    <div class="absolute -top-10 -right-10 opacity-10 text-[10rem] font-black pointer-events-none">🎁</div>
-                    <div class="relative z-10">
-                        <p class="text-red-700 font-black text-[10px] mb-4 uppercase bg-white/30 inline-block px-3 py-1 rounded-full animate-pulse">⚠️ रविवार रात तक खरीद मान्य है</p>
-                        <h3 class="brand-font text-4xl text-amber-900 font-black mb-6 uppercase">Luck starts here!</h3>
-                        <a href="https://forms.gle/WW8RwThbZwBHkqicA" target="_blank" class="block w-full bg-zinc-900 text-amber-500 py-6 rounded-2xl font-black uppercase tracking-[0.2em] shadow-xl hover:scale-105 transition-all text-center">खरीद के बाद एंट्री करें 🎯</a>
+
+                <div class="lg:col-span-5">
+                    <div class="bg-brand-surface rounded-2xl p-6 border border-white/10 text-center">
+                        <span class="text-4xl mb-3 block">🎁</span>
+                        <h4 class="font-heading text-lg font-bold text-white mb-2">Weekly Grand Prize</h4>
+                        <p class="text-2xl font-extrabold text-brand-accent mb-4">₹50 Cash / Free Pack</p>
+                        <p class="text-[11px] text-brand-textSecondary leading-relaxed border-t border-white/10 pt-4">
+                            Valid for verified purchases from Katargaon stores, Amazon, Meesho or WhatsApp orders.
+                        </p>
                     </div>
                 </div>
             </div>
-            <div class="mt-20 p-8 border border-zinc-800 rounded-3xl bg-zinc-900/50">
-                <h5 class="text-amber-600 font-black text-[10px] uppercase tracking-[0.3em] mb-6 border-b border-zinc-800 pb-2 text-left">Terms & Conditions</h5>
-                <ul class="grid md:grid-cols-2 gap-x-8 gap-y-3 text-[11px] text-gray-500 font-medium text-left">
-                    <li>• यह कॉन्टेस्ट केवल कवाड़ स्वाद उद्योग के वास्तविक ग्राहकों के लिए है।</li>
-                    <li>• खरीद प्रमाण के साथ फॉर्म भरना अनिवार्य है।</li>
-                    <li>• एक खरीद पर एक एंट्री मान्य।</li>
-                    <li>• विजेताओं की घोषणा हर रविवार को होगी।</li>
+        </div>
+    </section>
+
+    <!-- 8. Interactive FAQ Accordion Section -->
+    <section id="faq" class="py-20 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <span class="text-brand-accent font-semibold text-xs tracking-widest uppercase mb-2 block">Clear Answers</span>
+            <h2 class="font-heading text-3xl font-bold text-white">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+                <button onclick="toggleAccordion('faq-1')" class="w-full p-5 text-left flex justify-between items-center font-heading font-semibold text-sm text-white hover:text-brand-accent transition-colors">
+                    <span>Is rice flour mixed in Kawad Swad Papad?</span>
+                    <i id="faq-1-icon" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                </button>
+                <div id="faq-1" class="hidden px-5 pb-5 text-xs text-brand-textSecondary leading-relaxed border-t border-white/5 pt-3">
+                    No! We strictly maintain 0% rice content. Our papad is made exclusively from pure high-grade lentils (Moong/Chana/Urad) and natural spices to preserve authentic regional taste and texture.
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+                <button onclick="toggleAccordion('faq-2')" class="w-full p-5 text-left flex justify-between items-center font-heading font-semibold text-sm text-white hover:text-brand-accent transition-colors">
+                    <span>How do I participate in the Sunday Lucky Draw?</span>
+                    <i id="faq-2-icon" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                </button>
+                <div id="faq-2" class="hidden px-5 pb-5 text-xs text-brand-textSecondary leading-relaxed border-t border-white/5 pt-3">
+                    Buy any packet of Kawad Swad Udhyog, take a picture of the product packet or invoice, and click the "Submit Entry Form" button to upload your entry.
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="glass-card rounded-2xl border border-white/10 overflow-hidden">
+                <button onclick="toggleAccordion('faq-3')" class="w-full p-5 text-left flex justify-between items-center font-heading font-semibold text-sm text-white hover:text-brand-accent transition-colors">
+                    <span>Do you offer bulk wholesale pricing for distributors?</span>
+                    <i id="faq-3-icon" data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                </button>
+                <div id="faq-3" class="hidden px-5 pb-5 text-xs text-brand-textSecondary leading-relaxed border-t border-white/5 pt-3">
+                    Yes! We supply bulk orders for weddings, retail stores, and regional distributors across India. Connect with us directly on WhatsApp at +91 9630976867.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Cart Drawer Component -->
+    <div id="cart-drawer" class="fixed inset-0 z-[250] bg-black/80 backdrop-blur-sm hidden transition-opacity duration-300">
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-brand-bgSecondary border-l border-white/10 p-6 flex flex-col justify-between overflow-y-auto">
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b border-white/10 mb-6">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-accent"></i>
+                        <h3 class="font-heading font-bold text-lg text-white">Your Cart</h3>
+                    </div>
+                    <button onclick="toggleCartDrawer()" class="text-brand-textSecondary hover:text-white">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- Dynamic Cart Items Container -->
+                <div id="cart-items-container" class="space-y-4">
+                    <!-- Cart items rendered by JS -->
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-6 mt-6">
+                <div class="flex justify-between text-sm mb-2">
+                    <span class="text-brand-textSecondary">Subtotal</span>
+                    <span id="cart-subtotal" class="font-bold text-white">₹0</span>
+                </div>
+                <div class="flex justify-between text-sm mb-6">
+                    <span class="text-brand-textSecondary">Delivery Charge</span>
+                    <span class="text-brand-success font-medium">Calculated at WhatsApp</span>
+                </div>
+                <a id="cart-checkout-btn" href="#" target="_blank" class="block w-full bg-brand-accent text-black font-heading font-bold py-4 rounded-xl text-center text-sm hover:bg-brand-accentLight transition-all">
+                    Proceed to Order on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. Footer -->
+    <footer class="bg-brand-bgSecondary border-t border-white/10 pt-16 pb-12 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div class="md:col-span-2">
+                <span class="font-heading text-xl font-bold text-white block mb-2">KAWAD SWAD UDHYOG</span>
+                <p class="text-brand-textSecondary text-xs leading-relaxed max-w-sm mb-6">
+                    Handcrafted premium food products from Katargaon, Nimar. Committed to purity, authentic recipes, and uncompromised quality.
+                </p>
+                <div class="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-brand-surface border border-white/10 text-xs">
+                    <span class="text-brand-accent font-semibold">FSSAI Lic No:</span>
+                    <span class="text-white font-mono">21425890001224</span>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="font-heading font-bold text-sm text-white mb-4">Quick Navigation</h4>
+                <ul class="space-y-2.5 text-xs text-brand-textSecondary">
+                    <li><a href="#flash-sale" class="hover:text-brand-accent transition-colors">Flash Deals</a></li>
+                    <li><a href="#products" class="hover:text-brand-accent transition-colors">Catalogue</a></li>
+                    <li><a href="#contest" class="hover:text-brand-accent transition-colors">Lucky Draw Contest</a></li>
+                    <li><a href="#faq" class="hover:text-brand-accent transition-colors">Frequently Asked Questions</a></li>
                 </ul>
             </div>
-        </div>
-    </section>
 
-    <footer class="bg-zinc-950 text-white py-24 px-6 text-center border-t-8 border-amber-600 uppercase">
-        <h4 class="brand-font text-5xl text-amber-500 mb-8 font-black">Kawad Swad Udhyog</h4>
-        <div class="max-w-md mx-auto mb-12 bg-zinc-900 p-8 rounded-[2.5rem] border border-zinc-800 shadow-inner">
-            <p class="text-xl font-bold mb-2">Katargaon, Nimar, MP</p>
-            <div class="mt-6 pt-6 border-t border-zinc-800 text-center">
-                <div class="inline-flex flex-col items-center px-6 py-3 rounded-2xl bg-zinc-900 border border-zinc-800">
-                    <p class="text-[8px] font-black uppercase tracking-[0.3em] text-amber-500 mb-1">FSSAI License No.</p>
-                    <p class="text-xs font-black text-white tracking-widest">21425890001224</p>
-                </div>
+            <div>
+                <h4 class="font-heading font-bold text-sm text-white mb-4">Contact & Location</h4>
+                <p class="text-xs text-brand-textSecondary mb-2">Katargaon, Nimar Region, Madhya Pradesh - India</p>
+                <p class="text-xs text-brand-textSecondary mb-4">Phone: +91 9630976867</p>
+                <a href="https://wa.me/919630976867" class="inline-flex items-center gap-2 text-xs text-brand-accent font-semibold hover:underline">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Customer Care
+                </a>
             </div>
         </div>
-        <div class="flex flex-wrap justify-center gap-6 mb-12 font-black text-[10px] tracking-widest">
-            <a href="tel:9630976867" class="bg-white text-zinc-900 px-10 py-4 rounded-2xl">📞 Call</a>
-            <a href="https://wa.me/919630976867" class="bg-green-600 text-white px-10 py-4 rounded-2xl">💬 WhatsApp</a>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-textSecondary gap-4">
+            <p>© 2026 KAWAD SWAD UDHYOG. All rights reserved.</p>
+            <p class="tracking-widest uppercase">Purity • Tradition • Authenticity</p>
         </div>
-        <p class="text-[10px] text-gray-700 tracking-[0.5em] italic">© 2026 KAWAD SWAD UDHYOG</p>
     </footer>
 
+    <!-- Interactive Scripts -->
     <script>
-        function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Cart State
+        let cart = [
+            { id: 1, name: "Special Moong Papad", price: 180, qty: 1 }
+        ];
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const badgeEl = document.getElementById('cart-badge');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `<p class="text-xs text-brand-textSecondary text-center py-8">Your cart is empty.</p>`;
+                subtotalEl.innerText = '₹0';
+                badgeEl.innerText = '0';
+                return;
+            }
+
+            let html = '';
+            let total = 0;
+            let totalQty = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price * item.qty;
+                totalQty += item.qty;
+                html += `
+                    <div class="flex items-center justify-between p-3 rounded-xl bg-brand-surface border border-white/5">
+                        <div>
+                            <p class="text-xs font-bold text-white">${item.name}</p>
+                            <p class="text-[11px] text-brand-accent font-semibold">₹${item.price} x ${item.qty}</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="changeQty(${index}, -1)" class="w-6 h-6 rounded-md bg-brand-bg text-white flex items-center justify-center text-xs border border-white/10">-</button>
+                            <span class="text-xs font-bold text-white">${item.qty}</span>
+                            <button onclick="changeQty(${index}, 1)" class="w-6 h-6 rounded-md bg-brand-bg text-white flex items-center justify-center text-xs border border-white/10">+</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            subtotalEl.innerText = `₹${total}`;
+            badgeEl.innerText = totalQty;
+
+            // Update WhatsApp Link
+            const whatsappMsg = encodeURIComponent(`Hi, I would like to place an order:\n` + cart.map(i => `- ${i.name} (${i.qty}x)`).join('\n') + `\nTotal: ₹${total}`);
+            document.getElementById('cart-checkout-btn').href = `https://wa.me/919630976867?text=${whatsappMsg}`;
+        }
+
+        function addToCart(name, price) {
+            const existing = cart.find(i => i.name === name);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ id: Date.now(), name, price, qty: 1 });
+            }
+            updateCartUI();
+            triggerToast(`Added "${name}" to cart!`);
+            toggleCartDrawer();
+        }
+
+        function changeQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById(`${id}-icon`);
+            el.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        function triggerToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'glass-panel text-white text-xs font-semibold px-4 py-3 rounded-xl border border-brand-accent/40 shadow-2xl flex items-center gap-2 animate-bounce';
+            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-brand-accent"></i> ${message}`;
+            container.appendChild(toast);
+            lucide.createIcons();
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        function fireConfetti() {
+            confetti({
+                particleCount: 80,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        // Countdown Timer Logic
+        function startCountdown() {
+            let h = 4, m = 42, s = 18;
+            setInterval(() => {
+                if (s > 0) s--;
+                else {
+                    s = 59;
+                    if (m > 0) m--;
+                    else {
+                        m = 59;
+                        if (h > 0) h--;
+                    }
+                }
+                document.getElementById('cd-hours').innerText = String(h).padStart(2, '0');
+                document.getElementById('cd-mins').innerText = String(m).padStart(2, '0');
+                document.getElementById('cd-secs').innerText = String(s).padStart(2, '0');
+            }, 1000);
+        }
+
+        // Initialize UI
+        updateCartUI();
+        startCountdown();
     </script>
 </body>
 </html>

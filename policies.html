@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Policies & Operational Terms | Kawad Swad Udhyog</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0B0B0B',
+                            bgSecondary: '#141414',
+                            surface: '#1C1C1C',
+                            accent: '#F59E0B',
+                            textPrimary: '#FFFFFF',
+                            textSecondary: '#CFCFCF'
+                        }
+                    },
+                    fontFamily: { heading: ['Sora', 'sans-serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; }
+        .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+    </style>
+</head>
+<body class="antialiased pb-20">
+
+    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent font-bold">K</div>
+                <span class="font-heading text-base font-bold text-white">KAWAD SWAD</span>
+            </a>
+            <a href="index.html" class="text-xs text-brand-textSecondary hover:text-white">← Return to Store</a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-6 py-10 space-y-10">
+        <div>
+            <span class="text-xs font-mono uppercase text-brand-accent font-bold">Trust & Transparency</span>
+            <h1 class="font-heading text-3xl font-extrabold text-white mt-1">Shipping, Returns & Legal Terms</h1>
+        </div>
+
+        <!-- Section 1: Shipping & Delivery -->
+        <section class="glass-panel rounded-3xl p-8 border border-white/10 space-y-4">
+            <h2 class="font-heading text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="truck" class="w-5 h-5 text-brand-accent"></i> Shipping & Delivery Policy
+            </h2>
+            <div class="text-xs text-brand-textSecondary space-y-2 leading-relaxed">
+                <p>• <strong>Dispatch Location:</strong> All orders are dispatched directly from our manufacturing unit in Katargaon, MP.</p>
+                <p>• <strong>Processing Time:</strong> Orders are packed in moisture-sealed barrier pouches within 24 business hours.</p>
+                <p>• <strong>Delivery Timelines:</strong> 2–4 business days for Madhya Pradesh & neighboring states; 3–6 business days for the rest of India.</p>
+                <p>• <strong>Free Shipping:</strong> Automatically applied at checkout for orders equal to or above ₹499.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Returns & Refunds -->
+        <section class="glass-panel rounded-3xl p-8 border border-white/10 space-y-4">
+            <h2 class="font-heading text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="rotate-ccw" class="w-5 h-5 text-brand-accent"></i> Returns & Damage Replacement Guarantee
+            </h2>
+            <div class="text-xs text-brand-textSecondary space-y-2 leading-relaxed">
+                <p>Due to the consumable nature of food products, we do not accept returns on opened packs. However, we offer an instant replacement or refund under the following conditions:</p>
+                <p>• <strong>Transit Damage / Package Compromise:</strong> If your package arrives damaged, take a quick photo/video and notify us on WhatsApp (+91 96309 76867) within 48 hours.</p>
+                <p>• <strong>Quality Assurance:</strong> If you receive an incorrect product variant, we will dispatch the replacement at zero extra charge.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: FSSAI & Quality Promise -->
+        <section class="glass-panel rounded-3xl p-8 border border-white/10 space-y-4">
+            <h2 class="font-heading text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="award" class="w-5 h-5 text-brand-accent"></i> Food Safety Compliance
+            </h2>
+            <div class="text-xs text-brand-textSecondary space-y-2 leading-relaxed">
+                <p>• <strong>FSSAI License:</strong> #21425890001224</p>
+                <p>• <strong>0% Rice Flour Promise:</strong> Made exclusively using pure Yellow Moong, Chana, and Urad pulse flour. No rice starch or cheap fillers are added.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>lucide.createIcons();</script>
+</body>
+</html>

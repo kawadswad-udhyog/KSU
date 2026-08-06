@@ -2,67 +2,74 @@
  * ============================================================================
  * KAWAD SWAD - Product Engine & Shop Controller (js/shop.js)
  * ============================================================================
- * Dynamically loads products from data/products.json, controls search, category,
- * price, and weight filtering, handles pagination, sorting, and dynamic detail pages.
+ * Handles single-fetch product database caching, dynamic rendering for shop.html
+ * and product-detail.html, category/weight/price filtering, and search.
  */
 
-let productsDatabase = [];
+let productsCache = null;
+
+/**
+ * Singleton database loader for products.json
+ */
+async function getProductsDatabase() {
+    if (productsCache) return productsCache;
+    try {
+        const response = await fetch('data/products.json');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        productsCache = await response.json();
+        return productsCache;
+    } catch (err) {
+        console.error('Failed to load products.json:', err);
+        return [];
+    }
+}
 
 document.addEventListener('DOMContentLoaded', async () => {
-    await loadProductsDatabase();
+    const products = await getProductsDatabase();
     
-    if (window.location.pathname.includes('shop.html')) {
-        initShopPage();
+    if (window.location.pathname.includes('shop.html') || document.querySelector('[data-shop-grid]')) {
+        initShopPage(products);
     } else if (window.location.pathname.includes('product-detail.html')) {
-        initProductDetailPage();
+        initProductDetailPage(products);
     }
 });
 
 /**
- * Single Source of Truth loader fetching data/products.json
+ * Initializes filtering, search, and dynamic grid rendering for shop.html
  */
-async function loadProductsDatabase() {
-    try {
-        const response = await fetch('data/products.json');
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-        productsDatabase = await response.json();
-    } catch (err) {
-        console.error('Failed to load products.json:', err);
-        productsDatabase = [];
-    }
-}
-
-/**
- * Initializes controls and rendering for shop.html
- */
-function initShopPage() {
+function initShopPage(products) {
     const productGrid = document.querySelector('[data-shop-grid]') || document.querySelector('.grid.grid-cols-1.sm\\:grid-cols-2');
     if (!productGrid) return;
 
     const searchInput = document.querySelector('input[placeholder*="Search"]');
     const categoryButtons = document.querySelectorAll('button[data-filter-category], section button');
+    const weightSelect = document.querySelector('select[data-filter-weight]');
     const sortSelect = document.querySelector('select[data-sort]') || document.querySelector('select');
 
     let currentCategory = 'all';
+    let currentWeight = 'all';
     let searchQuery = '';
     let currentSort = 'default';
 
     function renderGrid() {
-        let filtered = productsDatabase.filter(item => {
+        let filtered = products.filter(item => {
             const matchesCategory = (currentCategory === 'all') || (item.category.toLowerCase() === currentCategory);
+            const matchesWeight = (currentWeight === 'all') || (item.weight.toLowerCase() === currentWeight);
             const matchesSearch = item.name.toLowerCase().includes(searchQuery) ||
-                                  item.description.toLowerCase().includes(searchQuery) ||
+                                  item.variant.toLowerCase().includes(searchQuery) ||
                                   item.sku.toLowerCase().includes(searchQuery);
-            return matchesCategory && matchesSearch;
+            return matchesCategory && matchesWeight && matchesSearch;
         });
 
-        // Sorting
+        // Sort execution
         if (currentSort === 'name-asc') {
             filtered.sort((a, b) => a.name.localeCompare(b.name));
         } else if (currentSort === 'price-low') {
             filtered.sort((a, b) => (a.websitePrice || a.mrp) - (b.websitePrice || b.mrp));
         } else if (currentSort === 'price-high') {
             filtered.sort((a, b) => (b.websitePrice || b.mrp) - (a.websitePrice || a.mrp));
+        } else {
+            filtered.sort((a, b) => a.displayOrder - b.displayOrder);
         }
 
         productGrid.innerHTML = '';
@@ -71,7 +78,7 @@ function initShopPage() {
             productGrid.innerHTML = `
                 <div class="col-span-full py-12 text-center text-brand-muted">
                     <p class="font-serif text-lg mb-2">No matching products found.</p>
-                    <p class="text-xs">Try adjusting your search query or selecting a different category filter.</p>
+                    <p class="text-xs">Try adjusting your search query or filters.</p>
                 </div>
             `;
             return;
@@ -85,30 +92,34 @@ function initShopPage() {
             card.dataset.name = product.name;
             card.dataset.price = product.websitePrice || product.mrp || 0;
             card.dataset.category = product.category;
+            card.dataset.weight = product.weight;
+            card.dataset.shipping = product.shipping || '';
 
-            const displayPrice = product.websitePrice 
+            const priceDisplay = product.websitePrice 
                 ? `₹${product.websitePrice} <span class="text-stone-400 line-through text-[11px] ml-1">₹${product.mrp}</span>`
-                : `₹${product.mrp}`;
+                : (product.mrp ? `₹${product.mrp}` : 'Enquire for Price');
+
+            const shippingDisplay = product.shipping === 'Free' 
+                ? '<span class="text-[10px] text-green-700 bg-green-100 px-2 py-0.5 rounded-xs font-medium">Free Shipping</span>'
+                : (product.shipping ? `<span class="text-[10px] text-stone-500 bg-stone-100 px-2 py-0.5 rounded-xs font-medium">+₹${product.shipping} Shipping</span>` : '');
 
             card.innerHTML = `
                 <div class="aspect-square bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform overflow-hidden">
-                    ${product.image && product.image.endsWith('.jpg') ? `<img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover" onerror="this.outerHTML='<span class=\\'text-xs font-mono text-brand-muted\\'>[${product.sku}]</span>'">` : `<span class="text-xs font-mono text-brand-muted">[${product.sku}]</span>`}
+                    ${product.image ? `<img src="${product.image}" alt="${product.imageAlt || product.name}" class="w-full h-full object-cover">` : `<span class="text-xs font-mono text-brand-muted">[${product.sku}]</span>`}
                 </div>
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold">${product.category}</span>
                     <span class="text-[10px] font-mono text-brand-muted">${product.weight}</span>
                 </div>
                 <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">${product.name}</h3>
-                <p class="text-xs text-brand-muted mb-3 flex-grow line-clamp-2">${product.shortDescription}</p>
+                <p class="text-xs text-brand-muted mb-3 flex-grow line-clamp-2">${product.shortDescription || product.variant + ' variant'}</p>
                 <div class="flex items-center justify-between mb-4">
-                    <span class="text-sm font-semibold text-brand-dark font-mono">${displayPrice}</span>
-                    <span class="text-[10px] ${product.shipping === 'Free' ? 'text-green-700 bg-green-100' : 'text-stone-500 bg-stone-100'} px-2 py-0.5 rounded-xs font-medium">
-                        ${product.shipping === 'Free' ? 'Free Shipping' : `+₹${product.shipping} Shipping`}
-                    </span>
+                    <span class="text-sm font-semibold text-brand-dark font-mono">${priceDisplay}</span>
+                    ${shippingDisplay}
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     <a href="product-detail.html?sku=${product.sku}" class="text-center py-2 px-2 border border-brand-dark text-brand-dark text-[11px] font-semibold uppercase tracking-wider hover:bg-brand-dark hover:text-white transition-colors">Details</a>
-                    <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${product.websitePrice || product.mrp}" data-weight="${product.weight}" class="py-2 px-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Add</button>
+                    <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${product.websitePrice || product.mrp || 0}" data-weight="${product.weight}" data-shipping="${product.shipping || ''}" class="py-2 px-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Add</button>
                 </div>
             `;
             productGrid.appendChild(card);
@@ -144,6 +155,13 @@ function initShopPage() {
         });
     });
 
+    if (weightSelect) {
+        weightSelect.addEventListener('change', (e) => {
+            currentWeight = e.target.value.toLowerCase().trim();
+            renderGrid();
+        });
+    }
+
     if (sortSelect) {
         sortSelect.addEventListener('change', (e) => {
             const val = e.target.value.toLowerCase();
@@ -160,20 +178,20 @@ function initShopPage() {
 }
 
 /**
- * Initializes dynamic data rendering on product-detail.html
+ * Initializes data population for product-detail.html using URL SKU param
  */
-function initProductDetailPage() {
+function initProductDetailPage(products) {
     const urlParams = new URLSearchParams(window.location.search);
     const sku = urlParams.get('sku') || 'KS-MMP-200';
 
-    const product = productsDatabase.find(p => p.sku === sku) || productsDatabase[0];
+    const product = products.find(p => p.sku === sku) || products[0];
     if (!product) return;
 
-    // Update DOM elements
+    // Populate DOM elements
     const breadcrumbName = document.querySelector('[data-detail="breadcrumb-name"]');
     const categoryBadge = document.querySelector('[data-detail="category"]');
     const titleEl = document.querySelector('[data-detail="title"]');
-    const shortDescEl = document.querySelector('[data-detail="short-desc"]');
+    const descEl = document.querySelector('[data-detail="description"]');
     const codeEl = document.querySelector('[data-detail="code"]');
     const mrpEl = document.querySelector('[data-detail="mrp"]');
     const priceEl = document.querySelector('[data-detail="price"]');
@@ -181,18 +199,30 @@ function initProductDetailPage() {
     const ingredientsList = document.querySelector('[data-detail="ingredients"]');
     const dietBadge = document.querySelector('[data-detail="diet-type"]');
     const actionContainer = document.querySelector('[data-detail="actions"]');
+    const imageContainer = document.querySelector('[data-detail="image-container"]');
 
-    if (breadcrumbName) breadcrumbName.textContent = product.name + ' ' + product.weight;
+    if (breadcrumbName) breadcrumbName.textContent = `${product.name} ${product.weight}`;
     if (categoryBadge) categoryBadge.textContent = product.category;
     if (titleEl) titleEl.textContent = `${product.name} (${product.weight})`;
-    if (shortDescEl) shortDescEl.textContent = product.description || product.shortDescription;
+    if (descEl) descEl.textContent = product.description || product.shortDescription;
     if (codeEl) codeEl.textContent = product.sku;
-    
+
     if (mrpEl) mrpEl.textContent = product.mrp ? `₹${product.mrp}` : '';
     if (priceEl) priceEl.textContent = product.websitePrice ? `₹${product.websitePrice}` : (product.mrp ? `₹${product.mrp}` : 'Enquire for Price');
     if (shippingEl) shippingEl.textContent = product.shipping === 'Free' ? 'Free Shipping' : (product.shipping ? `+₹${product.shipping} Shipping` : '');
 
     if (dietBadge) dietBadge.textContent = product.dietType;
+
+    if (imageContainer) {
+        if (product.image) {
+            imageContainer.innerHTML = `<img src="${product.image}" alt="${product.imageAlt || product.name}" class="w-full h-full object-cover">`;
+        } else {
+            imageContainer.innerHTML = `
+                <svg class="w-20 h-20 text-stone-400/80 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">${product.sku}</span>
+            `;
+        }
+    }
 
     if (ingredientsList && product.ingredients) {
         ingredientsList.innerHTML = product.ingredients.map(ing => `
@@ -205,7 +235,7 @@ function initProductDetailPage() {
 
     if (actionContainer) {
         actionContainer.innerHTML = `
-            <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${product.websitePrice || product.mrp || 0}" data-weight="${product.weight}" class="px-8 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm">
+            <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${product.websitePrice || product.mrp || 0}" data-weight="${product.weight}" data-shipping="${product.shipping || ''}" class="px-8 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm">
                 Add To Cart
             </button>
             <a href="contact.html?enquiry=${product.sku}" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">

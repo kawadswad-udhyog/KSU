@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R5YNWTG2MC');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore full catalogue of authentic Kawad Swad Udhyog Nimar Papads - Moong, Chana, and Urad varieties.">
+    <meta name="description" content="Browse full catalogue of authentic Kawad Swad Udhyog Nimar Papads - 100% pulse flour, 0% rice fillers direct from Katargaon, MP.">
     <title>Full Product Catalogue | Kawad Swad Udhyog</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -12,63 +23,94 @@
                 extend: {
                     colors: {
                         brand: {
-                            bg: '#0B0B0B', bgSecondary: '#141414', surface: '#1C1C1C',
-                            accent: '#F59E0B', accentLight: '#FFD166', danger: '#EF4444',
-                            success: '#22C55E', textPrimary: '#FFFFFF', textSecondary: '#CFCFCF'
+                            bg: '#0B0B0B',
+                            bgSecondary: '#141414',
+                            surface: '#1C1C1C',
+                            accent: '#F59E0B',
+                            accentLight: '#FFD166',
+                            danger: '#EF4444',
+                            success: '#22C55E',
+                            textPrimary: '#FFFFFF',
+                            textSecondary: '#CFCFCF'
                         }
                     },
-                    fontFamily: { heading: ['Sora', 'sans-serif'], body: ['Inter', 'sans-serif'] }
+                    fontFamily: {
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; }
-        .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
+        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Sora', sans-serif; }
+        .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
         .glass-card:hover { border-color: rgba(245, 158, 11, 0.35); box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.18); }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0B0B; }
+        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
     </style>
 </head>
-<body class="antialiased pb-12">
+<body class="antialiased selection:bg-brand-accent selection:text-black pb-12">
+
+    <!-- Toast Notification Hub -->
     <div id="toast-hub" class="fixed bottom-6 right-6 z-[400] flex flex-col gap-3 pointer-events-none"></div>
 
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 backdrop-blur-md">
         <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent font-bold">K</div>
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all duration-300">
+                    <span class="font-heading font-extrabold text-xl">K</span>
+                </div>
                 <div>
-                    <span class="font-heading text-lg font-bold text-white block leading-none">KAWAD SWAD</span>
+                    <span class="font-heading text-lg font-bold tracking-tight text-white block leading-none">KAWAD SWAD</span>
                     <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">FULL CATALOGUE</span>
                 </div>
             </a>
+
             <div class="hidden lg:flex items-center gap-8 text-xs uppercase tracking-wider text-brand-textSecondary font-medium">
                 <a href="index.html" class="hover:text-brand-accent transition">Home</a>
-                <a href="products.html" class="text-brand-accent font-bold">Catalogue</a>
-                <a href="flash-sale.html" class="hover:text-brand-accent transition">Flash Sale</a>
+                <a href="products.html" class="text-brand-accent font-bold">Products</a>
+                <a href="flash-sale.html" class="hover:text-brand-accent transition flex items-center gap-1 text-brand-danger font-bold"><i data-lucide="zap" class="w-3.5 h-3.5 fill-brand-danger"></i> Flash Sale</a>
                 <a href="about.html" class="hover:text-brand-accent transition">Our Story</a>
                 <a href="reviews.html" class="hover:text-brand-accent transition">Reviews</a>
+                <a href="distributor.html" class="hover:text-brand-accent transition text-brand-accent font-bold">Distributor Hub</a>
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-pink-400 hover:text-pink-300 transition">Meesho Store ↗</a>
             </div>
+
             <div class="flex items-center gap-3">
-                <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
+                <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-brand-accent text-black font-bold hover:bg-brand-accentLight transition flex items-center gap-2">
                     <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-extrabold text-[10px] rounded-full flex items-center justify-center">0</span>
-                </a>
+                    <span id="cart-badge" class="w-5 h-5 bg-black text-brand-accent font-extrabold text-[10px] rounded-full flex items-center justify-center">0</span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Catalogue Header -->
+    <!-- Main Catalogue Section -->
     <main class="max-w-7xl mx-auto px-6 py-8 space-y-6">
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-4">
             <div>
                 <span class="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold">100% Pulse Dough • Katargaon Unit</span>
-                <h1 class="font-heading text-3xl font-extrabold text-white">Explore Full Collection</h1>
+                <h1 class="font-heading text-3xl font-extrabold text-white">Full Product Catalogue</h1>
             </div>
+            
             <div class="flex flex-wrap items-center gap-2" id="category-pills">
-                <button onclick="filterCategory('all', this)" class="text-xs font-heading bg-brand-accent text-black font-bold px-4 py-2 rounded-xl">All Flavors</button>
+                <button onclick="filterCategory('all', this)" class="chip-active text-xs font-heading bg-brand-accent text-black font-bold px-4 py-2 rounded-xl">All Flavors</button>
                 <button onclick="filterCategory('moong', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Moong Range</button>
                 <button onclick="filterCategory('chana', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Chana Range</button>
                 <button onclick="filterCategory('urad', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Urad Range</button>
@@ -78,29 +120,123 @@
         <div id="products-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </main>
 
+    <!-- Slide-Out Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-[300] bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div id="cart-panel" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-brand-surface border-l border-white/10 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300">
+            <div class="space-y-4">
+                <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                    <h3 class="font-heading text-lg font-bold text-white flex items-center gap-2">
+                        <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-accent"></i> Your Order Cart
+                    </h3>
+                    <button onclick="toggleCartDrawer()" class="text-brand-textSecondary hover:text-white p-1">✕</button>
+                </div>
+                <div id="cart-items" class="space-y-3 max-h-[50vh] overflow-y-auto pr-1"></div>
+            </div>
+
+            <div class="border-t border-white/10 pt-4 space-y-3">
+                <div class="space-y-1 text-xs">
+                    <div class="flex justify-between text-brand-textSecondary">
+                        <span>Items Subtotal:</span>
+                        <span id="cart-subtotal" class="font-mono text-white font-bold">₹0</span>
+                    </div>
+                    <div class="flex justify-between items-baseline pt-2 border-t border-white/5 text-sm">
+                        <span class="font-bold text-white">Total Amount:</span>
+                        <span id="cart-total" class="font-heading text-xl font-extrabold text-brand-accent">₹0</span>
+                    </div>
+                </div>
+                <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-extrabold py-4 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
+                    Proceed to Express Checkout <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
         lucide.createIcons();
+
         const KAWAD_PRODUCTS = [
+            { id: 'KS-MMP-200', title: 'Moong Master Papad', weight: '200g', mrp: 110, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'MMP.png' },
             { id: 'KS-MMP-500', title: 'Moong Master Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'MMP.png' },
+            { id: 'KS-MMP-1000', title: 'Moong Master Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'MMP.png' },
             { id: 'KS-CKM-500', title: 'Chana Khata Mitha Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'CCPKM.png' },
             { id: 'KS-UGP-1000', title: 'Urad Guru Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'UGP.png' }
         ];
 
         let cart = JSON.parse(localStorage.getItem('ks_cart')) || [];
-        function saveCart() { localStorage.setItem('ks_cart', JSON.stringify(cart)); }
+
+        function saveCart() {
+            localStorage.setItem('ks_cart', JSON.stringify(cart));
+        }
 
         function addToCartBySku(skuId) {
             const p = KAWAD_PRODUCTS.find(item => item.id === skuId);
             if (!p) return;
             const existing = cart.find(i => i.id === p.id);
-            if (existing) { existing.qty++; } else { cart.push({ ...p, qty: 1 }); }
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...p, qty: 1 });
+            }
             saveCart();
-            updateCartBadge();
+            showToast(`Added ${p.title} to cart!`);
+            renderCart();
+            toggleCartDrawer();
         }
 
-        function updateCartBadge() {
-            let count = cart.reduce((acc, i) => acc + i.qty, 0);
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const panel = document.getElementById('cart-panel');
+            if (drawer.classList.contains('opacity-0')) {
+                drawer.classList.remove('opacity-0', 'pointer-events-none');
+                panel.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('opacity-0', 'pointer-events-none');
+                panel.classList.add('translate-x-full');
+            }
+            renderCart();
+        }
+
+        function renderCart() {
+            const itemsContainer = document.getElementById('cart-items');
+            itemsContainer.innerHTML = '';
+            let subtotal = 0;
+            let count = 0;
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = `<p class="text-xs text-brand-textSecondary text-center py-8">Your cart is empty.</p>`;
+            } else {
+                cart.forEach((item, index) => {
+                    subtotal += item.price * item.qty;
+                    count += item.qty;
+                    itemsContainer.innerHTML += `
+                        <div class="glass-card p-3 rounded-xl flex items-center gap-3 border border-white/10">
+                            <img src="${item.img}" class="w-12 h-12 object-contain bg-brand-surface rounded-lg p-1" onerror="this.src='logo.png'">
+                            <div class="flex-1">
+                                <h4 class="text-xs font-bold text-white">${item.title}</h4>
+                                <span class="text-[10px] text-brand-textSecondary block">${item.weight}</span>
+                                <span class="text-xs text-brand-accent font-bold">₹${item.price}</span>
+                            </div>
+                            <div class="flex items-center gap-2 bg-brand-surface border border-white/10 rounded-lg px-2 py-1">
+                                <button onclick="updateQty(${index}, -1)" class="text-xs text-brand-textSecondary hover:text-white">-</button>
+                                <span class="text-xs font-bold text-white">${item.qty}</span>
+                                <button onclick="updateQty(${index}, 1)" class="text-xs text-brand-textSecondary hover:text-white">+</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
             document.getElementById('cart-badge').innerText = count;
+            document.getElementById('cart-subtotal').innerText = `₹${subtotal}`;
+            document.getElementById('cart-total').innerText = `₹${subtotal}`;
+            lucide.createIcons();
+        }
+
+        function updateQty(index, change) {
+            cart[index].qty += change;
+            if (cart[index].qty <= 0) cart.splice(index, 1);
+            saveCart();
+            renderCart();
         }
 
         function renderStoreCatalog(categoryFilter = 'all') {
@@ -109,13 +245,14 @@
             grid.innerHTML = filtered.map((p) => `
                 <div class="glass-card rounded-3xl p-5 border border-white/10 space-y-3">
                     <img src="${p.img}" class="w-full h-40 object-contain mx-auto" onerror="this.src='logo.png'">
+                    <span class="text-[10px] text-brand-accent uppercase font-bold">${p.dal} • ${p.spice}</span>
                     <h3 class="font-heading text-base font-bold text-white">${p.title}</h3>
                     <div class="flex justify-between items-center">
                         <span class="font-heading text-xl font-extrabold text-white">₹${p.price}</span>
                         <span class="text-xs text-brand-textSecondary">${p.weight}</span>
                     </div>
-                    <button onclick="addToCartBySku('${p.id}')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition">
-                        Add To Cart
+                    <button onclick="addToCartBySku('${p.id}')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add To Cart
                     </button>
                 </div>
             `).join('');
@@ -131,9 +268,18 @@
             renderStoreCatalog(cat);
         }
 
+        function showToast(msg) {
+            const hub = document.getElementById('toast-hub');
+            const toast = document.createElement('div');
+            toast.className = 'glass-panel px-4 py-3 rounded-xl border border-brand-accent/40 text-xs font-bold text-white shadow-xl animate-bounce';
+            toast.innerText = msg;
+            hub.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             renderStoreCatalog('all');
-            updateCartBadge();
+            renderCart();
         });
     </script>
 </body>

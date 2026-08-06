@@ -3,93 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products | KAWAD SWAD</title>
-    <meta name="description" content="Explore the complete range of KAWAD SWAD premium Jain papads including Moong, Chana, Urad and Papad Masala.">
-    
+    <title>Our Product Range | KAWAD SWAD Premium Jain Papads</title>
+    <meta name="description" content="Explore KAWAD SWAD's authentic Jain papad product catalogue including Moong, Chana, Urad, and Papad Masala varieties in 200g, 500g and 1000g sizes.">
+    <meta name="keywords" content="KAWAD SWAD Products, Moong Master Papad, Chana Chotu Papad, Urad Guru Papad, Papad Masala, Jain Papad Catalogue">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kawadswad.com/products.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kawadswad.com/products.html">
+    <meta property="og:title" content="Our Product Range | KAWAD SWAD Premium Jain Papads">
+    <meta property="og:description" content="Discover our complete range of authentic Jain papads and seasonings crafted with premium ingredients.">
+    <meta property="og:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="KAWAD SWAD">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Product Range | KAWAD SWAD Premium Jain Papads">
+    <meta name="twitter:description" content="Discover our complete range of authentic Jain papads and seasonings crafted with premium ingredients.">
+    <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#C5A059">
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- CSS Animation Utilities -->
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+
+    <!-- JSON-LD Structured Data: WebPage & BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Products - KAWAD SWAD",
+      "url": "https://kawadswad.com/products.html",
+      "description": "Explore the complete range of KAWAD SWAD premium Jain papads."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://kawadswad.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://kawadswad.com/products.html"
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- GLOBAL HEADER -->
-    <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">
-                    KAWAD SWAD
-                </span>
-            </a>
-
-            <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide">
-                <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
-                <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
-                <a href="products.html" class="text-brand-gold font-semibold transition-colors">Products</a>
-                <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
-                <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
-                <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
-                <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
-                <a href="blog.html" class="hover:text-brand-gold transition-colors">Blog</a>
-                <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
-            </nav>
-
-            <div class="flex items-center space-x-4">
-                <a href="products.html" class="text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Search">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                </a>
-                <a href="cart.html" class="relative text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Cart">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                    <span class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
-                </a>
-                <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                </button>
-            </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden lg:hidden bg-brand-cream border-b border-brand-gold/20 px-4 pt-2 pb-6 space-y-3 text-sm font-medium">
-            <a href="index.html" class="block py-2 hover:text-brand-gold transition-colors">Home</a>
-            <a href="about.html" class="block py-2 hover:text-brand-gold transition-colors">About</a>
-            <a href="products.html" class="block py-2 text-brand-gold font-semibold">Products</a>
-            <a href="shop.html" class="block py-2 hover:text-brand-gold transition-colors">Shop</a>
-            <a href="business.html" class="block py-2 hover:text-brand-gold transition-colors">Business</a>
-            <a href="manufacturing.html" class="block py-2 hover:text-brand-gold transition-colors">Manufacturing</a>
-            <a href="gallery.html" class="block py-2 hover:text-brand-gold transition-colors">Gallery</a>
-            <a href="blog.html" class="block py-2 hover:text-brand-gold transition-colors">Blog</a>
-            <a href="contact.html" class="block py-2 hover:text-brand-gold transition-colors">Contact</a>
-        </div>
-    </header>
+    <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO BANNER -->
@@ -175,17 +163,8 @@
                     <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Complete Catalogue</h2>
                     <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    <!-- Repeated Product Cards mapped to product-detail.html -->
-                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform">
-                            <span class="text-xs font-mono text-brand-muted">[product-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Moong Master Papad</h3>
-                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable product description]</p>
-                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">View Details</a>
-                    </div>
-                    <!-- Additional grid items retained according to specification -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" data-shop-grid>
+                    <!-- Injected dynamically from data/products.json -->
                 </div>
             </div>
         </section>
@@ -203,71 +182,11 @@
         </section>
     </main>
 
-    <!-- GLOBAL FOOTER -->
-    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-                <div class="space-y-4 lg:col-span-2">
-                    <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
-                    <p class="text-xs text-stone-500 leading-relaxed max-w-sm">
-                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar. Committed to quality, hygiene and authentic flavors.
-                    </p>
-                    <div class="pt-2 text-xs space-y-1 text-stone-500 font-mono">
-                        <p>FSSAI Lic No: [fssai-number-placeholder]</p>
-                        <p>GSTIN: [gst-number-placeholder]</p>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
-                    <ul class="space-y-2.5 text-xs">
-                        <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
-                        <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
-                        <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
-                        <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
-                        <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Media</h4>
-                    <ul class="space-y-2.5 text-xs">
-                        <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Solutions</a></li>
-                        <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
-                        <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
-                        <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Blog &amp; Recipes</a></li>
-                        <li><a href="reviews.html" class="hover:text-brand-gold transition-colors">Reviews</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Support &amp; Legal</h4>
-                    <ul class="space-y-2.5 text-xs">
-                        <li><a href="faq.html" class="hover:text-brand-gold transition-colors">FAQ</a></li>
-                        <li><a href="policies.html" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
-                        <li><a href="policies.html#terms-and-conditions" class="hover:text-brand-gold transition-colors">Terms &amp; Conditions</a></li>
-                        <li><a href="policies.html#shipping-policy" class="hover:text-brand-gold transition-colors">Shipping &amp; Returns</a></li>
-                    </ul>
-                </div>
-            </div>
+    <footer-component></footer-component>
 
-            <div class="mt-12 pt-8 border-t border-stone-900 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                <div>
-                    <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Subscribe to Our Newsletter</h5>
-                    <p class="text-xs text-stone-500 mt-1">Receive authentic Jain recipes and business updates directly.</p>
-                </div>
-                <form onsubmit="event.preventDefault();" class="flex gap-2">
-                    <input type="email" placeholder="Enter your email" class="bg-stone-900 border border-stone-800 rounded-sm px-4 py-2 text-xs text-white focus:outline-none focus:border-brand-gold flex-grow">
-                    <button type="submit" class="px-6 py-2 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors">Subscribe</button>
-                </form>
-            </div>
-
-            <div class="mt-12 pt-8 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-600 gap-4">
-                <p>&copy; KAWAD SWAD. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="https://wa.me/[whatsapp-placeholder]" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">WhatsApp</a>
-                    <a href="contact.html" class="hover:text-brand-gold transition-colors">Support</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shop.js"></script>
 </body>
 </html>

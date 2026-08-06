@@ -42,6 +42,9 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Razorpay Standard Checkout SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; }
         h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Sora', sans-serif; }
@@ -135,8 +138,8 @@
                                     <i data-lucide="qr-code" class="w-4 h-4"></i>
                                 </div>
                                 <div>
-                                    <span class="font-bold text-xs text-white block">Instant UPI / QR</span>
-                                    <span class="text-[10px] text-brand-success font-semibold">Extra 5% Discount</span>
+                                    <span class="font-bold text-xs text-white block">Instant UPI / Cards</span>
+                                    <span class="text-[10px] text-brand-success font-semibold">Razorpay Secure</span>
                                 </div>
                             </div>
                             <input type="radio" name="payment" value="UPI" checked class="accent-brand-accent">
@@ -166,7 +169,7 @@
                 <div class="glass-panel rounded-3xl p-6 space-y-6 border border-brand-accent/30">
                     <h3 class="font-heading font-bold text-base text-white border-b border-white/10 pb-3 flex justify-between items-center">
                         <span>Order Summary</span>
-                        <a href="index.html#catalogue" class="text-xs font-normal text-brand-accent hover:underline">Edit Items</a>
+                        <a href="products.html" class="text-xs font-normal text-brand-accent hover:underline">Edit Items</a>
                     </h3>
 
                     <!-- Dynamic Cart Item Summary List -->
@@ -271,7 +274,6 @@
     <script>
         lucide.createIcons();
 
-        // 1. DYNAMIC CART PARSER FROM LOCALSTORAGE
         let cart = JSON.parse(localStorage.getItem('ks_cart')) || [];
         let discountApplied = false;
         let selectedPaymentMode = 'UPI';
@@ -292,7 +294,6 @@
                 if (item.shipping > 0) shipping += item.shipping;
             });
 
-            // Free shipping if subtotal >= 499 or cart is empty
             if (subtotal >= 499 || subtotal === 0) shipping = 0;
 
             let discount = discountApplied ? Math.round(subtotal * 0.10) : 0;
@@ -309,14 +310,14 @@
                 container.innerHTML = `
                     <div class="text-center py-6 text-brand-textSecondary text-xs">
                         <p>Your shopping cart is empty.</p>
-                        <a href="index.html#catalogue" class="text-brand-accent underline font-bold mt-2 block">Go to Shop Catalogue</a>
+                        <a href="products.html" class="text-brand-accent underline font-bold mt-2 block">Go to Shop Catalogue</a>
                     </div>
                 `;
             } else {
                 cart.forEach(item => {
                     container.innerHTML += `
                         <div class="flex items-center gap-4">
-                            <img src="${item.img}" class="w-12 h-12 object-contain rounded-xl bg-brand-surface p-1 border border-white/10" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
+                            <img src="${item.img}" class="w-12 h-12 object-contain rounded-xl bg-brand-surface p-1 border border-white/10" onerror="this.src='logo.png'">
                             <div class="flex-1">
                                 <h4 class="font-heading text-xs font-bold text-white">${item.title}</h4>
                                 <span class="text-[10px] text-brand-textSecondary font-mono block">Qty: ${item.qty} • Pack: ${item.weight}</span>
@@ -357,7 +358,7 @@
         function placeOrder() {
             if (cart.length === 0) {
                 alert('Your cart is empty! Please add products before checking out.');
-                window.location.href = 'index.html#catalogue';
+                window.location.href = 'products.html';
                 return;
             }
 
@@ -373,25 +374,47 @@
             const city = document.getElementById('customer-city').value.trim();
             const pincode = document.getElementById('customer-pincode').value.trim();
 
-            const orderNum = 'KSU-' + Math.floor(10000 + Math.random() * 90000);
             const { grandTotal } = calculateTotals();
+            const orderNum = 'KSU-' + Math.floor(10000 + Math.random() * 90000);
 
-            // Construct dynamic WhatsApp Order summary string
+            if (selectedPaymentMode === 'COD') {
+                finalizeOrder(orderNum, name, phone, address, city, pincode, 'Cash on Delivery', 'PENDING');
+                return;
+            }
+
+            const options = {
+                "key": "rzp_test_YOUR_KEY_HERE",
+                "amount": grandTotal * 100,
+                "currency": "INR",
+                "name": "Kawad Swad Udhyog",
+                "description": "Order #" + orderNum,
+                "image": "logo.png",
+                "prefill": { "name": name, "contact": phone },
+                "theme": { "color": "#F59E0B" },
+                "handler": function (response) {
+                    finalizeOrder(orderNum, name, phone, address, city, pincode, selectedPaymentMode, response.razorpay_payment_id);
+                }
+            };
+
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        function finalizeOrder(orderNum, name, phone, address, city, pincode, paymentMode, transactionRef) {
+            const { grandTotal } = calculateTotals();
             let itemListText = cart.map(i => `${i.title} (${i.weight}) x${i.qty}`).join(', ');
+
             let waText = encodeURIComponent(
-                `Hi Kawad Swad Team,\n\nI placed Order *#${orderNum}*\nName: ${name}\nPhone: ${phone}\nAddress: ${address}, ${city} - ${pincode}\nItems: ${itemListText}\nPayment Mode: ${selectedPaymentMode}\nTotal Amount: ₹${grandTotal}\n\nPlease confirm dispatch!`
+                `Hi Kawad Swad Team,\n\nI placed Order *#${orderNum}*\nName: ${name}\nPhone: ${phone}\nAddress: ${address}, ${city} - ${pincode}\nItems: ${itemListText}\nPayment Mode: ${paymentMode} (${transactionRef})\nTotal Amount: ₹${grandTotal}\n\nPlease confirm dispatch!`
             );
 
-            document.getElementById('modal-order-id').innerText = `Order #${orderNum} has been created for ${name} (${city}) and sent to Katargaon.`;
+            document.getElementById('modal-order-id').innerText = `Order #${orderNum} has been created for ${name} (${city}) and sent to Katargaon facility.`;
             document.getElementById('whatsapp-order-btn').href = `https://wa.me/919630976867?text=${waText}`;
-
             document.getElementById('success-modal').classList.remove('hidden');
-            
-            // Clear cart from storage after successful order
+
             localStorage.removeItem('ks_cart');
         }
 
-        // Initialize checkout view on page load
         document.addEventListener('DOMContentLoaded', () => {
             renderCheckoutCart();
         });

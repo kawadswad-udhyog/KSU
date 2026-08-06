@@ -2,8 +2,8 @@
  * ============================================================================
  * KAWAD SWAD - E-Commerce LocalStorage Cart System (js/cart.js)
  * ============================================================================
- * Reads item product data from products.json / data-attributes. Calculates
- * subtotal, shipping directly from product definitions, and total order costs.
+ * Reads data properties directly from products.json structure, recalculating
+ * line items, shipping fees, and grand totals without hardcoded rules.
  */
 
 const STORAGE_KEY = 'kawad_swad_cart';
@@ -77,17 +77,15 @@ const CartManager = {
     },
 
     /**
-     * Calculates shipping directly based on products.json shipping values
+     * Reads shipping rules directly from item properties in products.json
      */
     calculateShipping() {
         const items = this.getItems();
         if (items.length === 0) return 0;
 
-        // If any item has 'Free' shipping in its product definition, shipping is Free
         const hasFreeShipping = items.some(i => String(i.shipping).toLowerCase() === 'free');
         if (hasFreeShipping) return 0;
 
-        // Otherwise return max rate or sum rate based on data
         const maxShipping = items.reduce((max, item) => {
             const val = parseFloat(item.shipping) || 0;
             return val > max ? val : max;
@@ -96,25 +94,11 @@ const CartManager = {
         return maxShipping || 49;
     },
 
-    prepareGSTPlaceholder(subtotal) {
-        // Future GST calculation placeholder
-        return 0;
-    },
-
-    prepareCouponDiscountPlaceholder() {
-        // Future Coupon discount placeholder
-        return 0;
-    },
-
     calculateGrandTotal() {
         const subtotal = this.calculateSubtotal();
         if (subtotal === 0) return 0;
-
         const shipping = this.calculateShipping();
-        const gst = this.prepareGSTPlaceholder(subtotal);
-        const discount = this.prepareCouponDiscountPlaceholder();
-
-        return Math.max(0, subtotal + shipping + gst - discount);
+        return subtotal + shipping;
     },
 
     updateCartBadge() {

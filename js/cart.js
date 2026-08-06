@@ -2,8 +2,8 @@
  * ============================================================================
  * KAWAD SWAD - E-Commerce LocalStorage Cart System (js/cart.js)
  * ============================================================================
- * Stores items with versioning schema metadata in LocalStorage, calculates
- * line item costs, shipping, and grand totals for cart/checkout pages.
+ * Stores cart items with versioning metadata in LocalStorage, calculates
+ * subtotal, shipping, and grand totals for cart/checkout pages.
  */
 
 const STORAGE_KEY = 'kawad_swad_cart';

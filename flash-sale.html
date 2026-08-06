@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R5YNWTG2MC');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Limited Time Flash Deals on Kawad Swad Udhyog authentic Nimar Papads. Up to 35% OFF on pure pulse dough papads direct from Katargaon.">
+    <title>Live Flash Sale Deals | Kawad Swad Udhyog</title>
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Live Flash Sale Deals | Kawad Swad Udhyog">
+    <meta property="og:description" content="Limited time flash deals — up to 35% off on Nimar papads.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kawadswad-udhyog.github.io/KSU/flash-sale.html">
+    <meta property="og:image" content="/UGP.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://kawadswad-udhyog.github.io/KSU/flash-sale.html">
+
+    <!-- Tailwind CSS CDN (pin a version for production builds instead) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0B0B0B',
+                            bgSecondary: '#141414',
+                            surface: '#1C1C1C',
+                            accent: '#F59E0B',
+                            accentLight: '#FFD166',
+                            danger: '#EF4444',
+                            success: '#22C55E',
+                            textPrimary: '#FFFFFF',
+                            textSecondary: '#CFCFCF'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons (pin a version in production) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; }
+        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Sora', sans-serif; }
+        .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: rgba(239, 68, 68, 0.4); box-shadow: 0 12px 30px -10px rgba(239, 68, 68, 0.2); }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0B0B; }
+        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #EF4444; }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+          .animate-ping, .animate-bounce, .transition-transform, .transition { animation: none !important; transition: none !important; }
+        }
+
+        /* Toast styles override for accessible announcements */
+        .toast { display: inline-flex; align-items: center; gap: .5rem; }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-black pb-20">
+
+    <!-- Toast Notification Container (accessible live region) -->
+    <div id="toast-hub" role="status" aria-live="polite" aria-atomic="true" class="fixed bottom-6 right-6 z-[400] flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- 1. STICKY D2C NAVIGATION BAR -->
+    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group" aria-label="Kawad Swad Udhyog home">
+                <div class="w-10 h-10 rounded-xl bg-brand-danger/20 border border-brand-danger/40 flex items-center justify-center text-brand-danger font-bold">
+                    <i data-lucide="zap" class="w-5 h-5 fill-brand-danger" aria-hidden="true"></i>
+                </div>
+                <div>
+                    <span class="font-heading text-lg font-bold tracking-tight text-white block leading-none">KAWAD SWAD</span>
+                    <span class="text-[9px] font-semibold text-brand-danger tracking-[0.25em] uppercase">FLASH DEALS ZONE</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-6 text-xs uppercase tracking-wider text-brand-textSecondary font-medium" aria-hidden="false">
+                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="products.html" class="hover:text-white transition">Full Catalogue</a>
+                <a href="reviews.html" class="hover:text-white transition">Customer Reviews</a>
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" rel="noopener noreferrer" class="text-pink-400 hover:text-pink-300 transition">Meesho Store ↗</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition" aria-label="Go to checkout">
+                    <i data-lucide="shopping-bag" class="w-5 h-5" aria-hidden="true"></i>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">0</span>
+                </a>
+                <button id="mobile-menu-toggle" class="md:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white" aria-expanded="false" aria-controls="mobile-menu">
+                    <i data-lucide="menu" class="w-5 h-5" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer (hidden by default on all sizes; toggled on small screens) -->
+        <div id="mobile-menu" class="hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
+            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
+                <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</a>
+                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
+                <a href="reviews.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="star" class="w-4 h-4"></i> Reviews</a>
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" rel="noopener noreferrer" class="p-3 bg-brand-surface rounded-xl text-pink-400 flex items-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Meesho</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. FLASH SALE COUNTDOWN HERO BANNER -->
+    <section class="max-w-7xl mx-auto px-6 pt-8 pb-6">
+        <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-brand-danger/40 relative overflow-hidden bg-gradient-to-br from-brand-bgSecondary via-brand-surface to-brand-bg">
+
+            <div class="absolute -top-24 -right-24 w-80 h-80 bg-brand-danger/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-center relative z-10">
+                <div class="lg:col-span-7 space-y-4 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-danger/20 border border-brand-danger/40 text-brand-danger text-xs font-bold uppercase tracking-widest">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-danger opacity-75" aria-hidden="true"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-danger" aria-hidden="true"></span>
+                        </span>
+                        Limited Stock Factory Clearance
+                    </div>
+
+                    <h1 class="font-heading text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+                        Katargaon Fresh Batch <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-danger via-amber-400 to-brand-accent">
+                            Flash Sale Deals
+                        </span>
+                    </h1>
+
+                    <p class="text-xs sm:text-sm text-brand-textSecondary max-w-xl">
+                        Handcrafted Nimar pulse papads with 0% rice flour adulteration. Direct factory prices ending when the clock reaches zero.
+                    </p>
+                </div>
+
+                <!-- Live Countdown Timer Component -->
+                <div class="lg:col-span-5 glass-card p-6 rounded-2xl border border-brand-danger/30 text-center space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-textSecondary flex items-center justify-center gap-1.5">
+                        <i data-lucide="clock" class="w-4 h-4 text-brand-danger"></i> Current Sale Ends In:
+                    </span>
+
+                    <div class="grid grid-cols-4 gap-2 font-mono">
+                        <div class="bg-brand-surface border border-white/10 rounded-xl p-3">
+                            <span id="timer-hours" class="font-heading text-2xl sm:text-3xl font-extrabold text-white block">02</span>
+                            <span class="text-[9px] uppercase tracking-wider text-brand-textSecondary">Hours</span>
+                        </div>
+                        <div class="bg-brand-surface border border-white/10 rounded-xl p-3">
+                            <span id="timer-minutes" class="font-heading text-2xl sm:text-3xl font-extrabold text-white block">15</span>
+                            <span class="text-[9px] uppercase tracking-wider text-brand-textSecondary">Mins</span>
+                        </div>
+                        <div class="bg-brand-surface border border-white/10 rounded-xl p-3">
+                            <span id="timer-seconds" class="font-heading text-2xl sm:text-3xl font-extrabold text-white block">48</span>
+                            <span class="text-[9px] uppercase tracking-wider text-brand-textSecondary">Secs</span>
+                        </div>
+                        <div class="bg-brand-surface border border-white/10 rounded-xl p-3 bg-brand-danger/10 border-brand-danger/30">
+                            <span id="timer-ms" class="font-heading text-2xl sm:text-3xl font-extrabold text-brand-danger block">8</span>
+                            <span class="text-[9px] uppercase tracking-wider text-brand-danger font-bold">Live</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 text-[11px] text-brand-accent font-medium">
+                        Next Flash Sale scheduled at 06:00 PM Today
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. FLASH DEALS PRODUCT GRID -->
+    <main class="max-w-7xl mx-auto px-6 py-6 space-y-8">
+        
+        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+            <h2 class="font-heading text-xl font-bold text-white flex items-center gap-2">
+                <i data-lucide="flame" class="w-5 h-5 text-brand-danger fill-brand-danger" aria-hidden="true"></i> Active Flash Deals
+            </h2>
+            <span class="text-xs font-mono text-brand-textSecondary">Updated 5 mins ago</span>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- DEAL CARD 1 -->
+            <div class="glass-card rounded-3xl p-6 border border-brand-danger/30 relative flex flex-col justify-between group">
+                <span class="absolute top-4 left-4 z-10 bg-brand-danger text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
+                    🔥 35% OFF
+                </span>
+
+                <div class="rounded-2xl bg-brand-surface/60 p-6 text-center mb-4 relative overflow-hidden">
+                    <img src="MMP.png" alt="Moong Master Papad Flash Pack – 500g" width="400" height="220" loading="lazy" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='MMP.png'">
+                    <span class="absolute bottom-2 left-2 text-[9px] bg-black/80 px-2 py-0.5 rounded text-brand-accent font-mono">
+                        Pack of 500g • SKU: KS-MMP-500
+                    </span>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-brand-accent">Nimar Moong Special</span>
+                        <h3 class="font-heading text-base font-bold text-white mt-0.5">Moong Master Papad Flash Pack</h3>
+                    </div>
+
+                    <div class="flex items-baseline justify-between">
+                        <div class="flex items-baseline gap-2">
+                            <span class="font-heading text-2xl font-extrabold text-white">₹130</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹200</span>
+                        </div>
+                        <span class="text-xs font-bold text-brand-success bg-brand-success/10 px-2.5 py-1 rounded-full">
+                            Save ₹70
+                        </span>
+                    </div>
+
+                    <!-- Inventory Claim Bar -->
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-[11px] font-semibold">
+                            <span class="text-brand-danger flex items-center gap-1"><i data-lucide="alert-circle" class="w-3.5 h-3.5" aria-hidden="true"></i> 84% Claimed</span>
+                            <span class="text-brand-textSecondary">Only 12 Left</span>
+                        </div>
+                        <div class="w-full bg-brand-surface h-2 rounded-full overflow-hidden border border-white/5">
+                            <div class="bg-gradient-to-r from-amber-500 to-brand-danger h-full w-[84%] rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <button data-claim-sku="KS-MMP-500" data-title="Moong Master Papad Flash Pack" data-weight="500g" data-price="130" data-mrp="200" data-img="MMP.png" class="w-full bg-brand-danger text-white font-heading font-bold py-3.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+                            <i data-lucide="zap" class="w-4 h-4 fill-white" aria-hidden="true"></i> Claim Deal
+                        </button>
+                        <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" rel="noopener noreferrer" class="w-full bg-pink-500/20 text-pink-300 border border-pink-500/30 font-heading font-bold py-3.5 rounded-xl inline-flex items-center justify-center">Meesho ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEAL CARD 2 -->
+            <div class="glass-card rounded-3xl p-6 border border-brand-accent/30 relative flex flex-col justify-between group">
+                <span class="absolute top-4 left-4 z-10 bg-brand-accent text-black text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
+                    ⚡ 25% OFF
+                </span>
+
+                <div class="rounded-2xl bg-brand-surface/60 p-6 text-center mb-4 relative overflow-hidden">
+                    <img src="CCPKM.png" alt="Chana Khata Mitha Flash Pack – 500g" width="400" height="220" loading="lazy" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='CCPKM.png'">
+                    <span class="absolute bottom-2 left-2 text-[9px] bg-black/80 px-2 py-0.5 rounded text-brand-accent font-mono">
+                        Pack of 500g • SKU: KS-CKM-500
+                    </span>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-brand-accent">Chana Crunch Special</span>
+                        <h3 class="font-heading text-base font-bold text-white mt-0.5">Chana Khata Mitha Flash Pack</h3>
+                    </div>
+
+                    <div class="flex items-baseline justify-between">
+                        <div class="flex items-baseline gap-2">
+                            <span class="font-heading text-2xl font-extrabold text-white">₹150</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹200</span>
+                        </div>
+                        <span class="text-xs font-bold text-brand-success bg-brand-success/10 px-2.5 py-1 rounded-full">
+                            Save ₹50
+                        </span>
+                    </div>
+
+                    <!-- Inventory Claim Bar -->
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-[11px] font-semibold">
+                            <span class="text-brand-accent flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5" aria-hidden="true"></i> 65% Claimed</span>
+                            <span class="text-brand-textSecondary">Only 24 Left</span>
+                        </div>
+                        <div class="w-full bg-brand-surface h-2 rounded-full overflow-hidden border border-white/5">
+                            <div class="bg-gradient-to-r from-brand-accent to-amber-300 h-full w-[65%] rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <button data-claim-sku="KS-CKM-500" data-title="Chana Khata Mitha Flash Pack" data-weight="500g" data-price="150" data-mrp="200" data-img="CCPKM.png" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+                            <i data-lucide="zap" class="w-4 h-4 fill-black" aria-hidden="true"></i> Claim Deal
+                        </button>
+                        <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" rel="noopener noreferrer" class="w-full bg-pink-500/20 text-pink-300 border border-pink-500/30 font-heading font-bold py-3.5 rounded-xl inline-flex items-center justify-center">Meesho ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEAL CARD 3 -->
+            <div class="glass-card rounded-3xl p-6 border border-brand-success/30 relative flex flex-col justify-between group">
+                <span class="absolute top-4 left-4 z-10 bg-brand-success text-black text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
+                    🎁 MEGA COMBO
+                </span>
+
+                <div class="rounded-2xl bg-brand-surface/60 p-6 text-center mb-4 relative overflow-hidden">
+                    <img src="UGP.png" alt="Urad Guru Family Feast Bundle – 1000g" width="400" height="220" loading="lazy" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='UGP.png'">
+                    <span class="absolute bottom-2 left-2 text-[9px] bg-black/80 px-2 py-0.5 rounded text-brand-success font-mono">
+                        1000g Family Pack • SKU: KS-UGP-1000
+                    </span>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-brand-success">Free Express Shipping</span>
+                        <h3 class="font-heading text-base font-bold text-white mt-0.5">Urad Guru Family Feast Bundle</h3>
+                    </div>
+
+                    <div class="flex items-baseline justify-between">
+                        <div class="flex items-baseline gap-2">
+                            <span class="font-heading text-2xl font-extrabold text-white">₹425</span>
+                            <span class="text-xs text-brand-textSecondary/60 line-through">₹600</span>
+                        </div>
+                        <span class="text-xs font-bold text-brand-success bg-brand-success/10 px-2.5 py-1 rounded-full">
+                            Save ₹175
+                        </span>
+                    </div>
+
+                    <!-- Inventory Claim Bar -->
+                    <div class="space-y-1.5">
+                        <div class="flex justify-between text-[11px] font-semibold">
+                            <span class="text-brand-danger flex items-center gap-1"><i data-lucide="flame" class="w-3.5 h-3.5" aria-hidden="true"></i> Selling Fast</span>
+                            <span class="text-brand-textSecondary">Only 6 Bundles Left</span>
+                        </div>
+                        <div class="w-full bg-brand-surface h-2 rounded-full overflow-hidden border border-white/5">
+                            <div class="bg-gradient-to-r from-red-500 to-brand-danger h-full w-[92%] rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <button data-claim-sku="KS-UGP-1000" data-title="Urad Guru Family Feast Bundle" data-weight="1000g" data-price="425" data-mrp="600" data-img="UGP.png" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-accent" type="button">
+                            <i data-lucide="zap" class="w-4 h-4 fill-black" aria-hidden="true"></i> Claim Bundle
+                        </button>
+                        <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" rel="noopener noreferrer" class="w-full bg-pink-500/20 text-pink-300 border border-pink-500/30 font-heading font-bold py-3.5 rounded-xl inline-flex items-center justify-center">Meesho ↗</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-bgSecondary border-t border-white/10 pt-16 pb-12 px-6 mt-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 mb-12 text-center md:text-left">
+            <div>
+                <span class="font-heading text-xl font-bold text-white block mb-2">KAWAD SWAD UDHYOG</span>
+                <p class="text-brand-textSecondary text-xs leading-relaxed max-w-sm">
+                    Handcrafted authentic Nimar snacks made with 0% rice fillers from Katargaon, MP.
+                </p>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" rel="noopener noreferrer" class="text-xs text-pink-400 hover:text-pink-300 font-semibold transition">Meesho Store ↗</a>
+                <div class="inline-flex flex-col items-center px-5 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-xs">
+                    <span class="text-brand-accent font-semibold text-[10px] uppercase tracking-wider mb-0.5">FSSAI License No.</span>
+                    <span class="text-white font-mono font-bold tracking-widest">21425890001224</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-textSecondary gap-4">
+            <p>© 2026 KAWAD SWAD UDHYOG. All rights reserved.</p>
+            <p class="tracking-widest uppercase">Flash Sale • Katargaon, MP</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileToggle && mobileMenu) {
+          mobileToggle.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileToggle.setAttribute('aria-expanded', String(!isHidden));
+          });
+        }
+
+        // Safe localStorage parsing
+        function safeJSONParse(str, fallback = []) {
+            try { return JSON.parse(str) || fallback; } catch (e) { return fallback; }
+        }
+
+        function storageAvailable(type) {
+            try {
+              var storage = window[type], x = '__storage_test__';
+              storage.setItem(x, x);
+              storage.removeItem(x);
+              return true;
+            }
+            catch(e) {
+              return false;
+            }
+        }
+
+        let cart = [];
+        if (storageAvailable('localStorage')) {
+            cart = safeJSONParse(localStorage.getItem('ks_cart'), []);
+        }
+
+        function updateCartBadge() {
+            let totalItems = cart.reduce((acc, item) => acc + (item.qty || 0), 0);
+            const badge = document.getElementById('cart-badge');
+            if (badge) badge.textContent = totalItems;
+        }
+
+        function saveCart() {
+            if (!storageAvailable('localStorage')) return;
+            localStorage.setItem('ks_cart', JSON.stringify(cart));
+            updateCartBadge();
+        }
+
+        function announceToast(msg) {
+            const hub = document.getElementById('toast-hub');
+            if (!hub) return;
+            const toast = document.createElement('div');
+            toast.className = 'glass-panel px-4 py-3 rounded-xl border border-brand-accent/40 text-xs font-bold text-white shadow-xl toast';
+            toast.setAttribute('role','status');
+            toast.setAttribute('aria-live','polite');
+            toast.textContent = msg;
+            hub.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 2500);
+        }
+
+        function claimDealFromData(attrs) {
+            const { sku, title, weight, price, mrp, img } = attrs;
+            let existing = cart.find(i => i.id === sku);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ id: sku, title, weight, price: Number(price), mrp: Number(mrp), shipping: weight === '1000g' ? 0 : 49, qty: 1, img });
+            }
+            saveCart();
+            announceToast(`Claimed ${title}! Added to cart.`);
+        }
+
+        // Event delegation for claim buttons
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('[data-claim-sku]');
+            if (!btn) return;
+            const sku = btn.getAttribute('data-claim-sku');
+            const title = btn.getAttribute('data-title') || 'Product';
+            const weight = btn.getAttribute('data-weight') || '';
+            const price = btn.getAttribute('data-price') || 0;
+            const mrp = btn.getAttribute('data-mrp') || 0;
+            const img = btn.getAttribute('data-img') || '';
+            claimDealFromData({ sku, title, weight, price, mrp, img });
+        });
+
+        // Robust countdown using a target end time (set your real sale end time here)
+        const saleEnd = (function(){
+          // Example: today at 18:00 local time
+          const now = new Date();
+          const target = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 0, 0);
+          if (target.getTime() <= now.getTime()) {
+            // if already past 18:00, set to next day 18:00
+            target.setDate(target.getDate() + 1);
+          }
+          return target.getTime();
+        })();
+
+        function updateTimer() {
+            const now = Date.now();
+            let diff = Math.max(0, saleEnd - now);
+            const hours = Math.floor(diff / 3600000);
+            diff %= 3600000;
+            const minutes = Math.floor(diff / 60000);
+            diff %= 60000;
+            const seconds = Math.floor(diff / 1000);
+            const ms = Math.floor((diff % 1000) / 100); // 0-9
+
+            const elH = document.getElementById('timer-hours');
+            const elM = document.getElementById('timer-minutes');
+            const elS = document.getElementById('timer-seconds');
+            const elMs = document.getElementById('timer-ms');
+            if (elH) elH.textContent = String(hours).padStart(2,'0');
+            if (elM) elM.textContent = String(minutes).padStart(2,'0');
+            if (elS) elS.textContent = String(seconds).padStart(2,'0');
+            if (elMs) elMs.textContent = String(ms);
+
+            if (saleEnd <= now) {
+                // Sale ended — disable claim buttons
+                document.querySelectorAll('[data-claim-sku]').forEach(b => {
+                    b.disabled = true;
+                    b.classList.add('opacity-50','cursor-not-allowed');
+                    b.setAttribute('aria-disabled','true');
+                });
+            }
+        }
+
+        // Use requestAnimationFrame for smooth ms updates but fallback to setInterval
+        let timerTick = function(){ updateTimer(); setTimeout(timerTick, 100); };
+        timerTick();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartBadge();
+        });
+    </script>
+</body>
+</html>

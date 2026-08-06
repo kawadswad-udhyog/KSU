@@ -2,20 +2,35 @@
  * ============================================================================
  * KAWAD SWAD - Product Engine & Shop Controller (js/shop.js)
  * ============================================================================
- * Efficient single-fetch cache controller for products.json with updated
- * nested pricing structure (price.selling, price.mrp, price.shipping).
+ * Optimized single-fetch product database controller supporting debounced input 
+ * processing, category/weight filtering, layout stability, and accessibility.
  */
 
 let productsCache = null;
 
 /**
- * Singleton database loader for data/products.json
+ * Debounce helper function for search inputs
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+/**
+ * Database loader with memory caching
  */
 async function getProductsDatabase() {
     if (productsCache) return productsCache;
     try {
         const response = await fetch('data/products.json');
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response.ok) throw new Error(`HTTP status: ${response.status}`);
         productsCache = await response.json();
         return productsCache;
     } catch (err) {
@@ -34,9 +49,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-/**
- * Renders shop.html grid and handles search, filters, and sorting controls.
- */
 function initShopPage(products) {
     const productGrid = document.querySelector('[data-shop-grid]') || document.querySelector('.grid.grid-cols-1.sm\\:grid-cols-2');
     if (!productGrid) return;
@@ -67,7 +79,6 @@ function initShopPage(products) {
             return matchesCategory && matchesWeight && matchesSearch;
         });
 
-        // Sorting Logic
         if (currentSort === 'name-asc') {
             filtered.sort((a, b) => a.name.localeCompare(b.name));
         } else if (currentSort === 'price-low') {
@@ -89,6 +100,8 @@ function initShopPage(products) {
             `;
             return;
         }
+
+        const fragment = document.createDocumentFragment();
 
         filtered.forEach(product => {
             const card = document.createElement('div');
@@ -119,7 +132,7 @@ function initShopPage(products) {
 
             card.innerHTML = `
                 <div class="aspect-square bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform overflow-hidden">
-                    ${product.image ? `<img src="${imgSrc}" alt="${product.imageAlt || product.name}" class="w-full h-full object-cover">` : `<span class="text-xs font-mono text-brand-muted">[${product.sku}]</span>`}
+                    <img src="${imgSrc}" alt="${product.imageAlt || product.name}" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.outerHTML='<span class=\\'text-xs font-mono text-brand-muted\\'>[${product.sku}]</span>'">
                 </div>
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold">${product.category}</span>
@@ -136,15 +149,17 @@ function initShopPage(products) {
                     <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${activePrice}" data-weight="${product.weight}" data-shipping="${shipping || ''}" class="py-2 px-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Add</button>
                 </div>
             `;
-            productGrid.appendChild(card);
+            fragment.appendChild(card);
         });
+
+        productGrid.appendChild(fragment);
     }
 
     if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
+        searchInput.addEventListener('input', debounce((e) => {
             searchQuery = e.target.value.toLowerCase().trim();
             renderGrid();
-        });
+        }, 200));
     }
 
     categoryButtons.forEach(btn => {
@@ -191,9 +206,6 @@ function initShopPage(products) {
     renderGrid();
 }
 
-/**
- * Initializes data population for product-detail.html
- */
 function initProductDetailPage(products) {
     const urlParams = new URLSearchParams(window.location.search);
     const sku = urlParams.get('sku') || 'KS-MMP-200';
@@ -232,15 +244,12 @@ function initProductDetailPage(products) {
     if (dietBadge) dietBadge.textContent = product.dietType;
 
     if (imageContainer) {
-        if (product.image) {
-            imageContainer.innerHTML = `<img src="${product.image}" alt="${product.imageAlt || product.name}" class="w-full h-full object-cover">`;
-        } else {
-            const placeholder = product.placeholderImage || 'assets/images/product-placeholder.webp';
-            imageContainer.innerHTML = `
-                <img src="${placeholder}" alt="Product Placeholder" class="w-full h-full object-cover opacity-50" onerror="this.style.display='none'">
-                <span class="absolute text-xs font-mono uppercase tracking-wider text-brand-muted">${product.sku}</span>
-            `;
-        }
+        const placeholder = product.placeholderImage || 'assets/images/product-placeholder.webp';
+        const imgSrc = product.image || placeholder;
+        imageContainer.innerHTML = `
+            <img src="${imgSrc}" alt="${product.imageAlt || product.name}" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.style.opacity='0.4'">
+            ${!product.image ? `<span class="absolute text-xs font-mono uppercase tracking-wider text-brand-muted">${product.sku}</span>` : ''}
+        `;
     }
 
     if (ingredientsList) {

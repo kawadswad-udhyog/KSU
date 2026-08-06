@@ -2,17 +2,10 @@
  * ============================================================================
  * KAWAD SWAD - Main Engine (js/main.js)
  * ============================================================================
- * Refactored into logical modules:
- * 1. Application Constants
- * 2. Validation Module
- * 3. Form Module (Payload Construction, Console Logging, & Redirect Flow)
- * 4. Animation Module (Scroll Reveals & Ripples)
- * 5. Utility Module (Accordions & Stat Counters)
+ * Production UI engine supporting validation, accessible form submit flow,
+ * prefers-reduced-motion scroll reveal observers, and statistic counters.
  */
 
-/* ============================================================================
- * 1. APPLICATION CONSTANTS
- * ============================================================================ */
 const APP_SOURCE = "website";
 const SCHEMA_VERSION = 1;
 
@@ -24,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ============================================================================
- * 2. VALIDATION MODULE
+ * 1. VALIDATION MODULE
  * ============================================================================ */
 const ValidationModule = {
     rules: {
@@ -47,6 +40,7 @@ const ValidationModule = {
         if (isError) {
             field.classList.add('border-brand-red');
             field.classList.remove('border-stone-300', 'focus:border-brand-gold');
+            field.setAttribute('aria-invalid', 'true');
             if (errorSpan) {
                 if (customMsg) errorSpan.textContent = customMsg;
                 errorSpan.classList.remove('hidden');
@@ -56,6 +50,7 @@ const ValidationModule = {
         } else {
             field.classList.remove('border-brand-red');
             field.classList.add('border-stone-300', 'focus:border-brand-gold');
+            field.removeAttribute('aria-invalid');
             if (errorSpan) {
                 errorSpan.classList.add('hidden');
             }
@@ -130,7 +125,7 @@ const ValidationModule = {
 };
 
 /* ============================================================================
- * 3. FORM MODULE (Payload Generation, Console Grouping, & Delayed Flow)
+ * 2. FORM MODULE
  * ============================================================================ */
 const FormModule = {
     init() {
@@ -255,7 +250,7 @@ const FormModule = {
             successBox.className = 'p-8 bg-brand-cream border border-brand-gold/40 rounded-sm text-center space-y-4 fade-in';
             successBox.innerHTML = `
                 <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                     </svg>
                 </div>
@@ -267,7 +262,6 @@ const FormModule = {
             form.appendChild(successBox);
 
             if (shouldRedirect) {
-                // Submit -> Loading -> Success -> 2 second delay -> Redirect
                 setTimeout(() => {
                     if (typeof CartManager !== 'undefined') {
                         CartManager.clearCart();
@@ -284,8 +278,19 @@ const FormModule = {
  * ============================================================================ */
 const AnimationModule = {
     initScrollReveal() {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const animatedElements = document.querySelectorAll('.slide-up, .fade-in');
+
         if (!animatedElements.length) return;
+
+        if (prefersReducedMotion) {
+            animatedElements.forEach(el => {
+                el.style.animation = 'none';
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+            });
+            return;
+        }
 
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {

@@ -231,7 +231,7 @@
                     <h3 class="font-heading text-2xl font-bold text-white mb-2">Send Us a Direct Message</h3>
                     <p class="text-xs text-brand-textSecondary mb-8">Fill in your requirements below and our team will get back to you shortly.</p>
 
-                    <form action="https://formspree.io/f/xaqajebq" method="POST" onsubmit="triggerToast('Message sent successfully!')" class="space-y-5">
+                    <form id="contact-form" action="https://formspree.io/f/xaqajebq" method="POST" onsubmit="handleFormSubmit(event)" class="space-y-5">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                             <div>
                                 <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-2">Your Name</label>
@@ -244,14 +244,17 @@
                             </div>
                         </div>
 
-                        <div>
+                        <div class="relative">
                             <label class="text-[11px] font-bold uppercase tracking-wider text-brand-textSecondary block mb-2">Interest Area</label>
-                            <select name="interest" class="input-style appearance-none bg-brand-surface text-white">
-                                <option value="Order Inquiry">Order Inquiry (Retail Pack Purchase)</option>
-                                <option value="Wholesale">Bulk / Wholesale Inquiry (Distributor)</option>
-                                <option value="Feedback">Product Feedback & Reviews</option>
-                                <option value="Custom">Custom / Event Bulk Order</option>
-                            </select>
+                            <div class="relative">
+                                <select name="interest" class="input-style appearance-none bg-brand-surface text-white pr-10">
+                                    <option value="Order Inquiry">Order Inquiry (Retail Pack Purchase)</option>
+                                    <option value="Wholesale">Bulk / Wholesale Inquiry (Distributor)</option>
+                                    <option value="Feedback">Product Feedback & Reviews</option>
+                                    <option value="Custom">Custom / Event Bulk Order</option>
+                                </select>
+                                <i data-lucide="chevron-down" class="w-4 h-4 text-brand-textSecondary absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                            </div>
                         </div>
 
                         <div>
@@ -259,7 +262,7 @@
                             <textarea name="message" rows="4" placeholder="How can we assist you today?" class="input-style" required></textarea>
                         </div>
 
-                        <button type="submit" class="w-full bg-brand-accent text-black font-heading font-bold py-4 rounded-xl text-xs hover:bg-brand-accentLight transition-all shadow-lg shadow-brand-accent/20 flex items-center justify-center gap-2">
+                        <button type="submit" id="submit-btn" class="w-full bg-brand-accent text-black font-heading font-bold py-4 rounded-xl text-xs hover:bg-brand-accentLight transition-all shadow-lg shadow-brand-accent/20 flex items-center justify-center gap-2">
                             <i data-lucide="send" class="w-4 h-4"></i> Submit Inquiry Message
                         </button>
                     </form>
@@ -329,7 +332,38 @@
             toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-brand-accent"></i> ${message}`;
             container.appendChild(toast);
             lucide.createIcons();
-            setTimeout(() => toast.remove(), 3000);
+            setTimeout(() => toast.remove(), 4000);
+        }
+
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const btn = document.getElementById('submit-btn');
+
+            btn.disabled = true;
+            btn.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> Sending...`;
+            lucide.createIcons();
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    triggerToast('Message sent successfully!');
+                    form.reset();
+                } else {
+                    triggerToast('Failed to send message. Please try again.');
+                }
+            } catch (error) {
+                triggerToast('Network error. Please check your connection.');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = `<i data-lucide="send" class="w-4 h-4"></i> Submit Inquiry Message`;
+                lucide.createIcons();
+            }
         }
     </script>
 </body>

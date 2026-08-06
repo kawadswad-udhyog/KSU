@@ -129,7 +129,11 @@
 
             <!-- Header CTAs -->
             <div class="flex items-center gap-3">
-                <a href="https://wa.me/919630976867" target="_blank" class="flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
+                <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">0</span>
+                </a>
+                <a href="https://wa.me/919630976867" target="_blank" class="hidden sm:flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
                     <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Order
                 </a>
                 <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
@@ -144,7 +148,7 @@
                 <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</a>
                 <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
                 <a href="contact.html" class="p-3 bg-brand-surface rounded-xl text-brand-accent flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Contact</a>
-                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="p-3 bg-brand-surface rounded-xl text-pink-400 flex items-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Meesho ↗</a>
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="p-3 bg-brand-surface rounded-xl text-pink-400 flex items-center justify-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Meesho ↗</a>
                 <a href="https://wa.me/919630976867" class="col-span-2 p-3 bg-brand-accent text-black rounded-xl text-center font-bold flex items-center justify-center gap-2">
                     <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp
                 </a>
@@ -325,6 +329,15 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
+        // Cart State Synchronization
+        let cart = JSON.parse(localStorage.getItem('ks_cart')) || [];
+
+        function updateCartBadge() {
+            let totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+            const badge = document.getElementById('cart-badge');
+            if (badge) badge.innerText = totalItems;
+        }
+
         function triggerToast(message) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
@@ -365,6 +378,10 @@
                 lucide.createIcons();
             }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartBadge();
+        });
     </script>
 </body>
 </html>

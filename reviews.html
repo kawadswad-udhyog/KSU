@@ -3,194 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Reviews | KAWAD SWAD</title>
-    <meta name="description" content="Read genuine customer feedback and explore real experiences with KAWAD SWAD products.">
-    
-    <!-- Tailwind CSS CDN with custom design tokens matching existing site structure -->
+    <title>Customer Reviews &amp; Testimonials | KAWAD SWAD</title>
+    <meta name="description" content="Read verified customer feedback and trade partner experiences with KAWAD SWAD 100% vegetarian Jain papads.">
+    <meta name="keywords" content="KAWAD SWAD Reviews, Jain Papad Testimonials, Customer Feedback, Papad Quality Reviews">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kawadswad.com/reviews.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kawadswad.com/reviews.html">
+    <meta property="og:title" content="Customer Reviews &amp; Testimonials | KAWAD SWAD">
+    <meta property="og:description" content="Read genuine customer feedback and explore real experiences with KAWAD SWAD products.">
+    <meta property="og:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="KAWAD SWAD">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Customer Reviews &amp; Testimonials | KAWAD SWAD">
+    <meta name="twitter:description" content="Read genuine customer feedback and explore real experiences with KAWAD SWAD products.">
+    <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#C5A059">
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS Animation Utilities -->
     <style>
-        .fade-in {
-            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .slide-up {
-            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+
+    <!-- JSON-LD Structured Data: WebPage & BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Reviews - KAWAD SWAD",
+      "url": "https://kawadswad.com/reviews.html",
+      "description": "Read genuine customer feedback and explore real experiences with KAWAD SWAD products."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://kawadswad.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Reviews",
+          "item": "https://kawadswad.com/reviews.html"
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- ==========================================
-         STICKY HEADER (REUSED NAV)
-   <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2 group">
-            <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">KAWAD SWAD</span>
-        </a>
-        <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide">
-            <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
-            <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
-            <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
-            <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
-            <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
-            <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
-            <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
-            <a href="blog.html" class="hover:text-brand-gold transition-colors">Blog</a>
-            <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
-        </nav>
-        <div class="flex items-center space-x-4">
-            <a href="products.html" class="text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Search"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></a>
-            <a href="cart.html" class="relative text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Cart"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg><span class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span></a>
-            <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-        </div>
-    </div>
-    <div id="mobile-menu" class="hidden lg:hidden bg-brand-cream border-b border-brand-gold/20 px-4 pt-2 pb-6 space-y-3 text-sm font-medium">
-        <a href="index.html" class="block py-2 hover:text-brand-gold transition-colors">Home</a>
-        <a href="about.html" class="block py-2 hover:text-brand-gold transition-colors">About</a>
-        <a href="products.html" class="block py-2 hover:text-brand-gold transition-colors">Products</a>
-        <a href="shop.html" class="block py-2 hover:text-brand-gold transition-colors">Shop</a>
-        <a href="business.html" class="block py-2 hover:text-brand-gold transition-colors">Business</a>
-        <a href="manufacturing.html" class="block py-2 hover:text-brand-gold transition-colors">Manufacturing</a>
-        <a href="gallery.html" class="block py-2 hover:text-brand-gold transition-colors">Gallery</a>
-        <a href="blog.html" class="block py-2 hover:text-brand-gold transition-colors">Blog</a>
-        <a href="contact.html" class="block py-2 hover:text-brand-gold transition-colors">Contact</a>
-    </div>
-</header>
+    <header-component></header-component>
 
     <main class="flex-grow">
-        <!-- ==========================================
-             SECTION 1: HERO BANNER
-             ========================================== -->
+        <!-- HERO BANNER -->
         <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
-                        Customer Feedback
-                    </span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
-                        Customer Reviews
-                    </h1>
-                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
-                        Every review helps us improve and serve better. We value genuine customer feedback and transparency.
-                    </p>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Customer Feedback</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Customer Reviews</h1>
+                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">Every review helps us improve and serve better. We value genuine customer feedback and transparency.</p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
-                            Explore Products
-                        </a>
-                        <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
-                            Contact Us
-                        </a>
+                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">Explore Products</a>
+                        <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">Contact Us</a>
                     </div>
                 </div>
 
-                <!-- Large Editable Hero Image Placeholder -->
                 <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
                     <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
-                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
-                    </svg>
+                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
                     <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[reviews-hero-placeholder]</span>
                 </div>
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 2: CUSTOMER EXPERIENCE
-             ========================================== -->
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Customer Experience</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Authentic Taste -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:shadow-md transition-all duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Authentic Taste</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text detailing authentic Nimar flavor profile and traditional spice craftsmanship.]</p>
-                    </div>
-
-                    <!-- Quality Packaging -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:shadow-md transition-all duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Quality Packaging</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text highlighting protective pouching, damage prevention, and clean presentation.]</p>
-                    </div>
-
-                    <!-- Freshness -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:shadow-md transition-all duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Freshness</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text explaining sealed freshness, extended shelf life, and crisp preservation.]</p>
-                    </div>
-
-                    <!-- Customer Support -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:shadow-md transition-all duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Customer Support</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text on responsive assistance, order tracking, and query resolution.]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 3: CUSTOMER REVIEWS
-             ========================================== -->
+        <!-- REVIEWS GRID -->
         <section class="py-20 bg-brand-cream border-y border-brand-gold/10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-16">
@@ -200,7 +111,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Review Card Placeholder 1 -->
                     <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm flex flex-col justify-between">
                         <div class="space-y-4">
                             <div class="flex items-center gap-4">
@@ -214,415 +124,17 @@
                             </div>
                             <p class="text-xs text-brand-muted leading-relaxed italic font-light">[Editable Review Text Placeholder: Review content will be updated upon customer submission.]</p>
                         </div>
-                        <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between">
-                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                Verified Review (Placeholder)
-                            </span>
-                            <span class="text-[10px] font-mono text-stone-400">[verification-placeholder]</span>
-                        </div>
                     </div>
-
-                    <!-- Review Card Placeholder 2 -->
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-stone-200 rounded-full flex items-center justify-center p-1 border border-stone-300">
-                                    <span class="text-[9px] font-mono text-brand-muted">[photo]</span>
-                                </div>
-                                <div>
-                                    <h3 class="font-serif text-base font-semibold text-brand-dark">[Customer Name Placeholder]</h3>
-                                    <p class="text-xs text-brand-muted">[Location Placeholder]</p>
-                                </div>
-                            </div>
-                            <p class="text-xs text-brand-muted leading-relaxed italic font-light">[Editable Review Text Placeholder: Review content will be updated upon customer submission.]</p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between">
-                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                Verified Review (Placeholder)
-                            </span>
-                            <span class="text-[10px] font-mono text-stone-400">[verification-placeholder]</span>
-                        </div>
-                    </div>
-
-                    <!-- Review Card Placeholder 3 -->
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-stone-200 rounded-full flex items-center justify-center p-1 border border-stone-300">
-                                    <span class="text-[9px] font-mono text-brand-muted">[photo]</span>
-                                </div>
-                                <div>
-                                    <h3 class="font-serif text-base font-semibold text-brand-dark">[Customer Name Placeholder]</h3>
-                                    <p class="text-xs text-brand-muted">[Location Placeholder]</p>
-                                </div>
-                            </div>
-                            <p class="text-xs text-brand-muted leading-relaxed italic font-light">[Editable Review Text Placeholder: Review content will be updated upon customer submission.]</p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between">
-                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                Verified Review (Placeholder)
-                            </span>
-                            <span class="text-[10px] font-mono text-stone-400">[verification-placeholder]</span>
-                        </div>
-                    </div>
-
-                    <!-- Review Card Placeholder 4 -->
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-stone-200 rounded-full flex items-center justify-center p-1 border border-stone-300">
-                                    <span class="text-[9px] font-mono text-brand-muted">[photo]</span>
-                                </div>
-                                <div>
-                                    <h3 class="font-serif text-base font-semibold text-brand-dark">[Customer Name Placeholder]</h3>
-                                    <p class="text-xs text-brand-muted">[Location Placeholder]</p>
-                                </div>
-                            </div>
-                            <p class="text-xs text-brand-muted leading-relaxed italic font-light">[Editable Review Text Placeholder: Review content will be updated upon customer submission.]</p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between">
-                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                Verified Review (Placeholder)
-                            </span>
-                            <span class="text-[10px] font-mono text-stone-400">[verification-placeholder]</span>
-                        </div>
-                    </div>
-
-                    <!-- Review Card Placeholder 5 -->
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-stone-200 rounded-full flex items-center justify-center p-1 border border-stone-300">
-                                    <span class="text-[9px] font-mono text-brand-muted">[photo]</span>
-                                </div>
-                                <div>
-                                    <h3 class="font-serif text-base font-semibold text-brand-dark">[Customer Name Placeholder]</h3>
-                                    <p class="text-xs text-brand-muted">[Location Placeholder]</p>
-                                </div>
-                            </div>
-                            <p class="text-xs text-brand-muted leading-relaxed italic font-light">[Editable Review Text Placeholder: Review content will be updated upon customer submission.]</p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between">
-                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                Verified Review (Placeholder)
-                            </span>
-                            <span class="text-[10px] font-mono text-stone-400">[verification-placeholder]</span>
-                        </div>
-                    </div>
-
-                    <!-- Review Card Placeholder 6 -->
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-stone-200 rounded-full flex items-center justify-center p-1 border border-stone-300">
-                                    <span class="text-[9px] font-mono text-brand-muted">[photo]</span>
-                                </div>
-                                <div>
-                                    <h3 class="font-serif text-base font-semibold text-brand-dark">[Customer Name Placeholder]</h3>
-                                    <p class="text-xs text-brand-muted">[Location Placeholder]</p>
-                                </div>
-                            </div>
-                            <p class="text-xs text-brand-muted leading-relaxed italic font-light">[Editable Review Text Placeholder: Review content will be updated upon customer submission.]</p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between">
-                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                Verified Review (Placeholder)
-                            </span>
-                            <span class="text-[10px] font-mono text-stone-400">[verification-placeholder]</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 4: CUSTOMER PHOTOS & VIDEOS
-             ========================================== -->
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Customer Photos &amp; Videos</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Product Photos -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[gallery-product-photo-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Product Photos</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Unboxing and package quality shared by customers.]</p>
-                    </div>
-
-                    <!-- Cooking Moments -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[gallery-cooking-moment-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Cooking Moments</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Frying and flame roasting preparation clips.]</p>
-                    </div>
-
-                    <!-- Serving Ideas -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[gallery-serving-idea-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Serving Ideas</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Masala papad platters and dinner accompaniments.]</p>
-                    </div>
-
-                    <!-- Family Moments -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[gallery-family-moment-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Family Moments</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Traditional family mealtime snacking.]</p>
-                    </div>
-
-                    <!-- Video Placeholder 1 -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex flex-col items-center justify-center p-4 text-center relative group cursor-pointer">
-                            <div class="w-10 h-10 rounded-full bg-brand-dark/80 text-white flex items-center justify-center mb-2">
-                                <svg class="w-5 h-5 fill-current pl-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                            <span class="text-xs font-mono text-brand-muted">[video-placeholder-1]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Customer Video</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Short video feedback and crunch test.]</p>
-                    </div>
-
-                    <!-- Video Placeholder 2 -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex flex-col items-center justify-center p-4 text-center relative group cursor-pointer">
-                            <div class="w-10 h-10 rounded-full bg-brand-dark/80 text-white flex items-center justify-center mb-2">
-                                <svg class="w-5 h-5 fill-current pl-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                            <span class="text-xs font-mono text-brand-muted">[video-placeholder-2]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Customer Video</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Short unboxing and recipe feedback clip.]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 5: BUSINESS TESTIMONIALS
-             ========================================== -->
-        <section class="py-20 bg-brand-dark text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-3">Business Testimonials</h2>
-                    <p class="text-stone-400 text-sm">Feedback from our supply network and business partners.</p>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-4"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Distributor Placeholder -->
-                    <div class="bg-stone-900/60 p-8 rounded-sm border border-stone-800 flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                Distributor Partner
-                            </span>
-                            <p class="text-stone-400 text-sm leading-relaxed italic font-light">
-                                "[Editable Content: Distributor partner feedback will be updated upon partnership verification.]"
-                            </p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-stone-800">
-                            <h3 class="font-serif text-base font-semibold text-white">[Distributor Partner Placeholder]</h3>
-                            <p class="text-xs text-stone-500">[Region / Territory Placeholder]</p>
-                        </div>
-                    </div>
-
-                    <!-- Wholesale Placeholder -->
-                    <div class="bg-stone-900/60 p-8 rounded-sm border border-stone-800 flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                Wholesale Partner
-                            </span>
-                            <p class="text-stone-400 text-sm leading-relaxed italic font-light">
-                                "[Editable Content: Wholesale buyer testimonial will be updated upon trade verification.]"
-                            </p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-stone-800">
-                            <h3 class="font-serif text-base font-semibold text-white">[Wholesale Buyer Placeholder]</h3>
-                            <p class="text-xs text-stone-500">[Organization / Market Placeholder]</p>
-                        </div>
-                    </div>
-
-                    <!-- Private Label Placeholder -->
-                    <div class="bg-stone-900/60 p-8 rounded-sm border border-stone-800 flex flex-col justify-between">
-                        <div class="space-y-4">
-                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                Private Label Client
-                            </span>
-                            <p class="text-stone-400 text-sm leading-relaxed italic font-light">
-                                "[Editable Content: Contract manufacturing client feedback will be updated upon agreement approval.]"
-                            </p>
-                        </div>
-                        <div class="pt-6 mt-6 border-t border-stone-800">
-                            <h3 class="font-serif text-base font-semibold text-white">[Private Label Partner Placeholder]</h3>
-                            <p class="text-xs text-stone-500">[Brand Client Placeholder]</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 6: WRITE A REVIEW
-             ========================================== -->
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div class="bg-brand-cream/60 rounded-sm border border-brand-gold/20 p-8 sm:p-12 shadow-sm">
-                    <h2 class="font-serif text-3xl font-bold text-brand-dark mb-4">Share Your Experience</h2>
-                    <p class="text-sm text-brand-muted max-w-xl mx-auto leading-relaxed font-light mb-8">
-                        Have you tried KAWAD SWAD Jain Papads? We invite you to submit your genuine feedback, suggestions, or recipe photos to help us maintain our commitment to excellence.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a href="contact.html" class="w-full sm:w-auto px-8 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold transition-colors duration-300 shadow-sm">
-                            Contact Us
-                        </a>
-                        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 border border-brand-dark text-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-dark hover:text-white transition-colors duration-300">
-                            WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 7: FAQ
-             ========================================== -->
-        <section class="py-20 bg-brand-cream border-t border-brand-gold/10">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Frequently Asked Questions</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="space-y-4">
-                    <!-- FAQ 1 -->
-                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                            <span>How can I submit a review?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                            [Editable Answer: Explain how retail buyers can send review messages, ratings, or feedback via our contact page or direct customer channels.]
-                        </p>
-                    </details>
-
-                    <!-- FAQ 2 -->
-                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                            <span>Can I share product photos?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                            [Editable Answer: Detail instructions for submitting serving photos, preparation videos, or meal photos to be featured in our gallery.]
-                        </p>
-                    </details>
-
-                    <!-- FAQ 3 -->
-                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                            <span>How are reviews verified?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                            [Editable Answer: Describe our internal verification procedure to ensure all published feedback comes from genuine product buyers.]
-                        </p>
-                    </details>
-
-                    <!-- FAQ 4 -->
-                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                            <span>Can businesses provide testimonials?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                            [Editable Answer: Detail how distributors, bulk purchasers, and private label partners can share official B2B feedback.]
-                        </p>
-                    </details>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ==========================================
-         SECTION 8: FOOTER (REUSED FOOTER)
-         ========================================== -->
-    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-            <div class="space-y-4 lg:col-span-2">
-                <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
-                <p class="text-xs text-stone-500 leading-relaxed max-w-sm">Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar. Committed to quality, hygiene and authentic flavors.</p>
-                <div class="pt-2 text-xs space-y-1 text-stone-500 font-mono">
-                    <p>FSSAI Lic No: [fssai-number-placeholder]</p>
-                    <p>GSTIN: [gst-number-placeholder]</p>
-                </div>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
-                    <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
-                    <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
-                    <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
-                    <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Media</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Solutions</a></li>
-                    <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
-                    <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
-                    <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Blog &amp; Recipes</a></li>
-                    <li><a href="reviews.html" class="hover:text-brand-gold transition-colors">Reviews</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Support &amp; Legal</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="faq.html" class="hover:text-brand-gold transition-colors">FAQ</a></li>
-                    <li><a href="policies.html" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
-                    <li><a href="policies.html#terms-and-conditions" class="hover:text-brand-gold transition-colors">Terms &amp; Conditions</a></li>
-                    <li><a href="policies.html#shipping-policy" class="hover:text-brand-gold transition-colors">Shipping &amp; Returns</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="mt-12 pt-8 border-t border-stone-900 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <div>
-                <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Subscribe to Our Newsletter</h5>
-                <p class="text-xs text-stone-500 mt-1">Receive authentic Jain recipes and business updates directly.</p>
-            </div>
-            <form onsubmit="event.preventDefault();" class="flex gap-2">
-                <input type="email" placeholder="Enter your email" class="bg-stone-900 border border-stone-800 rounded-sm px-4 py-2 text-xs text-white focus:outline-none focus:border-brand-gold flex-grow">
-                <button type="submit" class="px-6 py-2 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors">Subscribe</button>
-            </form>
-        </div>
-        <div class="mt-12 pt-8 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-600 gap-4">
-            <p>&copy; KAWAD SWAD. All rights reserved.</p>
-            <div class="flex space-x-6">
-                <a href="https://wa.me/[whatsapp-placeholder]" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">WhatsApp</a>
-                <a href="contact.html" class="hover:text-brand-gold transition-colors">Support</a>
-            </div>
-        </div>
-    </div>
-</footer>
+    <footer-component></footer-component>
+
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shop.js"></script>
 </body>
 </html>

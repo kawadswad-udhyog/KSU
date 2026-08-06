@@ -2,14 +2,14 @@
  * ============================================================================
  * KAWAD SWAD - Product Engine & Shop Controller (js/shop.js)
  * ============================================================================
- * Handles single-fetch product database caching, dynamic rendering for shop.html
- * and product-detail.html, category/weight/price filtering, and search.
+ * Efficient single-fetch cache controller for products.json with updated
+ * nested pricing structure (price.selling, price.mrp, price.shipping).
  */
 
 let productsCache = null;
 
 /**
- * Singleton database loader for products.json
+ * Singleton database loader for data/products.json
  */
 async function getProductsDatabase() {
     if (productsCache) return productsCache;
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /**
- * Initializes filtering, search, and dynamic grid rendering for shop.html
+ * Renders shop.html grid and handles search, filters, and sorting controls.
  */
 function initShopPage(products) {
     const productGrid = document.querySelector('[data-shop-grid]') || document.querySelector('.grid.grid-cols-1.sm\\:grid-cols-2');
@@ -51,6 +51,12 @@ function initShopPage(products) {
     let searchQuery = '';
     let currentSort = 'default';
 
+    function getSellingPrice(item) {
+        if (item.price && typeof item.price.selling === 'number') return item.price.selling;
+        if (item.price && typeof item.price.mrp === 'number') return item.price.mrp;
+        return 0;
+    }
+
     function renderGrid() {
         let filtered = products.filter(item => {
             const matchesCategory = (currentCategory === 'all') || (item.category.toLowerCase() === currentCategory);
@@ -61,13 +67,13 @@ function initShopPage(products) {
             return matchesCategory && matchesWeight && matchesSearch;
         });
 
-        // Sort execution
+        // Sorting Logic
         if (currentSort === 'name-asc') {
             filtered.sort((a, b) => a.name.localeCompare(b.name));
         } else if (currentSort === 'price-low') {
-            filtered.sort((a, b) => (a.websitePrice || a.mrp) - (b.websitePrice || b.mrp));
+            filtered.sort((a, b) => getSellingPrice(a) - getSellingPrice(b));
         } else if (currentSort === 'price-high') {
-            filtered.sort((a, b) => (b.websitePrice || b.mrp) - (a.websitePrice || a.mrp));
+            filtered.sort((a, b) => getSellingPrice(b) - getSellingPrice(a));
         } else {
             filtered.sort((a, b) => a.displayOrder - b.displayOrder);
         }
@@ -78,7 +84,7 @@ function initShopPage(products) {
             productGrid.innerHTML = `
                 <div class="col-span-full py-12 text-center text-brand-muted">
                     <p class="font-serif text-lg mb-2">No matching products found.</p>
-                    <p class="text-xs">Try adjusting your search query or filters.</p>
+                    <p class="text-xs">Try adjusting your search query or selecting a different category filter.</p>
                 </div>
             `;
             return;
@@ -87,39 +93,47 @@ function initShopPage(products) {
         filtered.forEach(product => {
             const card = document.createElement('div');
             card.className = 'bg-brand-cream/40 rounded-sm p-5 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group';
+            
+            const mrp = product.price ? product.price.mrp : null;
+            const selling = product.price ? product.price.selling : null;
+            const shipping = product.price ? product.price.shipping : null;
+            const activePrice = selling !== null ? selling : (mrp !== null ? mrp : 0);
+
             card.dataset.id = product.sku;
             card.dataset.sku = product.sku;
             card.dataset.name = product.name;
-            card.dataset.price = product.websitePrice || product.mrp || 0;
+            card.dataset.price = activePrice;
             card.dataset.category = product.category;
             card.dataset.weight = product.weight;
-            card.dataset.shipping = product.shipping || '';
+            card.dataset.shipping = shipping !== null ? shipping : '';
 
-            const priceDisplay = product.websitePrice 
-                ? `₹${product.websitePrice} <span class="text-stone-400 line-through text-[11px] ml-1">₹${product.mrp}</span>`
-                : (product.mrp ? `₹${product.mrp}` : 'Enquire for Price');
+            const priceDisplay = (selling !== null && mrp !== null && selling !== mrp)
+                ? `₹${selling} <span class="text-stone-400 line-through text-[11px] ml-1">₹${mrp}</span>`
+                : (activePrice ? `₹${activePrice}` : 'Enquire for Price');
 
-            const shippingDisplay = product.shipping === 'Free' 
+            const shippingDisplay = (shipping === 'Free')
                 ? '<span class="text-[10px] text-green-700 bg-green-100 px-2 py-0.5 rounded-xs font-medium">Free Shipping</span>'
-                : (product.shipping ? `<span class="text-[10px] text-stone-500 bg-stone-100 px-2 py-0.5 rounded-xs font-medium">+₹${product.shipping} Shipping</span>` : '');
+                : (shipping ? `<span class="text-[10px] text-stone-500 bg-stone-100 px-2 py-0.5 rounded-xs font-medium">+₹${shipping} Shipping</span>` : '');
+
+            const imgSrc = product.image || product.placeholderImage || 'assets/images/product-placeholder.webp';
 
             card.innerHTML = `
                 <div class="aspect-square bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform overflow-hidden">
-                    ${product.image ? `<img src="${product.image}" alt="${product.imageAlt || product.name}" class="w-full h-full object-cover">` : `<span class="text-xs font-mono text-brand-muted">[${product.sku}]</span>`}
+                    ${product.image ? `<img src="${imgSrc}" alt="${product.imageAlt || product.name}" class="w-full h-full object-cover">` : `<span class="text-xs font-mono text-brand-muted">[${product.sku}]</span>`}
                 </div>
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold">${product.category}</span>
                     <span class="text-[10px] font-mono text-brand-muted">${product.weight}</span>
                 </div>
                 <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">${product.name}</h3>
-                <p class="text-xs text-brand-muted mb-3 flex-grow line-clamp-2">${product.shortDescription || product.variant + ' variant'}</p>
+                <p class="text-xs text-brand-muted mb-3 flex-grow line-clamp-2">${product.shortDescription || (product.variant + ' variant')}</p>
                 <div class="flex items-center justify-between mb-4">
                     <span class="text-sm font-semibold text-brand-dark font-mono">${priceDisplay}</span>
                     ${shippingDisplay}
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     <a href="product-detail.html?sku=${product.sku}" class="text-center py-2 px-2 border border-brand-dark text-brand-dark text-[11px] font-semibold uppercase tracking-wider hover:bg-brand-dark hover:text-white transition-colors">Details</a>
-                    <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${product.websitePrice || product.mrp || 0}" data-weight="${product.weight}" data-shipping="${product.shipping || ''}" class="py-2 px-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Add</button>
+                    <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${activePrice}" data-weight="${product.weight}" data-shipping="${shipping || ''}" class="py-2 px-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Add</button>
                 </div>
             `;
             productGrid.appendChild(card);
@@ -178,7 +192,7 @@ function initShopPage(products) {
 }
 
 /**
- * Initializes data population for product-detail.html using URL SKU param
+ * Initializes data population for product-detail.html
  */
 function initProductDetailPage(products) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -187,7 +201,6 @@ function initProductDetailPage(products) {
     const product = products.find(p => p.sku === sku) || products[0];
     if (!product) return;
 
-    // Populate DOM elements
     const breadcrumbName = document.querySelector('[data-detail="breadcrumb-name"]');
     const categoryBadge = document.querySelector('[data-detail="category"]');
     const titleEl = document.querySelector('[data-detail="title"]');
@@ -201,15 +214,20 @@ function initProductDetailPage(products) {
     const actionContainer = document.querySelector('[data-detail="actions"]');
     const imageContainer = document.querySelector('[data-detail="image-container"]');
 
+    const mrp = product.price ? product.price.mrp : null;
+    const selling = product.price ? product.price.selling : null;
+    const shipping = product.price ? product.price.shipping : null;
+    const activePrice = selling !== null ? selling : (mrp !== null ? mrp : 0);
+
     if (breadcrumbName) breadcrumbName.textContent = `${product.name} ${product.weight}`;
     if (categoryBadge) categoryBadge.textContent = product.category;
     if (titleEl) titleEl.textContent = `${product.name} (${product.weight})`;
     if (descEl) descEl.textContent = product.description || product.shortDescription;
     if (codeEl) codeEl.textContent = product.sku;
 
-    if (mrpEl) mrpEl.textContent = product.mrp ? `₹${product.mrp}` : '';
-    if (priceEl) priceEl.textContent = product.websitePrice ? `₹${product.websitePrice}` : (product.mrp ? `₹${product.mrp}` : 'Enquire for Price');
-    if (shippingEl) shippingEl.textContent = product.shipping === 'Free' ? 'Free Shipping' : (product.shipping ? `+₹${product.shipping} Shipping` : '');
+    if (mrpEl) mrpEl.textContent = mrp ? `₹${mrp}` : '';
+    if (priceEl) priceEl.textContent = selling !== null ? `₹${selling}` : (mrp ? `₹${mrp}` : 'Enquire for Price');
+    if (shippingEl) shippingEl.textContent = shipping === 'Free' ? 'Free Shipping' : (shipping ? `+₹${shipping} Shipping` : '');
 
     if (dietBadge) dietBadge.textContent = product.dietType;
 
@@ -217,25 +235,30 @@ function initProductDetailPage(products) {
         if (product.image) {
             imageContainer.innerHTML = `<img src="${product.image}" alt="${product.imageAlt || product.name}" class="w-full h-full object-cover">`;
         } else {
+            const placeholder = product.placeholderImage || 'assets/images/product-placeholder.webp';
             imageContainer.innerHTML = `
-                <svg class="w-20 h-20 text-stone-400/80 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">${product.sku}</span>
+                <img src="${placeholder}" alt="Product Placeholder" class="w-full h-full object-cover opacity-50" onerror="this.style.display='none'">
+                <span class="absolute text-xs font-mono uppercase tracking-wider text-brand-muted">${product.sku}</span>
             `;
         }
     }
 
-    if (ingredientsList && product.ingredients) {
-        ingredientsList.innerHTML = product.ingredients.map(ing => `
-            <li class="flex items-center gap-3">
-                <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
-                <span>${ing}</span>
-            </li>
-        `).join('');
+    if (ingredientsList) {
+        if (product.ingredients && product.ingredients.length) {
+            ingredientsList.innerHTML = product.ingredients.map(ing => `
+                <li class="flex items-center gap-3">
+                    <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
+                    <span>${ing}</span>
+                </li>
+            `).join('');
+        } else {
+            ingredientsList.innerHTML = `<li class="text-xs text-brand-muted italic">Ingredients information will be updated.</li>`;
+        }
     }
 
     if (actionContainer) {
         actionContainer.innerHTML = `
-            <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${product.websitePrice || product.mrp || 0}" data-weight="${product.weight}" data-shipping="${product.shipping || ''}" class="px-8 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm">
+            <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${activePrice}" data-weight="${product.weight}" data-shipping="${shipping || ''}" class="px-8 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm">
                 Add To Cart
             </button>
             <a href="contact.html?enquiry=${product.sku}" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">

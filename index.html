@@ -93,7 +93,7 @@
 
             <!-- Navigation Links -->
             <div class="hidden lg:flex items-center gap-8 text-xs uppercase tracking-wider text-brand-textSecondary font-medium">
-                <a href="#catalogue" class="hover:text-brand-accent transition">Products</a>
+                <a href="products.html" class="hover:text-brand-accent transition">Products</a>
                 <a href="flash-sale.html" class="hover:text-brand-accent transition flex items-center gap-1 text-brand-danger font-bold"><i data-lucide="zap" class="w-3.5 h-3.5 fill-brand-danger"></i> Flash Sale</a>
                 <a href="about.html" class="hover:text-brand-accent transition">Our Story</a>
                 <a href="reviews.html" class="hover:text-brand-accent transition">Reviews</a>
@@ -123,7 +123,7 @@
         <!-- Mobile Menu Drawer -->
         <div id="mobile-menu" class="hidden lg:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
             <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
-                <a href="#catalogue" onclick="toggleMobileMenu()" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Products</a>
+                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Products</a>
                 <a href="flash-sale.html" class="p-3 bg-brand-surface rounded-xl text-brand-danger flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> Flash Sale</a>
                 <a href="about.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4"></i> Our Story</a>
                 <a href="reviews.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="star" class="w-4 h-4"></i> Reviews</a>
@@ -158,7 +158,7 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#catalogue" class="bg-brand-accent text-black font-heading font-extrabold px-8 py-4 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
+                        <a href="products.html" class="bg-brand-accent text-black font-heading font-extrabold px-8 py-4 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
                             <i data-lucide="shopping-bag" class="w-4 h-4"></i> Shop Fresh Batch
                         </a>
                         <a href="flash-sale.html" class="glass-card text-white font-heading font-bold px-8 py-4 rounded-2xl text-xs hover:border-brand-danger transition flex items-center justify-center gap-2">
@@ -417,7 +417,7 @@
             <div class="space-y-2">
                 <span class="font-heading text-xs font-bold text-white block uppercase tracking-wider">Quick Navigation</span>
                 <ul class="space-y-1.5">
-                    <li><a href="#catalogue" class="hover:text-white transition">Full Catalogue</a></li>
+                    <li><a href="products.html" class="hover:text-white transition">Full Catalogue</a></li>
                     <li><a href="flash-sale.html" class="hover:text-white transition">Flash Sale Deals</a></li>
                     <li><a href="about.html" class="hover:text-white transition">Katargaon Heritage</a></li>
                     <li><a href="reviews.html" class="hover:text-white transition">Customer Reviews</a></li>
@@ -552,7 +552,6 @@
                 : groupsArray.filter(g => g.category === categoryFilter);
 
             grid.innerHTML = filtered.map((group, idx) => {
-                // Default variant (500g or first available)
                 const defaultVar = group.variants.find(v => v.weight === '500g') || group.variants[0];
 
                 return `
@@ -726,7 +725,6 @@
                 });
             }
 
-            // Free Shipping logic: Order over ₹499 waives standard ₹49 shipping
             if (subtotal >= 499) totalShipping = 0;
 
             document.getElementById('cart-badge').innerText = count;
@@ -734,7 +732,6 @@
             document.getElementById('cart-shipping').innerText = totalShipping === 0 ? 'FREE' : `₹${totalShipping}`;
             document.getElementById('cart-total').innerText = `₹${subtotal + totalShipping}`;
 
-            // Shipping Bar Progress (Goal: ₹499)
             const goal = 499;
             const bar = document.getElementById('shipping-bar');
             const text = document.getElementById('shipping-text');

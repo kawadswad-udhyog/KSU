@@ -126,7 +126,15 @@
                         </div>
 
                         <!-- OPTIONAL BUSINESS FIELDS -->
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-2 border-t border-stone-200/60">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2 border-t border-stone-200/60">
+                            <div>
+                                <label for="preferred-contact-method" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Preferred Contact Method</label>
+                                <select id="preferred-contact-method" name="preferred-contact-method" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                                    <option value="Phone">Phone</option>
+                                    <option value="WhatsApp">WhatsApp</option>
+                                    <option value="Email">Email</option>
+                                </select>
+                            </div>
                             <div>
                                 <label for="gst-number" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">GST Number (Optional)</label>
                                 <input type="text" id="gst-number" name="gst-number" placeholder="GSTIN (Optional)" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">

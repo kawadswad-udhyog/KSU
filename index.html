@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R5YNWTG2MC');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kawad Swad Udhyog - Authentic Nimar Sun-Dried Papads made with 100% pure pulse flour and 0% rice fillers direct from Katargaon, MP.">
@@ -104,6 +113,23 @@
                     <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                     <span id="cart-badge" class="w-5 h-5 bg-black text-brand-accent font-extrabold text-[10px] rounded-full flex items-center justify-center">0</span>
                 </button>
+
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
+            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
+                <a href="#catalogue" onclick="toggleMobileMenu()" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Products</a>
+                <a href="#flash-sale" onclick="toggleMobileMenu()" class="p-3 bg-brand-surface rounded-xl text-brand-danger flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> Flash Sale</a>
+                <a href="about.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4"></i> Our Story</a>
+                <a href="reviews.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="star" class="w-4 h-4"></i> Reviews</a>
+                <a href="distributor.html" class="p-3 bg-brand-surface rounded-xl text-brand-accent flex items-center gap-2"><i data-lucide="truck" class="w-4 h-4"></i> Distributor Hub</a>
+                <a href="work-with-us.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="briefcase" class="w-4 h-4"></i> Careers</a>
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="col-span-2 p-3 bg-brand-surface rounded-xl text-pink-400 flex items-center justify-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Meesho Store ↗</a>
             </div>
         </div>
     </nav>
@@ -160,7 +186,7 @@
                 <!-- Hero Graphic & Dynamic Offer Floating Card -->
                 <div class="lg:col-span-5 relative flex justify-center">
                     <div class="w-72 h-72 sm:w-80 sm:h-80 rounded-3xl bg-brand-surface border border-white/10 p-6 flex items-center justify-center relative shadow-2xl">
-                        <img src="mascot3.png" alt="Kawad Swad Papad" class="w-full h-full object-contain animate-pulse" onerror="this.src='logo.png'">
+                        <img src="mascot3.png" alt="Kawad Swad Papad" class="w-full h-full object-contain animate-pulse" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                         
                         <!-- Floating Trust Badge -->
                         <div class="absolute -bottom-4 -left-4 glass-panel px-4 py-2.5 rounded-2xl border border-brand-accent/40 flex items-center gap-3 shadow-xl">
@@ -215,7 +241,7 @@
                         <span class="bg-brand-danger text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">🔥 20% OFF</span>
                         <span class="text-[10px] font-mono text-brand-textSecondary">SKU: KS-MMP-500</span>
                     </div>
-                    <img src="MMP.png" class="w-full h-36 object-contain" onerror="this.src='logo.png'">
+                    <img src="MMP.png" class="w-full h-36 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                     <div>
                         <h3 class="font-heading text-sm font-bold text-white">Moong Master Papad</h3>
                         <span class="text-[10px] text-brand-textSecondary">500g Pack</span>
@@ -245,7 +271,7 @@
                         <span class="bg-brand-accent text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">⚡ 21% OFF</span>
                         <span class="text-[10px] font-mono text-brand-textSecondary">SKU: KS-CKM-500</span>
                     </div>
-                    <img src="CCPKM.png" class="w-full h-36 object-contain" onerror="this.src='logo.png'">
+                    <img src="CCPKM.png" class="w-full h-36 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                     <div>
                         <h3 class="font-heading text-sm font-bold text-white">Chana Khata Mitha Papad</h3>
                         <span class="text-[10px] text-brand-textSecondary">500g Pack</span>
@@ -275,7 +301,7 @@
                         <span class="bg-brand-success text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">🎁 FREE SHIPPING</span>
                         <span class="text-[10px] font-mono text-brand-textSecondary">SKU: KS-UGP-1000</span>
                     </div>
-                    <img src="UGP.png" class="w-full h-36 object-contain" onerror="this.src='logo.png'">
+                    <img src="UGP.png" class="w-full h-36 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                     <div>
                         <h3 class="font-heading text-sm font-bold text-white">Urad Guru Papad</h3>
                         <span class="text-[10px] text-brand-textSecondary">1000g Family Pack (Free Shipping)</span>
@@ -422,6 +448,10 @@
     <script>
         lucide.createIcons();
 
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
         // 1. OFFICIAL KAWAD SWAD PRODUCT DATABASE (36 SKUs WITH CORRECT PNG MAPPINGS)
         const KAWAD_PRODUCTS = [
             // --- MOONG VARIETIES ---
@@ -537,7 +567,7 @@
                         </span>
 
                         <div class="rounded-2xl bg-brand-surface/50 p-6 text-center mb-4 relative overflow-hidden">
-                            <img id="img-${idx}" src="${defaultVar.img}" alt="${group.title}" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='logo.png'">
+                            <img id="img-${idx}" src="${defaultVar.img}" alt="${group.title}" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                             <span id="sku-tag-${idx}" class="absolute bottom-2 right-2 text-[9px] font-mono bg-black/70 px-2 py-0.5 rounded border border-white/10 text-brand-textSecondary">${defaultVar.id}</span>
                         </div>
 
@@ -674,7 +704,7 @@
 
                     itemsContainer.innerHTML += `
                         <div class="glass-card p-3 rounded-xl flex items-center gap-3 border border-white/10">
-                            <img src="${item.img}" class="w-12 h-12 object-contain bg-brand-surface rounded-lg p-1" onerror="this.src='logo.png'">
+                            <img src="${item.img}" class="w-12 h-12 object-contain bg-brand-surface rounded-lg p-1" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                             <div class="flex-1">
                                 <h4 class="text-xs font-bold text-white leading-tight">${item.title}</h4>
                                 <span class="text-[10px] text-brand-textSecondary block">${item.weight} • SKU: ${item.id}</span>

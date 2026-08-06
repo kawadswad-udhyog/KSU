@@ -1,795 +1,1896 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-R5YNWTG2MC');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kawad Swad Udhyog - Authentic Nimar Sun-Dried Papads made with 100% pure pulse flour and 0% rice fillers direct from Katargaon, MP.">
-    <title>Kawad Swad Udhyog | Authentic Sun-Dried Nimar Papads</title>
+    <meta name="description" content="Kawad Swad offers authentic Jain papads crafted with tradition, premium ingredients, and hygienic manufacturing. Discover our range or explore distributor opportunities.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Kawad Swad | Authentic Jain Papad Crafted With Tradition">
+    <meta property="og:description" content="Premium quality papads made using authentic recipes, hygienic manufacturing and carefully selected ingredients.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.kawadswad.com/">
+    <meta property="og:image" content="images/og-hero-placeholder.jpg">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            bg: '#0B0B0B',
-                            bgSecondary: '#141414',
-                            surface: '#1C1C1C',
-                            accent: '#F59E0B',
-                            accentLight: '#FFD166',
-                            danger: '#EF4444',
-                            success: '#22C55E',
-                            textPrimary: '#FFFFFF',
-                            textSecondary: '#CFCFCF'
-                        }
-                    },
-                    fontFamily: {
-                        heading: ['Sora', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
+    <title>Kawad Swad | Authentic Jain Papad Crafted With Tradition</title>
+
+    <!-- Schema.org Placeholder -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Kawad Swad",
+      "url": "https://www.kawadswad.com",
+      "logo": "images/logo-placeholder.png",
+      "description": "Authentic Jain Papad Crafted With Tradition",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IN"
+      }
+    }
     </script>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Playfair Display for Luxury Headings, Inter for Clean Body Text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; overflow-x: hidden; }
-        h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Sora', sans-serif; }
-        .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        .glass-card:hover { border-color: rgba(245, 158, 11, 0.35); box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.18); }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0B0B; }
-        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
-        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
+        /* ==========================================================================
+           1. CSS VARIABLES & RESET
+           ========================================================================== */
+        :root {
+            --primary: #B22222;
+            --secondary: #F4B400;
+            --background: #FFFDF8;
+            --surface: #FFFFFF;
+            --text: #222222;
+            --text-muted: #666666;
+            --success: #2E7D32;
+            --border: #EFE8DA;
+            --shadow: 0 10px 30px rgba(0,0,0,0.04);
+            --shadow-hover: 0 15px 35px rgba(178,34,34,0.08);
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --container-max: 1280px;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button, input {
+            font-family: inherit;
+            border: none;
+            outline: none;
+            background: none;
+        }
+
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        /* Typography Utilities */
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--text);
+            font-weight: 600;
+            line-height: 1.25;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Standard Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.95rem 2.2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--surface);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #901B1B;
+            border-color: #901B1B;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(178, 34, 34, 0.25);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--surface);
+            transform: translateY(-2px);
+        }
+
+        /* Placeholders */
+        .image-placeholder {
+            background-color: #F4EFE6;
+            border: 1px dashed #D3C9B8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder span {
+            font-weight: 500;
+            color: var(--text);
+            margin-top: 0.5rem;
+        }
+
+        /* ==========================================================================
+           2. HEADER & NAVIGATION
+           ========================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(255, 253, 248, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 85px;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-mark {
+            width: 12px;
+            height: 12px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background-color: var(--surface);
+            min-width: 180px;
+            box-shadow: var(--shadow);
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--background);
+            color: var(--primary);
+        }
+
+        /* Right Header Icons */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .action-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: var(--text);
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .action-icon:hover {
+            background-color: rgba(178, 34, 34, 0.05);
+            color: var(--primary);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background-color: var(--primary);
+            color: var(--surface);
+            font-size: 0.65rem;
+            font-weight: 700;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+
+        /* Search Overlay */
+        .search-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .search-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .search-box {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .search-input-wrap {
+            display: flex;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .search-input-wrap input {
+            width: 100%;
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        .close-search {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           3. SECTION 1: HERO
+           ========================================================================== */
+        .hero {
+            position: relative;
+            padding: 5rem 0 6rem 0;
+            background: radial-gradient(circle at 80% 20%, #FFF5E5 0%, var(--background) 70%);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 620px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(244, 180, 0, 0.15);
+            color: #9E7400;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-title span {
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .hero-subheading {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image-placeholder {
+            min-height: 480px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(135deg, #F9F3E6 0%, #EFE5D3 100%);
+        }
+
+        .hero-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--surface);
+            padding: 1.25rem 1.75rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-badge-icon {
+            width: 42px;
+            height: 42px;
+            background-color: rgba(178, 34, 34, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-badge-text h4 {
+            font-size: 0.95rem;
+            font-family: var(--font-body);
+            font-weight: 700;
+        }
+
+        .hero-badge-text p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           4. SECTION 2: WHY KAWAD SWAD
+           ========================================================================== */
+        .why-us {
+            background-color: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .why-card {
+            background: var(--background);
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: rgba(178, 34, 34, 0.2);
+        }
+
+        .why-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1.5rem auto;
+            background: var(--surface);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid var(--border);
+        }
+
+        .why-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .why-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ==========================================================================
+           5. SECTION 3: FEATURED PRODUCTS
+           ========================================================================== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--surface);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-image-container {
+            position: relative;
+            padding-top: 85%; /* Aspect Ratio */
+        }
+
+        .product-image-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .product-info {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .product-card .btn {
+            width: 100%;
+            padding: 0.75rem 1rem;
+        }
+
+        /* ==========================================================================
+           6. SECTION 4: SHOP BY CATEGORY
+           ========================================================================== */
+        .categories {
+            background-color: rgba(244, 180, 0, 0.03);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background: var(--surface);
+            padding: 2rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: var(--shadow);
+        }
+
+        .category-icon-wrap {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: var(--background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            color: var(--primary);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .category-card:hover .category-icon-wrap {
+            background-color: var(--primary);
+            color: var(--surface);
+            border-color: var(--primary);
+        }
+
+        .category-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           7. SECTION 5: BUSINESS OPPORTUNITIES
+           ========================================================================== */
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .business-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .business-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .business-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .business-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           8. SECTION 6: OUR MANUFACTURING
+           ========================================================================== */
+        .manufacturing {
+            background-color: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mfg-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .mfg-image-placeholder {
+            min-height: 420px;
+            border-radius: 8px;
+        }
+
+        .mfg-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .mfg-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .mfg-feature-icon {
+            color: var(--success);
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .mfg-feature-text h4 {
+            font-size: 1rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .mfg-feature-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           9. SECTION 7: WHY BUSINESSES TRUST US
+           ========================================================================== */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .trust-card {
+            background: var(--surface);
+            padding: 2.5rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .trust-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .trust-stat {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .trust-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .trust-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           10. SECTION 8: CUSTOMER REVIEWS
+           ========================================================================== */
+        .reviews {
+            background-color: var(--surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .reviews-coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--background);
+            border-radius: 8px;
+            border: 1px dashed var(--border);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .reviews-coming-soon svg {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .reviews-coming-soon p {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* ==========================================================================
+           11. SECTION 9: FOLLOW US
+           ========================================================================== */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .social-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .social-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .social-handle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           12. SECTION 10: FINAL CTA
+           ========================================================================== */
+        .cta-banner {
+            background: linear-gradient(135deg, #7A1414 0%, var(--primary) 100%);
+            color: var(--surface);
+            border-radius: 12px;
+            padding: 5rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(178, 34, 34, 0.2);
+        }
+
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(244,180,0,0.1) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-banner h2 {
+            color: var(--surface);
+            font-size: 2.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-banner .btn-primary {
+            background-color: var(--secondary);
+            color: var(--text);
+            border-color: var(--secondary);
+        }
+
+        .cta-banner .btn-primary:hover {
+            background-color: #D9A000;
+            border-color: #D9A000;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-banner .btn-secondary {
+            color: var(--surface);
+            border-color: var(--surface);
+        }
+
+        .cta-banner .btn-secondary:hover {
+            background-color: var(--surface);
+            color: var(--primary);
+        }
+
+        /* ==========================================================================
+           13. FOOTER
+           ========================================================================== */
+        .site-footer {
+            background-color: #1A1A1A;
+            color: #CCCCCC;
+            padding-top: 5rem;
+            padding-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand .logo {
+            color: var(--surface);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-brand p {
+            color: #999999;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+        }
+
+        .fssai-block {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #AAAAAA;
+        }
+
+        .fssai-badge {
+            font-weight: 700;
+            color: var(--secondary);
+            letter-spacing: 1px;
+        }
+
+        .footer-column h4 {
+            color: var(--surface);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #999999;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--surface);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.8rem;
+            color: #777777;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #CCCCCC;
+            transition: var(--transition);
+        }
+
+        .footer-social-icon:hover {
+            background: var(--primary);
+            color: var(--surface);
+        }
+
+        /* ==========================================================================
+           14. ANIMATIONS & RESPONSIVE
+           ========================================================================== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .mfg-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .why-grid,
+            .products-grid,
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-title {
+                font-size: 2.75rem;
+            }
+
+            .hero-image-placeholder {
+                min-height: 380px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                height: 70px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--surface);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 3rem 2rem;
+                gap: 1.5rem;
+                transition: var(--transition);
+                border-top: 1px solid var(--border);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                padding-left: 1rem;
+                background-color: transparent;
+            }
+
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .section-padding {
+                padding: 4rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .business-grid,
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-banner h2 {
+                font-size: 2rem;
+            }
+
+            .cta-banner {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .hero-badge {
+                bottom: 10px;
+                left: 10px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .why-grid,
+            .products-grid,
+            .trust-grid,
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+            }
+
+            .mfg-features {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-accent selection:text-black pb-12">
+<body>
 
-    <!-- TOAST NOTIFICATION HUB -->
-    <div id="toast-hub" class="fixed bottom-6 right-6 z-[400] flex flex-col gap-3 pointer-events-none"></div>
-
-    <!-- ANNOUNCEMENT BAR -->
-    <div class="bg-gradient-to-r from-brand-danger via-amber-500 to-brand-accent text-black font-heading font-extrabold text-[11px] py-1.5 px-4 text-center tracking-wide uppercase flex items-center justify-center gap-2">
-        <span>🔥 FLASH SALE LIVE: Extra 10% OFF with code <span class="bg-black text-white px-2 py-0.5 rounded font-mono">SWAD10</span></span>
-        <span class="hidden sm:inline">• FREE Express Shipping on 1000g packs & orders above ₹499</span>
-    </div>
-
-    <!-- 1. STICKY GLASS NAVIGATION BAR -->
-    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
-            
-            <!-- Brand Logo -->
-            <a href="index.html" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all duration-300">
-                    <span class="font-heading font-extrabold text-xl">K</span>
-                </div>
-                <div>
-                    <span class="font-heading text-lg font-bold tracking-tight text-white block leading-none">KAWAD SWAD</span>
-                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">KATARGAON HERITAGE</span>
-                </div>
+    <!-- ==========================================================================
+       HEADER
+       ========================================================================== -->
+    <header class="site-header">
+        <div class="container header-container">
+            <!-- Logo Left -->
+            <a href="index.html" class="logo">
+                <span class="logo-mark"></span>
+                KAWAD SWAD
             </a>
 
-            <!-- Navigation Links -->
-            <div class="hidden lg:flex items-center gap-8 text-xs uppercase tracking-wider text-brand-textSecondary font-medium">
-                <a href="products.html" class="hover:text-brand-accent transition">Products</a>
-                <a href="flash-sale.html" class="hover:text-brand-accent transition flex items-center gap-1 text-brand-danger font-bold"><i data-lucide="zap" class="w-3.5 h-3.5 fill-brand-danger"></i> Flash Sale</a>
-                <a href="about.html" class="hover:text-brand-accent transition">Our Story</a>
-                <a href="reviews.html" class="hover:text-brand-accent transition">Reviews</a>
-                <a href="distributor.html" class="hover:text-brand-accent transition text-brand-accent font-bold">Distributor Hub</a>
-                <a href="work-with-us.html" class="hover:text-brand-accent transition">Work With Us</a>
-                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-pink-400 hover:text-pink-300 transition">Meesho Store ↗</a>
-            </div>
-
-            <!-- Action Controls -->
-            <div class="flex items-center gap-3">
-                <button onclick="showToast('Wishlist feature active!')" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
-                    <i data-lucide="heart" class="w-5 h-5"></i>
-                    <span id="wishlist-badge" class="absolute -top-1.5 -right-1.5 w-4 h-4 bg-brand-danger text-white font-bold text-[9px] rounded-full flex items-center justify-center">0</span>
-                </button>
-
-                <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-brand-accent text-black font-bold hover:bg-brand-accentLight transition flex items-center gap-2">
-                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                    <span id="cart-badge" class="w-5 h-5 bg-black text-brand-accent font-extrabold text-[10px] rounded-full flex items-center justify-center">0</span>
-                </button>
-
-                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
-                    <i data-lucide="menu" class="w-5 h-5"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
-            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
-                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Products</a>
-                <a href="flash-sale.html" class="p-3 bg-brand-surface rounded-xl text-brand-danger flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> Flash Sale</a>
-                <a href="about.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4"></i> Our Story</a>
-                <a href="reviews.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="star" class="w-4 h-4"></i> Reviews</a>
-                <a href="distributor.html" class="p-3 bg-brand-surface rounded-xl text-brand-accent flex items-center gap-2"><i data-lucide="truck" class="w-4 h-4"></i> Distributor Hub</a>
-                <a href="work-with-us.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="briefcase" class="w-4 h-4"></i> Careers</a>
-                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="col-span-2 p-3 bg-brand-surface rounded-xl text-pink-400 flex items-center justify-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Meesho Store ↗</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 2. CINEMATIC HERO SECTION WITH LIVE STATS -->
-    <section class="max-w-7xl mx-auto px-6 pt-8 pb-12">
-        <div class="glass-panel rounded-3xl p-8 sm:p-14 border border-white/10 relative overflow-hidden bg-gradient-to-br from-brand-bgSecondary via-brand-surface to-brand-bg">
-            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-accent/15 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="grid lg:grid-cols-12 gap-10 items-center relative z-10">
-                
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-accent text-xs font-bold uppercase tracking-widest">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i> 100% Pure Pulse Flour • 0% Rice Starch
-                    </div>
-
-                    <h1 class="font-heading text-4xl sm:text-6xl font-extrabold text-white leading-tight">
-                        Authentic Sun-Dried <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-amber-200 to-white">
-                            Nimar Papads
+            <!-- Navigation Center -->
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="nav-link active">HOME</a></li>
+                    <li><a href="about.html" class="nav-link">ABOUT</a></li>
+                    <li><a href="products.html" class="nav-link">PRODUCTS</a></li>
+                    <li><a href="shop.html" class="nav-link">SHOP</a></li>
+                    <li class="dropdown" id="businessDropdown">
+                        <span class="nav-link dropdown-toggle">
+                            BUSINESS ▼
                         </span>
-                    </h1>
+                        <div class="dropdown-menu">
+                            <a href="business.html#distributor" class="dropdown-item">Distributor</a>
+                            <a href="business.html#wholesale" class="dropdown-item">Wholesale</a>
+                            <a href="business.html#privatelabel" class="dropdown-item">Private Label</a>
+                        </div>
+                    </li>
+                    <li><a href="manufacturing.html" class="nav-link">MANUFACTURING</a></li>
+                    <li><a href="recipes.html" class="nav-link">RECIPES</a></li>
+                    <li><a href="gallery.html" class="nav-link">GALLERY</a></li>
+                    <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+                </ul>
+            </nav>
 
-                    <p class="text-xs sm:text-base text-brand-textSecondary max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                        Handcrafted by women artisans in Katargaon, MP using traditional Guthai & Mathai techniques. 12 signature flavors across Moong, Chana, and Urad dal.
-                    </p>
+            <!-- Right Side Icons -->
+            <div class="header-actions">
+                <div class="action-icon" id="searchTrigger" title="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <a href="https://wa.me/placeholder" target="_blank" class="action-icon" title="WhatsApp">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                </a>
+                <a href="cart.html" class="action-icon" title="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                    <span class="cart-badge">0</span>
+                </a>
+                <div class="mobile-menu-toggle" id="mobileToggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </div>
+            </div>
+        </div>
+    </header>
 
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="products.html" class="bg-brand-accent text-black font-heading font-extrabold px-8 py-4 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
-                            <i data-lucide="shopping-bag" class="w-4 h-4"></i> Shop Fresh Batch
-                        </a>
-                        <a href="flash-sale.html" class="glass-card text-white font-heading font-bold px-8 py-4 rounded-2xl text-xs hover:border-brand-danger transition flex items-center justify-center gap-2">
-                            <i data-lucide="zap" class="w-4 h-4 text-brand-danger fill-brand-danger"></i> View Flash Deals
-                        </a>
+    <!-- Search Overlay -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-box">
+            <span class="close-search" id="closeSearch">&times;</span>
+            <div class="search-input-wrap">
+                <input type="text" placeholder="Search authentic papads, masalas..." autofocus>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       SECTION 1: HERO
+       ========================================================================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content fade-up">
+                    <span class="hero-tag">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                        100% Traditional Jain Recipes
+                    </span>
+                    <h1 class="hero-title">Authentic Jain Papad <span>Crafted With Tradition</span></h1>
+                    <p class="hero-subheading">Premium quality papads made using authentic recipes, hygienic manufacturing and carefully selected ingredients.</p>
+                    <div class="hero-cta">
+                        <a href="shop.html" class="btn btn-primary">Shop Now</a>
+                        <a href="business.html" class="btn btn-secondary">Become Business Partner</a>
                     </div>
-
-                    <!-- Live Social Proof Stats Counter -->
-                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 text-center lg:text-left">
-                        <div>
-                            <span class="font-heading text-2xl font-extrabold text-white block">10,000+</span>
-                            <span class="text-[10px] uppercase font-mono text-brand-textSecondary">Happy Homes</span>
+                </div>
+                <div class="hero-image-wrapper fade-in">
+                    <!-- Replace with Hero Product Image -->
+                    <div class="image-placeholder hero-image-placeholder">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                        <span><!-- Replace with Hero Product Image --></span>
+                        <p style="font-size: 0.75rem; margin-top: 0.25rem;">High Resolution Product Render / Banner</p>
+                    </div>
+                    <div class="hero-badge">
+                        <div class="hero-badge-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                         </div>
-                        <div>
-                            <span class="font-heading text-2xl font-extrabold text-brand-accent block">4.9 / 5.0</span>
-                            <span class="text-[10px] uppercase font-mono text-brand-textSecondary">1,200+ Reviews</span>
-                        </div>
-                        <div>
-                            <span class="font-heading text-2xl font-extrabold text-brand-success block">Katargaon</span>
-                            <span class="text-[10px] uppercase font-mono text-brand-textSecondary">Artisanal Unit</span>
+                        <div class="hero-badge-text">
+                            <h4>Hygienically Made</h4>
+                            <p>100% Quality Assurance</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Hero Graphic & Dynamic Offer Floating Card -->
-                <div class="lg:col-span-5 relative flex justify-center">
-                    <div class="w-72 h-72 sm:w-80 sm:h-80 rounded-3xl bg-brand-surface border border-white/10 p-6 flex items-center justify-center relative shadow-2xl">
-                        <img src="mascot3.png" alt="Kawad Swad Papad" class="w-full h-full object-contain animate-pulse" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
-                        
-                        <!-- Floating Trust Badge -->
-                        <div class="absolute -bottom-4 -left-4 glass-panel px-4 py-2.5 rounded-2xl border border-brand-accent/40 flex items-center gap-3 shadow-xl">
-                            <div class="w-8 h-8 rounded-xl bg-brand-accent/20 text-brand-accent flex items-center justify-center font-bold text-xs">0%</div>
-                            <div>
-                                <span class="text-[10px] font-bold text-white block">Zero Rice Flour</span>
-                                <span class="text-[9px] text-brand-textSecondary">Moong • Chana • Urad</span>
+    <!-- ==========================================================================
+       SECTION 2: WHY KAWAD SWAD
+       ========================================================================== -->
+    <section class="why-us section-padding">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-subtitle">OUR COMMITMENT</span>
+                <h2 class="section-title">Why Kawad Swad</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card fade-up">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path><path d="M12 8v4l3 3"></path></svg>
+                    </div>
+                    <h3>Authentic Taste</h3>
+                    <p>Time-tested traditional Jain recipes passed down through generations for exceptional flavor.</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    </div>
+                    <h3>Premium Ingredients</h3>
+                    <p>Meticulously sourced pulses and spices ensuring purity, crunch, and unmatched aroma.</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h3>Hygienic Manufacturing</h3>
+                    <p>Produced in state-of-the-art facilities following strict food safety protocol standard operating procedures.</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                    </div>
+                    <h3>Made in India</h3>
+                    <p>Proudly manufactured in India supporting local sourcing and traditional culinary heritage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       SECTION 3: FEATURED PRODUCTS
+       ========================================================================== -->
+    <section class="products section-padding">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-subtitle">OUR SELECTION</span>
+                <h2 class="section-title">Featured Products</h2>
+            </div>
+            <div class="products-grid">
+                <!-- Moong Papad -->
+                <div class="product-card fade-up">
+                    <div class="product-image-container">
+                        <!-- Replace with Moong Papad Product Image -->
+                        <div class="image-placeholder product-image-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            <span><!-- Replace with Moong Papad Image --></span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Moong Papad</h3>
+                        <p class="product-desc">Classic crisp papad prepared with premium quality moong dal and subtle spices.</p>
+                        <a href="products.html#moong" class="btn btn-secondary">View Product</a>
+                    </div>
+                </div>
+
+                <!-- Chana Papad -->
+                <div class="product-card fade-up">
+                    <div class="product-image-container">
+                        <!-- Replace with Chana Papad Product Image -->
+                        <div class="image-placeholder product-image-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            <span><!-- Replace with Chana Papad Image --></span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Chana Papad</h3>
+                        <p class="product-desc">Rich and flavorful papad crafted using finest quality chana flour for robust taste.</p>
+                        <a href="products.html#chana" class="btn btn-secondary">View Product</a>
+                    </div>
+                </div>
+
+                <!-- Urad Papad -->
+                <div class="product-card fade-up">
+                    <div class="product-image-container">
+                        <!-- Replace with Urad Papad Product Image -->
+                        <div class="image-placeholder product-image-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            <span><!-- Replace with Urad Papad Image --></span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Urad Papad</h3>
+                        <p class="product-desc">Traditional spiced urad dal papad offering authentic crunch and peppery zest.</p>
+                        <a href="products.html#urad" class="btn btn-secondary">View Product</a>
+                    </div>
+                </div>
+
+                <!-- Papad Masala -->
+                <div class="product-card fade-up">
+                    <div class="product-image-container">
+                        <!-- Replace with Papad Masala Product Image -->
+                        <div class="image-placeholder product-image-placeholder">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            <span><!-- Replace with Papad Masala Image --></span>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Papad Masala</h3>
+                        <p class="product-desc">Special proprietary spice blend crafted to enhance and elevate home-cooked papads.</p>
+                        <a href="products.html#masala" class="btn btn-secondary">View Product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       SECTION 4: SHOP BY CATEGORY
+       ========================================================================== -->
+    <section class="categories section-padding">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-subtitle">EXPLORE RANGE</span>
+                <h2 class="section-title">Shop By Category</h2>
+            </div>
+            <div class="categories-grid">
+                <a href="shop.html?category=moong" class="category-card fade-up">
+                    <div class="category-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M6 12h12"></path></svg>
+                    </div>
+                    <span class="category-title">Moong</span>
+                </a>
+                <a href="shop.html?category=chana" class="category-card fade-up">
+                    <div class="category-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M6 12h12"></path></svg>
+                    </div>
+                    <span class="category-title">Chana</span>
+                </a>
+                <a href="shop.html?category=urad" class="category-card fade-up">
+                    <div class="category-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M6 12h12"></path></svg>
+                    </div>
+                    <span class="category-title">Urad</span>
+                </a>
+                <a href="shop.html?category=masala" class="category-card fade-up">
+                    <div class="category-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v12M6 12h12"></path></svg>
+                    </div>
+                    <span class="category-title">Masala</span>
+                </a>
+                <a href="shop.html?category=combos" class="category-card fade-up">
+                    <div class="category-icon-wrap">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                    </div>
+                    <span class="category-title">Combos</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       SECTION 5: BUSINESS OPPORTUNITIES
+       ========================================================================== -->
+    <section class="business section-padding">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-subtitle">PARTNER WITH US</span>
+                <h2 class="section-title">Business Opportunities</h2>
+            </div>
+            <div class="business-grid">
+                <!-- Distributor Card -->
+                <div class="business-card fade-up">
+                    <h3>Distributor</h3>
+                    <p>Expand your commercial portfolio with our high-demand authentic Jain papad varieties backed by regional distribution support.</p>
+                    <a href="business.html" class="btn btn-primary">Apply</a>
+                </div>
+
+                <!-- Wholesale Card -->
+                <div class="business-card fade-up">
+                    <h3>Wholesale</h3>
+                    <p>Source premium bulk papad inventory for supermarkets, retail chains, and institutional supplies with reliable turnarounds.</p>
+                    <a href="business.html" class="btn btn-primary">Apply</a>
+                </div>
+
+                <!-- Private Label Card -->
+                <div class="business-card fade-up">
+                    <h3>Private Label</h3>
+                    <p>Custom manufacturing and white label solutions tailored to your brand's unique packaging and recipe specifications.</p>
+                    <a href="business.html" class="btn btn-primary">Apply</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       SECTION 6: OUR MANUFACTURING
+       ========================================================================== -->
+    <section class="manufacturing section-padding">
+        <div class="container">
+            <div class="mfg-grid">
+                <div class="mfg-image-wrapper fade-in">
+                    <!-- Replace with Factory / Manufacturing Image -->
+                    <div class="image-placeholder mfg-image-placeholder">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 22h20"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="2" width="12" height="10" rx="1"></rect></svg>
+                        <span><!-- Replace with Factory Image --></span>
+                        <p style="font-size: 0.75rem; margin-top: 0.25rem;">Hygienic Factory Floor & Machinery Photo</p>
+                    </div>
+                </div>
+                <div class="mfg-content fade-up">
+                    <span class="section-subtitle">INFRASTRUCTURE</span>
+                    <h2 class="section-title">Our Manufacturing</h2>
+                    <p style="color: var(--text-muted); line-height: 1.6;">Our state-of-the-art production facilities harmonize traditional Jain preparation methods with modern hygienic standards, ensuring absolute consistency in every batch.</p>
+                    
+                    <div class="mfg-features">
+                        <div class="mfg-feature-item">
+                            <div class="mfg-feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="mfg-feature-text">
+                                <h4>Manufacturing Process</h4>
+                                <p>Automated precision mixing and traditional sun-drying setup.</p>
+                            </div>
+                        </div>
+                        <div class="mfg-feature-item">
+                            <div class="mfg-feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="mfg-feature-text">
+                                <h4>Quality Controls</h4>
+                                <p>Multi-stage quality checks for grain purity and moisture content.</p>
+                            </div>
+                        </div>
+                        <div class="mfg-feature-item">
+                            <div class="mfg-feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="mfg-feature-text">
+                                <h4>Packaging Standard</h4>
+                                <p>Moisture-proof sealed packaging to retain long-lasting crispness.</p>
+                            </div>
+                        </div>
+                        <div class="mfg-feature-item">
+                            <div class="mfg-feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            </div>
+                            <div class="mfg-feature-text">
+                                <h4>Food Safety</h4>
+                                <p>Strict adherence to FSSAI guidelines and hygiene standards.</p>
                             </div>
                         </div>
                     </div>
-                </div>
 
+                    <a href="manufacturing.html" class="btn btn-primary">Know More</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. REAL-TIME FLASH SALE ENGINE -->
-    <section id="flash-sale" class="max-w-7xl mx-auto px-6 py-8">
-        <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-brand-danger/40 relative overflow-hidden bg-gradient-to-br from-brand-bgSecondary to-brand-surface">
-            
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 border-b border-white/10 pb-6 mb-8">
-                <div class="space-y-1">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-danger/20 text-brand-danger text-[10px] font-extrabold uppercase tracking-widest border border-brand-danger/30">
-                        <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-danger opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-danger"></span>
-                        </span>
-                        Limited Factory Stock
-                    </div>
-                    <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-white">Live Flash Deals Zone</h2>
+    <!-- ==========================================================================
+       SECTION 7: WHY BUSINESSES TRUST US
+       ========================================================================== -->
+    <section class="trust section-padding">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-subtitle">PROVEN TRACK RECORD</span>
+                <h2 class="section-title">Why Businesses Trust Us</h2>
+            </div>
+            <div class="trust-grid">
+                <div class="trust-card fade-up">
+                    <div class="trust-stat">XX+</div>
+                    <div class="trust-label">Retail Partners</div>
+                    <div class="trust-sub">Growing Pan-India Network</div>
                 </div>
-
-                <!-- Live Countdown Timer Component -->
-                <div class="glass-card px-5 py-3 rounded-2xl border border-brand-danger/30 flex items-center gap-4">
-                    <span class="text-xs font-bold uppercase text-brand-textSecondary flex items-center gap-1">
-                        <i data-lucide="clock" class="w-4 h-4 text-brand-danger"></i> Ends In:
-                    </span>
-                    <div class="flex items-center gap-2 font-mono">
-                        <span id="timer-h" class="bg-brand-surface border border-white/10 px-2.5 py-1 rounded text-sm font-bold text-white">02</span>:
-                        <span id="timer-m" class="bg-brand-surface border border-white/10 px-2.5 py-1 rounded text-sm font-bold text-white">14</span>:
-                        <span id="timer-s" class="bg-brand-surface border border-white/10 px-2.5 py-1 rounded text-sm font-bold text-white">52</span>:
-                        <span id="timer-ms" class="bg-brand-danger/20 border border-brand-danger/40 px-2 py-1 rounded text-sm font-bold text-brand-danger">8</span>
-                    </div>
+                <div class="trust-card fade-up">
+                    <div class="trust-stat">XX</div>
+                    <div class="trust-label">States Served</div>
+                    <div class="trust-sub">Widespread Distribution</div>
+                </div>
+                <div class="trust-card fade-up">
+                    <div class="trust-stat">100%</div>
+                    <div class="trust-label">Premium Manufacturing</div>
+                    <div class="trust-sub">Hygienic Facility Standards</div>
+                </div>
+                <div class="trust-card fade-up">
+                    <div class="trust-stat">24/7</div>
+                    <div class="trust-label">Reliable Supply</div>
+                    <div class="trust-sub">Seamless Order Execution</div>
                 </div>
             </div>
-
-            <!-- Flash Deal Cards -->
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Deal 1 -->
-                <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-4">
-                    <div class="flex justify-between items-start">
-                        <span class="bg-brand-danger text-white text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">🔥 20% OFF</span>
-                        <span class="text-[10px] font-mono text-brand-textSecondary">SKU: KS-MMP-500</span>
-                    </div>
-                    <img src="MMP.png" class="w-full h-36 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
-                    <div>
-                        <h3 class="font-heading text-sm font-bold text-white">Moong Master Papad</h3>
-                        <span class="text-[10px] text-brand-textSecondary">500g Pack</span>
-                        <div class="flex items-baseline gap-2 mt-1">
-                            <span class="font-heading text-xl font-extrabold text-white">₹199</span>
-                            <span class="text-xs text-brand-textSecondary/60 line-through">₹249</span>
-                        </div>
-                    </div>
-                    <!-- Claim Progress Bar -->
-                    <div class="space-y-1">
-                        <div class="flex justify-between text-[10px] font-semibold">
-                            <span class="text-brand-danger">84% Claimed</span>
-                            <span class="text-brand-textSecondary">Only 12 Left</span>
-                        </div>
-                        <div class="w-full bg-brand-surface h-2 rounded-full overflow-hidden border border-white/5">
-                            <div class="bg-gradient-to-r from-amber-500 to-brand-danger h-full w-[84%]"></div>
-                        </div>
-                    </div>
-                    <button onclick="addToCartBySku('KS-MMP-500')" class="w-full bg-brand-danger text-white font-heading font-bold py-3 rounded-xl text-xs hover:bg-red-600 transition flex items-center justify-center gap-1.5">
-                        <i data-lucide="zap" class="w-3.5 h-3.5 fill-white"></i> Claim Deal
-                    </button>
-                </div>
-
-                <!-- Deal 2 -->
-                <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-4">
-                    <div class="flex justify-between items-start">
-                        <span class="bg-brand-accent text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">⚡ 21% OFF</span>
-                        <span class="text-[10px] font-mono text-brand-textSecondary">SKU: KS-CKM-500</span>
-                    </div>
-                    <img src="CCPKM.png" class="w-full h-36 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
-                    <div>
-                        <h3 class="font-heading text-sm font-bold text-white">Chana Khata Mitha Papad</h3>
-                        <span class="text-[10px] text-brand-textSecondary">500g Pack</span>
-                        <div class="flex items-baseline gap-2 mt-1">
-                            <span class="font-heading text-xl font-extrabold text-white">₹199</span>
-                            <span class="text-xs text-brand-textSecondary/60 line-through">₹249</span>
-                        </div>
-                    </div>
-                    <!-- Claim Progress Bar -->
-                    <div class="space-y-1">
-                        <div class="flex justify-between text-[10px] font-semibold">
-                            <span class="text-brand-accent">65% Claimed</span>
-                            <span class="text-brand-textSecondary">Only 24 Left</span>
-                        </div>
-                        <div class="w-full bg-brand-surface h-2 rounded-full overflow-hidden border border-white/5">
-                            <div class="bg-gradient-to-r from-brand-accent to-amber-300 h-full w-[65%]"></div>
-                        </div>
-                    </div>
-                    <button onclick="addToCartBySku('KS-CKM-500')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
-                        <i data-lucide="zap" class="w-3.5 h-3.5 fill-black"></i> Claim Deal
-                    </button>
-                </div>
-
-                <!-- Deal 3 -->
-                <div class="glass-card p-5 rounded-2xl border border-white/10 space-y-4">
-                    <div class="flex justify-between items-start">
-                        <span class="bg-brand-success text-black text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">🎁 FREE SHIPPING</span>
-                        <span class="text-[10px] font-mono text-brand-textSecondary">SKU: KS-UGP-1000</span>
-                    </div>
-                    <img src="UGP.png" class="w-full h-36 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
-                    <div>
-                        <h3 class="font-heading text-sm font-bold text-white">Urad Guru Papad</h3>
-                        <span class="text-[10px] text-brand-textSecondary">1000g Family Pack (Free Shipping)</span>
-                        <div class="flex items-baseline gap-2 mt-1">
-                            <span class="font-heading text-xl font-extrabold text-white">₹529</span>
-                            <span class="text-xs text-brand-textSecondary/60 line-through">₹599</span>
-                        </div>
-                    </div>
-                    <!-- Claim Progress Bar -->
-                    <div class="space-y-1">
-                        <div class="flex justify-between text-[10px] font-semibold">
-                            <span class="text-brand-danger">92% Claimed</span>
-                            <span class="text-brand-textSecondary">Only 6 Left</span>
-                        </div>
-                        <div class="w-full bg-brand-surface h-2 rounded-full overflow-hidden border border-white/5">
-                            <div class="bg-gradient-to-r from-red-500 to-brand-danger h-full w-[92%]"></div>
-                        </div>
-                    </div>
-                    <button onclick="addToCartBySku('KS-UGP-1000')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
-                        <i data-lucide="zap" class="w-3.5 h-3.5 fill-black"></i> Claim 1kg Pack
-                    </button>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <!-- 4. PRODUCT DISCOVERY & CATALOGUE SECTION -->
-    <main id="catalogue" class="max-w-7xl mx-auto px-6 py-8 space-y-6">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-4">
-            <div>
-                <span class="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold">100% Pulse Dough • 36 SKUs</span>
-                <h2 class="font-heading text-2xl font-extrabold text-white">Explore Full Collection</h2>
+    <!-- ==========================================================================
+       SECTION 8: CUSTOMER REVIEWS
+       ========================================================================== -->
+    <section class="reviews section-padding">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-subtitle">TESTIMONIALS</span>
+                <h2 class="section-title">Customer Reviews</h2>
             </div>
-            
-            <!-- Category Filter Pills -->
-            <div class="flex flex-wrap items-center gap-2" id="category-pills">
-                <button onclick="filterCategory('all', this)" class="chip-active text-xs font-heading bg-brand-accent text-black font-bold px-4 py-2 rounded-xl">All Flavors</button>
-                <button onclick="filterCategory('moong', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Moong Range</button>
-                <button onclick="filterCategory('chana', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Chana Range</button>
-                <button onclick="filterCategory('urad', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Urad Range</button>
+            <div class="reviews-coming-soon fade-up">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                <p>Customer Reviews Coming Soon</p>
             </div>
         </div>
+    </section>
 
-        <!-- Dynamic Grouped Product Grid -->
-        <div id="products-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Dynamic Flavor Cards Injected via JavaScript -->
-        </div>
-    </main>
-
-    <!-- 5. SLIDE-OUT INTERACTIVE CART DRAWER -->
-    <div id="cart-drawer" class="fixed inset-0 z-[300] bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-0 pointer-events-none">
-        <div id="cart-panel" class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-brand-surface border-l border-white/10 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300">
-            
-            <div class="space-y-4">
-                <div class="flex justify-between items-center border-b border-white/10 pb-4">
-                    <h3 class="font-heading text-lg font-bold text-white flex items-center gap-2">
-                        <i data-lucide="shopping-bag" class="w-5 h-5 text-brand-accent"></i> Your Order Cart
-                    </h3>
-                    <button onclick="toggleCartDrawer()" class="text-brand-textSecondary hover:text-white p-1">✕</button>
-                </div>
-
-                <!-- Free Shipping Progress Meter -->
-                <div class="glass-panel p-3.5 rounded-2xl border border-white/10 space-y-2">
-                    <div class="flex justify-between text-xs">
-                        <span id="shipping-text" class="text-brand-textSecondary font-medium">Add ₹499 for <strong>FREE Shipping</strong></span>
-                        <span id="shipping-percent" class="text-brand-accent font-bold font-mono">0%</span>
-                    </div>
-                    <div class="w-full bg-brand-bg h-2 rounded-full overflow-hidden border border-white/5">
-                        <div id="shipping-bar" class="bg-brand-accent h-full w-[0%] transition-all duration-500"></div>
-                    </div>
-                </div>
-
-                <!-- Cart Items List Container -->
-                <div id="cart-items" class="space-y-3 max-h-[50vh] overflow-y-auto pr-1">
-                    <!-- Dynamic Cart Items Injected Here -->
-                </div>
+    <!-- ==========================================================================
+       SECTION 9: FOLLOW US
+       ========================================================================== -->
+    <section class="follow-us section-padding" style="background-color: var(--surface); border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-subtitle">CONNECT WITH US</span>
+                <h2 class="section-title">Follow Us</h2>
             </div>
+            <div class="social-grid">
+                <!-- Instagram -->
+                <a href="https://instagram.com/placeholder" target="_blank" class="social-card fade-up">
+                    <div class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </div>
+                    <span class="social-name">Instagram</span>
+                    <span class="social-handle">@kawadswad_placeholder</span>
+                </a>
 
-            <!-- Cart Footer & Checkout Button -->
-            <div class="border-t border-white/10 pt-4 space-y-3">
-                <div class="space-y-1 text-xs">
-                    <div class="flex justify-between text-brand-textSecondary">
-                        <span>Items Subtotal:</span>
-                        <span id="cart-subtotal" class="font-mono text-white font-bold">₹0</span>
+                <!-- YouTube -->
+                <a href="https://youtube.com/placeholder" target="_blank" class="social-card fade-up">
+                    <div class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
                     </div>
-                    <div class="flex justify-between text-brand-textSecondary">
-                        <span>Shipping Fee:</span>
-                        <span id="cart-shipping" class="font-mono text-brand-accent font-bold">₹0</span>
+                    <span class="social-name">YouTube</span>
+                    <span class="social-handle">Kawad Swad Official</span>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://facebook.com/placeholder" target="_blank" class="social-card fade-up">
+                    <div class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                     </div>
-                    <div class="flex justify-between items-baseline pt-2 border-t border-white/5 text-sm">
-                        <span class="font-bold text-white">Total Amount:</span>
-                        <span id="cart-total" class="font-heading text-xl font-extrabold text-brand-accent">₹0</span>
+                    <span class="social-name">Facebook</span>
+                    <span class="social-handle">Kawad Swad Official</span>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/placeholder" target="_blank" class="social-card fade-up">
+                    <div class="social-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     </div>
-                </div>
-                
-                <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-extrabold py-4 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
-                    Proceed to Express Checkout <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    <span class="social-name">WhatsApp</span>
+                    <span class="social-handle">Direct Channel</span>
                 </a>
             </div>
-
         </div>
-    </div>
+    </section>
 
-    <!-- 6. FOOTER -->
-    <footer class="max-w-7xl mx-auto px-6 pt-12 pb-6 border-t border-white/10 mt-12 text-xs text-brand-textSecondary space-y-8">
-        <div class="grid md:grid-cols-4 gap-8">
-            <div class="space-y-3">
-                <span class="font-heading text-base font-bold text-white block">KAWAD SWAD UDHYOG</span>
-                <p class="leading-relaxed">Handcrafted Nimar papads sun-dried in Katargaon, MP. 100% pulse flour, zero rice starch.</p>
-                <span class="text-[10px] font-mono text-brand-accent block">FSSAI Lic #21425890001224</span>
-            </div>
-            <div class="space-y-2">
-                <span class="font-heading text-xs font-bold text-white block uppercase tracking-wider">Quick Navigation</span>
-                <ul class="space-y-1.5">
-                    <li><a href="products.html" class="hover:text-white transition">Full Catalogue</a></li>
-                    <li><a href="flash-sale.html" class="hover:text-white transition">Flash Sale Deals</a></li>
-                    <li><a href="about.html" class="hover:text-white transition">Katargaon Heritage</a></li>
-                    <li><a href="reviews.html" class="hover:text-white transition">Customer Reviews</a></li>
-                    <li><a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-pink-400 hover:text-pink-300 transition">Meesho Store ↗</a></li>
-                </ul>
-            </div>
-            <div class="space-y-2">
-                <span class="font-heading text-xs font-bold text-white block uppercase tracking-wider">Business & Careers</span>
-                <ul class="space-y-1.5">
-                    <li><a href="distributor.html" class="hover:text-white transition text-brand-accent font-semibold">Become a Distributor</a></li>
-                    <li><a href="media.html" class="hover:text-white transition">Media & Press Kit</a></li>
-                    <li><a href="work-with-us.html" class="hover:text-white transition">Work With Us</a></li>
-                    <li><a href="track-order.html" class="hover:text-white transition">Track Your Order</a></li>
-                </ul>
-            </div>
-            <div class="space-y-3">
-                <span class="font-heading text-xs font-bold text-white block uppercase tracking-wider">Direct Support</span>
-                <p>WhatsApp: +91 96309 76867</p>
-                <p>Location: Katargaon, MP 451224</p>
+    <!-- ==========================================================================
+       SECTION 10: FINAL CTA
+       ========================================================================== -->
+    <section class="final-cta section-padding">
+        <div class="container">
+            <div class="cta-banner fade-up">
+                <div class="cta-content">
+                    <h2>Ready to Experience Authentic Taste?</h2>
+                    <div class="cta-buttons">
+                        <a href="shop.html" class="btn btn-primary">Shop Now</a>
+                        <a href="business.html" class="btn btn-secondary">Become Distributor</a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="text-center pt-6 border-t border-white/5 text-[10px] text-brand-textSecondary/50 font-mono">
-            © 2026 Kawad Swad Udhyog. All Rights Reserved. Crafted for D2C Excellence.
+    </section>
+
+    <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Info -->
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-mark"></span>
+                        KAWAD SWAD
+                    </a>
+                    <p>Crafting authentic Jain papads with traditional recipes, pristine ingredients, and uncompromised hygiene standard protocols.</p>
+                    <div class="fssai-block">
+                        <span class="fssai-badge">FSSAI</span>
+                        <span>Lic. No. XXXXXXXXXXXXXX</span>
+                    </div>
+                </div>
+
+                <!-- Column 1: Company -->
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="manufacturing.html">Manufacturing</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Products -->
+                <div class="footer-column">
+                    <h4>Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html#moong">Moong Papad</a></li>
+                        <li><a href="products.html#chana">Chana Papad</a></li>
+                        <li><a href="products.html#urad">Urad Papad</a></li>
+                        <li><a href="products.html#masala">Papad Masala</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Business -->
+                <div class="footer-column">
+                    <h4>Business</h4>
+                    <ul class="footer-links">
+                        <li><a href="business.html#distributor">Distributor</a></li>
+                        <li><a href="business.html#wholesale">Wholesale</a></li>
+                        <li><a href="business.html#privatelabel">Private Label</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Support -->
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="policies.html">Policies</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Kawad Swad. All Rights Reserved.</p>
+                <div class="footer-socials">
+                    <a href="https://instagram.com/placeholder" target="_blank" class="footer-social-icon" title="Instagram">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://facebook.com/placeholder" target="_blank" class="footer-social-icon" title="Facebook">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://youtube.com/placeholder" target="_blank" class="footer-social-icon" title="YouTube">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                    <a href="https://wa.me/placeholder" target="_blank" class="footer-social-icon" title="WhatsApp">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT ENGINE -->
+    <!-- ==========================================================================
+       JAVASCRIPT
+       ========================================================================== -->
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set dynamic copyright year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
+            // Mobile Navigation Toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
 
-        // 1. OFFICIAL KAWAD SWAD PRODUCT DATABASE (36 SKUs WITH CORRECT PNG MAPPINGS)
-        const KAWAD_PRODUCTS = [
-            // --- MOONG VARIETIES ---
-            { id: 'KS-MMP-200', title: 'Moong Master Papad', weight: '200g', mrp: 110, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'MMP.png' },
-            { id: 'KS-MMP-500', title: 'Moong Master Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'MMP.png' },
-            { id: 'KS-MMP-1000', title: 'Moong Master Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'MMP.png' },
-
-            { id: 'KS-MGP-200', title: 'Moong Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'MMPG.png' },
-            { id: 'KS-MGP-500', title: 'Moong Garlic Papad', weight: '500g', mrp: 309, price: 259, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'MMPG.png' },
-            { id: 'KS-MGP-1000', title: 'Moong Garlic Papad', weight: '1000g', mrp: 619, price: 539, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Garlic Punch', img: 'MMPG.png' },
-
-            { id: 'KS-MJP-200', title: 'Moong Jeera Papad', weight: '200g', mrp: 109, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'MMPJ.png' },
-            { id: 'KS-MJP-500', title: 'Moong Jeera Papad', weight: '500g', mrp: 279, price: 229, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'MMPJ.png' },
-            { id: 'KS-MJP-1000', title: 'Moong Jeera Papad', weight: '1000g', mrp: 559, price: 489, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Jeera Flavor', img: 'MMPJ.png' },
-
-            { id: 'KS-MPP-200', title: 'Moong Pudhina Papad', weight: '200g', mrp: 105, price: 85, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'MMPP.png' },
-            { id: 'KS-MPP-500', title: 'Moong Pudhina Papad', weight: '500g', mrp: 265, price: 219, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'MMPP.png' },
-            { id: 'KS-MPP-1000', title: 'Moong Pudhina Papad', weight: '1000g', mrp: 529, price: 459, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Fresh Mint', img: 'MMPP.png' },
-
-            { id: 'KS-MGCP-200', title: 'Moong Green Chilli Papad', weight: '200g', mrp: 105, price: 85, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'MMPGC.png' },
-            { id: 'KS-MGCP-500', title: 'Moong Green Chilli Papad', weight: '500g', mrp: 265, price: 219, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'MMPGC.png' },
-            { id: 'KS-MGCP-1000', title: 'Moong Green Chilli Papad', weight: '1000g', mrp: 529, price: 459, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Spicy Green Chilli', img: 'MMPGC.png' },
-
-            { id: 'KS-MKMP-200', title: 'Moong Kasuri Methi Papad', weight: '200g', mrp: 109, price: 89, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'MMPKM.png' },
-            { id: 'KS-MKMP-500', title: 'Moong Kasuri Methi Papad', weight: '500g', mrp: 229, price: 189, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'MMPKM.png' },
-            { id: 'KS-MKMP-1000', title: 'Moong Kasuri Methi Papad', weight: '1000g', mrp: 559, price: 489, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Kasuri Methi', img: 'MMPKM.png' },
-
-            { id: 'KS-MPMP-200', title: 'Moong Punjabi Masala Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'MMPPM.png' },
-            { id: 'KS-MPMP-500', title: 'Moong Punjabi Masala Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'MMPPM.png' },
-            { id: 'KS-MPMP-1000', title: 'Moong Punjabi Masala Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'moong', dal: 'Moong Dal', spice: 'Heavy Masala', img: 'MMPPM.png' },
-
-            // --- CHANA VARIETIES ---
-            { id: 'KS-CCP-200', title: 'Chana Chotu Papad', weight: '200g', mrp: 110, price: 89, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'CCP.png' },
-            { id: 'KS-CCP-500', title: 'Chana Chotu Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'CCP.png' },
-            { id: 'KS-CCP-1000', title: 'Chana Chotu Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Medium Crunch', img: 'CCP.png' },
-
-            { id: 'KS-CGP-200', title: 'Chana Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'CCPG.png' },
-            { id: 'KS-CGP-500', title: 'Chana Garlic Papad', weight: '500g', mrp: 309, price: 259, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'CCPG.png' },
-            { id: 'KS-CGP-1000', title: 'Chana Garlic Papad', weight: '1000g', mrp: 619, price: 539, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Garlic Crunch', img: 'CCPG.png' },
-
-            { id: 'KS-CKM-200', title: 'Chana Khata Mitha Papad', weight: '200g', mrp: 99, price: 79, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'CCPKM.png' },
-            { id: 'KS-CKM-500', title: 'Chana Khata Mitha Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'CCPKM.png' },
-            { id: 'KS-CKM-1000', title: 'Chana Khata Mitha Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'CCPKM.png' },
-
-            { id: 'KS-CTP-200', title: 'Chana Tomato Papad', weight: '200g', mrp: 99, price: 79, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'CCPT.png' },
-            { id: 'KS-CTP-500', title: 'Chana Tomato Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'CCPT.png' },
-            { id: 'KS-CTP-1000', title: 'Chana Tomato Papad', weight: '1000g', mrp: 499, price: 429, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Tangy Tomato', img: 'CCPT.png' },
-
-            { id: 'KS-CPM-200', title: 'Chana Punjabi Masala Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'CCPPM.png' },
-            { id: 'KS-CPM-500', title: 'Chana Punjabi Masala Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'CCPPM.png' },
-            { id: 'KS-CPM-1000', title: 'Chana Punjabi Masala Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'chana', dal: 'Chana Dal', spice: 'Heavy Masala', img: 'CCPPM.png' },
-
-            // --- URAD VARIETIES ---
-            { id: 'KS-UGP-200', title: 'Urad Guru Papad', weight: '200g', mrp: 119, price: 99, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'UGP.png' },
-            { id: 'KS-UGP-500', title: 'Urad Guru Papad', weight: '500g', mrp: 299, price: 249, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'UGP.png' },
-            { id: 'KS-UGP-1000', title: 'Urad Guru Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'UGP.png' },
-
-            { id: 'KS-UGG-200', title: 'Urad Garlic Papad', weight: '200g', mrp: 125, price: 99, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'UGPG.png' },
-            { id: 'KS-UGG-500', title: 'Urad Garlic Papad', weight: '500g', mrp: 319, price: 269, shipping: 49, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'UGPG.png' },
-            { id: 'KS-UGG-1000', title: 'Urad Garlic Papad', weight: '1000g', mrp: 639, price: 559, shipping: 0, category: 'urad', dal: 'Urad Dal', spice: 'Spicy Garlic', img: 'UGPG.png' }
-        ];
-
-        // 2. LIVE COUNTDOWN TIMER
-        let h = 2, m = 14, s = 52, ms = 8;
-        setInterval(() => {
-            ms--;
-            if (ms < 0) { ms = 9; s--; if (s < 0) { s = 59; m--; if (m < 0) { m = 59; h--; } } }
-            document.getElementById('timer-h').innerText = h.toString().padStart(2, '0');
-            document.getElementById('timer-m').innerText = m.toString().padStart(2, '0');
-            document.getElementById('timer-s').innerText = s.toString().padStart(2, '0');
-            document.getElementById('timer-ms').innerText = ms;
-        }, 100);
-
-        // 3. DYNAMIC STORE RENDERER (GROUPED BY FLAVOR WITH WEIGHT SWITCHER)
-        function renderStoreCatalog(categoryFilter = 'all') {
-            const grid = document.getElementById('products-grid');
-            if (!grid) return;
-
-            // Group items by Flavor Title
-            const grouped = {};
-            KAWAD_PRODUCTS.forEach(item => {
-                if (!grouped[item.title]) {
-                    grouped[item.title] = {
-                        title: item.title,
-                        category: item.category,
-                        dal: item.dal,
-                        spice: item.spice,
-                        img: item.img,
-                        variants: []
-                    };
-                }
-                grouped[item.title].variants.push(item);
-            });
-
-            const groupsArray = Object.values(grouped);
-            const filtered = categoryFilter === 'all' 
-                ? groupsArray 
-                : groupsArray.filter(g => g.category === categoryFilter);
-
-            grid.innerHTML = filtered.map((group, idx) => {
-                const defaultVar = group.variants.find(v => v.weight === '500g') || group.variants[0];
-
-                return `
-                    <div class="product-item glass-card rounded-3xl p-5 border border-white/10 relative flex flex-col justify-between group" id="card-${idx}">
-                        <button onclick="toggleWishlist(this)" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-brand-surface/80 border border-white/10 flex items-center justify-center text-brand-textSecondary hover:text-brand-danger transition">
-                            <i data-lucide="heart" class="w-4 h-4"></i>
-                        </button>
-
-                        <!-- Product Badge -->
-                        <span id="badge-${idx}" class="absolute top-4 left-4 z-10 text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${defaultVar.shipping === 0 ? 'bg-brand-success text-black' : 'bg-brand-accent text-black'}">
-                            ${defaultVar.shipping === 0 ? 'Free Shipping' : '0% Rice Flour'}
-                        </span>
-
-                        <div class="rounded-2xl bg-brand-surface/50 p-6 text-center mb-4 relative overflow-hidden">
-                            <img id="img-${idx}" src="${defaultVar.img}" alt="${group.title}" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
-                            <span id="sku-tag-${idx}" class="absolute bottom-2 right-2 text-[9px] font-mono bg-black/70 px-2 py-0.5 rounded border border-white/10 text-brand-textSecondary">${defaultVar.id}</span>
-                        </div>
-
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between text-xs">
-                                <span class="text-[10px] text-brand-accent uppercase font-bold tracking-wider">${group.dal} • ${group.spice}</span>
-                                <span class="text-brand-accent font-bold text-[11px] flex items-center gap-1"><i data-lucide="star" class="w-3 h-3 fill-brand-accent"></i> 4.9</span>
-                            </div>
-
-                            <h3 class="font-heading text-base font-bold text-white leading-snug">${group.title}</h3>
-
-                            <!-- Weight Selector Pills -->
-                            <div class="space-y-1">
-                                <span class="text-[10px] text-brand-textSecondary font-medium">Select Pack Weight:</span>
-                                <div class="grid grid-cols-3 gap-1.5">
-                                    ${group.variants.map(v => `
-                                        <button onclick="selectVariant(${idx}, '${v.id}')" 
-                                                id="btn-${v.id}"
-                                                class="variant-btn-${idx} py-1.5 rounded-lg text-[10px] font-bold border transition ${v.id === defaultVar.id ? 'bg-brand-accent text-black border-brand-accent' : 'bg-brand-surface text-brand-textSecondary border-white/10 hover:border-brand-accent'}">
-                                            ${v.weight}
-                                        </button>
-                                    `).join('')}
-                                </div>
-                            </div>
-
-                            <!-- Price Display -->
-                            <div class="flex items-baseline justify-between pt-2">
-                                <div>
-                                    <span id="price-${idx}" class="font-heading text-2xl font-extrabold text-white">₹${defaultVar.price}</span>
-                                    <span id="mrp-${idx}" class="text-xs text-brand-textSecondary/60 line-through ml-1.5">₹${defaultVar.mrp}</span>
-                                </div>
-                                <span id="ship-info-${idx}" class="text-[10px] font-mono ${defaultVar.shipping === 0 ? 'text-brand-success bg-brand-success/10' : 'text-brand-accent bg-brand-accent/10'} px-2 py-0.5 rounded font-bold">
-                                    ${defaultVar.shipping === 0 ? 'Free Delivery' : '+₹49 Shipping'}
-                                </span>
-                            </div>
-
-                            <button id="add-btn-${idx}" onclick="addToCartBySku('${defaultVar.id}')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-1.5">
-                                <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Add <span id="btn-wt-${idx}">${defaultVar.weight}</span> To Cart
-                            </button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-
-            lucide.createIcons();
-        }
-
-        // 4. INTERACTIVE VARIANT SWITCHER
-        function selectVariant(cardIdx, skuId) {
-            const product = KAWAD_PRODUCTS.find(p => p.id === skuId);
-            if (!product) return;
-
-            document.getElementById(`price-${cardIdx}`).innerText = `₹${product.price}`;
-            document.getElementById(`mrp-${cardIdx}`).innerText = `₹${product.mrp}`;
-            document.getElementById(`sku-tag-${cardIdx}`).innerText = product.id;
-            document.getElementById(`btn-wt-${cardIdx}`).innerText = product.weight;
-            document.getElementById(`img-${cardIdx}`).src = product.img;
-
-            const shipEl = document.getElementById(`ship-info-${cardIdx}`);
-            const badgeEl = document.getElementById(`badge-${cardIdx}`);
-            if (product.shipping === 0) {
-                shipEl.innerText = 'Free Delivery';
-                shipEl.className = 'text-[10px] font-mono text-brand-success bg-brand-success/10 px-2 py-0.5 rounded font-bold';
-                badgeEl.innerText = 'Free Shipping';
-                badgeEl.className = 'absolute top-4 left-4 z-10 text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-brand-success text-black';
-            } else {
-                shipEl.innerText = '+₹49 Shipping';
-                shipEl.className = 'text-[10px] font-mono text-brand-accent bg-brand-accent/10 px-2 py-0.5 rounded font-bold';
-                badgeEl.innerText = '0% Rice Flour';
-                badgeEl.className = 'absolute top-4 left-4 z-10 text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-brand-accent text-black';
-            }
-
-            document.querySelectorAll(`.variant-btn-${cardIdx}`).forEach(btn => {
-                btn.className = 'variant-btn-' + cardIdx + ' py-1.5 rounded-lg text-[10px] font-bold border transition bg-brand-surface text-brand-textSecondary border-white/10 hover:border-brand-accent';
-            });
-            const selectedBtn = document.getElementById(`btn-${skuId}`);
-            if (selectedBtn) {
-                selectedBtn.className = 'variant-btn-' + cardIdx + ' py-1.5 rounded-lg text-[10px] font-bold border transition bg-brand-accent text-black border-brand-accent';
-            }
-
-            document.getElementById(`add-btn-${cardIdx}`).setAttribute('onclick', `addToCartBySku('${product.id}')`);
-        }
-
-        // 5. CART STATE & LOCALSTORAGE PERSISTENCE MANAGEMENT
-        let cart = JSON.parse(localStorage.getItem('ks_cart')) || [];
-
-        function saveCart() {
-            localStorage.setItem('ks_cart', JSON.stringify(cart));
-        }
-
-        function addToCartBySku(skuId) {
-            const p = KAWAD_PRODUCTS.find(item => item.id === skuId);
-            if (!p) return;
-
-            const existing = cart.find(i => i.id === p.id);
-            if (existing) {
-                existing.qty++;
-            } else {
-                cart.push({ ...p, qty: 1 });
-            }
-
-            saveCart();
-            showToast(`Added ${p.title} (${p.weight}) to cart!`);
-            renderCart();
-            toggleCartDrawer();
-        }
-
-        function toggleCartDrawer() {
-            const drawer = document.getElementById('cart-drawer');
-            const panel = document.getElementById('cart-panel');
-            if (drawer.classList.contains('opacity-0')) {
-                drawer.classList.remove('opacity-0', 'pointer-events-none');
-                panel.classList.remove('translate-x-full');
-            } else {
-                drawer.classList.add('opacity-0', 'pointer-events-none');
-                panel.classList.add('translate-x-full');
-            }
-            renderCart();
-        }
-
-        function renderCart() {
-            const itemsContainer = document.getElementById('cart-items');
-            itemsContainer.innerHTML = '';
-            let subtotal = 0;
-            let totalShipping = 0;
-            let count = 0;
-
-            if (cart.length === 0) {
-                itemsContainer.innerHTML = `
-                    <div class="text-center py-10 space-y-2">
-                        <i data-lucide="shopping-bag" class="w-10 h-10 mx-auto text-brand-textSecondary opacity-40"></i>
-                        <p class="text-xs text-brand-textSecondary">Your cart is currently empty.</p>
-                    </div>
-                `;
-            } else {
-                cart.forEach((item, index) => {
-                    subtotal += item.price * item.qty;
-                    count += item.qty;
-                    if (item.shipping > 0) totalShipping += item.shipping;
-
-                    itemsContainer.innerHTML += `
-                        <div class="glass-card p-3 rounded-xl flex items-center gap-3 border border-white/10">
-                            <img src="${item.img}" class="w-12 h-12 object-contain bg-brand-surface rounded-lg p-1" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
-                            <div class="flex-1">
-                                <h4 class="text-xs font-bold text-white leading-tight">${item.title}</h4>
-                                <span class="text-[10px] text-brand-textSecondary block">${item.weight} • SKU: ${item.id}</span>
-                                <span class="text-xs text-brand-accent font-bold">₹${item.price}</span>
-                            </div>
-                            <div class="flex items-center gap-2 bg-brand-surface border border-white/10 rounded-lg px-2 py-1">
-                                <button onclick="updateQty(${index}, -1)" class="text-xs text-brand-textSecondary hover:text-white">-</button>
-                                <span class="text-xs font-bold text-white">${item.qty}</span>
-                                <button onclick="updateQty(${index}, 1)" class="text-xs text-brand-textSecondary hover:text-white">+</button>
-                            </div>
-                        </div>
-                    `;
+            if (mobileToggle && navMenu) {
+                mobileToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
                 });
             }
 
-            if (subtotal >= 499) totalShipping = 0;
-
-            document.getElementById('cart-badge').innerText = count;
-            document.getElementById('cart-subtotal').innerText = `₹${subtotal}`;
-            document.getElementById('cart-shipping').innerText = totalShipping === 0 ? 'FREE' : `₹${totalShipping}`;
-            document.getElementById('cart-total').innerText = `₹${subtotal + totalShipping}`;
-
-            const goal = 499;
-            const bar = document.getElementById('shipping-bar');
-            const text = document.getElementById('shipping-text');
-            const percentText = document.getElementById('shipping-percent');
-
-            if (subtotal >= goal) {
-                bar.style.width = '100%';
-                text.innerHTML = '🎉 You unlocked <strong>FREE Express Shipping!</strong>';
-                percentText.innerText = '100%';
-            } else {
-                const diff = goal - subtotal;
-                const pct = Math.min(100, Math.round((subtotal / goal) * 100));
-                bar.style.width = `${pct}%`;
-                text.innerHTML = `Add ₹${diff} more for <strong>FREE Shipping</strong>`;
-                percentText.innerText = `${pct}%`;
+            // Mobile Dropdown Handler
+            const businessDropdown = document.getElementById('businessDropdown');
+            if (businessDropdown) {
+                businessDropdown.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        this.classList.toggle('active');
+                    }
+                });
             }
 
-            lucide.createIcons();
-        }
+            // Search Modal Toggle
+            const searchTrigger = document.getElementById('searchTrigger');
+            const searchModal = document.getElementById('searchModal');
+            const closeSearch = document.getElementById('closeSearch');
 
-        function updateQty(index, change) {
-            cart[index].qty += change;
-            if (cart[index].qty <= 0) cart.splice(index, 1);
-            saveCart();
-            renderCart();
-        }
+            if (searchTrigger && searchModal && closeSearch) {
+                searchTrigger.addEventListener('click', function() {
+                    searchModal.classList.add('active');
+                });
 
-        // 6. CATEGORY FILTER PILLS
-        function filterCategory(cat, btn) {
-            document.querySelectorAll('#category-pills button').forEach(b => {
-                b.classList.remove('bg-brand-accent', 'text-black', 'font-bold');
-                b.classList.add('text-brand-textSecondary');
+                closeSearch.addEventListener('click', function() {
+                    searchModal.classList.remove('active');
+                });
+
+                searchModal.addEventListener('click', function(e) {
+                    if (e.target === searchModal) {
+                        searchModal.classList.remove('active');
+                    }
+                });
+            }
+
+            // Intersection Observer for Smooth Scroll Fade Up Animations
+            const fadeElements = document.querySelectorAll('.fade-up, .fade-in');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            fadeElements.forEach(el => {
+                observer.observe(el);
             });
-            btn.classList.add('bg-brand-accent', 'text-black', 'font-bold');
-            btn.classList.remove('text-brand-textSecondary');
-            
-            renderStoreCatalog(cat);
-        }
-
-        // 7. TOAST NOTIFICATIONS
-        function showToast(msg) {
-            const hub = document.getElementById('toast-hub');
-            const toast = document.createElement('div');
-            toast.className = 'glass-panel px-4 py-3 rounded-xl border border-brand-accent/40 text-xs font-bold text-white shadow-xl animate-bounce';
-            toast.innerText = msg;
-            hub.appendChild(toast);
-            setTimeout(() => toast.remove(), 2500);
-        }
-
-        function toggleWishlist(btn) {
-            btn.classList.toggle('text-brand-danger');
-            showToast('Wishlist updated!');
-        }
-
-        // INITIALIZE CATALOG AND CART ON PAGE LOAD
-        document.addEventListener('DOMContentLoaded', () => {
-            renderStoreCatalog('all');
-            renderCart();
         });
     </script>
 </body>

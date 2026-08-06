@@ -1,11 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=index.html#catalogue">
-    <title>Products | Kawad Swad Udhyog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore full catalogue of authentic Kawad Swad Udhyog Nimar Papads - Moong, Chana, and Urad varieties.">
+    <title>Full Product Catalogue | Kawad Swad Udhyog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0B0B0B', bgSecondary: '#141414', surface: '#1C1C1C',
+                            accent: '#F59E0B', accentLight: '#FFD166', danger: '#EF4444',
+                            success: '#22C55E', textPrimary: '#FFFFFF', textSecondary: '#CFCFCF'
+                        }
+                    },
+                    fontFamily: { heading: ['Sora', 'sans-serif'], body: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; }
+        .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s ease; }
+        .glass-card:hover { border-color: rgba(245, 158, 11, 0.35); box-shadow: 0 12px 30px -10px rgba(245, 158, 11, 0.18); }
+    </style>
 </head>
-<body>
-    <p>Redirecting to product catalogue...</p>
+<body class="antialiased pb-12">
+    <div id="toast-hub" class="fixed bottom-6 right-6 z-[400] flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent font-bold">K</div>
+                <div>
+                    <span class="font-heading text-lg font-bold text-white block leading-none">KAWAD SWAD</span>
+                    <span class="text-[9px] font-semibold text-brand-accent tracking-[0.25em] uppercase">FULL CATALOGUE</span>
+                </div>
+            </a>
+            <div class="hidden lg:flex items-center gap-8 text-xs uppercase tracking-wider text-brand-textSecondary font-medium">
+                <a href="index.html" class="hover:text-brand-accent transition">Home</a>
+                <a href="products.html" class="text-brand-accent font-bold">Catalogue</a>
+                <a href="flash-sale.html" class="hover:text-brand-accent transition">Flash Sale</a>
+                <a href="about.html" class="hover:text-brand-accent transition">Our Story</a>
+                <a href="reviews.html" class="hover:text-brand-accent transition">Reviews</a>
+            </div>
+            <div class="flex items-center gap-3">
+                <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-extrabold text-[10px] rounded-full flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Catalogue Header -->
+    <main class="max-w-7xl mx-auto px-6 py-8 space-y-6">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-4">
+            <div>
+                <span class="text-xs font-mono uppercase tracking-widest text-brand-accent font-bold">100% Pulse Dough • Katargaon Unit</span>
+                <h1 class="font-heading text-3xl font-extrabold text-white">Explore Full Collection</h1>
+            </div>
+            <div class="flex flex-wrap items-center gap-2" id="category-pills">
+                <button onclick="filterCategory('all', this)" class="text-xs font-heading bg-brand-accent text-black font-bold px-4 py-2 rounded-xl">All Flavors</button>
+                <button onclick="filterCategory('moong', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Moong Range</button>
+                <button onclick="filterCategory('chana', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Chana Range</button>
+                <button onclick="filterCategory('urad', this)" class="text-xs font-heading glass-card text-brand-textSecondary px-4 py-2 rounded-xl hover:text-white">Urad Range</button>
+            </div>
+        </div>
+
+        <div id="products-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </main>
+
+    <script>
+        lucide.createIcons();
+        const KAWAD_PRODUCTS = [
+            { id: 'KS-MMP-500', title: 'Moong Master Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'moong', dal: 'Moong Dal', spice: 'Classic Recipe', img: 'MMP.png' },
+            { id: 'KS-CKM-500', title: 'Chana Khata Mitha Papad', weight: '500g', mrp: 249, price: 199, shipping: 49, category: 'chana', dal: 'Chana Dal', spice: 'Khatta Meetha', img: 'CCPKM.png' },
+            { id: 'KS-UGP-1000', title: 'Urad Guru Papad', weight: '1000g', mrp: 599, price: 529, shipping: 0, category: 'urad', dal: 'Urad Dal', spice: 'Authentic Pepper', img: 'UGP.png' }
+        ];
+
+        let cart = JSON.parse(localStorage.getItem('ks_cart')) || [];
+        function saveCart() { localStorage.setItem('ks_cart', JSON.stringify(cart)); }
+
+        function addToCartBySku(skuId) {
+            const p = KAWAD_PRODUCTS.find(item => item.id === skuId);
+            if (!p) return;
+            const existing = cart.find(i => i.id === p.id);
+            if (existing) { existing.qty++; } else { cart.push({ ...p, qty: 1 }); }
+            saveCart();
+            updateCartBadge();
+        }
+
+        function updateCartBadge() {
+            let count = cart.reduce((acc, i) => acc + i.qty, 0);
+            document.getElementById('cart-badge').innerText = count;
+        }
+
+        function renderStoreCatalog(categoryFilter = 'all') {
+            const grid = document.getElementById('products-grid');
+            const filtered = categoryFilter === 'all' ? KAWAD_PRODUCTS : KAWAD_PRODUCTS.filter(p => p.category === categoryFilter);
+            grid.innerHTML = filtered.map((p) => `
+                <div class="glass-card rounded-3xl p-5 border border-white/10 space-y-3">
+                    <img src="${p.img}" class="w-full h-40 object-contain mx-auto" onerror="this.src='logo.png'">
+                    <h3 class="font-heading text-base font-bold text-white">${p.title}</h3>
+                    <div class="flex justify-between items-center">
+                        <span class="font-heading text-xl font-extrabold text-white">₹${p.price}</span>
+                        <span class="text-xs text-brand-textSecondary">${p.weight}</span>
+                    </div>
+                    <button onclick="addToCartBySku('${p.id}')" class="w-full bg-brand-accent text-black font-heading font-bold py-3 rounded-xl text-xs hover:bg-brand-accentLight transition">
+                        Add To Cart
+                    </button>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('#category-pills button').forEach(b => {
+                b.classList.remove('bg-brand-accent', 'text-black', 'font-bold');
+                b.classList.add('text-brand-textSecondary');
+            });
+            btn.classList.add('bg-brand-accent', 'text-black', 'font-bold');
+            renderStoreCatalog(cat);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderStoreCatalog('all');
+            updateCartBadge();
+        });
+    </script>
 </body>
 </html>

@@ -2,8 +2,8 @@
  * ============================================================================
  * KAWAD SWAD - E-Commerce LocalStorage Cart System (js/cart.js)
  * ============================================================================
- * Handles cart item state, cart page rendering, checkout summary rendering,
- * and header counter badge synchronization.
+ * Handles cart state, table rendering, badge synchronization, and provides
+ * product calculations for checkout payloads.
  */
 
 const STORAGE_KEY = 'kawad_swad_cart';

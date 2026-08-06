@@ -6,7 +6,6 @@
     <title>[Product Name] | KAWAD SWAD</title>
     <meta name="description" content="Premium Jain Papad by KAWAD SWAD. View ingredients, nutrition, available sizes and product details.">
     
-    <!-- Tailwind CSS CDN with custom design tokens matching existing site structure -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -31,509 +30,142 @@
         }
     </script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS Animation Utilities -->
     <style>
-        .fade-in {
-            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .slide-up {
-            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- ==========================================
-         STICKY HEADER (REUSED NAV)
-         ========================================== -->
+    <!-- GLOBAL HEADER -->
     <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
             <a href="index.html" class="flex items-center gap-2 group">
                 <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">
                     KAWAD SWAD
                 </span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+            <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide">
                 <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
                 <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
                 <a href="products.html" class="text-brand-gold font-semibold transition-colors">Products</a>
                 <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
                 <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
                 <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
-                <a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a>
                 <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
+                <a href="blog.html" class="hover:text-brand-gold transition-colors">Blog</a>
                 <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
             </nav>
 
-            <!-- Mobile Menu Toggle Button -->
-            <button type="button" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
+            <div class="flex items-center space-x-4">
+                <a href="products.html" class="text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Search">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </a>
+                <a href="cart.html" class="relative text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Cart">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                </a>
+                <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-cream border-b border-brand-gold/20 px-4 pt-2 pb-6 space-y-3 text-sm font-medium">
+            <a href="index.html" class="block py-2 hover:text-brand-gold transition-colors">Home</a>
+            <a href="about.html" class="block py-2 hover:text-brand-gold transition-colors">About</a>
+            <a href="products.html" class="block py-2 text-brand-gold font-semibold">Products</a>
+            <a href="shop.html" class="block py-2 hover:text-brand-gold transition-colors">Shop</a>
+            <a href="business.html" class="block py-2 hover:text-brand-gold transition-colors">Business</a>
+            <a href="manufacturing.html" class="block py-2 hover:text-brand-gold transition-colors">Manufacturing</a>
+            <a href="gallery.html" class="block py-2 hover:text-brand-gold transition-colors">Gallery</a>
+            <a href="blog.html" class="block py-2 hover:text-brand-gold transition-colors">Blog</a>
+            <a href="contact.html" class="block py-2 hover:text-brand-gold transition-colors">Contact</a>
         </div>
     </header>
 
     <main class="flex-grow">
-        <!-- ==========================================
-             SECTION 1: BREADCRUMB
-             ========================================== -->
+        <!-- BREADCRUMB -->
         <nav aria-label="Breadcrumb" class="bg-white border-b border-stone-200/80 py-4">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ol class="flex items-center space-x-2 text-xs text-brand-muted">
-                    <li>
-                        <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
-                    </li>
+                    <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
                     <li class="text-stone-400">&gt;</li>
-                    <li>
-                        <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
-                    </li>
+                    <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
                     <li class="text-stone-400">&gt;</li>
-                    <li class="font-semibold text-brand-dark uppercase tracking-wider" aria-current="page">
-                        [Product Name]
-                    </li>
+                    <li class="font-semibold text-brand-dark uppercase tracking-wider">[Product Name]</li>
                 </ol>
             </div>
         </nav>
 
-        <!-- ==========================================
-             SECTIONS 2 & 3: GALLERY & INFORMATION
-             ========================================== -->
+        <!-- PRODUCT DETAILS -->
         <section class="py-12 lg:py-16 bg-white border-b border-stone-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-                    
-                    <!-- SECTION 2: PRODUCT GALLERY -->
+                    <!-- Gallery -->
                     <div class="space-y-4 fade-in">
-                        <!-- Main Product Image Placeholder -->
                         <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
-                            <svg class="w-20 h-20 text-stone-400/80 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                            </svg>
+                            <svg class="w-20 h-20 text-stone-400/80 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                             <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[product-main-placeholder]</span>
                         </div>
-
-                        <!-- 4 Thumbnail Placeholders -->
                         <div class="grid grid-cols-4 gap-4">
-                            <div class="aspect-square bg-stone-200 rounded-sm border border-brand-gold flex items-center justify-center p-2 text-center cursor-pointer">
-                                <span class="text-[9px] font-mono text-brand-muted">[thumb-1]</span>
-                            </div>
-                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center cursor-pointer hover:border-brand-gold transition-colors">
-                                <span class="text-[9px] font-mono text-brand-muted">[thumb-2]</span>
-                            </div>
-                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center cursor-pointer hover:border-brand-gold transition-colors">
-                                <span class="text-[9px] font-mono text-brand-muted">[thumb-3]</span>
-                            </div>
-                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center cursor-pointer hover:border-brand-gold transition-colors">
-                                <span class="text-[9px] font-mono text-brand-muted">[thumb-4]</span>
-                            </div>
+                            <div class="aspect-square bg-stone-200 rounded-sm border border-brand-gold flex items-center justify-center p-2 text-center"><span class="text-[9px] font-mono text-brand-muted">[thumb-1]</span></div>
+                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center"><span class="text-[9px] font-mono text-brand-muted">[thumb-2]</span></div>
+                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center"><span class="text-[9px] font-mono text-brand-muted">[thumb-3]</span></div>
+                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center"><span class="text-[9px] font-mono text-brand-muted">[thumb-4]</span></div>
                         </div>
                     </div>
 
-                    <!-- SECTION 3: PRODUCT INFORMATION -->
+                    <!-- Meta -->
                     <div class="space-y-8 slide-up">
                         <div>
-                            <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full mb-3">
-                                [Category Name]
-                            </span>
-                            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark mb-4">
-                                [Product Name]
-                            </h1>
-                            <p class="text-base text-brand-muted leading-relaxed font-light">
-                                [Editable Short Description: Describe the unique taste profile, crispness, traditional recipe attributes, and Jain purity guidelines for this specific product.]
-                            </p>
+                            <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full mb-3">[Category Name]</span>
+                            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark mb-4">[Product Name]</h1>
+                            <p class="text-base text-brand-muted leading-relaxed font-light">[Editable Short Description]</p>
                         </div>
 
-                        <!-- Key Specifications Meta -->
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-b border-stone-200/80 py-6 text-sm">
                             <div class="space-y-2">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-semibold text-brand-dark">Category:</span>
-                                    <span class="text-brand-muted">[Category]</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="font-semibold text-brand-dark">Product Code:</span>
-                                    <span class="text-brand-muted font-mono text-xs">[product-code-placeholder]</span>
-                                </div>
+                                <div class="flex items-center gap-2"><span class="font-semibold text-brand-dark">Category:</span><span class="text-brand-muted">[Category]</span></div>
+                                <div class="flex items-center gap-2"><span class="font-semibold text-brand-dark">Product Code:</span><span class="text-brand-muted font-mono text-xs">[code-placeholder]</span></div>
                             </div>
                             <div class="space-y-2">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-semibold text-brand-dark">Shelf Life:</span>
-                                    <span class="text-brand-muted">[shelf-life-placeholder]</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <span class="font-semibold text-brand-dark">FSSAI Licence:</span>
-                                    <span class="text-brand-muted font-mono text-xs">[fssai-licence-placeholder]</span>
-                                </div>
+                                <div class="flex items-center gap-2"><span class="font-semibold text-brand-dark">Shelf Life:</span><span class="text-brand-muted">[shelf-life-placeholder]</span></div>
+                                <div class="flex items-center gap-2"><span class="font-semibold text-brand-dark">FSSAI Licence:</span><span class="text-brand-muted font-mono text-xs">[fssai-placeholder]</span></div>
                             </div>
                         </div>
 
-                        <!-- CTAs (NO PRICE / NO CART) -->
                         <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                            <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
-                                Enquire Now
-                            </a>
-                            <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
-                                Download Catalogue
-                            </a>
+                            <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm">Enquire Now</a>
+                            <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">Download Catalogue</a>
                         </div>
                     </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 4: AVAILABLE SIZES
-             ========================================== -->
-        <section class="py-16 bg-brand-cream border-b border-brand-gold/10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">Available Sizes</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- 200g Card -->
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300 flex flex-col items-center text-center">
-                        <div class="w-full aspect-4/3 bg-stone-100 rounded-sm mb-6 flex flex-col items-center justify-center p-4">
-                            <span class="text-xs font-mono text-brand-muted">[package-200g-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-1">200g</h3>
-                        <span class="text-xs font-medium uppercase tracking-wider text-brand-gold">Retail Pack</span>
-                    </div>
-
-                    <!-- 500g Card -->
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300 flex flex-col items-center text-center">
-                        <div class="w-full aspect-4/3 bg-stone-100 rounded-sm mb-6 flex flex-col items-center justify-center p-4">
-                            <span class="text-xs font-mono text-brand-muted">[package-500g-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-1">500g</h3>
-                        <span class="text-xs font-medium uppercase tracking-wider text-brand-gold">Family Pack</span>
-                    </div>
-
-                    <!-- 1000g Card -->
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300 flex flex-col items-center text-center">
-                        <div class="w-full aspect-4/3 bg-stone-100 rounded-sm mb-6 flex flex-col items-center justify-center p-4">
-                            <span class="text-xs font-mono text-brand-muted">[package-1000g-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-1">1000g</h3>
-                        <span class="text-xs font-medium uppercase tracking-wider text-brand-gold">Value Pack</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 5: INGREDIENTS
-             ========================================== -->
-        <section class="py-16 bg-white border-b border-stone-200/80">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">Ingredients</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="bg-brand-cream/60 p-8 rounded-sm border border-stone-200/80">
-                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-brand-muted">
-                        <li class="flex items-center gap-3">
-                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
-                            <span>[Placeholder Ingredient 1 - e.g. Selected Pulses / Pulse Flour]</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
-                            <span>[Placeholder Ingredient 2 - e.g. Black Pepper / Spices]</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
-                            <span>[Placeholder Ingredient 3 - e.g. Edible Common Salt]</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
-                            <span>[Placeholder Ingredient 4 - e.g. Asafoetida (Hing)]</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
-                            <span>[Placeholder Ingredient 5 - e.g. Raising Agent / Saji Khar]</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
-                            <span>[Placeholder Ingredient 6 - e.g. Edible Oil]</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 6: NUTRITIONAL INFORMATION
-             ========================================== -->
-        <section class="py-16 bg-brand-cream border-b border-brand-gold/10">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">Nutritional Information</h2>
-                    <p class="text-xs text-brand-muted">Approximate values per 100g serving</p>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-3"></div>
-                </div>
-
-                <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm">
-                    <table class="w-full text-left text-sm">
-                        <thead class="bg-brand-dark text-white font-serif">
-                            <tr>
-                                <th class="py-4 px-6 font-semibold">Nutritional Parameter</th>
-                                <th class="py-4 px-6 font-semibold text-right">Value per 100g</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-stone-200/80 text-brand-dark">
-                            <tr class="hover:bg-brand-cream/30 transition-colors">
-                                <td class="py-3.5 px-6 font-medium">Energy</td>
-                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] kcal</td>
-                            </tr>
-                            <tr class="hover:bg-brand-cream/30 transition-colors">
-                                <td class="py-3.5 px-6 font-medium">Protein</td>
-                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] g</td>
-                            </tr>
-                            <tr class="hover:bg-brand-cream/30 transition-colors">
-                                <td class="py-3.5 px-6 font-medium">Carbohydrates</td>
-                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] g</td>
-                            </tr>
-                            <tr class="hover:bg-brand-cream/30 transition-colors">
-                                <td class="py-3.5 px-6 font-medium">Fat</td>
-                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] g</td>
-                            </tr>
-                            <tr class="hover:bg-brand-cream/30 transition-colors">
-                                <td class="py-3.5 px-6 font-medium">Sugar</td>
-                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] g</td>
-                            </tr>
-                            <tr class="hover:bg-brand-cream/30 transition-colors">
-                                <td class="py-3.5 px-6 font-medium">Sodium</td>
-                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] mg</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 7: COOKING INSTRUCTIONS
-             ========================================== -->
-        <section class="py-16 bg-white border-b border-stone-200/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">How To Prepare</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Roast -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 text-center">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Open Flame Roast</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short instruction for roasting over an open flame or dry pan until crisp.]</p>
-                    </div>
-
-                    <!-- Fry -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 text-center">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Deep Fry</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short instruction for deep frying in hot edible oil for a few seconds.]</p>
-                    </div>
-
-                    <!-- Microwave -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 text-center">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Microwave</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short instruction for microwave roasting for 30-40 seconds.]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 8: WHY CHOOSE THIS PRODUCT
-             ========================================== -->
-        <section class="py-20 bg-brand-cream border-b border-brand-gold/10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Why Choose This Product</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Authentic Jain Recipe -->
-                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Authentic Jain Recipe</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Formulated strictly in compliance with pure Jain dietary rules.</p>
-                    </div>
-
-                    <!-- Premium Ingredients -->
-                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Premium Ingredients</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Made with top-tier pulses and freshly ground native spices.</p>
-                    </div>
-
-                    <!-- Quality Checked -->
-                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Quality Checked</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Subjected to multi-level checks for texture, taste, and safety.</p>
-                    </div>
-
-                    <!-- Modern Manufacturing -->
-                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Modern Manufacturing</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Processed in a state-of-the-art facility ensuring untouched hygiene.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 9: RELATED PRODUCTS
-             ========================================== -->
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Related Products</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Related Product 1 -->
-                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
-                            <span class="text-xs font-mono text-brand-muted">[related-product-1-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-6 flex-grow">[Product Name Placeholder]</h3>
-                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
-                            View Details
-                        </a>
-                    </div>
-
-                    <!-- Related Product 2 -->
-                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
-                            <span class="text-xs font-mono text-brand-muted">[related-product-2-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-6 flex-grow">[Product Name Placeholder]</h3>
-                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
-                            View Details
-                        </a>
-                    </div>
-
-                    <!-- Related Product 3 -->
-                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
-                            <span class="text-xs font-mono text-brand-muted">[related-product-3-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-6 flex-grow">[Product Name Placeholder]</h3>
-                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
-                            View Details
-                        </a>
-                    </div>
-
-                    <!-- Related Product 4 -->
-                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
-                            <span class="text-xs font-mono text-brand-muted">[related-product-4-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-6 flex-grow">[Product Name Placeholder]</h3>
-                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
-                            View Details
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 10: BUSINESS CTA
-             ========================================== -->
-        <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-8 leading-tight">
-                    Interested in Bulk Orders?
-                </h2>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">
-                        Become Distributor
-                    </a>
-                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">
-                        Wholesale Enquiry
-                    </a>
-                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-brand-gold text-brand-gold font-semibold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
-                        Private Label
-                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ==========================================
-         SECTION 11: FOOTER (REUSED FOOTER)
-         ========================================== -->
+    <!-- GLOBAL FOOTER -->
     <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
-                
-                <!-- Brand Info -->
-                <div class="space-y-4 md:col-span-1">
-                    <span class="font-serif text-xl font-bold text-white tracking-wider">KAWAD SWAD</span>
-                    <p class="text-xs text-stone-500 leading-relaxed">
-                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar.
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+                <div class="space-y-4 lg:col-span-2">
+                    <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
+                    <p class="text-xs text-stone-500 leading-relaxed max-w-sm">
+                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar. Committed to quality, hygiene and authentic flavors.
                     </p>
+                    <div class="pt-2 text-xs space-y-1 text-stone-500 font-mono">
+                        <p>FSSAI Lic No: [fssai-number-placeholder]</p>
+                        <p>GSTIN: [gst-number-placeholder]</p>
+                    </div>
                 </div>
-
-                <!-- Quick Links -->
                 <div>
                     <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
                     <ul class="space-y-2.5 text-xs">
@@ -541,33 +173,47 @@
                         <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
                         <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
                         <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
-                    </ul>
-                </div>
-
-                <!-- Business Links -->
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Process</h4>
-                    <ul class="space-y-2.5 text-xs">
-                        <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Opportunities</a></li>
-                        <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
-                        <li><a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a></li>
-                        <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Contact</h4>
-                    <ul class="space-y-2.5 text-xs">
                         <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
-                        <li class="text-stone-500">Nimar Region, Madhya Pradesh, India</li>
                     </ul>
                 </div>
-
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Media</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Solutions</a></li>
+                        <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
+                        <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
+                        <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Blog &amp; Recipes</a></li>
+                        <li><a href="reviews.html" class="hover:text-brand-gold transition-colors">Reviews</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Support &amp; Legal</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="faq.html" class="hover:text-brand-gold transition-colors">FAQ</a></li>
+                        <li><a href="policies.html" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
+                        <li><a href="policies.html#terms-and-conditions" class="hover:text-brand-gold transition-colors">Terms &amp; Conditions</a></li>
+                        <li><a href="policies.html#shipping-policy" class="hover:text-brand-gold transition-colors">Shipping &amp; Returns</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="mt-12 pt-8 border-t border-stone-900 text-center text-xs text-stone-600">
+            <div class="mt-12 pt-8 border-t border-stone-900 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div>
+                    <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Subscribe to Our Newsletter</h5>
+                    <p class="text-xs text-stone-500 mt-1">Receive authentic Jain recipes and business updates directly.</p>
+                </div>
+                <form onsubmit="event.preventDefault();" class="flex gap-2">
+                    <input type="email" placeholder="Enter your email" class="bg-stone-900 border border-stone-800 rounded-sm px-4 py-2 text-xs text-white focus:outline-none focus:border-brand-gold flex-grow">
+                    <button type="submit" class="px-6 py-2 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-600 gap-4">
                 <p>&copy; KAWAD SWAD. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="https://wa.me/[whatsapp-placeholder]" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">WhatsApp</a>
+                    <a href="contact.html" class="hover:text-brand-gold transition-colors">Support</a>
+                </div>
             </div>
         </div>
     </footer>

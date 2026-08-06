@@ -1,1 +1,827 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Recipes | Kawad Swad</title>
+    <meta name="description" content="Explore authentic recipes, cooking tips and serving ideas from Kawad Swad.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#9B1C1C',     /* Primary brand color */
+                            gold: '#D97706',    /* Accent gold/amber */
+                            cream: '#FFFBEB',   /* Light background */
+                            dark: '#1F2937',    /* Text dark */
+                            muted: '#4B5563'   /* Text muted */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- JSON-LD Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Recipes & Knowledge Hub",
+        "item": "blog.html"
+      }]
+    }
+    </script>
+</head>
+<body class="bg-slate-50 font-sans text-brand-dark antialiased">
+
+    <!-- ==================================================
+         HEADER (Existing Website Header)
+         ================================================== -->
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2">
+                <!-- Brand Logo Placeholder -->
+                <div class="w-10 h-10 bg-brand-red rounded-full flex items-center justify-center text-white font-bold text-xl">
+                    KS
+                </div>
+                <span class="text-2xl font-bold tracking-tight text-brand-red">Kawad Swad</span>
+            </a>
+            
+            <nav class="hidden md:flex items-center gap-8 font-medium text-gray-700">
+                <a href="index.html" class="hover:text-brand-red transition-colors">Home</a>
+                <a href="products.html" class="hover:text-brand-red transition-colors">Products</a>
+                <a href="about.html" class="hover:text-brand-red transition-colors">About Us</a>
+                <a href="blog.html" class="text-brand-red font-semibold">Recipes</a>
+                <a href="contact.html" class="hover:text-brand-red transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="products.html" class="hidden sm:inline-block px-5 py-2.5 bg-brand-red text-white font-medium rounded-full hover:bg-red-800 transition-colors shadow-sm">
+                    Shop Now
+                </a>
+                <button type="button" class="md:hidden text-gray-700 p-2" aria-label="Toggle navigation menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Support -->
+    <div class="bg-brand-cream border-b border-amber-100/60 py-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-brand-muted">
+            <a href="index.html" class="hover:text-brand-red transition-colors">Home</a>
+            <span class="mx-2 text-gray-400">/</span>
+            <span class="text-brand-dark font-medium">Recipes</span>
+        </div>
+    </div>
+
+    <!-- ==================================================
+         SECTION 1: HERO BANNER
+         ================================================== -->
+    <section class="relative bg-brand-dark text-white py-20 lg:py-32 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="hero-cooking.jpg" alt="Indian Cooking Background Placeholder" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl">
+                <!-- Small Badge -->
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-gold/20 text-brand-gold border border-brand-gold/30 mb-6">
+                    <i class="fa-solid fa-utensils text-xs"></i>
+                    Recipes • Tips • Food Knowledge
+                </span>
+
+                <!-- Heading (Proper H1) -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 leading-tight">
+                    Recipes & Food Inspiration
+                </h1>
+
+                <!-- Sub Heading -->
+                <p class="text-lg sm:text-xl text-gray-300 mb-8 leading-relaxed">
+                    Discover delicious recipes, serving ideas, cooking tips and authentic food inspiration using Kawad Swad products.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#recipes" class="inline-flex items-center justify-center px-7 py-3.5 bg-brand-red text-white font-semibold rounded-full hover:bg-red-800 transition-colors shadow-lg shadow-red-900/20">
+                        Explore Recipes
+                    </a>
+                    <a href="products.html" class="inline-flex items-center justify-center px-7 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full border border-white/30 backdrop-blur-sm transition-colors">
+                        Shop Products
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 2: RECIPE CATEGORIES
+         ================================================== -->
+    <section class="py-16 sm:py-24 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-brand-dark tracking-tight mb-3">Explore Categories</h2>
+                <p class="text-brand-muted">Find the perfect recipe for every occasion, taste, and dietary preference.</p>
+            </div>
+
+            <!-- Category Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Category 1 -->
+                <div class="group relative bg-slate-50 rounded-2xl p-6 border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-300 flex items-start gap-5">
+                    <div class="relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden bg-gray-200">
+                        <img src="category-papad.jpg" alt="Papad Recipes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-brand-red/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div>
+                        <div class="w-8 h-8 rounded-lg bg-red-50 text-brand-red flex items-center justify-center text-sm mb-2">
+                            <i class="fa-solid fa-cookie"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-red transition-colors mb-1">Papad Recipes</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Creative twists, chats, and rolls using authentic papads.</p>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="group relative bg-slate-50 rounded-2xl p-6 border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-300 flex items-start gap-5">
+                    <div class="relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden bg-gray-200">
+                        <img src="category-snacks.jpg" alt="Quick Snacks" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-brand-red/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div>
+                        <div class="w-8 h-8 rounded-lg bg-amber-50 text-brand-gold flex items-center justify-center text-sm mb-2">
+                            <i class="fa-solid fa-stopwatch"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-red transition-colors mb-1">Quick Snacks</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">10-minute crunchy snacks for sudden cravings and tea time.</p>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="group relative bg-slate-50 rounded-2xl p-6 border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-300 flex items-start gap-5">
+                    <div class="relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden bg-gray-200">
+                        <img src="category-jain.jpg" alt="Jain Recipes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-brand-red/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div>
+                        <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm mb-2">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-red transition-colors mb-1">Jain Recipes</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">100% pure, root-vegetable-free traditional dish ideas.</p>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="group relative bg-slate-50 rounded-2xl p-6 border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-300 flex items-start gap-5">
+                    <div class="relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden bg-gray-200">
+                        <img src="category-festival.jpg" alt="Festival Specials" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-brand-red/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div>
+                        <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center text-sm mb-2">
+                            <i class="fa-solid fa-holly-berry"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-red transition-colors mb-1">Festival Specials</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Elevate your festive thali with celebratory authentic flavors.</p>
+                    </div>
+                </div>
+
+                <!-- Category 5 -->
+                <div class="group relative bg-slate-50 rounded-2xl p-6 border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-300 flex items-start gap-5">
+                    <div class="relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden bg-gray-200">
+                        <img src="category-tips.jpg" alt="Cooking Tips" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-brand-red/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div>
+                        <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm mb-2">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-red transition-colors mb-1">Cooking Tips</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Master frying, roasting, and flavor-pairing techniques.</p>
+                    </div>
+                </div>
+
+                <!-- Category 6 -->
+                <div class="group relative bg-slate-50 rounded-2xl p-6 border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-300 flex items-start gap-5">
+                    <div class="relative w-20 h-20 flex-shrink-0 rounded-xl overflow-hidden bg-gray-200">
+                        <img src="category-brand.jpg" alt="Behind The Brand" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-brand-red/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div>
+                        <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center text-sm mb-2">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-red transition-colors mb-1">Behind The Brand</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Discover our heritage, quality standards, and sourcing stories.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 3: FEATURED RECIPES
+         ================================================== -->
+    <section id="recipes" class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold text-brand-dark tracking-tight mb-3">Featured Recipes</h2>
+                    <p class="text-brand-muted">Handpicked delicious ideas to try in your kitchen today.</p>
+                </div>
+            </div>
+
+            <!-- 6 Premium Recipe Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Recipe 1 -->
+                <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 bg-gray-200 overflow-hidden">
+                        <img src="recipe-1.jpg" alt="Masala Papad Cone" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-red text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            Papad Recipes
+                        </span>
+                        <span class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-md flex items-center gap-1">
+                            <i class="fa-regular fa-clock"></i> 10 mins
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-dark mb-2 hover:text-brand-red transition-colors">
+                                Crispy Masala Papad Cones
+                            </h3>
+                            <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                                A fun, bite-sized twist on traditional masala papad. Roasted Moong Papad shaped into cones and filled with tangy spicy salsa.
+                            </p>
+                        </div>
+                        <a href="recipe-detail.html" class="inline-flex items-center gap-2 text-brand-red font-semibold hover:gap-3 transition-all text-sm">
+                            View Recipe <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Recipe 2 -->
+                <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 bg-gray-200 overflow-hidden">
+                        <img src="recipe-2.jpg" alt="Rajasthani Papad ki Sabzi" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-red text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            Festival Specials
+                        </span>
+                        <span class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-md flex items-center gap-1">
+                            <i class="fa-regular fa-clock"></i> 20 mins
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-dark mb-2 hover:text-brand-red transition-colors">
+                                Authentic Rajasthani Papad Ki Sabzi
+                            </h3>
+                            <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                                Rich, yogurt-based gravy simmered with fried Bikaner Urad Papad. A classic royal dish that pairs perfectly with hot rotis.
+                            </p>
+                        </div>
+                        <a href="recipe-detail.html" class="inline-flex items-center gap-2 text-brand-red font-semibold hover:gap-3 transition-all text-sm">
+                            View Recipe <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Recipe 3 -->
+                <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 bg-gray-200 overflow-hidden">
+                        <img src="recipe-3.jpg" alt="Papad Roll Snacks" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-red text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            Quick Snacks
+                        </span>
+                        <span class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-md flex items-center gap-1">
+                            <i class="fa-regular fa-clock"></i> 15 mins
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-dark mb-2 hover:text-brand-red transition-colors">
+                                Stuffed Paneer Papad Rolls
+                            </h3>
+                            <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                                Hydrated papads rolled around spiced paneer and shallow fried to golden perfection. The ultimate party starter.
+                            </p>
+                        </div>
+                        <a href="recipe-detail.html" class="inline-flex items-center gap-2 text-brand-red font-semibold hover:gap-3 transition-all text-sm">
+                            View Recipe <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Recipe 4 -->
+                <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 bg-gray-200 overflow-hidden">
+                        <img src="recipe-4.jpg" alt="Jain Papad Churi" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-red text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            Jain Recipes
+                        </span>
+                        <span class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-md flex items-center gap-1">
+                            <i class="fa-regular fa-clock"></i> 5 mins
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-dark mb-2 hover:text-brand-red transition-colors">
+                                Traditional Jain Papad Churi
+                            </h3>
+                            <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                                Crushed roasted Chana Papad tossed with pure warm ghee, Kashmiri chilli, and roasted cumin. Pure, simple, and satisfying.
+                            </p>
+                        </div>
+                        <a href="recipe-detail.html" class="inline-flex items-center gap-2 text-brand-red font-semibold hover:gap-3 transition-all text-sm">
+                            View Recipe <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Recipe 5 -->
+                <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 bg-gray-200 overflow-hidden">
+                        <img src="recipe-5.jpg" alt="Papad Nachos with Dip" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-red text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            Quick Snacks
+                        </span>
+                        <span class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-md flex items-center gap-1">
+                            <i class="fa-regular fa-clock"></i> 10 mins
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-dark mb-2 hover:text-brand-red transition-colors">
+                                Desi Papad Nachos Platter
+                            </h3>
+                            <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                                Triangular cut fried papads loaded with diced tomatoes, mint chutney, and seasoned with Kawad Swad Papad Masala.
+                            </p>
+                        </div>
+                        <a href="recipe-detail.html" class="inline-flex items-center gap-2 text-brand-red font-semibold hover:gap-3 transition-all text-sm">
+                            View Recipe <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Recipe 6 -->
+                <article class="bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+                    <div class="relative h-56 bg-gray-200 overflow-hidden">
+                        <img src="recipe-6.jpg" alt="Papad Paratha Fusion" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md text-brand-red text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                            Papad Recipes
+                        </span>
+                        <span class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md text-white text-xs font-medium px-2.5 py-1 rounded-md flex items-center gap-1">
+                            <i class="fa-regular fa-clock"></i> 25 mins
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-dark mb-2 hover:text-brand-red transition-colors">
+                                Crispy Stuffed Papad Paratha
+                            </h3>
+                            <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                                Whole wheat paratha stuffed with crushed spiced papad mixture for a distinctive crunch in every single bite.
+                            </p>
+                        </div>
+                        <a href="recipe-detail.html" class="inline-flex items-center gap-2 text-brand-red font-semibold hover:gap-3 transition-all text-sm">
+                            View Recipe <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 4: COOKING TIPS
+         ================================================== -->
+    <section class="py-16 sm:py-24 bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-brand-dark tracking-tight mb-3">Kitchen Knowledge & Tips</h2>
+                <p class="text-brand-muted">Simple techniques to get the perfect texture and preserve freshness.</p>
+            </div>
+
+            <!-- Three Premium Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Tip Card 1 -->
+                <div class="bg-brand-cream rounded-2xl p-8 border border-amber-100/80 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-gold text-white flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-fire-burner"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-3">
+                            Perfect Papad Frying Tips
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Oil temperature is everything. Ensure oil is smoking hot before dropping the papad, and press gently with a slotted spoon for 3 seconds for uniform expansion without curling.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-amber-200/50 flex items-center gap-2 text-xs font-semibold text-brand-gold uppercase tracking-wider">
+                        <i class="fa-solid fa-circle-check"></i> Master Class
+                    </div>
+                </div>
+
+                <!-- Tip Card 2 -->
+                <div class="bg-brand-cream rounded-2xl p-8 border border-amber-100/80 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-red text-white flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-3">
+                            Roasting vs Frying
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Roasting over an open flame enhances pepper notes and offers a lower-calorie crunch. Deep frying brings out the rich pulse taste and creates maximum crispness for gravy pairings.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-amber-200/50 flex items-center gap-2 text-xs font-semibold text-brand-red uppercase tracking-wider">
+                        <i class="fa-solid fa-circle-check"></i> Comparison Guide
+                    </div>
+                </div>
+
+                <!-- Tip Card 3 -->
+                <div class="bg-brand-cream rounded-2xl p-8 border border-amber-100/80 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-700 text-white flex items-center justify-center text-xl mb-6 shadow-sm">
+                            <i class="fa-solid fa-box-archive"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-3">
+                            Papad Storage Guide
+                        </h3>
+                        <p class="text-brand-muted text-sm leading-relaxed mb-6">
+                            Keep raw papads in an airtight container away from moisture. Adding a few cloves or dry bay leaves inside the storage jar keeps them fresh and prevents dampness during monsoons.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-amber-200/50 flex items-center gap-2 text-xs font-semibold text-emerald-700 uppercase tracking-wider">
+                        <i class="fa-solid fa-circle-check"></i> Quality Control
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 5: WHY OUR RECIPES
+         ================================================== -->
+    <section class="py-16 sm:py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <!-- Left Column: Large Lifestyle Cooking Image -->
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-200 h-[450px] lg:h-[550px]">
+                    <img src="lifestyle-cooking.jpg" alt="Lifestyle Authentic Indian Cooking Placeholder" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8 text-white">
+                        <p class="text-sm font-semibold uppercase tracking-widest text-brand-gold mb-1">Authentic Kitchens</p>
+                        <p class="text-2xl font-bold">Crafted with tradition, served with love.</p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Content -->
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark tracking-tight mb-6">
+                        Why Choose Kawad Swad Recipes?
+                    </h2>
+                    <p class="text-brand-muted leading-relaxed mb-8">
+                        Our recipes are specially developed to celebrate traditional Indian flavors while keeping modern busy lifestyles in mind. Every dish uses everyday kitchen staples and highlights the authentic crunch of our authentic products.
+                    </p>
+
+                    <!-- Feature List -->
+                    <div class="space-y-6">
+                        
+                        <!-- Item 1 -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-red-100 text-brand-red flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-brand-dark">Easy to Cook</h3>
+                                <p class="text-sm text-brand-muted">Simple step-by-step methods requiring minimal prep time and basic pantry ingredients.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-amber-100 text-brand-gold flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-brand-dark">Family Friendly</h3>
+                                <p class="text-sm text-brand-muted">Balanced spice levels and delightful textures that appeal to kids and elders alike.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-hands-praying"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-brand-dark">Jain Friendly Options</h3>
+                                <p class="text-sm text-brand-muted">Thoughtfully curated dishes conforming to strict sattvik principles without onion or garlic.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-mortar-pestle"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-brand-dark">Traditional Taste</h3>
+                                <p class="text-sm text-brand-muted">Authentic Rajasthani culinary secrets that preserve regional food heritage.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 5 -->
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-brand-dark">Modern Ideas</h3>
+                                <p class="text-sm text-brand-muted">Innovative fusion ideas to transform everyday papad into party snacks and starters.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 6: POPULAR PRODUCTS
+         ================================================== -->
+    <section class="py-16 sm:py-24 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-brand-dark tracking-tight mb-3">Popular Products</h2>
+                <p class="text-brand-muted">Bring authentic flavor to your recipes with our flagship range.</p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Product 1 -->
+                <div class="bg-slate-50 rounded-2xl p-5 border border-gray-100 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 rounded-xl bg-gray-200 overflow-hidden mb-4">
+                            <img src="product-moong-papad.jpg" alt="Moong Papad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-dark mb-1">Moong Papad</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed mb-4">Light, digestible papad crafted with high-grade moong dal and subtle spices.</p>
+                    </div>
+                    <a href="product-detail.html" class="w-full py-2.5 px-4 bg-white border border-brand-red text-brand-red font-semibold text-center rounded-xl hover:bg-brand-red hover:text-white transition-colors text-sm">
+                        Explore Product
+                    </a>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-slate-50 rounded-2xl p-5 border border-gray-100 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 rounded-xl bg-gray-200 overflow-hidden mb-4">
+                            <img src="product-chana-papad.jpg" alt="Chana Papad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-dark mb-1">Chana Papad</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed mb-4">Crunchy and flavorful papad enriched with protein-dense chana flour.</p>
+                    </div>
+                    <a href="product-detail.html" class="w-full py-2.5 px-4 bg-white border border-brand-red text-brand-red font-semibold text-center rounded-xl hover:bg-brand-red hover:text-white transition-colors text-sm">
+                        Explore Product
+                    </a>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-slate-50 rounded-2xl p-5 border border-gray-100 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 rounded-xl bg-gray-200 overflow-hidden mb-4">
+                            <img src="product-urad-papad.jpg" alt="Urad Papad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-dark mb-1">Urad Papad</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed mb-4">Traditional Bikaneri style black pepper and urad dal papad with bold punch.</p>
+                    </div>
+                    <a href="product-detail.html" class="w-full py-2.5 px-4 bg-white border border-brand-red text-brand-red font-semibold text-center rounded-xl hover:bg-brand-red hover:text-white transition-colors text-sm">
+                        Explore Product
+                    </a>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-slate-50 rounded-2xl p-5 border border-gray-100 hover:bg-white hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="relative h-48 rounded-xl bg-gray-200 overflow-hidden mb-4">
+                            <img src="product-papad-masala.jpg" alt="Papad Masala" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <h3 class="text-lg font-bold text-brand-dark mb-1">Papad Masala</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed mb-4">Special aromatic spice blend designed to sprinkle over roasted or fried papad.</p>
+                    </div>
+                    <a href="product-detail.html" class="w-full py-2.5 px-4 bg-white border border-brand-red text-brand-red font-semibold text-center rounded-xl hover:bg-brand-red hover:text-white transition-colors text-sm">
+                        Explore Product
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 7: NEWSLETTER
+         ================================================== -->
+    <section class="py-16 sm:py-20 bg-brand-red text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-gold text-xl">
+                <i class="fa-regular fa-envelope"></i>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold mb-4 tracking-tight">
+                Never Miss a New Recipe
+            </h2>
+            <p class="text-red-100 max-w-xl mx-auto mb-8 text-base sm:text-lg">
+                Subscribe to receive recipes, cooking ideas and product updates.
+            </p>
+
+            <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onsubmit="event.preventDefault(); font-semibold text-sm">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email address" 
+                    required 
+                    class="px-5 py-3.5 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-gold flex-1 text-sm placeholder-gray-400"
+                >
+                <button 
+                    type="submit" 
+                    class="px-7 py-3.5 bg-brand-gold hover:bg-amber-600 text-white font-semibold rounded-full transition-colors text-sm shadow-md"
+                >
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 8: INSTAGRAM
+         ================================================== -->
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <p class="text-xs font-bold uppercase tracking-widest text-brand-gold mb-1">#KawadSwadRecipes</p>
+                <h2 class="text-3xl font-bold text-brand-dark tracking-tight mb-3">Follow Us on Instagram</h2>
+                <p class="text-brand-muted">Get daily culinary inspiration and share your creations with us.</p>
+            </div>
+
+            <!-- Instagram Grid (Placeholders) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
+                <div class="relative group aspect-square rounded-xl overflow-hidden bg-gray-200">
+                    <img src="instagram-1.jpg" alt="Instagram Post 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative group aspect-square rounded-xl overflow-hidden bg-gray-200">
+                    <img src="instagram-2.jpg" alt="Instagram Post 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative group aspect-square rounded-xl overflow-hidden bg-gray-200">
+                    <img src="instagram-3.jpg" alt="Instagram Post 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative group aspect-square rounded-xl overflow-hidden bg-gray-200">
+                    <img src="instagram-4.jpg" alt="Instagram Post 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative group aspect-square rounded-xl overflow-hidden bg-gray-200">
+                    <img src="instagram-5.jpg" alt="Instagram Post 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                </div>
+                <div class="relative group aspect-square rounded-xl overflow-hidden bg-gray-200">
+                    <img src="instagram-6.jpg" alt="Instagram Post 6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                        <i class="fa-brands fa-instagram text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instagram CTA -->
+            <div class="text-center">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-100 hover:bg-slate-200 text-brand-dark font-semibold rounded-full transition-colors text-sm">
+                    <i class="fa-brands fa-instagram text-brand-red text-base"></i> Follow on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================================================
+         SECTION 9: FOOTER (Existing Website Footer)
+         ================================================== -->
+    <footer class="bg-brand-dark text-gray-300 py-16 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Col 1: Brand -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-brand-red rounded-full flex items-center justify-center text-white font-bold text-sm">
+                            KS
+                        </div>
+                        <span class="text-xl font-bold tracking-tight text-white">Kawad Swad</span>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Bringing authentic, high-quality traditional Indian papads and spices directly from our heritage recipes to your family dining table.
+                    </p>
+                </div>
+
+                <!-- Col 2: Navigation -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Quick Links</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="products.html" class="hover:text-white transition-colors">Our Products</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="blog.html" class="text-white font-medium">Recipes & Knowledge</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Categories -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Recipe Hub</h3>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#recipes" class="hover:text-white transition-colors">Papad Recipes</a></li>
+                        <li><a href="#recipes" class="hover:text-white transition-colors">Quick Evening Snacks</a></li>
+                        <li><a href="#recipes" class="hover:text-white transition-colors">Pure Jain Specials</a></li>
+                        <li><a href="#recipes" class="hover:text-white transition-colors">Cooking & Frying Tips</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact info -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Get in Touch</h3>
+                    <ul class="space-y-2.5 text-sm text-gray-400">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-gold"></i>
+                            <span>Kawad Swad Foods, Industrial Area, Bikaner, Rajasthan 334001</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-brand-gold"></i>
+                            <span>care@kawadswad.com</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-brand-gold"></i>
+                            <span>+91 1800-123-4567</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-gray-800 text-xs text-center text-gray-500 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 Kawad Swad. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="privacy.html" class="hover:text-gray-400 transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-gray-400 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

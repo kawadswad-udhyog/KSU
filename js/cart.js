@@ -1,71 +1,74 @@
 /**
  * ============================================================================
- * KAWAD SWAD - E-Commerce LocalStorage Cart System (cart.js)
+ * KAWAD SWAD - Cart System (js/cart.js)
  * ============================================================================
- * Client-side shopping cart manager supporting add, update, remove, persistence,
- * header badge updates, and dynamic summary recalculation.
+ * Reads HTML data attributes (data-id, data-name, data-price, data-image, data-weight),
+ * manages LocalStorage items, updates global header badges, calculates subtotal/tax/shipping,
+ * and handles future coupon expansion.
  */
 
 const STORAGE_KEY = 'kawad_swad_cart';
 
 const CartManager = {
     /**
-     * Retrieves cart array from LocalStorage.
+     * Reads cart array from LocalStorage.
      */
     getItems() {
         try {
             const data = localStorage.getItem(STORAGE_KEY);
             return data ? JSON.parse(data) : [];
         } catch (e) {
-            console.error('Error reading cart from localStorage', e);
+            console.error('Error parsing cart LocalStorage:', e);
             return [];
         }
     },
 
     /**
-     * Saves cart array to LocalStorage and triggers UI refresh.
+     * Saves cart array to LocalStorage and triggers badge refresh.
      */
     saveItems(items) {
         try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
             this.updateCartBadge();
         } catch (e) {
-            console.error('Error saving cart to localStorage', e);
+            console.error('Error writing cart LocalStorage:', e);
         }
     },
 
     /**
-     * Adds product item to cart or increments quantity if exists.
+     * Adds an item object read directly from data-attributes.
      */
     addItem(product) {
+        if (!product || !product.id) return;
+
         const items = this.getItems();
         const existingIndex = items.findIndex(
-            i => i.id === product.id && i.size === product.size
+            i => i.id === product.id && i.weight === product.weight
         );
 
         if (existingIndex > -1) {
             items[existingIndex].quantity += (product.quantity || 1);
         } else {
             items.push({
-                id: product.id || 'prod_' + Date.now(),
+                id: product.id,
                 name: product.name || 'Jain Papad Pack',
-                size: product.size || '200g',
-                price: product.price || 100,
-                quantity: product.quantity || 1,
-                image: product.image || '[thumb]'
+                price: parseFloat(product.price) || 0,
+                weight: product.weight || '200g',
+                image: product.image || '[image-placeholder]',
+                quantity: parseInt(product.quantity, 10) || 1
             });
         }
 
         this.saveItems(items);
-        this.showToastNotification(`${product.name || 'Item'} added to cart!`);
+        this.showToastNotification(`${product.name} (${product.weight || ''}) added to cart!`);
     },
 
     /**
-     * Updates item quantity by ID and Size.
+     * Updates cart item quantity by ID and weight.
      */
-    updateQuantity(id, size, newQty) {
+    updateQuantity(id, weight, newQty) {
         let items = this.getItems();
-        const index = items.findIndex(i => i.id === id && i.size === size);
+        const index = items.findIndex(i => i.id === id && i.weight === weight);
 
         if (index > -1) {
             if (newQty <= 0) {
@@ -78,16 +81,16 @@ const CartManager = {
     },
 
     /**
-     * Removes an item from the cart.
+     * Removes an item from cart by ID and weight.
      */
-    removeItem(id, size) {
+    removeItem(id, weight) {
         let items = this.getItems();
-        items = items.filter(i => !(i.id === id && i.size === size));
+        items = items.filter(i => !(i.id === id && i.weight === weight));
         this.saveItems(items);
     },
 
     /**
-     * Empties the entire cart.
+     * Clears all cart items.
      */
     clearCart() {
         localStorage.removeItem(STORAGE_KEY);
@@ -95,12 +98,51 @@ const CartManager = {
     },
 
     /**
-     * Recalculates total items for cart counter in global header.
+     * Calculates line items subtotal sum.
+     */
+    calculateSubtotal() {
+        const items = this.getItems();
+        return items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    },
+
+    /**
+     * Prepares future shipping charge calculations.
+     */
+    prepareShippingPlaceholder(subtotal) {
+        if (subtotal === 0) return 0;
+        // Default flat rate or free shipping threshold
+        return subtotal > 500 ? 0 : 50;
+    },
+
+    /**
+     * Prepares future GST/Tax calculations (e.g. 5% GST on packaged food).
+     */
+    prepareGSTPlaceholder(subtotal) {
+        const gstRate = 0.05;
+        return Math.round(subtotal * gstRate);
+    },
+
+    /**
+     * Calculates final grand total including subtotal, shipping, GST, and coupon discount.
+     */
+    calculateGrandTotal(couponDiscount = 0) {
+        const subtotal = this.calculateSubtotal();
+        if (subtotal === 0) return 0;
+
+        const shipping = this.prepareShippingPlaceholder(subtotal);
+        const gst = this.prepareGSTPlaceholder(subtotal);
+
+        const total = subtotal + shipping + gst - couponDiscount;
+        return Math.max(0, total);
+    },
+
+    /**
+     * Updates header cart badge text count.
      */
     updateCartBadge() {
         const items = this.getItems();
         const totalCount = items.reduce((sum, item) => sum + item.quantity, 0);
-        const badges = document.querySelectorAll('header a[href="cart.html"] span');
+        const badges = document.querySelectorAll('header a[href="cart.html"] span, #cart-count');
 
         badges.forEach(badge => {
             badge.textContent = totalCount;
@@ -111,11 +153,11 @@ const CartManager = {
     },
 
     /**
-     * Renders items table and totals on cart.html.
+     * Renders cart table and dynamic summary calculations on cart.html or checkout.html.
      */
     renderCartPage() {
-        const tableBody = document.querySelector('table tbody');
-        if (!tableBody || !window.location.pathname.includes('cart.html')) return;
+        const tableBody = document.querySelector('table tbody, #cart-items-container');
+        if (!tableBody) return;
 
         const items = this.getItems();
 
@@ -130,30 +172,26 @@ const CartManager = {
                     </td>
                 </tr>
             `;
-            this.updateSummaryTotals(0);
+            this.updateSummaryUI(0, 0, 0, 0);
             return;
         }
 
         let html = '';
-        let subtotal = 0;
-
         items.forEach(item => {
-            const itemTotal = item.price * item.quantity;
-            subtotal += itemTotal;
-
+            const lineTotal = item.price * item.quantity;
             html += `
-                <tr data-id="${item.id}" data-size="${item.size}">
+                <tr data-id="${item.id}" data-weight="${item.weight}">
                     <td class="py-4 px-4 flex items-center gap-3">
-                        <div class="w-12 h-12 bg-stone-200 rounded-xs shrink-0 flex items-center justify-center text-[8px] font-mono text-brand-muted">
-                            ${item.image}
+                        <div class="w-12 h-12 bg-stone-200 rounded-xs shrink-0 flex items-center justify-center text-[8px] font-mono text-brand-muted overflow-hidden">
+                            ${item.image.startsWith('http') ? `<img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover">` : item.image}
                         </div>
                         <span class="font-medium text-brand-dark">${item.name}</span>
                     </td>
-                    <td class="py-4 px-4 text-brand-muted">${item.size}</td>
+                    <td class="py-4 px-4 text-brand-muted">${item.weight}</td>
                     <td class="py-4 px-4">
                         <input type="number" value="${item.quantity}" min="1" class="qty-input w-16 bg-brand-cream/30 border border-stone-300 rounded-xs px-2 py-1 text-center text-xs">
                     </td>
-                    <td class="py-4 px-4 font-mono text-brand-muted">₹${itemTotal}</td>
+                    <td class="py-4 px-4 font-mono text-brand-muted">${item.price ? '₹' + lineTotal : '[Price]'}</td>
                     <td class="py-4 px-4">
                         <button type="button" class="remove-btn text-xs text-brand-red hover:underline">Remove</button>
                     </td>
@@ -162,51 +200,32 @@ const CartManager = {
         });
 
         tableBody.innerHTML = html;
-        this.updateSummaryTotals(subtotal);
-        this.bindCartPageEvents(tableBody);
+
+        const subtotal = this.calculateSubtotal();
+        const shipping = this.prepareShippingPlaceholder(subtotal);
+        const gst = this.prepareGSTPlaceholder(subtotal);
+        const grandTotal = this.calculateGrandTotal(0);
+
+        this.updateSummaryUI(subtotal, shipping, gst, grandTotal);
     },
 
     /**
-     * Binds input change and remove click listeners on cart page via event delegation.
+     * Updates subtotal, shipping, GST, and grand total elements in DOM summaries.
      */
-    bindCartPageEvents(tableBody) {
-        tableBody.addEventListener('change', (e) => {
-            if (e.target.classList.contains('qty-input')) {
-                const tr = e.target.closest('tr');
-                const id = tr.dataset.id;
-                const size = tr.dataset.size;
-                const newQty = parseInt(e.target.value, 10) || 1;
+    updateSummaryUI(subtotal, shipping, gst, grandTotal) {
+        const subtotalEls = document.querySelectorAll('[data-summary="subtotal"]');
+        const shippingEls = document.querySelectorAll('[data-summary="shipping"]');
+        const gstEls = document.querySelectorAll('[data-summary="gst"]');
+        const totalEls = document.querySelectorAll('[data-summary="total"], .font-mono.text-brand-gold');
 
-                this.updateQuantity(id, size, newQty);
-                this.renderCartPage();
-            }
-        });
-
-        tableBody.addEventListener('click', (e) => {
-            if (e.target.classList.contains('remove-btn')) {
-                const tr = e.target.closest('tr');
-                const id = tr.dataset.id;
-                const size = tr.dataset.size;
-
-                this.removeItem(id, size);
-                this.renderCartPage();
-            }
-        });
+        subtotalEls.forEach(el => el.textContent = subtotal ? `₹${subtotal}` : '[Subtotal]');
+        shippingEls.forEach(el => el.textContent = shipping ? `₹${shipping}` : (subtotal ? 'Free' : '[Calculated at checkout]'));
+        gstEls.forEach(el => el.textContent = gst ? `₹${gst}` : '[GST]');
+        totalEls.forEach(el => el.textContent = grandTotal ? `₹${grandTotal}` : '[Total]');
     },
 
     /**
-     * Updates subtotal and total display elements on cart/checkout pages.
-     */
-    updateSummaryTotals(subtotal) {
-        const subtotalEls = document.querySelectorAll('.font-mono:has-text("Subtotal"), [data-summary="subtotal"]');
-        const totalEls = document.querySelectorAll('.font-mono.text-brand-gold, [data-summary="total"]');
-
-        subtotalEls.forEach(el => el.textContent = `₹${subtotal}`);
-        totalEls.forEach(el => el.textContent = `₹${subtotal}`);
-    },
-
-    /**
-     * Displays non-blocking popup notification when items are added.
+     * Displays a lightweight toast notification banner upon adding an item.
      */
     showToastNotification(message) {
         let toast = document.getElementById('cart-toast');
@@ -238,25 +257,61 @@ document.addEventListener('DOMContentLoaded', () => {
     CartManager.updateCartBadge();
     CartManager.renderCartPage();
 
-    // Event delegation for "Add To Cart" buttons across shop and detail pages
+    // Delegate quantity input changes and remove item clicks in table
+    const tableBody = document.querySelector('table tbody, #cart-items-container');
+    if (tableBody) {
+        tableBody.addEventListener('change', (e) => {
+            if (e.target.classList.contains('qty-input')) {
+                const tr = e.target.closest('tr');
+                if (!tr) return;
+                const id = tr.dataset.id;
+                const weight = tr.dataset.weight;
+                const newQty = parseInt(e.target.value, 10) || 1;
+
+                CartManager.updateQuantity(id, weight, newQty);
+                CartManager.renderCartPage();
+            }
+        });
+
+        tableBody.addEventListener('click', (e) => {
+            if (e.target.classList.contains('remove-btn')) {
+                const tr = e.target.closest('tr');
+                if (!tr) return;
+                const id = tr.dataset.id;
+                const weight = tr.dataset.weight;
+
+                CartManager.removeItem(id, weight);
+                CartManager.renderCartPage();
+            }
+        });
+    }
+
+    // Global Event Delegation: Read item details directly from HTML data-attributes
     document.addEventListener('click', (e) => {
-        const addBtn = e.target.closest('a[href="cart.html"], button.add-to-cart');
-        if (addBtn && !window.location.pathname.includes('cart.html')) {
-            const card = addBtn.closest('.group, .space-y-8') || document;
-            const productNameEl = card.querySelector('h3, h1');
-            const sizeSelectEl = card.querySelector('select');
+        const addBtn = e.target.closest('[data-action="add-to-cart"], .add-to-cart');
+        if (!addBtn) return;
 
-            const productName = productNameEl ? productNameEl.textContent.trim() : 'Jain Papad Pack';
-            const sizeValue = sizeSelectEl ? sizeSelectEl.value.split('-')[0].trim() : '200g';
+        const card = addBtn.closest('[data-id]') || addBtn.closest('.group, .space-y-8') || document;
 
-            CartManager.addItem({
-                id: 'prod_' + productName.toLowerCase().replace(/\s+/g, '_'),
-                name: productName,
-                size: sizeValue,
-                price: 150,
-                quantity: 1,
-                image: '[thumb]'
-            });
+        const id = card.dataset.id || addBtn.dataset.id || ('prod_' + Date.now());
+        const name = card.dataset.name || addBtn.dataset.name || (card.querySelector('h3, h1') ? card.querySelector('h3, h1').textContent.trim() : 'Jain Papad');
+        const price = card.dataset.price || addBtn.dataset.price || 0;
+        const image = card.dataset.image || addBtn.dataset.image || '[image-placeholder]';
+
+        // Read dynamic weight from dropdown if available, or data-weight attribute
+        const sizeSelect = card.querySelector('select');
+        let weight = card.dataset.weight || addBtn.dataset.weight || '200g';
+        if (sizeSelect && sizeSelect.value) {
+            weight = sizeSelect.value.split('-')[0].trim();
         }
+
+        CartManager.addItem({
+            id: id,
+            name: name,
+            price: price,
+            weight: weight,
+            image: image,
+            quantity: 1
+        });
     });
 });

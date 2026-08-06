@@ -102,15 +102,27 @@
                         <button type="button" data-filter-category="combo" class="px-4 py-2 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold">Combo</button>
                     </div>
 
-                    <!-- Sorting -->
-                    <div class="w-full lg:w-auto flex items-center gap-2 text-xs font-semibold uppercase tracking-wider">
-                        <span class="text-brand-muted shrink-0">Sort By:</span>
-                        <select data-sort class="w-full lg:w-auto bg-brand-cream/50 border border-stone-300 rounded-sm py-2 px-3 text-brand-dark focus:outline-none focus:border-brand-gold text-xs">
-                            <option value="default">Default</option>
-                            <option value="name-asc">Name (A-Z)</option>
-                            <option value="price-low">Price: Low to High</option>
-                            <option value="price-high">Price: High to Low</option>
-                        </select>
+                    <!-- Weight Filter & Sorting -->
+                    <div class="w-full lg:w-auto flex items-center gap-4 text-xs font-semibold uppercase tracking-wider">
+                        <div class="flex items-center gap-2">
+                            <span class="text-brand-muted shrink-0">Weight:</span>
+                            <select data-filter-weight class="bg-brand-cream/50 border border-stone-300 rounded-sm py-2 px-3 text-brand-dark focus:outline-none focus:border-brand-gold text-xs">
+                                <option value="all">All Weights</option>
+                                <option value="200g">200g</option>
+                                <option value="235g">235g</option>
+                                <option value="500g">500g</option>
+                                <option value="1000g">1000g</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-brand-muted shrink-0">Sort By:</span>
+                            <select data-sort class="bg-brand-cream/50 border border-stone-300 rounded-sm py-2 px-3 text-brand-dark focus:outline-none focus:border-brand-gold text-xs">
+                                <option value="default">Default</option>
+                                <option value="name-asc">Name (A-Z)</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -120,7 +132,7 @@
         <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-shop-grid>
-                    <!-- Injected dynamically from data/products.json -->
+                    <!-- Products loaded dynamically from products.json -->
                 </div>
             </div>
         </section>

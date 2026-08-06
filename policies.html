@@ -1,166 +1,808 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-R5YNWTG2MC');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Brand Policies, Shipping Terms, Returns & Compliance | Kawad Swad Udhyog.">
-    <title>Brand Policies & Operational Terms | Kawad Swad Udhyog</title>
+    <title>Policies | KAWAD SWAD</title>
+    <meta name="description" content="Read KAWAD SWAD shipping, return, refund, cancellation, privacy and food safety policies before placing your order.">
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            bg: '#0B0B0B',
-                            bgSecondary: '#141414',
-                            surface: '#1C1C1C',
-                            accent: '#F59E0B',
-                            textPrimary: '#FFFFFF',
-                            textSecondary: '#CFCFCF'
-                        }
-                    },
-                    fontFamily: { heading: ['Sora', 'sans-serif'], body: ['Inter', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0B0B0B; color: #FFFFFF; }
-        .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0B0B; }
-        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
+        :root {
+            --primary: #8B0000;
+            --primary-light: #A52A2A;
+            --primary-dark: #5C0000;
+            --accent: #D4AF37;
+            --accent-light: #F4E07D;
+            --bg-base: #0F0907;
+            --bg-surface: #1A100C;
+            --text-main: #FBF7F2;
+            --text-muted: #A89F91;
+            --border-glass: rgba(212, 175, 55, 0.15);
+            --bg-glass: rgba(26, 16, 12, 0.65);
+            --bg-glass-hover: rgba(38, 24, 18, 0.85);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 0, 0, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.02em;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Existing Header Placeholder Style */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 9, 7, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 16px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-glass);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #FFF 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Quick Navigation Grid */
+        .quick-nav {
+            padding: 30px 0 60px;
+        }
+
+        .quick-nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 16px;
+        }
+
+        .quick-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 20px 16px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quick-card:hover {
+            background: var(--bg-glass-hover);
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 25px -5px rgba(139, 0, 0, 0.3);
+        }
+
+        .quick-card .icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(139, 0, 0, 0.2);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .quick-card:hover .icon-box {
+            background: var(--primary);
+            color: #FFF;
+        }
+
+        .quick-card span {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        /* Policy Section Common Styles */
+        .policy-section {
+            padding: 40px 0;
+            scroll-margin-top: 100px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 12px;
+        }
+
+        .section-header i {
+            color: var(--accent);
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+        }
+
+        /* Glass Cards & Grids */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .glass-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .glass-card h3 {
+            font-size: 1.15rem;
+            color: var(--accent-light);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .glass-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Accordions */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .accordion-item {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 18px 24px;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background: rgba(212, 175, 55, 0.05);
+            color: var(--accent);
+        }
+
+        .accordion-header i {
+            transition: transform 0.3s ease;
+            color: var(--accent);
+        }
+
+        .accordion-item.active .accordion-header i {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            padding: 0 24px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .accordion-item.active .accordion-content {
+            padding: 0 24px 20px 24px;
+        }
+
+        /* Food Safety Banner */
+        .fssai-banner {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.3) 0%, rgba(26, 16, 12, 0.8) 100%);
+            border: 1px solid var(--accent);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .fssai-info h3 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+
+        .fssai-badge {
+            background: var(--accent);
+            color: var(--bg-base);
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #FFF;
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 0, 0, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: #000;
+            font-weight: 700;
+        }
+
+        .btn-whatsapp:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+        }
+
+        /* Need Help Card */
+        .help-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .help-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        /* Bottom CTA */
+        .bottom-cta {
+            background: linear-gradient(180deg, transparent 0%, rgba(139, 0, 0, 0.2) 100%);
+            border-top: 1px solid var(--border-glass);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .bottom-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .bottom-cta p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* Footer Placeholder */
+        .site-footer {
+            background: #080403;
+            border-top: 1px solid var(--border-glass);
+            padding: 40px 0 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 20px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .quick-nav-grid { grid-template-columns: repeat(2, 1fr); }
+            .help-actions { flex-direction: column; }
+            .help-actions .btn { width: 100%; }
+            .fssai-banner { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
-<body class="antialiased pb-20">
+<body>
 
-    <!-- NAVIGATION BAR -->
-    <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent font-bold">K</div>
-                <span class="font-heading text-base font-bold text-white">KAWAD SWAD</span>
+    <!-- HEADER (Existing Header) -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand-logo">
+                <i data-lucide="flame"></i> KAWAD SWAD
             </a>
-            
-            <div class="hidden md:flex items-center gap-6">
-                <a href="products.html" class="text-xs text-brand-textSecondary hover:text-white transition">Catalogue</a>
-                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-xs text-pink-400 hover:text-pink-300 transition">Meesho Store ↗</a>
-                <a href="index.html" class="text-xs text-brand-textSecondary hover:text-white transition">← Return to Store</a>
-            </div>
-
-            <div class="flex items-center gap-3 md:hidden">
-                <button onclick="toggleMobileMenu()" class="p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
-                    <i data-lucide="menu" class="w-5 h-5"></i>
-                </button>
-            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
+    </header>
 
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
-            <div class="grid grid-cols-1 gap-3 text-xs font-semibold uppercase tracking-wider">
-                <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home Page</a>
-                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
-                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="p-3 bg-brand-surface rounded-xl text-pink-400 flex items-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Meesho Store ↗</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="max-w-4xl mx-auto px-6 py-10 space-y-10">
-        <div>
-            <span class="text-xs font-mono uppercase text-brand-accent font-bold">Trust & Transparency</span>
-            <h1 class="font-heading text-3xl font-extrabold text-white mt-1">Shipping, Returns & Legal Terms</h1>
-        </div>
-
-        <!-- Section 1: Shipping & Delivery -->
-        <section class="glass-panel rounded-3xl p-8 border border-white/10 space-y-4">
-            <h2 class="font-heading text-xl font-bold text-white flex items-center gap-2">
-                <i data-lucide="truck" class="w-5 h-5 text-brand-accent"></i> Shipping & Delivery Policy
-            </h2>
-            <div class="text-xs text-brand-textSecondary space-y-2 leading-relaxed">
-                <p>• <strong>Dispatch Location:</strong> All orders are dispatched directly from our manufacturing unit in Katargaon, MP.</p>
-                <p>• <strong>Processing Time:</strong> Orders are packed in moisture-sealed barrier pouches within 24 business hours.</p>
-                <p>• <strong>Delivery Timelines:</strong> 2–4 business days for Madhya Pradesh & neighboring states; 3–6 business days for the rest of India.</p>
-                <p>• <strong>Free Shipping:</strong> Automatically applied at checkout for orders equal to or above ₹499.</p>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-badge">
+                    <i data-lucide="shield-check" size="16"></i> Official Support & Guidelines
+                </div>
+                <h1>Policies & Customer Support</h1>
+                <p>Everything you need to know before placing your order with KAWAD SWAD.</p>
             </div>
         </section>
 
-        <!-- Section 2: Returns & Refunds -->
-        <section class="glass-panel rounded-3xl p-8 border border-white/10 space-y-4">
-            <h2 class="font-heading text-xl font-bold text-white flex items-center gap-2">
-                <i data-lucide="rotate-ccw" class="w-5 h-5 text-brand-accent"></i> Returns & Damage Replacement Guarantee
-            </h2>
-            <div class="text-xs text-brand-textSecondary space-y-2 leading-relaxed">
-                <p>Due to the consumable nature of food products, we do not accept returns on opened packs. However, we offer an instant replacement or refund under the following conditions:</p>
-                <p>• <strong>Transit Damage / Package Compromise:</strong> If your package arrives damaged, take a quick photo/video and notify us on WhatsApp (+91 96309 76867) within 48 hours.</p>
-                <p>• <strong>Quality Assurance:</strong> If you receive an incorrect product variant, we will dispatch the replacement at zero extra charge.</p>
-            </div>
-        </section>
-
-        <!-- Section 3: FSSAI & Quality Promise -->
-        <section class="glass-panel rounded-3xl p-8 border border-white/10 space-y-4">
-            <h2 class="font-heading text-xl font-bold text-white flex items-center gap-2">
-                <i data-lucide="award" class="w-5 h-5 text-brand-accent"></i> Food Safety Compliance
-            </h2>
-            <div class="text-xs text-brand-textSecondary space-y-2 leading-relaxed">
-                <p>• <strong>FSSAI License:</strong> #21425890001224</p>
-                <p>• <strong>0% Rice Flour Promise:</strong> Made exclusively using pure Yellow Moong, Chana, and Urad pulse flour. No rice starch or cheap fillers are added.</p>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-brand-bgSecondary border-t border-white/10 pt-16 pb-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 mb-12 text-center md:text-left">
-            <div>
-                <span class="font-heading text-xl font-bold text-white block mb-2">KAWAD SWAD UDHYOG</span>
-                <p class="text-brand-textSecondary text-xs leading-relaxed max-w-sm">
-                    Handcrafted authentic Nimar snacks made with 0% rice fillers from Katargaon, MP.
-                </p>
-            </div>
-
-            <div class="flex items-center gap-6">
-                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-xs text-pink-400 hover:text-pink-300 font-semibold transition">Meesho Store ↗</a>
-                <div class="inline-flex flex-col items-center px-5 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-xs">
-                    <span class="text-brand-accent font-semibold text-[10px] uppercase tracking-wider mb-0.5">FSSAI License No.</span>
-                    <span class="text-white font-mono font-bold tracking-widest">21425890001224</span>
+        <!-- QUICK POLICY NAVIGATION -->
+        <section class="quick-nav">
+            <div class="container">
+                <div class="quick-nav-grid">
+                    <a href="#shipping" class="quick-card">
+                        <div class="icon-box"><i data-lucide="truck"></i></div>
+                        <span>Shipping Policy</span>
+                    </a>
+                    <a href="#returns" class="quick-card">
+                        <div class="icon-box"><i data-lucide="rotate-ccw"></i></div>
+                        <span>Return & Refund</span>
+                    </a>
+                    <a href="#cancellation" class="quick-card">
+                        <div class="icon-box"><i data-lucide="x-circle"></i></div>
+                        <span>Cancellation</span>
+                    </a>
+                    <a href="#privacy" class="quick-card">
+                        <div class="icon-box"><i data-lucide="lock"></i></div>
+                        <span>Privacy Policy</span>
+                    </a>
+                    <a href="#terms" class="quick-card">
+                        <div class="icon-box"><i data-lucide="file-text"></i></div>
+                        <span>Terms & Conditions</span>
+                    </a>
+                    <a href="#food-safety" class="quick-card">
+                        <div class="icon-box"><i data-lucide="award"></i></div>
+                        <span>Food Safety</span>
+                    </a>
                 </div>
             </div>
+        </section>
+
+        <div class="container">
+
+            <!-- SECTION 1: SHIPPING POLICY -->
+            <section id="shipping" class="policy-section">
+                <div class="section-header">
+                    <i data-lucide="truck" size="28"></i>
+                    <h2>Shipping Policy</h2>
+                </div>
+                <div class="grid-3">
+                    <div class="glass-card">
+                        <h3><i data-lucide="clock" size="18"></i> Order Processing</h3>
+                        <p>All orders are freshly prepared and dispatched within 24–48 hours after confirmation.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3><i data-lucide="map-pin" size="18"></i> Delivery Locations</h3>
+                        <p>We deliver pan-India to over 19,000+ pin codes through reliable express couriers.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3><i data-lucide="calendar" size="18"></i> Estimated Time</h3>
+                        <p>Metro Cities: 2–4 business days.<br>Rest of India: 4–7 business days.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3><i data-lucide="package-check" size="18"></i> Shipping Partners</h3>
+                        <p>We partner with premier logistics providers including BlueDart, Delhivery, and India Post.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3><i data-lucide="credit-card" size="18"></i> Shipping Charges</h3>
+                        <p>Free shipping on orders above ₹499. Nominal flat fee of ₹50 applies to orders below ₹499.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3><i data-lucide="box" size="18"></i> Secure Packaging</h3>
+                        <p>Sealed in vacuum-grade food safe packs and sturdy outer boxes to preserve peak freshness.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: RETURN & REFUND POLICY -->
+            <section id="returns" class="policy-section">
+                <div class="section-header">
+                    <i data-lucide="rotate-ccw" size="28"></i>
+                    <h2>Return & Refund Policy</h2>
+                </div>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Eligible Returns & Damaged / Wrong Products
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>As KAWAD SWAD offers perishable food items, returns are accepted exclusively if you receive a damaged, tampered, or incorrect item. Please report the issue with unboxing photos/videos within 24 hours of delivery.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Refund Timeline & Payment Method
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Once verified and approved, refunds are processed within 5–7 business days to your original payment method or issued as store credit instantly.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Replacement Process
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>If eligible, a fresh replacement dispatch is initiated within 24 hours at no extra cost to you.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            When Returns Are Not Accepted
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Returns/refunds are not applicable for personal taste preferences, incorrect delivery addresses provided by the customer, or issues reported after 24 hours of delivery.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: CANCELLATION POLICY -->
+            <section id="cancellation" class="policy-section">
+                <div class="section-header">
+                    <i data-lucide="x-circle" size="28"></i>
+                    <h2>Cancellation Policy</h2>
+                </div>
+                <div class="grid-2">
+                    <div class="glass-card">
+                        <h3>Cancellation Before Dispatch</h3>
+                        <p>Orders can be cancelled free of charge if requested within 2 hours of placing the order or before dispatch confirmation.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3>Cancellation After Dispatch</h3>
+                        <p>Once dispatched, orders cannot be cancelled as perishable food items are packed and handed over to transit partners.</p>
+                    </div>
+                </div>
+                <div class="glass-card" style="margin-top: 16px;">
+                    <h3>How to Request Cancellation</h3>
+                    <p>Contact us immediately via WhatsApp or call us with your Order ID to request a cancellation.</p>
+                </div>
+            </section>
+
+            <!-- SECTION 4: PRIVACY POLICY -->
+            <section id="privacy" class="policy-section">
+                <div class="section-header">
+                    <i data-lucide="lock" size="28"></i>
+                    <h2>Privacy Policy</h2>
+                </div>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Information Collected & How We Use It
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>We collect essential details like your name, phone number, shipping address, and email strictly to process and deliver your orders accurately. We never sell or share your personal data with third parties for marketing purposes.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Data Protection & Customer Privacy
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Your data is protected using SSL encryption standard protocols. Payment processing is handled securely via RBI-compliant payment gateways; KAWAD SWAD never stores your payment credentials.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Cookies & Tracking
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>We use essential cookies to maintain your shopping cart sessions and improve website navigation performance.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: TERMS & CONDITIONS -->
+            <section id="terms" class="policy-section">
+                <div class="section-header">
+                    <i data-lucide="file-text" size="28"></i>
+                    <h2>Terms & Conditions</h2>
+                </div>
+                <div class="grid-2">
+                    <div class="glass-card">
+                        <h3>Product Info & Pricing</h3>
+                        <p>All prices are listed in INR (inclusive of taxes). We aim for exact representation, but actual packaging may vary slightly.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3>Availability & Rights</h3>
+                        <p>All products are subject to stock availability. All content, logos, and branding belong exclusively to KAWAD SWAD.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3>Website Usage</h3>
+                        <p>Users agree not to misuse website services, attempt unauthorized access, or disrupt store operations.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3>Customer Responsibility</h3>
+                        <p>Customers are responsible for providing correct delivery details and storing products according to package instructions.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: FOOD SAFETY -->
+            <section id="food-safety" class="policy-section">
+                <div class="section-header">
+                    <i data-lucide="award" size="28"></i>
+                    <h2>Food Safety & Quality</h2>
+                </div>
+                
+                <div class="fssai-banner">
+                    <div class="fssai-info">
+                        <h3>FSSAI Certified Standard</h3>
+                        <p>Manufactured and packed under strict food safety parameters.</p>
+                    </div>
+                    <div class="fssai-badge">
+                        FSSAI LIC NO. 21425890001224
+                    </div>
+                </div>
+
+                <div class="grid-3">
+                    <div class="glass-card">
+                        <h3><i data-lucide="leaf" size="18" style="color: #2E7D32;"></i> 100% Vegetarian</h3>
+                        <p>Prepared in an exclusively vegetarian, pure facility with premium ingredients.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3><i data-lucide="sparkles" size="18"></i> Hygienic Manufacturing</h3>
+                        <p>Made in touch-free, sanitized, automated food-grade environments.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3><i data-lucide="shield" size="18"></i> Protective Packaging</h3>
+                        <p>Multi-layered food-safe moisture-proof packaging for maximum freshness.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3><i data-lucide="hourglass" size="18"></i> Shelf Life Info</h3>
+                        <p>Best before dates and batch manufacturing numbers are printed clearly on every unit.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3><i data-lucide="thermometer" size="18"></i> Storage Instructions</h3>
+                        <p>Store in a cool, dry place away from direct sunlight. Use air-tight containers after opening.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 7: NEED HELP? -->
+            <section class="help-card">
+                <h2>Need Direct Assistance?</h2>
+                <p>Have questions about your order or our policies? Reach out to our customer care team.</p>
+                <div class="help-actions">
+                    <a href="https://wa.me/910000000000" class="btn btn-whatsapp">
+                        <i data-lucide="message-circle"></i> WhatsApp Us
+                    </a>
+                    <a href="tel:+910000000000" class="btn btn-outline">
+                        <i data-lucide="phone"></i> Call Us
+                    </a>
+                    <a href="mailto:support@kawadswad.com" class="btn btn-outline">
+                        <i data-lucide="mail"></i> Email Support
+                    </a>
+                    <a href="contact.html" class="btn btn-primary">
+                        <i data-lucide="arrow-right"></i> Contact Page
+                    </a>
+                </div>
+            </section>
+
         </div>
 
-        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-textSecondary gap-4">
-            <p>© 2026 KAWAD SWAD UDHYOG. All rights reserved.</p>
-            <p class="tracking-widest uppercase">Terms & Compliance • Katargaon, MP</p>
+        <!-- BOTTOM CTA -->
+        <section class="bottom-cta">
+            <div class="container">
+                <h2>Still have questions?</h2>
+                <p>Our support team is always here to assist you with your orders.</p>
+                <a href="contact.html" class="btn btn-primary">Contact Us</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER (Existing Footer) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 KAWAD SWAD. All Rights Reserved. FSSAI Lic No. 21425890001224</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
+        // Initialize Lucide Icons
         lucide.createIcons();
 
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        }
+        // Accordion Toggle Script
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all accordion items
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.accordion-content').style.maxHeight = null;
+                });
+
+                // If clicked item was not active, open it
+                if (!isActive) {
+                    item.classList.add('active');
+                    const content = item.querySelector('.accordion-content');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
     </script>
 </body>
 </html>

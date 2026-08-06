@@ -2,8 +2,8 @@
  * ============================================================================
  * KAWAD SWAD - E-Commerce LocalStorage Cart System (js/cart.js)
  * ============================================================================
- * Reads data properties directly from products.json structure, recalculating
- * line items, shipping fees, and grand totals without hardcoded rules.
+ * Handles cart item state, cart page rendering, checkout summary rendering,
+ * and header counter badge synchronization.
  */
 
 const STORAGE_KEY = 'kawad_swad_cart';
@@ -71,14 +71,16 @@ const CartManager = {
         this.saveItems(items);
     },
 
+    clearCart() {
+        localStorage.removeItem(STORAGE_KEY);
+        this.updateCartBadge();
+    },
+
     calculateSubtotal() {
         const items = this.getItems();
         return items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     },
 
-    /**
-     * Reads shipping rules directly from item properties in products.json
-     */
     calculateShipping() {
         const items = this.getItems();
         if (items.length === 0) return 0;
@@ -170,6 +172,33 @@ const CartManager = {
         this.updateSummaryUI(subtotal, shipping, grandTotal);
     },
 
+    renderCheckoutSummary() {
+        const checkoutItemsContainer = document.getElementById('checkout-items-summary');
+        if (!checkoutItemsContainer) return;
+
+        const items = this.getItems();
+        if (items.length === 0) {
+            checkoutItemsContainer.innerHTML = `<p class="text-xs text-brand-muted">No items in cart.</p>`;
+            return;
+        }
+
+        checkoutItemsContainer.innerHTML = items.map(item => `
+            <div class="flex justify-between items-center pt-2">
+                <div>
+                    <span class="block font-medium text-brand-dark">${item.name}</span>
+                    <span class="text-xs text-brand-muted">Qty: ${item.quantity} | Size: ${item.weight}</span>
+                </div>
+                <span class="font-mono text-brand-muted">₹${item.price * item.quantity}</span>
+            </div>
+        `).join('');
+
+        const subtotal = this.calculateSubtotal();
+        const shipping = this.calculateShipping();
+        const grandTotal = this.calculateGrandTotal();
+
+        this.updateSummaryUI(subtotal, shipping, grandTotal);
+    },
+
     updateSummaryUI(subtotal, shipping, grandTotal) {
         const subtotalEls = document.querySelectorAll('[data-summary="subtotal"]');
         const shippingEls = document.querySelectorAll('[data-summary="shipping"]');
@@ -209,6 +238,7 @@ const CartManager = {
 document.addEventListener('DOMContentLoaded', () => {
     CartManager.updateCartBadge();
     CartManager.renderCartPage();
+    CartManager.renderCheckoutSummary();
 
     const tableBody = document.querySelector('table tbody, #cart-items-container');
     if (tableBody) {

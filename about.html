@@ -78,7 +78,7 @@
             <div class="flex items-center gap-3">
                 <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
                     <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                    <span class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">1</span>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">0</span>
                 </a>
                 <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
                     <i data-lucide="menu" class="w-5 h-5"></i>
@@ -246,6 +246,19 @@
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
+
+        // Cart State Synchronization
+        let cart = JSON.parse(localStorage.getItem('ks_cart')) || [];
+
+        function updateCartBadge() {
+            let totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+            const badge = document.getElementById('cart-badge');
+            if (badge) badge.innerText = totalItems;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartBadge();
+        });
     </script>
 </body>
 </html>

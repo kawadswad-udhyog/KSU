@@ -129,7 +129,11 @@
 
             <!-- Header CTAs -->
             <div class="flex items-center gap-3">
-                <a href="https://wa.me/919630976867?text=Hi,%20I%20have%20a%20B2B%20Wholesale%20Inquiry" target="_blank" class="flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
+                <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">0</span>
+                </a>
+                <a href="https://wa.me/919630976867?text=Hi,%20I%20have%20a%20B2B%20Wholesale%20Inquiry" target="_blank" class="hidden sm:flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
                     <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp B2B Desk
                 </a>
                 <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
@@ -370,6 +374,15 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
+        // Cart State Synchronization
+        let cart = JSON.parse(localStorage.getItem('ks_cart')) || [];
+
+        function updateCartBadge() {
+            let totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+            const badge = document.getElementById('cart-badge');
+            if (badge) badge.innerText = totalItems;
+        }
+
         function triggerToast(message) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
@@ -410,6 +423,10 @@
                 lucide.createIcons();
             }
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartBadge();
+        });
     </script>
 </body>
 </html>

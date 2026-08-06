@@ -3,501 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Article Title Placeholder] | KAWAD SWAD</title>
-    <meta name="description" content="Read recipes, cooking tips and food knowledge from KAWAD SWAD.">
-    
-    <!-- Tailwind CSS CDN with custom design tokens matching existing site structure -->
+    <title>Article Title Placeholder | KAWAD SWAD Journal</title>
+    <meta name="description" content="Read recipes, cooking tips, Jain food guides and manufacturing insights from KAWAD SWAD.">
+    <meta name="keywords" content="KAWAD SWAD Article, Papad Recipe, Jain Food Guide, Cooking Tips">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kawadswad.com/blog-detail.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kawadswad.com/blog-detail.html">
+    <meta property="og:title" content="Article Title Placeholder | KAWAD SWAD Journal">
+    <meta property="og:description" content="Read recipes, cooking tips and food knowledge from KAWAD SWAD.">
+    <meta property="og:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="KAWAD SWAD">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Article Title Placeholder | KAWAD SWAD Journal">
+    <meta name="twitter:description" content="Read recipes, cooking tips and food knowledge from KAWAD SWAD.">
+    <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#C5A059">
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS Animation Utilities -->
     <style>
-        .fade-in {
-            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .slide-up {
-            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+
+    <!-- JSON-LD Structured Data: BlogPosting & BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Article Title Placeholder",
+      "publisher": {
+        "@type": "Organization",
+        "name": "KAWAD SWAD",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://kawadswad.com/assets/images/logo.png"
+        }
+      },
+      "url": "https://kawadswad.com/blog-detail.html",
+      "description": "Read recipes, cooking tips and food knowledge from KAWAD SWAD."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://kawadswad.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://kawadswad.com/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Article Detail",
+          "item": "https://kawadswad.com/blog-detail.html"
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- ==========================================
-         STICKY HEADER (REUSED NAV)
-         ========================================== -->
-    <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2 group">
-            <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">KAWAD SWAD</span>
-        </a>
-        <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide">
-            <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
-            <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
-            <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
-            <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
-            <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
-            <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
-            <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
-            <a href="blog.html" class="hover:text-brand-gold transition-colors">Blog</a>
-            <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
-        </nav>
-        <div class="flex items-center space-x-4">
-            <a href="products.html" class="text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Search"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></a>
-            <a href="cart.html" class="relative text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Cart"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg><span class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span></a>
-            <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-        </div>
-    </div>
-    <div id="mobile-menu" class="hidden lg:hidden bg-brand-cream border-b border-brand-gold/20 px-4 pt-2 pb-6 space-y-3 text-sm font-medium">
-        <a href="index.html" class="block py-2 hover:text-brand-gold transition-colors">Home</a>
-        <a href="about.html" class="block py-2 hover:text-brand-gold transition-colors">About</a>
-        <a href="products.html" class="block py-2 hover:text-brand-gold transition-colors">Products</a>
-        <a href="shop.html" class="block py-2 hover:text-brand-gold transition-colors">Shop</a>
-        <a href="business.html" class="block py-2 hover:text-brand-gold transition-colors">Business</a>
-        <a href="manufacturing.html" class="block py-2 hover:text-brand-gold transition-colors">Manufacturing</a>
-        <a href="gallery.html" class="block py-2 hover:text-brand-gold transition-colors">Gallery</a>
-        <a href="blog.html" class="block py-2 hover:text-brand-gold transition-colors">Blog</a>
-        <a href="contact.html" class="block py-2 hover:text-brand-gold transition-colors">Contact</a>
-    </div>
-</header>
+    <header-component></header-component>
 
     <main class="flex-grow">
-        <!-- ==========================================
-             SECTION 1: HERO HEADER
-             ========================================== -->
-        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
-                        [Category Placeholder]
-                    </span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
-                        [Heading Placeholder]
-                    </h1>
-                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
-                        [Short Description Placeholder: Concise summary introducing the article or recipe.]
-                    </p>
-                </div>
-
-                <!-- Large Editable Hero Image Placeholder -->
-                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
-                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                    <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[hero-placeholder]</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 2: BREADCRUMB
-             ========================================== -->
+        <!-- BREADCRUMB -->
         <nav aria-label="Breadcrumb" class="bg-white border-b border-stone-200/80 py-4">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ol class="flex items-center space-x-2 text-xs text-brand-muted">
-                    <li>
-                        <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
-                    </li>
+                    <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
                     <li class="text-stone-400">&gt;</li>
-                    <li>
-                        <a href="blog.html" class="hover:text-brand-gold transition-colors">Recipes</a>
-                    </li>
+                    <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Recipes</a></li>
                     <li class="text-stone-400">&gt;</li>
-                    <li class="font-semibold text-brand-dark uppercase tracking-wider truncate" aria-current="page">
-                        [Article Title]
-                    </li>
+                    <li class="font-semibold text-brand-dark uppercase tracking-wider truncate" aria-current="page">[Article Title]</li>
                 </ol>
             </div>
         </nav>
 
-        <!-- ==========================================
-             SECTION 3 & 4: ARTICLE HEADER & FEATURED IMAGE
-             ========================================== -->
-        <section class="pt-12 pb-8 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- SECTION 3: ARTICLE HEADER META -->
-                <div class="space-y-4 mb-8">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
-                        [Category Placeholder]
-                    </span>
-                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark leading-tight">
-                        [Article Title Placeholder]
-                    </h2>
-                    <div class="flex flex-wrap items-center gap-4 text-xs text-brand-muted pt-2 border-b border-stone-200/80 pb-6">
-                        <div class="flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <span>Reading Time: [reading-time-placeholder]</span>
-                        </div>
-                        <span class="text-stone-300">•</span>
-                        <div class="flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                            <span>Last Updated: [last-updated-placeholder]</span>
-                        </div>
-                    </div>
+        <!-- ARTICLE HEADER & CONTENT -->
+        <section class="pt-12 pb-16 bg-white border-b border-stone-200/80">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                <div class="space-y-4">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">[Category Placeholder]</span>
+                    <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark leading-tight">[Article Title Placeholder]</h1>
                 </div>
 
-                <!-- SECTION 4: FEATURED IMAGE -->
-                <div class="space-y-3">
-                    <div class="aspect-16/9 bg-stone-200 rounded-sm border border-stone-300/60 flex flex-col items-center justify-center p-8 text-center shadow-inner relative overflow-hidden">
-                        <svg class="w-16 h-16 text-stone-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                        </svg>
-                        <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[article-placeholder]</span>
-                    </div>
-                    <p class="text-xs text-brand-muted italic text-center">[Caption Placeholder: Descriptive image caption.]</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 5: ARTICLE CONTENT
-             ========================================== -->
-        <section class="py-12 bg-white border-b border-stone-200/80">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <article class="prose prose-stone max-w-none space-y-8 text-brand-dark leading-relaxed font-light text-base sm:text-lg">
-                    <!-- Introduction -->
                     <p class="text-lg sm:text-xl font-normal leading-relaxed text-brand-dark/90 border-l-2 border-brand-gold pl-4 italic">
                         [Editable Introduction Placeholder: Introductory overview explaining the topic, key insights, or recipe premise.]
                     </p>
-
-                    <!-- Section 1 -->
                     <div class="space-y-4 pt-4">
-                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">[Heading Placeholder]</h3>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">[Heading Placeholder]</h2>
                         <p class="text-brand-muted leading-relaxed">[Editable Paragraph Placeholder: Detailed body paragraph explaining specific techniques, ingredients, or food guides.]</p>
-                    </div>
-
-                    <!-- Section 2 -->
-                    <div class="space-y-4 pt-4">
-                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">[Heading Placeholder]</h3>
-                        <p class="text-brand-muted leading-relaxed">[Editable Paragraph Placeholder: In-depth information covering preparation steps, process parameters, or culinary ideas.]</p>
-                    </div>
-
-                    <!-- Bullet List Section -->
-                    <div class="space-y-4 pt-4">
-                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">[Heading Placeholder]</h3>
-                        <ul class="space-y-2.5 text-brand-muted text-base">
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span>
-                                <span>[Editable List Item 1: Essential step or key takeaway.]</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span>
-                                <span>[Editable List Item 2: Essential step or key takeaway.]</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="w-2 h-2 rounded-full bg-brand-gold mt-2 flex-shrink-0"></span>
-                                <span>[Editable List Item 3: Essential step or key takeaway.]</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Quote Box -->
-                    <div class="bg-brand-cream/60 p-8 rounded-sm border-l-4 border-brand-gold shadow-sm my-8">
-                        <blockquote class="font-serif text-xl italic text-brand-dark font-medium leading-relaxed mb-2">
-                            "[Editable Quote Placeholder: Key quote, traditional wisdom, or culinary highlight.]"
-                        </blockquote>
-                        <span class="block text-xs font-semibold uppercase tracking-wider text-brand-gold">— KAWAD SWAD Culinary Notes</span>
-                    </div>
-
-                    <!-- Conclusion -->
-                    <div class="space-y-4 pt-4 border-t border-stone-200/80">
-                        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">Conclusion</h3>
-                        <p class="text-brand-muted leading-relaxed">[Editable Conclusion Placeholder: Summary paragraph wrapping up the article recommendations or serving instructions.]</p>
                     </div>
                 </article>
             </div>
         </section>
-
-        <!-- ==========================================
-             SECTION 6: IMAGE GALLERY
-             ========================================== -->
-        <section class="py-16 bg-brand-cream border-b border-brand-gold/10">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <h3 class="font-serif text-2xl font-bold text-brand-dark mb-2">Article Gallery</h3>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    <div class="space-y-2">
-                        <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center">
-                            <span class="text-[10px] font-mono text-brand-muted">[gallery-placeholder-1]</span>
-                        </div>
-                        <p class="text-[10px] text-brand-muted text-center italic">[Caption Placeholder]</p>
-                    </div>
-
-                    <div class="space-y-2">
-                        <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center">
-                            <span class="text-[10px] font-mono text-brand-muted">[gallery-placeholder-2]</span>
-                        </div>
-                        <p class="text-[10px] text-brand-muted text-center italic">[Caption Placeholder]</p>
-                    </div>
-
-                    <div class="space-y-2">
-                        <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center">
-                            <span class="text-[10px] font-mono text-brand-muted">[gallery-placeholder-3]</span>
-                        </div>
-                        <p class="text-[10px] text-brand-muted text-center italic">[Caption Placeholder]</p>
-                    </div>
-
-                    <div class="space-y-2">
-                        <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center">
-                            <span class="text-[10px] font-mono text-brand-muted">[gallery-placeholder-4]</span>
-                        </div>
-                        <p class="text-[10px] text-brand-muted text-center italic">[Caption Placeholder]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 7: TIPS BOX
-             ========================================== -->
-        <section class="py-12 bg-white border-b border-stone-200/80">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-gradient-to-r from-brand-cream via-white to-brand-cream p-8 rounded-sm border border-brand-gold/30 shadow-sm flex items-start gap-5">
-                    <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                        </svg>
-                    </div>
-                    <div class="space-y-2">
-                        <h4 class="font-serif text-xl font-semibold text-brand-dark">Helpful Tip</h4>
-                        <p class="text-sm text-brand-muted leading-relaxed font-light">
-                            [Editable Content Placeholder: Practical advice regarding papad storage, optimal frying temperature, or flavor enhancement.]
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 8: RELATED ARTICLES
-             ========================================== -->
-        <section class="py-20 bg-brand-cream border-b border-brand-gold/10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h3 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Related Articles</h3>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Related Article 1 -->
-                    <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between">
-                        <div>
-                            <div class="aspect-16/10 bg-stone-200 flex items-center justify-center p-4 text-center border-b border-stone-300/40">
-                                <span class="text-xs font-mono text-brand-muted">[recipe-placeholder-1]</span>
-                            </div>
-                            <div class="p-6 space-y-3">
-                                <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                    [Category Placeholder]
-                                </span>
-                                <h4 class="font-serif text-xl font-semibold text-brand-dark leading-snug">
-                                    [Article Title Placeholder]
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="px-6 pb-6 pt-2">
-                            <a href="blog-detail.html" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-brand-dark hover:text-brand-gold transition-colors">
-                                Read More &rarr;
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Related Article 2 -->
-                    <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between">
-                        <div>
-                            <div class="aspect-16/10 bg-stone-200 flex items-center justify-center p-4 text-center border-b border-stone-300/40">
-                                <span class="text-xs font-mono text-brand-muted">[recipe-placeholder-2]</span>
-                            </div>
-                            <div class="p-6 space-y-3">
-                                <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                    [Category Placeholder]
-                                </span>
-                                <h4 class="font-serif text-xl font-semibold text-brand-dark leading-snug">
-                                    [Article Title Placeholder]
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="px-6 pb-6 pt-2">
-                            <a href="blog-detail.html" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-brand-dark hover:text-brand-gold transition-colors">
-                                Read More &rarr;
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Related Article 3 -->
-                    <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between">
-                        <div>
-                            <div class="aspect-16/10 bg-stone-200 flex items-center justify-center p-4 text-center border-b border-stone-300/40">
-                                <span class="text-xs font-mono text-brand-muted">[recipe-placeholder-3]</span>
-                            </div>
-                            <div class="p-6 space-y-3">
-                                <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-xs">
-                                    [Category Placeholder]
-                                </span>
-                                <h4 class="font-serif text-xl font-semibold text-brand-dark leading-snug">
-                                    [Article Title Placeholder]
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="px-6 pb-6 pt-2">
-                            <a href="blog-detail.html" class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-brand-dark hover:text-brand-gold transition-colors">
-                                Read More &rarr;
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 9: SHARE ARTICLE
-             ========================================== -->
-        <section class="py-12 bg-white border-b border-stone-200/80">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-6 bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80">
-                    <span class="font-serif text-lg font-semibold text-brand-dark">Share This Article</span>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <button type="button" class="px-4 py-2 bg-white border border-stone-300 text-brand-dark text-xs font-semibold uppercase tracking-wider rounded-xs hover:border-brand-gold hover:text-brand-gold transition-colors">
-                            WhatsApp
-                        </button>
-                        <button type="button" class="px-4 py-2 bg-white border border-stone-300 text-brand-dark text-xs font-semibold uppercase tracking-wider rounded-xs hover:border-brand-gold hover:text-brand-gold transition-colors">
-                            Facebook
-                        </button>
-                        <button type="button" class="px-4 py-2 bg-white border border-stone-300 text-brand-dark text-xs font-semibold uppercase tracking-wider rounded-xs hover:border-brand-gold hover:text-brand-gold transition-colors">
-                            Instagram
-                        </button>
-                        <button type="button" class="px-4 py-2 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-xs hover:bg-brand-gold transition-colors">
-                            Copy Link
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 10: NEWSLETTER
-             ========================================== -->
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div class="bg-brand-cream/60 rounded-sm border border-brand-gold/20 p-8 sm:p-12 shadow-sm">
-                    <h3 class="font-serif text-3xl font-bold text-brand-dark mb-3">Never Miss An Update</h3>
-                    <p class="text-sm text-brand-muted max-w-xl mx-auto leading-relaxed font-light mb-8">
-                        Stay informed with recipes, cooking ideas and product updates from KAWAD SWAD.
-                    </p>
-
-                    <form onsubmit="event.preventDefault();" class="max-w-xl mx-auto space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" placeholder="Your Name" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
-                            <input type="email" placeholder="Your Email Address" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
-                        </div>
-                        <button type="submit" class="w-full sm:w-auto px-10 py-3.5 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold transition-colors duration-300 shadow-sm">
-                            Subscribe Now
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <!-- ==========================================
-         SECTION 11: FOOTER (REUSED FOOTER)
-         ========================================== -->
-    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-            <div class="space-y-4 lg:col-span-2">
-                <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
-                <p class="text-xs text-stone-500 leading-relaxed max-w-sm">Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar. Committed to quality, hygiene and authentic flavors.</p>
-                <div class="pt-2 text-xs space-y-1 text-stone-500 font-mono">
-                    <p>FSSAI Lic No: [fssai-number-placeholder]</p>
-                    <p>GSTIN: [gst-number-placeholder]</p>
-                </div>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
-                    <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
-                    <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
-                    <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
-                    <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Media</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Solutions</a></li>
-                    <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
-                    <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
-                    <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Blog &amp; Recipes</a></li>
-                    <li><a href="reviews.html" class="hover:text-brand-gold transition-colors">Reviews</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Support &amp; Legal</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="faq.html" class="hover:text-brand-gold transition-colors">FAQ</a></li>
-                    <li><a href="policies.html" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
-                    <li><a href="policies.html#terms-and-conditions" class="hover:text-brand-gold transition-colors">Terms &amp; Conditions</a></li>
-                    <li><a href="policies.html#shipping-policy" class="hover:text-brand-gold transition-colors">Shipping &amp; Returns</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="mt-12 pt-8 border-t border-stone-900 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <div>
-                <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Subscribe to Our Newsletter</h5>
-                <p class="text-xs text-stone-500 mt-1">Receive authentic Jain recipes and business updates directly.</p>
-            </div>
-            <form onsubmit="event.preventDefault();" class="flex gap-2">
-                <input type="email" placeholder="Enter your email" class="bg-stone-900 border border-stone-800 rounded-sm px-4 py-2 text-xs text-white focus:outline-none focus:border-brand-gold flex-grow">
-                <button type="submit" class="px-6 py-2 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors">Subscribe</button>
-            </form>
-        </div>
-        <div class="mt-12 pt-8 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-600 gap-4">
-            <p>&copy; KAWAD SWAD. All rights reserved.</p>
-            <div class="flex space-x-6">
-                <a href="https://wa.me/[whatsapp-placeholder]" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">WhatsApp</a>
-                <a href="contact.html" class="hover:text-brand-gold transition-colors">Support</a>
-            </div>
-        </div>
-    </div>
-</footer>
+    <footer-component></footer-component>
 
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shop.js"></script>
 </body>
 </html>

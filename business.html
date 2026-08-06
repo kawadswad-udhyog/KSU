@@ -4,578 +4,540 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business Opportunities | KAWAD SWAD</title>
-    <meta name="description" content="Become a distributor, wholesale partner or private label manufacturing partner with KAWAD SWAD.">
+    <meta name="description" content="Partner with KAWAD SWAD for distributorship, wholesale supply and private label manufacturing.">
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN with custom design tokens matching existing site structure -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Tailwind Configuration for Existing Design System (Black + Gold + Glassmorphism) -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        gold: {
-                            400: '#FACC15',
-                            500: '#EAB308',
-                            600: '#CA8A04',
-                            700: '#A16207',
-                        },
-                        dark: {
-                            900: '#0B0F17',
-                            800: '#111827',
-                            700: '#1F2937',
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
                         }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
                     }
                 }
             }
         }
     </script>
     
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Animation Utilities -->
     <style>
-        /* Glassmorphism Styles matching design system */
-        .glass-card {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(234, 179, 8, 0.15);
+        .fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        .glass-card:hover {
-            border-color: rgba(234, 179, 8, 0.4);
+        .slide-up {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        .glass-input {
-            background: rgba(11, 15, 23, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        .glass-input:focus {
-            border-color: #EAB308;
-            outline: none;
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="bg-dark-900 text-gray-100 font-sans antialiased selection:bg-gold-500 selection:text-black">
+<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
     <!-- ==========================================
-         EXISTING HEADER & NAVIGATION (PLACEHOLDER)
-         DO NOT MODIFY EXTERNAL NAV INTEGRATION
-    =========================================== -->
-    <header class="sticky top-0 z-50 bg-dark-900/90 backdrop-blur-md border-b border-gold-500/20 py-4 px-6">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-wider text-gold-500">KAWAD SWAD</a>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
-                <a href="#" class="hover:text-gold-500 transition-colors">Home</a>
-                <a href="#" class="hover:text-gold-500 transition-colors">Products</a>
-                <a href="business.html" class="text-gold-500">Business</a>
-                <a href="#" class="hover:text-gold-500 transition-colors">About Us</a>
-                <a href="#" class="hover:text-gold-500 transition-colors">Contact</a>
+         STICKY HEADER (REUSED NAV)
+         ========================================== -->
+    <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">
+                    KAWAD SWAD
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
+                <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
+                <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
+                <a href="business.html" class="text-brand-gold font-semibold transition-colors">Business</a>
+                <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
+                <a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a>
+                <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
+                <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
             </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button type="button" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
         </div>
     </header>
 
-    <main>
+    <main class="flex-grow">
         <!-- ==========================================
-             SECTION 1: PREMIUM HERO
-        =========================================== -->
-        <section class="relative min-h-[85vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-            <!-- Background Image Placeholder with Dark Overlay -->
-            <div class="absolute inset-0 z-0">
-                <!-- PLACEHOLDER: Business Hero Image -->
-                <div class="w-full h-full bg-gradient-to-r from-dark-900 via-dark-900/90 to-dark-900/70 flex items-center justify-center border-b border-gold-500/20">
-                    <div class="text-center p-8 border-2 border-dashed border-gold-500/30 rounded-xl bg-dark-900/80">
-                        <i class="fa-solid fa-image text-4xl text-gold-500 mb-2"></i>
-                        <p class="text-xs font-mono text-gold-400 uppercase tracking-widest">[ PLACEHOLDER: Business Hero Image ]</p>
-                        <p class="text-xs text-gray-400">Premium food / manufacturing facility background</p>
+             SECTION 1: HERO BANNER
+             ========================================== -->
+        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
+                        B2B Partnerships
+                    </span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
+                        Grow Your Business With KAWAD SWAD
+                    </h1>
+                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
+                        Partner with a trusted Jain Papad manufacturer for distribution, wholesale supply and private label manufacturing.
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#enquiry-form" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
+                            Become Distributor
+                        </a>
+                        <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
+                            Contact Business Team
+                        </a>
                     </div>
                 </div>
-            </div>
 
-            <!-- Content -->
-            <div class="relative z-10 max-w-5xl mx-auto text-center">
-                <span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest text-gold-400 bg-gold-500/10 border border-gold-500/30 mb-6">
-                    B2B Partnerships
-                </span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-4">
-                    Business With KAWAD SWAD
-                </h1>
-                <p class="text-xl sm:text-2xl text-gray-300 font-light max-w-3xl mx-auto mb-10 leading-relaxed">
-                    Grow Your Business with a Trusted Papad Manufacturing Partner.
-                </p>
-                
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#enquiry-form" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold-600 to-gold-500 text-dark-900 font-bold hover:brightness-110 transition-all shadow-lg shadow-gold-500/20 text-center">
-                        Become a Distributor
-                    </a>
-                    <a href="#enquiry-form" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white font-semibold hover:border-gold-500 transition-all text-center">
-                        Request Wholesale Pricing
-                    </a>
-                    <a href="#enquiry-form" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-gold-400 font-semibold hover:border-gold-500 transition-all text-center">
-                        Start Private Label
-                    </a>
+                <!-- Large Editable Hero Image Placeholder -->
+                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
+                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                    <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[business-hero-placeholder]</span>
                 </div>
             </div>
         </section>
 
         <!-- ==========================================
              SECTION 2: WHY PARTNER WITH KAWAD SWAD
-        =========================================== -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-900">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">WHY PARTNER WITH KAWAD SWAD</h2>
-                    <div class="w-24 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+             ========================================== -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Why Partner With KAWAD SWAD</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Feature Card 1 -->
-                    <div class="glass-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1">
-                        <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6">
-                            <i class="fa-solid fa-award"></i>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Consistent Quality -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                            </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Consistent Quality</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Standardized manufacturing processes ensuring uniform taste, texture, and long shelf life in every batch.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Consistent Quality</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text explaining consistent product standards, taste retention, and batch-to-batch quality.]</p>
                     </div>
 
-                    <!-- Feature Card 2 -->
-                    <div class="glass-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1">
-                        <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6">
-                            <i class="fa-solid fa-truck-fast"></i>
+                    <!-- Reliable Supply -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Reliable Supply</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Robust production capacity to fulfill large scale requirements seamlessly without supply chain disruptions.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Reliable Supply</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text describing dependable manufacturing schedules and dependable inventory supply.]</p>
                     </div>
 
-                    <!-- Feature Card 3 -->
-                    <div class="glass-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1">
-                        <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6">
-                            <i class="fa-solid fa-tags"></i>
+                    <!-- Modern Manufacturing -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Competitive Pricing</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Direct manufacturer margins offering high profit potential for distributors, wholesalers, and brands.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Modern Manufacturing</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text highlighting hygienic production equipment, scaling capabilities, and compliance.]</p>
                     </div>
 
-                    <!-- Feature Card 4 -->
-                    <div class="glass-card p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1">
-                        <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl mb-6">
-                            <i class="fa-solid fa-headset"></i>
+                    <!-- Private Label Support -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                            </svg>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Dedicated Support</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">Personalized key account managers providing quick order processing, logistics support, and guidance.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 3: BUSINESS OPTIONS
-        =========================================== -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">BUSINESS OPTIONS</h2>
-                    <p class="text-gray-400 mt-2">Choose the right partnership model for your organization</p>
-                    <div class="w-24 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- CARD 1: Distributor -->
-                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border-t-4 border-t-gold-500">
-                        <div class="p-8">
-                            <!-- Image Placeholder -->
-                            <div class="w-full h-48 bg-dark-900 border border-gold-500/20 rounded-xl flex flex-col items-center justify-center mb-6">
-                                <i class="fa-solid fa-network-wired text-3xl text-gold-500 mb-2"></i>
-                                <span class="text-xs font-mono text-gold-400 uppercase">[ PLACEHOLDER: Distributor Image ]</span>
-                            </div>
-
-                            <div class="flex items-center space-x-3 mb-4">
-                                <i class="fa-solid fa-sitemap text-2xl text-gold-400"></i>
-                                <h3 class="text-2xl font-bold text-white">Distributor</h3>
-                            </div>
-                            <p class="text-gray-400 text-sm mb-6">Become an authorized regional distribution partner for KAWAD SWAD products and expand market reach.</p>
-                            
-                            <h4 class="text-xs font-semibold text-gold-400 uppercase tracking-wider mb-4">Key Benefits</h4>
-                            <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> Business growth</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> Marketing support</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> Reliable supply</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> Dedicated support</li>
-                            </ul>
-                        </div>
-                        <div class="p-8 pt-0">
-                            <a href="#enquiry-form" class="block w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold text-center transition-colors">
-                                Apply Now
-                            </a>
-                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Private Label Support</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text on end-to-end support for custom recipe blends, sizing, and brand specifications.]</p>
                     </div>
 
-                    <!-- CARD 2: Wholesale -->
-                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border-t-4 border-t-gold-500">
-                        <div class="p-8">
-                            <!-- Image Placeholder -->
-                            <div class="w-full h-48 bg-dark-900 border border-gold-500/20 rounded-xl flex flex-col items-center justify-center mb-6">
-                                <i class="fa-solid fa-boxes-stacked text-3xl text-gold-500 mb-2"></i>
-                                <span class="text-xs font-mono text-gold-400 uppercase">[ PLACEHOLDER: Wholesale Image ]</span>
-                            </div>
-
-                            <div class="flex items-center space-x-3 mb-4">
-                                <i class="fa-solid fa-store text-2xl text-gold-400"></i>
-                                <h3 class="text-2xl font-bold text-white">Wholesale</h3>
-                            </div>
-                            <p class="text-gray-400 text-sm mb-6">Source authentic quality papads in bulk quantities at standard wholesale rates for retail distribution.</p>
-                            
-                            <h4 class="text-xs font-semibold text-gold-400 uppercase tracking-wider mb-4">Key Benefits</h4>
-                            <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> Bulk pricing</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> Flexible quantities</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> Fast dispatch</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> Consistent quality</li>
-                            </ul>
+                    <!-- Premium Packaging -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                            </svg>
                         </div>
-                        <div class="p-8 pt-0">
-                            <a href="#enquiry-form" class="block w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold text-center transition-colors">
-                                Get Wholesale Quote
-                            </a>
-                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Premium Packaging</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text on moisture-barrier packaging ensuring extended shelf-life and pristine presentation.]</p>
                     </div>
 
-                    <!-- CARD 3: Private Label -->
-                    <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between border-t-4 border-t-gold-500">
-                        <div class="p-8">
-                            <!-- Image Placeholder -->
-                            <div class="w-full h-48 bg-dark-900 border border-gold-500/20 rounded-xl flex flex-col items-center justify-center mb-6">
-                                <i class="fa-solid fa-industry text-3xl text-gold-500 mb-2"></i>
-                                <span class="text-xs font-mono text-gold-400 uppercase">[ PLACEHOLDER: Private Label Image ]</span>
-                            </div>
-
-                            <div class="flex items-center space-x-3 mb-4">
-                                <i class="fa-solid fa-box-open text-2xl text-gold-400"></i>
-                                <h3 class="text-2xl font-bold text-white">Private Label</h3>
-                            </div>
-                            <p class="text-gray-400 text-sm mb-6">Custom contract manufacturing and packaging solutions tailored to your brand specifications.</p>
-                            
-                            <h4 class="text-xs font-semibold text-gold-400 uppercase tracking-wider mb-4">Key Benefits</h4>
-                            <ul class="space-y-3 text-sm text-gray-300 mb-8">
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> Custom branding</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> Packaging support</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> OEM manufacturing</li>
-                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-gold-500 mr-3 text-xs"></i> Confidential production</li>
-                            </ul>
+                    <!-- Dedicated Business Support -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
                         </div>
-                        <div class="p-8 pt-0">
-                            <a href="#enquiry-form" class="block w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-600 text-dark-900 font-bold text-center transition-colors">
-                                Start Your Brand
-                            </a>
-                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Dedicated Support</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text detailing relationship managers, quick query resolution, and account assistance.]</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ==========================================
-             SECTION 4: WHY MANUFACTURERS CHOOSE US
-        =========================================== -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-900">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">WHY MANUFACTURERS CHOOSE US</h2>
-                    <div class="w-24 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+             SECTION 3: BUSINESS MODELS
+             ========================================== -->
+        <section class="py-20 bg-brand-dark text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-3">Business Models</h2>
+                    <p class="text-stone-400 text-sm">Flexible engagement models designed for growth and market expansion.</p>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-4"></div>
                 </div>
 
-                <!-- Media + Grid Section -->
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-5">
-                        <!-- PLACEHOLDER: Manufacturing Image -->
-                        <div class="w-full h-96 bg-dark-800 border border-gold-500/30 rounded-2xl flex flex-col items-center justify-center p-6 text-center">
-                            <i class="fa-solid fa-gears text-5xl text-gold-500 mb-4"></i>
-                            <span class="text-sm font-mono text-gold-400 uppercase tracking-widest">[ PLACEHOLDER: Manufacturing Image ]</span>
-                            <p class="text-xs text-gray-400 mt-2">Facility & Manufacturing Standards</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1: Distributor -->
+                    <div class="bg-stone-900/60 p-8 rounded-sm border border-stone-800 flex flex-col hover:border-brand-gold/50 transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
+                            </svg>
                         </div>
+                        <h3 class="font-serif text-2xl font-semibold mb-3">Distributor</h3>
+                        <p class="text-stone-400 text-sm leading-relaxed mb-8 flex-grow">
+                            [Editable description: Become an authorized regional distributor for KAWAD SWAD product lines in your territory.]
+                        </p>
+                        <a href="#enquiry-form" class="inline-flex items-center justify-center px-6 py-3 border border-brand-gold text-brand-gold text-xs font-semibold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
+                            Apply Now
+                        </a>
                     </div>
 
-                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="glass-card p-6 rounded-xl flex items-start space-x-4">
-                            <div class="text-gold-400 text-2xl pt-1"><i class="fa-solid fa-wheat-awn"></i></div>
-                            <div>
-                                <h3 class="font-bold text-white mb-1">Premium Ingredients</h3>
-                                <p class="text-xs text-gray-400 leading-relaxed">Sourced from certified suppliers ensuring purity, authentic taste, and exact spice balances.</p>
-                            </div>
+                    <!-- Card 2: Wholesale -->
+                    <div class="bg-stone-900/60 p-8 rounded-sm border border-stone-800 flex flex-col hover:border-brand-gold/50 transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                            </svg>
                         </div>
+                        <h3 class="font-serif text-2xl font-semibold mb-3">Wholesale</h3>
+                        <p class="text-stone-400 text-sm leading-relaxed mb-8 flex-grow">
+                            [Editable description: Source bulk Jain papad consignments directly for supermarkets, retail chains, and commercial institutions.]
+                        </p>
+                        <a href="#enquiry-form" class="inline-flex items-center justify-center px-6 py-3 border border-brand-gold text-brand-gold text-xs font-semibold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
+                            Request Pricing
+                        </a>
+                    </div>
 
-                        <div class="glass-card p-6 rounded-xl flex items-start space-x-4">
-                            <div class="text-gold-400 text-2xl pt-1"><i class="fa-solid fa-microchip"></i></div>
-                            <div>
-                                <h3 class="font-bold text-white mb-1">Modern Manufacturing</h3>
-                                <p class="text-xs text-gray-400 leading-relaxed">State-of-the-art hygienic processing, automated drying, and climate-controlled units.</p>
-                            </div>
+                    <!-- Card 3: Private Label -->
+                    <div class="bg-stone-900/60 p-8 rounded-sm border border-stone-800 flex flex-col hover:border-brand-gold/50 transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                            </svg>
                         </div>
-
-                        <div class="glass-card p-6 rounded-xl flex items-start space-x-4">
-                            <div class="text-gold-400 text-2xl pt-1"><i class="fa-solid fa-clipboard-check"></i></div>
-                            <div>
-                                <h3 class="font-bold text-white mb-1">Strict Quality Control</h3>
-                                <p class="text-xs text-gray-400 leading-relaxed">Multi-tier inspection protocols from raw material testing to final packaging clearance.</p>
-                            </div>
-                        </div>
-
-                        <div class="glass-card p-6 rounded-xl flex items-start space-x-4">
-                            <div class="text-gold-400 text-2xl pt-1"><i class="fa-solid fa-box font-bold"></i></div>
-                            <div>
-                                <h3 class="font-bold text-white mb-1">Professional Packaging</h3>
-                                <p class="text-xs text-gray-400 leading-relaxed">Moisture-proof, high-barrier custom packaging materials for maximum extended shelf-life.</p>
-                            </div>
-                        </div>
-
-                        <div class="glass-card p-6 rounded-xl flex items-start space-x-4">
-                            <div class="text-gold-400 text-2xl pt-1"><i class="fa-solid fa-truck-ramp-box"></i></div>
-                            <div>
-                                <h3 class="font-bold text-white mb-1">Reliable Logistics</h3>
-                                <p class="text-xs text-gray-400 leading-relaxed">Expedited shipment tracking, dependable transit, and safe cargo handling procedures.</p>
-                            </div>
-                        </div>
-
-                        <div class="glass-card p-6 rounded-xl flex items-start space-x-4">
-                            <div class="text-gold-400 text-2xl pt-1"><i class="fa-solid fa-handshake font-bold"></i></div>
-                            <div>
-                                <h3 class="font-bold text-white mb-1">Business Relationship</h3>
-                                <p class="text-xs text-gray-400 leading-relaxed">Transparent communication, clear SLAs, and long-term commitment to mutual success.</p>
-                            </div>
-                        </div>
+                        <h3 class="font-serif text-2xl font-semibold mb-3">Private Label</h3>
+                        <p class="text-stone-400 text-sm leading-relaxed mb-8 flex-grow">
+                            [Editable description: Utilize our manufacturing capabilities to produce customized papad formulations packed under your brand name.]
+                        </p>
+                        <a href="#enquiry-form" class="inline-flex items-center justify-center px-6 py-3 border border-brand-gold text-brand-gold text-xs font-semibold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
+                            Start Project
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ==========================================
-             SECTION 5: OUR BUSINESS PROCESS
-        =========================================== -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">OUR BUSINESS PROCESS</h2>
-                    <p class="text-gray-400 mt-2">A streamlined pathway to commercial partnership</p>
-                    <div class="w-24 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+             SECTION 4: PARTNERSHIP PROCESS
+             ========================================== -->
+        <section class="py-20 bg-brand-cream border-y border-brand-gold/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Partnership Process</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
 
-                <!-- Horizontal Process Timeline -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4 relative">
+                <!-- Process Steps -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 relative">
+                    
                     <!-- Step 1 -->
-                    <div class="glass-card p-6 rounded-xl text-center relative flex flex-col items-center justify-between">
-                        <span class="w-8 h-8 rounded-full bg-gold-500 text-dark-900 font-bold flex items-center justify-center text-sm mb-4">1</span>
-                        <h3 class="font-bold text-white text-sm mb-2">Submit Enquiry</h3>
-                        <p class="text-xs text-gray-400">Fill out business enquiry form</p>
-                        <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-gold-500 text-sm">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </div>
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 text-center flex flex-col items-center justify-center relative">
+                        <span class="w-8 h-8 rounded-full bg-brand-gold/10 text-brand-gold font-bold text-xs flex items-center justify-center mb-3">1</span>
+                        <h3 class="font-serif text-base font-semibold text-brand-dark">Send Enquiry</h3>
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="glass-card p-6 rounded-xl text-center relative flex flex-col items-center justify-between">
-                        <span class="w-8 h-8 rounded-full bg-gold-500 text-dark-900 font-bold flex items-center justify-center text-sm mb-4">2</span>
-                        <h3 class="font-bold text-white text-sm mb-2">Business Discussion</h3>
-                        <p class="text-xs text-gray-400">Requirement analysis call</p>
-                        <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-gold-500 text-sm">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </div>
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 text-center flex flex-col items-center justify-center relative">
+                        <span class="w-8 h-8 rounded-full bg-brand-gold/10 text-brand-gold font-bold text-xs flex items-center justify-center mb-3">2</span>
+                        <h3 class="font-serif text-base font-semibold text-brand-dark">Business Discussion</h3>
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="glass-card p-6 rounded-xl text-center relative flex flex-col items-center justify-between">
-                        <span class="w-8 h-8 rounded-full bg-gold-500 text-dark-900 font-bold flex items-center justify-center text-sm mb-4">3</span>
-                        <h3 class="font-bold text-white text-sm mb-2">Quotation</h3>
-                        <p class="text-xs text-gray-400">Receive customized commercial quote</p>
-                        <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-gold-500 text-sm">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </div>
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 text-center flex flex-col items-center justify-center relative">
+                        <span class="w-8 h-8 rounded-full bg-brand-gold/10 text-brand-gold font-bold text-xs flex items-center justify-center mb-3">3</span>
+                        <h3 class="font-serif text-base font-semibold text-brand-dark">Product Selection</h3>
                     </div>
 
                     <!-- Step 4 -->
-                    <div class="glass-card p-6 rounded-xl text-center relative flex flex-col items-center justify-between">
-                        <span class="w-8 h-8 rounded-full bg-gold-500 text-dark-900 font-bold flex items-center justify-center text-sm mb-4">4</span>
-                        <h3 class="font-bold text-white text-sm mb-2">Sample Approval</h3>
-                        <p class="text-xs text-gray-400">Product testing and approval</p>
-                        <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-gold-500 text-sm">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </div>
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 text-center flex flex-col items-center justify-center relative">
+                        <span class="w-8 h-8 rounded-full bg-brand-gold/10 text-brand-gold font-bold text-xs flex items-center justify-center mb-3">4</span>
+                        <h3 class="font-serif text-base font-semibold text-brand-dark">Quotation</h3>
                     </div>
 
                     <!-- Step 5 -->
-                    <div class="glass-card p-6 rounded-xl text-center relative flex flex-col items-center justify-between">
-                        <span class="w-8 h-8 rounded-full bg-gold-500 text-dark-900 font-bold flex items-center justify-center text-sm mb-4">5</span>
-                        <h3 class="font-bold text-white text-sm mb-2">Order Confirmation</h3>
-                        <p class="text-xs text-gray-400">Commercial contract & scheduling</p>
-                        <div class="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 text-gold-500 text-sm">
-                            <i class="fa-solid fa-chevron-right"></i>
-                        </div>
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 text-center flex flex-col items-center justify-center relative">
+                        <span class="w-8 h-8 rounded-full bg-brand-gold/10 text-brand-gold font-bold text-xs flex items-center justify-center mb-3">5</span>
+                        <h3 class="font-serif text-base font-semibold text-brand-dark">Production / Supply</h3>
                     </div>
 
                     <!-- Step 6 -->
-                    <div class="glass-card p-6 rounded-xl text-center relative flex flex-col items-center justify-between">
-                        <span class="w-8 h-8 rounded-full bg-gold-500 text-dark-900 font-bold flex items-center justify-center text-sm mb-4">6</span>
-                        <h3 class="font-bold text-white text-sm mb-2">Dispatch</h3>
-                        <p class="text-xs text-gray-400">Production, QC & fulfillment</p>
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 text-center flex flex-col items-center justify-center relative">
+                        <span class="w-8 h-8 rounded-full bg-brand-gold/10 text-brand-gold font-bold text-xs flex items-center justify-center mb-3">6</span>
+                        <h3 class="font-serif text-base font-semibold text-brand-dark">Long Term Partnership</h3>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 5: WHY BUSINESSES CHOOSE US
+             ========================================== -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Why Businesses Choose Us</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Authentic Jain Products -->
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Authentic Jain Products</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text explaining 100% Jain compliant formulation standards and purity assurance.]</p>
+                    </div>
+
+                    <!-- Quality Manufacturing -->
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Quality Manufacturing</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text highlighting hygienic processing, quality controls, and raw material selection.]</p>
+                    </div>
+
+                    <!-- Flexible Packaging -->
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Flexible Packaging</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text detailing multi-size pouch options, custom artwork, and branding flexibility.]</p>
+                    </div>
+
+                    <!-- Bulk Production -->
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Bulk Production</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text on scalable production throughput and large-volume handling capability.]</p>
+                    </div>
+
+                    <!-- Timely Delivery -->
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Timely Delivery</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text on structured logistics, shipment scheduling, and dispatch speed.]</p>
+                    </div>
+
+                    <!-- Business Growth Support -->
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Business Growth Support</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">[Editable text on promotional assistance, market orientation, and partner support.]</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ==========================================
-             SECTION 6: WHO CAN PARTNER
-        =========================================== -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-900">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">WHO CAN PARTNER</h2>
-                    <div class="w-24 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+             SECTION 6: FREQUENTLY ASKED QUESTIONS
+             ========================================== -->
+        <section class="py-20 bg-brand-cream border-t border-brand-gold/10">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Frequently Asked Questions</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6">
-                    <div class="glass-card p-6 rounded-xl flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-                            <i class="fa-solid fa-building-columns"></i>
-                        </div>
-                        <span class="font-semibold text-white">Distributors</span>
-                    </div>
+                <!-- Accordion Stack -->
+                <div class="space-y-4">
+                    <!-- FAQ 1 -->
+                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                            <span>How can I become a distributor?</span>
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </span>
+                        </summary>
+                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                            [Editable Answer: Detail the requirements, territorial availability, and initial enquiry steps to register as an authorized regional distributor.]
+                        </p>
+                    </details>
 
-                    <div class="glass-card p-6 rounded-xl flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-                            <i class="fa-solid fa-shop"></i>
-                        </div>
-                        <span class="font-semibold text-white">Retail Chains</span>
-                    </div>
+                    <!-- FAQ 2 -->
+                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                            <span>What is wholesale ordering?</span>
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </span>
+                        </summary>
+                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                            [Editable Answer: Explain bulk ordering processes, minimum order quantities, commercial pricing tiers, and delivery terms.]
+                        </p>
+                    </details>
 
-                    <div class="glass-card p-6 rounded-xl flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </div>
-                        <span class="font-semibold text-white">Supermarkets</span>
-                    </div>
+                    <!-- FAQ 3 -->
+                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                            <span>Do you provide private label manufacturing?</span>
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </span>
+                        </summary>
+                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                            [Editable Answer: Explain private labeling services, recipe customisation options, batch production capacity, and client confidentiality.]
+                        </p>
+                    </details>
 
-                    <div class="glass-card p-6 rounded-xl flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-                            <i class="fa-solid fa-warehouse"></i>
-                        </div>
-                        <span class="font-semibold text-white">Wholesalers</span>
-                    </div>
+                    <!-- FAQ 4 -->
+                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                            <span>Can I customize packaging?</span>
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </span>
+                        </summary>
+                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                            [Editable Answer: Detail packaging formats, weight options (200g, 500g, 1000g), custom artwork specifications, and printing guidelines.]
+                        </p>
+                    </details>
 
-                    <div class="glass-card p-6 rounded-xl flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-                            <i class="fa-solid fa-plane-departure"></i>
-                        </div>
-                        <span class="font-semibold text-white">Exporters</span>
-                    </div>
+                    <!-- FAQ 5 -->
+                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                            <span>What products are available?</span>
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </span>
+                        </summary>
+                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                            [Editable Answer: List available categories including Moong, Chana, Urad papads, Papad Masala, and specialty variants for business supply.]
+                        </p>
+                    </details>
 
-                    <div class="glass-card p-6 rounded-xl flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-                            <i class="fa-solid fa-laptop"></i>
-                        </div>
-                        <span class="font-semibold text-white">Online Sellers</span>
-                    </div>
-
-                    <div class="glass-card p-6 rounded-xl flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-                            <i class="fa-solid fa-hotel"></i>
-                        </div>
-                        <span class="font-semibold text-white">Hotels</span>
-                    </div>
-
-                    <div class="glass-card p-6 rounded-xl flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-                            <i class="fa-solid fa-utensils"></i>
-                        </div>
-                        <span class="font-semibold text-white">Restaurants</span>
-                    </div>
-
-                    <div class="glass-card p-6 rounded-xl flex items-center space-x-4">
-                        <div class="w-10 h-10 rounded-lg bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
-                            <i class="fa-solid fa-bowl-food"></i>
-                        </div>
-                        <span class="font-semibold text-white">Catering Businesses</span>
-                    </div>
+                    <!-- FAQ 6 -->
+                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                            <span>How do I contact your business team?</span>
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </span>
+                        </summary>
+                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                            [Editable Answer: Direct users to the enquiry form below, direct contact details, or business team operating hours.]
+                        </p>
+                    </details>
                 </div>
             </div>
         </section>
 
         <!-- ==========================================
              SECTION 7: BUSINESS ENQUIRY FORM
-        =========================================== -->
-        <section id="enquiry-form" class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800 relative scroll-mt-20">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">BUSINESS ENQUIRY FORM</h2>
-                    <p class="text-gray-400 mt-2">Connect with our corporate team to discuss custom business terms</p>
-                    <div class="w-24 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
-                </div>
+             ========================================== -->
+        <section id="enquiry-form" class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-brand-cream/60 rounded-sm border border-brand-gold/20 p-8 sm:p-12 shadow-sm">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">Business Enquiry Form</h2>
+                        <p class="text-sm text-brand-muted">Fill in your requirements and our business team will respond shortly.</p>
+                        <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-3"></div>
+                    </div>
 
-                <div class="glass-card p-8 sm:p-10 rounded-2xl">
-                    <form onsubmit="event.preventDefault(); alert('Enquiry Submitted Successfully.');" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <!-- Name -->
+                    <form onsubmit="event.preventDefault();" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Business Name -->
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-gray-300 tracking-wider mb-2">Name *</label>
-                                <input type="text" required placeholder="Full Name" class="w-full glass-input px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:ring-1 focus:ring-gold-500">
+                                <label for="business-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Business Name</label>
+                                <input type="text" id="business-name" name="business-name" placeholder="Enter business name" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
                             </div>
 
-                            <!-- Company Name -->
+                            <!-- Contact Person -->
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-gray-300 tracking-wider mb-2">Company Name *</label>
-                                <input type="text" required placeholder="Business or Entity Name" class="w-full glass-input px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:ring-1 focus:ring-gold-500">
+                                <label for="contact-person" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Contact Person</label>
+                                <input type="text" id="contact-person" name="contact-person" placeholder="Enter contact person name" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
                             </div>
 
-                            <!-- Business Type -->
+                            <!-- Mobile Number -->
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-gray-300 tracking-wider mb-2">Business Type *</label>
-                                <select required class="w-full glass-input px-4 py-3 rounded-lg text-white focus:ring-1 focus:ring-gold-500 bg-dark-900">
-                                    <option value="" disabled selected class="text-gray-500">Select Partnership Model</option>
-                                    <option value="Distributor">Distributor</option>
-                                    <option value="Wholesale">Wholesale</option>
-                                    <option value="Private Label">Private Label</option>
-                                </select>
-                            </div>
-
-                            <!-- City -->
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-gray-300 tracking-wider mb-2">City *</label>
-                                <input type="text" required placeholder="City" class="w-full glass-input px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:ring-1 focus:ring-gold-500">
-                            </div>
-
-                            <!-- State -->
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-gray-300 tracking-wider mb-2">State *</label>
-                                <input type="text" required placeholder="State / Province" class="w-full glass-input px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:ring-1 focus:ring-gold-500">
-                            </div>
-
-                            <!-- Mobile -->
-                            <div>
-                                <label class="block text-xs font-semibold uppercase text-gray-300 tracking-wider mb-2">Mobile *</label>
-                                <input type="tel" required placeholder="Phone Number" class="w-full glass-input px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:ring-1 focus:ring-gold-500">
+                                <label for="mobile-number" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Mobile Number</label>
+                                <input type="tel" id="mobile-number" name="mobile-number" placeholder="Enter mobile number" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
                             </div>
 
                             <!-- Email -->
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-gray-300 tracking-wider mb-2">Email *</label>
-                                <input type="email" required placeholder="Business Email" class="w-full glass-input px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:ring-1 focus:ring-gold-500">
+                                <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="Enter email address" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
                             </div>
 
-                            <!-- Monthly Requirement -->
+                            <!-- City -->
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-gray-300 tracking-wider mb-2">Monthly Requirement *</label>
-                                <input type="text" required placeholder="Estimated Volume (e.g. 500 kg / 2000 Units)" class="w-full glass-input px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:ring-1 focus:ring-gold-500">
+                                <label for="city" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">City</label>
+                                <input type="text" id="city" name="city" placeholder="Enter city" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
                             </div>
+
+                            <!-- State -->
+                            <div>
+                                <label for="state" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">State</label>
+                                <input type="text" id="state" name="state" placeholder="Enter state" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Business Type Dropdown -->
+                        <div>
+                            <label for="business-type" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Business Type</label>
+                            <select id="business-type" name="business-type" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                                <option value="" disabled selected>Select Business Type</option>
+                                <option value="Distributor">Distributor</option>
+                                <option value="Wholesale">Wholesale</option>
+                                <option value="Private Label">Private Label</option>
+                            </select>
                         </div>
 
                         <!-- Message -->
                         <div>
-                            <label class="block text-xs font-semibold uppercase text-gray-300 tracking-wider mb-2">Message</label>
-                            <textarea rows="4" placeholder="Additional details, specific product interests, or queries..." class="w-full glass-input px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:ring-1 focus:ring-gold-500"></textarea>
+                            <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Briefly describe your enquiry or volume requirements" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors"></textarea>
                         </div>
 
-                        <!-- Large Submit Button -->
-                        <div>
-                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 text-dark-900 font-extrabold text-lg uppercase tracking-wider hover:brightness-110 transition-all shadow-lg shadow-gold-500/20 cursor-pointer">
-                                Submit Business Enquiry
+                        <!-- Submit Button -->
+                        <div class="text-center pt-2">
+                            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold transition-colors duration-300 shadow-sm">
+                                Submit Enquiry
                             </button>
                         </div>
                     </form>
@@ -584,163 +546,75 @@
         </section>
 
         <!-- ==========================================
-             SECTION 8: FAQ
-        =========================================== -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-900">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">FREQUENTLY ASKED QUESTIONS</h2>
-                    <p class="text-gray-400 mt-2">Answers regarding distributor, wholesale, and private label operations</p>
-                    <div class="w-24 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
-                </div>
-
-                <div class="space-y-4">
-                    <!-- Q1: Distributor -->
-                    <details class="glass-card rounded-xl p-6 group [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex justify-between items-center font-semibold text-white cursor-pointer select-none">
-                            <span>How do I become an authorized KAWAD SWAD distributor?</span>
-                            <span class="transition duration-300 group-open:-rotate-180 text-gold-500">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-4">
-                            You can apply by filling out the business enquiry form on this page selecting 'Distributor' as your business type. Our commercial sales team will review your market reach and get in touch within 24–48 hours.
-                        </p>
-                    </details>
-
-                    <!-- Q2: Wholesale -->
-                    <details class="glass-card rounded-xl p-6 group [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex justify-between items-center font-semibold text-white cursor-pointer select-none">
-                            <span>What are the requirements for wholesale purchasing?</span>
-                            <span class="transition duration-300 group-open:-rotate-180 text-gold-500">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-4">
-                            Wholesale buyers require a valid GST/Business Registration. We offer competitive tiered pricing depending on the volume ordered for standardized product lines.
-                        </p>
-                    </details>
-
-                    <!-- Q3: Private Label -->
-                    <details class="glass-card rounded-xl p-6 group [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex justify-between items-center font-semibold text-white cursor-pointer select-none">
-                            <span>Do you provide complete contract manufacturing for Private Labeling?</span>
-                            <span class="transition duration-300 group-open:-rotate-180 text-gold-500">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-4">
-                            Yes, we provide end-to-end OEM and private label manufacturing services including customized recipe formulations, sizing options, and complete packaging execution under strict NDA protocols.
-                        </p>
-                    </details>
-
-                    <!-- Q4: MOQ -->
-                    <details class="glass-card rounded-xl p-6 group [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex justify-between items-center font-semibold text-white cursor-pointer select-none">
-                            <span>What is the Minimum Order Quantity (MOQ)?</span>
-                            <span class="transition duration-300 group-open:-rotate-180 text-gold-500">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-4">
-                            MOQs vary based on the model: Wholesale standard orders start at modest carton thresholds, while Private Label and custom formulations require higher production run minimums.
-                        </p>
-                    </details>
-
-                    <!-- Q5: Lead Time -->
-                    <details class="glass-card rounded-xl p-6 group [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex justify-between items-center font-semibold text-white cursor-pointer select-none">
-                            <span>What are the typical production and dispatch lead times?</span>
-                            <span class="transition duration-300 group-open:-rotate-180 text-gold-500">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-4">
-                            Standard wholesale orders are dispatched within 3 to 7 business days. Initial private label runs typically take 2 to 3 weeks including packaging approvals and printing setup.
-                        </p>
-                    </details>
-
-                    <!-- Q6: Packaging -->
-                    <details class="glass-card rounded-xl p-6 group [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex justify-between items-center font-semibold text-white cursor-pointer select-none">
-                            <span>What packaging options are available?</span>
-                            <span class="transition duration-300 group-open:-rotate-180 text-gold-500">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-4">
-                            We offer standard pouches, bulk master cartons, and custom laminated structures engineered for enhanced shelf life and export standards.
-                        </p>
-                    </details>
-
-                    <!-- Q7: Shipping -->
-                    <details class="glass-card rounded-xl p-6 group [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex justify-between items-center font-semibold text-white cursor-pointer select-none">
-                            <span>How is freight and shipping handled?</span>
-                            <span class="transition duration-300 group-open:-rotate-180 text-gold-500">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-4">
-                            We partner with national logistics networks to offer reliable door-to-door or ex-factory transport solutions tailored to your operational requirements.
-                        </p>
-                    </details>
-
-                    <!-- Q8: Support -->
-                    <details class="glass-card rounded-xl p-6 group [&_summary::-webkit-details-marker]:hidden">
-                        <summary class="flex justify-between items-center font-semibold text-white cursor-pointer select-none">
-                            <span>What marketing and operational support is provided?</span>
-                            <span class="transition duration-300 group-open:-rotate-180 text-gold-500">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-gray-400 leading-relaxed border-t border-gray-800 pt-4">
-                            Authorized distributors receive promotional assets, product collateral, sample units, and dedicated account support for ongoing orders and supply chain management.
-                        </p>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 9: FINAL CTA
-        =========================================== -->
-        <section class="py-20 px-4 sm:px-6 lg:px-8 bg-dark-800 border-t border-gold-500/20">
-            <div class="max-w-5xl mx-auto">
-                <div class="glass-card rounded-3xl p-10 sm:p-16 text-center border border-gold-500/30 relative overflow-hidden">
-                    <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
-                    
-                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
-                        Let's Grow Together.
-                    </h2>
-                    <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-10">
-                        Partner with KAWAD SWAD today and build a profitable, long-term commercial relationship backed by manufacturing excellence.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a href="#enquiry-form" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold-600 to-gold-500 text-dark-900 font-bold hover:brightness-110 transition-all text-center">
-                            Contact Sales Team
-                        </a>
-                        <a href="https://wa.me/" target="_blank" rel="noopener font-semibold" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold transition-all text-center flex items-center justify-center space-x-2">
-                            <i class="fa-brands fa-whatsapp text-xl"></i>
-                            <span>WhatsApp Business</span>
-                        </a>
-                    </div>
+             SECTION 8: FINAL CALL TO ACTION
+             ========================================== -->
+        <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-8 leading-tight">
+                    Let's Build a Successful Partnership
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="contact.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">
+                        Contact Business Team
+                    </a>
+                    <a href="products.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">
+                        View Products
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- ==========================================
-         EXISTING FOOTER (PLACEHOLDER)
-         DO NOT MODIFY EXTERNAL FOOTER INTEGRATION
-    =========================================== -->
-    <footer class="bg-dark-900 border-t border-gold-500/20 py-12 px-6 text-gray-400 text-sm">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <p>&copy; 2026 KAWAD SWAD. All rights reserved.</p>
-            <div class="flex space-x-6">
-                <a href="#" class="hover:text-gold-500 transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-gold-500 transition-colors">Terms of Business</a>
+         SECTION 9: FOOTER (REUSED FOOTER)
+         ========================================== -->
+    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4 md:col-span-1">
+                    <span class="font-serif text-xl font-bold text-white tracking-wider">KAWAD SWAD</span>
+                    <p class="text-xs text-stone-500 leading-relaxed">
+                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
+                        <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
+                    </ul>
+                </div>
+
+                <!-- Business Links -->
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Process</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Opportunities</a></li>
+                        <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
+                        <li><a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a></li>
+                        <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Contact</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+                        <li class="text-stone-500">Nimar Region, Madhya Pradesh, India</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-stone-900 text-center text-xs text-stone-600">
+                <p>&copy; KAWAD SWAD. All rights reserved.</p>
             </div>
         </div>
     </footer>

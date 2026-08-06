@@ -67,7 +67,7 @@
 <body class="antialiased selection:bg-brand-accent selection:text-black pb-20">
 
     <!-- Toast Notification Container -->
-    <div id="toast-container" class="fixed bottom-6 right-6 z-[300] flex flex-col gap-3 pointer-events-none"></div>
+    <div id="toast-hub" class="fixed bottom-6 right-6 z-[400] flex flex-col gap-3 pointer-events-none"></div>
 
     <!-- 1. STICKY D2C NAVIGATION BAR -->
     <nav class="sticky top-0 z-[100] px-4 md:px-8 py-3 backdrop-blur-md border-b border-white/10">
@@ -92,7 +92,7 @@
             <div class="flex items-center gap-3">
                 <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
                     <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                    <span class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">1</span>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">0</span>
                 </a>
                 <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
                     <i data-lucide="menu" class="w-5 h-5"></i>
@@ -225,9 +225,9 @@
                     </div>
 
                     <div class="grid grid-cols-2 gap-2">
-                        <a href="checkout.html" class="w-full bg-brand-danger text-white font-heading font-bold py-3.5 rounded-2xl text-xs hover:bg-red-600 transition flex items-center justify-center gap-2 shadow-lg shadow-brand-danger/20">
+                        <button onclick="claimDeal('KS-MMP-500', 'Moong Master Papad Flash Pack', '500g', 130, 200, 'MMP.png')" class="w-full bg-brand-danger text-white font-heading font-bold py-3.5 rounded-2xl text-xs hover:bg-red-600 transition flex items-center justify-center gap-2 shadow-lg shadow-brand-danger/20">
                             <i data-lucide="zap" class="w-4 h-4 fill-white"></i> Claim Deal
-                        </a>
+                        </button>
                         <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="w-full bg-pink-500/20 text-pink-300 border border-pink-500/30 font-heading font-bold py-3.5 rounded-2xl text-xs hover:bg-pink-500 hover:text-white transition flex items-center justify-center gap-1">
                             Meesho ↗
                         </a>
@@ -276,9 +276,9 @@
                     </div>
 
                     <div class="grid grid-cols-2 gap-2">
-                        <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
+                        <button onclick="claimDeal('KS-CKM-500', 'Chana Khata Mitha Flash Pack', '500g', 150, 200, 'CCPKM.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
                             <i data-lucide="zap" class="w-4 h-4 fill-black"></i> Claim Deal
-                        </a>
+                        </button>
                         <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="w-full bg-pink-500/20 text-pink-300 border border-pink-500/30 font-heading font-bold py-3.5 rounded-2xl text-xs hover:bg-pink-500 hover:text-white transition flex items-center justify-center gap-1">
                             Meesho ↗
                         </a>
@@ -327,9 +327,9 @@
                     </div>
 
                     <div class="grid grid-cols-2 gap-2">
-                        <a href="checkout.html" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
+                        <button onclick="claimDeal('KS-UGP-1000', 'Urad Guru Family Feast Bundle', '1000g', 425, 600, 'UGP.png')" class="w-full bg-brand-accent text-black font-heading font-bold py-3.5 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
                             <i data-lucide="zap" class="w-4 h-4 fill-black"></i> Claim Bundle
-                        </a>
+                        </button>
                         <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="w-full bg-pink-500/20 text-pink-300 border border-pink-500/30 font-heading font-bold py-3.5 rounded-2xl text-xs hover:bg-pink-500 hover:text-white transition flex items-center justify-center gap-1">
                             Meesho ↗
                         </a>
@@ -365,12 +365,55 @@
         </div>
     </footer>
 
-    <!-- COUNTDOWN TIMER SCRIPT -->
+    <!-- INTERACTIVE SCRIPTS -->
     <script>
         lucide.createIcons();
 
         function toggleMobileMenu() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Cart State Synchronization
+        let cart = JSON.parse(localStorage.getItem('ks_cart')) || [];
+
+        function updateCartBadge() {
+            let totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+            const badge = document.getElementById('cart-badge');
+            if (badge) badge.innerText = totalItems;
+        }
+
+        function saveCart() {
+            localStorage.setItem('ks_cart', JSON.stringify(cart));
+            updateCartBadge();
+        }
+
+        function showToast(msg) {
+            const hub = document.getElementById('toast-hub');
+            const toast = document.createElement('div');
+            toast.className = 'glass-panel px-4 py-3 rounded-xl border border-brand-accent/40 text-xs font-bold text-white shadow-xl animate-bounce';
+            toast.innerText = msg;
+            hub.appendChild(toast);
+            setTimeout(() => toast.remove(), 2500);
+        }
+
+        function claimDeal(skuId, title, weight, price, mrp, img) {
+            let existing = cart.find(i => i.id === skuId);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({
+                    id: skuId,
+                    title: title,
+                    weight: weight,
+                    price: price,
+                    mrp: mrp,
+                    shipping: weight === '1000g' ? 0 : 49,
+                    qty: 1,
+                    img: img
+                });
+            }
+            saveCart();
+            showToast(`Claimed ${title}! Added to cart.`);
         }
 
         // Live Countdown Timer Logic
@@ -402,6 +445,10 @@
             document.getElementById('timer-seconds').innerText = seconds.toString().padStart(2, '0');
             document.getElementById('timer-ms').innerText = ms;
         }, 100);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartBadge();
+        });
     </script>
 </body>
 </html>

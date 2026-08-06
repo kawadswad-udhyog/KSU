@@ -1,0 +1,8 @@
+/* Tailwind build placeholder: replace this file with a production-built Tailwind CSS (minified) at assets/css/tailwind.css.
+   To build locally:
+   npx tailwindcss -i ./src/input.css -o ./assets/css/tailwind.css --minify --content "./**/*.html"
+*/
+:root{--brand-bg:#0B0B0B;--brand-surface:#1C1C1C;--brand-danger:#EF4444;--brand-accent:#F59E0B}
+html,body{background:var(--brand-bg);color:#fff}
+/* Small set of utility styles used by the page when Tailwind build is not present */
+.fixed{position:fixed}.bottom-6{bottom:1.5rem}.right-6{right:1.5rem}.z-\[400\]{z-index:400}.flex{display:flex}.flex-col{flex-direction:column}.gap-3{gap:.75rem}.pointer-events-none{pointer-events:none}

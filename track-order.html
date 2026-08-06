@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R5YNWTG2MC');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Track your Kawad Swad Udhyog order in real-time. Direct Katargaon factory dispatch tracking.">
@@ -47,6 +56,11 @@
         h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Sora', sans-serif; }
         .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0B0B; }
+        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F59E0B; }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-black pb-20">
@@ -72,9 +86,25 @@
                 <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-pink-400 hover:text-pink-300 transition">Meesho ↗</a>
             </div>
 
-            <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
-                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-            </a>
+            <div class="flex items-center gap-3">
+                <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                </a>
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
+            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
+                <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</a>
+                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
+                <a href="flash-sale.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> Flash Sale</a>
+                <a href="contact.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Support</a>
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="col-span-2 p-3 bg-brand-surface rounded-xl text-pink-400 flex items-center justify-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Meesho Store ↗</a>
+            </div>
         </div>
     </nav>
 
@@ -163,8 +193,37 @@
         </div>
     </main>
 
+    <!-- FOOTER -->
+    <footer class="bg-brand-bgSecondary border-t border-white/10 pt-16 pb-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 mb-12 text-center md:text-left">
+            <div>
+                <span class="font-heading text-xl font-bold text-white block mb-2">KAWAD SWAD UDHYOG</span>
+                <p class="text-brand-textSecondary text-xs leading-relaxed max-w-sm">
+                    Handcrafted authentic Nimar snacks made with 0% rice fillers from Katargaon, MP.
+                </p>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-xs text-pink-400 hover:text-pink-300 font-semibold transition">Meesho Store ↗</a>
+                <div class="inline-flex flex-col items-center px-5 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-xs">
+                    <span class="text-brand-accent font-semibold text-[10px] uppercase tracking-wider mb-0.5">FSSAI License No.</span>
+                    <span class="text-white font-mono font-bold tracking-widest">21425890001224</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-textSecondary gap-4">
+            <p>© 2026 KAWAD SWAD UDHYOG. All rights reserved.</p>
+            <p class="tracking-widest uppercase">Order Tracking • Katargaon, MP</p>
+        </div>
+    </footer>
+
     <script>
         lucide.createIcons();
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
 
         function searchOrder() {
             const val = document.getElementById('track-input').value.trim();

@@ -3,218 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | KAWAD SWAD</title>
-    <meta name="description" content="Explore the KAWAD SWAD gallery featuring our factory, products, manufacturing process and brand journey.">
-    
-    <!-- Tailwind CSS CDN with custom design tokens matching existing site structure -->
+    <title>Photo &amp; Video Gallery | KAWAD SWAD Brand Journey</title>
+    <meta name="description" content="Explore KAWAD SWAD photo and video gallery featuring factory setup, product line, manufacturing steps and exhibitions.">
+    <meta name="keywords" content="KAWAD SWAD Gallery, Papad Factory Photos, Food Exhibitions, Behind The Scenes Papad Manufacturing">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kawadswad.com/gallery.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kawadswad.com/gallery.html">
+    <meta property="og:title" content="Photo &amp; Video Gallery | KAWAD SWAD Brand Journey">
+    <meta property="og:description" content="Explore the journey of KAWAD SWAD through our factory, products, exhibitions and behind-the-scenes moments.">
+    <meta property="og:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="KAWAD SWAD">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Photo &amp; Video Gallery | KAWAD SWAD Brand Journey">
+    <meta name="twitter:description" content="Explore the journey of KAWAD SWAD through our factory, products, exhibitions and behind-the-scenes moments.">
+    <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#C5A059">
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS Animation Utilities -->
     <style>
-        .fade-in {
-            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .slide-up {
-            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+
+    <!-- JSON-LD Structured Data: WebPage & BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Gallery - KAWAD SWAD",
+      "url": "https://kawadswad.com/gallery.html",
+      "description": "Explore the KAWAD SWAD gallery featuring our factory, products, manufacturing process and brand journey."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://kawadswad.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gallery",
+          "item": "https://kawadswad.com/gallery.html"
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- ==========================================
-         STICKY HEADER (REUSED NAV)
-         ========================================== -->
-   <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2 group">
-            <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">KAWAD SWAD</span>
-        </a>
-        <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide">
-            <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
-            <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
-            <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
-            <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
-            <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
-            <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
-            <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
-            <a href="blog.html" class="hover:text-brand-gold transition-colors">Blog</a>
-            <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
-        </nav>
-        <div class="flex items-center space-x-4">
-            <a href="products.html" class="text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Search"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></a>
-            <a href="cart.html" class="relative text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Cart"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg><span class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span></a>
-            <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-        </div>
-    </div>
-    <div id="mobile-menu" class="hidden lg:hidden bg-brand-cream border-b border-brand-gold/20 px-4 pt-2 pb-6 space-y-3 text-sm font-medium">
-        <a href="index.html" class="block py-2 hover:text-brand-gold transition-colors">Home</a>
-        <a href="about.html" class="block py-2 hover:text-brand-gold transition-colors">About</a>
-        <a href="products.html" class="block py-2 hover:text-brand-gold transition-colors">Products</a>
-        <a href="shop.html" class="block py-2 hover:text-brand-gold transition-colors">Shop</a>
-        <a href="business.html" class="block py-2 hover:text-brand-gold transition-colors">Business</a>
-        <a href="manufacturing.html" class="block py-2 hover:text-brand-gold transition-colors">Manufacturing</a>
-        <a href="gallery.html" class="block py-2 hover:text-brand-gold transition-colors">Gallery</a>
-        <a href="blog.html" class="block py-2 hover:text-brand-gold transition-colors">Blog</a>
-        <a href="contact.html" class="block py-2 hover:text-brand-gold transition-colors">Contact</a>
-    </div>
-</header>
+    <header-component></header-component>
 
     <main class="flex-grow">
-        <!-- ==========================================
-             SECTION 1: HERO BANNER
-             ========================================== -->
+        <!-- HERO BANNER -->
         <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
-                        Visual Journey
-                    </span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
-                        Gallery
-                    </h1>
-                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
-                        Explore the journey of KAWAD SWAD through our factory, products, exhibitions and behind-the-scenes moments.
-                    </p>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Visual Journey</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Gallery</h1>
+                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">Explore the journey of KAWAD SWAD through our factory, products, exhibitions and behind-the-scenes moments.</p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
-                            View Products
-                        </a>
-                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
-                            Business Enquiry
-                        </a>
+                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">View Products</a>
+                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">Business Enquiry</a>
                     </div>
                 </div>
 
-                <!-- Large Editable Gallery Hero Placeholder -->
                 <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
                     <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
-                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
+                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                     <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[gallery-hero-placeholder]</span>
                 </div>
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 2: GALLERY CATEGORIES
-             ========================================== -->
-        <section class="py-20 bg-white border-b border-stone-200/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Explore Categories</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Factory Category -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Factory</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: Visuals of our facility and operational setup.]</p>
-                    </div>
-
-                    <!-- Products Category -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Products</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: High-resolution shots of our papad varieties and packaging.]</p>
-                    </div>
-
-                    <!-- Manufacturing Category -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Manufacturing</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: Step-by-step processing and dough preparation.]</p>
-                    </div>
-
-                    <!-- Exhibitions Category -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Exhibitions</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: Moments from trade shows and industry expos.]</p>
-                    </div>
-
-                    <!-- Behind The Scenes Category -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Behind The Scenes</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: Quality checks, team efforts, and daily operations.]</p>
-                    </div>
-
-                    <!-- Videos Category -->
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Videos</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: Video tours of manufacturing and product clips.]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 3: FACTORY GALLERY
-             ========================================== -->
+        <!-- FACTORY GALLERY -->
         <section class="py-20 bg-brand-cream border-b border-brand-gold/10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-16">
@@ -223,435 +110,39 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Lightbox-ready Placeholders 1 through 8 -->
                     <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
                         <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-1]</span>
-                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
-                        </div>
                     </div>
-
                     <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
                         <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-2]</span>
-                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
-                        </div>
                     </div>
-
                     <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
                         <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-3]</span>
-                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
-                        </div>
                     </div>
-
                     <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
                         <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-4]</span>
-                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
-                        </div>
-                    </div>
-
-                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
-                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-5]</span>
-                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
-                        </div>
-                    </div>
-
-                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
-                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-6]</span>
-                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
-                        </div>
-                    </div>
-
-                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
-                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-7]</span>
-                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
-                        </div>
-                    </div>
-
-                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
-                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-8]</span>
-                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 4: PRODUCT GALLERY
-             ========================================== -->
-        <section class="py-20 bg-white border-b border-stone-200/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Product Gallery</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Moong Placeholder 1 -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[product-moong-placeholder-1]</span>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Moong</span>
-                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Moong Variant Name]</h3>
-                    </div>
-
-                    <!-- Moong Placeholder 2 -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[product-moong-placeholder-2]</span>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Moong</span>
-                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Moong Variant Name]</h3>
-                    </div>
-
-                    <!-- Chana Placeholder 1 -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[product-chana-placeholder-1]</span>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Chana</span>
-                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Chana Variant Name]</h3>
-                    </div>
-
-                    <!-- Chana Placeholder 2 -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[product-chana-placeholder-2]</span>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Chana</span>
-                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Chana Variant Name]</h3>
-                    </div>
-
-                    <!-- Urad Placeholder 1 -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[product-urad-placeholder-1]</span>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Urad</span>
-                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Urad Variant Name]</h3>
-                    </div>
-
-                    <!-- Urad Placeholder 2 -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[product-urad-placeholder-2]</span>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Urad</span>
-                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Urad Variant Name]</h3>
-                    </div>
-
-                    <!-- Papad Masala Placeholder 1 -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[product-masala-placeholder-1]</span>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Papad Masala</span>
-                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Masala Variant Name]</h3>
-                    </div>
-
-                    <!-- Papad Masala Placeholder 2 -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
-                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[product-masala-placeholder-2]</span>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Papad Masala</span>
-                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Masala Variant Name]</h3>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 5: EXHIBITIONS & EVENTS
-             ========================================== -->
-        <section class="py-20 bg-brand-cream border-b border-brand-gold/10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Exhibitions &amp; Events</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Event Placeholder 1 -->
-                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
-                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-1]</span>
-                        </div>
-                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
-                    </div>
-
-                    <!-- Event Placeholder 2 -->
-                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
-                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-2]</span>
-                        </div>
-                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
-                    </div>
-
-                    <!-- Event Placeholder 3 -->
-                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
-                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-3]</span>
-                        </div>
-                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
-                    </div>
-
-                    <!-- Event Placeholder 4 -->
-                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
-                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-4]</span>
-                        </div>
-                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
-                    </div>
-
-                    <!-- Event Placeholder 5 -->
-                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
-                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-5]</span>
-                        </div>
-                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
-                    </div>
-
-                    <!-- Event Placeholder 6 -->
-                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
-                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-6]</span>
-                        </div>
-                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 6: BEHIND THE SCENES
-             ========================================== -->
-        <section class="py-20 bg-white border-b border-stone-200/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Behind The Scenes</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Packaging Shot -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[bts-packaging-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Packaging</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Quality sealing and protective pouching.]</p>
-                    </div>
-
-                    <!-- Quality Checks Shot -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[bts-quality-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Quality Checks</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Rigorous batch inspection and weighing.]</p>
-                    </div>
-
-                    <!-- Production Shot -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[bts-production-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Production</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Controlled dough processing and rolling.]</p>
-                    </div>
-
-                    <!-- Team Work Shot -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[bts-teamwork-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Team Work</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Dedicated workforce managing operations.]</p>
-                    </div>
-
-                    <!-- Preparation Shot -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[bts-preparation-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Preparation</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Precise spice measuring and pulse sorting.]</p>
-                    </div>
-
-                    <!-- Dispatch Shot -->
-                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
-                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
-                            <span class="text-xs font-mono text-brand-muted">[bts-dispatch-placeholder]</span>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Dispatch</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Box sorting and shipment loading.]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 7: VIDEO GALLERY
-             ========================================== -->
-        <section class="py-20 bg-brand-cream border-b border-brand-gold/10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Video Gallery</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Video Card 1 -->
-                    <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm flex flex-col">
-                        <div class="aspect-16/9 bg-stone-200 flex flex-col items-center justify-center p-4 text-center relative group cursor-pointer">
-                            <div class="w-12 h-12 rounded-full bg-brand-dark/80 text-white flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 fill-current pl-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                            <span class="text-[10px] font-mono text-brand-muted">[video-thumbnail-1]</span>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <h3 class="font-serif text-base font-semibold text-brand-dark mb-2">[Video Title Placeholder]</h3>
-                            <p class="text-xs text-brand-muted leading-relaxed">[Editable short video description]</p>
-                        </div>
-                    </div>
-
-                    <!-- Video Card 2 -->
-                    <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm flex flex-col">
-                        <div class="aspect-16/9 bg-stone-200 flex flex-col items-center justify-center p-4 text-center relative group cursor-pointer">
-                            <div class="w-12 h-12 rounded-full bg-brand-dark/80 text-white flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 fill-current pl-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                            <span class="text-[10px] font-mono text-brand-muted">[video-thumbnail-2]</span>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <h3 class="font-serif text-base font-semibold text-brand-dark mb-2">[Video Title Placeholder]</h3>
-                            <p class="text-xs text-brand-muted leading-relaxed">[Editable short video description]</p>
-                        </div>
-                    </div>
-
-                    <!-- Video Card 3 -->
-                    <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm flex flex-col">
-                        <div class="aspect-16/9 bg-stone-200 flex flex-col items-center justify-center p-4 text-center relative group cursor-pointer">
-                            <div class="w-12 h-12 rounded-full bg-brand-dark/80 text-white flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 fill-current pl-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                            <span class="text-[10px] font-mono text-brand-muted">[video-thumbnail-3]</span>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <h3 class="font-serif text-base font-semibold text-brand-dark mb-2">[Video Title Placeholder]</h3>
-                            <p class="text-xs text-brand-muted leading-relaxed">[Editable short video description]</p>
-                        </div>
-                    </div>
-
-                    <!-- Video Card 4 -->
-                    <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm flex flex-col">
-                        <div class="aspect-16/9 bg-stone-200 flex flex-col items-center justify-center p-4 text-center relative group cursor-pointer">
-                            <div class="w-12 h-12 rounded-full bg-brand-dark/80 text-white flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6 fill-current pl-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                            </div>
-                            <span class="text-[10px] font-mono text-brand-muted">[video-thumbnail-4]</span>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <h3 class="font-serif text-base font-semibold text-brand-dark mb-2">[Video Title Placeholder]</h3>
-                            <p class="text-xs text-brand-muted leading-relaxed">[Editable short video description]</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 8: FINAL CALL TO ACTION
-             ========================================== -->
+        <!-- CTA -->
         <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-8 leading-tight">
-                    Experience the Journey Behind Every Papad
-                </h2>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-8 leading-tight">Experience the Journey Behind Every Papad</h2>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="contact.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">
-                        Contact Us
-                    </a>
-                    <a href="products.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">
-                        Explore Products
-                    </a>
+                    <a href="contact.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">Contact Us</a>
+                    <a href="products.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">Explore Products</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ==========================================
-         SECTION 9: FOOTER (REUSED FOOTER)
-         ========================================== -->
-   <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-            <div class="space-y-4 lg:col-span-2">
-                <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
-                <p class="text-xs text-stone-500 leading-relaxed max-w-sm">Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar. Committed to quality, hygiene and authentic flavors.</p>
-                <div class="pt-2 text-xs space-y-1 text-stone-500 font-mono">
-                    <p>FSSAI Lic No: [fssai-number-placeholder]</p>
-                    <p>GSTIN: [gst-number-placeholder]</p>
-                </div>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
-                    <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
-                    <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
-                    <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
-                    <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Media</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Solutions</a></li>
-                    <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
-                    <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
-                    <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Blog &amp; Recipes</a></li>
-                    <li><a href="reviews.html" class="hover:text-brand-gold transition-colors">Reviews</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Support &amp; Legal</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="faq.html" class="hover:text-brand-gold transition-colors">FAQ</a></li>
-                    <li><a href="policies.html" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
-                    <li><a href="policies.html#terms-and-conditions" class="hover:text-brand-gold transition-colors">Terms &amp; Conditions</a></li>
-                    <li><a href="policies.html#shipping-policy" class="hover:text-brand-gold transition-colors">Shipping &amp; Returns</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="mt-12 pt-8 border-t border-stone-900 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <div>
-                <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Subscribe to Our Newsletter</h5>
-                <p class="text-xs text-stone-500 mt-1">Receive authentic Jain recipes and business updates directly.</p>
-            </div>
-            <form onsubmit="event.preventDefault();" class="flex gap-2">
-                <input type="email" placeholder="Enter your email" class="bg-stone-900 border border-stone-800 rounded-sm px-4 py-2 text-xs text-white focus:outline-none focus:border-brand-gold flex-grow">
-                <button type="submit" class="px-6 py-2 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors">Subscribe</button>
-            </form>
-        </div>
-        <div class="mt-12 pt-8 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-600 gap-4">
-            <p>&copy; KAWAD SWAD. All rights reserved.</p>
-            <div class="flex space-x-6">
-                <a href="https://wa.me/[whatsapp-placeholder]" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">WhatsApp</a>
-                <a href="contact.html" class="hover:text-brand-gold transition-colors">Support</a>
-            </div>
-        </div>
-    </div>
-</footer>
+    <footer-component></footer-component>
 
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shop.js"></script>
 </body>
 </html>

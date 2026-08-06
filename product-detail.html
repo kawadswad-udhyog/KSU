@@ -142,6 +142,21 @@
                 <a href="https://wa.me/919630976867" target="_blank" class="hidden sm:flex items-center gap-2 bg-brand-accent text-black px-5 py-2.5 rounded-xl font-heading font-semibold text-xs hover:bg-brand-accentLight transition-all">
                     <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Order
                 </a>
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
+            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
+                <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</a>
+                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-brand-accent flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
+                <a href="flash-sale.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> Flash Sale</a>
+                <a href="reviews.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="star" class="w-4 h-4"></i> Reviews</a>
+                <a href="contact.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Contact</a>
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="p-3 bg-brand-surface rounded-xl text-pink-400 flex items-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Meesho ↗</a>
             </div>
         </div>
     </nav>
@@ -172,7 +187,7 @@
                         SAVE 20% TODAY
                     </span>
 
-                    <img id="main-product-img" src="mascot3.png" alt="Moong Special Khatta Meetha Papad" class="w-full max-w-sm h-80 object-contain mx-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)]" onerror="this.src='logo.png'">
+                    <img id="main-product-img" src="mascot3.png" alt="Moong Special Khatta Meetha Papad" class="w-full max-w-sm h-80 object-contain mx-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)]" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
 
                     <div class="absolute bottom-4 right-4 bg-brand-surface/80 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10 text-[11px] font-mono text-brand-accent flex items-center gap-1.5">
                         <i data-lucide="sun" class="w-3.5 h-3.5"></i> Traditional Katargaon Sun-Dried
@@ -182,16 +197,16 @@
                 <!-- Thumbnail Switcher Bar -->
                 <div class="grid grid-cols-4 gap-3">
                     <button onclick="switchImage('mascot3.png', this)" class="thumb-btn glass-card p-3 rounded-2xl border-brand-accent/60 transition">
-                        <img src="mascot3.png" class="w-full h-14 object-contain" onerror="this.src='logo.png'">
+                        <img src="mascot3.png" class="w-full h-14 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                     </button>
                     <button onclick="switchImage('logo.png', this)" class="thumb-btn glass-card p-3 rounded-2xl opacity-60 hover:opacity-100 transition">
-                        <img src="logo.png" class="w-full h-14 object-contain">
+                        <img src="logo.png" class="w-full h-14 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                     </button>
                     <button onclick="switchImage('mascot3.png', this)" class="thumb-btn glass-card p-3 rounded-2xl opacity-60 hover:opacity-100 transition">
-                        <img src="mascot3.png" class="w-full h-14 object-contain" onerror="this.src='logo.png'">
+                        <img src="mascot3.png" class="w-full h-14 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                     </button>
                     <button onclick="switchImage('logo.png', this)" class="thumb-btn glass-card p-3 rounded-2xl opacity-60 hover:opacity-100 transition">
-                        <img src="logo.png" class="w-full h-14 object-contain">
+                        <img src="logo.png" class="w-full h-14 object-contain" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                     </button>
                 </div>
 
@@ -425,7 +440,7 @@
                 <div class="lg:col-span-8 grid sm:grid-cols-2 gap-4">
                     <!-- Item 1 (Primary) -->
                     <div class="glass-panel p-4 rounded-2xl border border-white/10 flex items-center gap-4">
-                        <img src="mascot3.png" class="w-16 h-16 object-contain rounded-xl bg-brand-surface p-1" onerror="this.src='logo.png'">
+                        <img src="mascot3.png" class="w-16 h-16 object-contain rounded-xl bg-brand-surface p-1" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                         <div>
                             <span class="text-xs font-bold text-white block">Moong Khatta Meetha (500g)</span>
                             <span class="text-xs font-mono text-brand-accent font-bold">₹160</span>
@@ -434,7 +449,7 @@
 
                     <!-- Item 2 (Addon) -->
                     <div class="glass-panel p-4 rounded-2xl border border-white/10 flex items-center gap-4">
-                        <img src="logo.png" class="w-16 h-16 object-contain rounded-xl bg-brand-surface p-1">
+                        <img src="logo.png" class="w-16 h-16 object-contain rounded-xl bg-brand-surface p-1" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                         <div>
                             <span class="text-xs font-bold text-white block">Chana Masala Crunch (500g)</span>
                             <span class="text-xs font-mono text-brand-accent font-bold">₹180</span>
@@ -473,10 +488,39 @@
         </a>
     </div>
 
+    <!-- 6. FOOTER -->
+    <footer class="bg-brand-bgSecondary border-t border-white/10 pt-16 pb-12 px-6 mt-16">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 mb-12 text-center md:text-left">
+            <div>
+                <span class="font-heading text-xl font-bold text-white block mb-2">KAWAD SWAD UDHYOG</span>
+                <p class="text-brand-textSecondary text-xs leading-relaxed max-w-sm">
+                    Handcrafted authentic Nimar snacks made with 0% rice fillers from Katargaon, MP.
+                </p>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-xs text-pink-400 hover:text-pink-300 font-semibold transition">Meesho Store ↗</a>
+                <div class="inline-flex flex-col items-center px-5 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-xs">
+                    <span class="text-brand-accent font-semibold text-[10px] uppercase tracking-wider mb-0.5">FSSAI License No.</span>
+                    <span class="text-white font-mono font-bold tracking-widest">21425890001224</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-textSecondary gap-4">
+            <p>© 2026 KAWAD SWAD UDHYOG. All rights reserved.</p>
+            <p class="tracking-widest uppercase">Heritage & Purity • Katargaon, MP</p>
+        </div>
+    </footer>
+
     <!-- Interactive Scripts -->
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
 
         let currentQty = 1;
         let selectedWeightLabel = '500g';

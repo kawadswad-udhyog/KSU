@@ -3,560 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frequently Asked Questions | KAWAD SWAD</title>
-    <meta name="description" content="Find answers to common questions about KAWAD SWAD products, wholesale, distributorship and customer support.">
-    
-    <!-- Tailwind CSS CDN with custom design tokens matching existing site structure -->
+    <title>Frequently Asked Questions (FAQ) | KAWAD SWAD</title>
+    <meta name="description" content="Find answers to common questions about KAWAD SWAD Jain papad products, bulk wholesale orders, distributorship requirements, and manufacturing hygiene.">
+    <meta name="keywords" content="KAWAD SWAD FAQ, Papad Distributorship FAQ, Wholesale Orders Question, Jain Papad Certification FAQ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kawadswad.com/faq.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kawadswad.com/faq.html">
+    <meta property="og:title" content="Frequently Asked Questions (FAQ) | KAWAD SWAD">
+    <meta property="og:description" content="Find answers to common questions about our products, business opportunities and customer support.">
+    <meta property="og:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="KAWAD SWAD">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Frequently Asked Questions (FAQ) | KAWAD SWAD">
+    <meta name="twitter:description" content="Find answers to common questions about our products, business opportunities and customer support.">
+    <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#C5A059">
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- CSS Animation Utilities -->
     <style>
-        .fade-in {
-            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .slide-up {
-            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
+
+    <!-- JSON-LD Structured Data: FAQPage & BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What products do you offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer 100% vegetarian Jain Papads in Moong, Chana, Urad, and Papad Masala variants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I become a distributor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Submit your requirements via our business enquiry form or reach out directly to our team."
+          }
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://kawadswad.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ",
+          "item": "https://kawadswad.com/faq.html"
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- ==========================================
-         STICKY HEADER (REUSED NAV)
-         ========================================== -->
-    <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2 group">
-            <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">KAWAD SWAD</span>
-        </a>
-        <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide">
-            <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
-            <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
-            <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
-            <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
-            <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
-            <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
-            <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
-            <a href="blog.html" class="hover:text-brand-gold transition-colors">Blog</a>
-            <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
-        </nav>
-        <div class="flex items-center space-x-4">
-            <a href="products.html" class="text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Search"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></a>
-            <a href="cart.html" class="relative text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Cart"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg><span class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span></a>
-            <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
-        </div>
-    </div>
-    <div id="mobile-menu" class="hidden lg:hidden bg-brand-cream border-b border-brand-gold/20 px-4 pt-2 pb-6 space-y-3 text-sm font-medium">
-        <a href="index.html" class="block py-2 hover:text-brand-gold transition-colors">Home</a>
-        <a href="about.html" class="block py-2 hover:text-brand-gold transition-colors">About</a>
-        <a href="products.html" class="block py-2 hover:text-brand-gold transition-colors">Products</a>
-        <a href="shop.html" class="block py-2 hover:text-brand-gold transition-colors">Shop</a>
-        <a href="business.html" class="block py-2 hover:text-brand-gold transition-colors">Business</a>
-        <a href="manufacturing.html" class="block py-2 hover:text-brand-gold transition-colors">Manufacturing</a>
-        <a href="gallery.html" class="block py-2 hover:text-brand-gold transition-colors">Gallery</a>
-        <a href="blog.html" class="block py-2 hover:text-brand-gold transition-colors">Blog</a>
-        <a href="contact.html" class="block py-2 hover:text-brand-gold transition-colors">Contact</a>
-    </div>
-</header>
+    <header-component></header-component>
 
     <main class="flex-grow">
-        <!-- ==========================================
-             SECTION 1: HERO BANNER
-             ========================================== -->
+        <!-- HERO BANNER -->
         <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
-                        Knowledge Center
-                    </span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
-                        Frequently Asked Questions
-                    </h1>
-                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
-                        Find answers to common questions about our products, business opportunities and customer support.
-                    </p>
-                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
-                            Contact Us
-                        </a>
-                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
-                            Business Enquiry
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Large Editable Hero Image Placeholder -->
-                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
-                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[faq-hero-placeholder]</span>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Knowledge Center</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Frequently Asked Questions</h1>
+                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">Find answers to common questions about our products, business opportunities and customer support.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 2: SEARCH FAQ
-             ========================================== -->
-        <section class="py-10 bg-white border-b border-stone-200/80 sticky top-20 z-40 shadow-sm">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="relative">
-                    <input type="text" placeholder="Search your question..." class="w-full bg-brand-cream/50 border border-stone-300 rounded-sm py-4 pl-12 pr-4 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors shadow-inner">
-                    <svg class="w-5 h-5 text-brand-muted absolute left-4 top-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                    </svg>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 3: FAQ CATEGORIES
-             ========================================== -->
-        <section class="py-20 bg-brand-cream border-b border-brand-gold/10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">FAQ Categories</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Products -->
-                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
-                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Products</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
-                    </div>
-
-                    <!-- Orders -->
-                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
-                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Orders</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
-                    </div>
-
-                    <!-- Shipping -->
-                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
-                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Shipping</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
-                    </div>
-
-                    <!-- Wholesale -->
-                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
-                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Wholesale</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
-                    </div>
-
-                    <!-- Distributor -->
-                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
-                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Distributor</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
-                    </div>
-
-                    <!-- Private Label -->
-                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
-                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Private Label</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
-                    </div>
-
-                    <!-- Manufacturing -->
-                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
-                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Manufacturing</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
-                    </div>
-
-                    <!-- General Support -->
-                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
-                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                        </div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">General Support</h3>
-                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 4: FAQ ACCORDION
-             ========================================== -->
+        <!-- FAQ ACCORDION GROUPS -->
         <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-                
-                <!-- GROUP 1: PRODUCTS -->
-                <div class="space-y-6">
-                    <div class="flex items-center gap-3">
-                        <span class="w-2 h-6 bg-brand-gold"></span>
-                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Products</h2>
-                    </div>
-
-                    <div class="space-y-4">
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>What products do you offer?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Detail product offerings including Moong, Chana, Urad papads, and Papad Masala variants.]
-                            </p>
-                        </details>
-
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>What sizes are available?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Detail available packaging sizes such as 200g retail, 500g family, and 1000g value packs.]
-                            </p>
-                        </details>
-
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>Are your products vegetarian?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Detail compliance with 100% Jain vegetarian standards and ingredient purity guidelines.]
-                            </p>
-                        </details>
-                    </div>
-                </div>
-
-                <!-- GROUP 2: ORDERS -->
-                <div class="space-y-6">
-                    <div class="flex items-center gap-3">
-                        <span class="w-2 h-6 bg-brand-gold"></span>
-                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Orders</h2>
-                    </div>
-
-                    <div class="space-y-4">
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>How can I place an order?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Explain retail ordering options, online shop access, or direct representative contact.]
-                            </p>
-                        </details>
-
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>How do I enquire for bulk orders?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Detail the enquiry submission process for commercial, wholesale, or corporate volume orders.]
-                            </p>
-                        </details>
-                    </div>
-                </div>
-
-                <!-- GROUP 3: SHIPPING -->
-                <div class="space-y-6">
-                    <div class="flex items-center gap-3">
-                        <span class="w-2 h-6 bg-brand-gold"></span>
-                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Shipping</h2>
-                    </div>
-
-                    <div class="space-y-4">
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>Do you deliver across India?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Explain nationwide delivery reach and commercial distribution coverage.]
-                            </p>
-                        </details>
-
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>How will my order be shipped?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Describe protective packaging, freight logistics, and dispatch methods.]
-                            </p>
-                        </details>
-                    </div>
-                </div>
-
-                <!-- GROUP 4: BUSINESS -->
-                <div class="space-y-6">
-                    <div class="flex items-center gap-3">
-                        <span class="w-2 h-6 bg-brand-gold"></span>
-                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Business</h2>
-                    </div>
-
-                    <div class="space-y-4">
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>How can I become a distributor?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Detail distributorship requirements, territorial allocation, and application steps.]
-                            </p>
-                        </details>
-
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>How do I purchase wholesale?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Detail bulk purchasing terms, wholesale pricing tiers, and commercial supply terms.]
-                            </p>
-                        </details>
-
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>Can I start private label manufacturing?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Detail contract manufacturing capabilities, custom pouch options, and recipe customization.]
-                            </p>
-                        </details>
-                    </div>
-                </div>
-
-                <!-- GROUP 5: MANUFACTURING -->
-                <div class="space-y-6">
-                    <div class="flex items-center gap-3">
-                        <span class="w-2 h-6 bg-brand-gold"></span>
-                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Manufacturing</h2>
-                    </div>
-
-                    <div class="space-y-4">
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>How are products manufactured?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Detail hygienic plant procedures, untouched dough rolling, and drying processes.]
-                            </p>
-                        </details>
-
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>Can I visit the factory?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Detail visitor policy, institutional inspection requests, and appointment scheduling.]
-                            </p>
-                        </details>
-                    </div>
-                </div>
-
-                <!-- GROUP 6: SUPPORT -->
-                <div class="space-y-6">
-                    <div class="flex items-center gap-3">
-                        <span class="w-2 h-6 bg-brand-gold"></span>
-                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Support</h2>
-                    </div>
-
-                    <div class="space-y-4">
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>How do I contact KAWAD SWAD?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Detail support email channels, helpline phone numbers, and messaging options.]
-                            </p>
-                        </details>
-
-                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                                <span>How quickly do you respond?</span>
-                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                                </span>
-                            </summary>
-                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                                [Editable Answer: Detail expected response timeframe for customer queries and business proposals.]
-                            </p>
-                        </details>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 5: STILL NEED HELP
-             ========================================== -->
-        <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-4 leading-tight">
-                    Didn't Find Your Answer?
-                </h2>
-                <p class="text-stone-300 text-sm max-w-xl mx-auto mb-8 font-light">
-                    Our team is happy to help with any specific queries or commercial requirements.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="contact.html" class="w-full sm:w-auto px-8 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">
-                        Contact Us
-                    </a>
-                    <a href="https://wa.me/[whatsapp-number-placeholder]" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">
-                        WhatsApp
-                    </a>
-                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-brand-gold text-brand-gold font-semibold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
-                        Business Enquiry
-                    </a>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div class="space-y-4">
+                    <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-2">Products</h2>
+                    <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                            <span>What products do you offer?</span>
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                            </span>
+                        </summary>
+                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">[Editable Answer: Detail product offerings including Moong, Chana, Urad papads, and Papad Masala variants.]</p>
+                    </details>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ==========================================
-         SECTION 6: FOOTER (REUSED FOOTER)
-         ========================================== -->
-    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-            <div class="space-y-4 lg:col-span-2">
-                <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
-                <p class="text-xs text-stone-500 leading-relaxed max-w-sm">Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar. Committed to quality, hygiene and authentic flavors.</p>
-                <div class="pt-2 text-xs space-y-1 text-stone-500 font-mono">
-                    <p>FSSAI Lic No: [fssai-number-placeholder]</p>
-                    <p>GSTIN: [gst-number-placeholder]</p>
-                </div>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
-                    <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
-                    <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
-                    <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
-                    <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Media</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Solutions</a></li>
-                    <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
-                    <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
-                    <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Blog &amp; Recipes</a></li>
-                    <li><a href="reviews.html" class="hover:text-brand-gold transition-colors">Reviews</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Support &amp; Legal</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="faq.html" class="hover:text-brand-gold transition-colors">FAQ</a></li>
-                    <li><a href="policies.html" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
-                    <li><a href="policies.html#terms-and-conditions" class="hover:text-brand-gold transition-colors">Terms &amp; Conditions</a></li>
-                    <li><a href="policies.html#shipping-policy" class="hover:text-brand-gold transition-colors">Shipping &amp; Returns</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="mt-12 pt-8 border-t border-stone-900 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <div>
-                <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Subscribe to Our Newsletter</h5>
-                <p class="text-xs text-stone-500 mt-1">Receive authentic Jain recipes and business updates directly.</p>
-            </div>
-            <form onsubmit="event.preventDefault();" class="flex gap-2">
-                <input type="email" placeholder="Enter your email" class="bg-stone-900 border border-stone-800 rounded-sm px-4 py-2 text-xs text-white focus:outline-none focus:border-brand-gold flex-grow">
-                <button type="submit" class="px-6 py-2 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors">Subscribe</button>
-            </form>
-        </div>
-        <div class="mt-12 pt-8 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-600 gap-4">
-            <p>&copy; KAWAD SWAD. All rights reserved.</p>
-            <div class="flex space-x-6">
-                <a href="https://wa.me/[whatsapp-placeholder]" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">WhatsApp</a>
-                <a href="contact.html" class="hover:text-brand-gold transition-colors">Support</a>
-            </div>
-        </div>
-    </div>
-</footer>
+    <footer-component></footer-component>
 
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shop.js"></script>
 </body>
 </html>

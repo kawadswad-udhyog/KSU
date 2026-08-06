@@ -89,6 +89,7 @@
             <div class="flex items-center gap-3">
                 <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
                     <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="cart-badge" class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">0</span>
                 </a>
                 <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
                     <i data-lucide="menu" class="w-5 h-5"></i>
@@ -134,7 +135,7 @@
             <div class="flex flex-wrap justify-between items-center gap-4 border-b border-white/10 pb-4">
                 <div>
                     <span class="text-[10px] uppercase font-bold text-brand-textSecondary block">Order Reference</span>
-                    <span class="font-heading text-lg font-bold text-white">#KSU-84920</span>
+                    <span id="res-order-id" class="font-heading text-lg font-bold text-white">#KSU-84920</span>
                 </div>
                 <div class="text-right">
                     <span class="text-[10px] uppercase font-bold text-brand-textSecondary block">Est. Delivery</span>
@@ -186,7 +187,7 @@
             <!-- Direct Support Link -->
             <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs">
                 <span class="text-brand-textSecondary">Need urgent delivery changes?</span>
-                <a href="https://wa.me/919630976867?text=Hi,%20checking%20status%20for%20KSU-84920" target="_blank" class="text-brand-success font-bold flex items-center gap-1 hover:underline">
+                <a id="wa-support-btn" href="https://wa.me/919630976867?text=Hi,%20checking%20status%20for%20KSU-84920" target="_blank" class="text-brand-success font-bold flex items-center gap-1 hover:underline">
                     <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp Support
                 </a>
             </div>
@@ -204,7 +205,7 @@
             </div>
 
             <div class="flex items-center gap-6">
-                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-xs text-pink-400 hover:text-pink-300 font-semibold transition">Meesho Store ↗</a>
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-xs text-pink-400 hover:text-pink-300 transition">Meesho Store ↗</a>
                 <div class="inline-flex flex-col items-center px-5 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-xs">
                     <span class="text-brand-accent font-semibold text-[10px] uppercase tracking-wider mb-0.5">FSSAI License No.</span>
                     <span class="text-white font-mono font-bold tracking-widest">21425890001224</span>
@@ -225,14 +226,30 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
+        // Cart State Synchronization
+        let cart = JSON.parse(localStorage.getItem('ks_cart')) || [];
+
+        function updateCartBadge() {
+            let totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+            const badge = document.getElementById('cart-badge');
+            if (badge) badge.innerText = totalItems;
+        }
+
         function searchOrder() {
             const val = document.getElementById('track-input').value.trim();
             if (val.length === 0) {
                 alert('Please enter a valid Order ID or Phone Number');
                 return;
             }
+
+            document.getElementById('res-order-id').innerText = '#' + val.toUpperCase();
+            document.getElementById('wa-support-btn').href = `https://wa.me/919630976867?text=${encodeURIComponent('Hi, checking status for ' + val)}`;
             document.getElementById('tracking-result').classList.remove('hidden');
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartBadge();
+        });
     </script>
 </body>
 </html>

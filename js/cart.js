@@ -2,26 +2,41 @@
  * ============================================================================
  * KAWAD SWAD - E-Commerce LocalStorage Cart System (js/cart.js)
  * ============================================================================
- * Handles cart state, table rendering, badge synchronization, and provides
- * product calculations for checkout payloads.
+ * Stores items with versioning schema metadata in LocalStorage, calculates
+ * line item costs, shipping, and grand totals for cart/checkout pages.
  */
 
 const STORAGE_KEY = 'kawad_swad_cart';
+const CART_VERSION = 1;
 
 const CartManager = {
-    getItems() {
+    getStorageData() {
         try {
             const data = localStorage.getItem(STORAGE_KEY);
-            return data ? JSON.parse(data) : [];
+            if (!data) return { version: CART_VERSION, items: [] };
+            const parsed = JSON.parse(data);
+            if (Array.isArray(parsed)) {
+                return { version: CART_VERSION, items: parsed };
+            }
+            return parsed;
         } catch (e) {
             console.error('Error reading cart from localStorage', e);
-            return [];
+            return { version: CART_VERSION, items: [] };
         }
+    },
+
+    getItems() {
+        return this.getStorageData().items || [];
     },
 
     saveItems(items) {
         try {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+            const payload = {
+                version: CART_VERSION,
+                updatedAt: new Date().toISOString(),
+                items: items
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
             this.updateCartBadge();
         } catch (e) {
             console.error('Error writing cart to localStorage', e);

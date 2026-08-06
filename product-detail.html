@@ -1,40 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <!-- SEO Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kawad Swad - Premium Authentic Taste | Product Detail</title>
-    <meta name="description" content="Experience authentic traditional taste crafted with premium ingredients and modern hygiene standards by Kawad Swad.">
+    <title>[Product Name] | KAWAD SWAD</title>
+    <meta name="description" content="Premium Jain Papad by KAWAD SWAD. View ingredients, nutrition, available sizes and product details.">
     
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Kawad Swad - Premium Authentic Taste">
-    <meta property="og:description" content="Experience authentic traditional taste crafted with premium ingredients and modern hygiene standards by Kawad Swad.">
-    <meta property="og:type" content="product">
-    <meta property="og:image" content="https://placehold.co/1200x630/800020/FFFFFF/png?text=Kawad+Swad+Product">
-
-    <!-- Schema.org JSON-LD Placeholder -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": "Kawad Swad Premium Snack",
-      "image": "https://placehold.co/800x800/800020/FFFFFF/png?text=Kawad+Swad+Product",
-      "description": "Authentic, high-quality traditional snack hygienically prepared.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Kawad Swad"
-      },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "INR",
-        "price": "249",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-    </script>
-
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN with custom design tokens matching existing site structure -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -42,224 +14,185 @@
                 extend: {
                     colors: {
                         brand: {
-                            maroon: '#800020',
-                            burgundy: '#5B0017',
-                            gold: '#D4AF37',
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
                             cream: '#FAF7F2',
-                            charcoal: '#222222',
-                            warmgrey: '#F4F1EA'
+                            dark: '#1C1917',
+                            muted: '#57534E'
                         }
                     },
                     fontFamily: {
                         serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Inter', 'sans-serif']
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
+    <!-- CSS Animation Utilities -->
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FAF7F2;
-            color: #222222;
+        .fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        .font-serif {
-            font-family: 'Playfair Display', Georgia, serif;
+        .slide-up {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        /* Custom Hover Zoom */
-        .img-zoom-container {
-            overflow: hidden;
-            position: relative;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        .img-zoom-container img {
-            transition: transform 0.5s ease;
-        }
-        .img-zoom-container:hover img {
-            transform: scale(1.15);
-        }
-        /* Custom Scrollbar for Gallery */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="antialiased flex flex-col min-h-screen">
+<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- 1. STICKY HEADER (EXISTING NAVIGATION PLACEHOLDER) -->
-    <header class="sticky top-0 z-50 bg-white border-b border-stone-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Brand Logo -->
-                <a href="#" class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-brand-maroon flex items-center justify-center text-brand-gold font-serif text-xl font-bold border-2 border-brand-gold">
-                        KS
-                    </div>
-                    <span class="font-serif text-2xl font-bold tracking-tight text-brand-maroon">KAWAD SWAD</span>
-                </a>
+    <!-- ==========================================
+         STICKY HEADER (REUSED NAV)
+         ========================================== -->
+    <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">
+                    KAWAD SWAD
+                </span>
+            </a>
 
-                <!-- Navigation Links -->
-                <nav class="hidden md:flex items-center gap-8 font-medium text-stone-700">
-                    <a href="#" class="hover:text-brand-maroon transition-colors">Home</a>
-                    <a href="#" class="text-brand-maroon font-semibold border-b-2 border-brand-maroon pb-1">Products</a>
-                    <a href="#" class="hover:text-brand-maroon transition-colors">About Us</a>
-                    <a href="#" class="hover:text-brand-maroon transition-colors">Distributor Enquiry</a>
-                    <a href="#" class="hover:text-brand-maroon transition-colors">Contact</a>
-                </nav>
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
+                <a href="products.html" class="text-brand-gold font-semibold transition-colors">Products</a>
+                <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
+                <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
+                <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
+                <a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a>
+                <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
+                <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
+            </nav>
 
-                <!-- Action Icons -->
-                <div class="flex items-center gap-5">
-                    <button class="p-2 text-stone-700 hover:text-brand-maroon transition-colors aria-label='Search'">
-                        <i data-lucide="search" class="w-6 h-6"></i>
-                    </button>
-                    <button class="p-2 text-stone-700 hover:text-brand-maroon transition-colors relative aria-label='Cart'">
-                        <i data-lucide="shopping-bag" class="w-6 h-6"></i>
-                        <span class="absolute top-1 right-1 bg-brand-maroon text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">0</span>
-                    </button>
-                </div>
-            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button type="button" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
         </div>
     </header>
 
     <main class="flex-grow">
-        <!-- 2. BREADCRUMB -->
-        <div class="bg-brand-warmgrey border-b border-stone-200/60 py-3">
+        <!-- ==========================================
+             SECTION 1: BREADCRUMB
+             ========================================== -->
+        <nav aria-label="Breadcrumb" class="bg-white border-b border-stone-200/80 py-4">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <nav class="flex items-center text-sm text-stone-600 font-medium space-x-2">
-                    <a href="#" class="hover:text-brand-maroon transition-colors">Home</a>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
-                    <a href="#" class="hover:text-brand-maroon transition-colors">Products</a>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
-                    <a href="#" class="hover:text-brand-maroon transition-colors">Traditional Snacks</a>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-stone-400"></i>
-                    <span class="text-brand-maroon font-semibold">Special Premium Papad</span>
-                </nav>
+                <ol class="flex items-center space-x-2 text-xs text-brand-muted">
+                    <li>
+                        <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
+                    </li>
+                    <li class="text-stone-400">&gt;</li>
+                    <li>
+                        <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
+                    </li>
+                    <li class="text-stone-400">&gt;</li>
+                    <li class="font-semibold text-brand-dark uppercase tracking-wider" aria-current="page">
+                        [Product Name]
+                    </li>
+                </ol>
             </div>
-        </div>
+        </nav>
 
-        <!-- 3. PRODUCT SECTION -->
-        <section class="py-12 bg-stone-50">
+        <!-- ==========================================
+             SECTIONS 2 & 3: GALLERY & INFORMATION
+             ========================================== -->
+        <section class="py-12 lg:py-16 bg-white border-b border-stone-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                     
-                    <!-- Left Side: Product Images -->
-                    <div class="lg:col-span-7 space-y-4">
-                        <!-- Large Main Product Image -->
-                        <div class="bg-white rounded-2xl border border-stone-200 p-4 shadow-sm img-zoom-container cursor-crosshair">
-                            <img id="mainProductImage" 
-                                 src="https://placehold.co/800x800/800020/FFFFFF/png?text=Kawad+Swad+Product+Main" 
-                                 alt="Kawad Swad Premium Product" 
-                                 class="w-full h-[400px] sm:h-[500px] object-cover rounded-xl">
+                    <!-- SECTION 2: PRODUCT GALLERY -->
+                    <div class="space-y-4 fade-in">
+                        <!-- Main Product Image Placeholder -->
+                        <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
+                            <svg class="w-20 h-20 text-stone-400/80 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[product-main-placeholder]</span>
                         </div>
 
-                        <!-- Image Gallery Thumbnails -->
-                        <div class="flex items-center gap-4 overflow-x-auto no-scrollbar py-2">
-                            <button onclick="changeImage(this.children[0].src)" class="flex-shrink-0 w-20 h-20 rounded-xl border-2 border-brand-maroon bg-white p-1 focus:outline-none transition-all">
-                                <img src="https://placehold.co/800x800/800020/FFFFFF/png?text=Kawad+Swad+Product+Main" alt="Thumbnail 1" class="w-full h-full object-cover rounded-lg">
-                            </button>
-                            <button onclick="changeImage(this.children[0].src)" class="flex-shrink-0 w-20 h-20 rounded-xl border-2 border-transparent hover:border-brand-maroon bg-white p-1 focus:outline-none transition-all">
-                                <img src="https://placehold.co/800x800/5B0017/FFFFFF/png?text=Angle+2" alt="Thumbnail 2" class="w-full h-full object-cover rounded-lg">
-                            </button>
-                            <button onclick="changeImage(this.children[0].src)" class="flex-shrink-0 w-20 h-20 rounded-xl border-2 border-transparent hover:border-brand-maroon bg-white p-1 focus:outline-none transition-all">
-                                <img src="https://placehold.co/800x800/D4AF37/222222/png?text=Texture" alt="Thumbnail 3" class="w-full h-full object-cover rounded-lg">
-                            </button>
-                            <button onclick="changeImage(this.children[0].src)" class="flex-shrink-0 w-20 h-20 rounded-xl border-2 border-transparent hover:border-brand-maroon bg-white p-1 focus:outline-none transition-all">
-                                <img src="https://placehold.co/800x800/FAF7F2/800020/png?text=Packaging" alt="Thumbnail 4" class="w-full h-full object-cover rounded-lg">
-                            </button>
+                        <!-- 4 Thumbnail Placeholders -->
+                        <div class="grid grid-cols-4 gap-4">
+                            <div class="aspect-square bg-stone-200 rounded-sm border border-brand-gold flex items-center justify-center p-2 text-center cursor-pointer">
+                                <span class="text-[9px] font-mono text-brand-muted">[thumb-1]</span>
+                            </div>
+                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center cursor-pointer hover:border-brand-gold transition-colors">
+                                <span class="text-[9px] font-mono text-brand-muted">[thumb-2]</span>
+                            </div>
+                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center cursor-pointer hover:border-brand-gold transition-colors">
+                                <span class="text-[9px] font-mono text-brand-muted">[thumb-3]</span>
+                            </div>
+                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center cursor-pointer hover:border-brand-gold transition-colors">
+                                <span class="text-[9px] font-mono text-brand-muted">[thumb-4]</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Right Side: Product Information -->
-                    <div class="lg:col-span-5 bg-white p-8 rounded-2xl border border-stone-200 shadow-sm space-y-6">
+                    <!-- SECTION 3: PRODUCT INFORMATION -->
+                    <div class="space-y-8 slide-up">
                         <div>
-                            <span class="inline-block bg-brand-warmgrey text-brand-maroon font-semibold text-xs uppercase tracking-widest px-3 py-1 rounded-full mb-3">Authentic Recipe</span>
-                            <h1 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900">Special Premium Papad</h1>
-                            <p class="text-sm font-medium text-stone-500 mt-1">Variant: Handmade Traditional Special</p>
+                            <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full mb-3">
+                                [Category Name]
+                            </span>
+                            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark mb-4">
+                                [Product Name]
+                            </h1>
+                            <p class="text-base text-brand-muted leading-relaxed font-light">
+                                [Editable Short Description: Describe the unique taste profile, crispness, traditional recipe attributes, and Jain purity guidelines for this specific product.]
+                            </p>
                         </div>
 
-                        <p class="text-stone-600 text-sm leading-relaxed">
-                            Crafted with the finest grade ingredients following generations-old recipes. Perfectly seasoned for an unmatched authentic crunch with every meal.
-                        </p>
-
-                        <!-- Rating Placeholder -->
-                        <div class="flex items-center gap-3 pt-2">
-                            <div class="flex items-center text-amber-500">
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                        <!-- Key Specifications Meta -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-b border-stone-200/80 py-6 text-sm">
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-semibold text-brand-dark">Category:</span>
+                                    <span class="text-brand-muted">[Category]</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-semibold text-brand-dark">Product Code:</span>
+                                    <span class="text-brand-muted font-mono text-xs">[product-code-placeholder]</span>
+                                </div>
                             </div>
-                            <span class="text-sm font-semibold text-stone-800">4.9</span>
-                            <span class="text-sm text-stone-400">|</span>
-                            <span class="text-sm text-stone-500 font-medium">128 Ratings</span>
-                        </div>
-
-                        <!-- Price Section -->
-                        <div class="flex items-baseline gap-4 pt-2 border-t border-stone-100">
-                            <span class="text-3xl font-bold text-brand-maroon">₹249</span>
-                            <span class="text-lg text-stone-400 line-through">₹299</span>
-                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-md">Save 17%</span>
-                        </div>
-
-                        <!-- Weight Selector -->
-                        <div class="space-y-2">
-                            <label class="block text-sm font-semibold text-stone-800">Select Net Weight</label>
-                            <div class="grid grid-cols-3 gap-3">
-                                <button type="button" onclick="selectWeight(this)" class="weight-btn py-2.5 rounded-xl border-2 border-stone-200 text-stone-700 text-sm font-semibold hover:border-brand-maroon transition-all">200g</button>
-                                <button type="button" onclick="selectWeight(this)" class="weight-btn py-2.5 rounded-xl border-2 border-brand-maroon bg-brand-maroon text-white text-sm font-semibold transition-all">500g</button>
-                                <button type="button" onclick="selectWeight(this)" class="weight-btn py-2.5 rounded-xl border-2 border-stone-200 text-stone-700 text-sm font-semibold hover:border-brand-maroon transition-all">1000g</button>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="font-semibold text-brand-dark">Shelf Life:</span>
+                                    <span class="text-brand-muted">[shelf-life-placeholder]</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-semibold text-brand-dark">FSSAI Licence:</span>
+                                    <span class="text-brand-muted font-mono text-xs">[fssai-licence-placeholder]</span>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Quantity Selector -->
-                        <div class="space-y-2">
-                            <label class="block text-sm font-semibold text-stone-800">Quantity</label>
-                            <div class="flex items-center w-36 border-2 border-stone-200 rounded-xl overflow-hidden bg-stone-50">
-                                <button onclick="updateQuantity(-1)" class="w-12 py-2 text-stone-600 hover:bg-stone-200 flex items-center justify-center font-bold text-lg">-</button>
-                                <span id="quantityVal" class="w-12 text-center font-semibold text-stone-800">1</span>
-                                <button onclick="updateQuantity(1)" class="w-12 py-2 text-stone-600 hover:bg-stone-200 flex items-center justify-center font-bold text-lg">+</button>
-                            </div>
-                        </div>
-
-                        <!-- Stock Status & Delivery -->
-                        <div class="space-y-2 pt-2 border-t border-stone-100 text-sm">
-                            <div class="flex items-center gap-2 text-emerald-700 font-semibold">
-                                <i data-lucide="check-circle" class="w-4 h-4"></i>
-                                <span>In Stock & Ready to Ship</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-stone-600">
-                                <i data-lucide="truck" class="w-4 h-4 text-stone-400"></i>
-                                <span>Estimated Delivery: 2 - 4 Business Days</span>
-                            </div>
-                        </div>
-
-                        <!-- Buttons -->
-                        <div class="space-y-3 pt-4">
-                            <div class="grid grid-cols-2 gap-3">
-                                <button class="w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2">
-                                    <i data-lucide="shopping-cart" class="w-5 h-5"></i> Add to Cart
-                                </button>
-                                <button class="w-full bg-brand-maroon hover:bg-brand-burgundy text-white font-semibold py-3.5 rounded-xl transition-colors shadow-md shadow-brand-maroon/20 flex items-center justify-center gap-2">
-                                    Buy Now
-                                </button>
-                            </div>
-                            <button class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3.5 rounded-xl transition-colors shadow-md shadow-emerald-600/20 flex items-center justify-center gap-2">
-                                <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp Enquiry
-                            </button>
+                        <!-- CTAs (NO PRICE / NO CART) -->
+                        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                            <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
+                                Enquire Now
+                            </a>
+                            <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
+                                Download Catalogue
+                            </a>
                         </div>
                     </div>
 
@@ -267,195 +200,131 @@
             </div>
         </section>
 
-        <!-- 4. TRUST ICONS -->
-        <section class="py-10 bg-white border-y border-stone-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-warmgrey border border-stone-100">
-                        <div class="p-3 bg-white rounded-xl shadow-sm text-brand-maroon">
-                            <i data-lucide="leaf" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h2 class="font-bold text-stone-900 text-sm">100% Vegetarian</h2>
-                            <p class="text-xs text-stone-500">Pure traditional ingredients</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-warmgrey border border-stone-100">
-                        <div class="p-3 bg-white rounded-xl shadow-sm text-brand-maroon">
-                            <i data-lucide="shield-check" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h2 class="font-bold text-stone-900 text-sm">FSSAI Certified</h2>
-                            <p class="text-xs text-stone-500">Compliant food safety</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-warmgrey border border-stone-100">
-                        <div class="p-3 bg-white rounded-xl shadow-sm text-brand-maroon">
-                            <i data-lucide="sparkles" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h2 class="font-bold text-stone-900 text-sm">Hygienically Packed</h2>
-                            <p class="text-xs text-stone-500">Sealed for maximum freshness</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 rounded-xl bg-brand-warmgrey border border-stone-100">
-                        <div class="p-3 bg-white rounded-xl shadow-sm text-brand-maroon">
-                            <i data-lucide="flag" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h2 class="font-bold text-stone-900 text-sm">Made in India</h2>
-                            <p class="text-xs text-stone-500">Authentic regional taste</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. PRODUCT HIGHLIGHTS -->
-        <section class="py-12 bg-brand-cream">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-10">
-                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Product Highlights</h2>
-                    <p class="text-stone-600 text-sm mt-2">What makes Kawad Swad products exceptionally distinct.</p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-sm text-center space-y-3">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon">
-                            <i data-lucide="award" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-bold text-stone-900">Premium Ingredients</h3>
-                        <p class="text-xs text-stone-600 leading-relaxed">Sourced directly from verified growers to ensure superior purity and quality.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-sm text-center space-y-3">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon">
-                            <i data-lucide="utensils" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-bold text-stone-900">Traditional Recipe</h3>
-                        <p class="text-xs text-stone-600 leading-relaxed">Prepared using timeless culinary heritage to retain true regional flavors.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-sm text-center space-y-3">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon">
-                            <i data-lucide="sun" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-bold text-stone-900">Crispy Texture</h3>
-                        <p class="text-xs text-stone-600 leading-relaxed">Sun-dried to perfection giving an irresistibly light and crunchy snap.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 shadow-sm text-center space-y-3">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon">
-                            <i data-lucide="ban" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-bold text-stone-900">No Artificial Preservatives</h3>
-                        <p class="text-xs text-stone-600 leading-relaxed">Placeholder for clean formulation details without added chemicals.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. PRODUCT DESCRIPTION -->
-        <section class="py-16 bg-white border-t border-stone-200">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-                <div class="text-center space-y-3">
-                    <h2 class="text-3xl font-serif font-bold text-stone-900">Detailed Product Description</h2>
-                    <div class="w-16 h-1 bg-brand-gold mx-auto rounded-full"></div>
-                </div>
-                <div class="prose prose-stone max-w-none text-stone-600 space-y-4 leading-relaxed text-base">
-                    <p>
-                        Elevate every meal with the rich taste and crispness of Kawad Swad. Prepared with utmost attention to traditional craftsmanship, this snack represents the pinnacle of authentic Indian taste. Each batch is blended with handpicked spices and high-grade lentils to deliver a perfectly balanced flavor profile that harmonizes with any meal.
-                    </p>
-                    <p>
-                        <strong>Integrated Brand Story:</strong> Born out of a deep passion for preserving culinary roots, Kawad Swad was established to bring authentic, high-quality traditional delicacies into modern kitchens. By blending age-old preparation techniques with contemporary food safety standards, we ensure every package carries the warm, comforting taste of pure tradition.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. INGREDIENTS -->
-        <section class="py-16 bg-brand-warmgrey">
+        <!-- ==========================================
+             SECTION 4: AVAILABLE SIZES
+             ========================================== -->
+        <section class="py-16 bg-brand-cream border-b border-brand-gold/10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h2 class="text-3xl font-serif font-bold text-stone-900">Wholesome Ingredients</h2>
-                    <p class="text-stone-600 text-sm mt-2">Carefully selected natural components with no compromise on quality.</p>
+                    <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">Available Sizes</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                    <div class="bg-white p-5 rounded-2xl border border-stone-200/60 shadow-sm text-center">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon mb-3">
-                            <i data-lucide="check" class="w-5 h-5"></i>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 200g Card -->
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300 flex flex-col items-center text-center">
+                        <div class="w-full aspect-4/3 bg-stone-100 rounded-sm mb-6 flex flex-col items-center justify-center p-4">
+                            <span class="text-xs font-mono text-brand-muted">[package-200g-placeholder]</span>
                         </div>
-                        <h3 class="font-bold text-stone-800 text-sm">Urad Dal Flours</h3>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-1">200g</h3>
+                        <span class="text-xs font-medium uppercase tracking-wider text-brand-gold">Retail Pack</span>
                     </div>
-                    <div class="bg-white p-5 rounded-2xl border border-stone-200/60 shadow-sm text-center">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon mb-3">
-                            <i data-lucide="check" class="w-5 h-5"></i>
+
+                    <!-- 500g Card -->
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300 flex flex-col items-center text-center">
+                        <div class="w-full aspect-4/3 bg-stone-100 rounded-sm mb-6 flex flex-col items-center justify-center p-4">
+                            <span class="text-xs font-mono text-brand-muted">[package-500g-placeholder]</span>
                         </div>
-                        <h3 class="font-bold text-stone-800 text-sm">Black Pepper</h3>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-1">500g</h3>
+                        <span class="text-xs font-medium uppercase tracking-wider text-brand-gold">Family Pack</span>
                     </div>
-                    <div class="bg-white p-5 rounded-2xl border border-stone-200/60 shadow-sm text-center">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon mb-3">
-                            <i data-lucide="check" class="w-5 h-5"></i>
+
+                    <!-- 1000g Card -->
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300 flex flex-col items-center text-center">
+                        <div class="w-full aspect-4/3 bg-stone-100 rounded-sm mb-6 flex flex-col items-center justify-center p-4">
+                            <span class="text-xs font-mono text-brand-muted">[package-1000g-placeholder]</span>
                         </div>
-                        <h3 class="font-bold text-stone-800 text-sm">Asafoetida (Hing)</h3>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl border border-stone-200/60 shadow-sm text-center">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon mb-3">
-                            <i data-lucide="check" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold text-stone-800 text-sm">Edible Salt</h3>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl border border-stone-200/60 shadow-sm text-center">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon mb-3">
-                            <i data-lucide="check" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold text-stone-800 text-sm">Sajji Khar</h3>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl border border-stone-200/60 shadow-sm text-center">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon mb-3">
-                            <i data-lucide="check" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold text-stone-800 text-sm">Vegetable Oil</h3>
+                        <h3 class="font-serif text-2xl font-bold text-brand-dark mb-1">1000g</h3>
+                        <span class="text-xs font-medium uppercase tracking-wider text-brand-gold">Value Pack</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 8. NUTRITIONAL INFORMATION -->
-        <section class="py-16 bg-white border-t border-stone-200">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-serif font-bold text-stone-900">Nutritional Information</h2>
-                    <p class="text-xs text-stone-500 mt-1">Approximate Values Per 100g (Placeholder Data)</p>
+        <!-- ==========================================
+             SECTION 5: INGREDIENTS
+             ========================================== -->
+        <section class="py-16 bg-white border-b border-stone-200/80">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">Ingredients</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
-                <div class="border border-stone-200 rounded-2xl overflow-hidden shadow-sm">
-                    <table class="w-full text-left text-sm text-stone-700">
-                        <thead class="bg-brand-maroon text-white font-serif">
+
+                <div class="bg-brand-cream/60 p-8 rounded-sm border border-stone-200/80">
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-brand-muted">
+                        <li class="flex items-center gap-3">
+                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
+                            <span>[Placeholder Ingredient 1 - e.g. Selected Pulses / Pulse Flour]</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
+                            <span>[Placeholder Ingredient 2 - e.g. Black Pepper / Spices]</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
+                            <span>[Placeholder Ingredient 3 - e.g. Edible Common Salt]</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
+                            <span>[Placeholder Ingredient 4 - e.g. Asafoetida (Hing)]</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
+                            <span>[Placeholder Ingredient 5 - e.g. Raising Agent / Saji Khar]</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
+                            <span>[Placeholder Ingredient 6 - e.g. Edible Oil]</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 6: NUTRITIONAL INFORMATION
+             ========================================== -->
+        <section class="py-16 bg-brand-cream border-b border-brand-gold/10">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">Nutritional Information</h2>
+                    <p class="text-xs text-brand-muted">Approximate values per 100g serving</p>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-3"></div>
+                </div>
+
+                <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-brand-dark text-white font-serif">
                             <tr>
-                                <th class="py-3.5 px-6 font-semibold">Nutrient Parameter</th>
-                                <th class="py-3.5 px-6 font-semibold text-right">Value Per 100g</th>
+                                <th class="py-4 px-6 font-semibold">Nutritional Parameter</th>
+                                <th class="py-4 px-6 font-semibold text-right">Value per 100g</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-stone-200">
-                            <tr class="hover:bg-stone-50">
-                                <td class="py-3 px-6 font-medium">Energy (kcal)</td>
-                                <td class="py-3 px-6 text-right font-semibold">350.0</td>
+                        <tbody class="divide-y divide-stone-200/80 text-brand-dark">
+                            <tr class="hover:bg-brand-cream/30 transition-colors">
+                                <td class="py-3.5 px-6 font-medium">Energy</td>
+                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] kcal</td>
                             </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="py-3 px-6 font-medium">Protein (g)</td>
-                                <td class="py-3 px-6 text-right font-semibold">25.5</td>
+                            <tr class="hover:bg-brand-cream/30 transition-colors">
+                                <td class="py-3.5 px-6 font-medium">Protein</td>
+                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] g</td>
                             </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="py-3 px-6 font-medium">Carbohydrates (g)</td>
-                                <td class="py-3 px-6 text-right font-semibold">58.0</td>
+                            <tr class="hover:bg-brand-cream/30 transition-colors">
+                                <td class="py-3.5 px-6 font-medium">Carbohydrates</td>
+                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] g</td>
                             </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="py-3 px-6 font-medium">Dietary Fiber (g)</td>
-                                <td class="py-3 px-6 text-right font-semibold">12.0</td>
+                            <tr class="hover:bg-brand-cream/30 transition-colors">
+                                <td class="py-3.5 px-6 font-medium">Fat</td>
+                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] g</td>
                             </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="py-3 px-6 font-medium">Total Fat (g)</td>
-                                <td class="py-3 px-6 text-right font-semibold">1.5</td>
+                            <tr class="hover:bg-brand-cream/30 transition-colors">
+                                <td class="py-3.5 px-6 font-medium">Sugar</td>
+                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] g</td>
                             </tr>
-                            <tr class="hover:bg-stone-50">
-                                <td class="py-3 px-6 font-medium">Sodium (mg)</td>
-                                <td class="py-3 px-6 text-right font-semibold">1450.0</td>
+                            <tr class="hover:bg-brand-cream/30 transition-colors">
+                                <td class="py-3.5 px-6 font-medium">Sodium</td>
+                                <td class="py-3.5 px-6 text-right font-mono text-brand-muted">[value-placeholder] mg</td>
                             </tr>
                         </tbody>
                     </table>
@@ -463,392 +332,245 @@
             </div>
         </section>
 
-        <!-- 9. STORAGE INSTRUCTIONS -->
-        <section class="py-12 bg-stone-50 border-t border-stone-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-8">
-                    <h2 class="text-2xl font-serif font-bold text-stone-900">Storage Instructions</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200 text-center space-y-2">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon">
-                            <i data-lucide="wind" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold text-stone-800 text-sm">Cool & Dry Place</h3>
-                        <p class="text-xs text-stone-500">Store away from direct heat and sunlight.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200 text-center space-y-2">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon">
-                            <i data-lucide="archive" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold text-stone-800 text-sm">Airtight Container</h3>
-                        <p class="text-xs text-stone-500">Transfer into an airtight jar after opening.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200 text-center space-y-2">
-                        <div class="w-10 h-10 mx-auto rounded-full bg-brand-warmgrey flex items-center justify-center text-brand-maroon">
-                            <i data-lucide="droplets" class="w-5 h-5"></i>
-                        </div>
-                        <h3 class="font-bold text-stone-800 text-sm">Keep Dry</h3>
-                        <p class="text-xs text-stone-500">Avoid wet spoons or moisture contact.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 10. COOKING METHODS -->
-        <section class="py-16 bg-white border-t border-stone-200">
+        <!-- ==========================================
+             SECTION 7: COOKING INSTRUCTIONS
+             ========================================== -->
+        <section class="py-16 bg-white border-b border-stone-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h2 class="text-3xl font-serif font-bold text-stone-900">Cooking Methods</h2>
-                    <p class="text-stone-600 text-sm mt-2">Enjoy your favorite crispness prepared your way.</p>
+                    <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">How To Prepare</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-brand-warmgrey p-6 rounded-2xl border border-stone-200/80 text-center space-y-3">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-white flex items-center justify-center text-brand-maroon shadow-sm">
-                            <i data-lucide="flame" class="w-6 h-6"></i>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Roast -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 text-center">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+                            </svg>
                         </div>
-                        <h3 class="font-bold text-stone-900">Roast</h3>
-                        <p class="text-xs text-stone-600">Roast over an open flame or dry pan for 15-30 seconds until crisp.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Open Flame Roast</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short instruction for roasting over an open flame or dry pan until crisp.]</p>
                     </div>
-                    <div class="bg-brand-warmgrey p-6 rounded-2xl border border-stone-200/80 text-center space-y-3">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-white flex items-center justify-center text-brand-maroon shadow-sm">
-                            <i data-lucide="cooking-pot" class="w-6 h-6"></i>
+
+                    <!-- Fry -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 text-center">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                            </svg>
                         </div>
-                        <h3 class="font-bold text-stone-900">Fry</h3>
-                        <p class="text-xs text-stone-600">Deep fry in clean hot oil for 3-5 seconds for maximum richness.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Deep Fry</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short instruction for deep frying in hot edible oil for a few seconds.]</p>
                     </div>
-                    <div class="bg-brand-warmgrey p-6 rounded-2xl border border-stone-200/80 text-center space-y-3">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-white flex items-center justify-center text-brand-maroon shadow-sm">
-                            <i data-lucide="zap" class="w-6 h-6"></i>
+
+                    <!-- Microwave -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 text-center">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
                         </div>
-                        <h3 class="font-bold text-stone-900">Microwave</h3>
-                        <p class="text-xs text-stone-600">Microwave on high power for 30-45 seconds for an oil-free option.</p>
-                    </div>
-                    <div class="bg-brand-warmgrey p-6 rounded-2xl border border-stone-200/80 text-center space-y-3">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-white flex items-center justify-center text-brand-maroon shadow-sm">
-                            <i data-lucide="fan" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="font-bold text-stone-900">Air Fryer</h3>
-                        <p class="text-xs text-stone-600">Air fry at 180°C for 1-2 minutes for modern guilt-free crunch.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Microwave</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short instruction for microwave roasting for 30-40 seconds.]</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 11. WHY CHOOSE KAWAD SWAD -->
-        <section class="py-16 bg-brand-cream border-t border-stone-200">
+        <!-- ==========================================
+             SECTION 8: WHY CHOOSE THIS PRODUCT
+             ========================================== -->
+        <section class="py-20 bg-brand-cream border-b border-brand-gold/10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h2 class="text-3xl font-serif font-bold text-stone-900">Why Choose Kawad Swad</h2>
-                    <p class="text-stone-600 text-sm mt-2">Our unwavering commitment to standard quality and authentic flavor.</p>
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Why Choose This Product</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 space-y-3">
-                        <div class="w-10 h-10 rounded-xl bg-brand-maroon text-white flex items-center justify-center font-bold">01</div>
-                        <h3 class="font-bold text-stone-900 text-lg">Premium Ingredients</h3>
-                        <p class="text-xs text-stone-600 leading-relaxed">We source superior quality raw materials strictly checked for quality standards.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Authentic Jain Recipe -->
+                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Authentic Jain Recipe</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Formulated strictly in compliance with pure Jain dietary rules.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 space-y-3">
-                        <div class="w-10 h-10 rounded-xl bg-brand-maroon text-white flex items-center justify-center font-bold">02</div>
-                        <h3 class="font-bold text-stone-900 text-lg">Traditional Taste</h3>
-                        <p class="text-xs text-stone-600 leading-relaxed">Preserving authentic legacy formulations that bring warmth to every meal.</p>
+
+                    <!-- Premium Ingredients -->
+                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Premium Ingredients</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Made with top-tier pulses and freshly ground native spices.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 space-y-3">
-                        <div class="w-10 h-10 rounded-xl bg-brand-maroon text-white flex items-center justify-center font-bold">03</div>
-                        <h3 class="font-bold text-stone-900 text-lg">Modern Hygiene</h3>
-                        <p class="text-xs text-stone-600 leading-relaxed">Processed in untouched, state-of-the-art automated hygienic environments.</p>
+
+                    <!-- Quality Checked -->
+                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Quality Checked</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Subjected to multi-level checks for texture, taste, and safety.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-2xl border border-stone-200/80 space-y-3">
-                        <div class="w-10 h-10 rounded-xl bg-brand-maroon text-white flex items-center justify-center font-bold">04</div>
-                        <h3 class="font-bold text-stone-900 text-lg">Trusted Manufacturing</h3>
-                        <p class="text-xs text-stone-600 leading-relaxed">Standard production guidelines ensuring absolute reliability in every pack.</p>
+
+                    <!-- Modern Manufacturing -->
+                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Modern Manufacturing</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Processed in a state-of-the-art facility ensuring untouched hygiene.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 12. FREQUENTLY ASKED QUESTIONS -->
-        <section class="py-16 bg-white border-t border-stone-200">
-            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl font-serif font-bold text-stone-900">Frequently Asked Questions</h2>
-                    <p class="text-stone-600 text-sm mt-2">Find answers to common inquiries regarding our products.</p>
-                </div>
-                <div class="space-y-4">
-                    <details class="group bg-brand-warmgrey rounded-xl border border-stone-200 p-4 transition-all">
-                        <summary class="flex items-center justify-between font-semibold text-stone-900 cursor-pointer list-none">
-                            <span>What is the shelf life of this product?</span>
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-stone-500 group-open:rotate-180 transition-transform"></i>
-                        </summary>
-                        <p class="text-xs text-stone-600 mt-3 leading-relaxed border-t border-stone-200/60 pt-3">
-                            The shelf life is typically 6 months from the date of manufacturing when stored in a cool, dry place in an airtight container.
-                        </p>
-                    </details>
-                    <details class="group bg-brand-warmgrey rounded-xl border border-stone-200 p-4 transition-all">
-                        <summary class="flex items-center justify-between font-semibold text-stone-900 cursor-pointer list-none">
-                            <span>Is this product suitable for vegetarians?</span>
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-stone-500 group-open:rotate-180 transition-transform"></i>
-                        </summary>
-                        <p class="text-xs text-stone-600 mt-3 leading-relaxed border-t border-stone-200/60 pt-3">
-                            Yes, 100% of our products are strictly vegetarian and prepared using vegetarian ingredients.
-                        </p>
-                    </details>
-                    <details class="group bg-brand-warmgrey rounded-xl border border-stone-200 p-4 transition-all">
-                        <summary class="flex items-center justify-between font-semibold text-stone-900 cursor-pointer list-none">
-                            <span>How should I store the product after opening?</span>
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-stone-500 group-open:rotate-180 transition-transform"></i>
-                        </summary>
-                        <p class="text-xs text-stone-600 mt-3 leading-relaxed border-t border-stone-200/60 pt-3">
-                            Transfer the remaining contents into a clean, dry, airtight container to protect from moisture and preserve crispness.
-                        </p>
-                    </details>
-                    <details class="group bg-brand-warmgrey rounded-xl border border-stone-200 p-4 transition-all">
-                        <summary class="flex items-center justify-between font-semibold text-stone-900 cursor-pointer list-none">
-                            <span>Are there bulk purchase options available?</span>
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-stone-500 group-open:rotate-180 transition-transform"></i>
-                        </summary>
-                        <p class="text-xs text-stone-600 mt-3 leading-relaxed border-t border-stone-200/60 pt-3">
-                            Yes, we support bulk orders and dealership inquiries. You can connect through our Distributor Enquiry section.
-                        </p>
-                    </details>
-                    <details class="group bg-brand-warmgrey rounded-xl border border-stone-200 p-4 transition-all">
-                        <summary class="flex items-center justify-between font-semibold text-stone-900 cursor-pointer list-none">
-                            <span>What are the available packaging sizes?</span>
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-stone-500 group-open:rotate-180 transition-transform"></i>
-                        </summary>
-                        <p class="text-xs text-stone-600 mt-3 leading-relaxed border-t border-stone-200/60 pt-3">
-                            This product is offered in standard net weight variants of 200g, 500g, and 1000g packs.
-                        </p>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- 13. RELATED PRODUCTS -->
-        <section class="py-16 bg-brand-warmgrey border-t border-stone-200">
+        <!-- ==========================================
+             SECTION 9: RELATED PRODUCTS
+             ========================================== -->
+        <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between mb-10">
-                    <div>
-                        <h2 class="text-3xl font-serif font-bold text-stone-900">Related Products</h2>
-                        <p class="text-stone-600 text-sm mt-1">Explore more authentic delicacies from Kawad Swad.</p>
-                    </div>
-                    <a href="#" class="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-brand-maroon hover:underline">
-                        View All <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </a>
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Related Products</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Related Card 1 -->
-                    <div class="bg-white rounded-2xl border border-stone-200 p-4 space-y-4 hover:shadow-md transition-shadow">
-                        <img src="https://placehold.co/500x500/800020/FFFFFF/png?text=Product+1" alt="Related Product 1" class="w-full h-48 object-cover rounded-xl">
-                        <div>
-                            <h3 class="font-bold text-stone-900">Special Moong Papad</h3>
-                            <p class="text-xs text-stone-500 mt-0.5">Weight: 400g Pack</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Related Product 1 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[related-product-1-placeholder]</span>
                         </div>
-                        <button class="w-full bg-brand-warmgrey hover:bg-brand-maroon hover:text-white text-stone-800 font-semibold py-2.5 rounded-xl text-sm transition-colors">
-                            View Product
-                        </button>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-6 flex-grow">[Product Name Placeholder]</h3>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
                     </div>
-                    <!-- Related Card 2 -->
-                    <div class="bg-white rounded-2xl border border-stone-200 p-4 space-y-4 hover:shadow-md transition-shadow">
-                        <img src="https://placehold.co/500x500/5B0017/FFFFFF/png?text=Product+2" alt="Related Product 2" class="w-full h-48 object-cover rounded-xl">
-                        <div>
-                            <h3 class="font-bold text-stone-900">Chana Masala Papad</h3>
-                            <p class="text-xs text-stone-500 mt-0.5">Weight: 500g Pack</p>
+
+                    <!-- Related Product 2 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[related-product-2-placeholder]</span>
                         </div>
-                        <button class="w-full bg-brand-warmgrey hover:bg-brand-maroon hover:text-white text-stone-800 font-semibold py-2.5 rounded-xl text-sm transition-colors">
-                            View Product
-                        </button>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-6 flex-grow">[Product Name Placeholder]</h3>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
                     </div>
-                    <!-- Related Card 3 -->
-                    <div class="bg-white rounded-2xl border border-stone-200 p-4 space-y-4 hover:shadow-md transition-shadow">
-                        <img src="https://placehold.co/500x500/D4AF37/222222/png?text=Product+3" alt="Related Product 3" class="w-full h-48 object-cover rounded-xl">
-                        <div>
-                            <h3 class="font-bold text-stone-900">Garlic Flavor Papad</h3>
-                            <p class="text-xs text-stone-500 mt-0.5">Weight: 250g Pack</p>
+
+                    <!-- Related Product 3 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[related-product-3-placeholder]</span>
                         </div>
-                        <button class="w-full bg-brand-warmgrey hover:bg-brand-maroon hover:text-white text-stone-800 font-semibold py-2.5 rounded-xl text-sm transition-colors">
-                            View Product
-                        </button>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-6 flex-grow">[Product Name Placeholder]</h3>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
                     </div>
-                    <!-- Related Card 4 -->
-                    <div class="bg-white rounded-2xl border border-stone-200 p-4 space-y-4 hover:shadow-md transition-shadow">
-                        <img src="https://placehold.co/500x500/FAF7F2/800020/png?text=Product+4" alt="Related Product 4" class="w-full h-48 object-cover rounded-xl">
-                        <div>
-                            <h3 class="font-bold text-stone-900">Punjabi Spicy Papad</h3>
-                            <p class="text-xs text-stone-500 mt-0.5">Weight: 500g Pack</p>
+
+                    <!-- Related Product 4 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[related-product-4-placeholder]</span>
                         </div>
-                        <button class="w-full bg-brand-warmgrey hover:bg-brand-maroon hover:text-white text-stone-800 font-semibold py-2.5 rounded-xl text-sm transition-colors">
-                            View Product
-                        </button>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-6 flex-grow">[Product Name Placeholder]</h3>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 14. CUSTOMER REVIEWS -->
-        <section class="py-16 bg-white border-t border-stone-200">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h2 class="text-3xl font-serif font-bold text-stone-900">Customer Reviews</h2>
-                    <!-- Average Rating Placeholder -->
-                    <div class="flex items-center justify-center gap-2 mt-3">
-                        <div class="flex text-amber-500">
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                        </div>
-                        <span class="font-bold text-stone-800">4.9 out of 5</span>
-                    </div>
-                </div>
-
-                <!-- Review Cards (Placeholder Layout Only) -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-brand-warmgrey p-6 rounded-2xl border border-stone-200/80 space-y-3">
-                        <div class="flex text-amber-500">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-xs text-stone-600 italic leading-relaxed">
-                            "Placeholder review text expressing satisfaction regarding crunch, packaging, taste quality, and fast shipping experience."
-                        </p>
-                        <div class="pt-2 border-t border-stone-200 text-xs font-semibold text-stone-500">
-                            Verified Buyer (Placeholder)
-                        </div>
-                    </div>
-                    <div class="bg-brand-warmgrey p-6 rounded-2xl border border-stone-200/80 space-y-3">
-                        <div class="flex text-amber-500">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-xs text-stone-600 italic leading-relaxed">
-                            "Placeholder review content highlighting authentic spice blend, crisp texture, and premium product presentation."
-                        </p>
-                        <div class="pt-2 border-t border-stone-200 text-xs font-semibold text-stone-500">
-                            Verified Buyer (Placeholder)
-                        </div>
-                    </div>
-                    <div class="bg-brand-warmgrey p-6 rounded-2xl border border-stone-200/80 space-y-3">
-                        <div class="flex text-amber-500">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-xs text-stone-600 italic leading-relaxed">
-                            "Placeholder evaluation regarding consistent traditional recipe execution, clean seal, and repeated family purchase."
-                        </p>
-                        <div class="pt-2 border-t border-stone-200 text-xs font-semibold text-stone-500">
-                            Verified Buyer (Placeholder)
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 15. CALL TO ACTION -->
-        <section class="py-20 bg-brand-maroon text-white relative overflow-hidden">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
-                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-brand-gold">Love Authentic Taste?</h2>
-                <p class="text-stone-200 max-w-2xl mx-auto text-base sm:text-lg">
-                    Bring home the rich legacy of real traditional flavors or partner with us to distribute Kawad Swad products across regions.
-                </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                    <a href="#" class="w-full sm:w-auto bg-brand-gold hover:bg-amber-400 text-stone-900 font-bold px-8 py-4 rounded-xl transition-colors shadow-lg">
-                        Shop More
-                    </a>
-                    <a href="#" class="w-full sm:w-auto border-2 border-white hover:bg-white hover:text-brand-maroon font-bold px-8 py-4 rounded-xl transition-colors">
+        <!-- ==========================================
+             SECTION 10: BUSINESS CTA
+             ========================================== -->
+        <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-8 leading-tight">
+                    Interested in Bulk Orders?
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">
                         Become Distributor
+                    </a>
+                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">
+                        Wholesale Enquiry
+                    </a>
+                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-brand-gold text-brand-gold font-semibold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
+                        Private Label
                     </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- 16. FOOTER (EXISTING FOOTER PLACEHOLDER) -->
-    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div class="space-y-3">
-                    <div class="flex items-center gap-3">
-                        <div class="w-8 h-8 rounded-full bg-brand-maroon flex items-center justify-center text-brand-gold font-serif text-sm font-bold border border-brand-gold">
-                            KS
-                        </div>
-                        <span class="font-serif text-xl font-bold text-white tracking-tight">KAWAD SWAD</span>
-                    </div>
-                    <p class="text-xs text-stone-400 leading-relaxed">
-                        Delivering traditional taste crafted with high hygiene standards and uncompromised quality ingredients.
+    <!-- ==========================================
+         SECTION 11: FOOTER (REUSED FOOTER)
+         ========================================== -->
+    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4 md:col-span-1">
+                    <span class="font-serif text-xl font-bold text-white tracking-wider">KAWAD SWAD</span>
+                    <p class="text-xs text-stone-500 leading-relaxed">
+                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar.
                     </p>
                 </div>
+
+                <!-- Quick Links -->
                 <div>
-                    <h3 class="text-white text-sm font-semibold mb-3">Quick Links</h3>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Products</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Distributor Enquiry</a></li>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
+                        <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
                     </ul>
                 </div>
+
+                <!-- Business Links -->
                 <div>
-                    <h3 class="text-white text-sm font-semibold mb-3">Legal Information</h3>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Shipping & Returns</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">FSSAI License</a></li>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Process</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Opportunities</a></li>
+                        <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
+                        <li><a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a></li>
+                        <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
                     </ul>
                 </div>
+
+                <!-- Contact Info -->
                 <div>
-                    <h3 class="text-white text-sm font-semibold mb-3">Get In Touch</h3>
-                    <p class="text-xs text-stone-400 leading-relaxed">
-                        Customer Care Support & Business Inquiries<br>
-                        Email: info@kawadswad.com
-                    </p>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Contact</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+                        <li class="text-stone-500">Nimar Region, Madhya Pradesh, India</li>
+                    </ul>
                 </div>
+
             </div>
-            <div class="border-t border-stone-800 pt-6 text-center text-xs text-stone-500">
-                &copy; 2026 KAWAD SWAD. All Rights Reserved.
+
+            <div class="mt-12 pt-8 border-t border-stone-900 text-center text-xs text-stone-600">
+                <p>&copy; KAWAD SWAD. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Interactive Scripts -->
-    <script>
-        // Lucide Icons Initialization
-        lucide.createIcons();
-
-        // Image Gallery Switcher
-        function changeImage(src) {
-            document.getElementById('mainProductImage').src = src;
-        }
-
-        // Quantity Counter
-        function updateQuantity(change) {
-            const qtyElement = document.getElementById('quantityVal');
-            let currentQty = parseInt(qtyElement.innerText);
-            currentQty += change;
-            if (currentQty < 1) currentQty = 1;
-            qtyElement.innerText = currentQty;
-        }
-
-        // Weight Selector UI State
-        function selectWeight(selectedBtn) {
-            const buttons = document.querySelectorAll('.weight-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-brand-maroon', 'text-white', 'border-brand-maroon');
-                btn.classList.add('border-stone-200', 'text-stone-700');
-            });
-            selectedBtn.classList.remove('border-stone-200', 'text-stone-700');
-            selectedBtn.classList.add('bg-brand-maroon', 'text-white', 'border-brand-maroon');
-        }
-    </script>
 </body>
 </html>

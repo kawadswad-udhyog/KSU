@@ -1,0 +1,12 @@
+# KAWAD SWAD - Search Engine Robots Configuration
+User-agent: *
+Allow: /
+
+# Disallow Private & Checkout Pages
+Disallow: /cart.html
+Disallow: /checkout.html
+Disallow: /order-success.html
+Disallow: /components/
+
+# Sitemap Location
+Sitemap: https://kawadswad.com/sitemap.xml

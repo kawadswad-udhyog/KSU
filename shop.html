@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | KAWAD SWAD</title>
+    <meta name="description" content="Shop authentic Jain Papads directly from KAWAD SWAD. Explore Moong, Chana, Urad, and Papad Masala.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
+
+    <!-- STICKY HEADER -->
+    <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">
+                    KAWAD SWAD
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
+                <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
+                <a href="shop.html" class="text-brand-gold font-semibold transition-colors">Shop</a>
+                <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
+                <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
+                <a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a>
+                <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
+                <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
+            </nav>
+
+            <a href="cart.html" class="relative text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Cart">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                </svg>
+                <span class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- HERO -->
+        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-12 lg:py-16 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 slide-up">
+                <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
+                    Direct Store
+                </span>
+                <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark">
+                    Shop Premium Jain Papads
+                </h1>
+                <p class="text-sm sm:text-base text-brand-muted max-w-xl mx-auto font-light leading-relaxed">
+                    Select authentic Nimar recipes delivered directly to your doorstep.
+                </p>
+            </div>
+        </section>
+
+        <!-- SEARCH & FILTER BAR -->
+        <section class="py-8 bg-white border-b border-stone-200/80 sticky top-20 z-40 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+                <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+                    <!-- Search -->
+                    <div class="w-full lg:w-96 relative">
+                        <input type="text" placeholder="Search shop..." class="w-full bg-brand-cream/50 border border-stone-300 rounded-sm py-2.5 pl-10 pr-4 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                        <svg class="w-4 h-4 text-brand-muted absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wider">
+                        <button type="button" class="px-4 py-2 bg-brand-dark text-white rounded-sm border border-brand-dark">All</button>
+                        <button type="button" class="px-4 py-2 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold">Moong</button>
+                        <button type="button" class="px-4 py-2 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold">Chana</button>
+                        <button type="button" class="px-4 py-2 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold">Urad</button>
+                        <button type="button" class="px-4 py-2 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold">Masala</button>
+                    </div>
+
+                    <!-- Sorting -->
+                    <div class="w-full lg:w-auto flex items-center gap-2 text-xs font-semibold uppercase tracking-wider">
+                        <span class="text-brand-muted shrink-0">Sort By:</span>
+                        <select class="w-full lg:w-auto bg-brand-cream/50 border border-stone-300 rounded-sm py-2 px-3 text-brand-dark focus:outline-none focus:border-brand-gold text-xs">
+                            <option>Default</option>
+                            <option>Name (A-Z)</option>
+                            <option>Popularity</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUCT GRID -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Product 1 -->
+                    <div class="bg-brand-cream/40 rounded-sm p-5 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform">
+                            <span class="text-xs font-mono text-brand-muted">[shop-product-placeholder-1]</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">[Product Name Placeholder]</h3>
+                        <p class="text-xs text-brand-muted mb-3 flex-grow">[One line editable product description]</p>
+                        <div class="mb-4">
+                            <span class="block text-[10px] font-semibold uppercase tracking-wider text-brand-gold mb-1">Select Size</span>
+                            <select class="w-full bg-white border border-stone-300 rounded-xs py-1.5 px-2 text-xs text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <option>200g - [Price Placeholder]</option>
+                                <option>500g - [Price Placeholder]</option>
+                                <option>1000g - [Price Placeholder]</option>
+                            </select>
+                        </div>
+                        <a href="cart.html" class="w-full text-center py-2.5 px-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold transition-colors">
+                            Add To Cart
+                        </a>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="bg-brand-cream/40 rounded-sm p-5 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform">
+                            <span class="text-xs font-mono text-brand-muted">[shop-product-placeholder-2]</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">[Product Name Placeholder]</h3>
+                        <p class="text-xs text-brand-muted mb-3 flex-grow">[One line editable product description]</p>
+                        <div class="mb-4">
+                            <span class="block text-[10px] font-semibold uppercase tracking-wider text-brand-gold mb-1">Select Size</span>
+                            <select class="w-full bg-white border border-stone-300 rounded-xs py-1.5 px-2 text-xs text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <option>200g - [Price Placeholder]</option>
+                                <option>500g - [Price Placeholder]</option>
+                                <option>1000g - [Price Placeholder]</option>
+                            </select>
+                        </div>
+                        <a href="cart.html" class="w-full text-center py-2.5 px-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold transition-colors">
+                            Add To Cart
+                        </a>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="bg-brand-cream/40 rounded-sm p-5 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform">
+                            <span class="text-xs font-mono text-brand-muted">[shop-product-placeholder-3]</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">[Product Name Placeholder]</h3>
+                        <p class="text-xs text-brand-muted mb-3 flex-grow">[One line editable product description]</p>
+                        <div class="mb-4">
+                            <span class="block text-[10px] font-semibold uppercase tracking-wider text-brand-gold mb-1">Select Size</span>
+                            <select class="w-full bg-white border border-stone-300 rounded-xs py-1.5 px-2 text-xs text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <option>200g - [Price Placeholder]</option>
+                                <option>500g - [Price Placeholder]</option>
+                                <option>1000g - [Price Placeholder]</option>
+                            </select>
+                        </div>
+                        <a href="cart.html" class="w-full text-center py-2.5 px-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold transition-colors">
+                            Add To Cart
+                        </a>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="bg-brand-cream/40 rounded-sm p-5 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform">
+                            <span class="text-xs font-mono text-brand-muted">[shop-product-placeholder-4]</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">[Product Name Placeholder]</h3>
+                        <p class="text-xs text-brand-muted mb-3 flex-grow">[One line editable product description]</p>
+                        <div class="mb-4">
+                            <span class="block text-[10px] font-semibold uppercase tracking-wider text-brand-gold mb-1">Select Size</span>
+                            <select class="w-full bg-white border border-stone-300 rounded-xs py-1.5 px-2 text-xs text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <option>200g - [Price Placeholder]</option>
+                                <option>500g - [Price Placeholder]</option>
+                                <option>1000g - [Price Placeholder]</option>
+                            </select>
+                        </div>
+                        <a href="cart.html" class="w-full text-center py-2.5 px-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold transition-colors">
+                            Add To Cart
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PAGINATION UI -->
+                <div class="mt-16 flex justify-center items-center gap-2 text-xs font-semibold uppercase tracking-wider">
+                    <button class="px-4 py-2 border border-stone-300 rounded-sm text-brand-muted hover:border-brand-gold">Prev</button>
+                    <button class="px-4 py-2 bg-brand-dark text-white rounded-sm">1</button>
+                    <button class="px-4 py-2 border border-stone-300 rounded-sm text-brand-muted hover:border-brand-gold">2</button>
+                    <button class="px-4 py-2 border border-stone-300 rounded-sm text-brand-muted hover:border-brand-gold">Next</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- REUSED FOOTER -->
+    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div class="space-y-4 md:col-span-1">
+                    <span class="font-serif text-xl font-bold text-white tracking-wider">KAWAD SWAD</span>
+                    <p class="text-xs text-stone-500 leading-relaxed">
+                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
+                        <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Process</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Opportunities</a></li>
+                        <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
+                        <li><a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a></li>
+                        <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Contact</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+                        <li class="text-stone-500">Nimar Region, Madhya Pradesh, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-stone-900 text-center text-xs text-stone-600">
+                <p>&copy; KAWAD SWAD. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

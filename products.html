@@ -1,690 +1,663 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | KAWAD SWAD</title>
-    <meta name="description" content="Explore the complete range of authentic Jain papads including Moong, Chana, Urad and Papad Masala by Kawad Swad.">
-    <!-- Tailwind CSS CDN -->
+    <meta name="description" content="Explore the complete range of KAWAD SWAD premium Jain papads including Moong, Chana, Urad and Papad Masala.">
+    
+    <!-- Tailwind CSS CDN with custom design tokens matching index.html and about.html -->
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="font-sans antialiased bg-stone-50 text-stone-800">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- 1. HEADER (Existing Header Architecture) -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200">
+    <!-- CSS Animation Utilities -->
+    <style>
+        .fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .slide-up {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
+
+    <!-- ==========================================
+         STICKY HEADER (REUSED NAV)
+         ========================================== -->
+    <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2">
-                <span class="text-2xl font-bold tracking-tight text-amber-900">KAWAD SWAD</span>
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">
+                    KAWAD SWAD
+                </span>
             </a>
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-stone-700">
-                <a href="index.html" class="hover:text-amber-800 transition">Home</a>
-                <a href="about.html" class="hover:text-amber-800 transition">About Us</a>
-                <a href="products.html" class="text-amber-900 font-bold border-b-2 border-amber-800 pb-1">Products</a>
-                <a href="business.html" class="hover:text-amber-800 transition">Business / Bulk</a>
-                <a href="faq.html" class="hover:text-amber-800 transition">FAQs</a>
-                <a href="contact.html" class="hover:text-amber-800 transition">Contact</a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
+                <a href="products.html" class="text-brand-gold font-semibold transition-colors">Products</a>
+                <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
+                <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
+                <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
+                <a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a>
+                <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
+                <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
             </nav>
-            <div class="hidden md:flex items-center">
-                <a href="business.html" class="bg-amber-800 hover:bg-amber-900 text-white text-sm font-semibold px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transition">
-                    Bulk Enquiry
-                </a>
-            </div>
-            <!-- Mobile Menu Toggle -->
-            <button class="md:hidden text-stone-700 focus:outline-none" aria-label="Toggle Navigation">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button type="button" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
             </button>
         </div>
     </header>
 
-    <main>
-        <!-- 2. HERO SECTION -->
-        <section class="relative bg-gradient-to-b from-amber-900 via-amber-950 to-stone-900 text-white py-20 lg:py-28 overflow-hidden">
-            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <!-- Breadcrumb -->
-                <nav class="flex justify-center items-center text-xs sm:text-sm font-medium text-amber-200/80 mb-6 tracking-wide">
-                    <a href="index.html" class="hover:text-white transition">Home</a>
-                    <span class="mx-2 text-amber-400/50">></span>
-                    <span class="text-amber-100 font-semibold">Products</span>
-                </nav>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold tracking-tight text-amber-50 mb-6">
-                    Our Products
-                </h1>
-                <p class="max-w-3xl mx-auto text-base sm:text-lg lg:text-xl text-stone-300 font-light leading-relaxed">
-                    Explore the complete range of authentic Jain papads and papad masala crafted with quality ingredients and traditional recipes.
-                </p>
-            </div>
-        </section>
-
-        <!-- 3. CATEGORY NAVIGATION -->
-        <section class="py-16 bg-white">
+    <main class="flex-grow">
+        <!-- ==========================================
+             SECTION 1: HERO BANNER
+             ========================================== -->
+        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Explore by Category</h2>
-                    <div class="w-16 h-1 bg-amber-800 mx-auto mt-3 rounded-full"></div>
+                <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
+                        Authentic Catalogue
+                    </span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
+                        Our Products
+                    </h1>
+                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
+                        Discover our complete range of authentic Jain papads and seasonings crafted with premium ingredients.
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="shop.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
+                            Shop Now
+                        </a>
+                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
+                            Business Enquiry
+                        </a>
+                    </div>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Moong Papad -->
-                    <div class="bg-stone-50 rounded-2xl p-6 border border-stone-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                        <div>
-                            <div class="w-full h-48 bg-stone-200 rounded-xl overflow-hidden mb-6 flex items-center justify-center border border-stone-200">
-                                <img src="assets/categories/moong-papad.jpg" alt="Moong Papad" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            </div>
-                            <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Moong Papad</h3>
-                            <p class="text-sm text-stone-600 mb-6 leading-relaxed">Light, crisp, and crafted with finest moong dal and rich traditional spices.</p>
-                        </div>
-                        <a href="#moong-series" class="inline-flex items-center justify-center w-full py-3 px-4 rounded-xl border border-amber-800 text-amber-900 font-semibold text-sm hover:bg-amber-800 hover:text-white transition duration-200">
-                            Explore Series
-                        </a>
-                    </div>
 
-                    <!-- Chana Papad -->
-                    <div class="bg-stone-50 rounded-2xl p-6 border border-stone-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                        <div>
-                            <div class="w-full h-48 bg-stone-200 rounded-xl overflow-hidden mb-6 flex items-center justify-center border border-stone-200">
-                                <img src="assets/categories/chana-papad.jpg" alt="Chana Papad" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            </div>
-                            <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Chana Papad</h3>
-                            <p class="text-sm text-stone-600 mb-6 leading-relaxed">Hearty and crunch-filled papads featuring distinct flavors and mouth-watering blends.</p>
-                        </div>
-                        <a href="#chana-series" class="inline-flex items-center justify-center w-full py-3 px-4 rounded-xl border border-amber-800 text-amber-900 font-semibold text-sm hover:bg-amber-800 hover:text-white transition duration-200">
-                            Explore Series
-                        </a>
-                    </div>
-
-                    <!-- Urad Papad -->
-                    <div class="bg-stone-50 rounded-2xl p-6 border border-stone-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                        <div>
-                            <div class="w-full h-48 bg-stone-200 rounded-xl overflow-hidden mb-6 flex items-center justify-center border border-stone-200">
-                                <img src="assets/categories/urad-papad.jpg" alt="Urad Papad" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            </div>
-                            <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Urad Papad</h3>
-                            <p class="text-sm text-stone-600 mb-6 leading-relaxed">Classic robust papads seasoned expertly for an authentic regional experience.</p>
-                        </div>
-                        <a href="#urad-series" class="inline-flex items-center justify-center w-full py-3 px-4 rounded-xl border border-amber-800 text-amber-900 font-semibold text-sm hover:bg-amber-800 hover:text-white transition duration-200">
-                            Explore Series
-                        </a>
-                    </div>
-
-                    <!-- Papad Masala -->
-                    <div class="bg-stone-50 rounded-2xl p-6 border border-stone-200/80 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                        <div>
-                            <div class="w-full h-48 bg-stone-200 rounded-xl overflow-hidden mb-6 flex items-center justify-center border border-stone-200">
-                                <img src="assets/categories/papad-masala.jpg" alt="Papad Masala" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                            </div>
-                            <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Papad Masala</h3>
-                            <p class="text-sm text-stone-600 mb-6 leading-relaxed">Our signature aromatic spice mix formulated for pristine authentic flavor.</p>
-                        </div>
-                        <a href="#masala-series" class="inline-flex items-center justify-center w-full py-3 px-4 rounded-xl border border-amber-800 text-amber-900 font-semibold text-sm hover:bg-amber-800 hover:text-white transition duration-200">
-                            Explore Series
-                        </a>
-                    </div>
+                <!-- Large Editable Banner Placeholder -->
+                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
+                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[products-hero-banner-placeholder]</span>
                 </div>
             </div>
         </section>
 
-        <!-- 4. PRODUCT GRID -->
-        <section class="py-20 bg-stone-100">
+        <!-- ==========================================
+             SECTION 2: SEARCH & FILTER (UI ONLY)
+             ========================================== -->
+        <section class="py-10 bg-white border-b border-stone-200/80 sticky top-20 z-40 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+                <!-- Search Bar -->
+                <div class="max-w-xl mx-auto relative">
+                    <input type="text" placeholder="Search products..." class="w-full bg-brand-cream/50 border border-stone-300 rounded-sm py-3.5 pl-12 pr-4 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                    <svg class="w-5 h-5 text-brand-muted absolute left-4 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-semibold uppercase tracking-wider">
+                    <button type="button" class="px-5 py-2.5 bg-brand-dark text-white rounded-sm border border-brand-dark transition-colors">All</button>
+                    <button type="button" class="px-5 py-2.5 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold transition-colors">Moong</button>
+                    <button type="button" class="px-5 py-2.5 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold transition-colors">Chana</button>
+                    <button type="button" class="px-5 py-2.5 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold transition-colors">Urad</button>
+                    <button type="button" class="px-5 py-2.5 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold transition-colors">Papad Masala</button>
+                    <button type="button" class="px-5 py-2.5 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold transition-colors">Combo Packs</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 3: CATEGORIES
+             ========================================== -->
+        <section class="py-16 bg-brand-cream border-b border-brand-gold/10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <!-- MOONG SERIES -->
-                <div id="moong-series" class="mb-20 scroll-mt-24">
-                    <div class="border-b border-stone-300 pb-4 mb-10 flex items-center justify-between">
-                        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Moong Series</h2>
-                        <span class="text-sm text-stone-500 font-medium">7 Products</span>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                        
-                        <!-- Moong Master -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/moong-master.jpg" alt="Moong Master" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Moong Master</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Our flagship traditional moong papad made with pure ingredients and balanced seasoning.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Moong Garlic -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/moong-garlic.jpg" alt="Moong Garlic" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Moong Garlic</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Crispy moong papad infused with rich, savory garlic flavor notes.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Moong Jeera -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/moong-jeera.jpg" alt="Moong Jeera" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Moong Jeera</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Aromatic cumin seeds combined with light moong base for classic digestive crunch.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Moong Pudhina -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/moong-pudhina.jpg" alt="Moong Pudhina" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Moong Pudhina</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Refreshing mint herbs blended into crisp moong dal papad structure.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Moong Green Chilli -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/moong-green-chilli.jpg" alt="Moong Green Chilli" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Moong Green Chilli</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Spicy green chilli bite paired perfectly with crisp traditional moong texture.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Moong Kasuri Methi -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/moong-kasuri-methi.jpg" alt="Moong Kasuri Methi" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Moong Kasuri Methi</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Enriched with dried fenugreek leaves for a uniquely fragrant, savory taste.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Moong Punjabi Masala -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/moong-punjabi-masala.jpg" alt="Moong Punjabi Masala" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Moong Punjabi Masala</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Robust Punjabi spice mix tailored for a peppery and memorable kick.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">Product Categories</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
 
-                <!-- CHANA SERIES -->
-                <div id="chana-series" class="mb-20 scroll-mt-24">
-                    <div class="border-b border-stone-300 pb-4 mb-10 flex items-center justify-between">
-                        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Chana Series</h2>
-                        <span class="text-sm text-stone-500 font-medium">5 Products</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <!-- Category 1: Moong Papad -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-sm hover:border-brand-gold transition-colors">
+                        <div class="aspect-square bg-stone-200 mb-4 rounded-sm flex items-center justify-center p-2">
+                            <span class="text-[10px] font-mono text-brand-muted">[category-moong-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Moong Papad</h3>
+                        <p class="text-xs text-brand-muted">Classic and spiced light moong dal varieties.</p>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                        
-                        <!-- Chana Chotu -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/chana-chotu.jpg" alt="Chana Chotu" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Chana Chotu</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Mini-sized chana papads crafted for effortless everyday snacking.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
 
-                        <!-- Chana Garlic -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/chana-garlic.jpg" alt="Chana Garlic" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Chana Garlic</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Full-bodied chana dal flavor complemented with rich garlic spice notes.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
+                    <!-- Category 2: Chana Papad -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-sm hover:border-brand-gold transition-colors">
+                        <div class="aspect-square bg-stone-200 mb-4 rounded-sm flex items-center justify-center p-2">
+                            <span class="text-[10px] font-mono text-brand-muted">[category-chana-placeholder]</span>
                         </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Chana Papad</h3>
+                        <p class="text-xs text-brand-muted">Crispy, wholesome chana dal papads.</p>
+                    </div>
 
-                        <!-- Chana Khata Mitha -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/chana-khata-mitha.jpg" alt="Chana Khata Mitha" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Chana Khata Mitha</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">A delightful sweet and tangy profile built on a hearty chana base.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
+                    <!-- Category 3: Urad Papad -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-sm hover:border-brand-gold transition-colors">
+                        <div class="aspect-square bg-stone-200 mb-4 rounded-sm flex items-center justify-center p-2">
+                            <span class="text-[10px] font-mono text-brand-muted">[category-urad-placeholder]</span>
                         </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Urad Papad</h3>
+                        <p class="text-xs text-brand-muted">Traditional rich urad dal crispies.</p>
+                    </div>
 
-                        <!-- Chana Tomato -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/chana-tomato.jpg" alt="Chana Tomato" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Chana Tomato</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Zesty tomato flavor combined with satisfyingly crisp chana papad.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
+                    <!-- Category 4: Papad Masala -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-sm hover:border-brand-gold transition-colors">
+                        <div class="aspect-square bg-stone-200 mb-4 rounded-sm flex items-center justify-center p-2">
+                            <span class="text-[10px] font-mono text-brand-muted">[category-masala-placeholder]</span>
                         </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Papad Masala</h3>
+                        <p class="text-xs text-brand-muted">Signature spice blends and seasonings.</p>
+                    </div>
 
-                        <!-- Chana Punjabi Masala -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/chana-punjabi-masala.jpg" alt="Chana Punjabi Masala" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Chana Punjabi Masala</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Richly seasoned with North-Indian spices for a bold, fiery flavor.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
+                    <!-- Category 5: Combo Packs -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-sm hover:border-brand-gold transition-colors">
+                        <div class="aspect-square bg-stone-200 mb-4 rounded-sm flex items-center justify-center p-2">
+                            <span class="text-[10px] font-mono text-brand-muted">[category-combo-placeholder]</span>
                         </div>
-
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Combo Packs</h3>
+                        <p class="text-xs text-brand-muted">Curated assortments for family and gifting.</p>
                     </div>
                 </div>
-
-                <!-- URAD SERIES -->
-                <div id="urad-series" class="mb-20 scroll-mt-24">
-                    <div class="border-b border-stone-300 pb-4 mb-10 flex items-center justify-between">
-                        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Urad Series</h2>
-                        <span class="text-sm text-stone-500 font-medium">2 Products</span>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                        
-                        <!-- Urad Guru -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/urad-guru.jpg" alt="Urad Guru" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Urad Guru</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Traditional urad dal papad crafted with high precision and rich black pepper notes.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Urad Garlic -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/urad-garlic.jpg" alt="Urad Garlic" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Urad Garlic</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Pungent garlic flavor combined with smooth, crisp urad dal dough.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- MASALA -->
-                <div id="masala-series" class="scroll-mt-24">
-                    <div class="border-b border-stone-300 pb-4 mb-10 flex items-center justify-between">
-                        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Papad Masala</h2>
-                        <span class="text-sm text-stone-500 font-medium">1 Product</span>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                        
-                        <!-- Papad Masala -->
-                        <div class="bg-white rounded-2xl p-5 border border-stone-200/70 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
-                            <div>
-                                <div class="w-full h-56 bg-stone-100 rounded-xl overflow-hidden mb-5 border border-stone-200/60 flex items-center justify-center">
-                                    <img src="assets/products/papad-masala.jpg" alt="Papad Masala" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                                </div>
-                                <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Papad Masala</h3>
-                                <p class="text-sm text-stone-600 mb-4 leading-relaxed">Authentic, proprietary spice blend crafted specifically for perfect papad manufacturing.</p>
-                            </div>
-                            <div>
-                                <div class="mb-5">
-                                    <span class="text-xs font-semibold uppercase tracking-wider text-stone-400 block mb-2">Available Sizes</span>
-                                    <div class="flex gap-2">
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">200g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">500g</span>
-                                        <span class="px-2.5 py-1 text-xs font-medium bg-stone-100 text-stone-700 rounded-md border border-stone-200">1000g</span>
-                                    </div>
-                                </div>
-                                <a href="product-detail.html" class="block w-full text-center py-2.5 px-4 rounded-xl bg-amber-800 hover:bg-amber-900 text-white font-semibold text-sm shadow-sm transition">
-                                    View Details
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- 5. WHY CHOOSE KAWAD SWAD -->
+        <!-- ==========================================
+             SECTION 4: COMPLETE PRODUCT CATALOGUE
+             ========================================== -->
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Why Choose Kawad Swad</h2>
-                    <p class="text-stone-600 mt-2 text-sm sm:text-base">Uncompromising commitment to quality, taste, and tradition.</p>
-                    <div class="w-16 h-1 bg-amber-800 mx-auto mt-4 rounded-full"></div>
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Complete Catalogue</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    
+                    <!-- Product 1 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[moong-master-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Moong Master Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Moong Master Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[moong-garlic-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Moong Garlic Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Moong Garlic Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[moong-jeera-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Moong Jeera Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Moong Jeera Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[moong-pudhina-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Moong Pudhina Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Moong Pudhina Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[moong-green-chilli-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Moong Green Chilli Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Moong Green Chilli Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[moong-kasuri-methi-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Moong Kasuri Methi Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Moong Kasuri Methi Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[moong-punjabi-masala-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Moong Punjabi Masala Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Moong Punjabi Masala Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 8 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[chana-chotu-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Chana Chotu Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Chana Chotu Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 9 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[chana-garlic-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Chana Garlic Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Chana Garlic Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 10 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[chana-khatta-mitha-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Chana Khatta Mitha Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Chana Khatta Mitha Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 11 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[chana-tomato-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Chana Tomato Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Chana Tomato Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 12 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[chana-punjabi-masala-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Chana Punjabi Masala Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Chana Punjabi Masala Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 13 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[urad-guru-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Urad Guru Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Urad Guru Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 14 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[urad-garlic-papad-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Urad Garlic Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Urad Garlic Papad]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                    <!-- Product 15 -->
+                    <div class="bg-brand-cream/50 rounded-sm p-6 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-6 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform duration-300">
+                            <span class="text-xs font-mono text-brand-muted">[papad-masala-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Papad Masala</h3>
+                        <p class="text-xs text-brand-muted mb-4 flex-grow">[Editable description for Papad Masala]</p>
+                        <div class="mb-6">
+                            <span class="block text-[11px] font-semibold uppercase tracking-wider text-brand-gold mb-1.5">Available Sizes</span>
+                            <div class="flex gap-2">
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">200g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">500g</span>
+                                <span class="text-[10px] font-medium px-2.5 py-1 bg-white border border-stone-200 rounded-xs text-brand-dark">1000g</span>
+                            </div>
+                        </div>
+                        <a href="product-detail.html" class="w-full text-center py-2.5 px-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                            View Details
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 5: WHY CHOOSE OUR PRODUCTS
+             ========================================== -->
+        <section class="py-20 bg-brand-cream border-y border-brand-gold/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Why Our Products</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Authentic Jain Recipe -->
+                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Authentic Jain Recipe</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Formulated strictly following 100% Jain dietary guidelines without compromising authentic taste.</p>
+                    </div>
+
                     <!-- Premium Ingredients -->
-                    <div class="p-8 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm text-center">
-                        <div class="w-14 h-14 bg-amber-100 text-amber-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/>
+                            </svg>
                         </div>
-                        <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Premium Ingredients</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Sourced strictly from trusted growers ensuring purity in every batch.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Premium Ingredients</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Sourced from selected pulses and fresh ground spices to deliver maximum crunch and flavor.</p>
                     </div>
 
-                    <!-- Traditional Taste -->
-                    <div class="p-8 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm text-center">
-                        <div class="w-14 h-14 bg-amber-100 text-amber-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    <!-- Modern Manufacturing -->
+                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
                         </div>
-                        <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Traditional Taste</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Authentic Jain recipes passed down and perfected over generations.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Modern Manufacturing</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Processed in untouched, clean environments ensuring consistent high hygiene standards.</p>
                     </div>
 
-                    <!-- Hygienic Manufacturing -->
-                    <div class="p-8 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm text-center">
-                        <div class="w-14 h-14 bg-amber-100 text-amber-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    <!-- Quality Checked -->
+                    <div class="bg-white p-8 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                            </svg>
                         </div>
-                        <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Hygienic Manufacturing</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Produced in modern facilities maintaining strict sanitation standard protocols.</p>
-                    </div>
-
-                    <!-- Quality Assurance -->
-                    <div class="p-8 rounded-2xl bg-stone-50 border border-stone-200/80 shadow-sm text-center">
-                        <div class="w-14 h-14 bg-amber-100 text-amber-900 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
-                        </div>
-                        <h3 class="text-lg font-serif font-bold text-stone-900 mb-2">Quality Assurance</h3>
-                        <p class="text-sm text-stone-600 leading-relaxed">Rigorous multi-stage testing for consistency, texture, and taste.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Quality Checked</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed">Multi-stage inspection before seal and dispatch for complete customer satisfaction.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6. BUSINESS CTA -->
-        <section class="py-20 bg-stone-900 text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-amber-100 mb-4">
-                    Looking for Bulk Orders?
+        <!-- ==========================================
+             SECTION 6: BULK & BUSINESS CTA
+             ========================================== -->
+        <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-8 leading-tight">
+                    Looking for Bulk Orders or Private Label Manufacturing?
                 </h2>
-                <p class="max-w-2xl mx-auto text-stone-300 text-base sm:text-lg mb-10 font-light leading-relaxed">
-                    We supply distributors, wholesalers and private label partners across India.
-                </p>
-                <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
-                    <a href="business.html" class="bg-amber-700 hover:bg-amber-800 text-white font-semibold px-7 py-3.5 rounded-xl shadow-lg hover:shadow-amber-900/30 transition duration-200 text-sm sm:text-base">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">
                         Become Distributor
                     </a>
-                    <a href="business.html" class="bg-stone-800 hover:bg-stone-700 text-amber-100 border border-stone-700 font-semibold px-7 py-3.5 rounded-xl shadow-lg transition duration-200 text-sm sm:text-base">
+                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">
                         Wholesale Enquiry
                     </a>
-                    <a href="business.html" class="bg-stone-800 hover:bg-stone-700 text-amber-100 border border-stone-700 font-semibold px-7 py-3.5 rounded-xl shadow-lg transition duration-200 text-sm sm:text-base">
+                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-brand-gold text-brand-gold font-semibold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
                         Private Label
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. FAQ PREVIEW -->
-        <section class="py-20 bg-stone-50">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-14">
-                    <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Frequently Asked Questions</h2>
-                    <div class="w-16 h-1 bg-amber-800 mx-auto mt-3 rounded-full"></div>
-                </div>
-
-                <div class="space-y-4 mb-12">
-                    <!-- FAQ 1 -->
-                    <div class="bg-white rounded-xl p-6 border border-stone-200 shadow-sm">
-                        <h3 class="text-base sm:text-lg font-semibold text-stone-900 mb-2">Are all Kawad Swad products 100% Jain compliant?</h3>
-                        <p class="text-stone-600 text-sm leading-relaxed">Yes, all our products are strictly manufactured following Jain dietary guidelines without any root vegetables or non-compliant additives.</p>
-                    </div>
-
-                    <!-- FAQ 2 -->
-                    <div class="bg-white rounded-xl p-6 border border-stone-200 shadow-sm">
-                        <h3 class="text-base sm:text-lg font-semibold text-stone-900 mb-2">What packaging sizes are available for commercial supply?</h3>
-                        <p class="text-stone-600 text-sm leading-relaxed">We offer standard retail packs of 200g, 500g, and 1000g, along with customized bulk packaging options for commercial partners.</p>
-                    </div>
-
-                    <!-- FAQ 3 -->
-                    <div class="bg-white rounded-xl p-6 border border-stone-200 shadow-sm">
-                        <h3 class="text-base sm:text-lg font-semibold text-stone-900 mb-2">What is the shelf life of Kawad Swad papads?</h3>
-                        <p class="text-stone-600 text-sm leading-relaxed">Our papads have a shelf life of 6 to 9 months when stored in a cool, dry place away from direct sunlight.</p>
-                    </div>
-
-                    <!-- FAQ 4 -->
-                    <div class="bg-white rounded-xl p-6 border border-stone-200 shadow-sm">
-                        <h3 class="text-base sm:text-lg font-semibold text-stone-900 mb-2">How can I partner with Kawad Swad for distribution?</h3>
-                        <p class="text-stone-600 text-sm leading-relaxed">You can reach out through our Business page enquiry forms, and our sales team will connect with you within 24–48 hours.</p>
-                    </div>
-                </div>
-
-                <div class="text-center">
-                    <a href="faq.html" class="inline-flex items-center justify-center border-2 border-amber-800 text-amber-900 hover:bg-amber-800 hover:text-white font-semibold px-8 py-3 rounded-xl transition duration-200 text-sm">
-                        View All FAQs
                     </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- 8. FOOTER (Existing Footer Architecture) -->
-    <footer class="bg-stone-950 text-stone-400 py-16 border-t border-stone-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-                <div class="space-y-4">
-                    <span class="text-2xl font-bold tracking-tight text-white block">KAWAD SWAD</span>
-                    <p class="text-xs text-stone-400 leading-relaxed">
-                        Crafting authentic Jain papads and premium papad masala with uncompromised quality and traditional recipes.
+    <!-- ==========================================
+         SECTION 7: FOOTER (REUSED FOOTER)
+         ========================================== -->
+    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4 md:col-span-1">
+                    <span class="font-serif text-xl font-bold text-white tracking-wider">KAWAD SWAD</span>
+                    <p class="text-xs text-stone-500 leading-relaxed">
+                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar.
                     </p>
                 </div>
+
+                <!-- Quick Links -->
                 <div>
-                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="index.html" class="hover:text-amber-400 transition">Home</a></li>
-                        <li><a href="about.html" class="hover:text-amber-400 transition">About Us</a></li>
-                        <li><a href="products.html" class="hover:text-amber-400 transition">Products</a></li>
-                        <li><a href="business.html" class="hover:text-amber-400 transition">Business Opportunities</a></li>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
+                        <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
                     </ul>
                 </div>
+
+                <!-- Business Links -->
                 <div>
-                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Support & Information</h4>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="faq.html" class="hover:text-amber-400 transition">FAQs</a></li>
-                        <li><a href="contact.html" class="hover:text-amber-400 transition">Contact Us</a></li>
-                        <li><a href="privacy-policy.html" class="hover:text-amber-400 transition">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:text-amber-400 transition">Terms & Conditions</a></li>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Process</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Opportunities</a></li>
+                        <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
+                        <li><a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a></li>
+                        <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
                     </ul>
                 </div>
+
+                <!-- Contact Info -->
                 <div>
-                    <h4 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Contact Info</h4>
-                    <p class="text-xs text-stone-400 leading-relaxed mb-2">India</p>
-                    <p class="text-xs text-stone-400">Email: info@kawadswad.com</p>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Contact</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+                        <li class="text-stone-500">Nimar Region, Madhya Pradesh, India</li>
+                    </ul>
                 </div>
+
             </div>
-            <div class="border-t border-stone-800 pt-8 text-center text-xs text-stone-500">
-                &copy; Kawad Swad. All rights reserved.
+
+            <div class="mt-12 pt-8 border-t border-stone-900 text-center text-xs text-stone-600">
+                <p>&copy; KAWAD SWAD. All rights reserved.</p>
             </div>
         </div>
     </footer>

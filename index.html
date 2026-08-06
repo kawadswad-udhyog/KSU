@@ -94,7 +94,7 @@
             <!-- Navigation Links -->
             <div class="hidden lg:flex items-center gap-8 text-xs uppercase tracking-wider text-brand-textSecondary font-medium">
                 <a href="#catalogue" class="hover:text-brand-accent transition">Products</a>
-                <a href="#flash-sale" class="hover:text-brand-accent transition flex items-center gap-1 text-brand-danger font-bold"><i data-lucide="zap" class="w-3.5 h-3.5 fill-brand-danger"></i> Flash Sale</a>
+                <a href="flash-sale.html" class="hover:text-brand-accent transition flex items-center gap-1 text-brand-danger font-bold"><i data-lucide="zap" class="w-3.5 h-3.5 fill-brand-danger"></i> Flash Sale</a>
                 <a href="about.html" class="hover:text-brand-accent transition">Our Story</a>
                 <a href="reviews.html" class="hover:text-brand-accent transition">Reviews</a>
                 <a href="distributor.html" class="hover:text-brand-accent transition text-brand-accent font-bold">Distributor Hub</a>
@@ -124,7 +124,7 @@
         <div id="mobile-menu" class="hidden lg:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
             <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
                 <a href="#catalogue" onclick="toggleMobileMenu()" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Products</a>
-                <a href="#flash-sale" onclick="toggleMobileMenu()" class="p-3 bg-brand-surface rounded-xl text-brand-danger flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> Flash Sale</a>
+                <a href="flash-sale.html" class="p-3 bg-brand-surface rounded-xl text-brand-danger flex items-center gap-2"><i data-lucide="zap" class="w-4 h-4"></i> Flash Sale</a>
                 <a href="about.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4"></i> Our Story</a>
                 <a href="reviews.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="star" class="w-4 h-4"></i> Reviews</a>
                 <a href="distributor.html" class="p-3 bg-brand-surface rounded-xl text-brand-accent flex items-center gap-2"><i data-lucide="truck" class="w-4 h-4"></i> Distributor Hub</a>
@@ -161,7 +161,7 @@
                         <a href="#catalogue" class="bg-brand-accent text-black font-heading font-extrabold px-8 py-4 rounded-2xl text-xs hover:bg-brand-accentLight transition flex items-center justify-center gap-2 shadow-lg shadow-brand-accent/20">
                             <i data-lucide="shopping-bag" class="w-4 h-4"></i> Shop Fresh Batch
                         </a>
-                        <a href="#flash-sale" class="glass-card text-white font-heading font-bold px-8 py-4 rounded-2xl text-xs hover:border-brand-danger transition flex items-center justify-center gap-2">
+                        <a href="flash-sale.html" class="glass-card text-white font-heading font-bold px-8 py-4 rounded-2xl text-xs hover:border-brand-danger transition flex items-center justify-center gap-2">
                             <i data-lucide="zap" class="w-4 h-4 text-brand-danger fill-brand-danger"></i> View Flash Deals
                         </a>
                     </div>
@@ -418,7 +418,7 @@
                 <span class="font-heading text-xs font-bold text-white block uppercase tracking-wider">Quick Navigation</span>
                 <ul class="space-y-1.5">
                     <li><a href="#catalogue" class="hover:text-white transition">Full Catalogue</a></li>
-                    <li><a href="#flash-sale" class="hover:text-white transition">Flash Sale Deals</a></li>
+                    <li><a href="flash-sale.html" class="hover:text-white transition">Flash Sale Deals</a></li>
                     <li><a href="about.html" class="hover:text-white transition">Katargaon Heritage</a></li>
                     <li><a href="reviews.html" class="hover:text-white transition">Customer Reviews</a></li>
                     <li><a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-pink-400 hover:text-pink-300 transition">Meesho Store ↗</a></li>
@@ -651,8 +651,12 @@
             document.getElementById(`add-btn-${cardIdx}`).setAttribute('onclick', `addToCartBySku('${product.id}')`);
         }
 
-        // 5. CART STATE & DRAWER MANAGEMENT
-        let cart = [];
+        // 5. CART STATE & LOCALSTORAGE PERSISTENCE MANAGEMENT
+        let cart = JSON.parse(localStorage.getItem('ks_cart')) || [];
+
+        function saveCart() {
+            localStorage.setItem('ks_cart', JSON.stringify(cart));
+        }
 
         function addToCartBySku(skuId) {
             const p = KAWAD_PRODUCTS.find(item => item.id === skuId);
@@ -664,6 +668,8 @@
             } else {
                 cart.push({ ...p, qty: 1 });
             }
+
+            saveCart();
             showToast(`Added ${p.title} (${p.weight}) to cart!`);
             renderCart();
             toggleCartDrawer();
@@ -752,6 +758,7 @@
         function updateQty(index, change) {
             cart[index].qty += change;
             if (cart[index].qty <= 0) cart.splice(index, 1);
+            saveCart();
             renderCart();
         }
 
@@ -782,9 +789,10 @@
             showToast('Wishlist updated!');
         }
 
-        // INITIALIZE CATALOG ON PAGE LOAD
+        // INITIALIZE CATALOG AND CART ON PAGE LOAD
         document.addEventListener('DOMContentLoaded', () => {
             renderStoreCatalog('all');
+            renderCart();
         });
     </script>
 </body>

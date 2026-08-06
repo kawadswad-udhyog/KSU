@@ -6,30 +6,8 @@
     <title>Contact Us | KAWAD SWAD</title>
     <meta name="description" content="Contact KAWAD SWAD for product enquiries, distributorship, wholesale supply and private label manufacturing.">
     
-    <!-- Tailwind CSS CDN with custom design tokens -->
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,35 +24,8 @@
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- GLOBAL HEADER -->
-    <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 group">
-                <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">
-                    KAWAD SWAD
-                </span>
-            </a>
-
-            <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide">
-                <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
-                <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
-                <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
-                <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
-                <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
-                <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
-                <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
-                <a href="blog.html" class="hover:text-brand-gold transition-colors">Blog</a>
-                <a href="contact.html" class="text-brand-gold font-semibold transition-colors">Contact</a>
-            </nav>
-
-            <div class="flex items-center space-x-4">
-                <a href="cart.html" class="relative text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Cart">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                    <span class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
-                </a>
-            </div>
-        </div>
-    </header>
+    <!-- GLOBAL REUSABLE HEADER CONTAINER -->
+    <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO -->
@@ -129,7 +80,7 @@
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
                         <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Office Address</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Kawad Swad Udhyog, Nimar Region, Madhya Pradesh, India</p>
+                        <p class="text-sm text-brand-muted leading-relaxed font-mono text-xs">[Office Address Placeholder]</p>
                     </div>
 
                     <!-- Phone -->
@@ -171,7 +122,7 @@
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
                         <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Business Hours</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Monday - Saturday: 9:00 AM - 7:00 PM (IST)</p>
+                        <p class="text-sm text-brand-muted leading-relaxed font-mono text-xs">[Business Hours Placeholder]</p>
                     </div>
 
                     <!-- Social Channels -->
@@ -205,28 +156,28 @@
                             <!-- Full Name -->
                             <div>
                                 <label for="full-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Full Name <span class="text-brand-red">*</span></label>
-                                <input type="text" id="full-name" name="full-name" required maxlength="60" placeholder="Enter your full name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
-                                <span class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your full name.</span>
+                                <input type="text" id="full-name" name="full-name" required maxlength="60" aria-describedby="err-full-name" placeholder="Enter your full name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                                <span id="err-full-name" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your full name.</span>
                             </div>
 
                             <!-- Mobile Number -->
                             <div>
                                 <label for="mobile" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Mobile Number <span class="text-brand-red">*</span></label>
-                                <input type="tel" id="mobile" name="mobile" required placeholder="10-digit Indian Mobile Number" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
-                                <span class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid 10-digit mobile number.</span>
+                                <input type="tel" id="mobile" name="mobile" required aria-describedby="err-mobile" placeholder="10-digit Indian Mobile Number" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                                <span id="err-mobile" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid 10-digit mobile number.</span>
                             </div>
 
                             <!-- Email Address -->
                             <div>
                                 <label for="email-address" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Email Address <span class="text-brand-red">*</span></label>
-                                <input type="email" id="email-address" name="email-address" required placeholder="Enter email address" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
-                                <span class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid email address.</span>
+                                <input type="email" id="email-address" name="email-address" required aria-describedby="err-email" placeholder="Enter email address" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                                <span id="err-email" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid email address.</span>
                             </div>
 
                             <!-- Subject -->
                             <div>
                                 <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Subject <span class="text-brand-red">*</span></label>
-                                <select id="subject" name="subject" required class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                                <select id="subject" name="subject" required aria-describedby="err-subject" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
                                     <option value="" disabled selected>Select Enquiry Subject</option>
                                     <option value="General Enquiry">General Enquiry</option>
                                     <option value="Product Enquiry">Product Enquiry</option>
@@ -235,23 +186,25 @@
                                     <option value="Distributor">Distributor</option>
                                     <option value="Private Label">Private Label</option>
                                 </select>
-                                <span class="error-msg text-[11px] text-brand-red hidden mt-1">Please select a subject.</span>
+                                <span id="err-subject" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please select a subject.</span>
                             </div>
                         </div>
 
                         <!-- Message -->
                         <div>
                             <label for="contact-message" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Message <span class="text-brand-red">*</span></label>
-                            <textarea id="contact-message" name="contact-message" required maxlength="1000" rows="5" placeholder="Write your message here (max 1000 characters)..." class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors"></textarea>
-                            <span class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your message.</span>
+                            <textarea id="contact-message" name="contact-message" required maxlength="1000" aria-describedby="err-message" rows="5" placeholder="Write your message here (max 1000 characters)..." class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors"></textarea>
+                            <span id="err-message" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your message.</span>
                         </div>
 
                         <!-- Checkbox -->
-                        <div class="flex items-start gap-2">
-                            <input type="checkbox" id="consent" name="consent" required class="mt-1 text-brand-gold focus:ring-brand-gold">
-                            <label for="consent" class="text-xs text-brand-muted">I agree to be contacted by Kawad Swad regarding my enquiry. <span class="text-brand-red">*</span></label>
+                        <div>
+                            <div class="flex items-start gap-2">
+                                <input type="checkbox" id="consent" name="consent" required aria-describedby="err-consent" class="mt-1 text-brand-gold focus:ring-brand-gold">
+                                <label for="consent" class="text-xs text-brand-muted">I agree to be contacted by Kawad Swad regarding my enquiry. <span class="text-brand-red">*</span></label>
+                            </div>
+                            <span id="err-consent" role="alert" aria-live="polite" class="error-msg-consent text-[11px] text-brand-red hidden block mt-1">You must agree before submitting.</span>
                         </div>
-                        <span class="error-msg-consent text-[11px] text-brand-red hidden block">You must agree before submitting.</span>
 
                         <!-- Submit Button -->
                         <div class="text-center pt-2">
@@ -260,6 +213,16 @@
                             </button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAP PLACEHOLDER -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h3 class="font-serif text-xl font-bold text-brand-dark mb-4">Location Map</h3>
+                <div class="w-full aspect-21/9 bg-stone-200/80 border border-stone-300 rounded-sm flex items-center justify-center p-6 text-center">
+                    <span class="text-xs font-mono text-brand-muted">[Google Map Placeholder]</span>
                 </div>
             </div>
         </section>
@@ -285,30 +248,8 @@
         </section>
     </main>
 
-    <!-- GLOBAL FOOTER -->
-    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-                <div class="space-y-4 lg:col-span-2">
-                    <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
-                    <p class="text-xs text-stone-500 leading-relaxed max-w-sm">
-                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar.
-                    </p>
-                    <div class="pt-2 text-xs space-y-1 text-stone-500 font-mono">
-                        <p>FSSAI Lic No: 21425890001224</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-12 pt-8 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-600 gap-4">
-                <p>&copy; KAWAD SWAD. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="https://instagram.com/kawadswad" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">Instagram</a>
-                    <a href="https://youtube.com/@kawadswadudhyog" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">YouTube</a>
-                    <a href="https://wa.me/91963097687?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">WhatsApp</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
+    <footer-component></footer-component>
 
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Product Name] | KAWAD SWAD</title>
+    <title>Product Details | KAWAD SWAD</title>
     <meta name="description" content="Premium Jain Papad by KAWAD SWAD. View ingredients, nutrition, available sizes and product details.">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -65,29 +65,11 @@
             </nav>
 
             <div class="flex items-center space-x-4">
-                <a href="products.html" class="text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Search">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                </a>
                 <a href="cart.html" class="relative text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Cart">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                     <span class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
                 </a>
-                <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                </button>
             </div>
-        </div>
-
-        <div id="mobile-menu" class="hidden lg:hidden bg-brand-cream border-b border-brand-gold/20 px-4 pt-2 pb-6 space-y-3 text-sm font-medium">
-            <a href="index.html" class="block py-2 hover:text-brand-gold transition-colors">Home</a>
-            <a href="about.html" class="block py-2 hover:text-brand-gold transition-colors">About</a>
-            <a href="products.html" class="block py-2 text-brand-gold font-semibold">Products</a>
-            <a href="shop.html" class="block py-2 hover:text-brand-gold transition-colors">Shop</a>
-            <a href="business.html" class="block py-2 hover:text-brand-gold transition-colors">Business</a>
-            <a href="manufacturing.html" class="block py-2 hover:text-brand-gold transition-colors">Manufacturing</a>
-            <a href="gallery.html" class="block py-2 hover:text-brand-gold transition-colors">Gallery</a>
-            <a href="blog.html" class="block py-2 hover:text-brand-gold transition-colors">Blog</a>
-            <a href="contact.html" class="block py-2 hover:text-brand-gold transition-colors">Contact</a>
         </div>
     </header>
 
@@ -98,14 +80,14 @@
                 <ol class="flex items-center space-x-2 text-xs text-brand-muted">
                     <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
                     <li class="text-stone-400">&gt;</li>
-                    <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
+                    <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
                     <li class="text-stone-400">&gt;</li>
-                    <li class="font-semibold text-brand-dark uppercase tracking-wider">[Product Name]</li>
+                    <li class="font-semibold text-brand-dark uppercase tracking-wider" data-detail="breadcrumb-name">Product</li>
                 </ol>
             </div>
         </nav>
 
-        <!-- PRODUCT DETAILS -->
+        <!-- PRODUCT DETAIL SECTION -->
         <section class="py-12 lg:py-16 bg-white border-b border-stone-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
@@ -113,38 +95,41 @@
                     <div class="space-y-4 fade-in">
                         <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden">
                             <svg class="w-20 h-20 text-stone-400/80 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                            <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[product-main-placeholder]</span>
-                        </div>
-                        <div class="grid grid-cols-4 gap-4">
-                            <div class="aspect-square bg-stone-200 rounded-sm border border-brand-gold flex items-center justify-center p-2 text-center"><span class="text-[9px] font-mono text-brand-muted">[thumb-1]</span></div>
-                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center"><span class="text-[9px] font-mono text-brand-muted">[thumb-2]</span></div>
-                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center"><span class="text-[9px] font-mono text-brand-muted">[thumb-3]</span></div>
-                            <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex items-center justify-center p-2 text-center"><span class="text-[9px] font-mono text-brand-muted">[thumb-4]</span></div>
+                            <span class="text-xs font-mono uppercase tracking-wider text-brand-muted" data-detail="code">KS-SKU</span>
                         </div>
                     </div>
 
-                    <!-- Meta -->
-                    <div class="space-y-8 slide-up">
+                    <!-- Meta Information -->
+                    <div class="space-y-6 slide-up">
                         <div>
-                            <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full mb-3">[Category Name]</span>
-                            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark mb-4">[Product Name]</h1>
-                            <p class="text-base text-brand-muted leading-relaxed font-light">[Editable Short Description]</p>
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full" data-detail="category">Category</span>
+                                <span class="text-xs font-semibold text-green-800 bg-green-100 px-3 py-1 rounded-full" data-detail="diet-type">100% Jain Vegetarian</span>
+                            </div>
+                            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark mb-4" data-detail="title">Product Name</h1>
+                            <p class="text-base text-brand-muted leading-relaxed font-light" data-detail="short-desc">Loading product details...</p>
                         </div>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-b border-stone-200/80 py-6 text-sm">
-                            <div class="space-y-2">
-                                <div class="flex items-center gap-2"><span class="font-semibold text-brand-dark">Category:</span><span class="text-brand-muted">[Category]</span></div>
-                                <div class="flex items-center gap-2"><span class="font-semibold text-brand-dark">Product Code:</span><span class="text-brand-muted font-mono text-xs">[code-placeholder]</span></div>
+                        <!-- Pricing -->
+                        <div class="bg-brand-cream/50 p-6 rounded-sm border border-stone-200/80 space-y-2">
+                            <div class="flex items-baseline gap-3">
+                                <span class="text-3xl font-bold text-brand-dark font-mono" data-detail="price">₹0</span>
+                                <span class="text-sm text-stone-400 line-through font-mono" data-detail="mrp">₹0</span>
                             </div>
-                            <div class="space-y-2">
-                                <div class="flex items-center gap-2"><span class="font-semibold text-brand-dark">Shelf Life:</span><span class="text-brand-muted">[shelf-life-placeholder]</span></div>
-                                <div class="flex items-center gap-2"><span class="font-semibold text-brand-dark">FSSAI Licence:</span><span class="text-brand-muted font-mono text-xs">[fssai-placeholder]</span></div>
-                            </div>
+                            <p class="text-xs text-brand-gold font-medium" data-detail="shipping">Shipping Info</p>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                            <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm">Enquire Now</a>
-                            <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">Download Catalogue</a>
+                        <!-- Actions -->
+                        <div class="flex flex-col sm:flex-row gap-4 pt-2" data-detail="actions">
+                            <!-- Injected dynamically by js/shop.js -->
+                        </div>
+
+                        <!-- Ingredients -->
+                        <div class="pt-6 border-t border-stone-200/80">
+                            <h3 class="font-serif text-xl font-bold text-brand-dark mb-4">Ingredients</h3>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-brand-muted" data-detail="ingredients">
+                                <!-- Injected dynamically -->
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -159,64 +144,19 @@
                 <div class="space-y-4 lg:col-span-2">
                     <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
                     <p class="text-xs text-stone-500 leading-relaxed max-w-sm">
-                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar. Committed to quality, hygiene and authentic flavors.
+                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar.
                     </p>
-                    <div class="pt-2 text-xs space-y-1 text-stone-500 font-mono">
-                        <p>FSSAI Lic No: [fssai-number-placeholder]</p>
-                        <p>GSTIN: [gst-number-placeholder]</p>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
-                    <ul class="space-y-2.5 text-xs">
-                        <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
-                        <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
-                        <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
-                        <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
-                        <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Media</h4>
-                    <ul class="space-y-2.5 text-xs">
-                        <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Solutions</a></li>
-                        <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
-                        <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
-                        <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Blog &amp; Recipes</a></li>
-                        <li><a href="reviews.html" class="hover:text-brand-gold transition-colors">Reviews</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Support &amp; Legal</h4>
-                    <ul class="space-y-2.5 text-xs">
-                        <li><a href="faq.html" class="hover:text-brand-gold transition-colors">FAQ</a></li>
-                        <li><a href="policies.html" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
-                        <li><a href="policies.html#terms-and-conditions" class="hover:text-brand-gold transition-colors">Terms &amp; Conditions</a></li>
-                        <li><a href="policies.html#shipping-policy" class="hover:text-brand-gold transition-colors">Shipping &amp; Returns</a></li>
-                    </ul>
                 </div>
             </div>
-
-            <div class="mt-12 pt-8 border-t border-stone-900 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                <div>
-                    <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Subscribe to Our Newsletter</h5>
-                    <p class="text-xs text-stone-500 mt-1">Receive authentic Jain recipes and business updates directly.</p>
-                </div>
-                <form onsubmit="event.preventDefault();" class="flex gap-2">
-                    <input type="email" placeholder="Enter your email" class="bg-stone-900 border border-stone-800 rounded-sm px-4 py-2 text-xs text-white focus:outline-none focus:border-brand-gold flex-grow">
-                    <button type="submit" class="px-6 py-2 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors">Subscribe</button>
-                </form>
-            </div>
-
-            <div class="mt-12 pt-8 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-600 gap-4">
+            <div class="mt-12 pt-8 border-t border-stone-900 text-center text-xs text-stone-600">
                 <p>&copy; KAWAD SWAD. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="https://wa.me/[whatsapp-placeholder]" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">WhatsApp</a>
-                    <a href="contact.html" class="hover:text-brand-gold transition-colors">Support</a>
-                </div>
             </div>
         </div>
     </footer>
 
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shop.js"></script>
 </body>
 </html>

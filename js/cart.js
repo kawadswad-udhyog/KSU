@@ -2,8 +2,8 @@
  * ============================================================================
  * KAWAD SWAD - E-Commerce LocalStorage Cart System (js/cart.js)
  * ============================================================================
- * Connected to products.json data properties, handling cart calculations,
- * item weight variants, shipping logic, and header badge updates.
+ * Reads item product data from products.json / data-attributes. Calculates
+ * subtotal, shipping directly from product definitions, and total order costs.
  */
 
 const STORAGE_KEY = 'kawad_swad_cart';
@@ -29,21 +29,20 @@ const CartManager = {
     },
 
     addItem(product) {
-        if (!product || !product.sku && !product.id) return;
+        if (!product || !product.sku) return;
 
-        const sku = product.sku || product.id;
         const items = this.getItems();
-        const existingIndex = items.findIndex(i => i.sku === sku && i.weight === product.weight);
+        const existingIndex = items.findIndex(i => i.sku === product.sku);
 
         if (existingIndex > -1) {
             items[existingIndex].quantity += (product.quantity || 1);
         } else {
             items.push({
-                sku: sku,
+                sku: product.sku,
                 name: product.name || 'Jain Papad Pack',
                 price: parseFloat(product.price) || 0,
                 weight: product.weight || '200g',
-                shipping: product.shipping || 49,
+                shipping: product.shipping || '49',
                 quantity: parseInt(product.quantity, 10) || 1
             });
         }
@@ -52,9 +51,9 @@ const CartManager = {
         this.showToastNotification(`${product.name} (${product.weight || ''}) added to cart!`);
     },
 
-    updateQuantity(sku, weight, newQty) {
+    updateQuantity(sku, newQty) {
         let items = this.getItems();
-        const index = items.findIndex(i => i.sku === sku && i.weight === weight);
+        const index = items.findIndex(i => i.sku === sku);
 
         if (index > -1) {
             if (newQty <= 0) {
@@ -66,9 +65,9 @@ const CartManager = {
         }
     },
 
-    removeItem(sku, weight) {
+    removeItem(sku) {
         let items = this.getItems();
-        items = items.filter(i => !(i.sku === sku && i.weight === weight));
+        items = items.filter(i => i.sku !== sku);
         this.saveItems(items);
     },
 
@@ -77,25 +76,45 @@ const CartManager = {
         return items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     },
 
+    /**
+     * Calculates shipping directly based on products.json shipping values
+     */
     calculateShipping() {
         const items = this.getItems();
         if (items.length === 0) return 0;
-        
-        // If any 1000g item is in cart or subtotal > 500, shipping is free
-        const hasFreeShippingItem = items.some(i => i.weight === '1000g' || i.shipping === 'Free');
-        const subtotal = this.calculateSubtotal();
 
-        if (hasFreeShippingItem || subtotal >= 500) {
-            return 0;
-        }
-        return 49;
+        // If any item has 'Free' shipping in its product definition, shipping is Free
+        const hasFreeShipping = items.some(i => String(i.shipping).toLowerCase() === 'free');
+        if (hasFreeShipping) return 0;
+
+        // Otherwise return max rate or sum rate based on data
+        const maxShipping = items.reduce((max, item) => {
+            const val = parseFloat(item.shipping) || 0;
+            return val > max ? val : max;
+        }, 0);
+
+        return maxShipping || 49;
+    },
+
+    prepareGSTPlaceholder(subtotal) {
+        // Future GST calculation placeholder
+        return 0;
+    },
+
+    prepareCouponDiscountPlaceholder() {
+        // Future Coupon discount placeholder
+        return 0;
     },
 
     calculateGrandTotal() {
         const subtotal = this.calculateSubtotal();
         if (subtotal === 0) return 0;
+
         const shipping = this.calculateShipping();
-        return subtotal + shipping;
+        const gst = this.prepareGSTPlaceholder(subtotal);
+        const discount = this.prepareCouponDiscountPlaceholder();
+
+        return Math.max(0, subtotal + shipping + gst - discount);
     },
 
     updateCartBadge() {
@@ -136,7 +155,7 @@ const CartManager = {
         items.forEach(item => {
             const lineTotal = item.price * item.quantity;
             html += `
-                <tr data-sku="${item.sku}" data-weight="${item.weight}">
+                <tr data-sku="${item.sku}">
                     <td class="py-4 px-4 flex items-center gap-3">
                         <div class="w-12 h-12 bg-stone-200 rounded-xs shrink-0 flex items-center justify-center text-[8px] font-mono text-brand-muted uppercase">
                             ${item.sku}
@@ -173,7 +192,7 @@ const CartManager = {
         const totalEls = document.querySelectorAll('[data-summary="total"], .font-mono.text-brand-gold');
 
         subtotalEls.forEach(el => el.textContent = subtotal ? `₹${subtotal}` : '[Subtotal]');
-        shippingEls.forEach(el => el.textContent = shipping === 0 ? 'FREE' : `₹${shipping}`);
+        shippingEls.forEach(el => el.textContent = shipping === 0 ? 'FREE' : (shipping ? `₹${shipping}` : '[Shipping]'));
         totalEls.forEach(el => el.textContent = grandTotal ? `₹${grandTotal}` : '[Total]');
     },
 
@@ -213,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target.classList.contains('qty-input')) {
                 const tr = e.target.closest('tr');
                 if (!tr) return;
-                CartManager.updateQuantity(tr.dataset.sku, tr.dataset.weight, parseInt(e.target.value, 10) || 1);
+                CartManager.updateQuantity(tr.dataset.sku, parseInt(e.target.value, 10) || 1);
                 CartManager.renderCartPage();
             }
         });
@@ -222,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target.classList.contains('remove-btn')) {
                 const tr = e.target.closest('tr');
                 if (!tr) return;
-                CartManager.removeItem(tr.dataset.sku, tr.dataset.weight);
+                CartManager.removeItem(tr.dataset.sku);
                 CartManager.renderCartPage();
             }
         });
@@ -232,16 +251,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const addBtn = e.target.closest('[data-action="add-to-cart"]');
         if (!addBtn) return;
 
-        const sku = addBtn.dataset.sku;
-        const name = addBtn.dataset.name;
-        const price = addBtn.dataset.price;
-        const weight = addBtn.dataset.weight || '200g';
-
         CartManager.addItem({
-            sku: sku,
-            name: name,
-            price: price,
-            weight: weight,
+            sku: addBtn.dataset.sku,
+            name: addBtn.dataset.name,
+            price: addBtn.dataset.price,
+            weight: addBtn.dataset.weight || '200g',
+            shipping: addBtn.dataset.shipping || '49',
             quantity: 1
         });
     });

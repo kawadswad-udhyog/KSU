@@ -1,9 +1,9 @@
 /**
  * ============================================================================
- * KAWAD SWAD - Main UI & Interactivity Engine (main.js)
+ * KAWAD SWAD - Main UI Engine (js/main.js)
  * ============================================================================
- * Handles UI interactions including FAQ accordions, Intersection Observer fade-ins,
- * lightweight button ripple feedback, form validation, and numeric counters.
+ * Controls page UI features: accordions, scroll reveal animations, button feedback,
+ * form validation, and numeric statistic counters.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,15 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Handles smooth single-open behaviors for accordions and details HTML tags.
+ * Handles mutually exclusive accordion expansion within sibling groups.
  */
 function initAccordions() {
     const detailsElements = document.querySelectorAll('details');
     detailsElements.forEach(targetDetails => {
-        targetTargetDetails = targetDetails;
+        if (targetDetails.dataset.accordionBound) return;
+        targetDetails.dataset.accordionBound = 'true';
+
         targetDetails.addEventListener('toggle', () => {
             if (targetDetails.open) {
-                // Optionally auto-close sibling accordions within the same container
                 const parentGroup = targetDetails.closest('.space-y-4, .space-y-6');
                 if (parentGroup) {
                     parentGroup.querySelectorAll('details').forEach(sibling => {
@@ -38,7 +39,7 @@ function initAccordions() {
 }
 
 /**
- * Scroll reveal engine using IntersectionObserver for elements tagged with .slide-up or .fade-in.
+ * Intersection Observer scroll reveal for elements tagged with .slide-up or .fade-in.
  */
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.slide-up, .fade-in');
@@ -66,9 +67,12 @@ function initScrollAnimations() {
 }
 
 /**
- * Attaches a lightweight visual click feedback animation to buttons.
+ * Attaches click scale feedback to actionable buttons using event delegation.
  */
 function initButtonRipples() {
+    if (document.dataset.rippleBound) return;
+    document.dataset.rippleBound = 'true';
+
     document.addEventListener('click', (e) => {
         const btn = e.target.closest('button, a.bg-brand-dark, a.bg-brand-gold');
         if (!btn) return;
@@ -81,12 +85,15 @@ function initButtonRipples() {
 }
 
 /**
- * Universal frontend form validation for contact, business, and newsletter submissions.
+ * Handles frontend validation for form submissions.
  */
 function initFormValidation() {
     const forms = document.querySelectorAll('form');
 
     forms.forEach(form => {
+        if (form.dataset.validationBound) return;
+        form.dataset.validationBound = 'true';
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             let isValid = true;
@@ -117,7 +124,7 @@ function initFormValidation() {
 }
 
 /**
- * Toggles input border states for validation feedback.
+ * Toggles visual error state on form inputs.
  */
 function highlightInputError(input, isError) {
     if (isError) {
@@ -130,7 +137,7 @@ function highlightInputError(input, isError) {
 }
 
 /**
- * Generates an in-place success toast banner for valid form submissions.
+ * Displays in-place confirmation message upon valid form submission.
  */
 function showFormSuccessMessage(form) {
     const originalContent = form.innerHTML;
@@ -154,13 +161,14 @@ function showFormSuccessMessage(form) {
     if (resetBtn) {
         resetBtn.addEventListener('click', () => {
             form.innerHTML = originalContent;
+            delete form.dataset.validationBound;
             initFormValidation();
         });
     }
 }
 
 /**
- * Animates statistical number elements when scrolled into view.
+ * Animates numerical counter elements when scrolled into view.
  */
 function initStatCounters() {
     const counters = document.querySelectorAll('[data-counter]');
@@ -172,7 +180,7 @@ function initStatCounters() {
                 const counter = entry.target;
                 const targetValue = parseInt(counter.getAttribute('data-counter'), 10) || 0;
                 let currentValue = 0;
-                const increment = Math.ceil(targetValue / 50);
+                const increment = Math.max(1, Math.ceil(targetValue / 50));
 
                 const timer = setInterval(() => {
                     currentValue += increment;

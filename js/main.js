@@ -3,11 +3,18 @@
  * KAWAD SWAD - Main Engine (js/main.js)
  * ============================================================================
  * Refactored into logical modules:
- * 1. Validation Module
- * 2. Form Module (Payload Construction, State Flow)
- * 3. Animation Module (Scroll Reveals & Ripples)
- * 4. Utility Module (Accordions & Stat Counters)
+ * 1. Application Constants
+ * 2. Validation Module
+ * 3. Form Module (Payload Construction, State Flow, Grouped Logging)
+ * 4. Animation Module (Scroll Reveals & Ripples)
+ * 5. Utility Module (Accordions & Stat Counters)
  */
+
+/* ============================================================================
+ * 1. APPLICATION CONSTANTS
+ * ============================================================================ */
+const APP_SOURCE = "website";
+const SCHEMA_VERSION = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
     ValidationModule.init();
@@ -17,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ============================================================================
- * 1. VALIDATION MODULE
+ * 2. VALIDATION MODULE
  * ============================================================================ */
 const ValidationModule = {
     rules: {
@@ -35,7 +42,7 @@ const ValidationModule = {
 
     setFieldError(field, isError, customMsg = '') {
         const parent = field.closest('div');
-        const errorSpan = parent ? parent.querySelector('.error-msg') : null;
+        const errorSpan = parent ? parent.querySelector('.error-msg, .error-msg-consent') : null;
 
         if (isError) {
             field.classList.add('border-brand-red');
@@ -43,6 +50,8 @@ const ValidationModule = {
             if (errorSpan) {
                 if (customMsg) errorSpan.textContent = customMsg;
                 errorSpan.classList.remove('hidden');
+                errorSpan.setAttribute('role', 'alert');
+                errorSpan.setAttribute('aria-live', 'polite');
             }
         } else {
             field.classList.remove('border-brand-red');
@@ -64,7 +73,11 @@ const ValidationModule = {
                 const consentError = form.querySelector('.error-msg-consent');
                 if (!input.checked) {
                     isValid = false;
-                    if (consentError) consentError.classList.remove('hidden');
+                    if (consentError) {
+                        consentError.classList.remove('hidden');
+                        consentError.setAttribute('role', 'alert');
+                        consentError.setAttribute('aria-live', 'polite');
+                    }
                 } else if (consentError) {
                     consentError.classList.add('hidden');
                 }
@@ -108,7 +121,6 @@ const ValidationModule = {
     },
 
     init() {
-        // Event delegation for clearing error state on input
         document.addEventListener('input', (e) => {
             if (e.target.matches('input, select, textarea')) {
                 this.setFieldError(e.target, false);
@@ -118,7 +130,7 @@ const ValidationModule = {
 };
 
 /* ============================================================================
- * 2. FORM MODULE (Payload Generation, Submission, & Flow)
+ * 3. FORM MODULE (Payload Generation, Console Logging, & Flow)
  * ============================================================================ */
 const FormModule = {
     init() {
@@ -131,16 +143,21 @@ const FormModule = {
                 e.preventDefault();
                 if (ValidationModule.validate(contactForm)) {
                     const payload = {
+                        schemaVersion: SCHEMA_VERSION,
+                        source: APP_SOURCE,
                         type: "contact",
                         fullName: contactForm.querySelector('#full-name')?.value.trim() || "",
                         mobile: contactForm.querySelector('#mobile')?.value.trim() || "",
                         email: contactForm.querySelector('#email-address')?.value.trim() || "",
                         subject: contactForm.querySelector('#subject')?.value || "",
                         message: contactForm.querySelector('#contact-message')?.value.trim() || "",
-                        createdAt: new Date().toISOString(),
-                        source: "website"
+                        createdAt: new Date().toISOString()
                     };
-                    console.log("Contact Form Submission Payload:", payload);
+
+                    console.group("Kawad Swad - Contact Form Submission");
+                    console.table(payload);
+                    console.groupEnd();
+
                     this.handleSubmissionState(contactForm, 'Thank You!', 'Your contact message has been sent successfully. Our team will contact you shortly.', false);
                 }
             });
@@ -151,6 +168,8 @@ const FormModule = {
                 e.preventDefault();
                 if (ValidationModule.validate(businessForm)) {
                     const payload = {
+                        schemaVersion: SCHEMA_VERSION,
+                        source: APP_SOURCE,
                         type: "business",
                         companyName: businessForm.querySelector('#company-name')?.value.trim() || "",
                         contactPerson: businessForm.querySelector('#contact-person')?.value.trim() || "",
@@ -160,15 +179,19 @@ const FormModule = {
                         city: businessForm.querySelector('#city')?.value.trim() || "",
                         state: businessForm.querySelector('#state')?.value.trim() || "",
                         monthlyRequirement: businessForm.querySelector('#monthly-req')?.value.trim() || "",
+                        preferredContactMethod: businessForm.querySelector('#preferred-contact-method')?.value || "Phone",
                         gstNumber: businessForm.querySelector('#gst-number')?.value.trim() || "",
                         website: businessForm.querySelector('#business-website')?.value.trim() || "",
                         yearsInBusiness: businessForm.querySelector('#years-in-business')?.value.trim() || "",
                         currentBrand: businessForm.querySelector('#current-brand')?.value.trim() || "",
                         message: businessForm.querySelector('#business-message')?.value.trim() || "",
-                        createdAt: new Date().toISOString(),
-                        source: "website"
+                        createdAt: new Date().toISOString()
                     };
-                    console.log("Business Form Submission Payload:", payload);
+
+                    console.group("Kawad Swad - Business Enquiry Submission");
+                    console.table(payload);
+                    console.groupEnd();
+
                     this.handleSubmissionState(businessForm, 'Business Enquiry Received!', 'Thank you for your interest in partnering with Kawad Swad. Our commercial team will evaluate your details and respond shortly.', false);
                 }
             });
@@ -184,6 +207,8 @@ const FormModule = {
                     const total = typeof CartManager !== 'undefined' ? CartManager.calculateGrandTotal() : 0;
 
                     const payload = {
+                        schemaVersion: SCHEMA_VERSION,
+                        source: APP_SOURCE,
                         type: "order",
                         customer: {
                             firstName: checkoutForm.querySelector('#first-name')?.value.trim() || "",
@@ -203,12 +228,16 @@ const FormModule = {
                         subtotal: subtotal,
                         shipping: shipping,
                         total: total,
-                        createdAt: new Date().toISOString(),
-                        source: "website"
+                        createdAt: new Date().toISOString()
                     };
-                    console.log("Checkout Order Submission Payload:", payload);
 
-                    this.handleSubmissionState(checkoutForm, 'Processing Order...', 'Redirecting to order confirmation page...', true);
+                    console.group("Kawad Swad - Checkout Order Submission");
+                    console.table(payload.customer);
+                    console.table(payload.items);
+                    console.log("Financials:", { subtotal, shipping, total });
+                    console.groupEnd();
+
+                    this.handleSubmissionState(checkoutForm, 'Processing Order...', 'Order received! Redirecting to confirmation page...', true);
                 }
             });
         }
@@ -222,14 +251,6 @@ const FormModule = {
         }
 
         setTimeout(() => {
-            if (shouldRedirect) {
-                if (typeof CartManager !== 'undefined') {
-                    CartManager.clearCart();
-                }
-                window.location.href = 'order-success.html';
-                return;
-            }
-
             const successBox = document.createElement('div');
             successBox.className = 'p-8 bg-brand-cream border border-brand-gold/40 rounded-sm text-center space-y-4 fade-in';
             successBox.innerHTML = `
@@ -244,12 +265,21 @@ const FormModule = {
 
             form.innerHTML = '';
             form.appendChild(successBox);
+
+            if (shouldRedirect) {
+                setTimeout(() => {
+                    if (typeof CartManager !== 'undefined') {
+                        CartManager.clearCart();
+                    }
+                    window.location.href = 'order-success.html';
+                }, 2000);
+            }
         }, 600);
     }
 };
 
 /* ============================================================================
- * 3. ANIMATION MODULE
+ * 4. ANIMATION MODULE
  * ============================================================================ */
 const AnimationModule = {
     initScrollReveal() {
@@ -290,7 +320,7 @@ const AnimationModule = {
 };
 
 /* ============================================================================
- * 4. UTILITY MODULE
+ * 5. UTILITY MODULE
  * ============================================================================ */
 const UtilityModule = {
     initAccordions() {

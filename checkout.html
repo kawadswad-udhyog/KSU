@@ -1,521 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Checkout | Kawad Swad</title>
-    <meta name="description" content="Complete your Kawad Swad order securely with trusted payment options and factory-direct delivery.">
+    <title>Checkout | KAWAD SWAD</title>
+    <meta name="description" content="Complete your order for premium Jain Papads from KAWAD SWAD.">
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Tailwind Configuration matching Kawad Swad Dark Luxury Theme -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        gold: {
-                            400: '#FACC15',
-                            500: '#EAB308',
-                            600: '#CA8A04',
-                            glow: '#FFD700',
-                        },
-                        dark: {
-                            base: '#0B0F17',
-                            surface: '#111827',
-                            card: '#1F2937',
-                            border: '#374151'
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif']
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
                     }
                 }
             }
         }
     </script>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            background-color: #0B0F17;
-            color: #F9FAFB;
-            font-family: 'Inter', sans-serif;
-        }
-        .glass-card {
-            background: rgba(31, 41, 55, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 215, 0, 0.1);
-        }
-        .glass-card-hover:hover {
-            border-color: rgba(255, 215, 0, 0.25);
-            box-shadow: 0 0 25px rgba(234, 179, 8, 0.05);
-        }
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFF5C0 0%, #EAB308 50%, #CA8A04 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .gold-btn {
-            background: linear-gradient(135deg, #EAB308 0%, #CA8A04 100%);
-            transition: all 0.3s ease;
-        }
-        .gold-btn:hover {
-            background: linear-gradient(135deg, #FACC15 0%, #EAB308 100%);
-            box-shadow: 0 0 20px rgba(234, 179, 8, 0.3);
-        }
-        /* Custom radio styling */
-        input[type="radio"]:checked + label {
-            border-color: #EAB308;
-            background-color: rgba(234, 179, 8, 0.08);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-gold-500 selection:text-black">
+<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- HEADER (Existing) -->
-    <header class="sticky top-0 z-50 glass-card border-b border-gray-800/80 bg-dark-base/80">
+    <!-- STICKY HEADER -->
+    <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="/" class="flex items-center space-x-3 group">
-                <span class="font-serif text-2xl font-bold tracking-wider gold-gradient-text uppercase">Kawad Swad</span>
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">
+                    KAWAD SWAD
+                </span>
             </a>
 
-            <!-- Navigation Links -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
-                <a href="/" class="hover:text-gold-400 transition-colors">Home</a>
-                <a href="/shop.html" class="hover:text-gold-400 transition-colors">Shop All</a>
-                <a href="/about.html" class="hover:text-gold-400 transition-colors">Our Story</a>
-                <a href="/contact.html" class="hover:text-gold-400 transition-colors">Contact</a>
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
+                <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
+                <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
+                <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
+                <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
+                <a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a>
+                <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
+                <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
             </nav>
 
-            <!-- Actions -->
-            <div class="flex items-center space-x-6">
-                <a href="/cart.html" class="relative p-2 text-gray-300 hover:text-gold-400 transition-colors" aria-label="View Cart">
-                    <i data-lucide="shopping-bag" class="w-6 h-6"></i>
-                    <span class="absolute top-1 right-1 w-4 h-4 bg-gold-500 text-dark-base font-bold text-xs rounded-full flex items-center justify-center">1</span>
-                </a>
-            </div>
+            <a href="cart.html" class="text-brand-dark hover:text-brand-gold p-2" aria-label="Cart">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                </svg>
+            </a>
         </div>
     </header>
 
-    <main class="flex-grow pb-16">
-        
-        <!-- SECTION 1: Checkout Hero -->
-        <section class="relative py-12 border-b border-gray-800/60 bg-gradient-to-b from-dark-surface to-dark-base">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="font-serif text-3xl sm:text-4xl font-bold tracking-tight gold-gradient-text mb-3">
-                    Secure Checkout
-                </h1>
-                <p class="text-gray-400 text-sm sm:text-base max-w-md mx-auto mb-6">
-                    Complete your order safely and securely.
-                </p>
-                
-                <!-- Small Trust Badges -->
-                <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-300 font-medium">
-                    <div class="flex items-center space-x-1.5 bg-dark-card/60 px-3 py-1.5 rounded-full border border-gray-700/50">
-                        <i data-lucide="shield-check" class="w-4 h-4 text-gold-500"></i>
-                        <span>Secure Payment</span>
-                    </div>
-                    <div class="flex items-center space-x-1.5 bg-dark-card/60 px-3 py-1.5 rounded-full border border-gray-700/50">
-                        <i data-lucide="award" class="w-4 h-4 text-gold-500"></i>
-                        <span>FSSAI Licensed</span>
-                    </div>
-                    <div class="flex items-center space-x-1.5 bg-dark-card/60 px-3 py-1.5 rounded-full border border-gray-700/50">
-                        <i data-lucide="package-check" class="w-4 h-4 text-gold-500"></i>
-                        <span>Fresh Factory Packed</span>
-                    </div>
-                </div>
+    <main class="flex-grow py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 text-center">
+                <h1 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-2">Checkout</h1>
+                <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
             </div>
-        </section>
 
-        <!-- SECTION 2: Checkout Layout -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-            <form id="checkout-form" onsubmit="event.preventDefault();" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                
-                <!-- LEFT COLUMN (65% / 8 Cols) -->
-                <div class="lg:col-span-7 xl:col-span-8 space-y-6">
-                    
-                    <!-- Customer Information Card -->
-                    <div class="glass-card p-6 rounded-2xl glass-card-hover transition-all duration-300">
-                        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-gray-800">
-                            <div class="w-8 h-8 rounded-full bg-gold-500/10 text-gold-500 flex items-center justify-center font-bold text-sm">1</div>
-                            <h2 class="text-lg font-semibold text-white">Customer Information</h2>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label for="first-name" class="block text-xs font-medium text-gray-300 mb-1.5">First Name *</label>
-                                <input type="text" id="first-name" required class="w-full bg-dark-base border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Enter first name">
-                            </div>
-                            <div>
-                                <label for="last-name" class="block text-xs font-medium text-gray-300 mb-1.5">Last Name *</label>
-                                <input type="text" id="last-name" required class="w-full bg-dark-base border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Enter last name">
-                            </div>
-                            <div>
-                                <label for="mobile" class="block text-xs font-medium text-gray-300 mb-1.5">Mobile Number *</label>
-                                <input type="tel" id="mobile" required class="w-full bg-dark-base border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="10-digit mobile number">
-                            </div>
-                            <div>
-                                <label for="email" class="block text-xs font-medium text-gray-300 mb-1.5">Email Address (Optional)</label>
-                                <input type="email" id="email" class="w-full bg-dark-base border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="For order receipt">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Delivery Address Card -->
-                    <div class="glass-card p-6 rounded-2xl glass-card-hover transition-all duration-300">
-                        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-gray-800">
-                            <div class="w-8 h-8 rounded-full bg-gold-500/10 text-gold-500 flex items-center justify-center font-bold text-sm">2</div>
-                            <h2 class="text-lg font-semibold text-white">Delivery Address</h2>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="sm:col-span-2">
-                                <label for="house" class="block text-xs font-medium text-gray-300 mb-1.5">House / Flat *</label>
-                                <input type="text" id="house" required class="w-full bg-dark-base border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Flat, House no., Building, Company">
-                            </div>
-                            <div class="sm:col-span-2">
-                                <label for="street" class="block text-xs font-medium text-gray-300 mb-1.5">Street Address *</label>
-                                <input type="text" id="street" required class="w-full bg-dark-base border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="Area, Colony, Street, Sector">
-                            </div>
-                            <div>
-                                <label for="landmark" class="block text-xs font-medium text-gray-300 mb-1.5">Landmark</label>
-                                <input type="text" id="landmark" class="w-full bg-dark-base border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="E.g. Near Apollo Hospital">
-                            </div>
-                            <div>
-                                <label for="city" class="block text-xs font-medium text-gray-300 mb-1.5">City *</label>
-                                <input type="text" id="city" required class="w-full bg-dark-base border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="City">
-                            </div>
-                            <div>
-                                <label for="state" class="block text-xs font-medium text-gray-300 mb-1.5">State *</label>
-                                <input type="text" id="state" required class="w-full bg-dark-base border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="State">
-                            </div>
-                            <div>
-                                <label for="pincode" class="block text-xs font-medium text-gray-300 mb-1.5">Pincode *</label>
-                                <input type="text" id="pincode" required class="w-full bg-dark-base border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors" placeholder="6 digits PIN code">
-                            </div>
-                            <div class="sm:col-span-2">
-                                <label for="country" class="block text-xs font-medium text-gray-300 mb-1.5">Country</label>
-                                <input type="text" id="country" value="India" readonly class="w-full bg-dark-base/50 border border-gray-800 rounded-xl px-4 py-3 text-sm text-gray-400 cursor-not-allowed focus:outline-none">
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Delivery Method Card -->
-                    <div class="glass-card p-6 rounded-2xl glass-card-hover transition-all duration-300">
-                        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-gray-800">
-                            <div class="w-8 h-8 rounded-full bg-gold-500/10 text-gold-500 flex items-center justify-center font-bold text-sm">3</div>
-                            <h2 class="text-lg font-semibold text-white">Delivery Method</h2>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <input type="radio" id="delivery-standard" name="delivery_method" value="standard" checked class="hidden">
-                                <label for="delivery-standard" class="flex flex-col p-4 rounded-xl border border-gray-700 cursor-pointer transition-all">
-                                    <div class="flex items-center justify-between mb-1">
-                                        <span class="font-medium text-white text-sm">Standard Delivery</span>
-                                        <span class="text-xs font-semibold text-gold-400">FREE</span>
-                                    </div>
-                                    <span class="text-xs text-gray-400">Delivered in 4-6 business days</span>
-                                </label>
-                            </div>
-                            <div>
-                                <input type="radio" id="delivery-express" name="delivery_method" value="express" class="hidden">
-                                <label for="delivery-express" class="flex flex-col p-4 rounded-xl border border-gray-700 cursor-pointer transition-all">
-                                    <div class="flex items-center justify-between mb-1">
-                                        <span class="font-medium text-white text-sm">Express Delivery</span>
-                                        <span class="text-xs font-semibold text-white">₹99</span>
-                                    </div>
-                                    <span class="text-xs text-gray-400">Delivered in 1-2 business days</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Payment Method Card -->
-                    <div class="glass-card p-6 rounded-2xl glass-card-hover transition-all duration-300">
-                        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-gray-800">
-                            <div class="w-8 h-8 rounded-full bg-gold-500/10 text-gold-500 flex items-center justify-center font-bold text-sm">4</div>
-                            <h2 class="text-lg font-semibold text-white">Payment Method</h2>
-                        </div>
-                        <div class="space-y-3">
-                            <div>
-                                <input type="radio" id="pay-cod" name="payment_method" value="cod" checked class="hidden">
-                                <label for="pay-cod" class="flex items-center justify-between p-4 rounded-xl border border-gray-700 cursor-pointer transition-all">
-                                    <div class="flex items-center space-x-3">
-                                        <i data-lucide="banknote" class="w-5 h-5 text-gold-500"></i>
-                                        <span class="text-sm font-medium text-white">Cash on Delivery</span>
-                                    </div>
-                                    <span class="text-xs text-gray-400">Pay when you receive</span>
-                                </label>
-                            </div>
-
-                            <div>
-                                <input type="radio" id="pay-upi" name="payment_method" value="upi" class="hidden">
-                                <label for="pay-upi" class="flex items-center justify-between p-4 rounded-xl border border-gray-700 cursor-pointer transition-all">
-                                    <div class="flex items-center space-x-3">
-                                        <i data-lucide="qr-code" class="w-5 h-5 text-gold-500"></i>
-                                        <span class="text-sm font-medium text-white">UPI</span>
-                                    </div>
-                                    <span class="text-xs text-gray-400">GPay, PhonePe, Paytm, BHIM</span>
-                                </label>
-                            </div>
-
-                            <div>
-                                <input type="radio" id="pay-card" name="payment_method" value="card" class="hidden">
-                                <label for="pay-card" class="flex items-center justify-between p-4 rounded-xl border border-gray-700 cursor-pointer transition-all">
-                                    <div class="flex items-center space-x-3">
-                                        <i data-lucide="credit-card" class="w-5 h-5 text-gold-500"></i>
-                                        <span class="text-sm font-medium text-white">Credit / Debit Card</span>
-                                    </div>
-                                    <span class="text-xs text-gray-400">Visa, Mastercard, RuPay</span>
-                                </label>
-                            </div>
-
-                            <div>
-                                <input type="radio" id="pay-netbanking" name="payment_method" value="netbanking" class="hidden">
-                                <label for="pay-netbanking" class="flex items-center justify-between p-4 rounded-xl border border-gray-700 cursor-pointer transition-all">
-                                    <div class="flex items-center space-x-3">
-                                        <i data-lucide="landmark" class="w-5 h-5 text-gold-500"></i>
-                                        <span class="text-sm font-medium text-white">Net Banking</span>
-                                    </div>
-                                    <span class="text-xs text-gray-400">All major Indian banks</span>
-                                </label>
-                            </div>
-
-                            <div>
-                                <input type="radio" id="pay-wallet" name="payment_method" value="wallet" class="hidden">
-                                <label for="pay-wallet" class="flex items-center justify-between p-4 rounded-xl border border-gray-700 cursor-pointer transition-all">
-                                    <div class="flex items-center space-x-3">
-                                        <i data-lucide="wallet" class="w-5 h-5 text-gold-500"></i>
-                                        <span class="text-sm font-medium text-white">Wallet</span>
-                                    </div>
-                                    <span class="text-xs text-gray-400">Paytm, Mobikwik, PhonePe</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- RIGHT COLUMN (35% / 4 Cols) -->
-                <div class="lg:col-span-5 xl:col-span-4 space-y-6 lg:sticky lg:top-28">
-                    
-                    <!-- Order Summary Card -->
-                    <div class="glass-card p-6 rounded-2xl">
-                        <h2 class="text-lg font-semibold text-white mb-4 pb-3 border-b border-gray-800">Order Summary</h2>
+            <form onsubmit="event.preventDefault();" class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                <!-- Left Details Form -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Billing & Shipping Information -->
+                    <div class="bg-white rounded-sm border border-stone-200/80 p-8 shadow-sm space-y-6">
+                        <h2 class="font-serif text-xl font-bold text-brand-dark border-b border-stone-200 pb-3">Shipping &amp; Billing Details</h2>
                         
-                        <!-- Product Item -->
-                        <div class="flex items-center space-x-4 py-3 border-b border-gray-800/60">
-                            <div class="w-16 h-16 rounded-xl bg-dark-base border border-gray-700/60 overflow-hidden flex-shrink-0 flex items-center justify-center p-1">
-                                <img src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?auto=format&fit=crop&q=80&w=200" alt="Kawad Swad Premium Namkeen" class="object-cover w-full h-full rounded-lg">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">First Name</label>
+                                <input type="text" placeholder="First Name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                             </div>
-                            <div class="flex-grow min-w-0">
-                                <h3 class="text-sm font-medium text-white truncate">Special Mathri Blend</h3>
-                                <p class="text-xs text-gray-400">Variant: 500g Pack</p>
-                                <p class="text-xs text-gray-400">Qty: 1</p>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Last Name</label>
+                                <input type="text" placeholder="Last Name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                             </div>
-                            <div class="text-right flex-shrink-0">
-                                <span class="text-sm font-semibold text-white">₹349</span>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Email Address</label>
+                                <input type="email" placeholder="Email Address" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Mobile Number</label>
+                                <input type="tel" placeholder="Mobile Number" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                             </div>
                         </div>
 
-                        <!-- Price Breakdown -->
-                        <div class="space-y-3 py-4 border-b border-gray-800/60 text-sm">
-                            <div class="flex justify-between text-gray-300">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Street Address</label>
+                            <input type="text" placeholder="House number and street name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">City</label>
+                                <input type="text" placeholder="City" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">State</label>
+                                <input type="text" placeholder="State" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">PIN Code</label>
+                                <input type="text" placeholder="PIN Code" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method Placeholder -->
+                    <div class="bg-white rounded-sm border border-stone-200/80 p-8 shadow-sm space-y-6">
+                        <h2 class="font-serif text-1xl font-bold text-brand-dark border-b border-stone-200 pb-3">Payment Method</h2>
+                        
+                        <div class="space-y-3">
+                            <label class="flex items-center gap-3 p-4 bg-brand-cream/30 border border-stone-200 rounded-sm cursor-pointer">
+                                <input type="radio" name="payment" checked class="text-brand-gold focus:ring-brand-gold">
+                                <span class="text-sm font-medium text-brand-dark">Online Payment / UPI / Cards (Placeholder)</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-4 bg-brand-cream/30 border border-stone-200 rounded-sm cursor-pointer">
+                                <input type="radio" name="payment" class="text-brand-gold focus:ring-brand-gold">
+                                <span class="text-sm font-medium text-brand-dark">Cash On Delivery (Placeholder)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Sidebar: Order Review -->
+                <div class="bg-white rounded-sm border border-stone-200/80 p-6 shadow-sm space-y-6">
+                    <h2 class="font-serif text-xl font-bold text-brand-dark border-b border-stone-200 pb-3">Your Order</h2>
+                    
+                    <div class="space-y-4 text-sm divide-y divide-stone-100">
+                        <div class="flex justify-between items-center pt-2">
+                            <div>
+                                <span class="block font-medium text-brand-dark">[Product Name Placeholder]</span>
+                                <span class="text-xs text-brand-muted">Qty: 1 | Size: 500g</span>
+                            </div>
+                            <span class="font-mono text-brand-muted">[Price]</span>
+                        </div>
+                        <div class="flex justify-between items-center pt-2">
+                            <div>
+                                <span class="block font-medium text-brand-dark">[Product Name Placeholder]</span>
+                                <span class="text-xs text-brand-muted">Qty: 2 | Size: 200g</span>
+                            </div>
+                            <span class="font-mono text-brand-muted">[Price]</span>
+                        </div>
+
+                        <div class="pt-4 space-y-2">
+                            <div class="flex justify-between text-brand-muted">
                                 <span>Subtotal</span>
-                                <span>₹349</span>
+                                <span class="font-mono">[Subtotal]</span>
                             </div>
-                            <div class="flex justify-between text-gray-300">
+                            <div class="flex justify-between text-brand-muted">
                                 <span>Shipping</span>
-                                <span class="text-gold-400 font-medium">FREE</span>
+                                <span class="font-mono">[Standard]</span>
                             </div>
-                            <div class="flex justify-between text-emerald-400">
-                                <span>Discount</span>
-                                <span>- ₹50</span>
-                            </div>
-                        </div>
-
-                        <!-- Grand Total -->
-                        <div class="flex justify-between items-center pt-4 mb-6">
-                            <span class="text-base font-semibold text-white">Grand Total</span>
-                            <span class="text-xl font-bold gold-gradient-text">₹299</span>
-                        </div>
-
-                        <!-- Coupon Section -->
-                        <div class="mb-6 pt-2">
-                            <label class="block text-xs font-medium text-gray-300 mb-2">Have a Coupon?</label>
-                            <div class="flex space-x-2">
-                                <input type="text" placeholder="Enter coupon code" class="flex-grow bg-dark-base border border-gray-700 rounded-xl px-3 py-2 text-xs text-white uppercase focus:outline-none focus:border-gold-500 transition-colors">
-                                <button type="button" class="px-4 py-2 bg-dark-card border border-gold-500/30 text-gold-400 text-xs font-semibold rounded-xl hover:bg-gold-500/10 transition-colors">
-                                    Apply
-                                </button>
+                            <div class="pt-3 border-t border-stone-200 flex justify-between font-semibold text-brand-dark text-base">
+                                <span>Total Payable</span>
+                                <span class="font-mono text-brand-gold">[Total]</span>
                             </div>
                         </div>
-
-                        <!-- Desktop Place Order Button -->
-                        <button type="submit" class="hidden lg:block w-full py-4 rounded-xl gold-btn text-dark-base font-bold text-base tracking-wide uppercase shadow-lg">
-                            Place Order
-                        </button>
                     </div>
 
-                    <!-- Trust Box -->
-                    <div class="glass-card p-6 rounded-2xl space-y-3">
-                        <h3 class="text-sm font-semibold text-gold-400 uppercase tracking-wider flex items-center space-x-2">
-                            <i data-lucide="shield" class="w-4 h-4"></i>
-                            <span>Why Order From Us</span>
-                        </h3>
-                        <ul class="space-y-2 text-xs text-gray-300">
-                            <li class="flex items-center space-x-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-gold-500 flex-shrink-0"></i>
-                                <span>Fresh Factory Packed</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-gold-500 flex-shrink-0"></i>
-                                <span>Hygienically Manufactured</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-gold-500 flex-shrink-0"></i>
-                                <span>Secure Checkout</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-gold-500 flex-shrink-0"></i>
-                                <span>Direct Brand Purchase</span>
-                            </li>
-                            <li class="flex items-center space-x-2">
-                                <i data-lucide="check" class="w-3.5 h-3.5 text-gold-500 flex-shrink-0"></i>
-                                <span>Customer Support via WhatsApp</span>
-                            </li>
-                        </ul>
-                    </div>
-
+                    <a href="order-success.html" class="block w-full text-center py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold transition-colors">
+                        Place Order
+                    </a>
                 </div>
-
-                <!-- Mobile Sticky Place Order Button Wrapper -->
-                <div class="fixed bottom-0 left-0 right-0 p-4 bg-dark-base/95 backdrop-blur-md border-t border-gray-800 z-40 lg:hidden">
-                    <button type="submit" class="w-full py-3.5 rounded-xl gold-btn text-dark-base font-bold text-base tracking-wide uppercase shadow-lg flex items-center justify-center space-x-2">
-                        <span>Place Order</span>
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </button>
-                </div>
-
             </form>
-        </section>
-
-        <!-- SECTION 3: Need Help? -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
-            <div class="glass-card p-6 sm:p-8 rounded-2xl text-center">
-                <h3 class="text-lg font-semibold text-white mb-2">Need Help With Your Order?</h3>
-                <p class="text-xs sm:text-sm text-gray-400 mb-6">Our dedicated support team is here to assist you every step of the way.</p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm">
-                    <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="flex items-center space-x-2 text-emerald-400 hover:text-emerald-300 transition-colors">
-                        <i data-lucide="message-square" class="w-4 h-4"></i>
-                        <span>WhatsApp Support</span>
-                    </a>
-                    <a href="tel:+919876543210" class="flex items-center space-x-2 text-gray-300 hover:text-gold-400 transition-colors">
-                        <i data-lucide="phone" class="w-4 h-4"></i>
-                        <span>+91 98765 43210</span>
-                    </a>
-                    <a href="mailto:support@kawadswad.com" class="flex items-center space-x-2 text-gray-300 hover:text-gold-400 transition-colors">
-                        <i data-lucide="mail" class="w-4 h-4"></i>
-                        <span>support@kawadswad.com</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 4: Secure Shopping Strip -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-6 border-y border-gray-800/80">
-                <div class="flex items-center justify-center space-x-3 text-center sm:text-left">
-                    <i data-lucide="lock" class="w-6 h-6 text-gold-500 flex-shrink-0"></i>
-                    <div>
-                        <p class="text-xs font-semibold text-white">Secure Payments</p>
-                        <p class="text-[10px] text-gray-400">100% Encrypted</p>
-                    </div>
-                </div>
-                <div class="flex items-center justify-center space-x-3 text-center sm:text-left">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-gold-500 flex-shrink-0"></i>
-                    <div>
-                        <p class="text-xs font-semibold text-white">Quality Checked</p>
-                        <p class="text-[10px] text-gray-400">Premium Ingredients</p>
-                    </div>
-                </div>
-                <div class="flex items-center justify-center space-x-3 text-center sm:text-left">
-                    <i data-lucide="truck" class="w-6 h-6 text-gold-500 flex-shrink-0"></i>
-                    <div>
-                        <p class="text-xs font-semibold text-white">Fast Dispatch</p>
-                        <p class="text-[10px] text-gray-400">Direct From Factory</p>
-                    </div>
-                </div>
-                <div class="flex items-center justify-center space-x-3 text-center sm:text-left">
-                    <i data-lucide="leaf" class="w-6 h-6 text-gold-500 flex-shrink-0"></i>
-                    <div>
-                        <p class="text-xs font-semibold text-white">100% Vegetarian</p>
-                        <p class="text-[10px] text-gray-400">Pure Taste</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        </div>
     </main>
 
-    <!-- FOOTER (Existing Website Footer) -->
-    <footer class="bg-dark-surface border-t border-gray-800/80 text-gray-400 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Brand -->
-                <div class="space-y-4">
-                    <span class="font-serif text-xl font-bold gold-gradient-text uppercase">Kawad Swad</span>
-                    <p class="text-xs text-gray-400 leading-relaxed">
-                        Authentic, premium Indian namkeen and snacks delivered directly from our factory to your doorstep.
+    <!-- REUSED FOOTER -->
+    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div class="space-y-4 md:col-span-1">
+                    <span class="font-serif text-xl font-bold text-white tracking-wider">KAWAD SWAD</span>
+                    <p class="text-xs text-stone-500 leading-relaxed">
+                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar.
                     </p>
                 </div>
-                <!-- Quick Links -->
                 <div>
-                    <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="/shop.html" class="hover:text-gold-400 transition-colors">Shop All Products</a></li>
-                        <li><a href="/about.html" class="hover:text-gold-400 transition-colors">Our Story</a></li>
-                        <li><a href="/contact.html" class="hover:text-gold-400 transition-colors">Contact Us</a></li>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
+                        <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
                     </ul>
                 </div>
-                <!-- Policies -->
                 <div>
-                    <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Policies</h4>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="/privacy-policy.html" class="hover:text-gold-400 transition-colors">Privacy Policy</a></li>
-                        <li><a href="/terms-conditions.html" class="hover:text-gold-400 transition-colors">Terms of Service</a></li>
-                        <li><a href="/shipping-policy.html" class="hover:text-gold-400 transition-colors">Shipping & Refund Policy</a></li>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Process</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Opportunities</a></li>
+                        <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
+                        <li><a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a></li>
+                        <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
                     </ul>
                 </div>
-                <!-- Contact Info -->
                 <div>
-                    <h4 class="text-white text-xs font-semibold uppercase tracking-wider mb-4">Factory Address</h4>
-                    <p class="text-xs text-gray-400 leading-relaxed mb-2">
-                        Kawad Swad Food Products,<br>
-                        Industrial Area, New Delhi, India
-                    </p>
-                    <p class="text-xs text-gray-400">FSSAI Lic No: 10000000000000</p>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Contact</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+                        <li class="text-stone-500">Nimar Region, Madhya Pradesh, India</li>
+                    </ul>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-800/60 text-center text-xs text-gray-500">
-                &copy; 2026 Kawad Swad. All rights reserved.
+            <div class="mt-12 pt-8 border-t border-stone-900 text-center text-xs text-stone-600">
+                <p>&copy; KAWAD SWAD. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Initialize Lucide Icons -->
-    <script>
-        lucide.createIcons();
-    </script>
 </body>
 </html>

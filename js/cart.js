@@ -1,9 +1,8 @@
 /**
  * ============================================================================
- * KAWAD SWAD - E-Commerce LocalStorage Cart System (js/cart.js)
+ * KAWAD SWAD - Cart System (js/cart.js)
  * ============================================================================
- * Stores cart items with versioning metadata in LocalStorage, calculates
- * subtotal, shipping, and grand totals for cart/checkout pages.
+ * Manages shopping cart state via LocalStorage with safe fallbacks and batch rendering.
  */
 
 const STORAGE_KEY = 'kawad_swad_cart';
@@ -20,7 +19,7 @@ const CartManager = {
             }
             return parsed;
         } catch (e) {
-            console.error('Error reading cart from localStorage', e);
+            console.warn('LocalStorage unavailable or unreadable:', e);
             return { version: CART_VERSION, items: [] };
         }
     },
@@ -39,7 +38,7 @@ const CartManager = {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
             this.updateCartBadge();
         } catch (e) {
-            console.error('Error writing cart to localStorage', e);
+            console.warn('LocalStorage write failed:', e);
         }
     },
 
@@ -87,7 +86,11 @@ const CartManager = {
     },
 
     clearCart() {
-        localStorage.removeItem(STORAGE_KEY);
+        try {
+            localStorage.removeItem(STORAGE_KEY);
+        } catch (e) {
+            console.warn('LocalStorage clear failed:', e);
+        }
         this.updateCartBadge();
     },
 
@@ -168,11 +171,11 @@ const CartManager = {
                     </td>
                     <td class="py-4 px-4 text-brand-muted">${item.weight}</td>
                     <td class="py-4 px-4">
-                        <input type="number" value="${item.quantity}" min="1" class="qty-input w-16 bg-brand-cream/30 border border-stone-300 rounded-xs px-2 py-1 text-center text-xs">
+                        <input type="number" value="${item.quantity}" min="1" aria-label="Quantity for ${item.name}" class="qty-input w-16 bg-brand-cream/30 border border-stone-300 rounded-xs px-2 py-1 text-center text-xs">
                     </td>
                     <td class="py-4 px-4 font-mono text-brand-muted">${item.price ? '₹' + lineTotal : '[Quote]'}</td>
                     <td class="py-4 px-4">
-                        <button type="button" class="remove-btn text-xs text-brand-red hover:underline">Remove</button>
+                        <button type="button" class="remove-btn text-xs text-brand-red hover:underline" aria-label="Remove ${item.name}">Remove</button>
                     </td>
                 </tr>
             `;
@@ -229,12 +232,14 @@ const CartManager = {
         if (!toast) {
             toast = document.createElement('div');
             toast.id = 'cart-toast';
+            toast.setAttribute('role', 'status');
+            toast.setAttribute('aria-live', 'polite');
             toast.className = 'fixed top-24 right-6 z-50 bg-brand-dark text-white px-5 py-3 rounded-sm shadow-xl text-xs font-semibold tracking-wider uppercase border border-brand-gold flex items-center gap-2 transition-all duration-300 opacity-0 transform translate-y-2';
             document.body.appendChild(toast);
         }
 
         toast.innerHTML = `
-            <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
             <span>${message}</span>

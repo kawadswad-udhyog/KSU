@@ -5,7 +5,7 @@
  * Refactored into logical modules:
  * 1. Application Constants
  * 2. Validation Module
- * 3. Form Module (Payload Construction, State Flow, Grouped Logging)
+ * 3. Form Module (Payload Construction, Console Logging, & Redirect Flow)
  * 4. Animation Module (Scroll Reveals & Ripples)
  * 5. Utility Module (Accordions & Stat Counters)
  */
@@ -130,7 +130,7 @@ const ValidationModule = {
 };
 
 /* ============================================================================
- * 3. FORM MODULE (Payload Generation, Console Logging, & Flow)
+ * 3. FORM MODULE (Payload Generation, Console Grouping, & Delayed Flow)
  * ============================================================================ */
 const FormModule = {
     init() {
@@ -234,7 +234,7 @@ const FormModule = {
                     console.group("Kawad Swad - Checkout Order Submission");
                     console.table(payload.customer);
                     console.table(payload.items);
-                    console.log("Financials:", { subtotal, shipping, total });
+                    console.log("Totals:", { subtotal, shipping, total });
                     console.groupEnd();
 
                     this.handleSubmissionState(checkoutForm, 'Processing Order...', 'Order received! Redirecting to confirmation page...', true);
@@ -267,6 +267,7 @@ const FormModule = {
             form.appendChild(successBox);
 
             if (shouldRedirect) {
+                // Submit -> Loading -> Success -> 2 second delay -> Redirect
                 setTimeout(() => {
                     if (typeof CartManager !== 'undefined') {
                         CartManager.clearCart();

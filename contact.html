@@ -6,7 +6,7 @@
     <title>Contact Us | KAWAD SWAD</title>
     <meta name="description" content="Contact KAWAD SWAD for product enquiries, distributorship, wholesale supply and private label manufacturing.">
     
-    <!-- Tailwind CSS CDN with custom design tokens matching existing site structure -->
+    <!-- Tailwind CSS CDN with custom design tokens -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -38,65 +38,46 @@
 
     <!-- CSS Animation Utilities -->
     <style>
-        .fade-in {
-            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .slide-up {
-            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- ==========================================
-         STICKY HEADER (REUSED NAV)
-         ========================================== -->
+    <!-- GLOBAL HEADER -->
     <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <a href="index.html" class="flex items-center gap-2 group">
-            <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">KAWAD SWAD</span>
-        </a>
-        <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide">
-            <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
-            <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
-            <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
-            <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
-            <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
-            <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
-            <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
-            <a href="blog.html" class="hover:text-brand-gold transition-colors">Blog</a>
-            <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
-        </nav>
-        <div class="flex items-center space-x-4">
-            <a href="products.html" class="text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Search"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></a>
-            <a href="cart.html" class="relative text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Cart"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg><span class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span></a>
-            <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">
+                    KAWAD SWAD
+                </span>
+            </a>
+
+            <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wide">
+                <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
+                <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
+                <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
+                <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
+                <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
+                <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
+                <a href="blog.html" class="hover:text-brand-gold transition-colors">Blog</a>
+                <a href="contact.html" class="text-brand-gold font-semibold transition-colors">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="cart.html" class="relative text-brand-dark hover:text-brand-gold transition-colors p-2" aria-label="Cart">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                    <span class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                </a>
+            </div>
         </div>
-    </div>
-    <div id="mobile-menu" class="hidden lg:hidden bg-brand-cream border-b border-brand-gold/20 px-4 pt-2 pb-6 space-y-3 text-sm font-medium">
-        <a href="index.html" class="block py-2 hover:text-brand-gold transition-colors">Home</a>
-        <a href="about.html" class="block py-2 hover:text-brand-gold transition-colors">About</a>
-        <a href="products.html" class="block py-2 hover:text-brand-gold transition-colors">Products</a>
-        <a href="shop.html" class="block py-2 hover:text-brand-gold transition-colors">Shop</a>
-        <a href="business.html" class="block py-2 hover:text-brand-gold transition-colors">Business</a>
-        <a href="manufacturing.html" class="block py-2 hover:text-brand-gold transition-colors">Manufacturing</a>
-        <a href="gallery.html" class="block py-2 hover:text-brand-gold transition-colors">Gallery</a>
-        <a href="blog.html" class="block py-2 hover:text-brand-gold transition-colors">Blog</a>
-        <a href="contact.html" class="block py-2 hover:text-brand-gold transition-colors">Contact</a>
-    </div>
-</header>
+    </header>
+
     <main class="flex-grow">
-        <!-- ==========================================
-             SECTION 1: HERO BANNER
-             ========================================== -->
+        <!-- HERO -->
         <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
@@ -109,17 +90,20 @@
                     <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
                         We would love to hear from you. Reach out for product enquiries, business partnerships or general support.
                     </p>
-                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="tel:[phone-number-placeholder]" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
+                    <div class="pt-4 flex flex-wrap gap-4 justify-center">
+                        <a href="tel:+91963097687" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
                             Call Us
                         </a>
-                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
-                            Business Enquiry
+                        <a href="https://wa.me/91963097687?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
+                            Chat on WhatsApp
+                        </a>
+                        <a href="mailto:info.av.kkswad@gmail.com?subject=Website%20Enquiry%20-%20Kawad%20Swad" class="inline-flex justify-center items-center px-8 py-4 border border-brand-gold text-sm font-medium rounded-sm text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all duration-300">
+                            Email Us
                         </a>
                     </div>
                 </div>
 
-                <!-- Large Editable Hero Image Placeholder -->
+                <!-- Hero Graphic Placeholder -->
                 <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
                     <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
                     <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,9 +114,7 @@
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 2: CONTACT INFORMATION
-             ========================================== -->
+        <!-- CONTACT INFORMATION CARDS -->
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-16">
@@ -144,76 +126,71 @@
                     <!-- Office Address -->
                     <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
                         <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                            </svg>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         </div>
                         <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Office Address</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">[office-address-placeholder]</p>
+                        <p class="text-sm text-brand-muted leading-relaxed">Kawad Swad Udhyog, Nimar Region, Madhya Pradesh, India</p>
                     </div>
 
                     <!-- Phone -->
                     <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
                         <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                            </svg>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                         </div>
                         <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Phone</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">[phone-number-placeholder]</p>
+                        <p class="text-sm text-brand-muted leading-relaxed">
+                            <a href="tel:+91963097687" class="hover:text-brand-gold transition-colors">+91 963097687</a>
+                        </p>
                     </div>
 
                     <!-- Email -->
                     <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
                         <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         </div>
                         <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Email</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">[email-address-placeholder]</p>
+                        <p class="text-sm text-brand-muted leading-relaxed break-all">
+                            <a href="mailto:info.av.kkswad@gmail.com" class="hover:text-brand-gold transition-colors">info.av.kkswad@gmail.com</a>
+                        </p>
                     </div>
 
                     <!-- WhatsApp -->
                     <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
                         <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                            </svg>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                         </div>
                         <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">WhatsApp</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">[whatsapp-number-placeholder]</p>
+                        <p class="text-sm text-brand-muted leading-relaxed">
+                            <a href="https://wa.me/91963097687?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">+91 963097687</a>
+                        </p>
                     </div>
 
                     <!-- Business Hours -->
                     <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
                         <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
                         <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Business Hours</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">[office-timings-placeholder]</p>
+                        <p class="text-sm text-brand-muted leading-relaxed">Monday - Saturday: 9:00 AM - 7:00 PM (IST)</p>
                     </div>
 
-                    <!-- Support -->
+                    <!-- Social Channels -->
                     <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
                         <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/>
-                            </svg>
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Support</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">[support-details-placeholder]</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Follow Us</h3>
+                        <div class="flex space-x-4 text-sm text-brand-muted">
+                            <a href="https://instagram.com/kawadswad" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">Instagram</a>
+                            <span>•</span>
+                            <a href="https://youtube.com/@kawadswadudhyog" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">YouTube</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 3: CONTACT FORM
-             ========================================== -->
+        <!-- CONTACT FORM -->
         <section class="py-20 bg-brand-cream border-y border-brand-gold/10">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white rounded-sm border border-stone-200/80 p-8 sm:p-12 shadow-sm">
@@ -223,57 +200,63 @@
                         <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-3"></div>
                     </div>
 
-                    <form onsubmit="event.preventDefault();" class="space-y-6">
+                    <form id="contact-form" novalidate class="space-y-6">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <!-- Full Name -->
                             <div>
-                                <label for="full-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Full Name</label>
-                                <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
-                            </div>
-
-                            <!-- Company Name (Optional) -->
-                            <div>
-                                <label for="company-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Company Name (Optional)</label>
-                                <input type="text" id="company-name" name="company-name" placeholder="Enter company name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
-                            </div>
-
-                            <!-- Email Address -->
-                            <div>
-                                <label for="email-address" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Email Address</label>
-                                <input type="email" id="email-address" name="email-address" placeholder="Enter email address" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                                <label for="full-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Full Name <span class="text-brand-red">*</span></label>
+                                <input type="text" id="full-name" name="full-name" required maxlength="60" placeholder="Enter your full name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                                <span class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your full name.</span>
                             </div>
 
                             <!-- Mobile Number -->
                             <div>
-                                <label for="mobile" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Mobile Number</label>
-                                <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                                <label for="mobile" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Mobile Number <span class="text-brand-red">*</span></label>
+                                <input type="tel" id="mobile" name="mobile" required placeholder="10-digit Indian Mobile Number" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                                <span class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid 10-digit mobile number.</span>
                             </div>
-                        </div>
 
-                        <!-- Subject Dropdown -->
-                        <div>
-                            <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Subject</label>
-                            <select id="subject" name="subject" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
-                                <option value="" disabled selected>Select Enquiry Subject</option>
-                                <option value="General Enquiry">General Enquiry</option>
-                                <option value="Product Enquiry">Product Enquiry</option>
-                                <option value="Business Enquiry">Business Enquiry</option>
-                                <option value="Wholesale">Wholesale</option>
-                                <option value="Distributor">Distributor</option>
-                                <option value="Private Label">Private Label</option>
-                            </select>
+                            <!-- Email Address -->
+                            <div>
+                                <label for="email-address" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Email Address <span class="text-brand-red">*</span></label>
+                                <input type="email" id="email-address" name="email-address" required placeholder="Enter email address" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                                <span class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid email address.</span>
+                            </div>
+
+                            <!-- Subject -->
+                            <div>
+                                <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Subject <span class="text-brand-red">*</span></label>
+                                <select id="subject" name="subject" required class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors">
+                                    <option value="" disabled selected>Select Enquiry Subject</option>
+                                    <option value="General Enquiry">General Enquiry</option>
+                                    <option value="Product Enquiry">Product Enquiry</option>
+                                    <option value="Business Enquiry">Business Enquiry</option>
+                                    <option value="Wholesale">Wholesale</option>
+                                    <option value="Distributor">Distributor</option>
+                                    <option value="Private Label">Private Label</option>
+                                </select>
+                                <span class="error-msg text-[11px] text-brand-red hidden mt-1">Please select a subject.</span>
+                            </div>
                         </div>
 
                         <!-- Message -->
                         <div>
-                            <label for="contact-message" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Message</label>
-                            <textarea id="contact-message" name="contact-message" rows="5" placeholder="Write your message here..." class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors"></textarea>
+                            <label for="contact-message" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Message <span class="text-brand-red">*</span></label>
+                            <textarea id="contact-message" name="contact-message" required maxlength="1000" rows="5" placeholder="Write your message here (max 1000 characters)..." class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors"></textarea>
+                            <span class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your message.</span>
                         </div>
+
+                        <!-- Checkbox -->
+                        <div class="flex items-start gap-2">
+                            <input type="checkbox" id="consent" name="consent" required class="mt-1 text-brand-gold focus:ring-brand-gold">
+                            <label for="consent" class="text-xs text-brand-muted">I agree to be contacted by Kawad Swad regarding my enquiry. <span class="text-brand-red">*</span></label>
+                        </div>
+                        <span class="error-msg-consent text-[11px] text-brand-red hidden block">You must agree before submitting.</span>
 
                         <!-- Submit Button -->
                         <div class="text-center pt-2">
-                            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold transition-colors duration-300 shadow-sm">
-                                Submit Message
+                            <button type="submit" class="submit-btn w-full sm:w-auto px-10 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300 shadow-sm disabled:opacity-50">
+                                Send Message
                             </button>
                         </div>
                     </form>
@@ -281,164 +264,7 @@
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 4: BUSINESS QUICK LINKS
-             ========================================== -->
-        <section class="py-20 bg-brand-dark text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold mb-3">Business Quick Links</h2>
-                    <p class="text-stone-400 text-sm">Explore tailored partnerships and commercial supply opportunities.</p>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-4"></div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Distributor -->
-                    <div class="bg-stone-900/60 p-8 rounded-sm border border-stone-800 flex flex-col hover:border-brand-gold/50 transition-colors duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold mb-3">Distributor</h3>
-                        <p class="text-stone-400 text-sm leading-relaxed mb-8 flex-grow">Partner with us for regional product distribution with dedicated trade support.</p>
-                        <a href="business.html" class="inline-flex items-center justify-center px-6 py-3 border border-brand-gold text-brand-gold text-xs font-semibold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
-                            Learn More
-                        </a>
-                    </div>
-
-                    <!-- Wholesale -->
-                    <div class="bg-stone-900/60 p-8 rounded-sm border border-stone-800 flex flex-col hover:border-brand-gold/50 transition-colors duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold mb-3">Wholesale</h3>
-                        <p class="text-stone-400 text-sm leading-relaxed mb-8 flex-grow">Bulk supply solutions for retail chains, supermarkets, and commercial buyers.</p>
-                        <a href="business.html" class="inline-flex items-center justify-center px-6 py-3 border border-brand-gold text-brand-gold text-xs font-semibold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
-                            Learn More
-                        </a>
-                    </div>
-
-                    <!-- Private Label -->
-                    <div class="bg-stone-900/60 p-8 rounded-sm border border-stone-800 flex flex-col hover:border-brand-gold/50 transition-colors duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-serif text-2xl font-semibold mb-3">Private Label</h3>
-                        <p class="text-stone-400 text-sm leading-relaxed mb-8 flex-grow">Custom manufacturing and packaging options tailored to your specific brand needs.</p>
-                        <a href="business.html" class="inline-flex items-center justify-center px-6 py-3 border border-brand-gold text-brand-gold text-xs font-semibold uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
-                            Learn More
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 5: GOOGLE MAP PLACEHOLDER
-             ========================================== -->
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Visit Our Office</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="aspect-21/9 bg-stone-200/80 rounded-sm border border-stone-300/80 flex flex-col items-center justify-center p-8 text-center shadow-inner">
-                    <svg class="w-16 h-16 text-stone-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-                    </svg>
-                    <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[map-placeholder]</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 6: FREQUENTLY ASKED QUESTIONS
-             ========================================== -->
-        <section class="py-20 bg-brand-cream border-t border-brand-gold/10">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Frequently Asked Questions</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-
-                <div class="space-y-4">
-                    <!-- FAQ 1 -->
-                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                            <span>How can I contact KAWAD SWAD?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                            [Editable Answer: You can reach out through our contact form above, phone, email, or official WhatsApp handle.]
-                        </p>
-                    </details>
-
-                    <!-- FAQ 2 -->
-                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                            <span>How quickly do you respond?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                            [Editable Answer: Detail expected response turnaround time for general and trade inquiries.]
-                        </p>
-                    </details>
-
-                    <!-- FAQ 3 -->
-                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                            <span>Can I enquire for distributorship?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                            [Editable Answer: Explain how prospective distributors can select "Distributor" in the contact form or visit the business section.]
-                        </p>
-                    </details>
-
-                    <!-- FAQ 4 -->
-                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                            <span>Can I request private label manufacturing?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                            [Editable Answer: Detail how brand owners can discuss custom recipes, packaging options, and contract terms.]
-                        </p>
-                    </details>
-
-                    <!-- FAQ 5 -->
-                    <details class="group bg-white p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
-                            <span>Can I visit the factory?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-                            </span>
-                        </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                            [Editable Answer: Explain appointment protocols for business partners and institutional visitors.]
-                        </p>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- ==========================================
-             SECTION 7: WHATSAPP CTA
-             ========================================== -->
+        <!-- WHATSAPP CTA -->
         <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
                 <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-4 leading-tight">
@@ -448,10 +274,10 @@
                     Connect with our team on WhatsApp for faster support.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="https://wa.me/[whatsapp-number-placeholder]" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">
+                    <a href="https://wa.me/91963097687?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">
                         Chat on WhatsApp
                     </a>
-                    <a href="tel:[phone-number-placeholder]" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">
+                    <a href="tel:+91963097687" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">
                         Call Now
                     </a>
                 </div>
@@ -459,69 +285,34 @@
         </section>
     </main>
 
-    <!-- ==========================================
-         SECTION 8: FOOTER (REUSED FOOTER)
-         ========================================== -->
-   <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-            <div class="space-y-4 lg:col-span-2">
-                <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
-                <p class="text-xs text-stone-500 leading-relaxed max-w-sm">Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar. Committed to quality, hygiene and authentic flavors.</p>
-                <div class="pt-2 text-xs space-y-1 text-stone-500 font-mono">
-                    <p>FSSAI Lic No: [fssai-number-placeholder]</p>
-                    <p>GSTIN: [gst-number-placeholder]</p>
+    <!-- GLOBAL FOOTER -->
+    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+                <div class="space-y-4 lg:col-span-2">
+                    <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
+                    <p class="text-xs text-stone-500 leading-relaxed max-w-sm">
+                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar.
+                    </p>
+                    <div class="pt-2 text-xs space-y-1 text-stone-500 font-mono">
+                        <p>FSSAI Lic No: 21425890001224</p>
+                    </div>
                 </div>
             </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
-                    <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
-                    <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
-                    <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
-                    <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Media</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Solutions</a></li>
-                    <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
-                    <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
-                    <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Blog &amp; Recipes</a></li>
-                    <li><a href="reviews.html" class="hover:text-brand-gold transition-colors">Reviews</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Support &amp; Legal</h4>
-                <ul class="space-y-2.5 text-xs">
-                    <li><a href="faq.html" class="hover:text-brand-gold transition-colors">FAQ</a></li>
-                    <li><a href="policies.html" class="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
-                    <li><a href="policies.html#terms-and-conditions" class="hover:text-brand-gold transition-colors">Terms &amp; Conditions</a></li>
-                    <li><a href="policies.html#shipping-policy" class="hover:text-brand-gold transition-colors">Shipping &amp; Returns</a></li>
-                </ul>
+            <div class="mt-12 pt-8 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-600 gap-4">
+                <p>&copy; KAWAD SWAD. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="https://instagram.com/kawadswad" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">Instagram</a>
+                    <a href="https://youtube.com/@kawadswadudhyog" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">YouTube</a>
+                    <a href="https://wa.me/91963097687?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold transition-colors">WhatsApp</a>
+                </div>
             </div>
         </div>
-        <div class="mt-12 pt-8 border-t border-stone-900 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <div>
-                <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Subscribe to Our Newsletter</h5>
-                <p class="text-xs text-stone-500 mt-1">Receive authentic Jain recipes and business updates directly.</p>
-            </div>
-            <form onsubmit="event.preventDefault();" class="flex gap-2">
-                <input type="email" placeholder="Enter your email" class="bg-stone-900 border border-stone-800 rounded-sm px-4 py-2 text-xs text-white focus:outline-none focus:border-brand-gold flex-grow">
-                <button type="submit" class="px-6 py-2 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors">Subscribe</button>
-            </form>
-        </div>
-        <div class="mt-12 pt-8 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-600 gap-4">
-            <p>&copy; KAWAD SWAD. All rights reserved.</p>
-            <div class="flex space-x-6">
-                <a href="https://wa.me/[whatsapp-placeholder]" target="_blank" rel="noopener" class="hover:text-brand-gold transition-colors">WhatsApp</a>
-                <a href="contact.html" class="hover:text-brand-gold transition-colors">Support</a>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
+    <script src="js/layout.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/shop.js"></script>
 </body>
 </html>

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ | KAWAD SWAD</title>
-    <meta name="description" content="Frequently Asked Questions about KAWAD SWAD products, orders, shipping, distributors, wholesale and private label services.">
+    <title>Frequently Asked Questions | KAWAD SWAD</title>
+    <meta name="description" content="Find answers to common questions about KAWAD SWAD products, wholesale, distributorship and customer support.">
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN with custom design tokens matching existing site structure -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,723 +14,535 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#fffbeb',
-                            100: '#fef3c7',
-                            500: '#f59e0b',
-                            600: '#d97706',
-                            700: '#b45309',
-                            800: '#92400e',
-                            900: '#78350f',
-                            dark: '#1c1917'
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
                         }
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif']
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
                     }
                 }
             }
         }
     </script>
     
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- CSS Animation Utilities -->
     <style>
-        /* Smooth Accordion Animations */
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease;
-            opacity: 0;
+        .fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            opacity: 1;
-            padding-top: 1rem;
+        .slide-up {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        .faq-item.active .chevron-icon {
-            transform: rotate(180deg);
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        /* Hide scrollbar for category tabs on mobile */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800 font-sans antialiased selection:bg-amber-500 selection:text-white">
+<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- 1. STICKY HEADER (Existing Website Header) -->
-    <header class="sticky top-0 z-50 glass-panel border-b border-stone-200/80 shadow-sm">
+    <!-- ==========================================
+         STICKY HEADER (REUSED NAV)
+         ========================================== -->
+    <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3">
-                <span class="text-2xl font-black tracking-tight text-amber-800">KAWAD SWAD</span>
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">
+                    KAWAD SWAD
+                </span>
             </a>
-            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-stone-700">
-                <a href="index.html" class="hover:text-amber-600 transition-colors">Home</a>
-                <a href="products.html" class="hover:text-amber-600 transition-colors">Products</a>
-                <a href="about.html" class="hover:text-amber-600 transition-colors">About Us</a>
-                <a href="business.html" class="hover:text-amber-600 transition-colors">Business Opportunities</a>
-                <a href="faq.html" class="text-amber-600">FAQ</a>
-                <a href="contact.html" class="hover:text-amber-600 transition-colors">Contact</a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
+                <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
+                <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
+                <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
+                <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
+                <a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a>
+                <a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a>
+                <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
             </nav>
-            <div class="flex items-center gap-4">
-                <a href="contact.html" class="bg-amber-600 hover:bg-amber-700 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-md shadow-amber-600/20">
-                    Get in Touch
-                </a>
-            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button type="button" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
         </div>
     </header>
 
-    <!-- 2. HERO SECTION -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-amber-500/10 via-amber-500/5 to-transparent pt-16 pb-20 lg:pt-24 lg:pb-28">
-        <!-- Background Pattern Graphics -->
-        <div class="absolute inset-0 -z-10 opacity-30">
-            <div class="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-amber-400 blur-3xl"></div>
-            <div class="absolute top-1/2 right-0 w-80 h-80 rounded-full bg-amber-300 blur-3xl"></div>
-        </div>
+    <main class="flex-grow">
+        <!-- ==========================================
+             SECTION 1: HERO BANNER
+             ========================================== -->
+        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
+                        Knowledge Center
+                    </span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
+                        Frequently Asked Questions
+                    </h1>
+                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
+                        Find answers to common questions about our products, business opportunities and customer support.
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
+                            Contact Us
+                        </a>
+                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
+                            Business Enquiry
+                        </a>
+                    </div>
+                </div>
 
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs font-semibold uppercase tracking-wider mb-4">
-                Help & Support Center
-            </span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight">
-                Frequently Asked Questions
-            </h1>
-            <p class="mt-4 text-lg sm:text-xl text-stone-600 max-w-2xl mx-auto font-normal">
-                Everything you need to know about KAWAD SWAD, our products and our business opportunities.
-            </p>
-
-            <!-- Search Bar -->
-            <div class="mt-10 max-w-2xl mx-auto relative">
-                <div class="relative flex items-center">
-                    <i data-lucide="search" class="absolute left-5 w-6 h-6 text-stone-400 pointer-events-none"></i>
-                    <input 
-                        type="text" 
-                        id="faq-search" 
-                        placeholder="Search your question..." 
-                        class="w-full pl-14 pr-12 py-4 rounded-2xl bg-white/90 border border-stone-200 text-stone-900 placeholder-stone-400 text-lg shadow-xl shadow-stone-200/50 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all"
-                    >
-                    <button id="clear-search" class="hidden absolute right-4 text-stone-400 hover:text-stone-600 p-1">
-                        <i data-lucide="x" class="w-5 h-5"></i>
-                    </button>
+                <!-- Large Editable Hero Image Placeholder -->
+                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
+                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[faq-hero-placeholder]</span>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 3. QUICK CATEGORY NAVIGATION (Sticky Desktop Sub-Header / Floating Bar) -->
-    <nav class="sticky top-20 z-40 bg-stone-50/90 backdrop-blur-md border-y border-stone-200 py-4 mb-12 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center gap-3 overflow-x-auto no-scrollbar sm:justify-center py-1">
-                <a href="#products" class="category-btn flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-stone-200 text-stone-700 text-sm font-semibold whitespace-nowrap hover:border-amber-500 hover:text-amber-600 hover:shadow-md transition-all">
-                    <i data-lucide="package" class="w-4 h-4 text-amber-600"></i> Products
-                </a>
-                <a href="#orders" class="category-btn flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-stone-200 text-stone-700 text-sm font-semibold whitespace-nowrap hover:border-amber-500 hover:text-amber-600 hover:shadow-md transition-all">
-                    <i data-lucide="shopping-cart" class="w-4 h-4 text-amber-600"></i> Orders
-                </a>
-                <a href="#shipping" class="category-btn flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-stone-200 text-stone-700 text-sm font-semibold whitespace-nowrap hover:border-amber-500 hover:text-amber-600 hover:shadow-md transition-all">
-                    <i data-lucide="truck" class="w-4 h-4 text-amber-600"></i> Shipping
-                </a>
-                <a href="#payments" class="category-btn flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-stone-200 text-stone-700 text-sm font-semibold whitespace-nowrap hover:border-amber-500 hover:text-amber-600 hover:shadow-md transition-all">
-                    <i data-lucide="credit-card" class="w-4 h-4 text-amber-600"></i> Payments
-                </a>
-                <a href="#business" class="category-btn flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-stone-200 text-stone-700 text-sm font-semibold whitespace-nowrap hover:border-amber-500 hover:text-amber-600 hover:shadow-md transition-all">
-                    <i data-lucide="briefcase" class="w-4 h-4 text-amber-600"></i> Business
-                </a>
-                <a href="#private-label" class="category-btn flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-stone-200 text-stone-700 text-sm font-semibold whitespace-nowrap hover:border-amber-500 hover:text-amber-600 hover:shadow-md transition-all">
-                    <i data-lucide="tag" class="w-4 h-4 text-amber-600"></i> Private Label
-                </a>
-                <a href="#general" class="category-btn flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-stone-200 text-stone-700 text-sm font-semibold whitespace-nowrap hover:border-amber-500 hover:text-amber-600 hover:shadow-md transition-all">
-                    <i data-lucide="info" class="w-4 h-4 text-amber-600"></i> General
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- FAQ MAIN CONTENT CONTAINER -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 pb-20">
-
-        <!-- No Search Results State -->
-        <div id="no-results" class="hidden text-center py-12 glass-panel rounded-3xl p-8 border border-stone-200">
-            <i data-lucide="search-x" class="w-12 h-12 text-stone-400 mx-auto mb-4"></i>
-            <h3 class="text-xl font-bold text-stone-900">No matching questions found</h3>
-            <p class="text-stone-600 mt-2">Try searching with a different word or explore our category links above.</p>
-        </div>
-
-        <!-- 4. PRODUCTS FAQ -->
-        <section id="products" class="faq-category scroll-mt-40">
-            <div class="flex items-center gap-3 mb-6 pb-3 border-b border-stone-200">
-                <div class="p-2.5 rounded-xl bg-amber-100 text-amber-700">
-                    <i data-lucide="package" class="w-6 h-6"></i>
+        <!-- ==========================================
+             SECTION 2: SEARCH FAQ
+             ========================================== -->
+        <section class="py-10 bg-white border-b border-stone-200/80 sticky top-20 z-40 shadow-sm">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="relative">
+                    <input type="text" placeholder="Search your question..." class="w-full bg-brand-cream/50 border border-stone-300 rounded-sm py-4 pl-12 pr-4 text-sm text-brand-dark focus:outline-none focus:border-brand-gold transition-colors shadow-inner">
+                    <svg class="w-5 h-5 text-brand-muted absolute left-4 top-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
                 </div>
-                <h2 class="text-2xl font-bold text-stone-900">Products FAQ</h2>
             </div>
-            <div class="space-y-4">
+        </section>
+
+        <!-- ==========================================
+             SECTION 3: FAQ CATEGORIES
+             ========================================== -->
+        <section class="py-20 bg-brand-cream border-b border-brand-gold/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">FAQ Categories</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Products -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Products</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
+                    </div>
+
+                    <!-- Orders -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Orders</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
+                    </div>
+
+                    <!-- Shipping -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/></svg>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Shipping</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
+                    </div>
+
+                    <!-- Wholesale -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Wholesale</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
+                    </div>
+
+                    <!-- Distributor -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/></svg>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Distributor</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
+                    </div>
+
+                    <!-- Private Label -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Private Label</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
+                    </div>
+
+                    <!-- Manufacturing -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">Manufacturing</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
+                    </div>
+
+                    <!-- General Support -->
+                    <div class="bg-white p-6 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300 shadow-sm">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-2">General Support</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short category description]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 4: FAQ ACCORDION
+             ========================================== -->
+        <section class="py-20 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
                 
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">What products do you manufacture?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        We manufacture authentic Indian FMCG food products, specializing in premium handmade papads, traditional pickles, namkeen, and authentic spices crafted using traditional family recipes.
+                <!-- GROUP 1: PRODUCTS -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-6 bg-brand-gold"></span>
+                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Products</h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>What products do you offer?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Detail product offerings including Moong, Chana, Urad papads, and Papad Masala variants.]
+                            </p>
+                        </details>
+
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>What sizes are available?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Detail available packaging sizes such as 200g retail, 500g family, and 1000g value packs.]
+                            </p>
+                        </details>
+
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>Are your products vegetarian?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Detail compliance with 100% Jain vegetarian standards and ingredient purity guidelines.]
+                            </p>
+                        </details>
                     </div>
                 </div>
 
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Which papad varieties are available?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Our papad range includes classic Moong Dal Papad, Udad Dal Special, Chana Dal Papad, Kali Mirch (Black Pepper) Special, Garlic Papad, and Punjabi Masala Papad in various sizes.
+                <!-- GROUP 2: ORDERS -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-6 bg-brand-gold"></span>
+                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Orders</h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>How can I place an order?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Explain retail ordering options, online shop access, or direct representative contact.]
+                            </p>
+                        </details>
+
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>How do I enquire for bulk orders?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Detail the enquiry submission process for commercial, wholesale, or corporate volume orders.]
+                            </p>
+                        </details>
                     </div>
                 </div>
 
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Are your products 100% vegetarian?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Yes, 100% of our products are certified pure vegetarian. They are manufactured in a strict vegetarian facility compliant with high food safety standards.
+                <!-- GROUP 3: SHIPPING -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-6 bg-brand-gold"></span>
+                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Shipping</h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>Do you deliver across India?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Explain nationwide delivery reach and commercial distribution coverage.]
+                            </p>
+                        </details>
+
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>How will my order be shipped?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Describe protective packaging, freight logistics, and dispatch methods.]
+                            </p>
+                        </details>
                     </div>
                 </div>
 
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Do you use preservatives?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        We prioritize natural preservation techniques like sun-drying and traditional oil immersion. Our products contain zero artificial preservatives, chemical colors, or synthetic flavors.
+                <!-- GROUP 4: BUSINESS -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-6 bg-brand-gold"></span>
+                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Business</h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>How can I become a distributor?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Detail distributorship requirements, territorial allocation, and application steps.]
+                            </p>
+                        </details>
+
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>How do I purchase wholesale?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Detail bulk purchasing terms, wholesale pricing tiers, and commercial supply terms.]
+                            </p>
+                        </details>
+
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>Can I start private label manufacturing?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Detail contract manufacturing capabilities, custom pouch options, and recipe customization.]
+                            </p>
+                        </details>
                     </div>
                 </div>
 
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">How should papad be stored?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Store papad in a cool, dry place inside an airtight container. Keep away from direct sunlight, moisture, and humidity to preserve freshness and crispness.
+                <!-- GROUP 5: MANUFACTURING -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-6 bg-brand-gold"></span>
+                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Manufacturing</h2>
+                    </div>
+
+                    <div class="space-y-4">
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>How are products manufactured?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Detail hygienic plant procedures, untouched dough rolling, and drying processes.]
+                            </p>
+                        </details>
+
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>Can I visit the factory?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Detail visitor policy, institutional inspection requests, and appointment scheduling.]
+                            </p>
+                        </details>
                     </div>
                 </div>
 
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">What is the shelf life?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Most of our papad and snack items have a shelf life of 6 to 12 months from the date of manufacturing when stored according to recommendations.
+                <!-- GROUP 6: SUPPORT -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-6 bg-brand-gold"></span>
+                        <h2 class="font-serif text-2xl font-bold text-brand-dark">Support</h2>
                     </div>
-                </div>
 
-            </div>
-        </section>
+                    <div class="space-y-4">
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>How do I contact KAWAD SWAD?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Detail support email channels, helpline phone numbers, and messaging options.]
+                            </p>
+                        </details>
 
-        <!-- 5. ORDERS & SHOPPING -->
-        <section id="orders" class="faq-category scroll-mt-40">
-            <div class="flex items-center gap-3 mb-6 pb-3 border-b border-stone-200">
-                <div class="p-2.5 rounded-xl bg-amber-100 text-amber-700">
-                    <i data-lucide="shopping-cart" class="w-6 h-6"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-stone-900">Orders & Shopping</h2>
-            </div>
-            <div class="space-y-4">
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">How can I order?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        You can place retail orders directly through our website, contact us via WhatsApp, or reach out to our customer service desk for assisted ordering.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Can I order online?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Yes, our online store allows seamless browsing, cart additions, and secure checkout for retail customers nationwide.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Do you accept bulk orders?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Absolutely. We accommodate bulk orders for events, caterers, institutions, wholesalers, and corporate gifting with custom pricing structures.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Can I cancel an order?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Orders can be cancelled within 24 hours of placement or before dispatch. Contact our support team immediately with your order ID.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Can I modify my order?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Address changes or item modifications are possible if your order has not been packed or dispatched. Please contact support as soon as possible.
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 6. SHIPPING -->
-        <section id="shipping" class="faq-category scroll-mt-40">
-            <div class="flex items-center gap-3 mb-6 pb-3 border-b border-stone-200">
-                <div class="p-2.5 rounded-xl bg-amber-100 text-amber-700">
-                    <i data-lucide="truck" class="w-6 h-6"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-stone-900">Shipping</h2>
-            </div>
-            <div class="space-y-4">
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Where do you deliver?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        We deliver pan-India covering major cities, towns, and regional hubs. We also coordinate international freight shipping for bulk business orders.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">How long does delivery take?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Standard retail delivery takes 3 to 7 business days depending on your location. Wholesale and B2B freight shipping schedules are communicated upon order confirmation.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">How are products packed?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Because papads are delicate, we use specialized multi-layer protective packaging, bubble wraps, and sturdy outer corrugated boxes to eliminate breakage during transit.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">How can I track my order?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Once dispatched, you will receive an SMS and email containing your tracking ID and courier link to monitor your delivery status in real-time.
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 7. PAYMENTS -->
-        <section id="payments" class="faq-category scroll-mt-40">
-            <div class="flex items-center gap-3 mb-6 pb-3 border-b border-stone-200">
-                <div class="p-2.5 rounded-xl bg-amber-100 text-amber-700">
-                    <i data-lucide="credit-card" class="w-6 h-6"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-stone-900">Payments</h2>
-            </div>
-            <div class="space-y-4">
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Which payment methods are accepted?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        We accept UPI (Google Pay, PhonePe, Paytm), Credit/Debit Cards, Net Banking, and Bank NEFT/RTGS transfers for wholesale accounts.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Is Cash on Delivery available?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Cash on Delivery (COD) is available for select retail pin codes. B2B and bulk custom orders require partial advance payment.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Will I receive an invoice?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Yes, a digital GST invoice is emailed with every order, and a printed copy is attached inside the shipping package.
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 8. BUSINESS FAQ -->
-        <section id="business" class="faq-category scroll-mt-40">
-            <div class="flex items-center gap-3 mb-6 pb-3 border-b border-stone-200">
-                <div class="p-2.5 rounded-xl bg-amber-100 text-amber-700">
-                    <i data-lucide="briefcase" class="w-6 h-6"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-stone-900">Business FAQ</h2>
-            </div>
-            <div class="space-y-4">
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">How can I become a distributor?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Fill out our Business Inquiry form or contact our Sales Team directly. Our regional sales representative will connect with you to review territory availability and margin structures.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">What is the minimum order quantity?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Minimum Order Quantities (MOQ) vary depending on product category and regional logistics. Typically, standard wholesale MOQs start at 50 kg or 10 master cartons.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Do you supply wholesalers?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Yes, we partner with wholesalers across India, offering attractive trade discounts, promotional support, and priority dispatch schedules.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Do you export products?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Yes, we export to multiple international markets. We handle export-compliant packaging, documentation, and international regulatory requirements.
+                        <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                            <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark">
+                                <span>How quickly do you respond?</span>
+                                <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                </span>
+                            </summary>
+                            <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                                [Editable Answer: Detail expected response timeframe for customer queries and business proposals.]
+                            </p>
+                        </details>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- 9. PRIVATE LABEL FAQ -->
-        <section id="private-label" class="faq-category scroll-mt-40">
-            <div class="flex items-center gap-3 mb-6 pb-3 border-b border-stone-200">
-                <div class="p-2.5 rounded-xl bg-amber-100 text-amber-700">
-                    <i data-lucide="tag" class="w-6 h-6"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-stone-900">Private Label FAQ</h2>
-            </div>
-            <div class="space-y-4">
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Do you manufacture under private labels?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Yes, we offer complete Contract Manufacturing and White Label services for retail chains, supermarkets, and independent brands.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Can you print my brand?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Yes, we provide full custom pouch and box printing featuring your brand logo, design layout, barcode, and business details.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Can you customize packaging?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        We offer versatile packaging options including pillow pouches, zipper pouches, gift boxes, and bulk corrugated packs tailored to your target market.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">What is the MOQ?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Private Label MOQs depend on packaging print runs. Typically custom printed pouch runs start at 500 kg per SKU. Contact us for custom evaluations.
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 10. GENERAL FAQ -->
-        <section id="general" class="faq-category scroll-mt-40">
-            <div class="flex items-center gap-3 mb-6 pb-3 border-b border-stone-200">
-                <div class="p-2.5 rounded-xl bg-amber-100 text-amber-700">
-                    <i data-lucide="info" class="w-6 h-6"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-stone-900">General FAQ</h2>
-            </div>
-            <div class="space-y-4">
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Where is your factory?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Our state-of-the-art hygienic processing facility is located in Rajasthan, India, equipped with modern quality control and traditional processing units.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">How can I contact you?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        You can reach us by phone, email, or WhatsApp through our Contact page. Our dedicated support team responds within 24 business hours.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">Do you have social media?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        Yes, follow KAWAD SWAD on Instagram, Facebook, and LinkedIn for product launches, recipes, business insights, and updates.
-                    </div>
-                </div>
-
-                <div class="faq-item glass-panel rounded-2xl border border-stone-200 transition-all hover:border-stone-300">
-                    <button class="faq-toggle w-full flex items-center justify-between p-6 text-left focus:outline-none">
-                        <span class="text-lg font-semibold text-stone-900 pr-4">How can I give feedback?</span>
-                        <i data-lucide="chevron-down" class="chevron-icon w-5 h-5 text-stone-500 transition-transform duration-300 shrink-0"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 text-stone-600 leading-relaxed border-t border-stone-100">
-                        We value customer feedback! You can leave reviews on our website product pages, email us directly, or write to our support desk.
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- 11. STILL HAVE QUESTIONS (CTA SECTION) -->
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-stone-900 via-stone-800 to-amber-950 text-white p-8 sm:p-12 lg:p-16 text-center shadow-2xl">
-            <!-- Background Glow -->
-            <div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-amber-600/20 blur-3xl"></div>
-            
-            <div class="relative z-10 max-w-2xl mx-auto">
-                <div class="inline-flex items-center justify-center p-3 rounded-full bg-white/10 text-amber-400 mb-6 backdrop-blur-md">
-                    <i data-lucide="help-circle" class="w-8 h-8"></i>
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                    Still have a question?
+        <!-- ==========================================
+             SECTION 5: STILL NEED HELP
+             ========================================== -->
+        <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-4 leading-tight">
+                    Didn't Find Your Answer?
                 </h2>
-                <p class="mt-4 text-stone-300 text-lg">
-                    Our team is happy to help you.
+                <p class="text-stone-300 text-sm max-w-xl mx-auto mb-8 font-light">
+                    Our team is happy to help with any specific queries or commercial requirements.
                 </p>
-                
-                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="contact.html" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-semibold transition-all shadow-lg shadow-amber-600/30">
-                        <i data-lucide="mail" class="w-5 h-5"></i>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="contact.html" class="w-full sm:w-auto px-8 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">
                         Contact Us
                     </a>
-                    <a href="https://wa.me/" target="_blank" rel="noopener" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg shadow-emerald-600/30">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i>
-                        WhatsApp Us
+                    <a href="https://wa.me/[whatsapp-number-placeholder]" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">
+                        WhatsApp
+                    </a>
+                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-brand-gold text-brand-gold font-semibold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
+                        Business Enquiry
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- 12. FOOTER (Existing Website Footer) -->
-    <footer class="bg-stone-900 text-stone-400 border-t border-stone-800 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <h3 class="text-white font-black text-xl mb-4">KAWAD SWAD</h3>
-                    <p class="text-sm text-stone-400 leading-relaxed">Delivering traditional taste and premium quality food products across India and globally.</p>
+    <!-- ==========================================
+         SECTION 6: FOOTER (REUSED FOOTER)
+         ========================================== -->
+    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4 md:col-span-1">
+                    <span class="font-serif text-xl font-bold text-white tracking-wider">KAWAD SWAD</span>
+                    <p class="text-xs text-stone-500 leading-relaxed">
+                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar.
+                    </p>
                 </div>
+
+                <!-- Quick Links -->
                 <div>
-                    <h4 class="text-white font-semibold text-sm mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="index.html" class="hover:text-amber-500 transition-colors">Home</a></li>
-                        <li><a href="products.html" class="hover:text-amber-500 transition-colors">Products</a></li>
-                        <li><a href="about.html" class="hover:text-amber-500 transition-colors">About Us</a></li>
-                        <li><a href="business.html" class="hover:text-amber-500 transition-colors">Business Opportunities</a></li>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
+                        <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
                     </ul>
                 </div>
+
+                <!-- Business Links -->
                 <div>
-                    <h4 class="text-white font-semibold text-sm mb-4">Support</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="faq.html" class="text-amber-500">FAQ</a></li>
-                        <li><a href="contact.html" class="hover:text-amber-500 transition-colors">Contact Us</a></li>
-                        <li><a href="privacy.html" class="hover:text-amber-500 transition-colors">Privacy Policy</a></li>
-                        <li><a href="terms.html" class="hover:text-amber-500 transition-colors">Terms of Service</a></li>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Process</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Opportunities</a></li>
+                        <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
+                        <li><a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a></li>
+                        <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
                     </ul>
                 </div>
+
+                <!-- Contact Info -->
                 <div>
-                    <h4 class="text-white font-semibold text-sm mb-4">Get in Touch</h4>
-                    <p class="text-sm text-stone-400 mb-2">Have questions? Reach out to us anytime.</p>
-                    <a href="mailto:info@kawadswad.com" class="text-sm text-amber-500 hover:underline">info@kawadswad.com</a>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Contact</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+                        <li class="text-stone-500">Nimar Region, Madhya Pradesh, India</li>
+                    </ul>
                 </div>
+
             </div>
-            <div class="border-t border-stone-800 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500">
-                <p>&copy; 2026 KAWAD SWAD. All rights reserved.</p>
-                <p class="mt-2 sm:mt-0">Premium FMCG Brand</p>
+
+            <div class="mt-12 pt-8 border-t border-stone-900 text-center text-xs text-stone-600">
+                <p>&copy; KAWAD SWAD. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Vanilla JavaScript Functionality -->
-    <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. Accordion Toggle Logic
-            const faqToggles = document.querySelectorAll('.faq-toggle');
-
-            faqToggles.forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const item = toggle.parentElement;
-                    const isActive = item.classList.contains('active');
-
-                    // Close all active items (Accordion style)
-                    document.querySelectorAll('.faq-item.active').forEach(openItem => {
-                        if (openItem !== item) {
-                            openItem.classList.remove('active');
-                        }
-                    });
-
-                    // Toggle current item
-                    if (!isActive) {
-                        item.classList.add('active');
-                    } else {
-                        item.classList.remove('active');
-                    }
-                });
-            });
-
-            // 2. Live Search Filter Logic
-            const searchInput = document.getElementById('faq-search');
-            const clearBtn = document.getElementById('clear-search');
-            const faqItems = document.querySelectorAll('.faq-item');
-            const faqCategories = document.querySelectorAll('.faq-category');
-            const noResults = document.getElementById('no-results');
-
-            searchInput.addEventListener('input', (e) => {
-                const query = e.target.value.toLowerCase().trim();
-
-                if (query.length > 0) {
-                    clearBtn.classList.remove('hidden');
-                } else {
-                    clearBtn.classList.add('hidden');
-                }
-
-                let totalMatches = 0;
-
-                faqCategories.forEach(category => {
-                    let categoryHasMatches = false;
-                    const itemsInCategory = category.querySelectorAll('.faq-item');
-
-                    itemsInCategory.forEach(item => {
-                        const question = item.querySelector('.faq-toggle span').textContent.toLowerCase();
-                        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
-
-                        if (question.includes(query) || answer.includes(query)) {
-                            item.style.display = 'block';
-                            categoryHasMatches = true;
-                            totalMatches++;
-
-                            // Auto open accordion if user is actively searching
-                            if (query.length > 2) {
-                                item.classList.add('active');
-                            }
-                        } else {
-                            item.style.display = 'none';
-                            item.classList.remove('active');
-                        }
-                    });
-
-                    // Hide/Show section based on matching items
-                    if (categoryHasMatches) {
-                        category.style.display = 'block';
-                    } else {
-                        category.style.display = 'none';
-                    }
-                });
-
-                // Display No Results state if nothing matches
-                if (totalMatches === 0 && query !== '') {
-                    noResults.classList.remove('hidden');
-                } else {
-                    noResults.classList.add('hidden');
-                }
-            });
-
-            // Clear Search input button
-            clearBtn.addEventListener('click', () => {
-                searchInput.value = '';
-                clearBtn.classList.add('hidden');
-                noResults.classList.add('hidden');
-
-                // Reset display states
-                faqCategories.forEach(cat => cat.style.display = 'block');
-                faqItems.forEach(item => {
-                    item.style.display = 'block';
-                    item.classList.remove('active');
-                });
-            });
-        });
-    </script>
 </body>
 </html>

@@ -2,16 +2,13 @@
  * ============================================================================
  * KAWAD SWAD - Layout Engine (js/layout.js)
  * ============================================================================
- * Handles component injection (Header/Footer), sticky header dynamics,
- * mobile navigation toggles, active page highlighting, back-to-top button,
- * and smooth scrolling across all pages.
+ * Production-optimized layout controller handling component injection, 
+ * throttled scroll dynamics, mobile navigation accessibility, active nav state,
+ * and smooth anchor scrolling.
  */
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Load HTML components asynchronously before initializing dependent UI
     await loadLayoutComponents();
-
-    // 2. Initialize layout features
     initMobileMenu();
     initActiveNavHighlight();
     initStickyHeader();
@@ -20,8 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /**
- * Fetches and injects shared Header and Footer components if component containers exist,
- * or verifies inline elements before resolving.
+ * Asynchronously fetches and replaces component placeholders with error recovery.
  */
 async function loadLayoutComponents() {
     const headerContainer = document.querySelector('header-component, #header-container');
@@ -33,13 +29,15 @@ async function loadLayoutComponents() {
         fetchTasks.push(
             fetch('components/header.html')
                 .then(res => {
-                    if (!res.ok) throw new Error(`Header status: ${res.status}`);
+                    if (!res.ok) throw new Error(`Header component status: ${res.status}`);
                     return res.text();
                 })
                 .then(html => {
                     headerContainer.outerHTML = html;
                 })
-                .catch(err => console.warn('Could not load header component:', err))
+                .catch(err => {
+                    console.warn('Unable to load dynamic header component:', err);
+                })
         );
     }
 
@@ -47,13 +45,15 @@ async function loadLayoutComponents() {
         fetchTasks.push(
             fetch('components/footer.html')
                 .then(res => {
-                    if (!res.ok) throw new Error(`Footer status: ${res.status}`);
+                    if (!res.ok) throw new Error(`Footer component status: ${res.status}`);
                     return res.text();
                 })
                 .then(html => {
                     footerContainer.outerHTML = html;
                 })
-                .catch(err => console.warn('Could not load footer component:', err))
+                .catch(err => {
+                    console.warn('Unable to load dynamic footer component:', err);
+                })
         );
     }
 
@@ -61,7 +61,7 @@ async function loadLayoutComponents() {
 }
 
 /**
- * Handles mobile navigation menu toggling and auto-closing with event delegation.
+ * Mobile Navigation controller with keyboard trap prevention and accessibility controls.
  */
 function initMobileMenu() {
     const header = document.querySelector('header');
@@ -78,34 +78,51 @@ function initMobileMenu() {
             if (isHidden) {
                 mobileMenu.classList.remove('hidden');
                 mobileMenu.classList.add('slide-up');
+                toggleBtn.setAttribute('aria-expanded', 'true');
             } else {
                 mobileMenu.classList.add('hidden');
                 mobileMenu.classList.remove('slide-up');
+                toggleBtn.setAttribute('aria-expanded', 'false');
             }
             return;
         }
 
-        // Close menu if a link inside mobile navigation is clicked
         const mobileLink = e.target.closest('#mobile-menu a');
         if (mobileLink && mobileMenu) {
             mobileMenu.classList.add('hidden');
+            const toggle = document.querySelector('button[aria-label="Toggle Navigation"]');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
         }
     });
 
-    // Close mobile menu when clicking outside
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                const toggle = document.querySelector('button[aria-label="Toggle Navigation"]');
+                if (toggle) {
+                    toggle.setAttribute('aria-expanded', 'false');
+                    toggle.focus();
+                }
+            }
+        }
+    });
+
     document.addEventListener('click', (e) => {
         const mobileMenu = document.getElementById('mobile-menu');
         const toggleBtn = document.querySelector('button[aria-label="Toggle Navigation"]');
         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
             if (!mobileMenu.contains(e.target) && (!toggleBtn || !toggleBtn.contains(e.target))) {
                 mobileMenu.classList.add('hidden');
+                if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
             }
         }
     });
 }
 
 /**
- * Highlights current active navigation link based on the window path.
+ * Highlights active page navigation link.
  */
 function initActiveNavHighlight() {
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -116,25 +133,34 @@ function initActiveNavHighlight() {
         if (href === currentPath || (currentPath === '' && href === 'index.html')) {
             link.classList.add('text-brand-gold', 'font-semibold');
             link.classList.remove('hover:text-brand-gold');
+            link.setAttribute('aria-current', 'page');
         }
     });
 }
 
 /**
- * Enhances header backdrop and shadow state dynamically upon scrolling.
+ * Header scroll state manager throttled via requestAnimationFrame.
  */
 function initStickyHeader() {
     const header = document.querySelector('header');
     if (!header || header.dataset.stickyBound) return;
     header.dataset.stickyBound = 'true';
 
+    let ticking = false;
+
     const handleScroll = () => {
-        if (window.scrollY > 20) {
-            header.classList.add('shadow-md', 'bg-brand-cream/95');
-            header.classList.remove('bg-brand-cream/90');
-        } else {
-            header.classList.remove('shadow-md', 'bg-brand-cream/95');
-            header.classList.add('bg-brand-cream/90');
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 20) {
+                    header.classList.add('shadow-md', 'bg-brand-cream/95');
+                    header.classList.remove('bg-brand-cream/90');
+                } else {
+                    header.classList.remove('shadow-md', 'bg-brand-cream/95');
+                    header.classList.add('bg-brand-cream/90');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     };
 
@@ -153,9 +179,9 @@ function initBackToTop() {
         backToTopBtn.id = 'back-to-top';
         backToTopBtn.type = 'button';
         backToTopBtn.setAttribute('aria-label', 'Back to Top');
-        backToTopBtn.className = 'fixed bottom-6 right-6 z-40 p-3 bg-brand-dark text-brand-gold rounded-full shadow-lg border border-brand-gold/30 opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-gold hover:text-brand-dark focus:outline-none';
+        backToTopBtn.className = 'fixed bottom-6 right-6 z-40 p-3 bg-brand-dark text-brand-gold rounded-full shadow-lg border border-brand-gold/30 opacity-0 pointer-events-none transition-all duration-300 hover:bg-brand-gold hover:text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold';
         backToTopBtn.innerHTML = `
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
             </svg>
         `;
@@ -165,13 +191,20 @@ function initBackToTop() {
     if (backToTopBtn.dataset.bound) return;
     backToTopBtn.dataset.bound = 'true';
 
+    let ticking = false;
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-            backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
-        } else {
-            backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-            backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.add('opacity-100', 'pointer-events-auto');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     }, { passive: true });
 
@@ -181,7 +214,7 @@ function initBackToTop() {
 }
 
 /**
- * Handles smooth scrolling for all internal hash anchor links.
+ * Handles accessible smooth scrolling for all internal anchor jumps.
  */
 function initSmoothScroll() {
     if (document.dataset.smoothScrollBound) return;
@@ -205,6 +238,8 @@ function initSmoothScroll() {
                 top: offsetPosition,
                 behavior: 'smooth'
             });
+
+            targetEl.focus({ preventScroll: true });
         }
     });
 }

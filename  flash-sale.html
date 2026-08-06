@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R5YNWTG2MC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-R5YNWTG2MC');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Limited Time Flash Deals on Kawad Swad Udhyog authentic Nimar Papads. Up to 35% OFF on pure pulse dough papads direct from Katargaon.">
@@ -48,6 +57,11 @@
         .glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
         .glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
         .glass-card:hover { border-color: rgba(239, 68, 68, 0.4); box-shadow: 0 12px 30px -10px rgba(239, 68, 68, 0.2); }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0B0B0B; }
+        ::-webkit-scrollbar-thumb { background: #1C1C1C; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #EF4444; }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-black pb-20">
@@ -72,12 +86,28 @@
                 <a href="index.html" class="hover:text-white transition">Home</a>
                 <a href="products.html" class="hover:text-white transition">Full Catalogue</a>
                 <a href="reviews.html" class="hover:text-white transition">Customer Reviews</a>
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-pink-400 hover:text-pink-300 transition">Meesho Store ↗</a>
             </div>
 
-            <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
-                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                <span class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">1</span>
-            </a>
+            <div class="flex items-center gap-3">
+                <a href="checkout.html" class="relative p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white hover:border-brand-accent/40 transition">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span class="absolute -top-1.5 -right-1.5 w-5 h-5 bg-brand-accent text-black font-bold text-[10px] rounded-full flex items-center justify-center">1</span>
+                </a>
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl bg-brand-surface border border-white/10 text-white">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden mt-3 max-w-7xl mx-auto glass-panel rounded-2xl p-6 border border-white/10">
+            <div class="grid grid-cols-2 gap-3 text-xs font-semibold uppercase tracking-wider">
+                <a href="index.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</a>
+                <a href="products.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="grid" class="w-4 h-4"></i> Catalogue</a>
+                <a href="reviews.html" class="p-3 bg-brand-surface rounded-xl text-white flex items-center gap-2"><i data-lucide="star" class="w-4 h-4"></i> Reviews</a>
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="p-3 bg-brand-surface rounded-xl text-pink-400 flex items-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4"></i> Meesho ↗</a>
+            </div>
         </div>
     </nav>
 
@@ -161,7 +191,7 @@
                 </span>
 
                 <div class="rounded-2xl bg-brand-surface/60 p-6 text-center mb-4 relative overflow-hidden">
-                    <img src="MMP.png" alt="Moong Special" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='logo.png'">
+                    <img src="MMP.png" alt="Moong Special" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                     <span class="absolute bottom-2 left-2 text-[9px] bg-black/80 px-2 py-0.5 rounded text-brand-accent font-mono">
                         Pack of 500g • SKU: KS-MMP-500
                     </span>
@@ -212,7 +242,7 @@
                 </span>
 
                 <div class="rounded-2xl bg-brand-surface/60 p-6 text-center mb-4 relative overflow-hidden">
-                    <img src="CCPKM.png" alt="Chana Masala" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='logo.png'">
+                    <img src="CCPKM.png" alt="Chana Masala" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                     <span class="absolute bottom-2 left-2 text-[9px] bg-black/80 px-2 py-0.5 rounded text-brand-accent font-mono">
                         Pack of 500g • SKU: KS-CKM-500
                     </span>
@@ -263,7 +293,7 @@
                 </span>
 
                 <div class="rounded-2xl bg-brand-surface/60 p-6 text-center mb-4 relative overflow-hidden">
-                    <img src="UGP.png" alt="Combo Pack" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='logo.png'">
+                    <img src="UGP.png" alt="Combo Pack" class="w-full h-44 object-contain mx-auto group-hover:scale-105 transition-transform duration-500" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23F59E0B\' stroke-width=\'2\'><circle cx=\'12\' cy=\'12\' r=\'10\'/></svg>'">
                     <span class="absolute bottom-2 left-2 text-[9px] bg-black/80 px-2 py-0.5 rounded text-brand-success font-mono">
                         1000g Family Pack • SKU: KS-UGP-1000
                     </span>
@@ -310,9 +340,38 @@
         </div>
     </main>
 
+    <!-- FOOTER -->
+    <footer class="bg-brand-bgSecondary border-t border-white/10 pt-16 pb-12 px-6 mt-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 mb-12 text-center md:text-left">
+            <div>
+                <span class="font-heading text-xl font-bold text-white block mb-2">KAWAD SWAD UDHYOG</span>
+                <p class="text-brand-textSecondary text-xs leading-relaxed max-w-sm">
+                    Handcrafted authentic Nimar snacks made with 0% rice fillers from Katargaon, MP.
+                </p>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="https://www.meesho.com/KawadSwadUdhyog?_ms=3.0.1" target="_blank" class="text-xs text-pink-400 hover:text-pink-300 font-semibold transition">Meesho Store ↗</a>
+                <div class="inline-flex flex-col items-center px-5 py-2.5 rounded-xl bg-brand-surface border border-white/10 text-xs">
+                    <span class="text-brand-accent font-semibold text-[10px] uppercase tracking-wider mb-0.5">FSSAI License No.</span>
+                    <span class="text-white font-mono font-bold tracking-widest">21425890001224</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-[11px] text-brand-textSecondary gap-4">
+            <p>© 2026 KAWAD SWAD UDHYOG. All rights reserved.</p>
+            <p class="tracking-widest uppercase">Flash Sale • Katargaon, MP</p>
+        </div>
+    </footer>
+
     <!-- COUNTDOWN TIMER SCRIPT -->
     <script>
         lucide.createIcons();
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
 
         // Live Countdown Timer Logic
         let hours = 2;

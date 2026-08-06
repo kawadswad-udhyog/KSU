@@ -1,1161 +1,643 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | KAWAD SWAD</title>
-    <meta name="description" content="Explore the official gallery of KAWAD SWAD featuring products, manufacturing, exhibitions, events and brand moments.">
+    <meta name="description" content="Explore the KAWAD SWAD gallery featuring our factory, products, manufacturing process and brand journey.">
+    
+    <!-- Tailwind CSS CDN with custom design tokens matching existing site structure -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Animation Utilities -->
     <style>
-        :root {
-            --primary: #8B0000;
-            --primary-light: #A52A2A;
-            --accent: #DAA520;
-            --dark: #121212;
-            --dark-surface: #1E1E1E;
-            --light-bg: #F9F8F6;
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
-            --text-main: #2C2C2C;
-            --text-muted: #666666;
-            --radius-lg: 24px;
-            --radius-md: 16px;
-            --radius-sm: 8px;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
-        body {
-            background-color: var(--light-bg);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Glassmorphism Classes */
-        .glass-panel {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-        }
-
-        /* Common Layout Elements */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section-padding {
-            padding: 96px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 48px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.125rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            outline: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: #FFFFFF;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(139, 0, 0, 0.2);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--dark);
-            border: 1px solid rgba(0, 0, 0, 0.15);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(0, 0, 0, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .btn:disabled, .btn.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none !important;
-            box-shadow: none !important;
-        }
-
-        /* Placeholders */
-        .ph-image {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #E0E0E0 0%, #F5F5F5 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #888888;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-            user-select: none;
-        }
-
-        .ph-image::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 2px dashed rgba(0, 0, 0, 0.08);
-            margin: 12px;
-            border-radius: var(--radius-sm);
-            pointer-events: none;
-        }
-
-        /* Fade Animation Class */
-        .fade-up {
-            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* NAVIGATION (Existing Structure Kept Intact) */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: var(--transition);
-        }
-
-        .navbar-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 32px;
-            border-radius: 50px;
-        }
-
-        .brand-logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--primary);
-        }
-
-        /* HERO SECTION */
-        .hero-section {
-            position: relative;
-            min-height: 75vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding-top: 120px;
-            padding-bottom: 60px;
-            overflow: hidden;
-        }
-
-        .hero-bg-placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 850px;
-            padding: 60px 40px;
-            border-radius: var(--radius-lg);
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .hero-content p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 680px;
-            margin: 0 auto;
-        }
-
-        /* PHOTO FILTER BAR */
-        .filter-section {
-            padding: 20px 0 40px;
-        }
-
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            padding: 12px;
-            border-radius: 50px;
-            max-width: fit-content;
-            margin: 0 auto;
-        }
-
-        .filter-btn {
-            padding: 10px 24px;
-            border-radius: 30px;
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-
-        .filter-btn:hover {
-            color: var(--dark);
-        }
-
-        .filter-btn.active {
-            background-color: var(--primary);
-            color: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(139, 0, 0, 0.25);
-        }
-
-        /* PHOTO GALLERY (Masonry Grid) */
-        .masonry-grid {
-            column-count: 3;
-            column-gap: 24px;
-        }
-
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 24px;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .masonry-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-
-        .gallery-card {
-            display: flex;
-            flex-direction: column;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: #FFFFFF;
-        }
-
-        .gallery-card .img-wrapper {
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .height-sm { height: 260px; }
-        .height-md { height: 360px; }
-        .height-lg { height: 460px; }
-
-        .gallery-card-info {
-            padding: 20px;
-        }
-
-        .gallery-card-info h3 {
-            font-size: 1.15rem;
-            margin-bottom: 6px;
-            color: var(--dark);
-        }
-
-        .gallery-card-info p {
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
-
-        /* VIDEO GALLERY */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 32px;
-        }
-
-        .video-card {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: #FFFFFF;
-            transition: var(--transition);
-        }
-
-        .video-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 32px rgba(0,0,0,0.1);
-        }
-
-        .video-thumb-wrapper {
-            position: relative;
-            height: 240px;
-            cursor: pointer;
-        }
-
-        .play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 64px;
-            height: 64px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-        }
-
-        .play-btn::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 10px 0 10px 18px;
-            border-color: transparent transparent transparent var(--primary);
-            margin-left: 4px;
-        }
-
-        .video-thumb-wrapper:hover .play-btn {
-            transform: translate(-50%, -50%) scale(1.15);
-            background: #FFFFFF;
-        }
-
-        /* EXHIBITIONS */
-        .exhibitions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 32px;
-        }
-
-        .exhibition-card {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            background: #FFFFFF;
-            transition: var(--transition);
-        }
-
-        .exhibition-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 32px rgba(0,0,0,0.08);
-        }
-
-        .exhibition-img-wrapper {
-            height: 250px;
-        }
-
-        .exhibition-content {
-            padding: 28px;
-        }
-
-        .exhibition-meta {
-            display: flex;
-            gap: 16px;
-            font-size: 0.85rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .exhibition-content h3 {
-            font-size: 1.35rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-
-        .exhibition-content p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* FACTORY TOUR */
-        .factory-section {
-            border-radius: var(--radius-lg);
-            padding: 64px 48px;
-            background: #FFFFFF;
-            margin: 40px auto;
-        }
-
-        .factory-container {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 48px;
-            align-items: center;
-        }
-
-        .factory-hero-wrapper {
-            height: 420px;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-        }
-
-        .factory-info h2 {
-            font-size: 2.25rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .factory-info p {
-            color: var(--text-muted);
-            margin-bottom: 32px;
-            font-size: 1.05rem;
-        }
-
-        .factory-slider-preview {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .slider-thumb {
-            height: 90px;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-        }
-
-        /* SOCIAL GALLERY */
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-
-        .social-item {
-            aspect-ratio: 1 / 1;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .social-item:hover {
-            transform: scale(1.03);
-        }
-
-        .social-cta-container {
-            text-align: center;
-        }
-
-        /* DOWNLOADS */
-        .downloads-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .download-card {
-            padding: 24px;
-            border-radius: var(--radius-md);
-            background: #FFFFFF;
-            text-align: center;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .download-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 16px;
-            color: var(--dark);
-        }
-
-        /* CALL TO ACTION */
-        .cta-section {
-            border-radius: var(--radius-lg);
-            padding: 80px 40px;
-            text-align: center;
-            background: linear-gradient(135deg, #1E1E1E 0%, #121212 100%);
-            color: #FFFFFF;
-            margin-bottom: 96px;
-        }
-
-        .cta-section h2 {
-            font-size: 2.75rem;
-            margin-bottom: 24px;
-            font-weight: 700;
-        }
-
-        .cta-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .cta-section .btn-secondary {
-            color: #FFFFFF;
-            border-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .cta-section .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        /* FOOTER (Existing Structure Kept Intact) */
-        .footer {
-            background-color: var(--dark-surface);
-            color: #A0A0A0;
-            padding: 80px 0 32px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr repeat(3, 1fr);
-            gap: 48px;
-            margin-bottom: 64px;
-        }
-
-        .footer-brand h3 {
-            color: #FFFFFF;
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-        }
-
-        .footer-brand p {
-            max-width: 320px;
-            font-size: 0.95rem;
-        }
-
-        .footer-column h4 {
-            color: #FFFFFF;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: #A0A0A0;
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-
-        .footer-links a:hover {
-            color: #FFFFFF;
-        }
-
-        .footer-bottom {
-            padding-top: 32px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-            font-size: 0.875rem;
-        }
-
-        /* MODAL POPUP */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: var(--transition);
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal-container {
-            width: 90%;
-            max-width: 900px;
-            background: var(--dark-surface);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            position: relative;
-            transform: scale(0.9);
-            transition: var(--transition);
-        }
-
-        .modal-overlay.active .modal-container {
-            transform: scale(1);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: #FFFFFF;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-video-wrapper {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: #000000;
-        }
-
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 1024px) {
-            .masonry-grid {
-                column-count: 2;
-            }
-            .social-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .factory-container {
-                grid-template-columns: 1fr;
-            }
-            .hero-content h1 {
-                font-size: 2.75rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar-inner {
-                padding: 12px 24px;
-            }
-            .nav-links {
-                display: none; /* Mobile menu toggled natively */
-            }
-            .hero-content h1 {
-                font-size: 2.25rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .masonry-grid {
-                column-count: 1;
-            }
-            .social-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            .video-grid, .exhibitions-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            .factory-section {
-                padding: 32px 20px;
-            }
-            .cta-section {
-                padding: 48px 24px;
-            }
-            .cta-section h2 {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .social-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .filter-container {
-                border-radius: 20px;
-            }
-            .filter-btn {
-                padding: 8px 16px;
-                font-size: 0.85rem;
-            }
+        .fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .slide-up {
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body>
+<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- EXISTING NAVIGATION -->
-    <header class="container">
-        <nav class="navbar">
-            <div class="navbar-inner glass-panel">
-                <a href="#" class="brand-logo">KAWAD SWAD</a>
-                <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#" class="active">Gallery</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
+    <!-- ==========================================
+         STICKY HEADER (REUSED NAV)
+         ========================================== -->
+    <header class="sticky top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-brand-gold/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="font-serif text-2xl font-bold tracking-wider text-brand-dark group-hover:text-brand-gold transition-colors">
+                    KAWAD SWAD
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
+                <a href="about.html" class="hover:text-brand-gold transition-colors">About</a>
+                <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
+                <a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a>
+                <a href="business.html" class="hover:text-brand-gold transition-colors">Business</a>
+                <a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a>
+                <a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a>
+                <a href="gallery.html" class="text-brand-gold font-semibold transition-colors">Gallery</a>
+                <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button type="button" class="lg:hidden p-2 text-brand-dark hover:text-brand-gold focus:outline-none" aria-label="Toggle Navigation">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero-section">
-        <div class="hero-bg-placeholder">
-            <div class="ph-image">Hero Background Image Placeholder</div>
-        </div>
-        <div class="container">
-            <div class="hero-content glass-panel fade-up">
-                <h1>Gallery</h1>
-                <p>Explore the journey of KAWAD SWAD through our products, manufacturing, exhibitions and behind-the-scenes moments.</p>
-            </div>
-        </div>
-    </section>
+    <main class="flex-grow">
+        <!-- ==========================================
+             SECTION 1: HERO BANNER
+             ========================================== -->
+        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
+                        Visual Journey
+                    </span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
+                        Gallery
+                    </h1>
+                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
+                        Explore the journey of KAWAD SWAD through our factory, products, exhibitions and behind-the-scenes moments.
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
+                            View Products
+                        </a>
+                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
+                            Business Enquiry
+                        </a>
+                    </div>
+                </div>
 
-    <!-- PHOTO FILTER BAR -->
-    <section class="filter-section">
-        <div class="container">
-            <div class="filter-container glass-panel">
-                <button class="filter-btn active">All</button>
-                <button class="filter-btn">Products</button>
-                <button class="filter-btn">Factory</button>
-                <button class="filter-btn">Manufacturing</button>
-                <button class="filter-btn">Exhibitions</button>
-                <button class="filter-btn">Events</button>
-                <button class="filter-btn">Team</button>
-                <button class="filter-btn">Behind the Scenes</button>
-                <button class="filter-btn">Videos</button>
+                <!-- Large Editable Gallery Hero Placeholder -->
+                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
+                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[gallery-hero-placeholder]</span>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PHOTO GALLERY (Masonry Grid) -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="masonry-grid">
+        <!-- ==========================================
+             SECTION 2: GALLERY CATEGORIES
+             ========================================== -->
+        <section class="py-20 bg-white border-b border-stone-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Explore Categories</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Factory Category -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Factory</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: Visuals of our facility and operational setup.]</p>
+                    </div>
+
+                    <!-- Products Category -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Products</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: High-resolution shots of our papad varieties and packaging.]</p>
+                    </div>
+
+                    <!-- Manufacturing Category -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Manufacturing</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: Step-by-step processing and dough preparation.]</p>
+                    </div>
+
+                    <!-- Exhibitions Category -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Exhibitions</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: Moments from trade shows and industry expos.]</p>
+                    </div>
+
+                    <!-- Behind The Scenes Category -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Behind The Scenes</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: Quality checks, team efforts, and daily operations.]</p>
+                    </div>
+
+                    <!-- Videos Category -->
+                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-colors duration-300">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Videos</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable short description: Video tours of manufacturing and product clips.]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 3: FACTORY GALLERY
+             ========================================== -->
+        <section class="py-20 bg-brand-cream border-b border-brand-gold/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Factory Gallery</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Lightbox-ready Placeholders 1 through 8 -->
+                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
+                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-1]</span>
+                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
+                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-2]</span>
+                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
+                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-3]</span>
+                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
+                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-4]</span>
+                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
+                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-5]</span>
+                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
+                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-6]</span>
+                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
+                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-7]</span>
+                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
+                        </div>
+                    </div>
+
+                    <div class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm">
+                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-8]</span>
+                        <div class="absolute inset-0 bg-brand-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span class="text-white text-xs font-medium tracking-wider uppercase border border-white/80 px-3 py-1 bg-brand-dark/40">View Image</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 4: PRODUCT GALLERY
+             ========================================== -->
+        <section class="py-20 bg-white border-b border-stone-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Product Gallery</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Moong Placeholder 1 -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[product-moong-placeholder-1]</span>
+                        </div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Moong</span>
+                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Moong Variant Name]</h3>
+                    </div>
+
+                    <!-- Moong Placeholder 2 -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[product-moong-placeholder-2]</span>
+                        </div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Moong</span>
+                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Moong Variant Name]</h3>
+                    </div>
+
+                    <!-- Chana Placeholder 1 -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[product-chana-placeholder-1]</span>
+                        </div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Chana</span>
+                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Chana Variant Name]</h3>
+                    </div>
+
+                    <!-- Chana Placeholder 2 -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[product-chana-placeholder-2]</span>
+                        </div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Chana</span>
+                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Chana Variant Name]</h3>
+                    </div>
+
+                    <!-- Urad Placeholder 1 -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[product-urad-placeholder-1]</span>
+                        </div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Urad</span>
+                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Urad Variant Name]</h3>
+                    </div>
+
+                    <!-- Urad Placeholder 2 -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[product-urad-placeholder-2]</span>
+                        </div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Urad</span>
+                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Urad Variant Name]</h3>
+                    </div>
+
+                    <!-- Papad Masala Placeholder 1 -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[product-masala-placeholder-1]</span>
+                        </div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Papad Masala</span>
+                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Masala Variant Name]</h3>
+                    </div>
+
+                    <!-- Papad Masala Placeholder 2 -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80 flex flex-col">
+                        <div class="aspect-square bg-stone-200 rounded-sm mb-3 flex items-center justify-center p-2 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[product-masala-placeholder-2]</span>
+                        </div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-gold">Papad Masala</span>
+                        <h3 class="font-serif text-sm font-medium text-brand-dark">[Masala Variant Name]</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 5: EXHIBITIONS & EVENTS
+             ========================================== -->
+        <section class="py-20 bg-brand-cream border-b border-brand-gold/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Exhibitions &amp; Events</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Event Placeholder 1 -->
+                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
+                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-1]</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
+                    </div>
+
+                    <!-- Event Placeholder 2 -->
+                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
+                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-2]</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
+                    </div>
+
+                    <!-- Event Placeholder 3 -->
+                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
+                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-3]</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
+                    </div>
+
+                    <!-- Event Placeholder 4 -->
+                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
+                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-4]</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
+                    </div>
+
+                    <!-- Event Placeholder 5 -->
+                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
+                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-5]</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
+                    </div>
+
+                    <!-- Event Placeholder 6 -->
+                    <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm">
+                        <div class="aspect-16/9 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[event-placeholder-6]</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">[Editable Caption: Add event / exhibition caption here.]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 6: BEHIND THE SCENES
+             ========================================== -->
+        <section class="py-20 bg-white border-b border-stone-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Behind The Scenes</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Packaging Shot -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
+                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[bts-packaging-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Packaging</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Quality sealing and protective pouching.]</p>
+                    </div>
+
+                    <!-- Quality Checks Shot -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
+                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[bts-quality-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Quality Checks</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Rigorous batch inspection and weighing.]</p>
+                    </div>
+
+                    <!-- Production Shot -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
+                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[bts-production-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Production</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Controlled dough processing and rolling.]</p>
+                    </div>
+
+                    <!-- Team Work Shot -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
+                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[bts-teamwork-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Team Work</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Dedicated workforce managing operations.]</p>
+                    </div>
+
+                    <!-- Preparation Shot -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
+                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[bts-preparation-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Preparation</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Precise spice measuring and pulse sorting.]</p>
+                    </div>
+
+                    <!-- Dispatch Shot -->
+                    <div class="bg-brand-cream/40 p-4 rounded-sm border border-stone-200/80">
+                        <div class="aspect-4/3 bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center">
+                            <span class="text-xs font-mono text-brand-muted">[bts-dispatch-placeholder]</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Dispatch</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed">[Editable Caption: Box sorting and shipment loading.]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 7: VIDEO GALLERY
+             ========================================== -->
+        <section class="py-20 bg-brand-cream border-b border-brand-gold/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Video Gallery</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Video Card 1 -->
+                    <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm flex flex-col">
+                        <div class="aspect-16/9 bg-stone-200 flex flex-col items-center justify-center p-4 text-center relative group cursor-pointer">
+                            <div class="w-12 h-12 rounded-full bg-brand-dark/80 text-white flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 fill-current pl-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <span class="text-[10px] font-mono text-brand-muted">[video-thumbnail-1]</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <h3 class="font-serif text-base font-semibold text-brand-dark mb-2">[Video Title Placeholder]</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">[Editable short video description]</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 2 -->
+                    <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm flex flex-col">
+                        <div class="aspect-16/9 bg-stone-200 flex flex-col items-center justify-center p-4 text-center relative group cursor-pointer">
+                            <div class="w-12 h-12 rounded-full bg-brand-dark/80 text-white flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 fill-current pl-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <span class="text-[10px] font-mono text-brand-muted">[video-thumbnail-2]</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <h3 class="font-serif text-base font-semibold text-brand-dark mb-2">[Video Title Placeholder]</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">[Editable short video description]</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 3 -->
+                    <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm flex flex-col">
+                        <div class="aspect-16/9 bg-stone-200 flex flex-col items-center justify-center p-4 text-center relative group cursor-pointer">
+                            <div class="w-12 h-12 rounded-full bg-brand-dark/80 text-white flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 fill-current pl-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <span class="text-[10px] font-mono text-brand-muted">[video-thumbnail-3]</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <h3 class="font-serif text-base font-semibold text-brand-dark mb-2">[Video Title Placeholder]</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">[Editable short video description]</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Card 4 -->
+                    <div class="bg-white rounded-sm border border-stone-200/80 overflow-hidden shadow-sm flex flex-col">
+                        <div class="aspect-16/9 bg-stone-200 flex flex-col items-center justify-center p-4 text-center relative group cursor-pointer">
+                            <div class="w-12 h-12 rounded-full bg-brand-dark/80 text-white flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 fill-current pl-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                            <span class="text-[10px] font-mono text-brand-muted">[video-thumbnail-4]</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between">
+                            <h3 class="font-serif text-base font-semibold text-brand-dark mb-2">[Video Title Placeholder]</h3>
+                            <p class="text-xs text-brand-muted leading-relaxed">[Editable short video description]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SECTION 8: FINAL CALL TO ACTION
+             ========================================== -->
+        <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-8 leading-tight">
+                    Experience the Journey Behind Every Papad
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="contact.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">
+                        Contact Us
+                    </a>
+                    <a href="products.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">
+                        Explore Products
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================
+         SECTION 9: FOOTER (REUSED FOOTER)
+         ========================================== -->
+    <footer class="bg-stone-950 text-stone-400 border-t border-stone-900 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
                 
-                <!-- Card 1 -->
-                <div class="masonry-item">
-                    <div class="gallery-card glass-panel">
-                        <div class="img-wrapper height-md">
-                            <div class="ph-image">Product Gallery Placeholder</div>
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3>Title Placeholder</h3>
-                            <p>Short Description Placeholder</p>
-                        </div>
-                    </div>
+                <!-- Brand Info -->
+                <div class="space-y-4 md:col-span-1">
+                    <span class="font-serif text-xl font-bold text-white tracking-wider">KAWAD SWAD</span>
+                    <p class="text-xs text-stone-500 leading-relaxed">
+                        Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar.
+                    </p>
                 </div>
 
-                <!-- Card 2 -->
-                <div class="masonry-item">
-                    <div class="gallery-card glass-panel">
-                        <div class="img-wrapper height-sm">
-                            <div class="ph-image">Factory Image Placeholder</div>
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3>Title Placeholder</h3>
-                            <p>Short Description Placeholder</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="masonry-item">
-                    <div class="gallery-card glass-panel">
-                        <div class="img-wrapper height-lg">
-                            <div class="ph-image">Manufacturing Image Placeholder</div>
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3>Title Placeholder</h3>
-                            <p>Short Description Placeholder</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="masonry-item">
-                    <div class="gallery-card glass-panel">
-                        <div class="img-wrapper height-lg">
-                            <div class="ph-image">Exhibition Image Placeholder</div>
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3>Title Placeholder</h3>
-                            <p>Short Description Placeholder</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="masonry-item">
-                    <div class="gallery-card glass-panel">
-                        <div class="img-wrapper height-sm">
-                            <div class="ph-image">Team Image Placeholder</div>
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3>Title Placeholder</h3>
-                            <p>Short Description Placeholder</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="masonry-item">
-                    <div class="gallery-card glass-panel">
-                        <div class="img-wrapper height-md">
-                            <div class="ph-image">Behind the Scenes Placeholder</div>
-                        </div>
-                        <div class="gallery-card-info">
-                            <h3>Title Placeholder</h3>
-                            <p>Short Description Placeholder</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- VIDEO GALLERY -->
-    <section class="section-padding" style="background: rgba(0,0,0,0.02);">
-        <div class="container">
-            <div class="section-header">
-                <h2>Video Gallery</h2>
-                <p>Witness our precision processes and grand events in action.</p>
-            </div>
-            <div class="video-grid">
-                
-                <!-- Video 1 -->
-                <div class="video-card glass-panel">
-                    <div class="video-thumb-wrapper" onclick="openModal()">
-                        <div class="ph-image">Video Thumbnail Placeholder</div>
-                        <div class="play-btn"></div>
-                    </div>
-                    <div class="gallery-card-info">
-                        <h3>Video Title</h3>
-                        <p>Short Description</p>
-                    </div>
-                </div>
-
-                <!-- Video 2 -->
-                <div class="video-card glass-panel">
-                    <div class="video-thumb-wrapper" onclick="openModal()">
-                        <div class="ph-image">Video Thumbnail Placeholder</div>
-                        <div class="play-btn"></div>
-                    </div>
-                    <div class="gallery-card-info">
-                        <h3>Video Title</h3>
-                        <p>Short Description</p>
-                    </div>
-                </div>
-
-                <!-- Video 3 -->
-                <div class="video-card glass-panel">
-                    <div class="video-thumb-wrapper" onclick="openModal()">
-                        <div class="ph-image">Video Thumbnail Placeholder</div>
-                        <div class="play-btn"></div>
-                    </div>
-                    <div class="gallery-card-info">
-                        <h3>Video Title</h3>
-                        <p>Short Description</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- EXHIBITIONS -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2>Exhibitions & Events</h2>
-                <p>Connecting with industry leaders and consumers across the globe.</p>
-            </div>
-            <div class="exhibitions-grid">
-                
-                <!-- Exhibition 1 -->
-                <div class="exhibition-card glass-panel">
-                    <div class="exhibition-img-wrapper">
-                        <div class="ph-image">Exhibition Image Placeholder</div>
-                    </div>
-                    <div class="exhibition-content">
-                        <div class="exhibition-meta">
-                            <span>Location</span> • <span>Date</span>
-                        </div>
-                        <h3>Exhibition Name</h3>
-                        <p>Description</p>
-                    </div>
-                </div>
-
-                <!-- Exhibition 2 -->
-                <div class="exhibition-card glass-panel">
-                    <div class="exhibition-img-wrapper">
-                        <div class="ph-image">Exhibition Image Placeholder</div>
-                    </div>
-                    <div class="exhibition-content">
-                        <div class="exhibition-meta">
-                            <span>Location</span> • <span>Date</span>
-                        </div>
-                        <h3>Exhibition Name</h3>
-                        <p>Description</p>
-                    </div>
-                </div>
-
-                <!-- Exhibition 3 -->
-                <div class="exhibition-card glass-panel">
-                    <div class="exhibition-img-wrapper">
-                        <div class="ph-image">Exhibition Image Placeholder</div>
-                    </div>
-                    <div class="exhibition-content">
-                        <div class="exhibition-meta">
-                            <span>Location</span> • <span>Date</span>
-                        </div>
-                        <h3>Exhibition Name</h3>
-                        <p>Description</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- FACTORY TOUR -->
-    <section class="container">
-        <div class="factory-section glass-panel">
-            <div class="factory-container">
-                <div class="factory-hero-wrapper">
-                    <div class="ph-image">Factory Image Placeholder</div>
-                </div>
-                <div class="factory-info">
-                    <h2>State-of-the-Art Manufacturing</h2>
-                    <p>Take a virtual look inside our modern facility where quality control and hygienic standards drive our daily manufacturing excellence.</p>
-                    <div class="factory-slider-preview">
-                        <div class="slider-thumb"><div class="ph-image">Factory Image Placeholder</div></div>
-                        <div class="slider-thumb"><div class="ph-image">Factory Image Placeholder</div></div>
-                        <div class="slider-thumb"><div class="ph-image">Factory Image Placeholder</div></div>
-                    </div>
-                    <button class="btn btn-primary disabled" disabled>Visit Our Manufacturing Facility</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOCIAL GALLERY -->
-    <section class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2>Follow Our Journey</h2>
-                <p>Stay updated with our latest moments and announcements on social media.</p>
-            </div>
-            <div class="social-grid">
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-                <div class="social-item"><div class="ph-image">Instagram Placeholder</div></div>
-            </div>
-            <div class="social-cta-container">
-                <button class="btn btn-primary disabled" disabled>Follow on Instagram</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- DOWNLOADS -->
-    <section class="section-padding" style="background: rgba(0,0,0,0.02);">
-        <div class="container">
-            <div class="section-header">
-                <h2>Brand Assets & Downloads</h2>
-                <p>Access official media resources and corporate literature.</p>
-            </div>
-            <div class="downloads-grid">
-                <div class="download-card glass-panel">
-                    <h4>Media Kit</h4>
-                    <button class="btn btn-secondary disabled" disabled>Download</button>
-                </div>
-                <div class="download-card glass-panel">
-                    <h4>Brand Logo</h4>
-                    <button class="btn btn-secondary disabled" disabled>Download</button>
-                </div>
-                <div class="download-card glass-panel">
-                    <h4>Product Catalogue</h4>
-                    <button class="btn btn-secondary disabled" disabled>Download</button>
-                </div>
-                <div class="download-card glass-panel">
-                    <h4>Factory Images</h4>
-                    <button class="btn btn-secondary disabled" disabled>Download</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CALL TO ACTION -->
-    <section class="container">
-        <div class="cta-section">
-            <h2>Want to Partner With KAWAD SWAD?</h2>
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">Become Distributor</a>
-                <a href="#" class="btn btn-secondary">Contact Us</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXISTING FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h3>KAWAD SWAD</h3>
-                    <p>A premier FMCG manufacturer dedicated to delivering authentic taste, exceptional quality, and uncompromised standards.</p>
-                </div>
-                <div class="footer-column">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#">Gallery</a></li>
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-brand-gold transition-colors">Products</a></li>
+                        <li><a href="shop.html" class="hover:text-brand-gold transition-colors">Shop</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Partnership</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Distributors</a></li>
-                        <li><a href="#">Retailers</a></li>
-                        <li><a href="#">Export Enquiries</a></li>
-                        <li><a href="#">Contact</a></li>
+
+                <!-- Business Links -->
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Process</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="business.html" class="hover:text-brand-gold transition-colors">Business Opportunities</a></li>
+                        <li><a href="manufacturing.html" class="hover:text-brand-gold transition-colors">Manufacturing</a></li>
+                        <li><a href="recipes.html" class="hover:text-brand-gold transition-colors">Recipes</a></li>
+                        <li><a href="gallery.html" class="hover:text-brand-gold transition-colors">Gallery</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Legal</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Quality Policy</a></li>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Contact</h4>
+                    <ul class="space-y-2.5 text-xs">
+                        <li><a href="contact.html" class="hover:text-brand-gold transition-colors">Contact Us</a></li>
+                        <li class="text-stone-500">Nimar Region, Madhya Pradesh, India</li>
                     </ul>
                 </div>
+
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 KAWAD SWAD. All Rights Reserved.</p>
+
+            <div class="mt-12 pt-8 border-t border-stone-900 text-center text-xs text-stone-600">
+                <p>&copy; KAWAD SWAD. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- VIDEO MODAL POPUP -->
-    <div class="modal-overlay" id="videoModal">
-        <div class="modal-container">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
-            <div class="modal-video-wrapper">
-                <div class="ph-image" style="background: #111; color: #fff;">Placeholder Video Playing</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- UI INTERACTION SCRIPT -->
-    <script>
-        function openModal() {
-            document.getElementById('videoModal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('videoModal').classList.remove('active');
-        }
-
-        // Close modal when clicking outside contents
-        document.getElementById('videoModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-    </script>
 </body>
 </html>

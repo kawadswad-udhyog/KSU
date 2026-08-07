@@ -44,6 +44,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Master Design System Stylesheet -->
+    <link rel="stylesheet" href="css/design-system.css">
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
@@ -52,22 +55,23 @@
 
     <main class="flex-grow py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 text-center">
-                <h1 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-2">Shopping Cart</h1>
+            <div class="mb-12 text-center space-y-3">
+                <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Review Order</span>
+                <h1 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Shopping Cart</h1>
                 <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
                 <!-- Cart Items Table -->
-                <div class="lg:col-span-2 bg-white rounded-sm border border-stone-200/80 p-6 shadow-sm overflow-x-auto">
+                <div class="lg:col-span-2 bg-white rounded-sm border border-stone-200/80 p-6 shadow-luxury overflow-x-auto">
                     <table class="w-full text-left text-sm" aria-label="Shopping Cart Items">
                         <thead class="bg-brand-cream/50 text-brand-dark font-serif border-b border-stone-200">
                             <tr>
-                                <th scope="col" class="py-3 px-4">Product</th>
-                                <th scope="col" class="py-3 px-4">Size</th>
-                                <th scope="col" class="py-3 px-4">Quantity</th>
-                                <th scope="col" class="py-3 px-4">Price</th>
-                                <th scope="col" class="py-3 px-4">Action</th>
+                                <th scope="col" class="py-3 px-4 font-semibold">Product</th>
+                                <th scope="col" class="py-3 px-4 font-semibold">Size</th>
+                                <th scope="col" class="py-3 px-4 font-semibold">Quantity</th>
+                                <th scope="col" class="py-3 px-4 font-semibold">Price</th>
+                                <th scope="col" class="py-3 px-4 font-semibold">Action</th>
                             </tr>
                         </thead>
                         <tbody id="cart-items-container" aria-live="polite" class="divide-y divide-stone-200/80">
@@ -77,24 +81,24 @@
                 </div>
 
                 <!-- Order Summary Sidebar -->
-                <div class="bg-white rounded-sm border border-stone-200/80 p-6 shadow-sm space-y-6">
+                <div class="bg-white rounded-sm border border-stone-200/80 p-8 shadow-luxury space-y-6">
                     <h2 class="font-serif text-xl font-bold text-brand-dark border-b border-stone-200 pb-3">Order Summary</h2>
-                    <div class="space-y-3 text-sm">
+                    <div class="space-y-4 text-sm font-light">
                         <div class="flex justify-between text-brand-muted">
                             <span>Subtotal</span>
-                            <span class="font-mono" data-summary="subtotal">[Subtotal]</span>
+                            <span class="font-mono font-medium text-brand-dark" data-summary="subtotal">[Subtotal]</span>
                         </div>
                         <div class="flex justify-between text-brand-muted">
                             <span>Shipping Fee</span>
-                            <span class="font-mono" data-summary="shipping">[Shipping]</span>
+                            <span class="font-mono font-medium text-brand-dark" data-summary="shipping">[Shipping]</span>
                         </div>
-                        <div class="pt-3 border-t border-stone-200 flex justify-between font-semibold text-brand-dark text-base">
+                        <div class="pt-4 border-t border-stone-200 flex justify-between font-semibold text-brand-dark text-base">
                             <span>Total</span>
-                            <span class="font-mono text-brand-gold" data-summary="total">[Total]</span>
+                            <span class="font-mono text-brand-gold font-bold text-lg" data-summary="total">[Total]</span>
                         </div>
                     </div>
 
-                    <a href="checkout.html" class="block w-full text-center py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                    <a href="checkout.html" class="block w-full text-center py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold shadow-sm">
                         Proceed to Checkout
                     </a>
                 </div>
@@ -105,9 +109,9 @@
     <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
+    <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/shop.js"></script>
 </body>
 </html>

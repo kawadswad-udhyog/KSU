@@ -3,87 +3,587 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAWAD SWAD | Premium Jain Papad Manufacturer India</title>
-    <meta name="description" content="KAWAD SWAD manufactures 100% vegetarian premium Jain Papads including Moong, Chana, Urad and Papad Masala using traditional recipes and hygienic manufacturing.">
-    <!-- ... [Keep your existing meta tags and fonts here] ... -->
+    <title>KAWAD SWAD | Premium Authentic Jain Papads &amp; Spices</title>
+    <meta name="description" content="Discover KAWAD SWAD's authentic, 100% vegetarian Jain papads crafted with traditional recipes, premium pulses, and modern hygienic manufacturing in Madhya Pradesh.">
+    <meta name="keywords" content="KAWAD SWAD, Jain Papad, Moong Papad, Urad Papad, Chana Papad, Masala Papad, Nimar Papads, Traditional Indian Papads">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kawadswad.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kawadswad.com/">
+    <meta property="og:title" content="KAWAD SWAD | Premium Authentic Jain Papads &amp; Spices">
+    <meta property="og:description" content="Authentic 100% vegetarian Jain papads crafted with traditional recipes and supreme quality pulses.">
+    <meta property="og:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="KAWAD SWAD">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KAWAD SWAD | Premium Authentic Jain Papads &amp; Spices">
+    <meta name="twitter:description" content="Authentic 100% vegetarian Jain papads crafted with traditional recipes and supreme quality pulses.">
+    <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#C5A059">
+
+    <!-- Tailwind CSS CDN & Custom Config -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        brand: { gold: '#C5A059', darkGold: '#A37F38', red: '#8B0000', cream: '#FAF7F2', dark: '#1C1917', muted: '#57534E' }
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
+                        }
                     },
                     fontFamily: {
                         serif: ['Playfair Display', 'Georgia', 'serif'],
                         sans: ['Plus Jakarta Sans', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'luxury': '0 20px 40px -15px rgba(28, 25, 23, 0.07)',
+                        'luxury-hover': '0 30px 60px -20px rgba(197, 160, 89, 0.15)'
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="bg-brand-cream text-brand-dark font-sans antialiased flex flex-col min-h-screen">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Animation Utilities & Flagship Polish -->
+    <style>
+        .fade-in { animation: fadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .slide-up { animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in, .slide-up { animation: none; opacity: 1; transform: none; }
+        }
+    </style>
+
+    <!-- JSON-LD Structured Data: Organization & LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "KAWAD SWAD Udhyog",
+      "url": "https://kawadswad.com/",
+      "logo": "https://kawadswad.com/assets/images/logo.png",
+      "description": "Manufacturer of 100% vegetarian authentic Jain papads and spice blends in Madhya Pradesh, India.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Khargone Region",
+        "addressRegion": "Madhya Pradesh",
+        "addressCountry": "IN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-9630976867",
+        "contactType": "sales & customer support"
+      }
+    }
+    </script>
+</head>
+<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
+
+    <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
-        <!-- HERO BANNER -->
-        <section class="py-16 lg:py-24 bg-brand-cream">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div class="space-y-6">
-                        <span class="text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Pure Jain Heritage</span>
-                        <h1 class="font-serif text-5xl font-bold leading-tight">Premium Jain Papads<br><span class="italic text-brand-gold">Made with Tradition</span></h1>
-                        <p class="text-lg text-brand-muted">Authentic recipes, premium ingredients, and hygienic manufacturing.</p>
-                        <div class="flex gap-4">
-                            <a href="shop.html" class="px-8 py-4 bg-brand-dark text-white hover:bg-brand-gold transition-all">Shop Products</a>
+        <!-- SECTION 1: CINEMATIC HERO -->
+        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/15 py-20 lg:py-32 overflow-hidden">
+            <!-- Soft Ambient Background Lighting -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-8 text-center lg:text-left slide-up">
+                        <div class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-4 py-1.5 rounded-full border border-brand-gold/20">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                            100% Vegetarian • Pure Jain Standards
+                        </div>
+                        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] text-brand-dark">
+                            The Pinnacle of <span class="italic font-normal text-brand-gold">Authentic</span> Jain Papads
+                        </h1>
+                        <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                            Crafted in the heart of Nimar, Madhya Pradesh. Blending centuries-old culinary heritage with touchless hygienic manufacturing for pristine crunch and rich traditional flavor in every bite.
+                        </p>
+                        <div class="pt-2 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                            <a href="shop.html" class="inline-flex justify-center items-center px-9 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-luxury hover:shadow-luxury-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                                Explore Shop
+                            </a>
+                            <a href="manufacturing.html" class="inline-flex justify-center items-center px-9 py-4 border border-brand-dark/30 text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark bg-white/60 hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                                Our Factory Process
+                            </a>
                         </div>
                     </div>
-                    <!-- Replace Placeholder with Real Image -->
-                    <div class="relative flex justify-center">
-                        <img src="assets/images/products/MMP.png" alt="Moong Master Papad" class="w-full max-w-sm rounded-lg shadow-xl">
+
+                    <div class="lg:col-span-5 fade-in">
+                        <div class="relative aspect-square max-w-md mx-auto lg:max-w-none rounded-sm border border-brand-gold/20 bg-stone-200/80 overflow-hidden shadow-2xl group">
+                            <img src="assets/images/products/MMP.png" alt="KAWAD SWAD Flagship Papad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent flex items-end p-8">
+                                <div class="text-white space-y-1">
+                                    <span class="text-[10px] font-mono tracking-widest text-brand-gold uppercase">Master Selection</span>
+                                    <h3 class="font-serif text-2xl font-bold">Premium Moong Papad</h3>
+                                    <p class="text-xs text-stone-200 font-light">Sun-dried perfection with aromatic whole spices.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FEATURED PRODUCTS -->
-        <section class="py-20 bg-white">
+        <!-- SECTION 2: PREMIUM TRUST STRIP -->
+        <section class="bg-white border-b border-stone-200/80 py-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-center font-serif text-4xl font-bold mb-16">Featured Products</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center divide-x-0 md:divide-x divide-stone-200/60">
+                    <div class="flex flex-col items-center space-y-2 px-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        </div>
+                        <h4 class="font-serif font-semibold text-brand-dark text-sm">100% Vegetarian</h4>
+                        <p class="text-[11px] text-brand-muted">Strict Jain Guidelines</p>
+                    </div>
+                    <div class="flex flex-col items-center space-y-2 px-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                        </div>
+                        <h4 class="font-serif font-semibold text-brand-dark text-sm">Traditional Recipes</h4>
+                        <p class="text-[11px] text-brand-muted">Authentic Nimar Taste</p>
+                    </div>
+                    <div class="flex flex-col items-center space-y-2 px-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                        </div>
+                        <h4 class="font-serif font-semibold text-brand-dark text-sm">Premium Ingredients</h4>
+                        <p class="text-[11px] text-brand-muted">Hand-selected Pulses</p>
+                    </div>
+                    <div class="flex flex-col items-center space-y-2 px-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                        </div>
+                        <h4 class="font-serif font-semibold text-brand-dark text-sm">FSSAI Certified</h4>
+                        <p class="text-[11px] text-brand-muted">Lic No: 21425890001224</p>
+                    </div>
+                    <div class="flex flex-col items-center space-y-2 px-4 col-span-2 md:col-span-1">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center mb-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h4 class="font-serif font-semibold text-brand-dark text-sm">Made in India</h4>
+                        <p class="text-[11px] text-brand-muted">Proudly Nimari Heritage</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: FEATURED PRODUCTS -->
+        <section class="py-24 bg-brand-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Exquisite Selection</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-dark">Featured Specialties</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                    <p class="text-sm text-brand-muted font-light">Handcrafted with premium pulses, pristine salt, and authentic aromatic seasonings.</p>
+                </div>
+
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Product 1 -->
-                    <div class="bg-brand-cream/50 p-6 border border-stone-200">
-                        <img src="assets/images/products/MMP.png" alt="Moong Papad" class="w-full aspect-square object-cover mb-4">
-                        <h3 class="font-bold text-lg">Moong Papad</h3>
-                        <a href="product-detail.html?sku=KS-MMP-200" class="block mt-4 text-center border border-brand-dark py-2 hover:bg-brand-dark hover:text-white">View</a>
+                    <!-- Product Card 1 -->
+                    <div class="bg-white rounded-sm p-6 border border-stone-200/80 shadow-luxury hover:shadow-luxury-hover transition-all duration-300 flex flex-col group relative">
+                        <span class="absolute top-4 left-4 z-10 bg-brand-dark text-brand-gold text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1 rounded-sm shadow-sm">Best Seller</span>
+                        <div class="aspect-square bg-stone-100 rounded-sm mb-5 overflow-hidden flex items-center justify-center p-4">
+                            <img src="assets/images/products/MMP.png" alt="Moong Papad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold">Moong</span>
+                            <span class="text-[11px] font-mono text-brand-muted">200g Pack</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Moong Master Papad</h3>
+                        <p class="text-xs text-brand-muted mb-4 line-clamp-2 font-light">Classic light moong dal variety with balanced whole black pepper and hing notes.</p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-stone-100">
+                            <span class="text-sm font-semibold text-brand-dark font-mono">₹45 <span class="text-stone-400 line-through text-[11px] ml-1">₹55</span></span>
+                            <a href="shop.html" class="px-4 py-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Shop Now</a>
+                        </div>
                     </div>
-                    <!-- Product 2 -->
-                    <div class="bg-brand-cream/50 p-6 border border-stone-200">
-                        <img src="assets/images/products/CCP.png" alt="Chana Papad" class="w-full aspect-square object-cover mb-4">
-                        <h3 class="font-bold text-lg">Chana Papad</h3>
-                        <a href="product-detail.html?sku=KS-CCP-200" class="block mt-4 text-center border border-brand-dark py-2 hover:bg-brand-dark hover:text-white">View</a>
+
+                    <!-- Product Card 2 -->
+                    <div class="bg-white rounded-sm p-6 border border-stone-200/80 shadow-luxury hover:shadow-luxury-hover transition-all duration-300 flex flex-col group relative">
+                        <span class="absolute top-4 left-4 z-10 bg-brand-gold text-brand-dark text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1 rounded-sm shadow-sm">Special Spice</span>
+                        <div class="aspect-square bg-stone-100 rounded-sm mb-5 overflow-hidden flex items-center justify-center p-4">
+                            <img src="assets/images/products/MMPG.png" alt="Garlic Moong Papad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold">Moong</span>
+                            <span class="text-[11px] font-mono text-brand-muted">200g Pack</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Garlic Special Moong</h3>
+                        <p class="text-xs text-brand-muted mb-4 line-clamp-2 font-light">Infused with aromatic fresh garlic extract and select traditional spices.</p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-stone-100">
+                            <span class="text-sm font-semibold text-brand-dark font-mono">₹48 <span class="text-stone-400 line-through text-[11px] ml-1">₹60</span></span>
+                            <a href="shop.html" class="px-4 py-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Shop Now</a>
+                        </div>
                     </div>
-                    <!-- Product 3 -->
-                    <div class="bg-brand-cream/50 p-6 border border-stone-200">
-                        <img src="assets/images/products/UGP.png" alt="Urad Papad" class="w-full aspect-square object-cover mb-4">
-                        <h3 class="font-bold text-lg">Urad Papad</h3>
-                        <a href="product-detail.html?sku=KS-UGP-200" class="block mt-4 text-center border border-brand-dark py-2 hover:bg-brand-dark hover:text-white">View</a>
+
+                    <!-- Product Card 3 -->
+                    <div class="bg-white rounded-sm p-6 border border-stone-200/80 shadow-luxury hover:shadow-luxury-hover transition-all duration-300 flex flex-col group relative">
+                        <span class="absolute top-4 left-4 z-10 bg-stone-800 text-stone-200 text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1 rounded-sm shadow-sm">Traditional</span>
+                        <div class="aspect-square bg-stone-100 rounded-sm mb-5 overflow-hidden flex items-center justify-center p-4">
+                            <img src="assets/images/products/MMPJ.png" alt="Jeera Papad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold">Urad / Jeera</span>
+                            <span class="text-[11px] font-mono text-brand-muted">200g Pack</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Jeera Spiced Crispy</h3>
+                        <p class="text-xs text-brand-muted mb-4 line-clamp-2 font-light">Rich urad dal base generously studded with hand-cleaned cumin seeds.</p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-stone-100">
+                            <span class="text-sm font-semibold text-brand-dark font-mono">₹50 <span class="text-stone-400 line-through text-[11px] ml-1">₹65</span></span>
+                            <a href="shop.html" class="px-4 py-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Shop Now</a>
+                        </div>
                     </div>
-                    <!-- Product 4 -->
-                    <div class="bg-brand-cream/50 p-6 border border-stone-200">
-                        <img src="assets/images/products/MMPM.png" alt="Papad Masala" class="w-full aspect-square object-cover mb-4">
-                        <h3 class="font-bold text-lg">Punjabi Masala</h3>
-                        <a href="product-detail.html?sku=KS-MPMP-200" class="block mt-4 text-center border border-brand-dark py-2 hover:bg-brand-dark hover:text-white">View</a>
+
+                    <!-- Product Card 4 -->
+                    <div class="bg-white rounded-sm p-6 border border-stone-200/80 shadow-luxury hover:shadow-luxury-hover transition-all duration-300 flex flex-col group relative">
+                        <span class="absolute top-4 left-4 z-10 bg-brand-red text-white text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1 rounded-sm shadow-sm">Chef's Choice</span>
+                        <div class="aspect-square bg-stone-100 rounded-sm mb-5 overflow-hidden flex items-center justify-center p-4">
+                            <img src="assets/images/products/MMPM.png" alt="Punjabi Masala" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold">Punjabi Special</span>
+                            <span class="text-[11px] font-mono text-brand-muted">200g Pack</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Punjabi Special Masala</h3>
+                        <p class="text-xs text-brand-muted mb-4 line-clamp-2 font-light">Bold, robust spice profile designed for an unforgettable roasted or fried crunch.</p>
+                        <div class="flex items-center justify-between mt-auto pt-4 border-t border-stone-100">
+                            <span class="text-sm font-semibold text-brand-dark font-mono">₹55 <span class="text-stone-400 line-through text-[11px] ml-1">₹70</span></span>
+                            <a href="shop.html" class="px-4 py-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Shop Now</a>
+                        </div>
                     </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="shop.html" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-brand-dark border-b-2 border-brand-gold pb-1 hover:text-brand-gold transition-colors">
+                        View Full Catalogue (15+ Varieties) &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: WHY CHOOSE KAWAD SWAD -->
+        <section class="py-24 bg-white border-y border-stone-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Uncompromising Craft</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-dark">Why Choose Kawad Swad</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-all duration-300 space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-dark text-brand-gold flex items-center justify-center font-serif text-lg font-bold shadow-sm">01</div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Traditional Recipes</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed">Passed down through generations, our proprietary seasoning blends preserve authentic Nimari flavors without compromise.</p>
+                    </div>
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-all duration-300 space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-dark text-brand-gold flex items-center justify-center font-serif text-lg font-bold shadow-sm">02</div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Premium Ingredients</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed">Sourced directly from prime agricultural belts, utilizing high-grade Moong, Urad, and Chana dal.</p>
+                    </div>
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-all duration-300 space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-dark text-brand-gold flex items-center justify-center font-serif text-lg font-bold shadow-sm">03</div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Modern Manufacturing</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed">State-of-the-art automated kneading, rolling, and moisture-controlled drying ensuring uniform quality.</p>
+                    </div>
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-all duration-300 space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-dark text-brand-gold flex items-center justify-center font-serif text-lg font-bold shadow-sm">04</div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Quality Assurance</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed">Rigorous batch testing protocols and strict adherence to FSSAI food safety standards at every stage.</p>
+                    </div>
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-all duration-300 space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-dark text-brand-gold flex items-center justify-center font-serif text-lg font-bold shadow-sm">05</div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Hygienic Production</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed">Touchless clean-room environments with protective foil packaging that locks in crispness and aroma.</p>
+                    </div>
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 hover:border-brand-gold transition-all duration-300 space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-dark text-brand-gold flex items-center justify-center font-serif text-lg font-bold shadow-sm">06</div>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Trusted Brand</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed">A trusted name across households, wholesale distributors, and retail partners throughout India.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: OUR STORY PREVIEW -->
+        <section class="py-24 bg-brand-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="aspect-4/3 rounded-sm overflow-hidden border border-brand-gold/20 shadow-luxury">
+                        <img src="assets/images/about-hero.png" alt="Kawad Swad Brand Heritage" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-6">
+                        <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Heritage &amp; Origin</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark leading-tight">Rooted in Tradition, Crafted for Modern Tables</h2>
+                        <div class="w-12 h-0.5 bg-brand-gold"></div>
+                        <p class="text-brand-muted text-sm sm:text-base leading-relaxed font-light">
+                            Founded in the fertile agricultural belt of Madhya Pradesh, Kawad Swad Udhyog began with a singular mission: to bring pure, authentic, 100% vegetarian Jain papads to every kitchen. We honor time-tested recipes while embracing rigorous hygiene and precision engineering.
+                        </p>
+                        <div class="pt-4">
+                            <a href="about.html" class="inline-flex items-center px-8 py-3.5 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
+                                Read Our Full Story
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: MANUFACTURING HIGHLIGHT -->
+        <section class="py-24 bg-white border-y border-stone-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <div class="space-y-6 order-2 lg:order-1">
+                        <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">State-of-the-Art Facility</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark leading-tight">Precision Engineering Meets Clean Sanitation</h2>
+                        <div class="w-12 h-0.5 bg-brand-gold"></div>
+                        <p class="text-brand-muted text-sm sm:text-base leading-relaxed font-light">
+                            Our advanced manufacturing facility operates under strict FSSAI compliance (Lic No. 21425890001224). From pulse cleaning and graded flour milling to automated rolling and moisture-locked sealing, every batch undergoes strict quality control.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 pt-2">
+                            <div class="p-4 bg-brand-cream/50 border border-stone-200 rounded-sm">
+                                <h4 class="font-serif font-bold text-brand-dark text-lg mb-1">FSSAI Certified</h4>
+                                <p class="text-xs text-brand-muted">Lic No: 21425890001224</p>
+                            </div>
+                            <div class="p-4 bg-brand-cream/50 border border-stone-200 rounded-sm">
+                                <h4 class="font-serif font-bold text-brand-dark text-lg mb-1">100% Hygienic</h4>
+                                <p class="text-xs text-brand-muted">Touchless Processing</p>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <a href="manufacturing.html" class="inline-flex items-center px-8 py-3.5 border border-brand-dark text-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                                Explore Manufacturing Process
+                            </a>
+                        </div>
+                    </div>
+                    <div class="aspect-4/3 rounded-sm overflow-hidden border border-brand-gold/20 shadow-luxury order-1 lg:order-2">
+                        <img src="assets/images/factory-hero.png" alt="Kawad Swad Manufacturing Facility" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: CUSTOMER REVIEWS -->
+        <section class="py-24 bg-brand-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Testimonials</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-dark">Loved by Families &amp; Chefs</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-4 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex text-brand-gold">
+                                &#9733;&#9733;&#9733;&#9733;&#9733;
+                            </div>
+                            <p class="font-serif italic text-brand-dark text-base leading-relaxed">
+                                &ldquo;The authentic taste of Kawad Swad Moong Papad reminds me of traditional homemade papads. Exceptional crispness and aroma!&rdquo;
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-stone-100">
+                            <h4 class="font-serif font-semibold text-brand-dark text-sm">Rajesh Mehta</h4>
+                            <p class="text-[11px] text-brand-muted">Wholesale Partner, Indore</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-4 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex text-brand-gold">
+                                &#9733;&#9733;&#9733;&#9733;&#9733;
+                            </div>
+                            <p class="font-serif italic text-brand-dark text-base leading-relaxed">
+                                &ldquo;As a strict follower of Jain dietary guidelines, finding 100% pure vegetarian papads with such superior quality is a blessing.&rdquo;
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-stone-100">
+                            <h4 class="font-serif font-semibold text-brand-dark text-sm">Sunita Jain</h4>
+                            <p class="text-[11px] text-brand-muted">Retail Customer, Bhopal</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-4 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex text-brand-gold">
+                                &#9733;&#9733;&#9733;&#9733;&#9733;
+                            </div>
+                            <p class="font-serif italic text-brand-dark text-base leading-relaxed">
+                                &ldquo;We serve Kawad Swad papads at our restaurant chain. The uniform texture and long shelf life make them our top choice.&rdquo;
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-stone-100">
+                            <h4 class="font-serif font-semibold text-brand-dark text-sm">Vikram Singh</h4>
+                            <p class="text-[11px] text-brand-muted">Restaurant Owner, Ujjain</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: BUSINESS CTA -->
+        <section class="py-20 bg-white border-y border-stone-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white rounded-sm p-8 sm:p-14 shadow-2xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px] opacity-10 pointer-events-none"></div>
+                    <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+                        <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">Partnership Opportunities</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold leading-tight">Grow Your Business With Kawad Swad</h2>
+                        <p class="text-stone-300 font-light text-sm sm:text-base leading-relaxed">
+                            Are you a distributor, wholesaler, retailer, or restaurant owner looking for premium-grade Jain papads and private label manufacturing? Partner with us today.
+                        </p>
+                        <div class="pt-4 flex flex-wrap gap-4 justify-center">
+                            <a href="business.html" class="px-8 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white transition-colors duration-300">
+                                Become Distributor
+                            </a>
+                            <a href="business.html" class="px-8 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white hover:text-brand-dark transition-colors duration-300">
+                                Wholesale Enquiry
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: GALLERY PREVIEW -->
+        <section class="py-24 bg-brand-cream">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Visual Journey</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-dark">Behind The Scenes</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 shadow-sm group">
+                        <img src="assets/images/products/MMP.png" alt="Gallery Item 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 shadow-sm group">
+                        <img src="assets/images/products/MMPG.png" alt="Gallery Item 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 shadow-sm group">
+                        <img src="assets/images/products/MMPJ.png" alt="Gallery Item 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 shadow-sm group">
+                        <img src="assets/images/products/MMPM.png" alt="Gallery Item 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="gallery.html" class="inline-flex items-center px-8 py-3.5 border border-brand-dark text-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-dark hover:text-white transition-colors duration-300">
+                        View Full Gallery
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 10: BLOG PREVIEW -->
+        <section class="py-24 bg-white border-y border-stone-200/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Knowledge Center</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-dark">Culinary Journal &amp; Recipes</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Featured Article -->
+                    <div class="lg:col-span-2 bg-brand-cream/50 rounded-sm border border-stone-200/80 overflow-hidden shadow-sm flex flex-col justify-between">
+                        <div class="aspect-16/9 bg-stone-200 overflow-hidden">
+                            <img src="assets/images/featured-article.png" alt="Mastering Jain Papad Preparation" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="p-8 space-y-4">
+                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-2.5 py-1 rounded-full">Traditional Recipes</span>
+                            <h3 class="font-serif text-2xl font-bold text-brand-dark">Mastering the Art of Jain Papad Preparation</h3>
+                            <p class="text-sm text-brand-muted font-light leading-relaxed">Explore authentic regional techniques for roasting, frying, and seasoning Jain papads while maintaining their crisp texture and wholesome spice profile.</p>
+                            <div class="pt-2">
+                                <a href="blog.html" class="text-xs font-semibold uppercase tracking-wider text-brand-dark hover:text-brand-gold transition-colors">Read Article &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Secondary Articles Column -->
+                    <div class="space-y-6 flex flex-col justify-between">
+                        <div class="bg-brand-cream/50 rounded-sm border border-stone-200/80 p-6 space-y-3">
+                            <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold">Health &amp; Nutrition</span>
+                            <h4 class="font-serif text-lg font-semibold text-brand-dark">The Nutritional Benefits of High-Protein Pulse Papads</h4>
+                            <p class="text-xs text-brand-muted font-light">Why Moong and Urad dal form a wholesome addition to daily traditional Indian meals.</p>
+                            <a href="blog.html" class="inline-block text-[11px] font-semibold uppercase tracking-wider text-brand-dark hover:text-brand-gold pt-1">Read More &rarr;</a>
+                        </div>
+                        <div class="bg-brand-cream/50 rounded-sm border border-stone-200/80 p-6 space-y-3">
+                            <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold">Manufacturing Insights</span>
+                            <h4 class="font-serif text-lg font-semibold text-brand-dark">Ensuring Absolute Purity in Modern Food Processing</h4>
+                            <p class="text-xs text-brand-muted font-light">An inside look at our quality control standards and FSSAI compliance protocols.</p>
+                            <a href="blog.html" class="inline-block text-[11px] font-semibold uppercase tracking-wider text-brand-dark hover:text-brand-gold pt-1">Read More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 11: NEWSLETTER -->
+        <section class="py-20 bg-brand-cream">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+                <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Stay Connected</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Join the Kawad Swad Family</h2>
+                <p class="text-sm text-brand-muted font-light max-w-lg mx-auto">Subscribe to receive exclusive recipes, new product launch updates, and festive offers directly in your inbox.</p>
+                <form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto pt-2" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Kawad Swad!');">
+                    <input type="email" placeholder="Enter your email address" required class="flex-grow bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                    <button type="submit" class="px-8 py-3 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- SECTION 12: FINAL FLAGSHIP CTA -->
+        <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8">
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold max-w-3xl mx-auto leading-tight">
+                    Experience Authentic Nimari Crunch in Every Bite
+                </h2>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="shop.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white transition-colors duration-300 shadow-sm">
+                        Shop Products
+                    </a>
+                    <a href="contact.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white hover:text-brand-dark transition-colors duration-300">
+                        Contact Us
+                    </a>
+                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-brand-gold text-brand-gold font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300">
+                        Become Distributor
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
+
+    <!-- Script Assets -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>

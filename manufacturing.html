@@ -30,18 +30,46 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#C5A059">
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN & Custom Config -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS Animation Utilities -->
+    <!-- CSS Animation Utilities & Motion Safety -->
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in, .slide-up { animation: none; opacity: 1; transform: none; }
+        }
     </style>
 
     <!-- JSON-LD Structured Data: WebPage & BreadcrumbList -->
@@ -77,6 +105,7 @@
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
+    <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
@@ -94,10 +123,10 @@
                         Discover how authentic Jain papads are crafted with traditional recipes, premium ingredients and hygienic manufacturing practices.
                     </p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md">
+                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                             Explore Products
                         </a>
-                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
+                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                             Business Enquiry
                         </a>
                     </div>
@@ -105,7 +134,7 @@
 
                 <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
                     <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
-                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                     </svg>
                     <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[factory-hero-placeholder]</span>
@@ -118,7 +147,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     <div class="aspect-4/3 bg-stone-200 rounded-sm border border-stone-300/60 flex flex-col items-center justify-center p-8 text-center shadow-inner">
-                        <svg class="w-16 h-16 text-stone-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-16 h-16 text-stone-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                         </svg>
                         <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[factory-placeholder]</span>
@@ -130,8 +159,8 @@
                             <div class="w-12 h-0.5 bg-brand-gold"></div>
                         </div>
                         <div class="space-y-4 text-brand-muted text-sm sm:text-base leading-relaxed font-light">
-                            <p>[Editable Content: Detail the core principles guiding the manufacturing operations. Explain the balance between strict adherence to authentic Jain dietary rules and modern hygienic production methods.]</p>
-                            <p>[Editable Content: Detail the commitment to cleanliness, raw material purity, workforce safety, and consistent quality across all production stages.]</p>
+                            <p>At Kawad Swad Udhyog, our manufacturing process balances strict adherence to authentic Jain dietary standards with modern, touchless hygienic equipment. From raw pulse cleaning to automated dough kneading, rolling, and moisture-controlled drying, quality is preserved at every step.</p>
+                            <p>Operating under FSSAI license parameters (Lic No. 21425890001224), our facility maintains rigorous sanitation controls, batch testing protocols, and protective foil packaging to ensure uniform crispness, long shelf life, and authentic Nimar flavor in every single pack.</p>
                         </div>
                     </div>
                 </div>
@@ -157,26 +186,26 @@
 
                     <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-sm">
                         <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-muted font-bold text-xs">
-                            ISO
+                            GSTIN
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Quality Standards</h3>
-                        <p class="text-xs text-brand-muted italic">Information will be updated.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">GST Registration</h3>
+                        <p class="text-xs text-brand-muted font-mono">23AIAPJ3923D1ZX</p>
                     </div>
 
                     <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-sm">
                         <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-muted font-bold text-xs">
-                            HACCP
+                            UDYAM
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Food Safety</h3>
-                        <p class="text-xs text-brand-muted italic">Information will be updated.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">MSME Enterprise</h3>
+                        <p class="text-xs text-brand-muted font-mono">UDYAM-MP-28-0044363</p>
                     </div>
 
                     <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-sm">
                         <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-muted font-bold text-xs">
-                            CMP
+                            JAIN
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">Compliance</h3>
-                        <p class="text-xs text-brand-muted italic">Information will be updated.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">100% Vegetarian</h3>
+                        <p class="text-xs text-brand-muted">Strict Jain Guidelines</p>
                     </div>
                 </div>
             </div>
@@ -189,10 +218,10 @@
                     Interested in Manufacturing With Us?
                 </h2>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">
+                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                         Private Label
                     </a>
-                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">
+                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                         Business Enquiry
                     </a>
                 </div>
@@ -200,6 +229,7 @@
         </section>
     </main>
 
+    <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
     <script src="js/layout.js"></script>

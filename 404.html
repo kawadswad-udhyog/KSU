@@ -13,39 +13,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#C5A059">
+    <meta name="theme-color" content="#FE330E">
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Master Design System Stylesheet -->
+    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
     <link rel="stylesheet" href="css/design-system.css">
 
     <!-- Inline CSS Animations & Motion Preferences -->
@@ -58,29 +28,29 @@
         }
     </style>
 </head>
-<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
     <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow flex items-center justify-center py-20 px-4">
-        <div class="max-w-3xl mx-auto text-center fade-in space-y-8 bg-white/60 backdrop-blur-md p-10 sm:p-16 rounded-sm border border-stone-200/80 shadow-luxury">
-            <span class="font-serif text-8xl font-bold text-brand-gold block tracking-tighter">404</span>
-            <h1 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Page Not Found</h1>
-            <p class="text-brand-muted text-sm sm:text-base leading-relaxed font-light max-w-md mx-auto">
+        <div class="max-w-3xl mx-auto text-center fade-in space-y-8 p-10 sm:p-16 rounded-[20px] border border-[#F3E6C8] bg-white shadow-xl">
+            <span class="font-serif text-8xl font-bold text-[#FE330E] block tracking-tighter">404</span>
+            <h1 class="font-serif text-3xl sm:text-4xl font-bold text-[#4E342E]">Page Not Found</h1>
+            <p class="text-[#5F5F5F] text-sm sm:text-base leading-relaxed font-light max-w-md mx-auto">
                 The page you are looking for might have been moved or is unavailable. Please choose from the categories below to continue exploring KAWAD SWAD.
             </p>
             
             <!-- Integration Grid: Linking Orphan Pages -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6">
-                <a href="index.html" class="p-4 border border-stone-200 bg-white hover:border-brand-gold transition-colors text-xs font-semibold uppercase tracking-wider text-brand-dark">Homepage</a>
-                <a href="shop.html" class="p-4 border border-stone-200 bg-white hover:border-brand-gold transition-colors text-xs font-semibold uppercase tracking-wider text-brand-dark">Shop</a>
-                <a href="business.html" class="p-4 border border-stone-200 bg-white hover:border-brand-gold transition-colors text-xs font-semibold uppercase tracking-wider text-brand-dark">Business Hub</a>
-                <a href="distributor.html" class="p-4 border border-stone-200 bg-white hover:border-brand-gold transition-colors text-xs font-semibold uppercase tracking-wider text-brand-dark">Distributors</a>
-                <a href="bulk.html" class="p-4 border border-stone-200 bg-white hover:border-brand-gold transition-colors text-xs font-semibold uppercase tracking-wider text-brand-dark">Bulk Orders</a>
-                <a href="media.html" class="p-4 border border-stone-200 bg-white hover:border-brand-gold transition-colors text-xs font-semibold uppercase tracking-wider text-brand-dark">Press</a>
-                <a href="work-with-us.html" class="p-4 border border-stone-200 bg-white hover:border-brand-gold transition-colors text-xs font-semibold uppercase tracking-wider text-brand-dark">Careers</a>
-                <a href="contact.html" class="p-4 border border-stone-200 bg-white hover:border-brand-gold transition-colors text-xs font-semibold uppercase tracking-wider text-brand-dark">Contact</a>
+                <a href="index.html" class="p-4 border border-[#F3E6C8] bg-white hover:border-[#FBEC0A] transition-colors text-xs font-semibold uppercase tracking-wider text-[#4E342E] rounded-lg">Homepage</a>
+                <a href="shop.html" class="p-4 border border-[#F3E6C8] bg-white hover:border-[#FBEC0A] transition-colors text-xs font-semibold uppercase tracking-wider text-[#4E342E] rounded-lg">Shop</a>
+                <a href="business.html" class="p-4 border border-[#F3E6C8] bg-white hover:border-[#FBEC0A] transition-colors text-xs font-semibold uppercase tracking-wider text-[#4E342E] rounded-lg">Business Hub</a>
+                <a href="distributor.html" class="p-4 border border-[#F3E6C8] bg-white hover:border-[#FBEC0A] transition-colors text-xs font-semibold uppercase tracking-wider text-[#4E342E] rounded-lg">Distributors</a>
+                <a href="bulk.html" class="p-4 border border-[#F3E6C8] bg-white hover:border-[#FBEC0A] transition-colors text-xs font-semibold uppercase tracking-wider text-[#4E342E] rounded-lg">Bulk Orders</a>
+                <a href="media.html" class="p-4 border border-[#F3E6C8] bg-white hover:border-[#FBEC0A] transition-colors text-xs font-semibold uppercase tracking-wider text-[#4E342E] rounded-lg">Press</a>
+                <a href="work-with-us.html" class="p-4 border border-[#F3E6C8] bg-white hover:border-[#FBEC0A] transition-colors text-xs font-semibold uppercase tracking-wider text-[#4E342E] rounded-lg">Careers</a>
+                <a href="contact.html" class="p-4 border border-[#F3E6C8] bg-white hover:border-[#FBEC0A] transition-colors text-xs font-semibold uppercase tracking-wider text-[#4E342E] rounded-lg">Contact</a>
             </div>
         </div>
     </main>

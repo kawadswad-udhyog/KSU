@@ -3,14 +3,13 @@
  * KAWAD SWAD - Product Engine & Shop Controller (js/shop.js)
  * ============================================================================
  * Optimized single-fetch product database controller supporting debounced input 
- * processing, category/weight filtering, path awareness for GitHub Pages (/KSU/),
- * layout stability, and accessibility.
+ * processing, category/weight filtering, path awareness, layout stability, and accessibility.
  */
 
 let productsCache = null;
 
 /**
- * Resolves base path dynamically for subfolder hosting environments (e.g. /KSU/)
+ * Resolves base path dynamically for hosting environments
  */
 function getBasePath() {
     return './';
@@ -111,7 +110,6 @@ function initShopPage(products) {
         }
 
         const fragment = document.createDocumentFragment();
-        const basePath = getBasePath();
 
         filtered.forEach(product => {
             const card = document.createElement('div');
@@ -122,8 +120,9 @@ function initShopPage(products) {
             const shipping = product.price ? product.price.shipping : null;
             const activePrice = selling !== null ? selling : (mrp !== null ? mrp : 0);
 
-            const rawImg = product.image || './assets/images/product-placeholder.webp';
-            const imgSrc = `${basePath}${rawImg.replace(/^\/+/, '')}`;
+            // Clean relative path resolution for images
+            const rawImg = product.image || 'assets/images/product-placeholder.webp';
+            const imgSrc = rawImg.startsWith('http') ? rawImg : `./${rawImg.replace(/^\/+/, '')}`;
 
             card.dataset.id = product.sku;
             card.dataset.sku = product.sku;
@@ -256,9 +255,8 @@ function initProductDetailPage(products) {
     if (dietBadge) dietBadge.textContent = product.dietType;
 
     if (imageContainer) {
-        const basePath = getBasePath();
-        const rawImg = product.image || product.placeholderImage || 'assets/images/product-placeholder.webp';
-        const imgSrc = `${basePath}${rawImg.replace(/^\/+/, '')}`;
+        const rawImg = product.image || 'assets/images/product-placeholder.webp';
+        const imgSrc = rawImg.startsWith('http') ? rawImg : `./${rawImg.replace(/^\/+/, '')}`;
 
         imageContainer.innerHTML = `
             <img src="${imgSrc}" alt="${product.imageAlt || product.name}" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.outerHTML='<span class=\\'text-xs font-mono uppercase tracking-wider text-brand-muted\\'>${product.sku}</span>'">
@@ -279,7 +277,7 @@ function initProductDetailPage(products) {
     }
 
     if (actionContainer) {
-        const rawImg = product.image || product.placeholderImage || '';
+        const rawImg = product.image || '';
         actionContainer.innerHTML = `
             <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${activePrice}" data-weight="${product.weight}" data-shipping="${shipping || ''}" data-image="${rawImg}" class="px-8 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm">
                 Add To Cart

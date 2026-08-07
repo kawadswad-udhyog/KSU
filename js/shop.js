@@ -135,7 +135,6 @@ function initShopPage(products) {
                 </div>
             `;
 
-            // Dynamic change handler for the variant dropdown
             const selectEl = card.querySelector('[data-variant-select]');
             const priceEl = card.querySelector('[data-price-display]');
             const shippingEl = card.querySelector('[data-shipping-display]');

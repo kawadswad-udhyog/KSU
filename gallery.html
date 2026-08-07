@@ -71,41 +71,9 @@
             .fade-in, .slide-up { animation: none; opacity: 1; transform: none; }
         }
     </style>
-
-    <!-- JSON-LD Structured Data: WebPage & BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Gallery - KAWAD SWAD",
-      "url": "https://kawadswad.com/gallery.html",
-      "description": "Explore the KAWAD SWAD gallery featuring our factory, products, manufacturing process and brand journey."
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://kawadswad.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Gallery",
-          "item": "https://kawadswad.com/gallery.html"
-        }
-      ]
-    }
-    </script>
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-    <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
@@ -122,10 +90,9 @@
                     </div>
                 </div>
 
-                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
-                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                    <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[gallery-hero-placeholder]</span>
+                <!-- Real Gallery Hero Image -->
+                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-inner relative group fade-in">
+                    <img src="assets/images/gallery-hero.png" alt="Gallery Hero Banner - KAWAD SWAD" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
@@ -139,18 +106,19 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div tabindex="0" role="button" aria-label="Factory setup image placeholder 1" class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
-                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-1]</span>
-                    </div>
-                    <div tabindex="0" role="button" aria-label="Factory setup image placeholder 2" class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
-                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-2]</span>
-                    </div>
-                    <div tabindex="0" role="button" aria-label="Factory setup image placeholder 3" class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
-                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-3]</span>
-                    </div>
-                    <div tabindex="0" role="button" aria-label="Factory setup image placeholder 4" class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 flex items-center justify-center p-4 text-center cursor-pointer shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
-                        <span class="text-xs font-mono text-brand-muted group-hover:scale-105 transition-transform duration-300">[factory-placeholder-4]</span>
-                    </div>
+                    <!-- Amazon Product Links as Gallery Items -->
+                    <a href="https://www.amazon.in/Kawad-Swad-Premium-Traditional-Microwave/dp/B0HBZG5P38" target="_blank" class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 shadow-sm hover:border-brand-gold transition-all">
+                        <img src="assets/images/products/MMP.png" alt="Product View 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </a>
+                    <a href="https://www.amazon.in/Kawad-Swad-Premium-Traditional-Microwave/dp/B0HBXMXZF9" target="_blank" class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 shadow-sm hover:border-brand-gold transition-all">
+                        <img src="assets/images/products/MMPG.png" alt="Product View 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </a>
+                    <a href="https://www.amazon.in/Kawad-Swad-Seasoning-Product-Garlic/dp/B0H6ZPGH92" target="_blank" class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 shadow-sm hover:border-brand-gold transition-all">
+                        <img src="assets/images/products/MMPJ.png" alt="Product View 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </a>
+                    <a href="https://www.amazon.in/Kawad-Swad-Punjabi-Traditional-Microwave/dp/B0HBVLGLQT" target="_blank" class="group relative aspect-4/3 bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 shadow-sm hover:border-brand-gold transition-all">
+                        <img src="assets/images/products/MMPM.png" alt="Product View 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </a>
                 </div>
             </div>
         </section>
@@ -161,41 +129,18 @@
                 <div class="max-w-2xl mx-auto space-y-3">
                     <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Social Feed</span>
                     <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Follow Us On Instagram</h2>
-                    <p class="text-sm text-brand-muted">Catch our latest Papad News Network updates, reels, and behind-the-scenes clips @kawadswad.</p>
                 </div>
-
-                <!-- Instagram Profile Link / Interactive Showcase Card -->
                 <div class="max-w-md mx-auto bg-brand-cream/60 border border-brand-gold/20 p-8 rounded-sm shadow-sm space-y-4">
                     <div class="w-16 h-16 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 rounded-full flex items-center justify-center mx-auto text-white shadow-md">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M6.5 20h11a2.5 2.5 0 002.5-2.5v-11a2.5 2.5 0 00-2.5-2.5h-11A2.5 2.5 0 004 6.5v11A2.5 2.5 0 006.5 20z"/></svg>
                     </div>
-                    <div>
-                        <h3 class="font-serif text-lg font-semibold text-brand-dark">@kawadswad</h3>
-                        <p class="text-xs text-brand-muted mt-1">Join our growing community of food lovers for recipes, crispy reels, and daily updates.</p>
-                    </div>
-                    <div class="pt-2">
-                        <a href="https://www.instagram.com/kawadswad/?hl=en" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-6 py-3 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors shadow-sm">
-                            View Instagram Profile
-                        </a>
-                    </div>
+                    <a href="https://www.instagram.com/kawadswad/" target="_blank" class="inline-flex justify-center items-center px-6 py-3 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors shadow-sm">View Instagram Profile</a>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-8 leading-tight">Experience the Journey Behind Every Papad</h2>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="contact.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Contact Us</a>
-                    <a href="products.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Explore Products</a>
-                </div>
-            </div>
-        </section>
+        <footer-component></footer-component>
     </main>
-
-    <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
-    <footer-component></footer-component>
 
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>

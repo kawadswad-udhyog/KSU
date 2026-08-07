@@ -1,212 +1,107 @@
 /**
  * ============================================================================
- * KAWAD SWAD - Master Production CSS & Design System (Phase 1 to Phase 7)
+ * KAWAD SWAD - Master Production CSS & Design System (Phase 2.0)
  * ============================================================================
- * Apple & Aesop inspired minimalist luxury food branding system integrated
- * directly with the vibrant logo color palette (Sunset Red, Logo Yellow, Sky Blue).
+ * Refined to match Logo extracted palette (#FE330E, #FBEC0A, #09E4FD).
  */
 
 :root {
-  /* --- 1. COLOR SYSTEM (Logo-Integrated & Luxury Minimalist) --- */
+  /* --- 1. CORE BRAND PALETTE --- */
   --color-primary: #1C1917;         /* Deep Stone / Rich Charcoal */
   --color-secondary: #C5A059;       /* Muted Luxury Gold */
-  --color-accent: #FF4500;          /* Sunset Red / Brand Logo Red */
-  --color-logo-yellow: #FFD700;     /* Logo Background Yellow */
-  --color-logo-blue: #00BFFF;       /* Logo Sky Blue */
-  --color-success: #2F5233;         /* Deep Olive / Natural Green */
-  --color-warning: #996515;         /* Bronze / Warm Amber */
-  --color-error: #8B0000;           /* Crimson Error */
-  --color-background: #FAF7F2;      /* Warm Ivory / Brand Cream */
-  --color-surface: #FFFFFF;         /* Clean Pure White Surface */
+  
+  /* Logo-Derived Active Palette */
+  --color-accent-red:    #FE330E;   /* Sunset Red */
+  --color-accent-yellow: #FBEC0A;   /* Papad Yellow */
+  --color-accent-cyan:   #09E4FD;   /* Fresh Cyan */
+  --color-accent-teal:   #0E9CB8;   /* Deep Teal */
+  --color-accent-brown:  #6B5825;   /* Rich Typography Brown */
+  
+  /* Interface Palette */
+  --color-background: #FAEABA;      /* Warm Ivory/Cream (Logo Base) */
+  --color-surface: #FFFFFF;         /* Pure White */
   --color-card: #FFFFFF;            /* Card Background */
-  --color-border: rgba(197, 160, 89, 0.18); /* Subtle Gold-tinted Border */
-  --color-border-subtle: #E7E2D8;   /* Neutral Border */
-  --color-muted: #57534E;           /* Muted Text */
-  --color-primary-text: #1C1917;    /* Primary Dark Text */
-  --color-secondary-text: #78716C;  /* Secondary Subtle Text */
-  --color-hover: #A37F38;           /* Darker Gold Hover */
-  --color-focus: #C5A059;           /* Focus Ring Gold */
-  --color-disabled: #D6D3D1;        /* Disabled State */
+  --color-border: #E7D9B5;          /* Harmonized Border */
+  --color-muted: #57534E;
+  
+  /* Interaction */
+  --color-focus: var(--color-accent-red);
 
-  /* --- 3. SPACING SYSTEM --- */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 20px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-10: 40px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-20: 80px;
-  --space-24: 96px;
-  --space-32: 128px;
+  /* --- 2. SPACING SYSTEM --- */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px;
 
-  /* --- 4. BORDER RADIUS --- */
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-  --radius-full: 9999px;
+  /* --- 3. BORDER RADIUS --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 
-  /* --- 5. SHADOW SYSTEM (Soft, Luxury, Diffuse) --- */
-  --shadow-xs: 0 1px 2px rgba(28, 25, 23, 0.03);
-  --shadow-sm: 0 4px 12px rgba(28, 25, 23, 0.04);
-  --shadow-md: 0 12px 24px -4px rgba(28, 25, 23, 0.06);
-  --shadow-lg: 0 24px 48px -12px rgba(28, 25, 23, 0.08);
-  --shadow-xl: 0 32px 64px -16px rgba(28, 25, 23, 0.12);
-
-  /* --- 10. ANIMATION & MOTION SYSTEM --- */
-  --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 350ms;
+  /* --- 4. SHADOW SYSTEM --- */
+  --shadow-sm: 0 4px 12px rgba(107, 88, 37, 0.08);
+  --shadow-md: 0 12px 24px -4px rgba(107, 88, 37, 0.12);
 }
 
-/* --- GLOBAL BASE ENHANCEMENTS --- */
-html {
-  scroll-behavior: smooth;
-  background-color: var(--color-background);
-  color: var(--color-primary-text);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+/* --- BASE STYLES --- */
+html { scroll-behavior: smooth; background-color: var(--color-background); }
+body { 
+  font-family: 'Plus Jakarta Sans', sans-serif; 
+  background-color: var(--color-background); 
+  color: var(--color-accent-brown); /* Using extracted Brown for readability */
 }
 
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: var(--color-background);
-  color: var(--color-primary-text);
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
+h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; color: var(--color-primary); }
 
-/* --- TYPOGRAPHY SYSTEM --- */
-h1, h2, h3, h4, .font-serif {
-  font-family: 'Playfair Display', Georgia, serif;
-  letter-spacing: -0.01em;
-}
+/* --- LOGO-DERIVED UTILITY CLASSES --- */
+.bg-brand-red    { background-color: var(--color-accent-red); color: #FFFFFF; }
+.bg-brand-yellow { background-color: var(--color-accent-yellow); color: var(--color-primary); }
+.bg-brand-cyan   { background-color: var(--color-accent-cyan); color: var(--color-primary); }
 
-h1 { font-weight: 700; line-height: 1.15; }
-h2 { font-weight: 600; line-height: 1.25; }
-h3 { font-weight: 600; line-height: 1.3; }
+.text-brand-red    { color: var(--color-accent-red); }
+.text-brand-yellow { color: var(--color-accent-yellow); }
+.text-brand-cyan   { color: var(--color-accent-cyan); }
 
-p, span, a, li {
-  letter-spacing: 0.01em;
-}
-
-/* --- BUTTON & INTERACTION SYSTEM --- */
-.btn, button:not([class*="bg-"]), a[class*="bg-brand-"], a[class*="border"] {
-  transition: all var(--duration-normal) var(--ease-apple);
-}
-
-button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-  outline: 2px solid var(--color-focus);
-  outline-offset: 2px;
-}
-
-/* --- LOGO COLOR UTILITY CLASSES --- */
-.bg-brand-red { background-color: var(--color-accent); color: #FFFFFF; }
-.bg-brand-yellow { background-color: var(--color-logo-yellow); color: var(--color-primary); }
-.bg-brand-blue { background-color: var(--color-logo-blue); color: #FFFFFF; }
-.text-brand-red { color: var(--color-accent); }
-.text-brand-yellow { color: var(--color-logo-yellow); }
-.text-brand-blue { color: var(--color-logo-blue); }
-
-/* --- REUSABLE CARD SYSTEM --- */
-.card, [class*="bg-white"], [class*="bg-brand-cream"] {
+/* --- INTERACTIVE COMPONENTS --- */
+.btn-primary {
+  background-color: var(--color-accent-red);
+  color: #FFFFFF;
+  padding: 12px 24px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--duration-normal) var(--ease-apple), box-shadow var(--duration-normal) var(--ease-apple);
+  font-weight: 700;
+  transition: transform 0.2s var(--ease-apple);
 }
 
-.card:hover, .group:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-logo-yellow);
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
 }
 
-.card-premium {
-  transition: transform var(--duration-slow) var(--ease-apple), box-shadow var(--duration-slow) var(--ease-apple);
-}
-
-.card-premium:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-/* --- FORM SYSTEM --- */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-select,
-textarea {
-  background-color: rgba(250, 247, 242, 0.6);
-  border: 1px solid #D6D3D1;
-  border-radius: var(--radius-sm);
-  padding: var(--space-3) var(--space-4);
-  font-size: 0.875rem;
-  color: var(--color-primary-text);
-  transition: border-color var(--duration-fast) var(--ease-apple), box-shadow var(--duration-fast) var(--ease-apple);
-}
-
-input:focus, select:focus, textarea:focus {
-  border-color: var(--color-secondary);
-  background-color: var(--color-surface);
-  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
-  outline: none;
-}
-
-/* --- PHASE 7: VISUAL ASSET & IMAGE PRESENTATION SYSTEM --- */
-img {
-  border-radius: var(--radius-sm);
-  object-fit: cover;
-  transition: transform 0.7s var(--ease-apple), opacity var(--duration-normal) ease;
-}
-
-.asset-premium {
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.6s var(--ease-apple), box-shadow 0.6s var(--ease-apple);
+/* --- CARD SYSTEM --- */
+.card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  overflow: hidden;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
 }
 
-.asset-premium:hover {
-  transform: translateY(-4px);
+.card:hover {
   box-shadow: var(--shadow-md);
+  border-color: var(--color-accent-red);
 }
 
-.asset-premium:hover img {
-  transform: scale(1.04);
-}
-
-/* --- NAVBAR & FOOTER POLISH --- */
+/* --- NAVBAR & FOOTER --- */
 header, nav {
+  background: rgba(250, 234, 186, 0.8); /* Slightly cream tint */
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
 }
 
 footer {
-  border-top: 1px solid var(--color-border);
-  background-color: var(--color-primary);
-  color: #FAF7F2;
+  background-color: #2F2417; /* Deepest tone from logo */
+  color: var(--color-background);
 }
 
-/* --- ACCESSIBILITY & MOTION SAFETY --- */
+/* --- MOTION SAFETY --- */
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+  *, ::before, ::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
-
-/* Utility fallbacks */
-.fixed{position:fixed}.bottom-6{bottom:1.5rem}.right-6{right:1.5rem}.z-\[400\]{z-index:400}.flex{display:flex}.flex-col{flex-direction:column}.gap-3{gap:.75rem}.pointer-events-none{pointer-events:none}

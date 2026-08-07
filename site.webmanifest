@@ -1,6 +1,7 @@
 {
   "name": "KAWAD SWAD - Premium Jain Papad Manufacturer",
   "short_name": "KAWAD SWAD",
+  "description": "Manufacturer of premium 100% vegetarian Jain Papads delivering pure taste and traditional excellence from Nimar.",
   "icons": [
     {
       "src": "assets/favicon/android-chrome-192x192.png",
@@ -16,5 +17,6 @@
   "theme_color": "#C5A059",
   "background_color": "#FAF7F2",
   "display": "standalone",
-  "start_url": "/index.html"
+  "scope": "./",
+  "start_url": "index.html"
 }

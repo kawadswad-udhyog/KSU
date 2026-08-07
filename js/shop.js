@@ -13,8 +13,7 @@ let productsCache = null;
  * Resolves base path dynamically for subfolder hosting environments (e.g. /KSU/)
  */
 function getBasePath() {
-    const isGitHubPages = window.location.pathname.includes('/KSU/');
-    return isGitHubPages ? '/KSU/' : './';
+    return '/KSU/';
 }
 
 /**

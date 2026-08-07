@@ -5,10 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Confirmation | KAWAD SWAD</title>
     <meta name="description" content="Thank you for your order with KAWAD SWAD. Your purchase of authentic Jain Papads has been received.">
-    
-    <!-- Tailwind CSS CDN -->
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://kawadswad.com/order-confirmation.html">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#C5A059">
+
+    <!-- Tailwind CSS CDN & Custom Config -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +55,7 @@
             <div class="bg-white rounded-sm border border-brand-gold/20 p-8 sm:p-12 shadow-sm space-y-6">
                 <!-- Success Icon -->
                 <div class="w-16 h-16 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                     </svg>
                 </div>
@@ -35,13 +66,13 @@
                 </div>
 
                 <div class="pt-4 flex flex-wrap gap-4 justify-center">
-                    <a href="shop.html" class="px-8 py-3.5 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">
+                    <a href="shop.html" class="px-8 py-3.5 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                         Continue Shopping
                     </a>
-                    <a href="https://wa.me/91963097687?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20need%20assistance%20regarding%20my%20order.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 border border-brand-dark text-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-dark hover:text-white transition-colors">
+                    <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20need%20assistance%20regarding%20my%20order.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="px-8 py-3.5 border border-brand-dark text-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-dark hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                         Contact Support (WhatsApp)
                     </a>
-                    <a href="index.html" class="px-8 py-3.5 border border-stone-300 text-brand-muted text-xs font-semibold uppercase tracking-wider rounded-sm hover:border-brand-gold hover:text-brand-dark transition-colors">
+                    <a href="index.html" class="px-8 py-3.5 border border-stone-300 text-brand-muted text-xs font-semibold uppercase tracking-wider rounded-sm hover:border-brand-gold hover:text-brand-dark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                         Back to Home
                     </a>
                 </div>

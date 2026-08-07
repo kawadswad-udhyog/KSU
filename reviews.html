@@ -60,6 +60,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Master Design System Stylesheet -->
+    <link rel="stylesheet" href="css/design-system.css">
+
     <!-- CSS Animation Utilities & Motion Safety -->
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -113,16 +116,16 @@
         <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Customer Feedback</span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Customer Reviews</h1>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">Customer Feedback</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Customer <span class="italic text-brand-gold font-normal">Reviews</span></h1>
                     <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">Every review helps us improve and serve better. We value genuine customer feedback and transparency.</p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Explore Products</a>
-                        <a href="#submit-review-section" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Write a Review</a>
+                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Explore Products</a>
+                        <a href="#submit-review-section" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Write a Review</a>
                     </div>
                 </div>
 
-                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
+                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-luxury relative group overflow-hidden fade-in">
                     <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
                     <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
                     <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[reviews-hero-placeholder]</span>
@@ -131,63 +134,64 @@
         </section>
 
         <!-- REVIEWS GRID -->
-        <section class="py-20 bg-white border-b border-brand-gold/10">
+        <section class="py-24 bg-white border-b border-stone-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Verified Customer Experiences</h2>
-                    <p class="text-xs sm:text-sm text-brand-muted">Read genuine feedback from families, retail buyers, and trade partners across India.</p>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-3"></div>
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Testimonials</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Verified Customer Experiences</h2>
+                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                    <p class="text-xs sm:text-sm text-brand-muted font-light pt-2">Read genuine feedback from families, retail buyers, and trade partners across India.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Review Card 1 -->
-                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 shadow-sm flex flex-col justify-between hover:border-brand-gold transition-colors">
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 shadow-luxury flex flex-col justify-between hover:border-brand-gold transition-colors duration-300">
                         <div class="space-y-4">
                             <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center font-serif font-bold text-brand-dark border border-brand-gold/30">
+                                <div class="w-12 h-12 bg-brand-gold/10 rounded-sm flex items-center justify-center font-serif font-bold text-brand-dark border border-brand-gold/30">
                                     RJ
                                 </div>
                                 <div>
                                     <h3 class="font-serif text-base font-semibold text-brand-dark">Ramesh Jain</h3>
-                                    <p class="text-xs text-brand-muted">Indore, Madhya Pradesh</p>
+                                    <p class="text-xs text-brand-muted font-light">Indore, Madhya Pradesh</p>
                                 </div>
                             </div>
-                            <div class="text-brand-gold text-sm">★★★★★</div>
-                            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed italic font-light">"Authentic Nimar flavor! The Moong Special Papad is crisp, light on spices, and perfectly suits our Jain family dietary standards. Highly recommended."</p>
+                            <div class="text-brand-gold text-sm tracking-wider">★★★★★</div>
+                            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed italic font-light">&ldquo;Authentic Nimar flavor! The Moong Special Papad is crisp, light on spices, and perfectly suits our Jain family dietary standards. Highly recommended.&rdquo;</p>
                         </div>
                     </div>
 
                     <!-- Review Card 2 -->
-                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 shadow-sm flex flex-col justify-between hover:border-brand-gold transition-colors">
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 shadow-luxury flex flex-col justify-between hover:border-brand-gold transition-colors duration-300">
                         <div class="space-y-4">
                             <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center font-serif font-bold text-brand-dark border border-brand-gold/30">
+                                <div class="w-12 h-12 bg-brand-gold/10 rounded-sm flex items-center justify-center font-serif font-bold text-brand-dark border border-brand-gold/30">
                                     PS
                                 </div>
                                 <div>
                                     <h3 class="font-serif text-base font-semibold text-brand-dark">Pooja Shah</h3>
-                                    <p class="text-xs text-brand-muted">Ahmedabad, Gujarat</p>
+                                    <p class="text-xs text-brand-muted font-light">Ahmedabad, Gujarat</p>
                                 </div>
                             </div>
-                            <div class="text-brand-gold text-sm">★★★★★</div>
-                            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed italic font-light">"We ordered the Chana and Urad combo packs for Diwali gifting. Excellent packaging, zero breakage during courier delivery, and wonderful taste."</p>
+                            <div class="text-brand-gold text-sm tracking-wider">★★★★★</div>
+                            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed italic font-light">&ldquo;We ordered the Chana and Urad combo packs for Diwali gifting. Excellent packaging, zero breakage during courier delivery, and wonderful taste.&rdquo;</p>
                         </div>
                     </div>
 
                     <!-- Review Card 3 -->
-                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 shadow-sm flex flex-col justify-between hover:border-brand-gold transition-colors">
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 shadow-luxury flex flex-col justify-between hover:border-brand-gold transition-colors duration-300">
                         <div class="space-y-4">
                             <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center font-serif font-bold text-brand-dark border border-brand-gold/30">
+                                <div class="w-12 h-12 bg-brand-gold/10 rounded-sm flex items-center justify-center font-serif font-bold text-brand-dark border border-brand-gold/30">
                                     GS
                                 </div>
                                 <div>
                                     <h3 class="font-serif text-base font-semibold text-brand-dark">Gaurav Sethi</h3>
-                                    <p class="text-xs text-brand-muted">Trade Partner, Maharashtra</p>
+                                    <p class="text-xs text-brand-muted font-light">Trade Partner, Maharashtra</p>
                                 </div>
                             </div>
-                            <div class="text-brand-gold text-sm">★★★★★</div>
-                            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed italic font-light">"As a wholesale distributor, stock consistency and hygienic manufacturing are critical. Kawad Swad delivers prompt dispatch and reliable shelf life."</p>
+                            <div class="text-brand-gold text-sm tracking-wider">★★★★★</div>
+                            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed italic font-light">&ldquo;As a wholesale distributor, stock consistency and hygienic manufacturing are critical. Kawad Swad delivers prompt dispatch and reliable shelf life.&rdquo;</p>
                         </div>
                     </div>
                 </div>
@@ -195,30 +199,30 @@
         </section>
 
         <!-- SUBMIT REVIEW FORM -->
-        <section id="submit-review-section" class="py-20 bg-brand-cream">
+        <section id="submit-review-section" class="py-24 bg-brand-cream">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white p-8 sm:p-12 rounded-sm border border-stone-200/80 shadow-sm">
-                    <div class="text-center max-w-xl mx-auto mb-10 space-y-2">
-                        <span class="text-brand-gold font-semibold text-xs uppercase tracking-widest">Share Your Experience</span>
+                <div class="bg-white p-8 sm:p-14 rounded-sm border border-stone-200/80 shadow-luxury">
+                    <div class="text-center max-w-xl mx-auto mb-10 space-y-3">
+                        <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Share Feedback</span>
                         <h2 class="font-serif text-3xl font-bold text-brand-dark">Leave a Review</h2>
                         <p class="text-xs text-brand-muted font-light">Submit your valuable feedback to help us maintain pure quality standards.</p>
                         <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-3"></div>
                     </div>
 
-                    <form id="submit-review-form" novalidate class="space-y-6">
+                    <form id="submit-review-form" data-form="review" novalidate class="space-y-6">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="reviewer-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Your Name <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="reviewer-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Your Name <span class="text-brand-red">*</span></label>
                                 <input type="text" id="reviewer-name" name="reviewer-name" required placeholder="e.g. Ankit Sharma" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                             </div>
-                            <div>
-                                <label for="reviewer-city" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">City / Location <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="reviewer-city" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">City / Location <span class="text-brand-red">*</span></label>
                                 <input type="text" id="reviewer-city" name="reviewer-city" required placeholder="e.g. Bhopal, MP" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                             </div>
                         </div>
 
-                        <div>
-                            <label for="review-rating" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Rating <span class="text-brand-red">*</span></label>
+                        <div class="space-y-2">
+                            <label for="review-rating" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Rating <span class="text-brand-red">*</span></label>
                             <select id="review-rating" name="review-rating" required class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <option value="5" selected>★★★★★ - Excellent (5 Stars)</option>
                                 <option value="4">★★★★☆ - Very Good (4 Stars)</option>
@@ -228,13 +232,13 @@
                             </select>
                         </div>
 
-                        <div>
-                            <label for="review-text" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Your Review / Comments <span class="text-brand-red">*</span></label>
+                        <div class="space-y-2">
+                            <label for="review-text" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Your Review / Comments <span class="text-brand-red">*</span></label>
                             <textarea id="review-text" name="review-text" rows="4" required placeholder="Tell us about the taste, packaging, and your overall experience..." class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold"></textarea>
                         </div>
 
                         <div class="text-center pt-2">
-                            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 Submit Review
                             </button>
                         </div>
@@ -247,9 +251,9 @@
     <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
+    <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/shop.js"></script>
 </body>
 </html>

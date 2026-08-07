@@ -60,6 +60,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Master Design System Stylesheet -->
+    <link rel="stylesheet" href="css/design-system.css">
+
     <!-- CSS Animation Utilities & Motion Safety -->
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -113,18 +116,18 @@
         <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Authentic Catalogue</span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Our Products</h1>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">Authentic Catalogue</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Our <span class="italic text-brand-gold font-normal">Products</span></h1>
                     <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">Discover our complete range of authentic Jain papads and seasonings crafted with premium ingredients.</p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="shop.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Shop Now</a>
-                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Business Enquiry</a>
+                        <a href="shop.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Shop Now</a>
+                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Business Enquiry</a>
                     </div>
                 </div>
 
                 <!-- Real Products Hero Banner Image -->
-                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-inner relative group fade-in">
-                    <img src="assets/images/products-hero.png" alt="Products Hero Banner - KAWAD SWAD" class="w-full h-full object-cover">
+                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-luxury relative group fade-in">
+                    <img src="assets/images/products-hero.png" alt="Products Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
             </div>
         </section>
@@ -133,11 +136,11 @@
         <section class="py-10 bg-white border-b border-stone-200/80 sticky top-20 z-40 shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
                 <div class="max-w-xl mx-auto relative">
-                    <input type="text" placeholder="Search products..." class="w-full bg-brand-cream/50 border border-stone-300 rounded-sm py-3.5 pl-12 pr-4 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors">
+                    <input type="text" placeholder="Search products..." class="w-full bg-brand-cream/40 border border-stone-300 rounded-sm py-3.5 pl-12 pr-4 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors">
                     <svg class="w-5 h-5 text-brand-muted absolute left-4 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </div>
                 <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-semibold uppercase tracking-wider">
-                    <button type="button" class="px-5 py-2.5 bg-brand-dark text-white rounded-sm border border-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">All</button>
+                    <button type="button" class="px-5 py-2.5 bg-brand-dark text-white rounded-sm border border-brand-dark shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">All</button>
                     <button type="button" class="px-5 py-2.5 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Moong</button>
                     <button type="button" class="px-5 py-2.5 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Chana</button>
                     <button type="button" class="px-5 py-2.5 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Urad</button>
@@ -148,44 +151,45 @@
         </section>
 
         <!-- CATEGORIES -->
-        <section class="py-16 bg-brand-cream border-b border-brand-gold/10">
+        <section class="py-24 bg-brand-cream border-b border-stone-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">Product Categories</h2>
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Portfolio</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Product Categories</h2>
                     <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                    <a href="shop.html?category=Moong" class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-sm hover:border-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
-                        <div class="aspect-square bg-stone-200 mb-4 rounded-sm overflow-hidden flex items-center justify-center">
-                            <img src="assets/images/Moong Papad.png" alt="Moong Papad" class="w-full h-full object-cover">
+                    <a href="shop.html?category=Moong" class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-luxury hover:border-brand-gold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold group">
+                        <div class="aspect-square bg-stone-100 mb-4 rounded-xs overflow-hidden flex items-center justify-center p-2">
+                            <img src="assets/images/Moong Papad.png" alt="Moong Papad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Moong Papad</h3>
                         <p class="text-xs text-brand-muted font-light">Classic and spiced light moong dal varieties.</p>
                     </a>
-                    <a href="shop.html?category=Chana" class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-sm hover:border-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
-                        <div class="aspect-square bg-stone-200 mb-4 rounded-sm overflow-hidden flex items-center justify-center">
-                            <img src="assets/images/Chana Papad.png" alt="Chana Papad" class="w-full h-full object-cover">
+                    <a href="shop.html?category=Chana" class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-luxury hover:border-brand-gold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold group">
+                        <div class="aspect-square bg-stone-100 mb-4 rounded-xs overflow-hidden flex items-center justify-center p-2">
+                            <img src="assets/images/Chana Papad.png" alt="Chana Papad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Chana Papad</h3>
                         <p class="text-xs text-brand-muted font-light">Crispy, wholesome chana dal papads.</p>
                     </a>
-                    <a href="shop.html?category=Urad" class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-sm hover:border-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
-                        <div class="aspect-square bg-stone-200 mb-4 rounded-sm overflow-hidden flex items-center justify-center">
-                            <img src="assets/images/Urad Papad.png" alt="Urad Papad" class="w-full h-full object-cover">
+                    <a href="shop.html?category=Urad" class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-luxury hover:border-brand-gold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold group">
+                        <div class="aspect-square bg-stone-100 mb-4 rounded-xs overflow-hidden flex items-center justify-center p-2">
+                            <img src="assets/images/Urad Papad.png" alt="Urad Papad" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Urad Papad</h3>
                         <p class="text-xs text-brand-muted font-light">Traditional rich urad dal crispies.</p>
                     </a>
-                    <a href="shop.html?category=Masala" class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-sm hover:border-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
-                        <div class="aspect-square bg-stone-200 mb-4 rounded-sm overflow-hidden flex items-center justify-center">
-                            <img src="assets/images/Papad Masala.png" alt="Papad Masala" class="w-full h-full object-cover">
+                    <a href="shop.html?category=Masala" class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-luxury hover:border-brand-gold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold group">
+                        <div class="aspect-square bg-stone-100 mb-4 rounded-xs overflow-hidden flex items-center justify-center p-2">
+                            <img src="assets/images/Papad Masala.png" alt="Papad Masala" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Papad Masala</h3>
                         <p class="text-xs text-brand-muted font-light">Signature spice blends and seasonings.</p>
                     </a>
-                    <a href="shop.html?category=Combo" class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-sm hover:border-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
-                        <div class="aspect-square bg-stone-200 mb-4 rounded-sm overflow-hidden flex items-center justify-center">
-                            <img src="assets/images/COMBO.png" alt="Combo Packs" class="w-full h-full object-cover">
+                    <a href="shop.html?category=Combo" class="bg-white p-6 rounded-sm border border-stone-200/80 text-center shadow-luxury hover:border-brand-gold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold group">
+                        <div class="aspect-square bg-stone-100 mb-4 rounded-xs overflow-hidden flex items-center justify-center p-2">
+                            <img src="assets/images/COMBO.png" alt="Combo Packs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">Combo Packs</h3>
                         <p class="text-xs text-brand-muted font-light">Curated assortments for family and gifting.</p>
@@ -195,10 +199,11 @@
         </section>
 
         <!-- COMPLETE CATALOGUE GRID -->
-        <section class="py-20 bg-white">
+        <section class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Complete Catalogue</h2>
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Inventory</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Complete Catalogue</h2>
                     <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" data-shop-grid>
@@ -209,12 +214,13 @@
 
         <!-- BULK CTA -->
         <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-8 leading-tight">Looking for Bulk Orders or Private Label Manufacturing?</h2>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Become Distributor</a>
-                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Wholesale Enquiry</a>
-                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-brand-gold text-brand-gold font-semibold text-xs uppercase tracking-wider hover:bg-brand-gold hover:text-brand-dark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Private Label</a>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight max-w-3xl mx-auto">Looking for Bulk Orders or Private Label Manufacturing?</h2>
+                <p class="text-stone-300 text-sm sm:text-base max-w-xl mx-auto font-light">Partner with us for reliable wholesale supply and custom manufacturing solutions.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white transition-colors duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Become Distributor</a>
+                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Wholesale Enquiry</a>
+                    <a href="business.html" class="w-full sm:w-auto px-8 py-4 border border-brand-gold text-brand-gold font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Private Label</a>
                 </div>
             </div>
         </section>
@@ -223,6 +229,7 @@
     <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
+    <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>

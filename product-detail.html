@@ -60,6 +60,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Master Design System Stylesheet -->
+    <link rel="stylesheet" href="css/design-system.css">
+
     <!-- CSS Animation Utilities & Motion Safety -->
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -136,22 +139,22 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ol class="flex items-center space-x-2 text-xs text-brand-muted">
                     <li><a href="index.html" class="hover:text-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Home</a></li>
-                    <li class="text-stone-400">&gt;</li>
+                    <li class="text-stone-400" aria-hidden="true">&gt;</li>
                     <li><a href="shop.html" class="hover:text-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Shop</a></li>
-                    <li class="text-stone-400">&gt;</li>
-                    <li class="font-semibold text-brand-dark uppercase tracking-wider" data-detail="breadcrumb-name">Product Detail</li>
+                    <li class="text-stone-400" aria-hidden="true">&gt;</li>
+                    <li class="font-semibold text-brand-dark uppercase tracking-wider" data-detail="breadcrumb-name" aria-current="page">Product Detail</li>
                 </ol>
             </div>
         </nav>
 
         <!-- PRODUCT DETAIL SECTION -->
-        <section class="py-12 lg:py-16 bg-white border-b border-stone-200/80">
+        <section class="py-16 lg:py-24 bg-white border-b border-stone-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                     <!-- Image Area -->
                     <div class="space-y-4 fade-in">
-                        <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden" data-detail="image-container">
-                            <svg class="w-20 h-20 text-stone-400/80 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <div class="aspect-square bg-white rounded-sm border border-stone-200/80 flex flex-col items-center justify-center p-8 text-center shadow-luxury relative group overflow-hidden" data-detail="image-container">
+                            <svg class="w-20 h-20 text-stone-300 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                             </svg>
                             <span class="text-xs font-mono uppercase tracking-wider text-brand-muted" data-detail="code">KS-SKU</span>
@@ -160,17 +163,17 @@
 
                     <!-- Details Area -->
                     <div class="space-y-6 slide-up">
-                        <div>
-                            <div class="flex items-center gap-3 mb-3">
-                                <span class="text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full" data-detail="category">Category</span>
-                                <span class="text-xs font-semibold text-green-800 bg-green-100 px-3 py-1 rounded-full" data-detail="diet-type">100% Jain Vegetarian</span>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <span class="inline-block text-xs font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full" data-detail="category">Category</span>
+                                <span class="inline-block text-xs font-semibold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full" data-detail="diet-type">100% Jain Vegetarian</span>
                             </div>
-                            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark mb-4" data-detail="title">Product Name</h1>
-                            <p class="text-base text-brand-muted leading-relaxed font-light" data-detail="description">Loading product specifications...</p>
+                            <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark" data-detail="title">Product Name</h1>
+                            <p class="text-sm sm:text-base text-brand-muted leading-relaxed font-light" data-detail="description">Loading product specifications...</p>
                         </div>
 
                         <!-- Price & Shipping Block -->
-                        <div class="bg-brand-cream/50 p-6 rounded-sm border border-stone-200/80 space-y-2">
+                        <div class="bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 shadow-luxury space-y-2">
                             <div class="flex items-baseline gap-3">
                                 <span class="text-3xl font-bold text-brand-dark font-mono" data-detail="price">₹--</span>
                                 <span class="text-sm text-stone-400 line-through font-mono" data-detail="mrp">₹--</span>
@@ -184,9 +187,9 @@
                         </div>
 
                         <!-- Ingredients List -->
-                        <div class="pt-6 border-t border-stone-200/80">
-                            <h3 class="font-serif text-xl font-bold text-brand-dark mb-4">Ingredients</h3>
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-brand-muted" data-detail="ingredients">
+                        <div class="pt-6 border-t border-stone-200/80 space-y-4">
+                            <h3 class="font-serif text-xl font-bold text-brand-dark">Ingredients</h3>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-brand-muted font-light" data-detail="ingredients">
                                 <!-- Populated dynamically via js/shop.js -->
                             </ul>
                         </div>
@@ -199,6 +202,7 @@
     <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
+    <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>

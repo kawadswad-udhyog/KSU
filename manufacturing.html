@@ -60,6 +60,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Master Design System Stylesheet -->
+    <link rel="stylesheet" href="css/design-system.css">
+
     <!-- CSS Animation Utilities & Motion Safety -->
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -113,43 +116,43 @@
         <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">
                         Hygienic &amp; Process Driven
                     </span>
                     <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
-                        Manufacturing Excellence
+                        Manufacturing <span class="italic text-brand-gold font-normal">Excellence</span>
                     </h1>
                     <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
                         Discover how authentic Jain papads are crafted with traditional recipes, premium ingredients and hygienic manufacturing practices.
                     </p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                             Explore Products
                         </a>
-                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                             Business Enquiry
                         </a>
                     </div>
                 </div>
 
                 <!-- Real Factory Hero Banner Image -->
-                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-inner relative group fade-in">
-                    <img src="assets/images/factory-hero.png" alt="Manufacturing Hero Banner - KAWAD SWAD" class="w-full h-full object-cover">
+                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-luxury relative group fade-in">
+                    <img src="assets/images/factory-hero.png" alt="Manufacturing Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
             </div>
         </section>
 
         <!-- MANUFACTURING PHILOSOPHY -->
-        <section class="py-20 bg-white">
+        <section class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    <!-- Real Factory Process Image -->
-                    <div class="bg-stone-200 rounded-sm overflow-hidden border border-stone-300/60 shadow-inner flex items-center justify-center">
-                        <img src="assets/images/factory-process.png" alt="Manufacturing Process - KAWAD SWAD" class="w-full h-auto max-h-[400px] object-cover">
+                    <div class="bg-brand-cream/40 rounded-sm border border-stone-200/80 overflow-hidden shadow-luxury flex items-center justify-center p-2">
+                        <img src="assets/images/factory-process.png" alt="Manufacturing Process - KAWAD SWAD" class="w-full h-auto max-h-[450px] object-cover rounded-sm">
                     </div>
 
                     <div class="space-y-6">
                         <div>
+                            <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full mb-3">Facility Standards</span>
                             <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Our Manufacturing Philosophy</h2>
                             <div class="w-12 h-0.5 bg-brand-gold"></div>
                         </div>
@@ -163,44 +166,45 @@
         </section>
 
         <!-- CERTIFICATIONS & COMPLIANCE -->
-        <section class="py-20 bg-brand-cream border-t border-brand-gold/10">
+        <section class="py-24 bg-brand-cream border-t border-stone-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Certifications &amp; Compliance</h2>
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Accreditation</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Certifications &amp; Compliance</h2>
                     <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-sm">
-                        <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-muted font-bold text-xs">
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-luxury space-y-3">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
                             FSSAI
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">FSSAI License</h3>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">FSSAI License</h3>
                         <p class="text-xs text-brand-muted font-mono">Lic No: 21425890001224</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-sm">
-                        <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-muted font-bold text-xs">
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-luxury space-y-3">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
                             GSTIN
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">GST Registration</h3>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">GST Registration</h3>
                         <p class="text-xs text-brand-muted font-mono">23AIAPJ3923D1ZX</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-sm">
-                        <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-muted font-bold text-xs">
-                            UDYAM
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-luxury space-y-3">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
+                            MSME
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">MSME Enterprise</h3>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">MSME Enterprise</h3>
                         <p class="text-xs text-brand-muted font-mono">UDYAM-MP-28-0044363</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-sm">
-                        <div class="w-12 h-12 bg-stone-100 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-muted font-bold text-xs">
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-luxury space-y-3">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
                             JAIN
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-2">100% Vegetarian</h3>
-                        <p class="text-xs text-brand-muted">Strict Jain Guidelines</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">100% Vegetarian</h3>
+                        <p class="text-xs text-brand-muted font-light">Strict Jain Guidelines</p>
                     </div>
                 </div>
             </div>
@@ -208,15 +212,16 @@
 
         <!-- CALL TO ACTION -->
         <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-8 leading-tight">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">
                     Interested in Manufacturing With Us?
                 </h2>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                <p class="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-light">Partner with our advanced facility for private label and custom bulk manufacturing.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                         Private Label
                     </a>
-                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                         Business Enquiry
                     </a>
                 </div>
@@ -227,9 +232,9 @@
     <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
+    <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/shop.js"></script>
 </body>
 </html>

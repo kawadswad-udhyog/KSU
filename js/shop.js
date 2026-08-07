@@ -1,23 +1,15 @@
 /**
  * ============================================================================
- * KAWAD SWAD - Product Engine & Shop Controller (js/shop.js)
+ * KAWAD SWAD - Product Engine & Shop Controller with Variant Dropdown
  * ============================================================================
- * Optimized single-fetch product database controller supporting debounced input 
- * processing, category/weight filtering, path awareness, layout stability, and accessibility.
  */
 
 let productsCache = null;
 
-/**
- * Resolves base path dynamically for hosting environments
- */
 function getBasePath() {
     return './';
 }
 
-/**
- * Debounce helper function for search inputs
- */
 function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -30,9 +22,6 @@ function debounce(func, wait) {
     };
 }
 
-/**
- * Database loader with memory caching and path resolution
- */
 async function getProductsDatabase() {
     if (productsCache) return productsCache;
     try {
@@ -49,7 +38,6 @@ async function getProductsDatabase() {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const products = await getProductsDatabase();
-    
     if (window.location.pathname.includes('shop.html') || document.querySelector('[data-shop-grid]')) {
         initShopPage(products);
     } else if (window.location.pathname.includes('product-detail.html')) {
@@ -71,16 +59,10 @@ function initShopPage(products) {
     let searchQuery = '';
     let currentSort = 'default';
 
-    function getSellingPrice(item) {
-        if (item.price && typeof item.price.selling === 'number') return item.price.selling;
-        if (item.price && typeof item.price.mrp === 'number') return item.price.mrp;
-        return 0;
-    }
-
     function renderGrid() {
         let filtered = products.filter(item => {
             const matchesCategory = (currentCategory === 'all') || (item.category.toLowerCase() === currentCategory);
-            const matchesWeight = (currentWeight === 'all') || (item.weight.toLowerCase() === currentWeight);
+            const matchesWeight = (currentWeight === 'all') || (item.variants && item.variants.some(v => v.weight.toLowerCase() === currentWeight));
             const matchesSearch = item.name.toLowerCase().includes(searchQuery) ||
                                   (item.variant && item.variant.toLowerCase().includes(searchQuery)) ||
                                   (item.sku && item.sku.toLowerCase().includes(searchQuery));
@@ -90,9 +72,9 @@ function initShopPage(products) {
         if (currentSort === 'name-asc') {
             filtered.sort((a, b) => a.name.localeCompare(b.name));
         } else if (currentSort === 'price-low') {
-            filtered.sort((a, b) => getSellingPrice(a) - getSellingPrice(b));
+            filtered.sort((a, b) => (a.variants[0]?.selling || 0) - (b.variants[0]?.selling || 0));
         } else if (currentSort === 'price-high') {
-            filtered.sort((a, b) => getSellingPrice(b) - getSellingPrice(a));
+            filtered.sort((a, b) => (b.variants[0]?.selling || 0) - (a.variants[0]?.selling || 0));
         } else {
             filtered.sort((a, b) => a.displayOrder - b.displayOrder);
         }
@@ -115,51 +97,71 @@ function initShopPage(products) {
             const card = document.createElement('div');
             card.className = 'bg-brand-cream/40 rounded-sm p-5 border border-stone-200/80 hover:shadow-xl transition-all duration-300 flex flex-col group';
             
-            const mrp = product.price ? product.price.mrp : null;
-            const selling = product.price ? product.price.selling : null;
-            const shipping = product.price ? product.price.shipping : null;
-            const activePrice = selling !== null ? selling : (mrp !== null ? mrp : 0);
+            const variants = product.variants || [{ weight: product.weight || '200g', sku: product.sku, mrp: product.price?.mrp, selling: product.price?.selling, shipping: product.price?.shipping }];
+            let activeVariant = variants[0];
 
-            // Clean relative path resolution for images
             const rawImg = product.image || 'assets/images/product-placeholder.webp';
             const imgSrc = rawImg.startsWith('http') ? rawImg : `./${rawImg.replace(/^\/+/, '')}`;
 
-            card.dataset.id = product.sku;
-            card.dataset.sku = product.sku;
-            card.dataset.name = product.name;
-            card.dataset.price = activePrice;
-            card.dataset.category = product.category;
-            card.dataset.weight = product.weight;
-            card.dataset.shipping = shipping !== null ? shipping : '';
-            card.dataset.image = rawImg;
-
-            const priceDisplay = (selling !== null && mrp !== null && selling !== mrp)
-                ? `₹${selling} <span class="text-stone-400 line-through text-[11px] ml-1">₹${mrp}</span>`
-                : (activePrice ? `₹${activePrice}` : 'Enquire for Price');
-
-            const shippingDisplay = (shipping === 'Free')
-                ? '<span class="text-[10px] text-green-700 bg-green-100 px-2 py-0.5 rounded-xs font-medium">Free Shipping</span>'
-                : (shipping ? `<span class="text-[10px] text-stone-500 bg-stone-100 px-2 py-0.5 rounded-xs font-medium">+₹${shipping} Shipping</span>` : '');
+            const variantOptionsHTML = variants.map((v, idx) => `
+                <option value="${idx}" ${idx === 0 ? 'selected' : ''}>${v.weight} - ₹${v.selling !== undefined ? v.selling : v.mrp}</option>
+            `).join('');
 
             card.innerHTML = `
                 <div class="aspect-square bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform overflow-hidden">
-                    <img src="${imgSrc}" alt="${product.imageAlt || product.name}" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.outerHTML='<span class=\\'text-xs font-mono text-brand-muted\\'>[${product.sku}]</span>'">
+                    <img src="${imgSrc}" alt="${product.name}" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.outerHTML='<span class=\\'text-xs font-mono text-brand-muted\\'>[${product.sku}]</span>'">
                 </div>
                 <div class="flex items-center justify-between mb-1">
                     <span class="text-[10px] font-semibold uppercase tracking-wider text-brand-gold">${product.category}</span>
-                    <span class="text-[10px] font-mono text-brand-muted">${product.weight}</span>
+                    <div class="w-28">
+                        <select data-variant-select class="w-full bg-white border border-stone-300 rounded-xs py-1 px-1 text-[11px] font-mono text-brand-dark focus:outline-none focus:border-brand-gold">
+                            ${variantOptionsHTML}
+                        </select>
+                    </div>
                 </div>
                 <h3 class="font-serif text-lg font-semibold text-brand-dark mb-1">${product.name}</h3>
                 <p class="text-xs text-brand-muted mb-3 flex-grow line-clamp-2">${product.shortDescription || (product.variant + ' variant')}</p>
                 <div class="flex items-center justify-between mb-4">
-                    <span class="text-sm font-semibold text-brand-dark font-mono">${priceDisplay}</span>
-                    ${shippingDisplay}
+                    <span data-price-display class="text-sm font-semibold text-brand-dark font-mono">
+                        ₹${activeVariant.selling} <span class="text-stone-400 line-through text-[11px] ml-1">₹${activeVariant.mrp}</span>
+                    </span>
+                    <span data-shipping-display>
+                        ${activeVariant.shipping === 'Free' ? '<span class="text-[10px] text-green-700 bg-green-100 px-2 py-0.5 rounded-xs font-medium">Free Shipping</span>' : (activeVariant.shipping ? `<span class="text-[10px] text-stone-500 bg-stone-100 px-2 py-0.5 rounded-xs font-medium">+₹${activeVariant.shipping} Shipping</span>` : '')}
+                    </span>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
-                    <a href="product-detail.html?sku=${product.sku}" class="text-center py-2 px-2 border border-brand-dark text-brand-dark text-[11px] font-semibold uppercase tracking-wider hover:bg-brand-dark hover:text-white transition-colors">Details</a>
-                    <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${activePrice}" data-weight="${product.weight}" data-shipping="${shipping || ''}" data-image="${rawImg}" class="py-2 px-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Add</button>
+                    <a data-detail-link href="product-detail.html?sku=${activeVariant.sku}" class="text-center py-2 px-2 border border-brand-dark text-brand-dark text-[11px] font-semibold uppercase tracking-wider hover:bg-brand-dark hover:text-white transition-colors">Details</a>
+                    <button type="button" data-action="add-to-cart" data-sku="${activeVariant.sku}" data-name="${product.name} (${activeVariant.weight})" data-price="${activeVariant.selling}" data-weight="${activeVariant.weight}" data-shipping="${activeVariant.shipping || ''}" data-image="${rawImg}" class="py-2 px-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Add</button>
                 </div>
             `;
+
+            // Dynamic change handler for the variant dropdown
+            const selectEl = card.querySelector('[data-variant-select]');
+            const priceEl = card.querySelector('[data-price-display]');
+            const shippingEl = card.querySelector('[data-shipping-display]');
+            const detailLink = card.querySelector('[data-detail-link]');
+            const cartBtn = card.querySelector('[data-action="add-to-cart"]');
+
+            selectEl.addEventListener('change', (e) => {
+                const selectedVariant = variants[e.target.value];
+                priceEl.innerHTML = `₹${selectedVariant.selling} <span class="text-stone-400 line-through text-[11px] ml-1">₹${selectedVariant.mrp}</span>`;
+                
+                if (selectedVariant.shipping === 'Free') {
+                    shippingEl.innerHTML = '<span class="text-[10px] text-green-700 bg-green-100 px-2 py-0.5 rounded-xs font-medium">Free Shipping</span>';
+                } else if (selectedVariant.shipping) {
+                    shippingEl.innerHTML = `<span class="text-[10px] text-stone-500 bg-stone-100 px-2 py-0.5 rounded-xs font-medium">+₹${selectedVariant.shipping} Shipping</span>`;
+                } else {
+                    shippingEl.innerHTML = '';
+                }
+
+                detailLink.href = `product-detail.html?sku=${selectedVariant.sku}`;
+                cartBtn.dataset.sku = selectedVariant.sku;
+                cartBtn.dataset.name = `${product.name} (${selectedVariant.weight})`;
+                cartBtn.dataset.price = selectedVariant.selling;
+                cartBtn.dataset.weight = selectedVariant.weight;
+                cartBtn.dataset.shipping = selectedVariant.shipping || '';
+            });
+
             fragment.appendChild(card);
         });
 
@@ -179,18 +181,11 @@ function initShopPage(products) {
                 b.classList.remove('bg-brand-dark', 'text-white');
                 b.classList.add('bg-brand-cream/60', 'text-brand-dark');
             });
-
             btn.classList.remove('bg-brand-cream/60', 'text-brand-dark');
             btn.classList.add('bg-brand-dark', 'text-white');
 
             const text = (btn.dataset.filterCategory || btn.textContent).trim().toLowerCase();
-            if (text === 'all') currentCategory = 'all';
-            else if (text.includes('moong')) currentCategory = 'moong';
-            else if (text.includes('chana')) currentCategory = 'chana';
-            else if (text.includes('urad')) currentCategory = 'urad';
-            else if (text.includes('combo')) currentCategory = 'combo';
-            else currentCategory = text;
-
+            currentCategory = text === 'all' ? 'all' : text;
             renderGrid();
         });
     });
@@ -209,7 +204,6 @@ function initShopPage(products) {
             else if (val.includes('low')) currentSort = 'price-low';
             else if (val.includes('high')) currentSort = 'price-high';
             else currentSort = 'default';
-
             renderGrid();
         });
     }
@@ -221,70 +215,38 @@ function initProductDetailPage(products) {
     const urlParams = new URLSearchParams(window.location.search);
     const sku = urlParams.get('sku') || 'KS-MMP-200';
 
-    const product = products.find(p => p.sku === sku) || products[0];
+    let product = products.find(p => p.sku === sku || (p.variants && p.variants.some(v => v.sku === sku))) || products[0];
     if (!product) return;
 
-    const breadcrumbName = document.querySelector('[data-detail="breadcrumb-name"]');
-    const categoryBadge = document.querySelector('[data-detail="category"]');
+    let selectedVariant = product.variants ? product.variants.find(v => v.sku === sku) || product.variants[0] : { weight: product.weight, sku: product.sku, mrp: product.price?.mrp, selling: product.price?.selling, shipping: product.price?.shipping };
+
     const titleEl = document.querySelector('[data-detail="title"]');
+    const priceEl = document.querySelector('[data-detail="price"]');
+    const mrpEl = document.querySelector('[data-detail="mrp"]');
+    const shippingEl = document.querySelector('[data-detail="shipping"]');
     const descEl = document.querySelector('[data-detail="description"]');
     const codeEl = document.querySelector('[data-detail="code"]');
-    const mrpEl = document.querySelector('[data-detail="mrp"]');
-    const priceEl = document.querySelector('[data-detail="price"]');
-    const shippingEl = document.querySelector('[data-detail="shipping"]');
-    const ingredientsList = document.querySelector('[data-detail="ingredients"]');
-    const dietBadge = document.querySelector('[data-detail="diet-type"]');
-    const actionContainer = document.querySelector('[data-detail="actions"]');
     const imageContainer = document.querySelector('[data-detail="image-container"]');
+    const actionContainer = document.querySelector('[data-detail="actions"]');
 
-    const mrp = product.price ? product.price.mrp : null;
-    const selling = product.price ? product.price.selling : null;
-    const shipping = product.price ? product.price.shipping : null;
-    const activePrice = selling !== null ? selling : (mrp !== null ? mrp : 0);
-
-    if (breadcrumbName) breadcrumbName.textContent = `${product.name} ${product.weight}`;
-    if (categoryBadge) categoryBadge.textContent = product.category;
-    if (titleEl) titleEl.textContent = `${product.name} (${product.weight})`;
-    if (descEl) descEl.textContent = product.description || product.shortDescription;
-    if (codeEl) codeEl.textContent = product.sku;
-
-    if (mrpEl) mrpEl.textContent = mrp ? `₹${mrp}` : '';
-    if (priceEl) priceEl.textContent = selling !== null ? `₹${selling}` : (mrp ? `₹${mrp}` : 'Enquire for Price');
-    if (shippingEl) shippingEl.textContent = shipping === 'Free' ? 'Free Shipping' : (shipping ? `+₹${shipping} Shipping` : '');
-
-    if (dietBadge) dietBadge.textContent = product.dietType;
+    if (titleEl) titleEl.textContent = `${product.name} (${selectedVariant.weight})`;
+    if (priceEl) priceEl.textContent = `₹${selectedVariant.selling}`;
+    if (mrpEl) mrpEl.textContent = selectedVariant.mrp ? `₹${selectedVariant.mrp}` : '';
+    if (shippingEl) shippingEl.textContent = selectedVariant.shipping === 'Free' ? 'Free Shipping' : (selectedVariant.shipping ? `+₹${selectedVariant.shipping} Shipping` : '');
+    if (descEl) descEl.textContent = product.description;
+    if (codeEl) codeEl.textContent = selectedVariant.sku;
 
     if (imageContainer) {
         const rawImg = product.image || 'assets/images/product-placeholder.webp';
         const imgSrc = rawImg.startsWith('http') ? rawImg : `./${rawImg.replace(/^\/+/, '')}`;
-
-        imageContainer.innerHTML = `
-            <img src="${imgSrc}" alt="${product.imageAlt || product.name}" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.outerHTML='<span class=\\'text-xs font-mono uppercase tracking-wider text-brand-muted\\'>${product.sku}</span>'">
-        `;
-    }
-
-    if (ingredientsList) {
-        if (product.ingredients && product.ingredients.length) {
-            ingredientsList.innerHTML = product.ingredients.map(ing => `
-                <li class="flex items-center gap-3">
-                    <span class="w-2 h-2 rounded-full bg-brand-gold flex-shrink-0"></span>
-                    <span>${ing}</span>
-                </li>
-            `).join('');
-        } else {
-            ingredientsList.innerHTML = `<li class="text-xs text-brand-muted italic">Ingredients information will be updated.</li>`;
-        }
+        imageContainer.innerHTML = `<img src="${imgSrc}" alt="${product.name}" class="w-full h-full object-cover">`;
     }
 
     if (actionContainer) {
-        const rawImg = product.image || '';
         actionContainer.innerHTML = `
-            <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${activePrice}" data-weight="${product.weight}" data-shipping="${shipping || ''}" data-image="${rawImg}" class="px-8 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm">
+            <button type="button" data-action="add-to-cart" data-sku="${selectedVariant.sku}" data-name="${product.name} (${selectedVariant.weight})" data-price="${selectedVariant.selling}" data-weight="${selectedVariant.weight}" data-shipping="${selectedVariant.shipping || ''}" data-image="${product.image}" class="px-8 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-all">
                 Add To Cart
             </button>
-            <a href="contact.html?enquiry=${product.sku}" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">
-                Enquire Now
-            </a>
         `;
     }
 }

@@ -63,6 +63,9 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <!-- Master Design System Stylesheet -->
+  <link rel="stylesheet" href="css/design-system.css">
+
   <style>
     :root {
       --primary: #8B0000;
@@ -717,7 +720,7 @@
         </div>
 
         <div class="glass-card form-container">
-          <form id="careerForm" onsubmit="handleFormSubmit(event)" novalidate>
+          <form id="careerForm" data-form="career" novalidate>
             <div class="form-grid">
               
               <div class="form-group">
@@ -778,7 +781,7 @@
               </div>
 
               <div class="form-group full-width text-center" style="margin-top: 1rem;">
-                <button type="submit" class="btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" style="width: 100%; max-width: 300px; margin: 0 auto;">
+                <button type="submit" class="submit-btn btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" style="width: 100%; max-width: 300px; margin: 0 auto;">
                   Submit Application
                 </button>
               </div>
@@ -877,16 +880,21 @@
       });
     }
 
-    function handleFormSubmit(event) {
-      event.preventDefault();
-      alert('Thank you for applying to KAWAD SWAD. Our Talent Acquisition team will review your application shortly.');
-      document.getElementById('careerForm').reset();
-      if (fileText) {
-        fileText.textContent = 'Drag & drop your resume file here or click to browse';
-        fileText.style.color = 'var(--text-muted)';
-        fileText.style.fontWeight = 'normal';
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('careerForm');
+      if (form) {
+        form.addEventListener('submit', function(event) {
+          event.preventDefault();
+          alert('Thank you for applying to KAWAD SWAD. Our Talent Acquisition team will review your application shortly.');
+          form.reset();
+          if (fileText) {
+            fileText.textContent = 'Drag & drop your resume file here or click to browse';
+            fileText.style.color = 'var(--text-muted)';
+            fileText.style.fontWeight = 'normal';
+          }
+        });
       }
-    }
+    });
   </script>
 </body>
 </html>

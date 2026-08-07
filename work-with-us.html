@@ -1,10 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Work With Us | Careers at KAWAD SWAD</title>
   <meta name="description" content="Build your career with KAWAD SWAD, one of India's fastest-growing traditional food brands. Explore open positions and apply today.">
+  <meta name="keywords" content="KAWAD SWAD Careers, Work With Us, Food Industry Jobs, Papad Manufacturing Jobs, Job Openings">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://kawadswad.com/work-with-us.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kawadswad.com/work-with-us.html">
+  <meta property="og:title" content="Work With Us | Careers at KAWAD SWAD">
+  <meta property="og:description" content="Build your career with KAWAD SWAD, one of India's fastest-growing traditional food brands.">
+  <meta property="og:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+  <meta property="og:site_name" content="KAWAD SWAD">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Work With Us | Careers at KAWAD SWAD">
+  <meta name="twitter:description" content="Build your career with KAWAD SWAD, one of India's fastest-growing traditional food brands.">
+  <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#C5A059">
+
+  <!-- Tailwind CSS CDN & Custom Config -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      brand: {
+                          gold: '#C5A059',
+                          darkGold: '#A37F38',
+                          red: '#8B0000',
+                          cream: '#FAF7F2',
+                          dark: '#1C1917',
+                          muted: '#57534E'
+                      }
+                  },
+                  fontFamily: {
+                      serif: ['Playfair Display', 'Georgia', 'serif'],
+                      sans: ['Plus Jakarta Sans', 'sans-serif']
+                  }
+              }
+          }
+      }
+  </script>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,40 +64,32 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    /* =========================================================
-       GLOBAL & BRAND CSS VARIABLES (Glassmorphism & Food Brand Theme)
-       ========================================================= */
     :root {
-      --primary: #B8321B;          /* Rich Royal Red / Saffron Tone */
-      --primary-hover: #962512;
-      --secondary: #D97706;        /* Warm Amber / Spice Gold */
-      --secondary-light: #FEF3C7;
-      --dark: #1C1917;             /* Deep Charcoal */
+      --primary: #8B0000;
+      --primary-hover: #A37F38;
+      --secondary: #C5A059;
+      --secondary-light: #FAF7F2;
+      --dark: #1C1917;
       --dark-surface: #292524;
-      --light-bg: #FDFBF7;         /* Soft Cream Background */
-      --card-bg: rgba(255, 255, 255, 0.75);
-      --glass-border: rgba(255, 255, 255, 0.4);
-      --glass-shadow: 0 8px 32px 0 rgba(184, 50, 27, 0.08);
-      --text-main: #292524;
-      --text-muted: #78716C;
+      --light-bg: #FAF7F2;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --glass-border: rgba(197, 160, 89, 0.2);
+      --glass-shadow: 0 8px 32px 0 rgba(28, 25, 23, 0.06);
+      --text-main: #1C1917;
+      --text-muted: #57534E;
       --border-color: #E7E5E4;
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 16px;
       --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       --font-body: 'Plus Jakarta Sans', sans-serif;
       --font-heading: 'Playfair Display', serif;
     }
 
-    /* Reset & Core Styles */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
 
     body {
@@ -66,17 +107,9 @@
       transition: var(--transition);
     }
 
-    ul {
-      list-style: none;
-    }
+    ul { list-style: none; }
+    img { max-width: 100%; height: auto; display: block; }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Typography Utilities */
     h1, h2, h3, h4 {
       font-family: var(--font-heading);
       color: var(--dark);
@@ -88,7 +121,7 @@
       letter-spacing: 2px;
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--primary);
+      color: var(--secondary);
       margin-bottom: 0.75rem;
       display: inline-block;
     }
@@ -105,6 +138,7 @@
       font-size: 1.1rem;
       max-width: 650px;
       margin: 0 auto 3rem auto;
+      font-weight: 300;
     }
 
     .text-center { text-align: center; }
@@ -115,7 +149,6 @@
       padding: 0 1.5rem;
     }
 
-    /* Standard Glassmorphism Card Style */
     .glass-card {
       background: var(--card-bg);
       backdrop-filter: blur(16px);
@@ -127,11 +160,10 @@
     }
 
     .glass-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 16px 40px 0 rgba(184, 50, 27, 0.12);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px 0 rgba(197, 160, 89, 0.12);
     }
 
-    /* Button System */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -148,14 +180,14 @@
     }
 
     .btn-primary {
-      background-color: var(--primary);
+      background-color: var(--dark);
       color: #FFFFFF;
-      box-shadow: 0 4px 14px rgba(184, 50, 27, 0.3);
+      box-shadow: 0 4px 14px rgba(28, 25, 23, 0.2);
     }
 
     .btn-primary:hover {
-      background-color: var(--primary-hover);
-      box-shadow: 0 6px 20px rgba(184, 50, 27, 0.4);
+      background-color: var(--secondary);
+      color: var(--dark);
       transform: translateY(-2px);
     }
 
@@ -163,97 +195,20 @@
       background-color: rgba(255, 255, 255, 0.9);
       color: var(--dark);
       border: 1px solid var(--border-color);
-      backdrop-filter: blur(8px);
     }
 
     .btn-secondary:hover {
-      background-color: #FFFFFF;
-      border-color: var(--primary);
-      color: var(--primary);
+      background-color: var(--dark);
+      color: #FFFFFF;
+      border-color: var(--dark);
       transform: translateY(-2px);
     }
 
-    /* =========================================================
-       1. HEADER (Consistent with Website Architecture)
-       ========================================================= */
-    .site-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 1rem 0;
-      background: rgba(253, 251, 247, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      transition: var(--transition);
-    }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      letter-spacing: 0.5px;
-    }
-
-    .brand-logo i {
-      font-size: 1.6rem;
-      color: var(--secondary);
-    }
-
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .nav-link {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-main);
-      position: relative;
-    }
-
-    .nav-link:hover, .nav-link.active {
-      color: var(--primary);
-    }
-
-    .nav-link.active::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: var(--primary);
-      border-radius: 2px;
-    }
-
-    .mobile-toggle {
-      display: none;
-      font-size: 1.5rem;
-      color: var(--dark);
-      cursor: pointer;
-    }
-
-    /* =========================================================
-       1. HERO SECTION
-       ========================================================= */
+    /* HERO SECTION */
     .hero-section {
       padding: 10rem 0 6rem 0;
       position: relative;
-      background: linear-gradient(135deg, rgba(253, 251, 247, 0.92) 0%, rgba(254, 243, 199, 0.6) 100%),
+      background: linear-gradient(135deg, rgba(250, 247, 242, 0.95) 0%, rgba(197, 160, 89, 0.1) 100%),
                   url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
       overflow: hidden;
     }
@@ -275,9 +230,9 @@
 
     .hero-subtitle {
       font-size: 1.25rem;
-      color: #44403C;
+      color: var(--text-muted);
       margin-bottom: 2.5rem;
-      font-weight: 400;
+      font-weight: 300;
       line-height: 1.7;
     }
 
@@ -289,62 +244,36 @@
       flex-wrap: wrap;
     }
 
-    /* =========================================================
-       2. WHY WORK WITH US
-       ========================================================= */
-    .why-us-section {
-      padding: 6rem 0;
-    }
-
+    /* WHY WORK WITH US */
+    .why-us-section { padding: 6rem 0; }
     .why-us-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
     }
-
-    .why-card {
-      padding: 2.5rem 2rem;
-      text-align: left;
-    }
-
+    .why-card { padding: 2.5rem 2rem; text-align: left; }
     .why-card .icon-box {
       width: 60px;
       height: 60px;
-      border-radius: 14px;
-      background: var(--secondary-light);
-      color: var(--primary);
+      border-radius: var(--radius-sm);
+      background: rgba(197, 160, 89, 0.1);
+      color: var(--secondary);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 1.5rem;
       margin-bottom: 1.5rem;
     }
+    .why-card h3 { font-size: 1.35rem; margin-bottom: 0.75rem; }
+    .why-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
 
-    .why-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .why-card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    /* =========================================================
-       3. LIFE AT KAWAD SWAD (Image Gallery)
-       ========================================================= */
-    .life-section {
-      padding: 6rem 0;
-      background-color: rgba(245, 243, 239, 0.5);
-    }
-
+    /* LIFE AT KAWAD SWAD */
+    .life-section { padding: 6rem 0; background-color: rgba(255, 255, 255, 0.5); }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 1.5rem;
     }
-
     .gallery-item {
       position: relative;
       border-radius: var(--radius-md);
@@ -352,101 +281,37 @@
       box-shadow: var(--glass-shadow);
       height: 280px;
     }
-
     .gallery-item.col-8 { grid-column: span 8; }
     .gallery-item.col-4 { grid-column: span 4; }
-    .gallery-item.col-6 { grid-column: span 6; }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .gallery-item:hover img { transform: scale(1.05); }
     .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(28, 25, 24, 0.8) 0%, transparent 60%);
+      background: linear-gradient(to top, rgba(28, 25, 23, 0.85) 0%, transparent 60%);
       display: flex;
       align-items: flex-end;
       padding: 1.5rem;
       color: #FFFFFF;
-      opacity: 0.9;
-      transition: var(--transition);
     }
+    .gallery-overlay h4 { color: #FFFFFF; font-size: 1.2rem; font-family: var(--font-body); font-weight: 600; }
 
-    .gallery-overlay h4 {
-      color: #FFFFFF;
-      font-size: 1.2rem;
-      font-family: var(--font-body);
-      font-weight: 600;
-    }
-
-    /* =========================================================
-       4. CURRENT OPEN POSITIONS
-       ========================================================= */
-    .positions-section {
-      padding: 6rem 0;
-    }
-
+    /* OPEN POSITIONS */
+    .positions-section { padding: 6rem 0; }
     .positions-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 2rem;
     }
+    .position-card { padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .position-header { margin-bottom: 1rem; }
+    .position-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .position-meta { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+    .position-meta span { display: flex; align-items: center; gap: 0.35rem; }
+    .position-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.75rem; line-height: 1.6; font-weight: 300; }
 
-    .position-card {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .position-header {
-      margin-bottom: 1rem;
-    }
-
-    .position-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .position-meta {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .position-meta span {
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .position-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      margin-bottom: 1.75rem;
-      line-height: 1.6;
-    }
-
-    /* =========================================================
-       5. HIRING PROCESS (Timeline)
-       ========================================================= */
-    .process-section {
-      padding: 6rem 0;
-      background-color: rgba(254, 243, 199, 0.3);
-    }
-
+    /* HIRING PROCESS */
+    .process-section { padding: 6rem 0; background-color: rgba(197, 160, 89, 0.05); }
     .timeline-wrapper {
       display: flex;
       align-items: center;
@@ -455,79 +320,49 @@
       max-width: 1000px;
       margin: 3rem auto 0 auto;
     }
-
     .timeline-wrapper::before {
       content: '';
       position: absolute;
       top: 35px;
       left: 50px;
       right: 50px;
-      height: 3px;
-      background: #E7E5E4;
+      height: 2px;
+      background: #D7D3D0;
       z-index: 1;
     }
-
-    .timeline-step {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      flex: 1;
-    }
-
+    .timeline-step { position: relative; z-index: 2; text-align: center; flex: 1; }
     .step-node {
       width: 70px;
       height: 70px;
       border-radius: 50%;
       background: #FFFFFF;
-      border: 3px solid var(--primary);
-      color: var(--primary);
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 1.25rem auto;
       font-size: 1.25rem;
       font-weight: 700;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: var(--glass-shadow);
       transition: var(--transition);
     }
+    .timeline-step:hover .step-node { background: var(--secondary); color: #FFFFFF; transform: scale(1.1); }
+    .step-title { font-size: 1.05rem; font-weight: 700; color: var(--dark); }
 
-    .timeline-step:hover .step-node {
-      background: var(--primary);
-      color: #FFFFFF;
-      transform: scale(1.1);
-    }
-
-    .step-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--dark);
-    }
-
-    /* =========================================================
-       6. EMPLOYEE BENEFITS
-       ========================================================= */
-    .benefits-section {
-      padding: 6rem 0;
-    }
-
+    /* BENEFITS */
+    .benefits-section { padding: 6rem 0; }
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.75rem;
     }
-
-    .benefit-card {
-      padding: 1.75rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.25rem;
-    }
-
+    .benefit-card { padding: 1.75rem; display: flex; align-items: flex-start; gap: 1.25rem; }
     .benefit-icon {
       width: 50px;
       height: 50px;
-      border-radius: 12px;
-      background: var(--secondary-light);
+      border-radius: var(--radius-sm);
+      background: rgba(197, 160, 89, 0.1);
       color: var(--secondary);
       display: flex;
       align-items: center;
@@ -535,76 +370,30 @@
       font-size: 1.25rem;
       flex-shrink: 0;
     }
+    .benefit-content h4 { font-size: 1.1rem; margin-bottom: 0.35rem; }
+    .benefit-content p { font-size: 0.9rem; color: var(--text-muted); font-weight: 300; }
 
-    .benefit-content h4 {
-      font-size: 1.1rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .benefit-content p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    /* =========================================================
-       7. APPLICATION FORM
-       ========================================================= */
-    .apply-section {
-      padding: 6rem 0;
-      background-color: rgba(245, 243, 239, 0.5);
-    }
-
-    .form-container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 3.5rem;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .form-group.full-width {
-      grid-column: span 2;
-    }
-
-    .form-group label {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--dark);
-    }
-
+    /* APPLICATION FORM */
+    .apply-section { padding: 6rem 0; background-color: rgba(255, 255, 255, 0.5); }
+    .form-container { max-width: 800px; margin: 0 auto; padding: 3.5rem; }
+    .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group.full-width { grid-column: span 2; }
+    .form-group label { font-size: 0.9rem; font-weight: 600; color: var(--dark); }
     .form-control {
       width: 100%;
       padding: 0.85rem 1.1rem;
       border: 1px solid var(--border-color);
       border-radius: var(--radius-sm);
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       font-family: var(--font-body);
       font-size: 0.95rem;
       color: var(--text-main);
       outline: none;
       transition: var(--transition);
     }
-
-    .form-control:focus {
-      border-color: var(--primary);
-      background: #FFFFFF;
-      box-shadow: 0 0 0 3px rgba(184, 50, 27, 0.1);
-    }
-
-    textarea.form-control {
-      resize: vertical;
-      min-height: 120px;
-    }
+    .form-control:focus { border-color: var(--secondary); background: #FFFFFF; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15); }
+    textarea.form-control { resize: vertical; min-height: 120px; }
 
     .file-upload-wrapper {
       position: relative;
@@ -616,836 +405,448 @@
       cursor: pointer;
       transition: var(--transition);
     }
+    .file-upload-wrapper:hover { border-color: var(--secondary); background: rgba(255, 255, 255, 0.9); }
+    .file-upload-wrapper input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    .file-upload-icon { font-size: 1.75rem; color: var(--secondary); margin-bottom: 0.5rem; }
+    .file-upload-text { font-size: 0.85rem; color: var(--text-muted); }
 
-    .file-upload-wrapper:hover {
-      border-color: var(--primary);
-      background: rgba(255, 255, 255, 0.9);
-    }
+    /* FAQ */
+    .faq-section { padding: 6rem 0; }
+    .faq-accordion { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+    .faq-item { overflow: hidden; cursor: pointer; }
+    .faq-question { padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 1.05rem; color: var(--dark); }
+    .faq-question i { color: var(--secondary); transition: transform 0.3s ease; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 2rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
+    .faq-item.active .faq-question i { transform: rotate(180deg); }
+    .faq-item.active .faq-answer { max-height: 250px; padding: 0 2rem 1.5rem 2rem; }
 
-    .file-upload-wrapper input[type="file"] {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      cursor: pointer;
-    }
-
-    .file-upload-icon {
-      font-size: 1.75rem;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .file-upload-text {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* =========================================================
-       8. FAQ
-       ========================================================= */
-    .faq-section {
-      padding: 6rem 0;
-    }
-
-    .faq-accordion {
-      max-width: 850px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .faq-item {
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    .faq-question {
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: var(--dark);
-    }
-
-    .faq-question i {
-      color: var(--primary);
-      transition: transform 0.3s ease;
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      padding: 0 2rem;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .faq-item.active .faq-question i {
-      transform: rotate(180deg);
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 200px;
-      padding: 0 2rem 1.5rem 2rem;
-    }
-
-    /* =========================================================
-       9. FINAL CTA
-       ========================================================= */
+    /* FINAL CTA */
     .cta-section {
       padding: 6rem 0;
       background: linear-gradient(135deg, var(--dark) 0%, var(--dark-surface) 100%);
       color: #FFFFFF;
       text-align: center;
-      position: relative;
     }
+    .cta-section .section-title { color: #FFFFFF; font-size: 2.5rem; margin-bottom: 1.5rem; }
+    .cta-section p { color: #D6D3D1; max-width: 600px; margin: 0 auto 2.5rem auto; font-size: 1.1rem; font-weight: 300; }
 
-    .cta-section .section-title {
-      color: #FFFFFF;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-section p {
-      color: #D6D3D1;
-      max-width: 600px;
-      margin: 0 auto 2.5rem auto;
-      font-size: 1.1rem;
-    }
-
-    /* =========================================================
-       FOOTER (Consistent with Website Architecture)
-       ========================================================= */
-    .site-footer {
-      background-color: var(--dark);
-      color: #A8A29E;
-      padding: 5rem 0 2rem 0;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      font-size: 0.9rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr repeat(3, 1fr);
-      gap: 3rem;
-      margin-bottom: 4rem;
-    }
-
-    .footer-brand p {
-      margin-top: 1rem;
-      color: #A8A29E;
-      line-height: 1.6;
-    }
-
-    .footer-title {
-      color: #FFFFFF;
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.5px;
-    }
-
-    .footer-links display: flex;
-    .footer-links flex-direction: column;
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .footer-links a:hover {
-      color: #FFFFFF;
-      padding-left: 4px;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    /* =========================================================
-       RESPONSIVE BEHAVIOR
-       ========================================================= */
     @media (max-width: 992px) {
       .hero-title { font-size: 2.75rem; }
-      .gallery-item.col-8, .gallery-item.col-4, .gallery-item.col-6 { grid-column: span 12; }
+      .gallery-item.col-8, .gallery-item.col-4 { grid-column: span 12; }
       .gallery-item { height: 240px; }
       .timeline-wrapper { flex-direction: column; gap: 2.5rem; }
       .timeline-wrapper::before { display: none; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 768px) {
-      .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: rgba(253, 251, 247, 0.98);
-        flex-direction: column;
-        padding: 2rem;
-        gap: 1.5rem;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        transform: translateY(-150%);
-        transition: transform 0.4s ease;
-      }
-
-      .nav-menu.active { transform: translateY(0); }
-      .mobile-toggle { display: block; }
       .form-grid { grid-template-columns: 1fr; }
       .form-group.full-width { grid-column: span 1; }
       .form-container { padding: 2rem 1.5rem; }
       .hero-title { font-size: 2.25rem; }
-      .footer-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-<body>
+<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
-  <!-- =========================================================
-       HEADER
-       ========================================================= -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="index.html" class="brand-logo">
-        <i class="fa-solid fa-utensils"></i> KAWAD SWAD
-      </a>
-      
-      <nav class="nav-menu" id="navMenu">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About Us</a>
-        <a href="products.html" class="nav-link">Products</a>
-        <a href="quality.html" class="nav-link">Quality</a>
-        <a href="work-with-us.html" class="nav-link active">Careers</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </nav>
-
-      <div class="mobile-toggle" id="mobileToggle">
-        <i class="fa-solid fa-bars"></i>
-      </div>
-    </div>
-  </header>
+  <!-- GLOBAL REUSABLE HEADER CONTAINER -->
+  <header-component></header-component>
 
   <!-- =========================================================
        1. HERO SECTION
        ========================================================= -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-content">
-        <span class="section-tagline">Join Our Journey</span>
-        <h1 class="hero-title">Build Your Career With KAWAD SWAD</h1>
-        <p class="hero-subtitle">We're building one of India's fastest-growing traditional food brands. Join us and grow together.</p>
-        <div class="hero-btn-group">
-          <a href="#open-positions" class="btn btn-primary">
-            <i class="fa-solid fa-briefcase"></i> View Open Positions
-          </a>
-          <a href="#apply-form" class="btn btn-secondary">
-            <i class="fa-solid fa-paper-plane"></i> Apply Now
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       2. WHY WORK WITH US
-       ========================================================= -->
-  <section class="why-us-section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tagline">Core Values</span>
-        <h2 class="section-title">Why Work With Us</h2>
-        <p class="section-subtitle">We provide an ecosystem that fosters professional excellence, innovation, and personal wellbeing.</p>
-      </div>
-
-      <div class="why-us-grid">
-        <div class="glass-card why-card">
-          <div class="icon-box">
-            <i class="fa-solid fa-chart-line"></i>
-          </div>
-          <h3>Growth Opportunities</h3>
-          <p>Rapid expansion across regional and national markets creates continuous pathways for internal advancement and leadership.</p>
-        </div>
-
-        <div class="glass-card why-card">
-          <div class="icon-box">
-            <i class="fa-solid fa-graduation-cap"></i>
-          </div>
-          <h3>Learning Environment</h3>
-          <p>Direct exposure to modern food production technologies, industry standard quality protocols, and structured mentorship.</p>
-        </div>
-
-        <div class="glass-card why-card">
-          <div class="icon-box">
-            <i class="fa-solid fa-handshake"></i>
-          </div>
-          <h3>Respect & Teamwork</h3>
-          <p>A transparent culture built on mutual respect, collaborative problem-solving, and appreciation of diverse perspectives.</p>
-        </div>
-
-        <div class="glass-card why-card">
-          <div class="icon-box">
-            <i class="fa-solid fa-bullseye"></i>
-          </div>
-          <h3>Real Impact</h3>
-          <p>Your work directly shapes authentic traditional food products delivered to thousands of households daily.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       3. LIFE AT KAWAD SWAD
-       ========================================================= -->
-  <section class="life-section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tagline">Inside KAWAD SWAD</span>
-        <h2 class="section-title">Life At KAWAD SWAD</h2>
-        <p class="section-subtitle">A glimpse into our state-of-the-art facilities, collaborative workspaces, and energetic team culture.</p>
-      </div>
-
-      <div class="gallery-grid">
-        <!-- Factory -->
-        <div class="gallery-item col-8">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="KAWAD SWAD Factory Floor">
-          <div class="gallery-overlay">
-            <h4>Modern Manufacturing Plant</h4>
-          </div>
-        </div>
-
-        <!-- Team -->
-        <div class="gallery-item col-4">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="KAWAD SWAD Team">
-          <div class="gallery-overlay">
-            <h4>Collaborative Teamwork</h4>
-          </div>
-        </div>
-
-        <!-- Office -->
-        <div class="gallery-item col-4">
-          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="KAWAD SWAD Office Space">
-          <div class="gallery-overlay">
-            <h4>Headquarters Office</h4>
-          </div>
-        </div>
-
-        <!-- Events -->
-        <div class="gallery-item col-4">
-          <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Company Events">
-          <div class="gallery-overlay">
-            <h4>Team Celebrations & Events</h4>
-          </div>
-        </div>
-
-        <!-- Training -->
-        <div class="gallery-item col-4">
-          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80" alt="Training Sessions">
-          <div class="gallery-overlay">
-            <h4>Skill Development & Training</h4>
+  <main class="flex-grow">
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content slide-up">
+          <span class="section-tagline">Join Our Journey</span>
+          <h1 class="hero-title">Build Your Career With KAWAD SWAD</h1>
+          <p class="hero-subtitle">We're building one of India's fastest-growing traditional food brands. Join us and grow together.</p>
+          <div class="hero-btn-group">
+            <a href="#open-positions" class="btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+              <i class="fa-solid fa-briefcase" aria-hidden="true"></i> View Open Positions
+            </a>
+            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Apply Now
+            </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================================================
-       4. CURRENT OPEN POSITIONS
-       ========================================================= -->
-  <section class="positions-section" id="open-positions">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tagline">Career Opportunities</span>
-        <h2 class="section-title">Current Open Positions</h2>
-        <p class="section-subtitle">Explore available roles and take the next step in your professional journey with us.</p>
+    <!-- =========================================================
+         2. WHY WORK WITH US
+         ========================================================= -->
+    <section class="why-us-section">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tagline">Core Values</span>
+          <h2 class="section-title">Why Work With Us</h2>
+          <p class="section-subtitle">We provide an ecosystem that fosters professional excellence, innovation, and personal wellbeing.</p>
+        </div>
+
+        <div class="why-us-grid">
+          <div class="glass-card why-card">
+            <div class="icon-box">
+              <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+            </div>
+            <h3>Growth Opportunities</h3>
+            <p>Rapid expansion across regional and national markets creates continuous pathways for internal advancement and leadership.</p>
+          </div>
+
+          <div class="glass-card why-card">
+            <div class="icon-box">
+              <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+            </div>
+            <h3>Learning Environment</h3>
+            <p>Direct exposure to modern food production technologies, industry standard quality protocols, and structured mentorship.</p>
+          </div>
+
+          <div class="glass-card why-card">
+            <div class="icon-box">
+              <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+            </div>
+            <h3>Respect &amp; Teamwork</h3>
+            <p>A transparent culture built on mutual respect, collaborative problem-solving, and appreciation of diverse perspectives.</p>
+          </div>
+
+          <div class="glass-card why-card">
+            <div class="icon-box">
+              <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
+            </div>
+            <h3>Real Impact</h3>
+            <p>Your work directly shapes authentic traditional food products delivered to thousands of households daily.</p>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="positions-grid">
-        <!-- 1. Production Executive -->
-        <div class="glass-card position-card">
-          <div>
-            <div class="position-header">
-              <h3 class="position-title">Production Executive</h3>
-              <div class="position-meta">
-                <span><i class="fa-solid fa-location-dot"></i> Factory Unit</span>
-                <span><i class="fa-solid fa-clock"></i> Full-Time</span>
+    <!-- =========================================================
+         3. LIFE AT KAWAD SWAD (Image Gallery)
+         ========================================================= -->
+    <section class="life-section">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tagline">Inside KAWAD SWAD</span>
+          <h2 class="section-title">Life At KAWAD SWAD</h2>
+          <p class="section-subtitle">A glimpse into our state-of-the-art facilities, collaborative workspaces, and energetic team culture.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Factory -->
+          <div class="gallery-item col-8">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="KAWAD SWAD Factory Floor">
+            <div class="gallery-overlay">
+              <h4>Modern Manufacturing Plant</h4>
+            </div>
+          </div>
+
+          <!-- Team -->
+          <div class="gallery-item col-4">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="KAWAD SWAD Team">
+            <div class="gallery-overlay">
+              <h4>Collaborative Teamwork</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. CURRENT OPEN POSITIONS
+         ========================================================= -->
+    <section class="positions-section" id="open-positions">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tagline">Career Opportunities</span>
+          <h2 class="section-title">Current Open Positions</h2>
+          <p class="section-subtitle">Explore available roles and take the next step in your professional journey with us.</p>
+        </div>
+
+        <div class="positions-grid">
+          <!-- 1. Production Executive -->
+          <div class="glass-card position-card">
+            <div>
+              <div class="position-header">
+                <h3 class="position-title">Production Executive</h3>
+                <div class="position-meta">
+                  <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Factory Unit</span>
+                  <span><i class="fa-solid fa-clock" aria-hidden="true"></i> Full-Time</span>
+                </div>
               </div>
+              <p class="position-desc">Supervise daily manufacturing workflows, manage output schedules, and uphold hygiene and efficiency benchmarks on the production line.</p>
             </div>
-            <p class="position-desc">Supervise daily manufacturing workflows, manage output schedules, and uphold hygiene and efficiency benchmarks on the production line.</p>
+            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" onclick="preselectPosition('Production Executive')">Apply Now</a>
           </div>
-          <a href="#apply-form" class="btn btn-secondary" onclick="preselectPosition('Production Executive')">Apply Now</a>
-        </div>
 
-        <!-- 2. Sales Executive -->
-        <div class="glass-card position-card">
-          <div>
-            <div class="position-header">
-              <h3 class="position-title">Sales Executive</h3>
-              <div class="position-meta">
-                <span><i class="fa-solid fa-location-dot"></i> Regional Field</span>
-                <span><i class="fa-solid fa-clock"></i> Full-Time</span>
+          <!-- 2. Sales Executive -->
+          <div class="glass-card position-card">
+            <div>
+              <div class="position-header">
+                <h3 class="position-title">Sales Executive</h3>
+                <div class="position-meta">
+                  <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Regional Field</span>
+                  <span><i class="fa-solid fa-clock" aria-hidden="true"></i> Full-Time</span>
+                </div>
               </div>
+              <p class="position-desc">Expand retail distribution networks, establish relationships with channel partners, and drive sales growth in assigned territories.</p>
             </div>
-            <p class="position-desc">Expand retail distribution networks, establish relationships with channel partners, and drive sales growth in assigned territories.</p>
+            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" onclick="preselectPosition('Sales Executive')">Apply Now</a>
           </div>
-          <a href="#apply-form" class="btn btn-secondary" onclick="preselectPosition('Sales Executive')">Apply Now</a>
-        </div>
 
-        <!-- 3. Digital Marketing Executive -->
-        <div class="glass-card position-card">
-          <div>
-            <div class="position-header">
-              <h3 class="position-title">Digital Marketing Executive</h3>
-              <div class="position-meta">
-                <span><i class="fa-solid fa-location-dot"></i> Headquarters</span>
-                <span><i class="fa-solid fa-clock"></i> Full-Time</span>
+          <!-- 3. Quality Control Executive -->
+          <div class="glass-card position-card">
+            <div>
+              <div class="position-header">
+                <h3 class="position-title">Quality Control Executive</h3>
+                <div class="position-meta">
+                  <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Factory Unit</span>
+                  <span><i class="fa-solid fa-clock" aria-hidden="true"></i> Full-Time</span>
+                </div>
               </div>
+              <p class="position-desc">Conduct raw material testing, enforce FSSAI food safety parameters, and audit final product quality standards.</p>
             </div>
-            <p class="position-desc">Execute performance marketing campaigns, manage social media strategy, and optimize brand visibility across digital channels.</p>
+            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" onclick="preselectPosition('Quality Control Executive')">Apply Now</a>
           </div>
-          <a href="#apply-form" class="btn btn-secondary" onclick="preselectPosition('Digital Marketing Executive')">Apply Now</a>
-        </div>
 
-        <!-- 4. Graphic Designer -->
-        <div class="glass-card position-card">
-          <div>
-            <div class="position-header">
-              <h3 class="position-title">Graphic Designer</h3>
-              <div class="position-meta">
-                <span><i class="fa-solid fa-location-dot"></i> Headquarters</span>
-                <span><i class="fa-solid fa-clock"></i> Full-Time</span>
+          <!-- 4. Warehouse Executive -->
+          <div class="glass-card position-card">
+            <div>
+              <div class="position-header">
+                <h3 class="position-title">Warehouse Executive</h3>
+                <div class="position-meta">
+                  <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Logistics Hub</span>
+                  <span><i class="fa-solid fa-clock" aria-hidden="true"></i> Full-Time</span>
+                </div>
               </div>
+              <p class="position-desc">Oversee inventory storage, manage dispatch logistics, maintain stock records, and streamline warehouse operations.</p>
             </div>
-            <p class="position-desc">Create high-quality product packaging, promotional collaterals, and digital creative assets aligned with brand guidelines.</p>
+            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" onclick="preselectPosition('Warehouse Executive')">Apply Now</a>
           </div>
-          <a href="#apply-form" class="btn btn-secondary" onclick="preselectPosition('Graphic Designer')">Apply Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. HIRING PROCESS
+         ========================================================= -->
+    <section class="process-section">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tagline">How We Hire</span>
+          <h2 class="section-title">Hiring Process</h2>
+          <p class="section-subtitle">Our recruitment journey is transparent, respectful, and designed to evaluate mutual alignment.</p>
         </div>
 
-        <!-- 5. Content Creator -->
-        <div class="glass-card position-card">
-          <div>
-            <div class="position-header">
-              <h3 class="position-title">Content Creator</h3>
-              <div class="position-meta">
-                <span><i class="fa-solid fa-location-dot"></i> Headquarters</span>
-                <span><i class="fa-solid fa-clock"></i> Full-Time</span>
+        <div class="timeline-wrapper">
+          <div class="timeline-step">
+            <div class="step-node"><i class="fa-solid fa-file-signature" aria-hidden="true"></i></div>
+            <div class="step-title">1. Apply</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-node"><i class="fa-solid fa-filter" aria-hidden="true"></i></div>
+            <div class="step-title">2. Screening</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-node"><i class="fa-solid fa-comments" aria-hidden="true"></i></div>
+            <div class="step-title">3. Interview</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-node"><i class="fa-solid fa-user-check" aria-hidden="true"></i></div>
+            <div class="step-title">4. Selection</div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-node"><i class="fa-solid fa-rocket" aria-hidden="true"></i></div>
+            <div class="step-title">5. Joining</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. EMPLOYEE BENEFITS
+         ========================================================= -->
+    <section class="benefits-section">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tagline">Perks &amp; Support</span>
+          <h2 class="section-title">Employee Benefits</h2>
+          <p class="section-subtitle">We invest in our people to ensure long-term satisfaction, development, and wellbeing.</p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="glass-card benefit-card">
+            <div class="benefit-icon"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></div>
+            <div class="benefit-content">
+              <h4>Training Program</h4>
+              <p>Comprehensive onboarding and periodic operational skill enhancement modules.</p>
+            </div>
+          </div>
+
+          <div class="glass-card benefit-card">
+            <div class="benefit-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
+            <div class="benefit-content">
+              <h4>Career Growth</h4>
+              <p>Structured career ladders with clear metrics for promotion and vertical movement.</p>
+            </div>
+          </div>
+
+          <div class="glass-card benefit-card">
+            <div class="benefit-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+            <div class="benefit-content">
+              <h4>Safe Workplace</h4>
+              <p>Strict safety standards, hygienic environments, and full policy compliance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. APPLICATION FORM
+         ========================================================= -->
+    <section class="apply-section" id="apply-form">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tagline">Take The First Step</span>
+          <h2 class="section-title">Application Form</h2>
+          <p class="section-subtitle">Submit your details below to express your interest in joining the KAWAD SWAD team.</p>
+        </div>
+
+        <div class="glass-card form-container">
+          <form id="careerForm" onsubmit="handleFormSubmit(event)" novalidate>
+            <div class="form-grid">
+              
+              <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
               </div>
-            </div>
-            <p class="position-desc">Produce engaging video content, brand stories, and social assets showcasing our traditional food craftsmanship.</p>
-          </div>
-          <a href="#apply-form" class="btn btn-secondary" onclick="preselectPosition('Content Creator')">Apply Now</a>
-        </div>
 
-        <!-- 6. E-commerce Executive -->
-        <div class="glass-card position-card">
-          <div>
-            <div class="position-header">
-              <h3 class="position-title">E-commerce Executive</h3>
-              <div class="position-meta">
-                <span><i class="fa-solid fa-location-dot"></i> Headquarters</span>
-                <span><i class="fa-solid fa-clock"></i> Full-Time</span>
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" class="form-control" placeholder="Enter 10-digit mobile number" required>
               </div>
-            </div>
-            <p class="position-desc">Manage marketplace listings (Amazon, Quick-commerce), inventory synchronization, and order fulfillment processes.</p>
-          </div>
-          <a href="#apply-form" class="btn btn-secondary" onclick="preselectPosition('E-commerce Executive')">Apply Now</a>
-        </div>
 
-        <!-- 7. Quality Control Executive -->
-        <div class="glass-card position-card">
-          <div>
-            <div class="position-header">
-              <h3 class="position-title">Quality Control Executive</h3>
-              <div class="position-meta">
-                <span><i class="fa-solid fa-location-dot"></i> Factory Unit</span>
-                <span><i class="fa-solid fa-clock"></i> Full-Time</span>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
               </div>
-            </div>
-            <p class="position-desc">Conduct raw material testing, enforce FSSAI food safety parameters, and audit final product quality standards.</p>
-          </div>
-          <a href="#apply-form" class="btn btn-secondary" onclick="preselectPosition('Quality Control Executive')">Apply Now</a>
-        </div>
 
-        <!-- 8. Warehouse Executive -->
-        <div class="glass-card position-card">
-          <div>
-            <div class="position-header">
-              <h3 class="position-title">Warehouse Executive</h3>
-              <div class="position-meta">
-                <span><i class="fa-solid fa-location-dot"></i> Logistics Hub</span>
-                <span><i class="fa-solid fa-clock"></i> Full-Time</span>
+              <div class="form-group">
+                <label for="city">City / Location *</label>
+                <input type="text" id="city" class="form-control" placeholder="Current city" required>
               </div>
-            </div>
-            <p class="position-desc">Oversee inventory storage, manage dispatch logistics, maintain stock records, and streamline warehouse operations.</p>
-          </div>
-          <a href="#apply-form" class="btn btn-secondary" onclick="preselectPosition('Warehouse Executive')">Apply Now</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- =========================================================
-       5. HIRING PROCESS
-       ========================================================= -->
-  <section class="process-section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tagline">How We Hire</span>
-        <h2 class="section-title">Hiring Process</h2>
-        <p class="section-subtitle">Our recruitment journey is transparent, respectful, and designed to evaluate mutual alignment.</p>
-      </div>
-
-      <div class="timeline-wrapper">
-        <div class="timeline-step">
-          <div class="step-node"><i class="fa-solid fa-file-signature"></i></div>
-          <div class="step-title">1. Apply</div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="step-node"><i class="fa-solid fa-filter"></i></div>
-          <div class="step-title">2. Screening</div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="step-node"><i class="fa-solid fa-comments"></i></div>
-          <div class="step-title">3. Interview</div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="step-node"><i class="fa-solid fa-user-check"></i></div>
-          <div class="step-title">4. Selection</div>
-        </div>
-
-        <div class="timeline-step">
-          <div class="step-node"><i class="fa-solid fa-rocket"></i></div>
-          <div class="step-title">5. Joining</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       6. EMPLOYEE BENEFITS
-       ========================================================= -->
-  <section class="benefits-section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tagline">Perks & Support</span>
-        <h2 class="section-title">Employee Benefits</h2>
-        <p class="section-subtitle">We invest in our people to ensure long-term satisfaction, development, and wellbeing.</p>
-      </div>
-
-      <div class="benefits-grid">
-        <div class="glass-card benefit-card">
-          <div class="benefit-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
-          <div class="benefit-content">
-            <h4>Training Program</h4>
-            <p>Comprehensive onboarding and periodic operational skill enhancement modules.</p>
-          </div>
-        </div>
-
-        <div class="glass-card benefit-card">
-          <div class="benefit-icon"><i class="fa-solid fa-seedling"></i></div>
-          <div class="benefit-content">
-            <h4>Career Growth</h4>
-            <p>Structured career ladders with clear metrics for promotion and vertical movement.</p>
-          </div>
-        </div>
-
-        <div class="glass-card benefit-card">
-          <div class="benefit-icon"><i class="fa-solid fa-people-hold"></i></div>
-          <div class="benefit-content">
-            <h4>Supportive Team</h4>
-            <p>An open-door culture where cross-functional assistance is encouraged daily.</p>
-          </div>
-        </div>
-
-        <div class="glass-card benefit-card">
-          <div class="benefit-icon"><i class="fa-solid fa-book-open-reader"></i></div>
-          <div class="benefit-content">
-            <h4>Flexible Learning</h4>
-            <p>Access to industry workshops, certifications, and ongoing educational tools.</p>
-          </div>
-        </div>
-
-        <div class="glass-card benefit-card">
-          <div class="benefit-icon"><i class="fa-solid fa-award"></i></div>
-          <div class="benefit-content">
-            <h4>Performance Recognition</h4>
-            <p>Regular performance rewards, quarterly incentives, and achievement honors.</p>
-          </div>
-        </div>
-
-        <div class="glass-card benefit-card">
-          <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <div class="benefit-content">
-            <h4>Safe Workplace</h4>
-            <p>Strict safety standards, hygienic environments, and full policy compliance.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       7. APPLICATION FORM
-       ========================================================= -->
-  <section class="apply-section" id="apply-form">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tagline">Take The First Step</span>
-        <h2 class="section-title">Application Form</h2>
-        <p class="section-subtitle">Submit your details below to express your interest in joining the KAWAD SWAD team.</p>
-      </div>
-
-      <div class="glass-card form-container">
-        <form id="careerForm" onsubmit="handleFormSubmit(event)">
-          <div class="form-grid">
-            
-            <div class="form-group">
-              <label for="fullName">Full Name *</label>
-              <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
-            </div>
-
-            <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" class="form-control" placeholder="Enter 10-digit mobile number" required>
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
-            </div>
-
-            <div class="form-group">
-              <label for="city">City / Location *</label>
-              <input type="text" id="city" class="form-control" placeholder="Current city" required>
-            </div>
-
-            <div class="form-group">
-              <label for="position">Position Applying For *</label>
-              <select id="position" class="form-control" required>
-                <option value="" disabled selected>Select a position</option>
-                <option value="Production Executive">Production Executive</option>
-                <option value="Sales Executive">Sales Executive</option>
-                <option value="Digital Marketing Executive">Digital Marketing Executive</option>
-                <option value="Graphic Designer">Graphic Designer</option>
-                <option value="Content Creator">Content Creator</option>
-                <option value="E-commerce Executive">E-commerce Executive</option>
-                <option value="Quality Control Executive">Quality Control Executive</option>
-                <option value="Warehouse Executive">Warehouse Executive</option>
-                <option value="Other / General Application">Other / General Application</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="experience">Total Experience *</label>
-              <select id="experience" class="form-control" required>
-                <option value="" disabled selected>Select experience level</option>
-                <option value="Fresher">Fresher (0 Years)</option>
-                <option value="1-2 Years">1 - 2 Years</option>
-                <option value="3-5 Years">3 - 5 Years</option>
-                <option value="5+ Years">5+ Years</option>
-              </select>
-            </div>
-
-            <div class="form-group full-width">
-              <label>Resume Upload (PDF / DOCX)</label>
-              <div class="file-upload-wrapper">
-                <input type="file" id="resume" accept=".pdf,.doc,.docx">
-                <div class="file-upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
-                <div class="file-upload-text" id="fileText">Drag & drop your resume file here or click to browse</div>
+              <div class="form-group">
+                <label for="position">Position Applying For *</label>
+                <select id="position" class="form-control" required>
+                  <option value="" disabled selected>Select a position</option>
+                  <option value="Production Executive">Production Executive</option>
+                  <option value="Sales Executive">Sales Executive</option>
+                  <option value="Quality Control Executive">Quality Control Executive</option>
+                  <option value="Warehouse Executive">Warehouse Executive</option>
+                  <option value="Other / General Application">Other / General Application</option>
+                </select>
               </div>
+
+              <div class="form-group">
+                <label for="experience">Total Experience *</label>
+                <select id="experience" class="form-control" required>
+                  <option value="" disabled selected>Select experience level</option>
+                  <option value="Fresher">Fresher (0 Years)</option>
+                  <option value="1-2 Years">1 - 2 Years</option>
+                  <option value="3-5 Years">3 - 5 Years</option>
+                  <option value="5+ Years">5+ Years</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="resume">Resume Upload (PDF / DOCX)</label>
+                <div class="file-upload-wrapper">
+                  <input type="file" id="resume" accept=".pdf,.doc,.docx">
+                  <div class="file-upload-icon"><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i></div>
+                  <div class="file-upload-text" id="fileText">Drag &amp; drop your resume file here or click to browse</div>
+                </div>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="message">Cover Note / Message</label>
+                <textarea id="message" class="form-control" placeholder="Tell us briefly about your background and why you wish to join KAWAD SWAD..."></textarea>
+              </div>
+
+              <div class="form-group full-width text-center" style="margin-top: 1rem;">
+                <button type="submit" class="btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" style="width: 100%; max-width: 300px; margin: 0 auto;">
+                  Submit Application
+                </button>
+              </div>
+
             </div>
+          </form>
+        </div>
+      </div>
+    </section>
 
-            <div class="form-group full-width">
-              <label for="message">Cover Note / Message</label>
-              <textarea id="message" class="form-control" placeholder="Tell us briefly about your background and why you wish to join KAWAD SWAD..."></textarea>
+    <!-- =========================================================
+         8. FAQ
+         ========================================================= -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-tagline">Got Questions?</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Everything you need to know about starting your career with KAWAD SWAD.</p>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="glass-card faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>What happens after I submit my application?</span>
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
             </div>
-
-            <div class="form-group full-width text-center" style="margin-top: 1rem;">
-              <button type="submit" class="btn btn-primary" style="width: 100%; max-width: 300px; margin: 0 auto;">
-                Submit Application
-              </button>
+            <div class="faq-answer">
+              Our talent acquisition team reviews every submission within 3 to 5 business days. If your qualification matches our requirements, a recruiter will reach out for an initial screening call.
             </div>
+          </div>
 
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       8. FAQ
-       ========================================================= -->
-  <section class="faq-section">
-    <div class="container">
-      <div class="text-center">
-        <span class="section-tagline">Got Questions?</span>
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">Everything you need to know about starting your career with KAWAD SWAD.</p>
-      </div>
-
-      <div class="faq-accordion">
-        <div class="glass-card faq-item" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>What happens after I submit my application?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            Our talent acquisition team reviews every submission within 3 to 5 business days. If your qualification matches our requirements, a recruiter will reach out for an initial screening call.
-          </div>
-        </div>
-
-        <div class="glass-card faq-item" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>Are freshers eligible to apply for open positions?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            Yes, freshers are welcome to apply for entry-level roles across production, sales, content, and warehouse operations. We value dedication, adaptability, and enthusiasm.
-          </div>
-        </div>
-
-        <div class="glass-card faq-item" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>Where are KAWAD SWAD work locations situated?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            Our central headquarters and primary production manufacturing units are located in state-of-the-art industrial facilities, while our sales team operates across multiple regional territories.
-          </div>
-        </div>
-
-        <div class="glass-card faq-item" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>What is the typical timeline for the complete interview process?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            The entire selection process generally takes between 1 to 2 weeks from initial screening to final offer generation, depending on the position level.
-          </div>
-        </div>
-
-        <div class="glass-card faq-item" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>Can I apply for multiple roles simultaneously?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            We recommend applying for the single position that best matches your primary skill set and career aspirations to ensure efficient review.
-          </div>
-        </div>
-
-        <div class="glass-card faq-item" onclick="toggleFaq(this)">
-          <div class="faq-question">
-            <span>How can I submit my profile if there are no matching openings currently?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            You can select "Other / General Application" in the Application Form and upload your details. Our HR team maintains active candidate pools for upcoming expansions.
+          <div class="glass-card faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question">
+              <span>Are freshers eligible to apply for open positions?</span>
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </div>
+            <div class="faq-answer">
+              Yes, freshers are welcome to apply for entry-level roles across production, sales, content, and warehouse operations. We value dedication, adaptability, and enthusiasm.
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- =========================================================
-       9. FINAL CTA
-       ========================================================= -->
-  <section class="cta-section">
-    <div class="container">
-      <h2 class="section-title">Ready to Build Something Great?</h2>
-      <p>Be part of a dedicated team bringing authentic traditional taste to millions of homes.</p>
-      <a href="#apply-form" class="btn btn-primary">Apply Today</a>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       FOOTER
-       ========================================================= -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand-logo" style="color:#FFFFFF;">
-            <i class="fa-solid fa-utensils"></i> KAWAD SWAD
-          </a>
-          <p>India's trusted traditional food brand dedicated to purity, authenticity, and uncompromising quality in every bite.</p>
-        </div>
-
-        <div>
-          <h4 class="footer-title">Quick Links</h4>
-          <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="products.html">Products</a>
-            <a href="quality.html">Quality Assurance</a>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="footer-title">Careers</h4>
-          <div class="footer-links">
-            <a href="#open-positions">Open Roles</a>
-            <a href="#apply-form">Application Form</a>
-            <a href="#open-positions">Life at KAWAD SWAD</a>
-            <a href="#open-positions">Hiring Process</a>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="footer-title">Contact</h4>
-          <div class="footer-links">
-            <a href="contact.html"><i class="fa-solid fa-envelope"></i> careers@kawadswad.com</a>
-            <a href="contact.html"><i class="fa-solid fa-phone"></i> +91 1800-XXX-XXXX</a>
-            <a href="contact.html"><i class="fa-solid fa-location-dot"></i> Industrial Zone, India</a>
-          </div>
-        </div>
+    <!-- =========================================================
+         9. FINAL CTA
+         ========================================================= -->
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="section-title" style="color: #FFFFFF;">Ready to Build Something Great?</h2>
+        <p>Be part of a dedicated team bringing authentic traditional taste to millions of homes.</p>
+        <a href="#apply-form" class="btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Apply Today</a>
       </div>
+    </section>
+  </main>
 
-      <div class="footer-bottom">
-        <p>&copy; 2026 KAWAD SWAD. All Rights Reserved.</p>
-        <div style="display:flex; gap:1.5rem;">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
+  <footer-component></footer-component>
 
-  <!-- =========================================================
-       INTERACTIVE JAVASCRIPT
-       ========================================================= -->
+  <!-- ENGINE SCRIPTS -->
+  <script src="js/layout.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/shop.js"></script>
+
+  <!-- INTERACTIVE JAVASCRIPT -->
   <script>
-    // Mobile Navigation Menu Toggle
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    if (mobileToggle && navMenu) {
-      mobileToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        const icon = mobileToggle.querySelector('i');
-        if (navMenu.classList.contains('active')) {
-          icon.className = 'fa-solid fa-xmark';
-        } else {
-          icon.className = 'fa-solid fa-bars';
-        }
-      });
-    }
-
-    // Preselect Position dropdown from job cards
     function preselectPosition(jobTitle) {
       const select = document.getElementById('position');
       if (select) {
@@ -1453,7 +854,6 @@
       }
     }
 
-    // FAQ Accordion Toggle
     function toggleFaq(element) {
       const isActive = element.classList.contains('active');
       document.querySelectorAll('.faq-item').forEach(item => {
@@ -1464,7 +864,6 @@
       }
     }
 
-    // Resume Upload File Feedback
     const resumeInput = document.getElementById('resume');
     const fileText = document.getElementById('fileText');
 
@@ -1472,13 +871,12 @@
       resumeInput.addEventListener('change', (e) => {
         if (e.target.files.length > 0) {
           fileText.textContent = `Selected file: ${e.target.files[0].name}`;
-          fileText.style.color = 'var(--primary)';
+          fileText.style.color = 'var(--secondary)';
           fileText.style.fontWeight = '600';
         }
       });
     }
 
-    // Form Submission Handling (Placeholder UX)
     function handleFormSubmit(event) {
       event.preventDefault();
       alert('Thank you for applying to KAWAD SWAD. Our Talent Acquisition team will review your application shortly.');

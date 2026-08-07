@@ -7,14 +7,111 @@
     <meta name="description" content="Buy premium Jain papad in bulk directly from Kawad Swad. Reliable wholesale supply, competitive pricing, and consistent quality for retailers, supermarkets, hotels, restaurants, and distributors.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://kawadswad.com/bulk.html">
-    <!-- ... (Keep your existing Head/Styles/Tailwind/Fonts) ... -->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#C5A059">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E',
+                            goldHover: '#A37F38',
+                            darkBg: '#0F0F11',
+                            cardBg: 'rgba(255, 255, 255, 0.03)',
+                            cardBorder: 'rgba(255, 255, 255, 0.08)',
+                            cardHoverBorder: 'rgba(197, 160, 89, 0.3)'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Master Design System Stylesheet -->
+    <link rel="stylesheet" href="css/design-system.css">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            background-color: #0F0F11;
+            color: #F3F4F6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(197, 160, 89, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -10px rgba(197, 160, 89, 0.1);
+        }
+
+        .glass-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #FFFFFF;
+            transition: all 0.3s ease;
+        }
+
+        .glass-input:focus {
+            outline: none;
+            border-color: #C5A059;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in-up { animation: none; opacity: 1; transform: none; }
+        }
+    </style>
 </head>
 <body class="antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
+    <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
-        <!-- Breadcrumb placed here for best SEO/UX -->
+        <!-- Breadcrumb Navigation -->
         <nav aria-label="Breadcrumb" class="bg-black/20 border-b border-white/5 py-3 px-4 sm:px-8 text-xs text-stone-400">
             <ol class="flex items-center space-x-2 max-w-7xl mx-auto">
                 <li><a href="index.html" class="hover:text-brand-gold">Home</a></li>
@@ -27,16 +124,165 @@
 
         <!-- 1 HERO SECTION -->
         <section class="relative py-20 lg:py-28 overflow-hidden">
-            <!-- ... (Keep existing Hero code) ... -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in-up space-y-6">
+                        <span class="text-brand-gold font-semibold uppercase tracking-wider text-xs px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20 inline-block">
+                            Wholesale Papad Supply
+                        </span>
+                        <!-- RESOLVED: H1 Tag correctly structured for SEO compliance -->
+                        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                            Wholesale Papad Supply for Growing Businesses
+                        </h1>
+                        <p class="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl font-light">
+                            Partner with Kawad Swad for reliable bulk supply of premium Jain papads with consistent quality and competitive pricing.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                            <a href="#wholesale-form" class="inline-flex justify-center items-center px-8 py-4 bg-brand-gold hover:bg-white text-brand-dark font-semibold text-xs uppercase tracking-wider rounded-sm transition-all duration-300 text-center shadow-sm">
+                                Request Wholesale Pricing
+                            </a>
+                            <a href="#wholesale-form" class="inline-flex justify-center items-center px-8 py-4 glass-card text-white hover:text-brand-gold font-semibold text-xs uppercase tracking-wider rounded-sm transition-all duration-300 border border-white/10 hover:border-brand-gold/40 text-center">
+                                <i data-lucide="download" class="w-4 h-4 mr-2" aria-hidden="true"></i> Download Catalogue
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Hero Image Placeholder -->
+                    <div class="fade-in-up">
+                        <div class="w-full h-[380px] sm:h-[450px] glass-card rounded-sm border border-white/10 flex flex-col items-center justify-center p-6 text-center group shadow-2xl">
+                            <i data-lucide="package" class="w-16 h-16 text-brand-gold/60 mb-4 group-hover:scale-110 transition-transform duration-500" aria-hidden="true"></i>
+                            <span class="text-gray-300 font-serif text-lg">Wholesale Bulk Logistics</span>
+                            <span class="text-xs font-mono text-gray-500 mt-2">[Kawad Swad Commercial Fulfillment Hub]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- 2 WHO IS THIS FOR -->
         <section class="py-24 bg-black/40 border-t border-b border-white/5">
-            <!-- ... (Keep existing sections) ... -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Partners</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">Who Is This For</h2>
+                    <p class="text-gray-400 font-light text-sm">Tailored wholesale solutions designed specifically for established food and retail businesses.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card p-8 rounded-sm space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                            <i data-lucide="store" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white">Retail Stores</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">High-margin authentic Jain papads with fast-moving shelf appeal for neighborhood grocery outlets.</p>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-sm space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                            <i data-lucide="shopping-bag" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white">Supermarkets</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">Standardized barcode packaging and high volume capacity for modern retail chains and hypermarkets.</p>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-sm space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                            <i data-lucide="building-2" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white">Hotels</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">Consistent taste, size, and crispiness ideal for premium hospitality dining and room service standards.</p>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-sm space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                            <i data-lucide="utensils" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white">Restaurants</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">Reliable kitchen supply ensuring authentic traditional flavor for complimentary appetizers and thalis.</p>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-sm space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                            <i data-lucide="users" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white">Caterers</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">Bulk quantity packaging designed to streamline large event preparations with zero quality compromise.</p>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-sm space-y-4">
+                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                            <i data-lucide="truck" class="w-6 h-6" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-white">Food Distributors</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">Dependable wholesale inventory backing to help supply regional food networks seamlessly.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- ... (Keep all existing sections) ... -->
+        <!-- 7 WHOLESALE ENQUIRY FORM -->
+        <section id="wholesale-form" class="py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card p-8 sm:p-14 rounded-sm border border-white/10 shadow-2xl relative">
+                    <div class="text-center mb-10 space-y-3">
+                        <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Partnership</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">Request Wholesale Pricing</h2>
+                        <p class="text-gray-400 text-sm font-light">Fill out the form below and our B2B commercial team will reach out within 24 hours.</p>
+                    </div>
 
+                    <form id="business-enquiry-form" data-form="business" novalidate class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label for="company-name" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Company / Business Name *</label>
+                                <input type="text" id="company-name" name="company-name" required placeholder="Enter your business name" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="contact-person" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Contact Person *</label>
+                                <input type="text" id="contact-person" name="contact-person" required placeholder="Your full name" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="business-mobile" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Mobile Number *</label>
+                                <input type="tel" id="business-mobile" name="business-mobile" required placeholder="10-digit mobile number" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="business-email" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Email Address *</label>
+                                <input type="email" id="business-email" name="business-email" required placeholder="name@company.com" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="city" class="text-xs font-semibold uppercase tracking-wider text-gray-300">City *</label>
+                                <input type="text" id="city" name="city" required placeholder="City" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="state" class="text-xs font-semibold uppercase tracking-wider text-gray-300">State *</label>
+                                <input type="text" id="state" name="state" required placeholder="State" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="business-type" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Business Type *</label>
+                                <select id="business-type" name="business-type" required class="w-full px-4 py-3 rounded-sm glass-input text-sm text-gray-300 bg-neutral-900">
+                                    <option value="" disabled selected>Select business type</option>
+                                    <option value="retail">Retail Store</option>
+                                    <option value="supermarket">Supermarket</option>
+                                    <option value="hotel">Hotel</option>
+                                    <option value="restaurant">Restaurant</option>
+                                    <option value="caterer">Caterer</option>
+                                    <option value="distributor">Food Distributor</option>
+                                </select>
+                            </div>
+                            <div class="space-y-2">
+                                <label for="monthly-req" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Monthly Requirement (KG / Boxes) *</label>
+                                <input type="text" id="monthly-req" name="monthly-req" required placeholder="e.g. 500 KG / 50 Boxes" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="submit" class="submit-btn w-full py-4 bg-brand-gold hover:bg-white text-brand-dark font-semibold text-xs uppercase tracking-wider rounded-sm transition-colors duration-300 shadow-sm">
+                                Submit Wholesale Enquiry
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer-component></footer-component>

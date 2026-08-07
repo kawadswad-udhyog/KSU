@@ -3,12 +3,12 @@
  * KAWAD SWAD - Layout Engine (js/layout.js)
  * ============================================================================
  * Production-optimized layout controller handling component injection, 
- * path-aware fetching, throttled scroll dynamics, mobile navigation accessibility,
- * active nav state, and smooth anchor scrolling.
+ * resilient path-aware fetching with inline fallbacks, throttled scroll dynamics, 
+ * mobile navigation accessibility, active nav state, and smooth anchor scrolling.
  */
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Asynchronously load layout components and wait for DOM injection
+    // 1. Asynchronously load layout components and wait for DOM injection or fallback
     await loadLayoutComponents();
 
     // 2. Initialize layout features AFTER DOM components are injected
@@ -20,14 +20,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /**
- * Asynchronously fetches and replaces component placeholders with resilient path awareness
- * for both local environments and hosted subfolders (e.g., GitHub Pages /KSU/).
+ * Asynchronously fetches component templates with fallback protection 
+ * to completely eliminate 404 errors or rendering halts in local/static environments.
  */
 async function loadLayoutComponents() {
     const headerContainer = document.querySelector('header-component, #header-container');
     const footerContainer = document.querySelector('footer-component, #footer-container');
 
-    // Resolve current root/base path accurately
     const pathSegments = window.location.pathname.split('/').filter(Boolean);
     const isGitHubPages = pathSegments.length > 0 && pathSegments[0] === 'KSU';
     const basePath = isGitHubPages ? '/KSU/' : '/';
@@ -39,14 +38,15 @@ async function loadLayoutComponents() {
         fetchTasks.push(
             fetch(headerPath)
                 .then(res => {
-                    if (!res.ok) throw new Error(`Header component status: ${res.status}`);
+                    if (!res.ok) throw new Error(`Header status: ${res.status}`);
                     return res.text();
                 })
                 .then(html => {
                     headerContainer.outerHTML = html;
                 })
-                .catch(err => {
-                    console.warn('Unable to load dynamic header component:', err);
+                .catch(() => {
+                    // Fallback injection if fetch fails or CORS blocks it
+                    headerContainer.outerHTML = getFallbackHeader(basePath);
                 })
         );
     }
@@ -56,19 +56,128 @@ async function loadLayoutComponents() {
         fetchTasks.push(
             fetch(footerPath)
                 .then(res => {
-                    if (!res.ok) throw new Error(`Footer component status: ${res.status}`);
+                    if (!res.ok) throw new Error(`Footer status: ${res.status}`);
                     return res.text();
                 })
                 .then(html => {
                     footerContainer.outerHTML = html;
                 })
-                .catch(err => {
-                    console.warn('Unable to load dynamic footer component:', err);
+                .catch(() => {
+                    // Fallback injection if fetch fails or CORS blocks it
+                    footerContainer.outerHTML = getFallbackFooter(basePath);
                 })
         );
     }
 
     await Promise.all(fetchTasks);
+}
+
+/**
+ * Fallback Header Template matching Kawad Heritage Theme
+ */
+function getFallbackHeader(basePath) {
+    return `
+        <header class="sticky top-0 z-40 bg-[#FFF9F0]/95 backdrop-blur-md border-b border-[#E7DCC7]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <a href="${basePath}index.html" class="flex items-center gap-3 group focus:outline-none">
+                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[#4E342E] group-hover:text-[#C62828] transition-colors">
+                        KAWAD <span class="text-[#C62828] italic">SWAD</span>
+                    </span>
+                </a>
+                <nav class="hidden lg:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-[#4E342E]">
+                    <a href="${basePath}index.html" class="hover:text-[#C62828] transition-colors">Home</a>
+                    <a href="${basePath}about.html" class="hover:text-[#C62828] transition-colors">About Us</a>
+                    <a href="${basePath}products.html" class="hover:text-[#C62828] transition-colors">Products</a>
+                    <a href="${basePath}shop.html" class="hover:text-[#C62828] transition-colors">Shop</a>
+                    <a href="${basePath}business.html" class="hover:text-[#C62828] transition-colors">Business Hub</a>
+                    <a href="${basePath}blog.html" class="hover:text-[#C62828] transition-colors">Blog</a>
+                    <a href="${basePath}contact.html" class="hover:text-[#C62828] transition-colors">Contact</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="${basePath}shop.html" class="relative p-2 text-[#4E342E] hover:text-[#C62828] transition-colors" aria-label="Cart">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+                        <span id="cart-badge" class="absolute top-1 right-1 w-4 h-4 bg-[#C62828] text-white rounded-full text-[10px] font-bold flex items-center justify-center hidden">0</span>
+                    </a>
+                    <button id="mobile-menu-button" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 text-[#4E342E] hover:text-[#C62828] focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-[#E7DCC7] px-4 pt-4 pb-6 space-y-3">
+                <a href="${basePath}index.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#C62828]">Home</a>
+                <a href="${basePath}about.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#C62828]">About Us</a>
+                <a href="${basePath}products.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#C62828]">Products</a>
+                <a href="${basePath}shop.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#C62828]">Shop</a>
+                <a href="${basePath}business.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#C62828]">Business Hub</a>
+                <a href="${basePath}blog.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#C62828]">Blog</a>
+                <a href="${basePath}contact.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#C62828]">Contact</a>
+            </div>
+        </header>
+    `;
+}
+
+/**
+ * Fallback Footer Template matching Kawad Heritage Theme
+ */
+function getFallbackFooter(basePath) {
+    return `
+        <footer class="bg-[#2D1F17] text-[#F5EEDC] text-sm border-t border-[#E7DCC7]/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+                    <div class="space-y-4 lg:col-span-2">
+                        <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
+                        <p class="text-xs text-[#F5EEDC]/80 leading-relaxed max-w-sm font-light">
+                            Manufacturer of premium Jain Papads delivering pure taste and traditional excellence from Nimar. Committed to quality, hygiene, and authentic flavors.
+                        </p>
+                        <div class="pt-2 text-xs space-y-1 text-[#F5EEDC]/70 font-mono">
+                            <p>FSSAI Lic No: 21425890001224</p>
+                            <p>GSTIN: 23AIAPJ3923D1ZX</p>
+                            <p>Udyam Reg: UDYAM-MP-28-0044363</p>
+                        </div>
+                    </div>
+                    <nav aria-label="Quick Links">
+                        <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
+                        <ul class="space-y-2.5 text-xs font-light">
+                            <li><a href="${basePath}index.html" class="hover:text-[#E6B800] transition-colors">Home</a></li>
+                            <li><a href="${basePath}about.html" class="hover:text-[#E6B800] transition-colors">About Us</a></li>
+                            <li><a href="${basePath}products.html" class="hover:text-[#E6B800] transition-colors">Products</a></li>
+                            <li><a href="${basePath}shop.html" class="hover:text-[#E6B800] transition-colors">Shop</a></li>
+                            <li><a href="${basePath}contact.html" class="hover:text-[#E6B800] transition-colors">Contact Us</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Business & Media">
+                        <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Media</h4>
+                        <ul class="space-y-2.5 text-xs font-light">
+                            <li><a href="${basePath}business.html" class="hover:text-[#E6B800] transition-colors">Business Solutions</a></li>
+                            <li><a href="${basePath}distributor.html" class="hover:text-[#E6B800] transition-colors">Distributor Portal</a></li>
+                            <li><a href="${basePath}bulk.html" class="hover:text-[#E6B800] transition-colors">Bulk Orders</a></li>
+                            <li><a href="${basePath}media.html" class="hover:text-[#E6B800] transition-colors">Media &amp; Press</a></li>
+                            <li><a href="${basePath}work-with-us.html" class="hover:text-[#E6B800] transition-colors">Work With Us</a></li>
+                            <li><a href="${basePath}manufacturing.html" class="hover:text-[#E6B800] transition-colors">Manufacturing</a></li>
+                            <li><a href="${basePath}gallery.html" class="hover:text-[#E6B800] transition-colors">Gallery</a></li>
+                            <li><a href="${basePath}blog.html" class="hover:text-[#E6B800] transition-colors">Blog &amp; Recipes</a></li>
+                        </ul>
+                    </nav>
+                    <nav aria-label="Support & Legal">
+                        <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Support &amp; Legal</h4>
+                        <ul class="space-y-2.5 text-xs font-light">
+                            <li><a href="${basePath}faq.html" class="hover:text-[#E6B800] transition-colors">FAQ</a></li>
+                            <li><a href="${basePath}policies.html" class="hover:text-[#E6B800] transition-colors">Privacy Policy</a></li>
+                            <li><a href="${basePath}policies.html#terms-and-conditions" class="hover:text-[#E6B800] transition-colors">Terms &amp; Conditions</a></li>
+                            <li><a href="${basePath}policies.html#shipping-policy" class="hover:text-[#E6B800] transition-colors">Shipping &amp; Returns</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="mt-12 pt-8 border-t border-[#E7DCC7]/10 flex flex-col sm:flex-row justify-between items-center text-xs text-[#F5EEDC]/70 font-light gap-4">
+                    <p>&copy; 2026 KAWAD SWAD Udhyog. All rights reserved.</p>
+                    <div class="flex space-x-6">
+                        <a href="https://wa.me/919630976867" target="_blank" rel="noopener noreferrer" class="hover:text-[#E6B800] transition-colors">WhatsApp</a>
+                        <a href="${basePath}contact.html" class="hover:text-[#E6B800] transition-colors">Support</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    `;
 }
 
 /**
@@ -148,8 +257,8 @@ function initActiveNavHighlight() {
         const isMatch = cleanHref === currentPath || (currentPath === '' && cleanHref === 'index.html') || (rawPath.endsWith('/') && cleanHref === 'index.html');
 
         if (isMatch) {
-            link.classList.add('text-brand-gold', 'font-semibold');
-            link.classList.remove('hover:text-brand-gold');
+            link.classList.add('text-[#C62828]', 'font-semibold');
+            link.classList.remove('hover:text-[#C62828]');
             link.setAttribute('aria-current', 'page');
         }
     });
@@ -169,11 +278,11 @@ function initStickyHeader() {
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 if (window.scrollY > 20) {
-                    header.classList.add('shadow-md', 'bg-brand-cream/95');
-                    header.classList.remove('bg-brand-cream/90');
+                    header.classList.add('shadow-md', 'bg-[#FFF9F0]/95');
+                    header.classList.remove('bg-[#FFF9F0]/90');
                 } else {
-                    header.classList.remove('shadow-md', 'bg-brand-cream/95');
-                    header.classList.add('bg-brand-cream/90');
+                    header.classList.remove('shadow-md', 'bg-[#FFF9F0]/95');
+                    header.classList.add('bg-[#FFF9F0]/90');
                 }
                 ticking = false;
             });

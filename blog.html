@@ -28,39 +28,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#C5A059">
+    <meta name="theme-color" content="#FE330E">
 
-    <!-- Tailwind CSS CDN & Custom Config -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Master Design System Stylesheet -->
+    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
     <link rel="stylesheet" href="css/design-system.css">
 
     <!-- CSS Animation Utilities & Reduced Motion Support -->
@@ -106,36 +76,36 @@
     }
     </script>
 </head>
-<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
     <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- Breadcrumb Navigation -->
-        <nav aria-label="Breadcrumb" class="bg-white/40 border-b border-stone-200 py-3 px-4 sm:px-8 text-xs text-brand-muted">
+        <nav aria-label="Breadcrumb" class="bg-white/40 border-b border-[#F3E6C8] py-3 px-4 sm:px-8 text-xs text-[#8B8174]">
             <ol class="flex items-center space-x-2 max-w-7xl mx-auto">
-                <li><a href="index.html" class="hover:text-brand-gold">Home</a></li>
+                <li><a href="index.html" class="hover:text-[#FE330E]">Home</a></li>
                 <li><span class="px-2">/</span></li>
-                <li class="text-brand-dark font-semibold" aria-current="page">Blog &amp; Recipes</li>
+                <li class="text-[#4E342E] font-semibold" aria-current="page">Blog &amp; Recipes</li>
             </ol>
         </nav>
 
         <!-- HERO BANNER -->
-        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
+        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">Knowledge &amp; Culinary Journal</span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Recipes &amp; Knowledge Center</h1>
-                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">Discover authentic recipes, cooking ideas, serving inspiration and updates from KAWAD SWAD. Check out our visual highlights in the <a href="gallery.html" class="text-brand-gold underline font-medium">Gallery</a> or explore brand materials in the <a href="media.html" class="text-brand-gold underline font-medium">Media Center</a>.</p>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Knowledge &amp; Culinary Journal</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#4E342E]">Recipes &amp; Knowledge Center</h1>
+                    <p class="text-base sm:text-lg text-[#5F5F5F] font-light leading-relaxed">Discover authentic recipes, cooking ideas, serving inspiration and updates from KAWAD SWAD. Check out our visual highlights in the <a href="gallery.html" class="text-[#FE330E] underline font-medium">Gallery</a> or explore brand materials in the <a href="media.html" class="text-[#FE330E] underline font-medium">Media Center</a>.</p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Explore Products</a>
-                        <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Contact Us</a>
+                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-lg text-white bg-[#FE330E] hover:bg-[#D92500] transition-all duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Explore Products</a>
+                        <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-[#4E342E] text-xs font-semibold uppercase tracking-wider rounded-lg text-[#4E342E] hover:bg-[#4E342E] hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Contact Us</a>
                     </div>
                 </div>
 
                 <!-- Real Blog Hero Image -->
-                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-luxury relative group fade-in">
+                <div class="mt-12 aspect-21/9 bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center overflow-hidden shadow-xl relative group fade-in">
                     <img src="assets/images/blog-hero.png" alt="Blog Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
             </div>
@@ -145,23 +115,23 @@
         <section class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Highlight</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Featured Article</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Highlight</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#4E342E]">Featured Article</h2>
+                    <div class="w-12 h-0.5 bg-[#FBEC0A] mx-auto"></div>
                 </div>
 
-                <div class="bg-brand-cream/40 rounded-sm border border-stone-200/80 overflow-hidden shadow-luxury transition-all duration-300 hover:shadow-xl">
+                <div class="bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl">
                     <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
                         <!-- Real Featured Article Image -->
-                        <div class="aspect-16/10 lg:aspect-auto lg:h-full bg-stone-200 border-b lg:border-b-0 lg:border-r border-stone-300/60 overflow-hidden flex items-center justify-center">
+                        <div class="aspect-16/10 lg:aspect-auto lg:h-full bg-[#FFFDF7] border-b lg:border-b-0 lg:border-r border-[#F3E6C8] overflow-hidden flex items-center justify-center">
                             <img src="assets/images/featured-article.png" alt="Featured Article - KAWAD SWAD" class="w-full h-full object-cover">
                         </div>
                         <div class="p-8 sm:p-14 space-y-6">
-                            <span class="inline-block text-xs font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Traditional Recipes</span>
-                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark leading-snug">Mastering the Art of Jain Papad Preparation</h3>
-                            <p class="text-sm sm:text-base text-brand-muted leading-relaxed font-light">Explore authentic regional techniques for roasting, frying, and seasoning Jain papads while maintaining their crisp texture and wholesome spice profile.</p>
+                            <span class="inline-block text-xs font-semibold uppercase tracking-wider text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Traditional Recipes</span>
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-[#4E342E] leading-snug">Mastering the Art of Jain Papad Preparation</h3>
+                            <p class="text-sm sm:text-base text-[#5F5F5F] leading-relaxed font-light">Explore authentic regional techniques for roasting, frying, and seasoning Jain papads while maintaining their crisp texture and wholesome spice profile.</p>
                             <div class="pt-2">
-                                <a href="blog-detail.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider text-brand-dark rounded-sm hover:bg-brand-dark hover:text-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold shadow-sm">Read Article</a>
+                                <a href="blog-detail.html" class="inline-flex justify-center items-center px-8 py-4 border border-[#4E342E] text-xs font-semibold uppercase tracking-wider text-[#4E342E] rounded-lg hover:bg-[#4E342E] hover:text-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] shadow-sm">Read Article</a>
                             </div>
                         </div>
                     </div>

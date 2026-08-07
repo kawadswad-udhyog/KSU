@@ -13,44 +13,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#C5A059">
+    <meta name="theme-color" content="#FE330E">
     
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E',
-                            goldHover: '#A37F38',
-                            darkBg: '#0F0F11',
-                            cardBg: 'rgba(255, 255, 255, 0.03)',
-                            cardBorder: 'rgba(255, 255, 255, 0.08)',
-                            cardHoverBorder: 'rgba(197, 160, 89, 0.3)'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Master Design System Stylesheet -->
+    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
     <link rel="stylesheet" href="css/design-system.css">
 
     <!-- Lucide Icons CDN -->
@@ -72,9 +37,9 @@
         }
 
         .glass-card:hover {
-            border-color: rgba(197, 160, 89, 0.4);
+            border-color: rgba(230, 184, 0, 0.4);
             transform: translateY(-2px);
-            box-shadow: 0 15px 30px -10px rgba(197, 160, 89, 0.1);
+            box-shadow: 0 15px 30px -10px rgba(230, 184, 0, 0.1);
         }
 
         .glass-input {
@@ -86,9 +51,9 @@
 
         .glass-input:focus {
             outline: none;
-            border-color: #C5A059;
+            border-color: #C62828;
             background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+            box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.15);
         }
 
         .fade-in-up {
@@ -105,7 +70,7 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
+<body class="antialiased selection:bg-[#FE330E] selection:text-white flex flex-col min-h-screen">
 
     <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
@@ -114,9 +79,9 @@
         <!-- Breadcrumb Navigation -->
         <nav aria-label="Breadcrumb" class="bg-black/20 border-b border-white/5 py-3 px-4 sm:px-8 text-xs text-stone-400">
             <ol class="flex items-center space-x-2 max-w-7xl mx-auto">
-                <li><a href="index.html" class="hover:text-brand-gold">Home</a></li>
+                <li><a href="index.html" class="hover:text-[#E6B800]">Home</a></li>
                 <li><span class="px-2">/</span></li>
-                <li><a href="business.html" class="hover:text-brand-gold">Business</a></li>
+                <li><a href="business.html" class="hover:text-[#E6B800]">Business</a></li>
                 <li><span class="px-2">/</span></li>
                 <li class="text-white font-semibold" aria-current="page">Bulk Orders</li>
             </ol>
@@ -127,7 +92,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
                     <div class="fade-in-up space-y-6">
-                        <span class="text-brand-gold font-semibold uppercase tracking-wider text-xs px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20 inline-block">
+                        <span class="text-[#E6B800] font-semibold uppercase tracking-wider text-xs px-3 py-1 rounded-full bg-[#E6B800]/10 border border-[#E6B800]/20 inline-block">
                             Wholesale Papad Supply
                         </span>
                         <!-- RESOLVED: H1 Tag correctly structured for SEO compliance -->
@@ -138,10 +103,10 @@
                             Partner with Kawad Swad for reliable bulk supply of premium Jain papads with consistent quality and competitive pricing.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                            <a href="#wholesale-form" class="inline-flex justify-center items-center px-8 py-4 bg-brand-gold hover:bg-white text-brand-dark font-semibold text-xs uppercase tracking-wider rounded-sm transition-all duration-300 text-center shadow-sm">
+                            <a href="#wholesale-form" class="inline-flex justify-center items-center px-8 py-4 bg-[#FE330E] hover:bg-[#D92500] text-white font-semibold text-xs uppercase tracking-wider rounded-lg transition-all duration-300 text-center shadow-lg">
                                 Request Wholesale Pricing
                             </a>
-                            <a href="#wholesale-form" class="inline-flex justify-center items-center px-8 py-4 glass-card text-white hover:text-brand-gold font-semibold text-xs uppercase tracking-wider rounded-sm transition-all duration-300 border border-white/10 hover:border-brand-gold/40 text-center">
+                            <a href="#wholesale-form" class="inline-flex justify-center items-center px-8 py-4 glass-card text-white hover:text-[#E6B800] font-semibold text-xs uppercase tracking-wider rounded-lg transition-all duration-300 border border-white/10 hover:border-[#E6B800]/40 text-center">
                                 <i data-lucide="download" class="w-4 h-4 mr-2" aria-hidden="true"></i> Download Catalogue
                             </a>
                         </div>
@@ -149,8 +114,8 @@
                     
                     <!-- Hero Image Placeholder -->
                     <div class="fade-in-up">
-                        <div class="w-full h-[380px] sm:h-[450px] glass-card rounded-sm border border-white/10 flex flex-col items-center justify-center p-6 text-center group shadow-2xl">
-                            <i data-lucide="package" class="w-16 h-16 text-brand-gold/60 mb-4 group-hover:scale-110 transition-transform duration-500" aria-hidden="true"></i>
+                        <div class="w-full h-[380px] sm:h-[450px] glass-card rounded-[20px] border border-white/10 flex flex-col items-center justify-center p-6 text-center group shadow-2xl">
+                            <i data-lucide="package" class="w-16 h-16 text-[#E6B800]/60 mb-4 group-hover:scale-110 transition-transform duration-500" aria-hidden="true"></i>
                             <span class="text-gray-300 font-serif text-lg">Wholesale Bulk Logistics</span>
                             <span class="text-xs font-mono text-gray-500 mt-2">[Kawad Swad Commercial Fulfillment Hub]</span>
                         </div>
@@ -163,54 +128,54 @@
         <section class="py-24 bg-black/40 border-t border-b border-white/5">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Partners</span>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Partners</span>
                     <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">Who Is This For</h2>
                     <p class="text-gray-400 font-light text-sm">Tailored wholesale solutions designed specifically for established food and retail businesses.</p>
                 </div>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="glass-card p-8 rounded-sm space-y-4">
-                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                    <div class="glass-card p-8 rounded-[20px] space-y-4">
+                        <div class="w-12 h-12 rounded-[14px] bg-[#E6B800]/10 border border-[#E6B800]/20 flex items-center justify-center text-[#E6B800]">
                             <i data-lucide="store" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="font-serif text-xl font-bold text-white">Retail Stores</h3>
                         <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">High-margin authentic Jain papads with fast-moving shelf appeal for neighborhood grocery outlets.</p>
                     </div>
 
-                    <div class="glass-card p-8 rounded-sm space-y-4">
-                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                    <div class="glass-card p-8 rounded-[20px] space-y-4">
+                        <div class="w-12 h-12 rounded-[14px] bg-[#E6B800]/10 border border-[#E6B800]/20 flex items-center justify-center text-[#E6B800]">
                             <i data-lucide="shopping-bag" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="font-serif text-xl font-bold text-white">Supermarkets</h3>
                         <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">Standardized barcode packaging and high volume capacity for modern retail chains and hypermarkets.</p>
                     </div>
 
-                    <div class="glass-card p-8 rounded-sm space-y-4">
-                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                    <div class="glass-card p-8 rounded-[20px] space-y-4">
+                        <div class="w-12 h-12 rounded-[14px] bg-[#E6B800]/10 border border-[#E6B800]/20 flex items-center justify-center text-[#E6B800]">
                             <i data-lucide="building-2" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="font-serif text-xl font-bold text-white">Hotels</h3>
                         <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">Consistent taste, size, and crispiness ideal for premium hospitality dining and room service standards.</p>
                     </div>
 
-                    <div class="glass-card p-8 rounded-sm space-y-4">
-                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                    <div class="glass-card p-8 rounded-[20px] space-y-4">
+                        <div class="w-12 h-12 rounded-[14px] bg-[#E6B800]/10 border border-[#E6B800]/20 flex items-center justify-center text-[#E6B800]">
                             <i data-lucide="utensils" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="font-serif text-xl font-bold text-white">Restaurants</h3>
                         <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">Reliable kitchen supply ensuring authentic traditional flavor for complimentary appetizers and thalis.</p>
                     </div>
 
-                    <div class="glass-card p-8 rounded-sm space-y-4">
-                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                    <div class="glass-card p-8 rounded-[20px] space-y-4">
+                        <div class="w-12 h-12 rounded-[14px] bg-[#E6B800]/10 border border-[#E6B800]/20 flex items-center justify-center text-[#E6B800]">
                             <i data-lucide="users" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="font-serif text-xl font-bold text-white">Caterers</h3>
                         <p class="text-gray-400 text-xs sm:text-sm leading-relaxed font-light">Bulk quantity packaging designed to streamline large event preparations with zero quality compromise.</p>
                     </div>
 
-                    <div class="glass-card p-8 rounded-sm space-y-4">
-                        <div class="w-12 h-12 rounded-sm bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
+                    <div class="glass-card p-8 rounded-[20px] space-y-4">
+                        <div class="w-12 h-12 rounded-[14px] bg-[#E6B800]/10 border border-[#E6B800]/20 flex items-center justify-center text-[#E6B800]">
                             <i data-lucide="truck" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="font-serif text-xl font-bold text-white">Food Distributors</h3>
@@ -223,9 +188,9 @@
         <!-- 7 WHOLESALE ENQUIRY FORM -->
         <section id="wholesale-form" class="py-24">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="glass-card p-8 sm:p-14 rounded-sm border border-white/10 shadow-2xl relative">
+                <div class="glass-card p-8 sm:p-14 rounded-[20px] border border-white/10 shadow-2xl relative">
                     <div class="text-center mb-10 space-y-3">
-                        <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Partnership</span>
+                        <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Partnership</span>
                         <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">Request Wholesale Pricing</h2>
                         <p class="text-gray-400 text-sm font-light">Fill out the form below and our B2B commercial team will reach out within 24 hours.</p>
                     </div>
@@ -234,31 +199,31 @@
                         <div class="grid md:grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <label for="company-name" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Company / Business Name *</label>
-                                <input type="text" id="company-name" name="company-name" required placeholder="Enter your business name" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                                <input type="text" id="company-name" name="company-name" required placeholder="Enter your business name" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
                             <div class="space-y-2">
                                 <label for="contact-person" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Contact Person *</label>
-                                <input type="text" id="contact-person" name="contact-person" required placeholder="Your full name" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                                <input type="text" id="contact-person" name="contact-person" required placeholder="Your full name" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
                             <div class="space-y-2">
                                 <label for="business-mobile" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Mobile Number *</label>
-                                <input type="tel" id="business-mobile" name="business-mobile" required placeholder="10-digit mobile number" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                                <input type="tel" id="business-mobile" name="business-mobile" required placeholder="10-digit mobile number" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
                             <div class="space-y-2">
                                 <label for="business-email" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Email Address *</label>
-                                <input type="email" id="business-email" name="business-email" required placeholder="name@company.com" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                                <input type="email" id="business-email" name="business-email" required placeholder="name@company.com" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
                             <div class="space-y-2">
                                 <label for="city" class="text-xs font-semibold uppercase tracking-wider text-gray-300">City *</label>
-                                <input type="text" id="city" name="city" required placeholder="City" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                                <input type="text" id="city" name="city" required placeholder="City" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
                             <div class="space-y-2">
                                 <label for="state" class="text-xs font-semibold uppercase tracking-wider text-gray-300">State *</label>
-                                <input type="text" id="state" name="state" required placeholder="State" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                                <input type="text" id="state" name="state" required placeholder="State" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
                             <div class="space-y-2">
                                 <label for="business-type" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Business Type *</label>
-                                <select id="business-type" name="business-type" required class="w-full px-4 py-3 rounded-sm glass-input text-sm text-gray-300 bg-neutral-900">
+                                <select id="business-type" name="business-type" required class="w-full px-4 py-3 rounded-lg glass-input text-sm text-gray-300 bg-neutral-900">
                                     <option value="" disabled selected>Select business type</option>
                                     <option value="retail">Retail Store</option>
                                     <option value="supermarket">Supermarket</option>
@@ -270,12 +235,12 @@
                             </div>
                             <div class="space-y-2">
                                 <label for="monthly-req" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Monthly Requirement (KG / Boxes) *</label>
-                                <input type="text" id="monthly-req" name="monthly-req" required placeholder="e.g. 500 KG / 50 Boxes" class="w-full px-4 py-3 rounded-sm glass-input text-sm">
+                                <input type="text" id="monthly-req" name="monthly-req" required placeholder="e.g. 500 KG / 50 Boxes" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
                         </div>
 
                         <div class="pt-4">
-                            <button type="submit" class="submit-btn w-full py-4 bg-brand-gold hover:bg-white text-brand-dark font-semibold text-xs uppercase tracking-wider rounded-sm transition-colors duration-300 shadow-sm">
+                            <button type="submit" class="submit-btn w-full py-4 bg-[#FE330E] hover:bg-[#D92500] text-white font-semibold text-xs uppercase tracking-wider rounded-lg transition-colors duration-300 shadow-lg">
                                 Submit Wholesale Enquiry
                             </button>
                         </div>

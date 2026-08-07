@@ -44,6 +44,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init({
+            publicKey: "fB_JSTwuwXae5Xf9W",
+          });
+       })();
+    </script>
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
@@ -173,7 +183,7 @@
                     </button>
 
                     <p class="text-[11px] text-brand-muted text-center italic">
-                        Questions? <a href="https://wa.me/91963097687?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20need%20assistance%20regarding%20my%20order.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="text-brand-gold underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Chat with us on WhatsApp</a>
+                        Questions? <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20need%20assistance%20regarding%20my%20order.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="text-brand-gold underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Chat with us on WhatsApp</a>
                     </p>
                 </div>
             </form>
@@ -187,5 +197,76 @@
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/shop.js"></script>
+
+    <!-- EmailJS Order Submission Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkoutForm = document.getElementById('checkout-form');
+            if (!checkoutForm) return;
+
+            checkoutForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                // 1. Gather customer details from input fields
+                const firstName = document.getElementById('first-name').value.trim();
+                const lastName = document.getElementById('last-name').value.trim();
+                const customerPhone = document.getElementById('checkout-mobile').value.trim();
+                const customerEmail = document.getElementById('checkout-email').value.trim();
+                const streetAddress = document.getElementById('address').value.trim();
+                const landmark = document.getElementById('landmark').value.trim();
+                const city = document.getElementById('checkout-city').value.trim();
+                const state = document.getElementById('checkout-state').value.trim();
+                const pincode = document.getElementById('pincode').value.trim();
+                const addressType = document.getElementById('address-type').value;
+                const orderNotes = document.getElementById('order-notes').value.trim();
+
+                // Simple validation check
+                if (!firstName || !lastName || !customerPhone || !customerEmail || !streetAddress || !city || !state || !pincode) {
+                    alert('Please fill in all required shipping fields.');
+                    return;
+                }
+
+                // 2. Fetch current cart items from CartManager
+                const cartItems = CartManager.getItems();
+                if (cartItems.length === 0) {
+                    alert('Your cart is empty. Please add items before checking out.');
+                    return;
+                }
+
+                // 3. Format order items summary string
+                const orderSummary = cartItems.map(item => 
+                    `- ${item.name} | Pack Size: ${item.weight} | Qty: ${item.quantity} | Price: ₹${item.price * item.quantity}`
+                ).join('\n');
+
+                const subtotal = CartManager.calculateSubtotal();
+                const shipping = CartManager.calculateShipping();
+                const grandTotal = CartManager.calculateGrandTotal();
+
+                // 4. Set up template parameters matching your EmailJS template variables
+                const templateParams = {
+                    customer_name: `${firstName} ${lastName}`,
+                    customer_phone: customerPhone,
+                    customer_email: customerEmail,
+                    customer_address: `${streetAddress}${landmark ? ', Near ' + landmark : ''}, ${city}, ${state} - ${pincode} (${addressType} Address)`,
+                    order_items: orderSummary,
+                    order_subtotal: `₹${subtotal}`,
+                    shipping_cost: shipping === 0 ? 'FREE' : `₹${shipping}`,
+                    order_total: `₹${grandTotal}`,
+                    customer_message: orderNotes ? orderNotes : 'No special instructions.'
+                };
+
+                // 5. Trigger EmailJS dispatch to info.av.kkswad@gmail.com using provided IDs
+                emailjs.send('service_sa0scip', 'template_uikgrgl', templateParams)
+                    .then(function(response) {
+                        alert('Order placed successfully! Details have been securely sent to the Kawad Swad team.');
+                        CartManager.clearCart(); // Clear local storage cart
+                        window.location.href = 'index.html'; // Redirect to home page
+                    }, function(error) {
+                        console.error('EmailJS submission failed:', error);
+                        alert('Failed to send order details automatically. Please try contacting us via WhatsApp or phone.');
+                    });
+            });
+        });
+    </script>
 </body>
 </html>

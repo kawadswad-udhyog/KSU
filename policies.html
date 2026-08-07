@@ -30,18 +30,46 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#C5A059">
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN & Custom Config -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS Animation Utilities -->
+    <!-- CSS Animation Utilities & Motion Safety -->
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in, .slide-up { animation: none; opacity: 1; transform: none; }
+        }
     </style>
 
     <!-- JSON-LD Structured Data: WebPage & BreadcrumbList -->
@@ -77,6 +105,7 @@
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
+    <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
@@ -91,14 +120,86 @@
             </div>
         </section>
 
-        <div class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-            <section id="privacy-policy" class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm space-y-4">
-                <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-2">Privacy Policy</h2>
-                <p class="text-sm text-brand-muted leading-relaxed font-light">[Editable Privacy Policy Placeholder: Details regarding data protection and cookie protocols.]</p>
+        <!-- POLICY CONTENTS CONTAINER -->
+        <div class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <!-- Quick Anchor Navigation -->
+            <div class="bg-white p-4 rounded-sm border border-stone-200/80 shadow-sm flex flex-wrap justify-center gap-4 text-xs font-semibold uppercase tracking-wider text-brand-dark">
+                <a href="#privacy-policy" class="hover:text-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Privacy Policy</a>
+                <span class="text-stone-300">•</span>
+                <a href="#terms-and-conditions" class="hover:text-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Terms &amp; Conditions</a>
+                <span class="text-stone-300">•</span>
+                <a href="#shipping-policy" class="hover:text-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Shipping Policy</a>
+                <span class="text-stone-300">•</span>
+                <a href="#refund-policy" class="hover:text-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Refund &amp; Return Policy</a>
+            </div>
+
+            <!-- PRIVACY POLICY -->
+            <section id="privacy-policy" class="bg-white p-8 sm:p-10 rounded-sm border border-stone-200/80 shadow-sm space-y-4">
+                <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-3">Privacy Policy</h2>
+                <div class="space-y-3 text-xs sm:text-sm text-brand-muted leading-relaxed font-light">
+                    <p>At <strong>KAWAD SWAD Udhyog</strong> ("we," "our," "us"), accessible from <em>kawadswad.com</em>, the privacy of our visitors and commercial partners is a top priority. This Privacy Policy document outlines the types of information collected and how it is used.</p>
+                    
+                    <h3 class="font-semibold text-brand-dark text-sm pt-2">1. Information We Collect</h3>
+                    <p>When you place an order, submit an enquiry for wholesale supply, or register as a distributor, we collect personal and business information such as your name, company name, mobile number, email address, GSTIN, shipping address, and business requirements.</p>
+
+                    <h3 class="font-semibold text-brand-dark text-sm pt-2">2. How We Use Your Information</h3>
+                    <p>We use collected data strictly to process online retail orders, facilitate B2B distribution agreements, communicate dispatch and tracking updates, respond to customer inquiries, and comply with regulatory requirements (including FSSAI and tax compliance).</p>
+
+                    <h3 class="font-semibold text-brand-dark text-sm pt-2">3. Cookies &amp; Tracking</h3>
+                    <p>Our website utilizes essential browser session cookies to maintain your shopping cart state, process checkout forms, and analyze aggregated web traffic via standard web analytics without selling your personal data to third parties.</p>
+                </div>
             </section>
+
+            <!-- TERMS & CONDITIONS -->
+            <section id="terms-and-conditions" class="bg-white p-8 sm:p-10 rounded-sm border border-stone-200/80 shadow-sm space-y-4">
+                <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-3">Terms &amp; Conditions</h2>
+                <div class="space-y-3 text-xs sm:text-sm text-brand-muted leading-relaxed font-light">
+                    <p>Welcome to KAWAD SWAD. By accessing or using this website, purchasing our food products, or submitting a business inquiry, you agree to be bound by the following terms.</p>
+
+                    <h3 class="font-semibold text-brand-dark text-sm pt-2">1. Product Integrity &amp; Usage</h3>
+                    <p>All KAWAD SWAD products are 100% vegetarian Jain food preparations manufactured in accordance with FSSAI Lic. No. <strong>21425890001224</strong>. Products should be stored in cool, dry conditions away from moisture as indicated on the packaging.</p>
+
+                    <h3 class="font-semibold text-brand-dark text-sm pt-2">2. Pricing &amp; Orders</h3>
+                    <p>Retail prices displayed on the store are inclusive of applicable taxes. For bulk orders or wholesale rate cards, formal quotations issued by our commercial desk shall govern final transaction amounts.</p>
+
+                    <h3 class="font-semibold text-brand-dark text-sm pt-2">3. Jurisdiction</h3>
+                    <p>Any legal disputes or claims arising out of website usage or product purchases shall be subject to the exclusive jurisdiction of the competent courts in Madhya Pradesh, India.</p>
+                </div>
+            </section>
+
+            <!-- SHIPPING POLICY -->
+            <section id="shipping-policy" class="bg-white p-8 sm:p-10 rounded-sm border border-stone-200/80 shadow-sm space-y-4">
+                <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-3">Shipping &amp; Delivery Policy</h2>
+                <div class="space-y-3 text-xs sm:text-sm text-brand-muted leading-relaxed font-light">
+                    <p>We strive to deliver fresh, intact papad batches directly from our manufacturing unit to your doorstep.</p>
+
+                    <h3 class="font-semibold text-brand-dark text-sm pt-2">1. Order Dispatch &amp; Timelines</h3>
+                    <p>Retail orders are processed and dispatched within 24 to 48 business hours. Delivery timelines range between 3 to 7 business days depending on national transit logistics and destination pincode accessibility.</p>
+
+                    <h3 class="font-semibold text-brand-dark text-sm pt-2">2. Transit Protection</h3>
+                    <p>Due to the delicate crisp nature of papads, all shipments are packaged in high-barrier multi-layer cartons engineered to minimize transit vibration and breakage.</p>
+                </div>
+            </section>
+
+            <!-- REFUND & RETURN POLICY -->
+            <section id="refund-policy" class="bg-white p-8 sm:p-10 rounded-sm border border-stone-200/80 shadow-sm space-y-4">
+                <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-3">Refund &amp; Return Policy</h2>
+                <div class="space-y-3 text-xs sm:text-sm text-brand-muted leading-relaxed font-light">
+                    <p>As our products belong to the packaged food category, strict hygiene regulations apply.</p>
+
+                    <h3 class="font-semibold text-brand-dark text-sm pt-2">1. Returns &amp; Replacement Criteria</h3>
+                    <p>Returns are accepted only in cases where the outer packaging is severely damaged upon arrival or an incorrect variant was delivered. Customers must notify our team within 48 hours of receipt at <a href="mailto:info.av.kkswad@gmail.com" class="text-brand-gold underline font-medium">info.av.kkswad@gmail.com</a> with photo/video proof.</p>
+
+                    <h3 class="font-semibold text-brand-dark text-sm pt-2">2. Refund Processing</h3>
+                    <p>Upon verification of eligible damaged goods, replacement stock or refunds will be initiated within 5 to 7 business days via the original mode of payment or direct bank transfer.</p>
+                </div>
+            </section>
+
         </div>
     </main>
 
+    <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
     <script src="js/layout.js"></script>

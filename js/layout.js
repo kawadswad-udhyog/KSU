@@ -103,40 +103,63 @@ async function loadLayoutComponents() {
  */
 function getFallbackHeader(basePath) {
     return `
-        <header class="sticky top-0 z-40 bg-[#FFFDF7]/95 backdrop-blur-md border-b border-[#F3E6C8]">
+        <header class="sticky top-0 z-50 bg-[#FFFDF7]/95 backdrop-blur-md border-b border-[#F3E6C8] transition-all duration-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-                <a href="${basePath}index.html" class="flex items-center gap-3 group focus:outline-none">
-                    <span class="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[#4E342E] group-hover:text-[#FE330E] transition-colors">
-                        KAWAD <span class="text-[#FE330E] italic">SWAD</span>
-                    </span>
+                <!-- Brand Logo -->
+                <a href="${basePath}index.html" class="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">
+                    <span class="font-serif text-2xl font-bold tracking-wider text-[#4E342E] group-hover:text-[#FE330E] transition-colors duration-300">KAWAD SWAD</span>
                 </a>
-                <nav class="hidden lg:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-[#4E342E]">
-                    <a href="${basePath}index.html" class="hover:text-[#FE330E] transition-colors">Home</a>
-                    <a href="${basePath}about.html" class="hover:text-[#FE330E] transition-colors">About Us</a>
-                    <a href="${basePath}products.html" class="hover:text-[#FE330E] transition-colors">Products</a>
-                    <a href="${basePath}shop.html" class="hover:text-[#FE330E] transition-colors">Shop</a>
-                    <a href="${basePath}business.html" class="hover:text-[#FE330E] transition-colors">Business Hub</a>
-                    <a href="${basePath}blog.html" class="hover:text-[#FE330E] transition-colors">Blog</a>
-                    <a href="${basePath}contact.html" class="hover:text-[#FE330E] transition-colors">Contact</a>
+
+                <!-- Desktop Navigation -->
+                <nav aria-label="Main Navigation" class="hidden lg:flex items-center space-x-7 text-xs font-semibold uppercase tracking-wider text-[#4E342E]">
+                    <a href="${basePath}index.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Home</a>
+                    <a href="${basePath}about.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">About</a>
+                    <a href="${basePath}products.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Products</a>
+                    <a href="${basePath}shop.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Shop</a>
+                    <a href="${basePath}business.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Business</a>
+                    <a href="${basePath}manufacturing.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Manufacturing</a>
+                    <a href="${basePath}gallery.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Gallery</a>
+                    <a href="${basePath}blog.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Blog</a>
+                    <a href="${basePath}contact.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Contact</a>
                 </nav>
-                <div class="flex items-center space-x-4">
-                    <a href="${basePath}shop.html" class="relative p-2 text-[#4E342E] hover:text-[#FE330E] transition-colors" aria-label="Cart">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                        <span id="cart-badge" class="absolute top-1 right-1 w-4 h-4 bg-[#FE330E] text-white rounded-full text-[10px] font-bold flex items-center justify-center hidden">0</span>
+
+                <!-- Search, Cart Badge & Mobile Menu Controls -->
+                <div class="flex items-center space-x-3">
+                    <!-- Search Quick Button -->
+                    <a href="${basePath}shop.html" class="text-[#4E342E] hover:text-[#FE330E] transition-colors duration-200 p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-full" aria-label="Search Products">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
                     </a>
-                    <button id="mobile-menu-button" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 text-[#4E342E] hover:text-[#FE330E] focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+
+                    <!-- Cart Badge Link (Synchronized with js/cart.js) -->
+                    <a href="${basePath}cart.html" class="relative text-[#4E342E] hover:text-[#FE330E] transition-colors duration-200 p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-full" aria-label="Shopping Cart">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                        </svg>
+                        <span id="cart-badge-count" data-cart-count class="absolute top-0 right-0 bg-[#FE330E] text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center pointer-events-none shadow-sm">0</span>
+                    </a>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button type="button" id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden p-2 text-[#4E342E] hover:text-[#FE330E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg transition-colors duration-200" aria-label="Toggle Navigation Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
                     </button>
                 </div>
             </div>
-            <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-[#F3E6C8] px-4 pt-4 pb-6 space-y-3">
-                <a href="${basePath}index.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#FE330E]">Home</a>
-                <a href="${basePath}about.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#FE330E]">About Us</a>
-                <a href="${basePath}products.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#FE330E]">Products</a>
-                <a href="${basePath}shop.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#FE330E]">Shop</a>
-                <a href="${basePath}business.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#FE330E]">Business Hub</a>
-                <a href="${basePath}blog.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#FE330E]">Blog</a>
-                <a href="${basePath}contact.html" class="block py-2 text-xs font-semibold uppercase tracking-wider text-[#4E342E] hover:text-[#FE330E]">Contact</a>
+
+            <!-- Mobile Navigation Dropdown -->
+            <div id="mobile-menu" class="hidden lg:hidden bg-[#FFFDF7]/98 border-b border-[#F3E6C8] px-6 pt-3 pb-6 space-y-3 text-xs font-semibold uppercase tracking-wider text-[#4E342E] shadow-xl">
+                <a href="${basePath}index.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Home</a>
+                <a href="${basePath}about.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">About</a>
+                <a href="${basePath}products.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Products</a>
+                <a href="${basePath}shop.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Shop</a>
+                <a href="${basePath}business.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Business</a>
+                <a href="${basePath}manufacturing.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Manufacturing</a>
+                <a href="${basePath}gallery.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Gallery</a>
+                <a href="${basePath}blog.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Blog</a>
+                <a href="${basePath}contact.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Contact</a>
             </div>
         </header>
     `;
@@ -150,6 +173,7 @@ function getFallbackFooter(basePath) {
         <footer class="bg-[#2D1F17] text-[#F5EEDC] text-sm border-t border-[#F3E6C8]/10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+                    <!-- Brand Overview & Compliance -->
                     <div class="space-y-4 lg:col-span-2">
                         <span class="font-serif text-2xl font-bold text-white tracking-wider">KAWAD SWAD</span>
                         <p class="text-xs text-[#F5EEDC]/80 leading-relaxed max-w-sm font-light">
@@ -161,44 +185,66 @@ function getFallbackFooter(basePath) {
                             <p>Udyam Reg: UDYAM-MP-28-0044363</p>
                         </div>
                     </div>
+
+                    <!-- Quick Links -->
                     <nav aria-label="Quick Links">
                         <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
                         <ul class="space-y-2.5 text-xs font-light">
-                            <li><a href="${basePath}index.html" class="hover:text-[#E6B800] transition-colors">Home</a></li>
-                            <li><a href="${basePath}about.html" class="hover:text-[#E6B800] transition-colors">About Us</a></li>
-                            <li><a href="${basePath}products.html" class="hover:text-[#E6B800] transition-colors">Products</a></li>
-                            <li><a href="${basePath}shop.html" class="hover:text-[#E6B800] transition-colors">Shop</a></li>
-                            <li><a href="${basePath}contact.html" class="hover:text-[#E6B800] transition-colors">Contact Us</a></li>
+                            <li><a href="${basePath}index.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Home</a></li>
+                            <li><a href="${basePath}about.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">About Us</a></li>
+                            <li><a href="${basePath}products.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Products</a></li>
+                            <li><a href="${basePath}shop.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Shop</a></li>
+                            <li><a href="${basePath}contact.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Contact Us</a></li>
                         </ul>
                     </nav>
+
+                    <!-- Business & Media Links -->
                     <nav aria-label="Business & Media">
                         <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Media</h4>
                         <ul class="space-y-2.5 text-xs font-light">
-                            <li><a href="${basePath}business.html" class="hover:text-[#E6B800] transition-colors">Business Solutions</a></li>
-                            <li><a href="${basePath}distributor.html" class="hover:text-[#E6B800] transition-colors">Distributor Portal</a></li>
-                            <li><a href="${basePath}bulk.html" class="hover:text-[#E6B800] transition-colors">Bulk Orders</a></li>
-                            <li><a href="${basePath}media.html" class="hover:text-[#E6B800] transition-colors">Media &amp; Press</a></li>
-                            <li><a href="${basePath}work-with-us.html" class="hover:text-[#E6B800] transition-colors">Work With Us</a></li>
-                            <li><a href="${basePath}manufacturing.html" class="hover:text-[#E6B800] transition-colors">Manufacturing</a></li>
-                            <li><a href="${basePath}gallery.html" class="hover:text-[#E6B800] transition-colors">Gallery</a></li>
-                            <li><a href="${basePath}blog.html" class="hover:text-[#E6B800] transition-colors">Blog &amp; Recipes</a></li>
+                            <li><a href="${basePath}business.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Business Solutions</a></li>
+                            <li><a href="${basePath}distributor.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Distributor Portal</a></li>
+                            <li><a href="${basePath}bulk.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Bulk Orders</a></li>
+                            <li><a href="${basePath}media.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Media &amp; Press</a></li>
+                            <li><a href="${basePath}work-with-us.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Work With Us</a></li>
+                            <li><a href="${basePath}manufacturing.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Manufacturing</a></li>
+                            <li><a href="${basePath}gallery.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Gallery</a></li>
+                            <li><a href="${basePath}blog.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Blog &amp; Recipes</a></li>
                         </ul>
                     </nav>
+
+                    <!-- Support & Legal Links -->
                     <nav aria-label="Support & Legal">
                         <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Support &amp; Legal</h4>
                         <ul class="space-y-2.5 text-xs font-light">
-                            <li><a href="${basePath}faq.html" class="hover:text-[#E6B800] transition-colors">FAQ</a></li>
-                            <li><a href="${basePath}policies.html" class="hover:text-[#E6B800] transition-colors">Privacy Policy</a></li>
-                            <li><a href="${basePath}policies.html#terms-and-conditions" class="hover:text-[#E6B800] transition-colors">Terms &amp; Conditions</a></li>
-                            <li><a href="${basePath}policies.html#shipping-policy" class="hover:text-[#E6B800] transition-colors">Shipping &amp; Returns</a></li>
+                            <li><a href="${basePath}faq.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">FAQ</a></li>
+                            <li><a href="${basePath}policies.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Privacy Policy</a></li>
+                            <li><a href="${basePath}policies.html#terms-and-conditions" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Terms &amp; Conditions</a></li>
+                            <li><a href="${basePath}policies.html#shipping-policy" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Shipping &amp; Returns</a></li>
                         </ul>
                     </nav>
                 </div>
+
+                <!-- Newsletter Section -->
+                <div class="mt-12 pt-8 border-t border-[#F3E6C8]/10 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Subscribe to Our Newsletter</h5>
+                        <p class="text-xs text-[#F5EEDC]/80 mt-1 font-light">Receive authentic Jain recipes and business updates directly.</p>
+                    </div>
+                    <form data-form="newsletter" novalidate class="flex gap-2">
+                        <input type="email" placeholder="Enter your email" required aria-label="Email address for newsletter" class="bg-[#1E1510] border border-[#F3E6C8]/30 rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E] flex-grow">
+                        <button type="submit" class="px-6 py-3 bg-[#FE330E] text-white font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-[#D92500] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] shadow-lg">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Copyright & Social Deep Links -->
                 <div class="mt-12 pt-8 border-t border-[#F3E6C8]/10 flex flex-col sm:flex-row justify-between items-center text-xs text-[#F5EEDC]/70 font-light gap-4">
                     <p>&copy; 2026 KAWAD SWAD Udhyog. All rights reserved.</p>
                     <div class="flex space-x-6">
-                        <a href="https://wa.me/919630976867" target="_blank" rel="noopener noreferrer" class="hover:text-[#E6B800] transition-colors">WhatsApp</a>
-                        <a href="${basePath}contact.html" class="hover:text-[#E6B800] transition-colors">Support</a>
+                        <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20am%20visiting%20your%20website%20and%20need%20assistance." target="_blank" rel="noopener noreferrer" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">WhatsApp</a>
+                        <a href="${basePath}contact.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Support</a>
                     </div>
                 </div>
             </div>

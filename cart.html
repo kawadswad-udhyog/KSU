@@ -15,14 +15,39 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#C5A059">
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN & Custom Config -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
+    <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow py-16">
@@ -34,17 +59,17 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
                 <div class="lg:col-span-2 bg-white rounded-sm border border-stone-200/80 p-6 shadow-sm overflow-x-auto">
-                    <table class="w-full text-left text-sm">
+                    <table class="w-full text-left text-sm" aria-label="Shopping Cart Items">
                         <thead class="bg-brand-cream/50 text-brand-dark font-serif border-b border-stone-200">
                             <tr>
-                                <th class="py-3 px-4">Product</th>
-                                <th class="py-3 px-4">Size</th>
-                                <th class="py-3 px-4">Quantity</th>
-                                <th class="py-3 px-4">Price</th>
-                                <th class="py-3 px-4">Action</th>
+                                <th scope="col" class="py-3 px-4">Product</th>
+                                <th scope="col" class="py-3 px-4">Size</th>
+                                <th scope="col" class="py-3 px-4">Quantity</th>
+                                <th scope="col" class="py-3 px-4">Price</th>
+                                <th scope="col" class="py-3 px-4">Action</th>
                             </tr>
                         </thead>
-                        <tbody class="divide-y divide-stone-200/80">
+                        <tbody id="cart-items-container" class="divide-y divide-stone-200/80">
                             <!-- Items rendered dynamically via js/cart.js -->
                         </tbody>
                     </table>
@@ -67,7 +92,7 @@
                         </div>
                     </div>
 
-                    <a href="checkout.html" class="block w-full text-center py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold transition-colors">
+                    <a href="checkout.html" class="block w-full text-center py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                         Proceed to Checkout
                     </a>
                 </div>
@@ -75,6 +100,7 @@
         </div>
     </main>
 
+    <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
     <script src="js/layout.js"></script>

@@ -80,7 +80,7 @@ function initMobileMenu() {
     header.dataset.mobileMenuBound = 'true';
 
     header.addEventListener('click', (e) => {
-        const toggleBtn = e.target.closest('button[aria-label="Toggle Navigation"]');
+        const toggleBtn = e.target.closest('button[aria-label="Toggle Navigation"], button[aria-label="Toggle Navigation Menu"], #mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
         if (toggleBtn && mobileMenu) {
@@ -101,7 +101,7 @@ function initMobileMenu() {
         const mobileLink = e.target.closest('#mobile-menu a');
         if (mobileLink && mobileMenu) {
             mobileMenu.classList.add('hidden');
-            const toggle = document.querySelector('button[aria-label="Toggle Navigation"]');
+            const toggle = document.querySelector('button[aria-label="Toggle Navigation"], button[aria-label="Toggle Navigation Menu"], #mobile-menu-btn');
             if (toggle) toggle.setAttribute('aria-expanded', 'false');
         }
     });
@@ -111,7 +111,7 @@ function initMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('hidden');
-                const toggle = document.querySelector('button[aria-label="Toggle Navigation"]');
+                const toggle = document.querySelector('button[aria-label="Toggle Navigation"], button[aria-label="Toggle Navigation Menu"], #mobile-menu-btn');
                 if (toggle) {
                     toggle.setAttribute('aria-expanded', 'false');
                     toggle.focus();
@@ -122,7 +122,7 @@ function initMobileMenu() {
 
     document.addEventListener('click', (e) => {
         const mobileMenu = document.getElementById('mobile-menu');
-        const toggleBtn = document.querySelector('button[aria-label="Toggle Navigation"]');
+        const toggleBtn = document.querySelector('button[aria-label="Toggle Navigation"], button[aria-label="Toggle Navigation Menu"], #mobile-menu-btn');
         if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
             if (!mobileMenu.contains(e.target) && (!toggleBtn || !toggleBtn.contains(e.target))) {
                 mobileMenu.classList.add('hidden');

@@ -1,14 +1,14 @@
-/* Page-specific styles extracted from flash-sale.html */
-body { font-family: 'Inter', sans-serif; background-color: var(--brand-bg); color: #FFFFFF; }
-h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Sora', sans-serif; }
-.glass-panel { background: rgba(28, 28, 28, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
-.glass-card { background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-.glass-card:hover { border-color: rgba(239, 68, 68, 0.4); box-shadow: 0 12px 30px -10px rgba(239, 68, 68, 0.2); }
+/* Page-specific styles for flash-sale.html */
+body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--brand-bg, #FAF7F2); color: #1C1917; }
+h1, h2, h3, h4, h5, h6, .font-heading { font-family: 'Playfair Display', Georgia, serif; }
+.glass-panel { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(197, 160, 89, 0.2); }
+.glass-card { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(197, 160, 89, 0.15); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.glass-card:hover { border-color: rgba(197, 160, 89, 0.6); box-shadow: 0 12px 30px -10px rgba(197, 160, 89, 0.15); }
 /* Custom Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--brand-bg); }
-::-webkit-scrollbar-thumb { background: var(--brand-surface); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--brand-danger); }
+::-webkit-scrollbar-track { background: #FAF7F2; }
+::-webkit-scrollbar-thumb { background: #C5A059; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #A37F38; }
 @media (prefers-reduced-motion: reduce) {
   .animate-ping, .animate-bounce, .transition-transform, .transition { animation: none !important; transition: none !important; }
 }

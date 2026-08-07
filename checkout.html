@@ -5,10 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout | KAWAD SWAD</title>
     <meta name="description" content="Complete your order for premium Jain Papads from KAWAD SWAD.">
-    
-    <!-- Tailwind CSS CDN -->
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://kawadswad.com/checkout.html">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#C5A059">
+
+    <!-- Tailwind CSS CDN & Custom Config -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,45 +66,45 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label for="first-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">First Name <span class="text-brand-red">*</span></label>
-                                <input type="text" id="first-name" name="first-name" required aria-describedby="err-fname" placeholder="First Name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <input type="text" id="first-name" name="first-name" required aria-describedby="err-fname" placeholder="First Name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-fname" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your first name.</span>
                             </div>
                             <div>
                                 <label for="last-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Last Name <span class="text-brand-red">*</span></label>
-                                <input type="text" id="last-name" name="last-name" required aria-describedby="err-lname" placeholder="Last Name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <input type="text" id="last-name" name="last-name" required aria-describedby="err-lname" placeholder="Last Name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-lname" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your last name.</span>
                             </div>
                             <div>
                                 <label for="checkout-mobile" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Mobile Number <span class="text-brand-red">*</span></label>
-                                <input type="tel" id="checkout-mobile" name="checkout-mobile" required aria-describedby="err-cmobile" placeholder="10-digit Indian Mobile Number" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <input type="tel" id="checkout-mobile" name="checkout-mobile" required aria-describedby="err-cmobile" placeholder="10-digit Indian Mobile Number" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-cmobile" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid 10-digit mobile number.</span>
                             </div>
                             <div>
                                 <label for="checkout-email" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Email Address <span class="text-brand-red">*</span></label>
-                                <input type="email" id="checkout-email" name="checkout-email" required aria-describedby="err-cemail" placeholder="Email Address" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <input type="email" id="checkout-email" name="checkout-email" required aria-describedby="err-cemail" placeholder="Email Address" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-cemail" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid email address.</span>
                             </div>
                         </div>
 
                         <div>
                             <label for="address" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Flat / House No / Street Address <span class="text-brand-red">*</span></label>
-                            <input type="text" id="address" name="address" required aria-describedby="err-addr" placeholder="House number, building name, street name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                            <input type="text" id="address" name="address" required aria-describedby="err-addr" placeholder="House number, building name, street name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                             <span id="err-addr" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your delivery address.</span>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                             <div>
                                 <label for="landmark" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Landmark</label>
-                                <input type="text" id="landmark" name="landmark" placeholder="Nearby landmark" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <input type="text" id="landmark" name="landmark" placeholder="Nearby landmark" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                             </div>
                             <div>
                                 <label for="checkout-city" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">City <span class="text-brand-red">*</span></label>
-                                <input type="text" id="checkout-city" name="checkout-city" required aria-describedby="err-ccity" placeholder="City" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <input type="text" id="checkout-city" name="checkout-city" required aria-describedby="err-ccity" placeholder="City" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-ccity" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter city.</span>
                             </div>
                             <div>
                                 <label for="checkout-state" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">State <span class="text-brand-red">*</span></label>
-                                <input type="text" id="checkout-state" name="checkout-state" required aria-describedby="err-cstate" placeholder="State" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <input type="text" id="checkout-state" name="checkout-state" required aria-describedby="err-cstate" placeholder="State" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-cstate" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter state.</span>
                             </div>
                         </div>
@@ -81,7 +112,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                             <div>
                                 <label for="pincode" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">PIN Code <span class="text-brand-red">*</span></label>
-                                <input type="text" id="pincode" name="pincode" required aria-describedby="err-pin" placeholder="6-digit PIN Code" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <input type="text" id="pincode" name="pincode" required aria-describedby="err-pin" placeholder="6-digit PIN Code" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-pin" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid 6-digit PIN Code.</span>
                             </div>
                             <div>
@@ -90,7 +121,7 @@
                             </div>
                             <div>
                                 <label for="address-type" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Address Type</label>
-                                <select id="address-type" name="address-type" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                                <select id="address-type" name="address-type" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                     <option value="Home" selected>Home</option>
                                     <option value="Office">Office</option>
                                     <option value="Other">Other</option>
@@ -100,7 +131,7 @@
 
                         <div>
                             <label for="order-notes" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Order Notes (Optional)</label>
-                            <input type="text" id="order-notes" name="order-notes" placeholder="Special instructions for delivery" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
+                            <input type="text" id="order-notes" name="order-notes" placeholder="Special instructions for delivery" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                         </div>
                     </div>
 
@@ -137,12 +168,12 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="submit-btn w-full text-center py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors disabled:opacity-50">
+                    <button type="submit" class="submit-btn w-full text-center py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                         Place Order
                     </button>
 
                     <p class="text-[11px] text-brand-muted text-center italic">
-                        Questions? <a href="https://wa.me/91963097687?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20need%20assistance%20regarding%20my%20order.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="text-brand-gold underline">Chat with us on WhatsApp</a>
+                        Questions? <a href="https://wa.me/91963097687?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20need%20assistance%20regarding%20my%20order.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="text-brand-gold underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Chat with us on WhatsApp</a>
                     </p>
                 </div>
             </form>

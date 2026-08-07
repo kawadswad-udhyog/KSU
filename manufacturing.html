@@ -28,39 +28,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#C5A059">
+    <meta name="theme-color" content="#FE330E">
 
-    <!-- Tailwind CSS CDN & Custom Config -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Master Design System Stylesheet -->
+    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
     <link rel="stylesheet" href="css/design-system.css">
 
     <!-- CSS Animation Utilities & Motion Safety -->
@@ -106,37 +76,37 @@
     }
     </script>
 </head>
-<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
     <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO BANNER -->
-        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
+        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">
                         Hygienic &amp; Process Driven
                     </span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
-                        Manufacturing <span class="italic text-brand-gold font-normal">Excellence</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#4E342E]">
+                        Manufacturing <span class="italic text-[#FE330E] font-normal">Excellence</span>
                     </h1>
-                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
+                    <p class="text-base sm:text-lg text-[#5F5F5F] font-light leading-relaxed">
                         Discover how authentic Jain papads are crafted with traditional recipes, premium ingredients and hygienic manufacturing practices.
                     </p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-lg text-white bg-[#FE330E] hover:bg-[#D92500] transition-all duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
                             Explore Products
                         </a>
-                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-[#4E342E] text-xs font-semibold uppercase tracking-wider rounded-lg text-[#4E342E] hover:bg-[#4E342E] hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
                             Business Enquiry
                         </a>
                     </div>
                 </div>
 
                 <!-- Real Factory Hero Banner Image -->
-                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-luxury relative group fade-in">
+                <div class="mt-12 aspect-21/9 bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center overflow-hidden shadow-xl relative group fade-in">
                     <img src="assets/images/factory-hero.png" alt="Manufacturing Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
             </div>
@@ -146,17 +116,17 @@
         <section class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    <div class="bg-brand-cream/40 rounded-sm border border-stone-200/80 overflow-hidden shadow-luxury flex items-center justify-center p-2">
-                        <img src="assets/images/factory-process.png" alt="Manufacturing Process - KAWAD SWAD" class="w-full h-auto max-h-[450px] object-cover rounded-sm">
+                    <div class="bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] overflow-hidden shadow-xl flex items-center justify-center p-2">
+                        <img src="assets/images/factory-process.png" alt="Manufacturing Process - KAWAD SWAD" class="w-full h-auto max-h-[450px] object-cover rounded-lg">
                     </div>
 
                     <div class="space-y-6">
                         <div>
-                            <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full mb-3">Facility Standards</span>
-                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Our Manufacturing Philosophy</h2>
-                            <div class="w-12 h-0.5 bg-brand-gold"></div>
+                            <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full mb-3 border border-[#F3E6C8]">Facility Standards</span>
+                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#4E342E] mb-3">Our Manufacturing Philosophy</h2>
+                            <div class="w-12 h-0.5 bg-[#FBEC0A]"></div>
                         </div>
-                        <div class="space-y-4 text-brand-muted text-sm sm:text-base leading-relaxed font-light">
+                        <div class="space-y-4 text-[#5F5F5F] text-sm sm:text-base leading-relaxed font-light">
                             <p>At Kawad Swad Udhyog, our manufacturing process balances strict adherence to authentic Jain dietary standards with modern, touchless hygienic equipment. From raw pulse cleaning to automated dough kneading, rolling, and moisture-controlled drying, quality is preserved at every step.</p>
                             <p>Operating under FSSAI license parameters (Lic No. 21425890001224), our facility maintains rigorous sanitation controls, batch testing protocols, and protective foil packaging to ensure uniform crispness, long shelf life, and authentic Nimar flavor in every single pack.</p>
                         </div>
@@ -166,62 +136,62 @@
         </section>
 
         <!-- CERTIFICATIONS & COMPLIANCE -->
-        <section class="py-24 bg-brand-cream border-t border-stone-200/80">
+        <section class="py-24 bg-[#FFFDF7] border-t border-[#F3E6C8]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Accreditation</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Certifications &amp; Compliance</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Accreditation</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#4E342E]">Certifications &amp; Compliance</h2>
+                    <div class="w-12 h-0.5 bg-[#FBEC0A] mx-auto"></div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-luxury space-y-3">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
+                    <div class="card p-8 text-center space-y-3">
+                        <div class="w-12 h-12 bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
                             FSSAI
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark">FSSAI License</h3>
-                        <p class="text-xs text-brand-muted font-mono">Lic No: 21425890001224</p>
+                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">FSSAI License</h3>
+                        <p class="text-xs text-[#8B8174] font-mono">Lic No: 21425890001224</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-luxury space-y-3">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
+                    <div class="card p-8 text-center space-y-3">
+                        <div class="w-12 h-12 bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
                             GSTIN
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark">GST Registration</h3>
-                        <p class="text-xs text-brand-muted font-mono">23AIAPJ3923D1ZX</p>
+                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">GST Registration</h3>
+                        <p class="text-xs text-[#8B8174] font-mono">23AIAPJ3923D1ZX</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-luxury space-y-3">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
+                    <div class="card p-8 text-center space-y-3">
+                        <div class="w-12 h-12 bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
                             MSME
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark">MSME Enterprise</h3>
-                        <p class="text-xs text-brand-muted font-mono">UDYAM-MP-28-0044363</p>
+                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">MSME Enterprise</h3>
+                        <p class="text-xs text-[#8B8174] font-mono">UDYAM-MP-28-0044363</p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 text-center shadow-luxury space-y-3">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
+                    <div class="card p-8 text-center space-y-3">
+                        <div class="w-12 h-12 bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] rounded-full flex items-center justify-center mx-auto mb-2 font-bold text-xs">
                             JAIN
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark">100% Vegetarian</h3>
-                        <p class="text-xs text-brand-muted font-light">Strict Jain Guidelines</p>
+                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">100% Vegetarian</h3>
+                        <p class="text-xs text-[#5F5F5F] font-light">Strict Jain Guidelines</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CALL TO ACTION -->
-        <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
+        <section class="py-24 bg-[#2D1F17] text-white relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
                 <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">
                     Interested in Manufacturing With Us?
                 </h2>
                 <p class="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-light">Partner with our advanced facility for private label and custom bulk manufacturing.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 bg-[#FE330E] text-white font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-[#D92500] transition-colors duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
                         Private Label
                     </a>
-                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-white hover:text-[#4E342E] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
                         Business Enquiry
                     </a>
                 </div>

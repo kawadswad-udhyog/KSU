@@ -9,30 +9,41 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://kawadswad.com/business.html">
 
-    <!-- Open Graph / Favicons / Tailwind / Fonts (Unchanged) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = { theme: { extend: { colors: { brand: { gold: '#C5A059', darkGold: '#A37F38', red: '#8B0000', cream: '#FAF7F2', dark: '#1C1917', muted: '#57534E' } } } } }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#FE330E">
+
+    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
     <link rel="stylesheet" href="css/design-system.css">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in, .slide-up { animation: none; opacity: 1; transform: none; }
+        }
     </style>
 </head>
-<body class="bg-brand-cream text-brand-dark font-sans antialiased flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO -->
-        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24">
+        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24">
             <div class="max-w-7xl mx-auto px-4 text-center space-y-6 slide-up">
-                <h1 class="font-serif text-5xl lg:text-6xl font-bold text-brand-dark">Business <span class="italic text-brand-gold font-normal">Hub</span></h1>
-                <p class="text-lg text-brand-muted max-w-2xl mx-auto">Your gateway to partnering with India's most authentic Jain papad manufacturer.</p>
+                <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">B2B Enterprise Portal</span>
+                <h1 class="font-serif text-5xl lg:text-6xl font-bold text-[#4E342E]">Business <span class="italic text-[#FE330E] font-normal">Hub</span></h1>
+                <p class="text-lg text-[#5F5F5F] max-w-2xl mx-auto font-light">Your gateway to partnering with India's most authentic Jain papad manufacturer.</p>
             </div>
         </section>
 
@@ -40,36 +51,72 @@
         <section class="py-20 max-w-7xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Distributor Program -->
-                <a href="distributor.html" class="glass-card p-8 flex flex-col items-center text-center space-y-4 hover:border-brand-gold">
-                    <div class="w-16 h-16 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-gold"><i class="fa-solid fa-handshake text-2xl"></i></div>
-                    <h3 class="font-serif text-xl font-bold">Distributor Program</h3>
-                    <p class="text-sm text-brand-muted">Expand your reach by becoming an authorized regional distributor.</p>
+                <a href="distributor.html" class="card p-8 flex flex-col items-center text-center space-y-4">
+                    <div class="w-16 h-16 bg-[#FFFDE6] rounded-full flex items-center justify-center text-[#FE330E] border border-[#F3E6C8]"><i class="fa-solid fa-handshake text-2xl"></i></div>
+                    <h3 class="font-serif text-xl font-bold text-[#4E342E]">Distributor Program</h3>
+                    <p class="text-sm text-[#5F5F5F] font-light">Expand your reach by becoming an authorized regional distributor.</p>
                 </a>
                 <!-- Bulk Orders -->
-                <a href="bulk.html" class="glass-card p-8 flex flex-col items-center text-center space-y-4 hover:border-brand-gold">
-                    <div class="w-16 h-16 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-gold"><i class="fa-solid fa-boxes-stacked text-2xl"></i></div>
-                    <h3 class="font-serif text-xl font-bold">Bulk Orders</h3>
-                    <p class="text-sm text-brand-muted">Competitive wholesale pricing for large-scale institutional requirements.</p>
+                <a href="bulk.html" class="card p-8 flex flex-col items-center text-center space-y-4">
+                    <div class="w-16 h-16 bg-[#FFFDE6] rounded-full flex items-center justify-center text-[#FE330E] border border-[#F3E6C8]"><i class="fa-solid fa-boxes-stacked text-2xl"></i></div>
+                    <h3 class="font-serif text-xl font-bold text-[#4E342E]">Bulk Orders</h3>
+                    <p class="text-sm text-[#5F5F5F] font-light">Competitive wholesale pricing for large-scale institutional requirements.</p>
                 </a>
                 <!-- Media -->
-                <a href="media.html" class="glass-card p-8 flex flex-col items-center text-center space-y-4 hover:border-brand-gold">
-                    <div class="w-16 h-16 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-gold"><i class="fa-solid fa-newspaper text-2xl"></i></div>
-                    <h3 class="font-serif text-xl font-bold">Media &amp; Press</h3>
-                    <p class="text-sm text-brand-muted">Access our latest brand assets, press releases, and media coverage.</p>
+                <a href="media.html" class="card p-8 flex flex-col items-center text-center space-y-4">
+                    <div class="w-16 h-16 bg-[#FFFDE6] rounded-full flex items-center justify-center text-[#FE330E] border border-[#F3E6C8]"><i class="fa-solid fa-newspaper text-2xl"></i></div>
+                    <h3 class="font-serif text-xl font-bold text-[#4E342E]">Media &amp; Press</h3>
+                    <p class="text-sm text-[#5F5F5F] font-light">Access our latest brand assets, press releases, and media coverage.</p>
                 </a>
                 <!-- Work With Us -->
-                <a href="work-with-us.html" class="glass-card p-8 flex flex-col items-center text-center space-y-4 hover:border-brand-gold">
-                    <div class="w-16 h-16 bg-brand-gold/10 rounded-full flex items-center justify-center text-brand-gold"><i class="fa-solid fa-users text-2xl"></i></div>
-                    <h3 class="font-serif text-xl font-bold">Work With Us</h3>
-                    <p class="text-sm text-brand-muted">Join our growing team and build your career in the traditional food industry.</p>
+                <a href="work-with-us.html" class="card p-8 flex flex-col items-center text-center space-y-4">
+                    <div class="w-16 h-16 bg-[#FFFDE6] rounded-full flex items-center justify-center text-[#FE330E] border border-[#F3E6C8]"><i class="fa-solid fa-users text-2xl"></i></div>
+                    <h3 class="font-serif text-xl font-bold text-[#4E342E]">Work With Us</h3>
+                    <p class="text-sm text-[#5F5F5F] font-light">Join our growing team and build your career in the traditional food industry.</p>
                 </a>
             </div>
         </section>
 
-        <!-- ENQUIRY FORM (Kept for continuity) -->
-        <section id="business-form" class="py-24 bg-white">
+        <!-- ENQUIRY SECTION -->
+        <section id="business-form" class="py-24 bg-white border-t border-[#F3E6C8]">
             <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <!-- [Insert existing form from your previous business.html code here] -->
+                <div class="card p-8 sm:p-14 rounded-[20px] shadow-xl">
+                    <div class="text-center mb-10 space-y-3">
+                        <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Direct Partnership</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#4E342E]">General Business Enquiry</h2>
+                        <p class="text-[#5F5F5F] text-sm font-light">Get in touch with our commercial operations team for custom collaborations.</p>
+                    </div>
+
+                    <form id="business-general-form" data-form="business" novalidate class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label for="gen-name" class="text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Full Name *</label>
+                                <input type="text" id="gen-name" name="name" required placeholder="Enter your full name" class="w-full">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="gen-company" class="text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Company / Organization</label>
+                                <input type="text" id="gen-company" name="company" placeholder="Business name (optional)" class="w-full">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="gen-mobile" class="text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Mobile Number *</label>
+                                <input type="tel" id="gen-mobile" name="mobile" required placeholder="10-digit mobile number" class="w-full">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="gen-email" class="text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Email Address *</label>
+                                <input type="email" id="gen-email" name="email" required placeholder="name@domain.com" class="w-full">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label for="gen-message" class="text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Message / Proposal Details *</label>
+                            <textarea id="gen-message" name="message" rows="4" required placeholder="Describe your collaboration proposal..." class="w-full"></textarea>
+                        </div>
+                        <div class="pt-4">
+                            <button type="submit" class="w-full py-4 btn-primary text-xs uppercase tracking-wider rounded-lg shadow-lg">
+                                Send Business Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
     </main>

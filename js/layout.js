@@ -20,22 +20,24 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /**
- * Asynchronously fetches and replaces component placeholders with path awareness
- * for GitHub Pages subfolder hosting (/KSU/).
+ * Asynchronously fetches and replaces component placeholders with resilient path awareness
+ * for both local environments and hosted subfolders (e.g., GitHub Pages /KSU/).
  */
 async function loadLayoutComponents() {
     const headerContainer = document.querySelector('header-component, #header-container');
     const footerContainer = document.querySelector('footer-component, #footer-container');
 
-    // Dynamically resolve base path for subfolder hosting (e.g. /KSU/)
-    const isGitHubPages = window.location.pathname.includes('/KSU/');
-    const basePath = isGitHubPages ? '/KSU/' : './';
+    // Resolve current root/base path accurately
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    const isGitHubPages = pathSegments.length > 0 && pathSegments[0] === 'KSU';
+    const basePath = isGitHubPages ? '/KSU/' : '/';
 
     const fetchTasks = [];
 
     if (headerContainer) {
+        const headerPath = `${basePath}components/header.html`.replace(/\/+/g, '/');
         fetchTasks.push(
-            fetch(`${basePath}components/header.html`)
+            fetch(headerPath)
                 .then(res => {
                     if (!res.ok) throw new Error(`Header component status: ${res.status}`);
                     return res.text();
@@ -50,8 +52,9 @@ async function loadLayoutComponents() {
     }
 
     if (footerContainer) {
+        const footerPath = `${basePath}components/footer.html`.replace(/\/+/g, '/');
         fetchTasks.push(
-            fetch(`${basePath}components/footer.html`)
+            fetch(footerPath)
                 .then(res => {
                     if (!res.ok) throw new Error(`Footer component status: ${res.status}`);
                     return res.text();
@@ -130,15 +133,21 @@ function initMobileMenu() {
 }
 
 /**
- * Highlights active page navigation link.
+ * Highlights active page navigation link using normalized pathname comparison.
  */
 function initActiveNavHighlight() {
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const rawPath = window.location.pathname;
+    const currentPath = rawPath.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('header nav a, #mobile-menu a');
 
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+        if (!href) return;
+
+        const cleanHref = href.split('/').pop();
+        const isMatch = cleanHref === currentPath || (currentPath === '' && cleanHref === 'index.html') || (rawPath.endsWith('/') && cleanHref === 'index.html');
+
+        if (isMatch) {
             link.classList.add('text-brand-gold', 'font-semibold');
             link.classList.remove('hover:text-brand-gold');
             link.setAttribute('aria-current', 'page');
@@ -248,6 +257,9 @@ function initSmoothScroll() {
                 behavior: 'smooth'
             });
 
+            if (!targetEl.hasAttribute('tabindex')) {
+                targetEl.setAttribute('tabindex', '-1');
+            }
             targetEl.focus({ preventScroll: true });
         }
     });

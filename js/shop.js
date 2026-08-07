@@ -3,10 +3,19 @@
  * KAWAD SWAD - Product Engine & Shop Controller (js/shop.js)
  * ============================================================================
  * Optimized single-fetch product database controller supporting debounced input 
- * processing, category/weight filtering, layout stability, and accessibility.
+ * processing, category/weight filtering, path awareness for GitHub Pages (/KSU/),
+ * layout stability, and accessibility.
  */
 
 let productsCache = null;
+
+/**
+ * Resolves base path dynamically for subfolder hosting environments (e.g. /KSU/)
+ */
+function getBasePath() {
+    const isGitHubPages = window.location.pathname.includes('/KSU/');
+    return isGitHubPages ? '/KSU/' : './';
+}
 
 /**
  * Debounce helper function for search inputs
@@ -24,12 +33,13 @@ function debounce(func, wait) {
 }
 
 /**
- * Database loader with memory caching
+ * Database loader with memory caching and path resolution
  */
 async function getProductsDatabase() {
     if (productsCache) return productsCache;
     try {
-        const response = await fetch('data/products.json');
+        const basePath = getBasePath();
+        const response = await fetch(`${basePath}data/products.json`);
         if (!response.ok) throw new Error(`HTTP status: ${response.status}`);
         productsCache = await response.json();
         return productsCache;
@@ -74,8 +84,8 @@ function initShopPage(products) {
             const matchesCategory = (currentCategory === 'all') || (item.category.toLowerCase() === currentCategory);
             const matchesWeight = (currentWeight === 'all') || (item.weight.toLowerCase() === currentWeight);
             const matchesSearch = item.name.toLowerCase().includes(searchQuery) ||
-                                  item.variant.toLowerCase().includes(searchQuery) ||
-                                  item.sku.toLowerCase().includes(searchQuery);
+                                  (item.variant && item.variant.toLowerCase().includes(searchQuery)) ||
+                                  (item.sku && item.sku.toLowerCase().includes(searchQuery));
             return matchesCategory && matchesWeight && matchesSearch;
         });
 
@@ -102,6 +112,7 @@ function initShopPage(products) {
         }
 
         const fragment = document.createDocumentFragment();
+        const basePath = getBasePath();
 
         filtered.forEach(product => {
             const card = document.createElement('div');
@@ -112,6 +123,9 @@ function initShopPage(products) {
             const shipping = product.price ? product.price.shipping : null;
             const activePrice = selling !== null ? selling : (mrp !== null ? mrp : 0);
 
+            const rawImg = product.image || product.placeholderImage || 'assets/images/product-placeholder.webp';
+            const imgSrc = `${basePath}${rawImg.replace(/^\/+/, '')}`;
+
             card.dataset.id = product.sku;
             card.dataset.sku = product.sku;
             card.dataset.name = product.name;
@@ -119,6 +133,7 @@ function initShopPage(products) {
             card.dataset.category = product.category;
             card.dataset.weight = product.weight;
             card.dataset.shipping = shipping !== null ? shipping : '';
+            card.dataset.image = rawImg;
 
             const priceDisplay = (selling !== null && mrp !== null && selling !== mrp)
                 ? `₹${selling} <span class="text-stone-400 line-through text-[11px] ml-1">₹${mrp}</span>`
@@ -127,8 +142,6 @@ function initShopPage(products) {
             const shippingDisplay = (shipping === 'Free')
                 ? '<span class="text-[10px] text-green-700 bg-green-100 px-2 py-0.5 rounded-xs font-medium">Free Shipping</span>'
                 : (shipping ? `<span class="text-[10px] text-stone-500 bg-stone-100 px-2 py-0.5 rounded-xs font-medium">+₹${shipping} Shipping</span>` : '');
-
-            const imgSrc = product.image || product.placeholderImage || 'assets/images/product-placeholder.webp';
 
             card.innerHTML = `
                 <div class="aspect-square bg-stone-200 rounded-sm mb-4 flex items-center justify-center p-4 text-center group-hover:scale-[1.02] transition-transform overflow-hidden">
@@ -146,7 +159,7 @@ function initShopPage(products) {
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     <a href="product-detail.html?sku=${product.sku}" class="text-center py-2 px-2 border border-brand-dark text-brand-dark text-[11px] font-semibold uppercase tracking-wider hover:bg-brand-dark hover:text-white transition-colors">Details</a>
-                    <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${activePrice}" data-weight="${product.weight}" data-shipping="${shipping || ''}" class="py-2 px-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Add</button>
+                    <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${activePrice}" data-weight="${product.weight}" data-shipping="${shipping || ''}" data-image="${rawImg}" class="py-2 px-2 bg-brand-dark text-white text-[11px] font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors">Add</button>
                 </div>
             `;
             fragment.appendChild(card);
@@ -244,11 +257,12 @@ function initProductDetailPage(products) {
     if (dietBadge) dietBadge.textContent = product.dietType;
 
     if (imageContainer) {
-        const placeholder = product.placeholderImage || 'assets/images/product-placeholder.webp';
-        const imgSrc = product.image || placeholder;
+        const basePath = getBasePath();
+        const rawImg = product.image || product.placeholderImage || 'assets/images/product-placeholder.webp';
+        const imgSrc = `${basePath}${rawImg.replace(/^\/+/, '')}`;
+
         imageContainer.innerHTML = `
-            <img src="${imgSrc}" alt="${product.imageAlt || product.name}" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.style.opacity='0.4'">
-            ${!product.image ? `<span class="absolute text-xs font-mono uppercase tracking-wider text-brand-muted">${product.sku}</span>` : ''}
+            <img src="${imgSrc}" alt="${product.imageAlt || product.name}" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.outerHTML='<span class=\\'text-xs font-mono uppercase tracking-wider text-brand-muted\\'>${product.sku}</span>'">
         `;
     }
 
@@ -266,8 +280,9 @@ function initProductDetailPage(products) {
     }
 
     if (actionContainer) {
+        const rawImg = product.image || product.placeholderImage || '';
         actionContainer.innerHTML = `
-            <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${activePrice}" data-weight="${product.weight}" data-shipping="${shipping || ''}" class="px-8 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm">
+            <button type="button" data-action="add-to-cart" data-sku="${product.sku}" data-name="${product.name}" data-price="${activePrice}" data-weight="${product.weight}" data-shipping="${shipping || ''}" data-image="${rawImg}" class="px-8 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm">
                 Add To Cart
             </button>
             <a href="contact.html?enquiry=${product.sku}" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300">

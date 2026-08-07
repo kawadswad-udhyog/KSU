@@ -3,17 +3,20 @@
  * KAWAD SWAD - Master Design System (Theme: Kawad Heritage)
  * ============================================================================
  * Premium, traditional, warm, authentic modern Indian food brand theme.
+ * Updated to incorporate the exact Kawad Heritage color variables and rules.
  */
 
+/* --- CONSOLIDATED EXTERNAL IMPORTS --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
 :root {
-  /* --- COLOR SYSTEM --- */
+  /* --- 1. KAWAD HERITAGE CORE PALETTE --- */
   --color-primary: #C62828;       /* Primary buttons, important CTAs, active nav, headings */
   --color-secondary: #E6B800;     /* Highlights, badges, icons, hover borders, accents */
   --color-accent: #00B8D9;        /* Trust indicators, links, tiny decorative details (max 3%) */
   
   --color-background: #FFF9F0;    /* Warm Cream Base */
   --color-surface: #FFFFFF;       /* Clean White Surfaces (Cards, Forms, Modals) */
-  --color-alt-bg: #FFFFFF;        /* For alternating section backgrounds */
   
   --color-heading: #4E342E;       /* Rich Deep Brown for Headings */
   --color-body: #5F5F5F;          /* Main Body Text */
@@ -26,32 +29,33 @@
   --color-footer-body: #F5EEDC;
   --color-footer-link: #E6B800;
 
-  /* --- SPACING & BORDER RADIUS --- */
+  /* --- 2. SPACING & BORDER RADIUS --- */
   --radius-card: 18px;
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-full: 9999px;
 
-  /* --- SHADOW SYSTEM (Soft, Minimal Elevation) --- */
+  /* --- 3. SHADOW SYSTEM (Soft, Minimal Elevation) --- */
   --shadow-card: 0 4px 20px rgba(78, 52, 46, 0.04);
   --shadow-hover: 0 8px 30px rgba(78, 52, 46, 0.08);
 
-  /* --- MOTION --- */
-  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
-  --duration-normal: 250ms;
+  /* --- 4. TYPOGRAPHY --- */
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
 }
 
 /* --- GLOBAL BASE ENHANCEMENTS --- */
-html {
-  scroll-behavior: smooth;
-  background-color: var(--color-background);
+html { 
+  scroll-behavior: smooth; 
+  background-color: var(--color-background); 
   color: var(--color-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+body { 
+  font-family: var(--font-main); 
   background-color: var(--color-background);
   color: var(--color-body);
   margin: 0;
@@ -61,9 +65,9 @@ body {
 }
 
 /* --- TYPOGRAPHY SYSTEM --- */
-h1, h2, h3, h4, h5, h6, .font-serif {
-  font-family: 'Playfair Display', Georgia, serif;
-  color: var(--color-heading);
+h1, h2, h3, h4, h5, h6, .font-serif { 
+  font-family: var(--font-serif); 
+  color: var(--color-heading); 
   letter-spacing: -0.01em;
 }
 
@@ -77,7 +81,7 @@ p, span, li {
 
 a {
   color: var(--color-accent);
-  transition: color var(--duration-normal) var(--ease-standard);
+  transition: color 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 a:hover {
@@ -93,13 +97,13 @@ section:nth-of-type(odd) {
   background-color: #FFFFFF; /* White */
 }
 
-/* --- BUTTON SYSTEM --- */
+/* --- ACTION COMPONENTS (Primary Brand Red) --- */
 .btn-primary, button:not([class*="bg-"]), a[class*="bg-brand-red"] {
   background-color: var(--color-primary);
   color: #FFFFFF;
   border-radius: var(--radius-sm);
   font-weight: 600;
-  transition: all var(--duration-normal) var(--ease-standard);
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid transparent;
 }
 
@@ -114,7 +118,7 @@ section:nth-of-type(odd) {
   color: var(--color-heading);
   border-radius: var(--radius-sm);
   font-weight: 600;
-  transition: all var(--duration-normal) var(--ease-standard);
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
@@ -129,7 +133,7 @@ section:nth-of-type(odd) {
   border-radius: var(--radius-card);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-card);
-  transition: transform var(--duration-normal) var(--ease-standard), box-shadow var(--duration-normal) var(--ease-standard), border-color var(--duration-normal) var(--ease-standard);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1), border-color 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card:hover, .glass-card:hover {
@@ -151,7 +155,7 @@ textarea {
   padding: 12px 16px;
   font-size: 0.875rem;
   color: var(--color-heading);
-  transition: border-color var(--duration-normal) var(--ease-standard), box-shadow var(--duration-normal) var(--ease-standard);
+  transition: border-color 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 input:focus, select:focus, textarea:focus {
@@ -172,7 +176,12 @@ input:focus, select:focus, textarea:focus {
   color: var(--color-heading);
 }
 
-/* --- FOOTER THEME --- */
+/* --- LAYOUT UTILITIES --- */
+.bg-cream { background-color: var(--color-background); }
+.text-brown { color: var(--color-heading); }
+.border-accent { border-color: var(--color-border); }
+
+/* --- FOOTER POLISH --- */
 footer {
   background-color: var(--color-footer-bg);
   color: var(--color-footer-body);
@@ -204,3 +213,4 @@ footer a:hover {
     scroll-behavior: auto !important;
   }
 }
+```[cite: 2]

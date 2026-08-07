@@ -28,39 +28,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#C5A059">
+    <meta name="theme-color" content="#FE330E">
 
-    <!-- Tailwind CSS CDN & Custom Config -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Master Design System Stylesheet -->
+    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
     <link rel="stylesheet" href="css/design-system.css">
 
     <!-- CSS Animation Utilities & Motion Safety -->
@@ -129,19 +99,19 @@
     }
     </script>
 </head>
-<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
     <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO BANNER -->
-        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
+        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">Knowledge Center</span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Frequently Asked <span class="italic text-brand-gold font-normal">Questions</span></h1>
-                    <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">Find answers to common questions about our products, business opportunities and customer support.</p>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Knowledge Center</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#4E342E]">Frequently Asked <span class="italic text-[#FE330E] font-normal">Questions</span></h1>
+                    <p class="text-base sm:text-lg text-[#5F5F5F] font-light leading-relaxed">Find answers to common questions about our products, business opportunities and customer support.</p>
                 </div>
             </div>
         </section>
@@ -151,28 +121,28 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
                 <!-- Group 1: Products & Dietary Standards -->
                 <div class="space-y-6">
-                    <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-3">Products &amp; Dietary Standards</h2>
+                    <h2 class="font-serif text-2xl font-bold text-[#4E342E] border-b border-[#F3E6C8] pb-3">Products &amp; Dietary Standards</h2>
                     
-                    <details class="group bg-brand-cream/40 p-6 sm:p-8 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none shadow-luxury">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-xs">
+                    <details class="group card p-6 sm:p-8 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-[#4E342E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">
                             <span>What product variants does Kawad Swad manufacture?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold shrink-0" aria-hidden="true">
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-[#FE330E] shrink-0" aria-hidden="true">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                        <p class="mt-4 text-sm text-[#5F5F5F] leading-relaxed font-light">
                             We manufacture 100% vegetarian Jain papads in Moong, Chana, Urad, and Specialty Masala variants available in 200g, 235g, 500g, and 1000g retail and bulk pack sizes.
                         </p>
                     </details>
 
-                    <details class="group bg-brand-cream/40 p-6 sm:p-8 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none shadow-luxury">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-xs">
+                    <details class="group card p-6 sm:p-8 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-[#4E342E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">
                             <span>Are all products strictly Jain vegetarian?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold shrink-0" aria-hidden="true">
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-[#FE330E] shrink-0" aria-hidden="true">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                        <p class="mt-4 text-sm text-[#5F5F5F] leading-relaxed font-light">
                             Yes. Every recipe adheres strictly to traditional Jain dietary guidelines, using pure pulses and spices without any prohibited ingredients or artificial flavor enhancers.
                         </p>
                     </details>
@@ -180,28 +150,28 @@
 
                 <!-- Group 2: Orders & Shipping -->
                 <div class="space-y-6">
-                    <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-3">Orders &amp; Shipping</h2>
+                    <h2 class="font-serif text-2xl font-bold text-[#4E342E] border-b border-[#F3E6C8] pb-3">Orders &amp; Shipping</h2>
 
-                    <details class="group bg-brand-cream/40 p-6 sm:p-8 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none shadow-luxury">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-xs">
+                    <details class="group card p-6 sm:p-8 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-[#4E342E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">
                             <span>How long does retail delivery take?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold shrink-0" aria-hidden="true">
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-[#FE330E] shrink-0" aria-hidden="true">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                        <p class="mt-4 text-sm text-[#5F5F5F] leading-relaxed font-light">
                             Standard online store orders are dispatched within 24 to 48 hours and typically arrive within 3 to 5 business days depending on your destination city.
                         </p>
                     </details>
 
-                    <details class="group bg-brand-cream/40 p-6 sm:p-8 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none shadow-luxury">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-xs">
+                    <details class="group card p-6 sm:p-8 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-[#4E342E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">
                             <span>What are your shipping charges?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold shrink-0" aria-hidden="true">
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-[#FE330E] shrink-0" aria-hidden="true">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                        <p class="mt-4 text-sm text-[#5F5F5F] leading-relaxed font-light">
                             Shipping fees start at flat ₹49 per order, with free shipping automatically applied to qualifying order thresholds displayed at checkout.
                         </p>
                     </details>
@@ -209,16 +179,16 @@
 
                 <!-- Group 3: Distributorship & Wholesale -->
                 <div class="space-y-6">
-                    <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-3">Distributorship &amp; Bulk Orders</h2>
+                    <h2 class="font-serif text-2xl font-bold text-[#4E342E] border-b border-[#F3E6C8] pb-3">Distributorship &amp; Bulk Orders</h2>
 
-                    <details class="group bg-brand-cream/40 p-6 sm:p-8 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none shadow-luxury">
-                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-xs">
+                    <details class="group card p-6 sm:p-8 [&_summary::-webkit-details-marker]:none">
+                        <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-[#4E342E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">
                             <span>How can I apply to become an authorized distributor?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold shrink-0" aria-hidden="true">
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-[#FE330E] shrink-0" aria-hidden="true">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </summary>
-                        <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
+                        <p class="mt-4 text-sm text-[#5F5F5F] leading-relaxed font-light">
                             You can fill out the form on our Business page or connect directly with our commercial desk at +91 96309 76867. Our regional sales manager will contact you within 24 hours.
                         </p>
                     </details>

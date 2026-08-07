@@ -71,37 +71,6 @@
             .fade-in, .slide-up { animation: none; opacity: 1; transform: none; }
         }
     </style>
-
-    <!-- JSON-LD Structured Data: WebPage, BreadcrumbList & Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Contact Us - KAWAD SWAD",
-      "url": "https://kawadswad.com/contact.html",
-      "description": "Contact KAWAD SWAD for product enquiries, distributorship, wholesale supply and private label manufacturing."
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://kawadswad.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Contact",
-          "item": "https://kawadswad.com/contact.html"
-        }
-      ]
-    }
-    </script>
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
@@ -135,13 +104,9 @@
                     </div>
                 </div>
 
-                <!-- Hero Graphic Placeholder -->
-                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center p-8 text-center shadow-inner relative group overflow-hidden fade-in">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-gold/5 to-transparent pointer-events-none"></div>
-                    <svg class="w-16 h-16 text-brand-gold/40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[contact-hero-placeholder]</span>
+                <!-- Real Contact Hero Image -->
+                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-inner relative group fade-in">
+                    <img src="assets/images/contact-hero.png" alt="Contact Hero Banner - KAWAD SWAD" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
@@ -237,64 +202,47 @@
                         <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-3"></div>
                     </div>
 
-                    <form id="contact-form" data-form="contact" novalidate class="space-y-6">
+                    <form id="contact-form" novalidate class="space-y-6">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <!-- Full Name -->
                             <div>
                                 <label for="full-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Full Name <span class="text-brand-red">*</span></label>
-                                <input type="text" id="full-name" name="full-name" required maxlength="60" aria-describedby="err-full-name" placeholder="Enter your full name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors">
-                                <span id="err-full-name" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your full name.</span>
+                                <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors">
                             </div>
-
-                            <!-- Mobile Number -->
+                            <!-- Mobile -->
                             <div>
                                 <label for="mobile" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Mobile Number <span class="text-brand-red">*</span></label>
-                                <input type="tel" id="mobile" name="mobile" required aria-describedby="err-mobile" placeholder="10-digit Indian Mobile Number" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors">
-                                <span id="err-mobile" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid 10-digit mobile number.</span>
+                                <input type="tel" id="mobile" name="mobile" required placeholder="10-digit Indian Mobile Number" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors">
                             </div>
-
-                            <!-- Email Address -->
+                            <!-- Email -->
                             <div>
                                 <label for="email-address" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Email Address <span class="text-brand-red">*</span></label>
-                                <input type="email" id="email-address" name="email-address" required aria-describedby="err-email" placeholder="Enter email address" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors">
-                                <span id="err-email" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid email address.</span>
+                                <input type="email" id="email-address" name="email-address" required placeholder="Enter email address" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors">
                             </div>
-
                             <!-- Subject -->
                             <div>
                                 <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Subject <span class="text-brand-red">*</span></label>
-                                <select id="subject" name="subject" required aria-describedby="err-subject" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors">
+                                <select id="subject" name="subject" required class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors">
                                     <option value="" disabled selected>Select Enquiry Subject</option>
                                     <option value="General Enquiry">General Enquiry</option>
                                     <option value="Product Enquiry">Product Enquiry</option>
                                     <option value="Business Enquiry">Business Enquiry</option>
-                                    <option value="Wholesale">Wholesale</option>
-                                    <option value="Distributor">Distributor</option>
-                                    <option value="Private Label">Private Label</option>
                                 </select>
-                                <span id="err-subject" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please select a subject.</span>
                             </div>
                         </div>
-
                         <!-- Message -->
                         <div>
                             <label for="contact-message" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Message <span class="text-brand-red">*</span></label>
-                            <textarea id="contact-message" name="contact-message" required maxlength="1000" aria-describedby="err-message" rows="5" placeholder="Write your message here (max 1000 characters)..." class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors"></textarea>
-                            <span id="err-message" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your message.</span>
+                            <textarea id="contact-message" name="contact-message" required rows="5" placeholder="Write your message here..." class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors"></textarea>
                         </div>
-
-                        <!-- Checkbox -->
-                        <div>
-                            <div class="flex items-start gap-2">
-                                <input type="checkbox" id="consent" name="consent" required aria-describedby="err-consent" class="mt-1 text-brand-gold focus:ring-brand-gold">
-                                <label for="consent" class="text-xs text-brand-muted">I agree to be contacted by Kawad Swad regarding my enquiry. <span class="text-brand-red">*</span></label>
-                            </div>
-                            <span id="err-consent" role="alert" aria-live="polite" class="error-msg-consent text-[11px] text-brand-red hidden block mt-1">You must agree before submitting.</span>
+                        <!-- Consent -->
+                        <div class="flex items-start gap-2">
+                            <input type="checkbox" id="consent" name="consent" required class="mt-1 text-brand-gold focus:ring-brand-gold">
+                            <label for="consent" class="text-xs text-brand-muted">I agree to be contacted by Kawad Swad regarding my enquiry. <span class="text-brand-red">*</span></label>
                         </div>
-
-                        <!-- Submit Button -->
+                        <!-- Submit -->
                         <div class="text-center pt-2">
-                            <button type="submit" class="submit-btn w-full sm:w-auto px-10 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300 shadow-sm disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                            <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 Send Message
                             </button>
                         </div>
@@ -303,12 +251,12 @@
             </div>
         </section>
 
-        <!-- MAP PLACEHOLDER -->
+        <!-- MAP -->
         <section class="py-16 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h3 class="font-serif text-xl font-bold text-brand-dark mb-4">Location Map</h3>
                 <div class="w-full aspect-21/9 bg-stone-200/80 border border-stone-300 rounded-sm flex items-center justify-center p-6 text-center">
-                    <span class="text-xs font-mono text-brand-muted">[Google Map Placeholder]</span>
+                    <iframe class="w-full h-full rounded-sm" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.9365287752667!2d75.6025170757279!3d22.656816533036437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39628500201083bb%3A0x60ed71216550798e!2sKawad%20Swad%20Udhyog!5e0!3m2!1sen!2sin!4v1722668545802!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
@@ -316,25 +264,16 @@
         <!-- WHATSAPP CTA -->
         <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-4 leading-tight">
-                    Need Immediate Assistance?
-                </h2>
-                <p class="text-stone-300 text-sm max-w-xl mx-auto mb-8 font-light">
-                    Connect with our team on WhatsApp for faster support.
-                </p>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-4 leading-tight">Need Immediate Assistance?</h2>
+                <p class="text-stone-300 text-sm max-w-xl mx-auto mb-8 font-light">Connect with our team on WhatsApp for faster support.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
-                        Chat on WhatsApp
-                    </a>
-                    <a href="tel:+919630976867" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
-                        Call Now
-                    </a>
+                    <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300">Chat on WhatsApp</a>
+                    <a href="tel:+919630976867" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300">Call Now</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
     <script src="js/layout.js"></script>

@@ -28,32 +28,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#C5A059">
-
-  <!-- Tailwind CSS CDN & Custom Config -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-      tailwind.config = {
-          theme: {
-              extend: {
-                  colors: {
-                      brand: {
-                          gold: '#C5A059',
-                          darkGold: '#A37F38',
-                          red: '#8B0000',
-                          cream: '#FAF7F2',
-                          dark: '#1C1917',
-                          muted: '#57534E'
-                      }
-                  },
-                  fontFamily: {
-                      serif: ['Playfair Display', 'Georgia', 'serif'],
-                      sans: ['Plus Jakarta Sans', 'sans-serif']
-                  }
-              }
-          }
-      }
-  </script>
+  <meta name="theme-color" content="#FE330E">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,27 +38,27 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Master Design System Stylesheet -->
+  <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
   <link rel="stylesheet" href="css/design-system.css">
 
   <style>
     :root {
-      --primary: #8B0000;
-      --primary-hover: #A37F38;
-      --secondary: #C5A059;
-      --secondary-light: #FAF7F2;
-      --dark: #1C1917;
-      --dark-surface: #292524;
-      --light-bg: #FAF7F2;
+      --primary: #FE330E;
+      --primary-hover: #D92500;
+      --secondary: #E6B800;
+      --secondary-light: #FFFDF7;
+      --dark: #2D1F17;
+      --dark-surface: #1E1510;
+      --light-bg: #FFFDF7;
       --card-bg: rgba(255, 255, 255, 0.85);
-      --glass-border: rgba(197, 160, 89, 0.2);
-      --glass-shadow: 0 8px 32px 0 rgba(28, 25, 23, 0.06);
-      --text-main: #1C1917;
-      --text-muted: #57534E;
-      --border-color: #E7E5E4;
-      --radius-sm: 4px;
-      --radius-md: 8px;
-      --radius-lg: 16px;
+      --glass-border: rgba(243, 230, 200, 0.8);
+      --glass-shadow: 0 8px 32px 0 rgba(45, 31, 23, 0.06);
+      --text-main: #4E342E;
+      --text-muted: #5F5F5F;
+      --border-color: #F3E6C8;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
       --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       --font-body: 'Plus Jakarta Sans', sans-serif;
       --font-heading: 'Playfair Display', serif;
@@ -124,7 +99,11 @@
       letter-spacing: 2px;
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--secondary);
+      color: var(--dark);
+      background-color: #FFFDE6;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      border: 1px solid var(--border-color);
       margin-bottom: 0.75rem;
       display: inline-block;
     }
@@ -164,7 +143,7 @@
 
     .glass-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 16px 40px 0 rgba(197, 160, 89, 0.12);
+      box-shadow: 0 16px 40px 0 rgba(254, 51, 14, 0.08);
     }
 
     .btn {
@@ -183,14 +162,14 @@
     }
 
     .btn-primary {
-      background-color: var(--dark);
+      background-color: var(--primary);
       color: #FFFFFF;
-      box-shadow: 0 4px 14px rgba(28, 25, 23, 0.2);
+      box-shadow: 0 4px 14px rgba(254, 51, 14, 0.25);
     }
 
     .btn-primary:hover {
-      background-color: var(--secondary);
-      color: var(--dark);
+      background-color: var(--primary-hover);
+      color: #FFFFFF;
       transform: translateY(-2px);
     }
 
@@ -211,7 +190,7 @@
     .hero-section {
       padding: 10rem 0 6rem 0;
       position: relative;
-      background: linear-gradient(135deg, rgba(250, 247, 242, 0.95) 0%, rgba(197, 160, 89, 0.1) 100%),
+      background: linear-gradient(135deg, rgba(255, 253, 247, 0.95) 0%, rgba(243, 230, 200, 0.3) 100%),
                   url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
       overflow: hidden;
     }
@@ -259,8 +238,9 @@
       width: 60px;
       height: 60px;
       border-radius: var(--radius-sm);
-      background: rgba(197, 160, 89, 0.1);
-      color: var(--secondary);
+      background: #FFFDE6;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -283,6 +263,7 @@
       overflow: hidden;
       box-shadow: var(--glass-shadow);
       height: 280px;
+      border: 1px solid var(--border-color);
     }
     .gallery-item.col-8 { grid-column: span 8; }
     .gallery-item.col-4 { grid-column: span 4; }
@@ -291,7 +272,7 @@
     .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(28, 25, 23, 0.85) 0%, transparent 60%);
+      background: linear-gradient(to top, rgba(45, 31, 23, 0.85) 0%, transparent 60%);
       display: flex;
       align-items: flex-end;
       padding: 1.5rem;
@@ -314,7 +295,7 @@
     .position-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.75rem; line-height: 1.6; font-weight: 300; }
 
     /* HIRING PROCESS */
-    .process-section { padding: 6rem 0; background-color: rgba(197, 160, 89, 0.05); }
+    .process-section { padding: 6rem 0; background-color: rgba(243, 230, 200, 0.2); }
     .timeline-wrapper {
       display: flex;
       align-items: center;
@@ -330,7 +311,7 @@
       left: 50px;
       right: 50px;
       height: 2px;
-      background: #D7D3D0;
+      background: var(--border-color);
       z-index: 1;
     }
     .timeline-step { position: relative; z-index: 2; text-align: center; flex: 1; }
@@ -339,8 +320,8 @@
       height: 70px;
       border-radius: 50%;
       background: #FFFFFF;
-      border: 2px solid var(--secondary);
-      color: var(--secondary);
+      border: 2px solid var(--primary);
+      color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -350,7 +331,7 @@
       box-shadow: var(--glass-shadow);
       transition: var(--transition);
     }
-    .timeline-step:hover .step-node { background: var(--secondary); color: #FFFFFF; transform: scale(1.1); }
+    .timeline-step:hover .step-node { background: var(--primary); color: #FFFFFF; transform: scale(1.1); }
     .step-title { font-size: 1.05rem; font-weight: 700; color: var(--dark); }
 
     /* BENEFITS */
@@ -365,8 +346,9 @@
       width: 50px;
       height: 50px;
       border-radius: var(--radius-sm);
-      background: rgba(197, 160, 89, 0.1);
-      color: var(--secondary);
+      background: #FFFDE6;
+      color: var(--primary);
+      border: 1px solid var(--border-color);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -395,7 +377,7 @@
       outline: none;
       transition: var(--transition);
     }
-    .form-control:focus { border-color: var(--secondary); background: #FFFFFF; box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15); }
+    .form-control:focus { border-color: var(--primary); background: #FFFFFF; box-shadow: 0 0 0 3px rgba(254, 51, 14, 0.15); }
     textarea.form-control { resize: vertical; min-height: 120px; }
 
     .file-upload-wrapper {
@@ -408,9 +390,9 @@
       cursor: pointer;
       transition: var(--transition);
     }
-    .file-upload-wrapper:hover { border-color: var(--secondary); background: rgba(255, 255, 255, 0.9); }
+    .file-upload-wrapper:hover { border-color: var(--primary); background: rgba(255, 255, 255, 0.9); }
     .file-upload-wrapper input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-    .file-upload-icon { font-size: 1.75rem; color: var(--secondary); margin-bottom: 0.5rem; }
+    .file-upload-icon { font-size: 1.75rem; color: var(--primary); margin-bottom: 0.5rem; }
     .file-upload-text { font-size: 0.85rem; color: var(--text-muted); }
 
     /* FAQ */
@@ -418,7 +400,7 @@
     .faq-accordion { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
     .faq-item { overflow: hidden; cursor: pointer; }
     .faq-question { padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 1.05rem; color: var(--dark); }
-    .faq-question i { color: var(--secondary); transition: transform 0.3s ease; }
+    .faq-question i { color: var(--primary); transition: transform 0.3s ease; }
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 2rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; font-weight: 300; }
     .faq-item.active .faq-question i { transform: rotate(180deg); }
     .faq-item.active .faq-answer { max-height: 250px; padding: 0 2rem 1.5rem 2rem; }
@@ -449,14 +431,14 @@
     }
   </style>
 </head>
-<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
   <!-- GLOBAL REUSABLE HEADER CONTAINER -->
   <header-component></header-component>
 
   <!-- =========================================================
-       1. HERO SECTION
-       ========================================================= -->
+        1. HERO SECTION
+        ========================================================= -->
   <main class="flex-grow">
     <section class="hero-section">
       <div class="container">
@@ -465,10 +447,10 @@
           <h1 class="hero-title">Build Your Career With KAWAD SWAD</h1>
           <p class="hero-subtitle">We're building one of India's fastest-growing traditional food brands. Join us and grow together.</p>
           <div class="hero-btn-group">
-            <a href="#open-positions" class="btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+            <a href="#open-positions" class="btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
               <i class="fa-solid fa-briefcase" aria-hidden="true"></i> View Open Positions
             </a>
-            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
               <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Apply Now
             </a>
           </div>
@@ -488,7 +470,7 @@
         </div>
 
         <div class="why-us-grid">
-          <div class="glass-card why-card">
+          <div class="card why-card">
             <div class="icon-box">
               <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
             </div>
@@ -496,7 +478,7 @@
             <p>Rapid expansion across regional and national markets creates continuous pathways for internal advancement and leadership.</p>
           </div>
 
-          <div class="glass-card why-card">
+          <div class="card why-card">
             <div class="icon-box">
               <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
             </div>
@@ -504,7 +486,7 @@
             <p>Direct exposure to modern food production technologies, industry standard quality protocols, and structured mentorship.</p>
           </div>
 
-          <div class="glass-card why-card">
+          <div class="card why-card">
             <div class="icon-box">
               <i class="fa-solid fa-handshake" aria-hidden="true"></i>
             </div>
@@ -512,7 +494,7 @@
             <p>A transparent culture built on mutual respect, collaborative problem-solving, and appreciation of diverse perspectives.</p>
           </div>
 
-          <div class="glass-card why-card">
+          <div class="card why-card">
             <div class="icon-box">
               <i class="fa-solid fa-bullseye" aria-hidden="true"></i>
             </div>
@@ -567,7 +549,7 @@
 
         <div class="positions-grid">
           <!-- 1. Production Executive -->
-          <div class="glass-card position-card">
+          <div class="card position-card">
             <div>
               <div class="position-header">
                 <h3 class="position-title">Production Executive</h3>
@@ -578,11 +560,11 @@
               </div>
               <p class="position-desc">Supervise daily manufacturing workflows, manage output schedules, and uphold hygiene and efficiency benchmarks on the production line.</p>
             </div>
-            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" onclick="preselectPosition('Production Executive')">Apply Now</a>
+            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="preselectPosition('Production Executive')">Apply Now</a>
           </div>
 
           <!-- 2. Sales Executive -->
-          <div class="glass-card position-card">
+          <div class="card position-card">
             <div>
               <div class="position-header">
                 <h3 class="position-title">Sales Executive</h3>
@@ -593,11 +575,11 @@
               </div>
               <p class="position-desc">Expand retail distribution networks, establish relationships with channel partners, and drive sales growth in assigned territories.</p>
             </div>
-            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" onclick="preselectPosition('Sales Executive')">Apply Now</a>
+            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="preselectPosition('Sales Executive')">Apply Now</a>
           </div>
 
           <!-- 3. Quality Control Executive -->
-          <div class="glass-card position-card">
+          <div class="card position-card">
             <div>
               <div class="position-header">
                 <h3 class="position-title">Quality Control Executive</h3>
@@ -608,11 +590,11 @@
               </div>
               <p class="position-desc">Conduct raw material testing, enforce FSSAI food safety parameters, and audit final product quality standards.</p>
             </div>
-            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" onclick="preselectPosition('Quality Control Executive')">Apply Now</a>
+            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="preselectPosition('Quality Control Executive')">Apply Now</a>
           </div>
 
           <!-- 4. Warehouse Executive -->
-          <div class="glass-card position-card">
+          <div class="card position-card">
             <div>
               <div class="position-header">
                 <h3 class="position-title">Warehouse Executive</h3>
@@ -623,7 +605,7 @@
               </div>
               <p class="position-desc">Oversee inventory storage, manage dispatch logistics, maintain stock records, and streamline warehouse operations.</p>
             </div>
-            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" onclick="preselectPosition('Warehouse Executive')">Apply Now</a>
+            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="preselectPosition('Warehouse Executive')">Apply Now</a>
           </div>
         </div>
       </div>
@@ -681,7 +663,7 @@
         </div>
 
         <div class="benefits-grid">
-          <div class="glass-card benefit-card">
+          <div class="card benefit-card">
             <div class="benefit-icon"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></div>
             <div class="benefit-content">
               <h4>Training Program</h4>
@@ -689,7 +671,7 @@
             </div>
           </div>
 
-          <div class="glass-card benefit-card">
+          <div class="card benefit-card">
             <div class="benefit-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
             <div class="benefit-content">
               <h4>Career Growth</h4>
@@ -697,7 +679,7 @@
             </div>
           </div>
 
-          <div class="glass-card benefit-card">
+          <div class="card benefit-card">
             <div class="benefit-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
             <div class="benefit-content">
               <h4>Safe Workplace</h4>
@@ -719,7 +701,7 @@
           <p class="section-subtitle">Submit your details below to express your interest in joining the KAWAD SWAD team.</p>
         </div>
 
-        <div class="glass-card form-container">
+        <div class="card form-container">
           <form id="careerForm" data-form="career" novalidate>
             <div class="form-grid">
               
@@ -781,7 +763,7 @@
               </div>
 
               <div class="form-group full-width text-center" style="margin-top: 1rem;">
-                <button type="submit" class="submit-btn btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold" style="width: 100%; max-width: 300px; margin: 0 auto;">
+                <button type="submit" class="submit-btn btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" style="width: 100%; max-width: 300px; margin: 0 auto;">
                   Submit Application
                 </button>
               </div>
@@ -804,7 +786,7 @@
         </div>
 
         <div class="faq-accordion">
-          <div class="glass-card faq-item" onclick="toggleFaq(this)">
+          <div class="card faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
               <span>What happens after I submit my application?</span>
               <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
@@ -814,7 +796,7 @@
             </div>
           </div>
 
-          <div class="glass-card faq-item" onclick="toggleFaq(this)">
+          <div class="card faq-item" onclick="toggleFaq(this)">
             <div class="faq-question">
               <span>Are freshers eligible to apply for open positions?</span>
               <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
@@ -834,7 +816,7 @@
       <div class="container">
         <h2 class="section-title" style="color: #FFFFFF;">Ready to Build Something Great?</h2>
         <p>Be part of a dedicated team bringing authentic traditional taste to millions of homes.</p>
-        <a href="#apply-form" class="btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Apply Today</a>
+        <a href="#apply-form" class="btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Apply Today</a>
       </div>
     </section>
   </main>
@@ -874,7 +856,7 @@
       resumeInput.addEventListener('change', (e) => {
         if (e.target.files.length > 0) {
           fileText.textContent = `Selected file: ${e.target.files[0].name}`;
-          fileText.style.color = 'var(--secondary)';
+          fileText.style.color = 'var(--primary)';
           fileText.style.fontWeight = '600';
         }
       });

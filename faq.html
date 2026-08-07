@@ -60,6 +60,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Master Design System Stylesheet -->
+    <link rel="stylesheet" href="css/design-system.css">
+
     <!-- CSS Animation Utilities & Motion Safety -->
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -136,24 +139,24 @@
         <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Knowledge Center</span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Frequently Asked Questions</h1>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">Knowledge Center</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Frequently Asked <span class="italic text-brand-gold font-normal">Questions</span></h1>
                     <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">Find answers to common questions about our products, business opportunities and customer support.</p>
                 </div>
             </div>
         </section>
 
         <!-- FAQ ACCORDION GROUPS -->
-        <section class="py-20 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <section class="py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
                 <!-- Group 1: Products & Dietary Standards -->
-                <div class="space-y-4">
-                    <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-2">Products &amp; Dietary Standards</h2>
+                <div class="space-y-6">
+                    <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-3">Products &amp; Dietary Standards</h2>
                     
-                    <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                    <details class="group bg-brand-cream/40 p-6 sm:p-8 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none shadow-luxury">
                         <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-xs">
                             <span>What product variants does Kawad Swad manufacture?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold" aria-hidden="true">
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold shrink-0" aria-hidden="true">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </summary>
@@ -162,10 +165,10 @@
                         </p>
                     </details>
 
-                    <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                    <details class="group bg-brand-cream/40 p-6 sm:p-8 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none shadow-luxury">
                         <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-xs">
                             <span>Are all products strictly Jain vegetarian?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold" aria-hidden="true">
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold shrink-0" aria-hidden="true">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </summary>
@@ -176,13 +179,13 @@
                 </div>
 
                 <!-- Group 2: Orders & Shipping -->
-                <div class="space-y-4">
-                    <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-2">Orders &amp; Shipping</h2>
+                <div class="space-y-6">
+                    <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-3">Orders &amp; Shipping</h2>
 
-                    <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                    <details class="group bg-brand-cream/40 p-6 sm:p-8 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none shadow-luxury">
                         <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-xs">
                             <span>How long does retail delivery take?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold" aria-hidden="true">
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold shrink-0" aria-hidden="true">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </summary>
@@ -191,27 +194,27 @@
                         </p>
                     </details>
 
-                    <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                    <details class="group bg-brand-cream/40 p-6 sm:p-8 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none shadow-luxury">
                         <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-xs">
                             <span>What are your shipping charges?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold" aria-hidden="true">
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold shrink-0" aria-hidden="true">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </summary>
                         <p class="mt-4 text-sm text-brand-muted leading-relaxed font-light">
-                            Shipping fees start at flat ₹49 per order, with free shipping automatically applied to promotional items or qualifying order thresholds displayed at checkout.
+                            Shipping fees start at flat ₹49 per order, with free shipping automatically applied to qualifying order thresholds displayed at checkout.
                         </p>
                     </details>
                 </div>
 
                 <!-- Group 3: Distributorship & Wholesale -->
-                <div class="space-y-4">
-                    <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-2">Distributorship &amp; Bulk Orders</h2>
+                <div class="space-y-6">
+                    <h2 class="font-serif text-2xl font-bold text-brand-dark border-b border-stone-200 pb-3">Distributorship &amp; Bulk Orders</h2>
 
-                    <details class="group bg-brand-cream/40 p-6 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none">
+                    <details class="group bg-brand-cream/40 p-6 sm:p-8 rounded-sm border border-stone-200/80 [&_summary::-webkit-details-marker]:none shadow-luxury">
                         <summary class="flex items-center justify-between cursor-pointer font-serif text-lg font-semibold text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold rounded-xs">
                             <span>How can I apply to become an authorized distributor?</span>
-                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold" aria-hidden="true">
+                            <span class="ml-4 transition-transform group-open:rotate-180 text-brand-gold shrink-0" aria-hidden="true">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                             </span>
                         </summary>
@@ -227,9 +230,9 @@
     <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
+    <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/shop.js"></script>
 </body>
 </html>

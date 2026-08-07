@@ -60,6 +60,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Master Design System Stylesheet -->
+    <link rel="stylesheet" href="css/design-system.css">
+
     <!-- CSS Animation Utilities -->
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -137,11 +140,16 @@
         </nav>
 
         <!-- ARTICLE HEADER & CONTENT -->
-        <section class="pt-12 pb-16 bg-white border-b border-stone-200/80">
+        <section class="pt-12 pb-24 bg-white border-b border-stone-200/80">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 slide-up">
                 <div class="space-y-4">
                     <span class="inline-block text-xs font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Traditional Recipes</span>
                     <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark leading-tight">Mastering the Art of Jain Papad Preparation</h1>
+                </div>
+
+                <!-- Featured Article Image Asset -->
+                <div class="aspect-16/9 bg-stone-200/80 rounded-sm border border-stone-300/60 overflow-hidden shadow-luxury">
+                    <img src="assets/images/blog-hero.png" alt="Mastering the Art of Jain Papad Preparation" class="w-full h-full object-cover">
                 </div>
 
                 <article class="space-y-8 text-brand-dark leading-relaxed font-light text-base sm:text-lg">
@@ -151,24 +159,24 @@
 
                     <div class="space-y-4 pt-2">
                         <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">The Secret to the Perfect Crisp</h2>
-                        <p class="text-brand-muted leading-relaxed">
+                        <p class="text-brand-muted leading-relaxed font-light text-sm sm:text-base">
                             Preparing traditional papad requires careful attention to heat and timing. Whether open-flame roasting or light pan frying, keeping the heat uniform prevents scorching while unlocking the aromatic spices blended inside moong, urad, or chana dal variants.
                         </p>
                     </div>
 
                     <div class="space-y-4 pt-2">
                         <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">Serving &amp; Pairings</h2>
-                        <p class="text-brand-muted leading-relaxed">
+                        <p class="text-brand-muted leading-relaxed font-light text-sm sm:text-base">
                             Enhance everyday meals by pairing crispy papads with classic Indian main courses or topping them with fresh coriander and authentic Jain seasonings for an appetizing starter.
                         </p>
                     </div>
                 </article>
 
-                <div class="pt-6 border-t border-stone-200/80 flex justify-between items-center">
+                <div class="pt-8 border-t border-stone-200/80 flex justify-between items-center">
                     <a href="blog.html" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-dark hover:text-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                         &larr; Back to Articles
                     </a>
-                    <a href="shop.html" class="px-6 py-3 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                    <a href="shop.html" class="px-6 py-3 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold shadow-sm">
                         Explore Products
                     </a>
                 </div>
@@ -179,9 +187,9 @@
     <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
+    <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/shop.js"></script>
 </body>
 </html>

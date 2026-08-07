@@ -2,15 +2,17 @@
  * ============================================================================
  * KAWAD SWAD - Master Production CSS & Design System (Phase 1 to Phase 7)
  * ============================================================================
- * Apple & Aesop inspired minimalist luxury food branding system with 
- * integrated motion, visual assets, and high-end typography variables.
+ * Apple & Aesop inspired minimalist luxury food branding system integrated
+ * directly with the vibrant logo color palette (Sunset Red, Logo Yellow, Sky Blue).
  */
 
 :root {
-  /* --- 1. COLOR SYSTEM --- */
+  /* --- 1. COLOR SYSTEM (Logo-Integrated & Luxury Minimalist) --- */
   --color-primary: #1C1917;         /* Deep Stone / Rich Charcoal */
   --color-secondary: #C5A059;       /* Muted Luxury Gold */
-  --color-accent: #8B0000;          /* Deep Crimson / Brand Red */
+  --color-accent: #FF4500;          /* Sunset Red / Brand Logo Red */
+  --color-logo-yellow: #FFD700;     /* Logo Background Yellow */
+  --color-logo-blue: #00BFFF;       /* Logo Sky Blue */
   --color-success: #2F5233;         /* Deep Olive / Natural Green */
   --color-warning: #996515;         /* Bronze / Warm Amber */
   --color-error: #8B0000;           /* Crimson Error */
@@ -105,6 +107,14 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   outline-offset: 2px;
 }
 
+/* --- LOGO COLOR UTILITY CLASSES --- */
+.bg-brand-red { background-color: var(--color-accent); color: #FFFFFF; }
+.bg-brand-yellow { background-color: var(--color-logo-yellow); color: var(--color-primary); }
+.bg-brand-blue { background-color: var(--color-logo-blue); color: #FFFFFF; }
+.text-brand-red { color: var(--color-accent); }
+.text-brand-yellow { color: var(--color-logo-yellow); }
+.text-brand-blue { color: var(--color-logo-blue); }
+
 /* --- REUSABLE CARD SYSTEM --- */
 .card, [class*="bg-white"], [class*="bg-brand-cream"] {
   border-radius: var(--radius-sm);
@@ -115,6 +125,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 
 .card:hover, .group:hover {
   box-shadow: var(--shadow-md);
+  border-color: var(--color-logo-yellow);
 }
 
 .card-premium {

@@ -137,7 +137,7 @@ const CartManager = {
     updateCartBadge() {
         const items = this.getItems();
         const totalCount = items.reduce((sum, item) => sum + item.quantity, 0);
-        const badges = document.querySelectorAll('header a[href*="cart.html"] span, #cart-count');
+        const badges = document.querySelectorAll('header a[href*="cart.html"] span, #cart-count, [data-cart-count]');
 
         badges.forEach(badge => {
             badge.textContent = totalCount;
@@ -180,7 +180,7 @@ const CartManager = {
                 : `<span class="text-[8px] font-mono text-brand-muted uppercase">${item.sku}</span>`;
 
             html += `
-                <tr data-sku="${item.sku}">
+                <tr data-sku="${item.sku}" class="border-b border-stone-100">
                     <td class="py-4 px-4 flex items-center gap-3">
                         <div class="w-12 h-12 bg-stone-200 rounded-xs shrink-0 flex items-center justify-center overflow-hidden border border-stone-300/60">
                             ${imageMarkup}

@@ -45,6 +45,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Master Design System Stylesheet -->
+    <link rel="stylesheet" href="css/design-system.css">
+
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -62,75 +65,76 @@
 
     <main class="flex-grow py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 text-center">
-                <h1 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-2">Checkout</h1>
+            <div class="mb-12 text-center space-y-3">
+                <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Secure Checkout</span>
+                <h1 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Complete Your Order</h1>
                 <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
             </div>
 
-            <form id="checkout-form" novalidate class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            <form id="checkout-form" data-form="checkout" novalidate class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
                 <!-- Left Details Form -->
                 <div class="lg:col-span-2 space-y-8">
-                    <div class="bg-white rounded-sm border border-stone-200/80 p-8 shadow-sm space-y-6">
+                    <div class="bg-white rounded-sm border border-stone-200/80 p-8 sm:p-12 shadow-luxury space-y-6">
                         <h2 class="font-serif text-xl font-bold text-brand-dark border-b border-stone-200 pb-3">Shipping &amp; Customer Details</h2>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="first-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">First Name <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="first-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">First Name <span class="text-brand-red">*</span></label>
                                 <input type="text" id="first-name" name="first-name" required aria-describedby="err-fname" placeholder="First Name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-fname" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your first name.</span>
                             </div>
-                            <div>
-                                <label for="last-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Last Name <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="last-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Last Name <span class="text-brand-red">*</span></label>
                                 <input type="text" id="last-name" name="last-name" required aria-describedby="err-lname" placeholder="Last Name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-lname" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your last name.</span>
                             </div>
-                            <div>
-                                <label for="checkout-mobile" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Mobile Number <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="checkout-mobile" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Mobile Number <span class="text-brand-red">*</span></label>
                                 <input type="tel" id="checkout-mobile" name="checkout-mobile" required aria-describedby="err-cmobile" placeholder="10-digit Indian Mobile Number" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-cmobile" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid 10-digit mobile number.</span>
                             </div>
-                            <div>
-                                <label for="checkout-email" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Email Address <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="checkout-email" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Email Address <span class="text-brand-red">*</span></label>
                                 <input type="email" id="checkout-email" name="checkout-email" required aria-describedby="err-cemail" placeholder="Email Address" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-cemail" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid email address.</span>
                             </div>
                         </div>
 
-                        <div>
-                            <label for="address" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Flat / House No / Street Address <span class="text-brand-red">*</span></label>
+                        <div class="space-y-2">
+                            <label for="address" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Flat / House No / Street Address <span class="text-brand-red">*</span></label>
                             <input type="text" id="address" name="address" required aria-describedby="err-addr" placeholder="House number, building name, street name" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                             <span id="err-addr" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your delivery address.</span>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                            <div>
-                                <label for="landmark" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Landmark</label>
+                            <div class="space-y-2">
+                                <label for="landmark" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Landmark</label>
                                 <input type="text" id="landmark" name="landmark" placeholder="Nearby landmark" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                             </div>
-                            <div>
-                                <label for="checkout-city" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">City <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="checkout-city" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">City <span class="text-brand-red">*</span></label>
                                 <input type="text" id="checkout-city" name="checkout-city" required aria-describedby="err-ccity" placeholder="City" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-ccity" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter city.</span>
                             </div>
-                            <div>
-                                <label for="checkout-state" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">State <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="checkout-state" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">State <span class="text-brand-red">*</span></label>
                                 <input type="text" id="checkout-state" name="checkout-state" required aria-describedby="err-cstate" placeholder="State" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-cstate" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter state.</span>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                            <div>
-                                <label for="pincode" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">PIN Code <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="pincode" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">PIN Code <span class="text-brand-red">*</span></label>
                                 <input type="text" id="pincode" name="pincode" required aria-describedby="err-pin" placeholder="6-digit PIN Code" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 <span id="err-pin" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid 6-digit PIN Code.</span>
                             </div>
-                            <div>
-                                <label for="country" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Country</label>
+                            <div class="space-y-2">
+                                <label for="country" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Country</label>
                                 <input type="text" id="country" name="country" value="India" readonly class="w-full bg-stone-100 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark cursor-not-allowed">
                             </div>
-                            <div>
-                                <label for="address-type" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Address Type</label>
+                            <div class="space-y-2">
+                                <label for="address-type" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Address Type</label>
                                 <select id="address-type" name="address-type" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                                     <option value="Home" selected>Home</option>
                                     <option value="Office">Office</option>
@@ -139,14 +143,14 @@
                             </div>
                         </div>
 
-                        <div>
-                            <label for="order-notes" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Order Notes (Optional)</label>
+                        <div class="space-y-2">
+                            <label for="order-notes" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Order Notes (Optional)</label>
                             <input type="text" id="order-notes" name="order-notes" placeholder="Special instructions for delivery" class="w-full bg-brand-cream/30 border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold">
                         </div>
                     </div>
 
                     <!-- Payment Option Placeholder -->
-                    <div class="bg-white rounded-sm border border-stone-200/80 p-8 shadow-sm space-y-4">
+                    <div class="bg-white rounded-sm border border-stone-200/80 p-8 shadow-luxury space-y-4">
                         <h2 class="font-serif text-lg font-bold text-brand-dark border-b border-stone-200 pb-3">Payment Option</h2>
                         <div class="p-4 bg-brand-cream/30 border border-stone-200 rounded-sm flex items-center justify-between text-xs text-brand-muted">
                             <span>Cash on Delivery / Direct Contact Processing</span>
@@ -156,29 +160,29 @@
                 </div>
 
                 <!-- Order Review Sidebar -->
-                <div class="bg-white rounded-sm border border-stone-200/80 p-6 shadow-sm space-y-6">
+                <div class="bg-white rounded-sm border border-stone-200/80 p-8 shadow-luxury space-y-6">
                     <h2 class="font-serif text-xl font-bold text-brand-dark border-b border-stone-200 pb-3">Order Summary</h2>
                     
                     <div id="checkout-items-summary" class="space-y-4 text-sm divide-y divide-stone-100">
                         <!-- Items rendered via js/cart.js -->
                     </div>
 
-                    <div class="pt-4 border-t border-stone-200 space-y-2 text-sm">
+                    <div class="pt-4 border-t border-stone-200 space-y-3 text-sm font-light">
                         <div class="flex justify-between text-brand-muted">
                             <span>Subtotal</span>
-                            <span class="font-mono" data-summary="subtotal">[Subtotal]</span>
+                            <span class="font-mono font-medium text-brand-dark" data-summary="subtotal">[Subtotal]</span>
                         </div>
                         <div class="flex justify-between text-brand-muted">
                             <span>Shipping</span>
-                            <span class="font-mono" data-summary="shipping">[Shipping]</span>
+                            <span class="font-mono font-medium text-brand-dark" data-summary="shipping">[Shipping]</span>
                         </div>
-                        <div class="pt-3 border-t border-stone-200 flex justify-between font-semibold text-brand-dark text-base">
+                        <div class="pt-4 border-t border-stone-200 flex justify-between font-semibold text-brand-dark text-base">
                             <span>Total Payable</span>
-                            <span class="font-mono text-brand-gold" data-summary="total">[Total]</span>
+                            <span class="font-mono text-brand-gold font-bold text-lg" data-summary="total">[Total]</span>
                         </div>
                     </div>
 
-                    <button type="submit" class="submit-btn w-full text-center py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                    <button type="submit" class="submit-btn w-full text-center py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300 disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold shadow-sm">
                         Place Order
                     </button>
 
@@ -193,6 +197,7 @@
     <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
+    <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>

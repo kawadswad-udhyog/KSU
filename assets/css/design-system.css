@@ -1,119 +1,117 @@
 /**
  * ============================================================================
- * KAWAD SWAD - Master Design System (Theme: Kawad Heritage 3D Polish)
+ * KAWAD SWAD - Master Design System & Architectural Core (Phase 2.0)
  * ============================================================================
- * Color palette extracted precisely from official logo:
- * Brand Red: #FE330E | Sunshine Yellow: #FBEC0A | Aqua Cyan: #09E4FD
- * Delivers a warm, traditional, modern, and tactile 3D food brand experience.
+ * Single Source of Truth for 90% of visual presentation across all pages.
+ * Palette: Sunset Red (#FE330E) | Sunshine Yellow (#FBEC0A) | Cream Base (#FFFDF7)
+ * Deep Brown Typography (#4E342E) | Soft Warm Borders (#F3E6C8)
  */
 
-/* --- CONSOLIDATED EXTERNAL IMPORTS --- */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* --- 1. EXACT LOGO COLOR EXTRACTION --- */
-  --color-primary: #FE330E;        /* Vibrant Logo Red (Primary CTAs, Active States) */
-  --color-secondary: #FBEC0A;      /* Sunshine Yellow (Highlights, Badges, Hover Accents) */
-  --color-accent: #09E4FD;         /* Soft Cyan Aura (Trust indicators, minimal glow details) */
-  
-  --color-background: #FFFDF7;     /* Warm Cream-White Base */
-  --color-surface: #FFFFFF;        /* Crisp White 3D Cards & Containers */
-  
-  --color-heading: #4E342E;        /* Deep Rich Traditional Brown for Headings */
-  --color-body: #5F5F5F;           /* Main Readable Body Text */
-  --color-muted: #8B8174;          /* Subtle Secondary Text */
-  
-  --color-border: #F3E6C8;         /* Soft Warm Gold/Cream Borders */
-  
-  --color-footer-bg: #2D1F17;      /* Deep Heritage Footer Background */
-  --color-footer-heading: #FFFFFF;
-  --color-footer-body: #F5EEDC;
-  --color-footer-link: #FBEC0A;
+  /* --- 1. DESIGN TOKENS --- */
+  --brand-primary: #FE330E;        /* Sunset Red */
+  --brand-secondary: #FBEC0A;      /* Sunshine Yellow */
+  --brand-accent: #09E4FD;         /* Fresh Cyan Accent */
+  --brand-bg: #FFFDF7;           /* Warm Ivory Cream Base */
+  --brand-surface: #FFFFFF;        /* Crisp White Surfaces */
+  --brand-heading: #4E342E;        /* Deep Rich Traditional Brown */
+  --brand-text: #5F5F5F;           /* Readable Body Text */
+  --brand-muted: #8B8174;          /* Secondary Muted Text */
+  --brand-border: #F3E6C8;         /* Warm Gold/Cream Borders */
+
+  --brand-footer-bg: #2D1F17;      /* Heritage Footer Dark */
+  --brand-footer-text: #F5EEDC;
 
   /* --- 2. 3D TACTILE SYSTEM --- */
   --radius-card: 20px;
   --radius-sm: 8px;
-  --radius-full: 9999px;
+  --radius-pill: 9999px;
 
-  /* Soft 3D layered shadows for modern tactile depth */
   --shadow-3d: 0 10px 30px -5px rgba(78, 52, 46, 0.07), 0 4px 6px -2px rgba(254, 51, 14, 0.03);
   --shadow-3d-hover: 0 20px 40px -10px rgba(254, 51, 14, 0.12), 0 8px 12px -4px rgba(78, 52, 46, 0.08);
 
   /* --- 3. TYPOGRAPHY --- */
-  --font-main: 'Plus Jakarta Sans', sans-serif;
-  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* --- GLOBAL BASE ENHANCEMENTS & RESPONSIVE SAFETY --- */
-html { 
-  scroll-behavior: smooth; 
-  background-color: var(--color-background); 
-  color: var(--color-body);
+/* --- GLOBAL BASE ENHANCEMENTS --- */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-body { 
-  font-family: var(--font-main); 
-  background-color: var(--color-background);
-  color: var(--color-body);
+body {
+  font-family: var(--font-body);
+  background-color: var(--brand-bg);
+  color: var(--brand-text);
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   line-height: 1.6;
 }
 
-/* Ensure all images and icons scale cleanly inside containers */
+/* Fluid responsive headers */
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: var(--font-heading);
+  color: var(--brand-heading);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-weight: 700; line-height: 1.15; font-size: clamp(2.25rem, 5vw, 3.75rem); }
+h2 { font-weight: 600; line-height: 1.25; font-size: clamp(1.85rem, 4vw, 2.75rem); }
+h3 { font-weight: 600; line-height: 1.3; font-size: clamp(1.35rem, 3vw, 1.85rem); }
+
+p, span, li {
+  color: var(--brand-text);
+}
+
+a {
+  color: var(--brand-primary);
+  transition: color 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--brand-heading);
+}
+
+/* Media resilience */
 img, svg, video {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* --- TYPOGRAPHY SYSTEM (Mobile & Desktop Fluidity) --- */
-h1, h2, h3, h4, h5, h6, .font-serif { 
-  font-family: var(--font-serif); 
-  color: var(--color-heading); 
-  letter-spacing: -0.01em;
-}
-
-h1 { font-weight: 700; line-height: 1.15; font-size: clamp(2rem, 5vw, 3.5rem); }
-h2 { font-weight: 600; line-height: 1.25; font-size: clamp(1.75rem, 4vw, 2.75rem); }
-h3 { font-weight: 600; line-height: 1.3; font-size: clamp(1.25rem, 3vw, 1.75rem); }
-
-p, span, li {
-  color: var(--color-body);
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-}
-
-a {
-  color: var(--color-accent);
-  transition: color 250ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-a:hover {
-  color: var(--color-primary);
-}
-
-/* --- ALTERNATING SECTIONS (Logo-Inspired Cream & White Flow) --- */
+/* --- ALTERNATING SECTIONS (Rhythmic Flow) --- */
 section:nth-of-type(even) {
   background-color: #FFF9EE; /* Soft warm cream tint */
 }
 
 section:nth-of-type(odd) {
-  background-color: #FFFFFF; /* Clean white */
+  background-color: var(--brand-surface);
 }
 
-/* --- BUTTON SYSTEM (3D Tactile Styling) --- */
+/* --- BUTTON SYSTEM (Tactile 3D Polish) --- */
 .btn-primary, button:not([class*="bg-"]), a[class*="bg-brand-red"] {
   background: linear-gradient(135deg, #FE330E 0%, #D92500 100%);
   color: #FFFFFF;
   border-radius: var(--radius-sm);
   font-weight: 600;
+  padding: 0.85rem 1.8rem;
   box-shadow: 0 4px 14px rgba(254, 51, 14, 0.35);
   transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
   border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .btn-primary:hover, button:not([class*="bg-"]):hover {
@@ -124,26 +122,32 @@ section:nth-of-type(odd) {
 }
 
 .btn-secondary {
-  background-color: var(--color-surface);
-  border: 2px solid var(--color-secondary);
-  color: var(--color-heading);
+  background-color: var(--brand-surface);
+  border: 2px solid var(--brand-border);
+  color: var(--brand-heading);
   border-radius: var(--radius-sm);
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(251, 236, 10, 0.15);
+  padding: 0.85rem 1.8rem;
+  box-shadow: 0 2px 8px rgba(78, 52, 46, 0.05);
   transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .btn-secondary:hover {
   background-color: #FFFDF0;
-  border-color: #CCA000;
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
   transform: translateY(-1px);
 }
 
 /* --- 3D CARD SYSTEM --- */
 .card, [class*="bg-white"], .glass-card {
-  background-color: var(--color-surface);
+  background-color: var(--brand-surface);
   border-radius: var(--radius-card);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--brand-border);
   box-shadow: var(--shadow-3d);
   transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -151,10 +155,10 @@ section:nth-of-type(odd) {
 .card:hover, .glass-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-3d-hover);
-  border-color: rgba(251, 236, 10, 0.6); /* Soft yellow accent border glow */
+  border-color: rgba(251, 236, 10, 0.6);
 }
 
-/* --- FORM INPUTS (Polished 3D Focus & Mobile Tap Friendly) --- */
+/* --- FORM INPUTS & TOUCH TARGETS --- */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -163,60 +167,65 @@ input[type="url"],
 select,
 textarea {
   background-color: #FFFFFF;
-  border: 1.5px solid var(--color-border);
+  border: 1.5px solid var(--brand-border);
   border-radius: var(--radius-sm);
   padding: 12px 16px;
-  font-size: 16px; /* Prevents auto-zoom on iOS mobile browsers */
-  color: var(--color-heading);
+  font-size: 16px; /* Prevents auto-zoom on mobile iOS */
+  color: var(--brand-heading);
   box-shadow: inset 0 2px 4px rgba(78, 52, 46, 0.02);
   transition: border-color 250ms ease, box-shadow 250ms ease;
   width: 100%;
 }
 
 input:focus, select:focus, textarea:focus {
-  border-color: var(--color-primary);
+  border-color: var(--brand-primary);
   background-color: #FFFFFF;
   box-shadow: 0 0 0 4px rgba(254, 51, 14, 0.12), inset 0 1px 2px rgba(0,0,0,0.02);
   outline: none;
 }
 
-/* --- ACCENTS & BADGES --- */
+/* --- BADGES & TAGS --- */
 .badge, span[class*="rounded-full"] {
-  border: 1px solid var(--color-border);
-  background-color: #FFFDE6; /* Soft sunshine yellow tint */
-  color: var(--color-heading);
+  border: 1px solid var(--brand-border);
+  background-color: #FFFDE6;
+  color: var(--brand-heading);
   font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-/* --- LAYOUT UTILITIES --- */
-.bg-cream { background-color: var(--color-background); }
-.text-brown { color: var(--color-heading); }
-.border-accent { border-color: var(--color-border); }
+/* --- HEADER & NAVIGATION --- */
+header {
+  background-color: rgba(255, 253, 247, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--brand-border);
+}
 
 /* --- FOOTER THEME --- */
 footer {
-  background-color: var(--color-footer-bg);
-  color: var(--color-footer-body);
-  border-top: 3px solid var(--color-secondary);
+  background-color: var(--brand-footer-bg);
+  color: var(--brand-footer-text);
+  border-top: 3px solid var(--brand-secondary);
 }
 
 footer h3, footer h4, footer h5 {
-  color: var(--color-footer-heading);
+  color: #FFFFFF;
 }
 
 footer p, footer li, footer span {
-  color: var(--color-footer-body);
+  color: var(--brand-footer-text);
 }
 
 footer a {
-  color: var(--color-footer-link);
+  color: var(--brand-secondary);
 }
 
 footer a:hover {
   color: #FFFFFF;
 }
 
-/* --- ACCESSIBILITY & MOTION SAFETY --- */
+/* --- MOTION SAFETY --- */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;

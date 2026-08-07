@@ -13,7 +13,7 @@ let productsCache = null;
  * Resolves base path dynamically for subfolder hosting environments (e.g. /KSU/)
  */
 function getBasePath() {
-    return '/KSU/';
+    return './';
 }
 
 /**
@@ -122,7 +122,7 @@ function initShopPage(products) {
             const shipping = product.price ? product.price.shipping : null;
             const activePrice = selling !== null ? selling : (mrp !== null ? mrp : 0);
 
-            const rawImg = product.image || 'assets/images/product-placeholder.webp';
+            const rawImg = product.image || './assets/images/product-placeholder.webp';
             const imgSrc = `${basePath}${rawImg.replace(/^\/+/, '')}`;
 
             card.dataset.id = product.sku;

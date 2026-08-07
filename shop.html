@@ -28,39 +28,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#C5A059">
+    <meta name="theme-color" content="#FE330E">
 
-    <!-- Tailwind CSS CDN & Custom Config -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#C5A059',
-                            darkGold: '#A37F38',
-                            red: '#8B0000',
-                            cream: '#FAF7F2',
-                            dark: '#1C1917',
-                            muted: '#57534E'
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Master Design System Stylesheet -->
+    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
     <link rel="stylesheet" href="css/design-system.css">
 
     <!-- CSS Animation Utilities & Motion Safety -->
@@ -106,45 +76,45 @@
     }
     </script>
 </head>
-<body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
     <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO -->
-        <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
+        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 slide-up">
-                <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">Direct Store</span>
-                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Shop Premium <span class="italic text-brand-gold font-normal">Jain Papads</span></h1>
-                <p class="text-base sm:text-lg text-brand-muted max-w-xl mx-auto font-light leading-relaxed">Select authentic Nimar recipes delivered directly to your doorstep.</p>
+                <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Direct Store</span>
+                <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#4E342E]">Shop Premium <span class="italic text-[#FE330E] font-normal">Jain Papads</span></h1>
+                <p class="text-base sm:text-lg text-[#5F5F5F] max-w-xl mx-auto font-light leading-relaxed">Select authentic Nimar recipes delivered directly to your doorstep.</p>
             </div>
         </section>
 
         <!-- CONTROLS -->
-        <section class="py-6 bg-white border-b border-stone-200/80 sticky top-20 z-40 shadow-sm">
+        <section class="py-6 bg-white border-b border-[#F3E6C8] sticky top-20 z-40 shadow-sm">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
                 <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
                     <!-- Search -->
                     <div class="w-full lg:w-96 relative">
-                        <input type="text" placeholder="Search products..." aria-label="Search products" class="w-full bg-brand-cream/40 border border-stone-300 rounded-sm py-3 pl-10 pr-4 text-sm text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold transition-colors">
-                        <svg class="w-4 h-4 text-brand-muted absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        <input type="text" placeholder="Search products..." aria-label="Search products" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg py-3 pl-10 pr-4 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E] transition-colors">
+                        <svg class="w-4 h-4 text-[#8B8174] absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                     </div>
 
                     <!-- Category Filters -->
                     <div class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wider">
-                        <button type="button" data-filter-category="all" class="px-4 py-2 bg-brand-dark text-white rounded-sm border border-brand-dark shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">All</button>
-                        <button type="button" data-filter-category="moong" class="px-4 py-2 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Moong</button>
-                        <button type="button" data-filter-category="chana" class="px-4 py-2 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Chana</button>
-                        <button type="button" data-filter-category="urad" class="px-4 py-2 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Urad</button>
-                        <button type="button" data-filter-category="combo" class="px-4 py-2 bg-brand-cream/60 text-brand-dark rounded-sm border border-stone-300 hover:border-brand-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Combo</button>
+                        <button type="button" data-filter-category="all" class="px-4 py-2 bg-[#FE330E] text-white rounded-lg border border-[#FE330E] shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">All</button>
+                        <button type="button" data-filter-category="moong" class="px-4 py-2 bg-[#FFFDF7] text-[#4E342E] rounded-lg border border-[#F3E6C8] hover:border-[#FE330E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Moong</button>
+                        <button type="button" data-filter-category="chana" class="px-4 py-2 bg-[#FFFDF7] text-[#4E342E] rounded-lg border border-[#F3E6C8] hover:border-[#FE330E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Chana</button>
+                        <button type="button" data-filter-category="urad" class="px-4 py-2 bg-[#FFFDF7] text-[#4E342E] rounded-lg border border-[#F3E6C8] hover:border-[#FE330E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Urad</button>
+                        <button type="button" data-filter-category="combo" class="px-4 py-2 bg-[#FFFDF7] text-[#4E342E] rounded-lg border border-[#F3E6C8] hover:border-[#FE330E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Combo</button>
                     </div>
 
                     <!-- Weight Filter & Sorting -->
                     <div class="w-full lg:w-auto flex items-center gap-4 text-xs font-semibold uppercase tracking-wider">
                         <div class="flex items-center gap-2">
-                            <label for="weight-select" class="text-brand-muted shrink-0">Weight:</label>
-                            <select id="weight-select" data-filter-weight aria-label="Filter by weight" class="bg-brand-cream/50 border border-stone-300 rounded-sm py-2 px-3 text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold text-xs">
+                            <label for="weight-select" class="text-[#8B8174] shrink-0">Weight:</label>
+                            <select id="weight-select" data-filter-weight aria-label="Filter by weight" class="bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg py-2 px-3 text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E] text-xs">
                                 <option value="all">All Weights</option>
                                 <option value="200g">200g</option>
                                 <option value="235g">235g</option>
@@ -153,8 +123,8 @@
                             </select>
                         </div>
                         <div class="flex items-center gap-2">
-                            <label for="sort-select" class="text-brand-muted shrink-0">Sort By:</label>
-                            <select id="sort-select" data-sort aria-label="Sort products" class="bg-brand-cream/50 border border-stone-300 rounded-sm py-2 px-3 text-brand-dark focus:outline-none focus:border-brand-gold focus-visible:ring-2 focus-visible:ring-brand-gold text-xs">
+                            <label for="sort-select" class="text-[#8B8174] shrink-0">Sort By:</label>
+                            <select id="sort-select" data-sort aria-label="Sort products" class="bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg py-2 px-3 text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E] text-xs">
                                 <option value="default">Default</option>
                                 <option value="name-asc">Name (A-Z)</option>
                                 <option value="price-low">Price: Low to High</option>

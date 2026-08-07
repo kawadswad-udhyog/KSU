@@ -22,25 +22,32 @@ document.addEventListener('DOMContentLoaded', () => {
 const ValidationModule = {
     rules: {
         isPhone(value) {
-            const cleaned = value.replace(/[\s\-\+\(\)]/g, '');
+            const cleaned = String(value).replace(/[\s\-\+\(\)]/g, '');
             return /^[6-9]\d{9}$/.test(cleaned);
         },
         isEmail(value) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value).trim());
         },
         isPincode(value) {
-            return /^[1-9][0-9]{5}$/.test(value.trim());
+            return /^[1-9][0-9]{5}$/.test(String(value).trim());
         }
     },
 
     setFieldError(field, isError, customMsg = '') {
-        const parent = field.closest('div');
-        const errorSpan = parent ? parent.querySelector('.error-msg, .error-msg-consent') : null;
+        if (!field) return;
+
+        const parent = field.parentNode;
+        let errorSpan = parent ? parent.querySelector('.error-msg, .error-msg-consent') : null;
+
+        if (!errorSpan && field.closest('div')) {
+            errorSpan = field.closest('div').querySelector('.error-msg, .error-msg-consent');
+        }
 
         if (isError) {
             field.classList.add('border-brand-red');
             field.classList.remove('border-stone-300', 'focus:border-brand-gold');
             field.setAttribute('aria-invalid', 'true');
+
             if (errorSpan) {
                 if (customMsg) errorSpan.textContent = customMsg;
                 errorSpan.classList.remove('hidden');
@@ -51,6 +58,7 @@ const ValidationModule = {
             field.classList.remove('border-brand-red');
             field.classList.add('border-stone-300', 'focus:border-brand-gold');
             field.removeAttribute('aria-invalid');
+
             if (errorSpan) {
                 errorSpan.classList.add('hidden');
             }
@@ -58,11 +66,12 @@ const ValidationModule = {
     },
 
     validate(form) {
+        if (!form) return false;
         let isValid = true;
         const requiredInputs = form.querySelectorAll('input[required], select[required], textarea[required]');
 
         requiredInputs.forEach(input => {
-            const val = input.value.trim();
+            const val = String(input.value || '').trim();
 
             if (input.type === 'checkbox') {
                 const consentError = form.querySelector('.error-msg-consent');
@@ -93,7 +102,7 @@ const ValidationModule = {
                 }
             }
 
-            if (input.type === 'tel' || input.name.includes('mobile')) {
+            if (input.type === 'tel' || (input.name && input.name.includes('mobile'))) {
                 if (!this.rules.isPhone(val)) {
                     isValid = false;
                     this.setFieldError(input, true, 'Please enter a valid 10-digit mobile number.');
@@ -101,7 +110,7 @@ const ValidationModule = {
                 }
             }
 
-            if (input.name === 'pincode') {
+            if (input.name === 'pincode' || input.id === 'pincode') {
                 if (!this.rules.isPincode(val)) {
                     isValid = false;
                     this.setFieldError(input, true, 'Please enter a valid 6-digit Indian PIN Code.');
@@ -119,6 +128,15 @@ const ValidationModule = {
         document.addEventListener('input', (e) => {
             if (e.target.matches('input, select, textarea')) {
                 this.setFieldError(e.target, false);
+            }
+        });
+
+        document.addEventListener('change', (e) => {
+            if (e.target.matches('input[type="checkbox"]')) {
+                const consentError = e.target.form ? e.target.form.querySelector('.error-msg-consent') : null;
+                if (consentError && e.target.checked) {
+                    consentError.classList.add('hidden');
+                }
             }
         });
     }
@@ -248,6 +266,8 @@ const FormModule = {
         setTimeout(() => {
             const successBox = document.createElement('div');
             successBox.className = 'p-8 bg-brand-cream border border-brand-gold/40 rounded-sm text-center space-y-4 fade-in';
+            successBox.setAttribute('role', 'status');
+            successBox.setAttribute('aria-live', 'polite');
             successBox.innerHTML = `
                 <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -274,7 +294,7 @@ const FormModule = {
 };
 
 /* ============================================================================
- * 4. ANIMATION MODULE
+ * 3. ANIMATION MODULE
  * ============================================================================ */
 const AnimationModule = {
     initScrollReveal() {
@@ -326,7 +346,7 @@ const AnimationModule = {
 };
 
 /* ============================================================================
- * 5. UTILITY MODULE
+ * 4. UTILITY MODULE
  * ============================================================================ */
 const UtilityModule = {
     initAccordions() {

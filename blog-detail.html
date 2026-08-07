@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article Title Placeholder | KAWAD SWAD Journal</title>
-    <meta name="description" content="Read recipes, cooking tips, Jain food guides and manufacturing insights from KAWAD SWAD.">
-    <meta name="keywords" content="KAWAD SWAD Article, Papad Recipe, Jain Food Guide, Cooking Tips">
+    <title>Mastering the Art of Jain Papad Preparation | KAWAD SWAD Journal</title>
+    <meta name="description" content="Explore authentic Jain recipes, traditional preparation techniques, and expert cooking tips for serving crispy KAWAD SWAD papads.">
+    <meta name="keywords" content="KAWAD SWAD Article, Papad Recipe, Jain Food Guide, Cooking Tips, Authentic Indian Food">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://kawadswad.com/blog-detail.html">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://kawadswad.com/blog-detail.html">
-    <meta property="og:title" content="Article Title Placeholder | KAWAD SWAD Journal">
-    <meta property="og:description" content="Read recipes, cooking tips and food knowledge from KAWAD SWAD.">
+    <meta property="og:title" content="Mastering the Art of Jain Papad Preparation | KAWAD SWAD Journal">
+    <meta property="og:description" content="Explore authentic Jain recipes, traditional preparation techniques, and expert cooking tips for serving crispy KAWAD SWAD papads.">
     <meta property="og:image" content="https://kawadswad.com/assets/images/og-image.jpg">
     <meta property="og:site_name" content="KAWAD SWAD">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Article Title Placeholder | KAWAD SWAD Journal">
-    <meta name="twitter:description" content="Read recipes, cooking tips and food knowledge from KAWAD SWAD.">
+    <meta name="twitter:title" content="Mastering the Art of Jain Papad Preparation | KAWAD SWAD Journal">
+    <meta name="twitter:description" content="Explore authentic Jain recipes, traditional preparation techniques, and expert cooking tips for serving crispy KAWAD SWAD papads.">
     <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
 
     <!-- Favicons -->
@@ -30,8 +30,32 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#C5A059">
 
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS CDN & Custom Config -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#C5A059',
+                            darkGold: '#A37F38',
+                            red: '#8B0000',
+                            cream: '#FAF7F2',
+                            dark: '#1C1917',
+                            muted: '#57534E'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -42,6 +66,10 @@
         .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in, .slide-up { animation: none; opacity: 1; transform: none; }
+        }
     </style>
 
     <!-- JSON-LD Structured Data: BlogPosting & BreadcrumbList -->
@@ -49,7 +77,7 @@
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "Article Title Placeholder",
+      "headline": "Mastering the Art of Jain Papad Preparation",
       "publisher": {
         "@type": "Organization",
         "name": "KAWAD SWAD",
@@ -59,7 +87,7 @@
         }
       },
       "url": "https://kawadswad.com/blog-detail.html",
-      "description": "Read recipes, cooking tips and food knowledge from KAWAD SWAD."
+      "description": "Explore authentic Jain recipes, traditional preparation techniques, and expert cooking tips for serving crispy KAWAD SWAD papads."
     }
     </script>
     <script type="application/ld+json">
@@ -91,6 +119,7 @@
 </head>
 <body class="bg-brand-cream text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white flex flex-col min-h-screen">
 
+    <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
@@ -98,36 +127,56 @@
         <nav aria-label="Breadcrumb" class="bg-white border-b border-stone-200/80 py-4">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <ol class="flex items-center space-x-2 text-xs text-brand-muted">
-                    <li><a href="index.html" class="hover:text-brand-gold transition-colors">Home</a></li>
-                    <li class="text-stone-400">&gt;</li>
-                    <li><a href="blog.html" class="hover:text-brand-gold transition-colors">Recipes</a></li>
-                    <li class="text-stone-400">&gt;</li>
-                    <li class="font-semibold text-brand-dark uppercase tracking-wider truncate" aria-current="page">[Article Title]</li>
+                    <li><a href="index.html" class="hover:text-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Home</a></li>
+                    <li class="text-stone-400" aria-hidden="true">&gt;</li>
+                    <li><a href="blog.html" class="hover:text-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Recipes</a></li>
+                    <li class="text-stone-400" aria-hidden="true">&gt;</li>
+                    <li class="font-semibold text-brand-dark uppercase tracking-wider truncate" aria-current="page">Jain Papad Preparation</li>
                 </ol>
             </div>
         </nav>
 
         <!-- ARTICLE HEADER & CONTENT -->
         <section class="pt-12 pb-16 bg-white border-b border-stone-200/80">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 slide-up">
                 <div class="space-y-4">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">[Category Placeholder]</span>
-                    <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark leading-tight">[Article Title Placeholder]</h1>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Traditional Recipes</span>
+                    <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark leading-tight">Mastering the Art of Jain Papad Preparation</h1>
                 </div>
 
-                <article class="prose prose-stone max-w-none space-y-8 text-brand-dark leading-relaxed font-light text-base sm:text-lg">
-                    <p class="text-lg sm:text-xl font-normal leading-relaxed text-brand-dark/90 border-l-2 border-brand-gold pl-4 italic">
-                        [Editable Introduction Placeholder: Introductory overview explaining the topic, key insights, or recipe premise.]
+                <article class="space-y-8 text-brand-dark leading-relaxed font-light text-base sm:text-lg">
+                    <p class="text-lg sm:text-xl font-normal leading-relaxed text-brand-dark/90 border-l-4 border-brand-gold pl-4 italic bg-brand-cream/30 py-3 rounded-r-sm">
+                        Discover time-tested regional techniques for roasting, frying, and seasoning authentic Jain papads while preserving their crisp texture and pure flavor profile.
                     </p>
-                    <div class="space-y-4 pt-4">
-                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">[Heading Placeholder]</h2>
-                        <p class="text-brand-muted leading-relaxed">[Editable Paragraph Placeholder: Detailed body paragraph explaining specific techniques, ingredients, or food guides.]</p>
+
+                    <div class="space-y-4 pt-2">
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">The Secret to the Perfect Crisp</h2>
+                        <p class="text-brand-muted leading-relaxed">
+                            Preparing traditional papad requires careful attention to heat and timing. Whether open-flame roasting or light pan frying, keeping the heat uniform prevents scorching while unlocking the aromatic spices blended inside moong, urad, or chana dal variants.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">Serving &amp; Pairings</h2>
+                        <p class="text-brand-muted leading-relaxed">
+                            Enhance everyday meals by pairing crispy papads with classic Indian main courses or topping them with fresh coriander and authentic Jain seasonings for an appetizing starter.
+                        </p>
                     </div>
                 </article>
+
+                <div class="pt-6 border-t border-stone-200/80 flex justify-between items-center">
+                    <a href="blog.html" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-dark hover:text-brand-gold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                        &larr; Back to Articles
+                    </a>
+                    <a href="shop.html" class="px-6 py-3 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                        Explore Products
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
     <script src="js/layout.js"></script>

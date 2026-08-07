@@ -60,6 +60,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Master Design System Stylesheet -->
+    <link rel="stylesheet" href="css/design-system.css">
+
     <!-- CSS Animation Utilities & Motion Safety -->
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -113,65 +116,66 @@
         <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">B2B Partnerships</span>
-                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Grow Your Business With KAWAD SWAD</h1>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">B2B Partnerships</span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">Grow Your Business With <span class="italic text-brand-gold font-normal">Kawad Swad</span></h1>
                     <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">Partner with a trusted Jain Papad manufacturer for distribution, wholesale supply and private label manufacturing.</p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="#business-form" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Become Business Partner</a>
-                        <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20am%20interested%20in%20becoming%20your%20business%20partner.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">WhatsApp Business</a>
+                        <a href="#business-form" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Become Business Partner</a>
+                        <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20am%20interested%20in%20becoming%20your%20business%20partner.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">WhatsApp Business</a>
                     </div>
                 </div>
 
                 <!-- Real Business Hero Banner Image -->
-                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-inner relative group fade-in">
-                    <img src="assets/images/business-hero.png" alt="Business Hero Banner - KAWAD SWAD" class="w-full h-full object-cover">
+                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-luxury relative group fade-in">
+                    <img src="assets/images/business-hero.png" alt="Business Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
             </div>
         </section>
 
         <!-- DEDICATED BUSINESS ENQUIRY FORM -->
-        <section id="business-form" class="py-20 bg-white">
+        <section id="business-form" class="py-24 bg-white">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-brand-cream/60 rounded-sm border border-brand-gold/20 p-8 sm:p-12 shadow-sm">
-                    <div class="text-center max-w-2xl mx-auto mb-10">
-                        <h2 class="font-serif text-3xl font-bold text-brand-dark mb-3">Business Enquiry Form</h2>
-                        <p class="text-sm text-brand-muted">Submit your commercial requirements and our business team will contact you shortly.</p>
+                <div class="bg-brand-cream/60 rounded-sm border border-brand-gold/20 p-8 sm:p-14 shadow-luxury">
+                    <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
+                        <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Enquiry</span>
+                        <h2 class="font-serif text-3xl font-bold text-brand-dark">Business Enquiry Form</h2>
+                        <p class="text-sm text-brand-muted font-light">Submit your commercial requirements and our business team will contact you shortly.</p>
                         <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-3"></div>
                     </div>
 
-                    <form id="business-enquiry-form" novalidate class="space-y-6">
+                    <form id="business-enquiry-form" data-form="business" novalidate class="space-y-6">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <!-- Company Name -->
-                            <div>
-                                <label for="company-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Company / Firm Name <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="company-name" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Company / Firm Name <span class="text-brand-red">*</span></label>
                                 <input type="text" id="company-name" name="company-name" required aria-describedby="err-company" placeholder="Enter company name" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                                 <span id="err-company" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter your company name.</span>
                             </div>
 
                             <!-- Contact Person -->
-                            <div>
-                                <label for="contact-person" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Contact Person Name <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="contact-person" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Contact Person Name <span class="text-brand-red">*</span></label>
                                 <input type="text" id="contact-person" name="contact-person" required aria-describedby="err-person" placeholder="Enter contact person name" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                                 <span id="err-person" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter contact person name.</span>
                             </div>
 
                             <!-- Mobile Number -->
-                            <div>
-                                <label for="business-mobile" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Mobile Number <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="business-mobile" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Mobile Number <span class="text-brand-red">*</span></label>
                                 <input type="tel" id="business-mobile" name="business-mobile" required aria-describedby="err-bmobile" placeholder="10-digit Indian Mobile Number" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                                 <span id="err-bmobile" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid 10-digit mobile number.</span>
                             </div>
 
                             <!-- Email Address -->
-                            <div>
-                                <label for="business-email" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Email Address <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="business-email" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Email Address <span class="text-brand-red">*</span></label>
                                 <input type="email" id="business-email" name="business-email" required aria-describedby="err-bemail" placeholder="Enter email address" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                                 <span id="err-bemail" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter a valid email address.</span>
                             </div>
 
                             <!-- Business Type -->
-                            <div>
-                                <label for="business-type" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Business Type <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="business-type" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Business Type <span class="text-brand-red">*</span></label>
                                 <select id="business-type" name="business-type" required aria-describedby="err-btype" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                                     <option value="" disabled selected>Select Business Type</option>
                                     <option value="Distributor">Distributor</option>
@@ -186,65 +190,65 @@
                             </div>
 
                             <!-- City & State -->
-                            <div>
-                                <label for="city" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">City <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="city" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">City <span class="text-brand-red">*</span></label>
                                 <input type="text" id="city" name="city" required aria-describedby="err-city" placeholder="Enter city" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                                 <span id="err-city" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter city.</span>
                             </div>
 
-                            <div>
-                                <label for="state" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">State <span class="text-brand-red">*</span></label>
+                            <div class="space-y-2">
+                                <label for="state" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">State <span class="text-brand-red">*</span></label>
                                 <input type="text" id="state" name="state" required aria-describedby="err-state" placeholder="Enter state" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                                 <span id="err-state" role="alert" aria-live="polite" class="error-msg text-[11px] text-brand-red hidden mt-1">Please enter state.</span>
                             </div>
 
                             <!-- Monthly Requirement -->
-                            <div>
-                                <label for="monthly-req" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Monthly Requirement (Kg / Boxes)</label>
+                            <div class="space-y-2">
+                                <label for="monthly-req" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Monthly Requirement (Kg / Boxes)</label>
                                 <input type="text" id="monthly-req" name="monthly-req" placeholder="e.g. 500 Kg / 100 Boxes" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                             </div>
                         </div>
 
                         <!-- OPTIONAL BUSINESS FIELDS -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2 border-t border-stone-200/60">
-                            <div>
-                                <label for="preferred-contact-method" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Preferred Contact Method</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-stone-200/80">
+                            <div class="space-y-2">
+                                <label for="preferred-contact-method" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Preferred Contact</label>
                                 <select id="preferred-contact-method" name="preferred-contact-method" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                                     <option value="Phone">Phone</option>
                                     <option value="WhatsApp">WhatsApp</option>
                                     <option value="Email">Email</option>
                                 </select>
                             </div>
-                            <div>
-                                <label for="gst-number" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">GST Number (Optional)</label>
+                            <div class="space-y-2">
+                                <label for="gst-number" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">GST Number</label>
                                 <input type="text" id="gst-number" name="gst-number" placeholder="GSTIN (Optional)" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                             </div>
-                            <div>
-                                <label for="business-website" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Website (Optional)</label>
+                            <div class="space-y-2">
+                                <label for="business-website" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Website</label>
                                 <input type="url" id="business-website" name="business-website" placeholder="https://example.com" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                             </div>
-                            <div>
-                                <label for="years-in-business" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Years in Business (Optional)</label>
+                            <div class="space-y-2">
+                                <label for="years-in-business" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Years in Business</label>
                                 <input type="text" id="years-in-business" name="years-in-business" placeholder="e.g. 5 Years" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 gap-6">
                             <!-- Current Brand Handled -->
-                            <div>
-                                <label for="current-brand" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Current Brand Handled (If any)</label>
+                            <div class="space-y-2">
+                                <label for="current-brand" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Current Brand Handled (If any)</label>
                                 <input type="text" id="current-brand" name="current-brand" placeholder="Mention currently distributed brands" class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold">
                             </div>
 
                             <!-- Message -->
-                            <div>
-                                <label for="business-message" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark mb-2">Additional Details / Message</label>
-                                <textarea id="business-message" name="business-message" rows="4" placeholder="Mention target regions or specific variant interests..." class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold"></textarea>
+                            <div class="space-y-2">
+                                <label for="business-message" class="block text-xs font-semibold uppercase tracking-wider text-brand-dark">Additional Details / Message</label>
+                                <textarea id="business-message" name="business-message" rows="4" maxlength="500" placeholder="Mention target regions or specific variant interests..." class="w-full bg-white border border-stone-300 rounded-sm px-4 py-3 text-sm text-brand-dark focus:outline-none focus:border-brand-gold"></textarea>
                             </div>
                         </div>
 
-                        <div class="text-center pt-2">
-                            <button type="submit" class="submit-btn w-full sm:w-auto px-10 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors shadow-sm disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                        <div class="text-center pt-4">
+                            <button type="submit" class="submit-btn w-full sm:w-auto px-10 py-4 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold hover:text-brand-dark transition-colors duration-300 shadow-sm disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                                 Submit Business Enquiry
                             </button>
                         </div>
@@ -257,9 +261,9 @@
     <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
+    <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/shop.js"></script>
 </body>
 </html>

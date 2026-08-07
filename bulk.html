@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wholesale Papad Manufacturer | Kawad Swad</title>
     <meta name="description" content="Buy premium Jain papad in bulk directly from Kawad Swad. Reliable wholesale supply, competitive pricing, and consistent quality for retailers, supermarkets, hotels, restaurants, and distributors.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kawadswad.com/business.html">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#D4AF37">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -78,6 +87,10 @@
                 transform: translateY(0);
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in-up { animation: none; opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-gold selection:text-black">
@@ -86,7 +99,6 @@
     <header class="sticky top-0 z-50 glass-card border-b border-white/10 bg-black/60 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="index.html" class="flex items-center space-x-3">
-                <!-- Kawad Swad Brand Logo -->
                 <div class="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center font-bold text-black text-xl">
                     KS
                 </div>
@@ -96,11 +108,11 @@
                 <a href="index.html" class="hover:text-brand-gold transition-colors">Home</a>
                 <a href="products.html" class="hover:text-brand-gold transition-colors">Products</a>
                 <a href="about.html" class="hover:text-brand-gold transition-colors">About Us</a>
-                <a href="bulk.html" class="text-brand-gold font-semibold">Wholesale</a>
+                <a href="business.html" class="text-brand-gold font-semibold" aria-current="page">Wholesale</a>
                 <a href="contact.html" class="hover:text-brand-gold transition-colors">Contact</a>
             </nav>
             <div class="hidden md:flex items-center">
-                <a href="#wholesale-form" class="bg-brand-gold hover:bg-brand-goldHover text-black font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm">
+                <a href="#wholesale-form" class="bg-brand-gold hover:bg-brand-goldHover text-black font-semibold px-5 py-2.5 rounded-lg transition-colors text-sm focus:outline-none focus:ring-2 focus:ring-brand-gold">
                     Enquire Now
                 </a>
             </div>
@@ -126,17 +138,16 @@
                             <a href="#wholesale-form" class="inline-flex justify-center items-center px-6 py-3.5 bg-brand-gold hover:bg-brand-goldHover text-black font-bold rounded-lg transition-all text-center">
                                 Request Wholesale Pricing
                             </a>
-                            <a href="#download-catalogue" class="inline-flex justify-center items-center px-6 py-3.5 glass-card text-white hover:text-brand-gold font-semibold rounded-lg transition-all border border-white/10 hover:border-brand-gold/40 text-center">
-                                <i data-lucide="download" class="w-4 h-4 mr-2"></i> Download Catalogue
+                            <a href="#wholesale-form" class="inline-flex justify-center items-center px-6 py-3.5 glass-card text-white hover:text-brand-gold font-semibold rounded-lg transition-all border border-white/10 hover:border-brand-gold/40 text-center">
+                                <i data-lucide="download" class="w-4 h-4 mr-2" aria-hidden="true"></i> Download Catalogue
                             </a>
                         </div>
                     </div>
                     
                     <!-- Hero Image Placeholder -->
                     <div class="fade-in-up">
-                        <!-- FUTURE IMAGE: Replace this placeholder div with an authentic hero shot of Kawad Swad bulk papad packaging/products. Path: assets/images/hero-bulk-papad.jpg -->
                         <div class="w-full h-[380px] sm:h-[450px] glass-card rounded-2xl border border-white/10 flex flex-col items-center justify-center p-6 text-center group">
-                            <i data-lucide="package" class="w-16 h-16 text-brand-gold/60 mb-4 group-hover:scale-110 transition-transform"></i>
+                            <i data-lucide="package" class="w-16 h-16 text-brand-gold/60 mb-4 group-hover:scale-110 transition-transform" aria-hidden="true"></i>
                             <span class="text-gray-400 font-medium">Hero Image Placeholder</span>
                             <span class="text-xs text-gray-500 mt-2">(Kawad Swad Premium Bulk Packaging / Product Stack)</span>
                         </div>
@@ -154,55 +165,49 @@
                 </div>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Retail Stores -->
                     <div class="glass-card p-6 rounded-xl space-y-4">
                         <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
-                            <i data-lucide="store" class="w-6 h-6"></i>
+                            <i data-lucide="store" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-xl font-bold text-white">Retail Stores</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">High-margin authentic Jain papads with fast-moving shelf appeal for neighborhood grocery outlets.</p>
                     </div>
 
-                    <!-- Supermarkets -->
                     <div class="glass-card p-6 rounded-xl space-y-4">
                         <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
-                            <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                            <i data-lucide="shopping-bag" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-xl font-bold text-white">Supermarkets</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Standardized barcode packaging and high volume capacity for modern retail chains and hypermarkets.</p>
                     </div>
 
-                    <!-- Hotels -->
                     <div class="glass-card p-6 rounded-xl space-y-4">
                         <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
-                            <i data-lucide="building-2" class="w-6 h-6"></i>
+                            <i data-lucide="building-2" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-xl font-bold text-white">Hotels</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Consistent taste, size, and crispiness ideal for premium hospitality dining and room service standards.</p>
                     </div>
 
-                    <!-- Restaurants -->
                     <div class="glass-card p-6 rounded-xl space-y-4">
                         <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
-                            <i data-lucide="utensils" class="w-6 h-6"></i>
+                            <i data-lucide="utensils" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-xl font-bold text-white">Restaurants</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Reliable kitchen supply ensuring authentic traditional flavor for complimentary appetizers and thalis.</p>
                     </div>
 
-                    <!-- Caterers -->
                     <div class="glass-card p-6 rounded-xl space-y-4">
                         <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
-                            <i data-lucide="users" class="w-6 h-6"></i>
+                            <i data-lucide="users" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-xl font-bold text-white">Caterers</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Bulk quantity packaging designed to streamline large event preparations with zero quality compromise.</p>
                     </div>
 
-                    <!-- Food Distributors -->
                     <div class="glass-card p-6 rounded-xl space-y-4">
                         <div class="w-12 h-12 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold">
-                            <i data-lucide="truck" class="w-6 h-6"></i>
+                            <i data-lucide="truck" class="w-6 h-6" aria-hidden="true"></i>
                         </div>
                         <h3 class="text-xl font-bold text-white">Food Distributors</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Dependable wholesale inventory backing to help supply regional food networks seamlessly.</p>
@@ -220,44 +225,38 @@
                 </div>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Consistent Quality -->
                     <div class="glass-card p-6 rounded-xl space-y-3">
-                        <div class="text-brand-gold mb-2"><i data-lucide="shield-check" class="w-8 h-8"></i></div>
+                        <div class="text-brand-gold mb-2"><i data-lucide="shield-check" class="w-8 h-8" aria-hidden="true"></i></div>
                         <h3 class="text-lg font-bold text-white">Consistent Quality</h3>
                         <p class="text-gray-400 text-sm">Strict hygienic standards and pure Jain processing ensure identical taste and texture in every batch.</p>
                     </div>
 
-                    <!-- Factory Direct Supply -->
                     <div class="glass-card p-6 rounded-xl space-y-3">
-                        <div class="text-brand-gold mb-2"><i data-lucide="factory" class="w-8 h-8"></i></div>
+                        <div class="text-brand-gold mb-2"><i data-lucide="factory" class="w-8 h-8" aria-hidden="true"></i></div>
                         <h3 class="text-lg font-bold text-white">Factory Direct Supply</h3>
                         <p class="text-gray-400 text-sm">Sourced directly from our manufacturing facilities, eliminating middlemen to maximize freshness.</p>
                     </div>
 
-                    <!-- Competitive Wholesale Pricing -->
                     <div class="glass-card p-6 rounded-xl space-y-3">
-                        <div class="text-brand-gold mb-2"><i data-lucide="badge-percent" class="w-8 h-8"></i></div>
+                        <div class="text-brand-gold mb-2"><i data-lucide="badge-percent" class="w-8 h-8" aria-hidden="true"></i></div>
                         <h3 class="text-lg font-bold text-white">Competitive Wholesale Pricing</h3>
                         <p class="text-gray-400 text-sm">Tiered bulk pricing structures that safeguard healthy profit margins for your business.</p>
                     </div>
 
-                    <!-- Fast Dispatch -->
                     <div class="glass-card p-6 rounded-xl space-y-3">
-                        <div class="text-brand-gold mb-2"><i data-lucide="zap" class="w-8 h-8"></i></div>
+                        <div class="text-brand-gold mb-2"><i data-lucide="zap" class="w-8 h-8" aria-hidden="true"></i></div>
                         <h3 class="text-lg font-bold text-white">Fast Dispatch</h3>
                         <p class="text-gray-400 text-sm">Optimized order processing and logistics partners for swift and safe order fulfillment.</p>
                     </div>
 
-                    <!-- Multiple Product Variants -->
                     <div class="glass-card p-6 rounded-xl space-y-3">
-                        <div class="text-brand-gold mb-2"><i data-lucide="layers" class="w-8 h-8"></i></div>
+                        <div class="text-brand-gold mb-2"><i data-lucide="layers" class="w-8 h-8" aria-hidden="true"></i></div>
                         <h3 class="text-lg font-bold text-white">Multiple Product Variants</h3>
                         <p class="text-gray-400 text-sm">Diverse selection of authentic varieties including Moong, Chana, Urad, and Specialty Masala.</p>
                     </div>
 
-                    <!-- Dedicated Business Support -->
                     <div class="glass-card p-6 rounded-xl space-y-3">
-                        <div class="text-brand-gold mb-2"><i data-lucide="headphones" class="w-8 h-8"></i></div>
+                        <div class="text-brand-gold mb-2"><i data-lucide="headphones" class="w-8 h-8" aria-hidden="true"></i></div>
                         <h3 class="text-lg font-bold text-white">Dedicated Business Support</h3>
                         <p class="text-gray-400 text-sm">Direct point of contact for smooth reordering, custom logistical needs, and prompt queries.</p>
                     </div>
@@ -276,9 +275,8 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Moong Papad -->
                     <div class="glass-card rounded-xl overflow-hidden flex flex-col">
-                        <!-- FUTURE IMAGE: Insert product image for Moong Papad. Path: assets/images/moong-papad.jpg -->
                         <div class="h-48 bg-white/5 flex flex-col items-center justify-center p-4 border-b border-white/10 text-center">
-                            <i data-lucide="image" class="w-10 h-10 text-brand-gold/50 mb-2"></i>
+                            <i data-lucide="image" class="w-10 h-10 text-brand-gold/50 mb-2" aria-hidden="true"></i>
                             <span class="text-xs text-gray-400">Moong Papad Image Placeholder</span>
                         </div>
                         <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
@@ -287,16 +285,15 @@
                                 <p class="text-gray-400 text-sm">Light, digestible, traditional Jain recipe prepared with premium yellow moong dal and spices.</p>
                             </div>
                             <a href="#wholesale-form" class="inline-flex items-center text-brand-gold font-semibold text-sm hover:underline">
-                                View Products <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                View Products <i data-lucide="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Chana Papad -->
                     <div class="glass-card rounded-xl overflow-hidden flex flex-col">
-                        <!-- FUTURE IMAGE: Insert product image for Chana Papad. Path: assets/images/chana-papad.jpg -->
                         <div class="h-48 bg-white/5 flex flex-col items-center justify-center p-4 border-b border-white/10 text-center">
-                            <i data-lucide="image" class="w-10 h-10 text-brand-gold/50 mb-2"></i>
+                            <i data-lucide="image" class="w-10 h-10 text-brand-gold/50 mb-2" aria-hidden="true"></i>
                             <span class="text-xs text-gray-400">Chana Papad Image Placeholder</span>
                         </div>
                         <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
@@ -305,16 +302,15 @@
                                 <p class="text-gray-400 text-sm">Rich and crunchy papad made from select gram flour with authentic aromatic seasoning.</p>
                             </div>
                             <a href="#wholesale-form" class="inline-flex items-center text-brand-gold font-semibold text-sm hover:underline">
-                                View Products <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                View Products <i data-lucide="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Urad Papad -->
                     <div class="glass-card rounded-xl overflow-hidden flex flex-col">
-                        <!-- FUTURE IMAGE: Insert product image for Urad Papad. Path: assets/images/urad-papad.jpg -->
                         <div class="h-48 bg-white/5 flex flex-col items-center justify-center p-4 border-b border-white/10 text-center">
-                            <i data-lucide="image" class="w-10 h-10 text-brand-gold/50 mb-2"></i>
+                            <i data-lucide="image" class="w-10 h-10 text-brand-gold/50 mb-2" aria-hidden="true"></i>
                             <span class="text-xs text-gray-400">Urad Papad Image Placeholder</span>
                         </div>
                         <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
@@ -323,16 +319,15 @@
                                 <p class="text-gray-400 text-sm">Classic black gram papad offering robust texture and authentic, traditional crunch.</p>
                             </div>
                             <a href="#wholesale-form" class="inline-flex items-center text-brand-gold font-semibold text-sm hover:underline">
-                                View Products <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                View Products <i data-lucide="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Papad Masala -->
                     <div class="glass-card rounded-xl overflow-hidden flex flex-col">
-                        <!-- FUTURE IMAGE: Insert product image for Papad Masala. Path: assets/images/papad-masala.jpg -->
                         <div class="h-48 bg-white/5 flex flex-col items-center justify-center p-4 border-b border-white/10 text-center">
-                            <i data-lucide="image" class="w-10 h-10 text-brand-gold/50 mb-2"></i>
+                            <i data-lucide="image" class="w-10 h-10 text-brand-gold/50 mb-2" aria-hidden="true"></i>
                             <span class="text-xs text-gray-400">Papad Masala Image Placeholder</span>
                         </div>
                         <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
@@ -341,16 +336,15 @@
                                 <p class="text-gray-400 text-sm">Spiced and flavorful variants infused with black pepper, hing, and natural spices.</p>
                             </div>
                             <a href="#wholesale-form" class="inline-flex items-center text-brand-gold font-semibold text-sm hover:underline">
-                                View Products <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                View Products <i data-lucide="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Combo Packs -->
                     <div class="glass-card rounded-xl overflow-hidden flex flex-col md:col-span-2 lg:col-span-2">
-                        <!-- FUTURE IMAGE: Insert product image for Combo Packs. Path: assets/images/combo-packs.jpg -->
                         <div class="h-48 bg-white/5 flex flex-col items-center justify-center p-4 border-b border-white/10 text-center">
-                            <i data-lucide="image" class="w-10 h-10 text-brand-gold/50 mb-2"></i>
+                            <i data-lucide="image" class="w-10 h-10 text-brand-gold/50 mb-2" aria-hidden="true"></i>
                             <span class="text-xs text-gray-400">Combo Packs Image Placeholder</span>
                         </div>
                         <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
@@ -359,7 +353,7 @@
                                 <p class="text-gray-400 text-sm">Assorted variety bundles packaged strategically for multi-product retail positioning and higher basket sizes.</p>
                             </div>
                             <a href="#wholesale-form" class="inline-flex items-center text-brand-gold font-semibold text-sm hover:underline">
-                                View Products <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                View Products <i data-lucide="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -371,17 +365,14 @@
         <section class="py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid lg:grid-cols-2 gap-12 items-center">
-                    <!-- Left: Image Placeholder -->
                     <div>
-                        <!-- FUTURE IMAGE: Replace this placeholder div with image of Kawad Swad manufacturing or bulk warehouse dispatch. Path: assets/images/wholesale-benefits-factory.jpg -->
                         <div class="w-full h-[400px] glass-card rounded-2xl flex flex-col items-center justify-center p-6 text-center">
-                            <i data-lucide="building" class="w-16 h-16 text-brand-gold/50 mb-4"></i>
+                            <i data-lucide="building" class="w-16 h-16 text-brand-gold/50 mb-4" aria-hidden="true"></i>
                             <span class="text-gray-300 font-medium">Wholesale Operations Image Placeholder</span>
                             <span class="text-xs text-gray-500 mt-2">(Kawad Swad Manufacturing Facility / Quality Warehouse)</span>
                         </div>
                     </div>
 
-                    <!-- Right: Benefits List -->
                     <div class="space-y-6">
                         <div class="space-y-2">
                             <h2 class="text-3xl font-bold text-white">Wholesale Benefits</h2>
@@ -390,7 +381,7 @@
 
                         <div class="space-y-4">
                             <div class="flex items-start space-x-4 glass-card p-4 rounded-xl">
-                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5"></i></div>
+                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5" aria-hidden="true"></i></div>
                                 <div>
                                     <h3 class="text-white font-semibold">Reliable Supply</h3>
                                     <p class="text-gray-400 text-sm">Consistent production capabilities to fulfill large-scale orders without stockouts.</p>
@@ -398,7 +389,7 @@
                             </div>
 
                             <div class="flex items-start space-x-4 glass-card p-4 rounded-xl">
-                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5"></i></div>
+                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5" aria-hidden="true"></i></div>
                                 <div>
                                     <h3 class="text-white font-semibold">Flexible Order Quantity</h3>
                                     <p class="text-gray-400 text-sm">Scalable order volumes customized to match your current operational capacity.</p>
@@ -406,7 +397,7 @@
                             </div>
 
                             <div class="flex items-start space-x-4 glass-card p-4 rounded-xl">
-                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5"></i></div>
+                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5" aria-hidden="true"></i></div>
                                 <div>
                                     <h3 class="text-white font-semibold">Business Pricing</h3>
                                     <p class="text-gray-400 text-sm">Transparent, direct-from-manufacturer bulk rates for maximized profitability.</p>
@@ -414,7 +405,7 @@
                             </div>
 
                             <div class="flex items-start space-x-4 glass-card p-4 rounded-xl">
-                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5"></i></div>
+                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5" aria-hidden="true"></i></div>
                                 <div>
                                     <h3 class="text-white font-semibold">Premium Packaging</h3>
                                     <p class="text-gray-400 text-sm">High-barrier protective packaging ensuring long shelf life and breakage prevention.</p>
@@ -422,7 +413,7 @@
                             </div>
 
                             <div class="flex items-start space-x-4 glass-card p-4 rounded-xl">
-                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5"></i></div>
+                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5" aria-hidden="true"></i></div>
                                 <div>
                                     <h3 class="text-white font-semibold">Quality Assurance</h3>
                                     <p class="text-gray-400 text-sm">Every batch undergoes rigorous quality control for purity, crispness, and taste.</p>
@@ -430,7 +421,7 @@
                             </div>
 
                             <div class="flex items-start space-x-4 glass-card p-4 rounded-xl">
-                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5"></i></div>
+                                <div class="text-brand-gold mt-1"><i data-lucide="check-circle-2" class="w-5 h-5" aria-hidden="true"></i></div>
                                 <div>
                                     <h3 class="text-white font-semibold">Fast Support</h3>
                                     <p class="text-gray-400 text-sm">Prompt executive assistance for order management, logistics, and documentation.</p>
@@ -450,44 +441,37 @@
                     <p class="text-gray-400">Streamlined onboarding process designed for fast business fulfillment.</p>
                 </div>
 
-                <!-- Horizontal Timeline -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4 relative">
-                    <!-- Step 1 -->
                     <div class="glass-card p-5 rounded-xl text-center space-y-3 relative">
                         <div class="w-10 h-10 mx-auto rounded-full bg-brand-gold text-black font-bold flex items-center justify-center text-sm">01</div>
                         <h3 class="text-sm font-bold text-white">Submit Enquiry</h3>
                         <p class="text-xs text-gray-400">Fill out the wholesale form with requirement details.</p>
                     </div>
 
-                    <!-- Step 2 -->
                     <div class="glass-card p-5 rounded-xl text-center space-y-3 relative">
                         <div class="w-10 h-10 mx-auto rounded-full bg-brand-gold/20 border border-brand-gold text-brand-gold font-bold flex items-center justify-center text-sm">02</div>
                         <h3 class="text-sm font-bold text-white">Business Discussion</h3>
                         <p class="text-xs text-gray-400">Our representative contacts you to review volume and specs.</p>
                     </div>
 
-                    <!-- Step 3 -->
                     <div class="glass-card p-5 rounded-xl text-center space-y-3 relative">
                         <div class="w-10 h-10 mx-auto rounded-full bg-brand-gold/20 border border-brand-gold text-brand-gold font-bold flex items-center justify-center text-sm">03</div>
                         <h3 class="text-sm font-bold text-white">Quotation</h3>
                         <p class="text-xs text-gray-400">Receive formal pricing quote and logistical timeline.</p>
                     </div>
 
-                    <!-- Step 4 -->
                     <div class="glass-card p-5 rounded-xl text-center space-y-3 relative">
                         <div class="w-10 h-10 mx-auto rounded-full bg-brand-gold/20 border border-brand-gold text-brand-gold font-bold flex items-center justify-center text-sm">04</div>
                         <h3 class="text-sm font-bold text-white">Order Confirmation</h3>
                         <p class="text-xs text-gray-400">Finalize terms and confirm order placement.</p>
                     </div>
 
-                    <!-- Step 5 -->
                     <div class="glass-card p-5 rounded-xl text-center space-y-3 relative">
                         <div class="w-10 h-10 mx-auto rounded-full bg-brand-gold/20 border border-brand-gold text-brand-gold font-bold flex items-center justify-center text-sm">05</div>
                         <h3 class="text-sm font-bold text-white">Manufacturing</h3>
                         <p class="text-xs text-gray-400">Fresh batch processing and quality packing.</p>
                     </div>
 
-                    <!-- Step 6 -->
                     <div class="glass-card p-5 rounded-xl text-center space-y-3 relative">
                         <div class="w-10 h-10 mx-auto rounded-full bg-brand-gold text-black font-bold flex items-center justify-center text-sm">06</div>
                         <h3 class="text-sm font-bold text-white">Dispatch</h3>
@@ -506,48 +490,48 @@
                         <p class="text-gray-400">Fill out the form below and our B2B team will reach out within 24 hours.</p>
                     </div>
 
-                    <form action="#" method="POST" class="space-y-6">
+                    <form id="b2b-wholesale-form" novalidate class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <!-- Company Name -->
                             <div class="space-y-2">
-                                <label class="text-sm font-medium text-gray-300">Company Name *</label>
-                                <input type="text" required placeholder="Enter your business name" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                <label for="company-name" class="text-sm font-medium text-gray-300">Company Name *</label>
+                                <input type="text" id="company-name" required placeholder="Enter your business name" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
 
                             <!-- Contact Person -->
                             <div class="space-y-2">
-                                <label class="text-sm font-medium text-gray-300">Contact Person *</label>
-                                <input type="text" required placeholder="Your full name" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                <label for="contact-person" class="text-sm font-medium text-gray-300">Contact Person *</label>
+                                <input type="text" id="contact-person" required placeholder="Your full name" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
 
                             <!-- Mobile Number -->
                             <div class="space-y-2">
-                                <label class="text-sm font-medium text-gray-300">Mobile Number *</label>
-                                <input type="tel" required placeholder="+91 00000 00000" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                <label for="mobile-number" class="text-sm font-medium text-gray-300">Mobile Number *</label>
+                                <input type="tel" id="mobile-number" required placeholder="+91 00000 00000" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
 
                             <!-- Email -->
                             <div class="space-y-2">
-                                <label class="text-sm font-medium text-gray-300">Email Address *</label>
-                                <input type="email" required placeholder="name@company.com" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                <label for="email-address" class="text-sm font-medium text-gray-300">Email Address *</label>
+                                <input type="email" id="email-address" required placeholder="name@company.com" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
 
                             <!-- City -->
                             <div class="space-y-2">
-                                <label class="text-sm font-medium text-gray-300">City *</label>
-                                <input type="text" required placeholder="City" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                <label for="city" class="text-sm font-medium text-gray-300">City *</label>
+                                <input type="text" id="city" required placeholder="City" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
 
                             <!-- State -->
                             <div class="space-y-2">
-                                <label class="text-sm font-medium text-gray-300">State *</label>
-                                <input type="text" required placeholder="State" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                <label for="state" class="text-sm font-medium text-gray-300">State *</label>
+                                <input type="text" id="state" required placeholder="State" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
 
                             <!-- Business Type -->
                             <div class="space-y-2">
-                                <label class="text-sm font-medium text-gray-300">Business Type *</label>
-                                <select required class="w-full px-4 py-3 rounded-lg glass-input text-sm text-gray-300 bg-neutral-900">
+                                <label for="business-type" class="text-sm font-medium text-gray-300">Business Type *</label>
+                                <select id="business-type" required class="w-full px-4 py-3 rounded-lg glass-input text-sm text-gray-300 bg-neutral-900">
                                     <option value="" disabled selected>Select business type</option>
                                     <option value="retail">Retail Store</option>
                                     <option value="supermarket">Supermarket</option>
@@ -560,33 +544,33 @@
 
                             <!-- Monthly Requirement -->
                             <div class="space-y-2">
-                                <label class="text-sm font-medium text-gray-300">Monthly Requirement (KG / Boxes) *</label>
-                                <input type="text" required placeholder="e.g. 500 KG / 50 Boxes" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
+                                <label for="monthly-req" class="text-sm font-medium text-gray-300">Monthly Requirement (KG / Boxes) *</label>
+                                <input type="text" id="monthly-req" required placeholder="e.g. 500 KG / 50 Boxes" class="w-full px-4 py-3 rounded-lg glass-input text-sm">
                             </div>
                         </div>
 
                         <!-- Products Interested -->
                         <div class="space-y-2">
-                            <label class="text-sm font-medium text-gray-300">Products Interested *</label>
+                            <label class="text-sm font-medium text-gray-300">Products Interested</label>
                             <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
                                 <label class="flex items-center space-x-2 text-sm text-gray-300 cursor-pointer">
-                                    <input type="checkbox" class="accent-brand-gold rounded">
+                                    <input type="checkbox" name="product-interest" value="Moong Papad" class="accent-brand-gold rounded">
                                     <span>Moong Papad</span>
                                 </label>
                                 <label class="flex items-center space-x-2 text-sm text-gray-300 cursor-pointer">
-                                    <input type="checkbox" class="accent-brand-gold rounded">
+                                    <input type="checkbox" name="product-interest" value="Chana Papad" class="accent-brand-gold rounded">
                                     <span>Chana Papad</span>
                                 </label>
                                 <label class="flex items-center space-x-2 text-sm text-gray-300 cursor-pointer">
-                                    <input type="checkbox" class="accent-brand-gold rounded">
+                                    <input type="checkbox" name="product-interest" value="Urad Papad" class="accent-brand-gold rounded">
                                     <span>Urad Papad</span>
                                 </label>
                                 <label class="flex items-center space-x-2 text-sm text-gray-300 cursor-pointer">
-                                    <input type="checkbox" class="accent-brand-gold rounded">
+                                    <input type="checkbox" name="product-interest" value="Papad Masala" class="accent-brand-gold rounded">
                                     <span>Papad Masala</span>
                                 </label>
                                 <label class="flex items-center space-x-2 text-sm text-gray-300 cursor-pointer">
-                                    <input type="checkbox" class="accent-brand-gold rounded">
+                                    <input type="checkbox" name="product-interest" value="Combo Packs" class="accent-brand-gold rounded">
                                     <span>Combo Packs</span>
                                 </label>
                             </div>
@@ -594,13 +578,13 @@
 
                         <!-- Message -->
                         <div class="space-y-2">
-                            <label class="text-sm font-medium text-gray-300">Additional Message / Remarks</label>
-                            <textarea rows="4" placeholder="Share specific details regarding your requirements..." class="w-full px-4 py-3 rounded-lg glass-input text-sm"></textarea>
+                            <label for="remarks" class="text-sm font-medium text-gray-300">Additional Message / Remarks</label>
+                            <textarea id="remarks" rows="4" placeholder="Share specific details regarding your requirements..." class="w-full px-4 py-3 rounded-lg glass-input text-sm"></textarea>
                         </div>
 
                         <!-- Submit Button -->
                         <div class="pt-4">
-                            <button type="submit" class="w-full py-4 bg-brand-gold hover:bg-brand-goldHover text-black font-bold text-base rounded-lg transition-colors">
+                            <button type="submit" id="submit-btn" class="w-full py-4 bg-brand-gold hover:bg-brand-goldHover text-black font-bold text-base rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-gold">
                                 Submit Wholesale Enquiry
                             </button>
                         </div>
@@ -618,37 +602,31 @@
                 </div>
 
                 <div class="space-y-4">
-                    <!-- Minimum Order Quantity -->
                     <div class="glass-card p-6 rounded-xl">
                         <h3 class="text-lg font-bold text-white mb-2">What is the Minimum Order Quantity (MOQ)?</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Our wholesale minimum order quantities are optimized for commercial partners. Please contact us via the enquiry form to get specific MOQs tailored to your region and product mix.</p>
                     </div>
 
-                    <!-- Delivery Time -->
                     <div class="glass-card p-6 rounded-xl">
                         <h3 class="text-lg font-bold text-white mb-2">What is the typical delivery timeframe?</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Standard dispatch occurs within 2-4 business days post order confirmation. Delivery times vary between 3 to 7 business days depending on destination logistics.</p>
                     </div>
 
-                    <!-- Payment Terms -->
                     <div class="glass-card p-6 rounded-xl">
                         <h3 class="text-lg font-bold text-white mb-2">What are the available payment terms?</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Initial orders are processed on standard advance or bank transfer terms. Credit arrangements can be discussed for long-term commercial partners based on order history.</p>
                     </div>
 
-                    <!-- Available Products -->
                     <div class="glass-card p-6 rounded-xl">
                         <h3 class="text-lg font-bold text-white mb-2">Which product variants are available for bulk purchase?</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Our complete Jain papad product line including Moong, Chana, Urad, Specialty Masala variants, and Combo Packs are available for wholesale supply.</p>
                     </div>
 
-                    <!-- Packaging Options -->
                     <div class="glass-card p-6 rounded-xl">
                         <h3 class="text-lg font-bold text-white mb-2">What packaging options are available?</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">We provide standard commercial bulk cartons engineered to prevent transit damage, preserving product freshness and structural integrity.</p>
                     </div>
 
-                    <!-- Support -->
                     <div class="glass-card p-6 rounded-xl">
                         <h3 class="text-lg font-bold text-white mb-2">How is business support managed post-order?</h3>
                         <p class="text-gray-400 text-sm leading-relaxed">Every wholesale client is assigned a dedicated business manager for order tracking, re-ordering, invoice requests, and logistical queries.</p>
@@ -690,29 +668,29 @@
                     <p class="text-gray-400 text-sm">Manufacturer of premium Jain papads deliverable nationwide with authentic taste and uncompromised quality.</p>
                 </div>
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <h3 class="text-white font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2 text-sm text-gray-400">
                         <li><a href="index.html" class="hover:text-brand-gold">Home</a></li>
                         <li><a href="products.html" class="hover:text-brand-gold">Products</a></li>
                         <li><a href="about.html" class="hover:text-brand-gold">About Us</a></li>
-                        <li><a href="bulk.html" class="text-brand-gold">Wholesale Supply</a></li>
+                        <li><a href="business.html" class="text-brand-gold">Wholesale Supply</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Categories</h4>
+                    <h3 class="text-white font-semibold mb-4">Categories</h3>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-brand-gold">Moong Papad</a></li>
-                        <li><a href="#" class="hover:text-brand-gold">Chana Papad</a></li>
-                        <li><a href="#" class="hover:text-brand-gold">Urad Papad</a></li>
-                        <li><a href="#" class="hover:text-brand-gold">Papad Masala</a></li>
+                        <li><a href="shop.html" class="hover:text-brand-gold">Moong Papad</a></li>
+                        <li><a href="shop.html" class="hover:text-brand-gold">Chana Papad</a></li>
+                        <li><a href="shop.html" class="hover:text-brand-gold">Urad Papad</a></li>
+                        <li><a href="shop.html" class="hover:text-brand-gold">Papad Masala</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Contact Info</h4>
+                    <h3 class="text-white font-semibold mb-4">Contact Info</h3>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-2 text-brand-gold"></i> bulk@kawadswad.com</li>
-                        <li class="flex items-center"><i data-lucide="phone" class="w-4 h-4 mr-2 text-brand-gold"></i> +91 98765 43210</li>
-                        <li class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2 text-brand-gold"></i> India</li>
+                        <li class="flex items-center"><i data-lucide="mail" class="w-4 h-4 mr-2 text-brand-gold" aria-hidden="true"></i> info.av.kkswad@gmail.com</li>
+                        <li class="flex items-center"><i data-lucide="phone" class="w-4 h-4 mr-2 text-brand-gold" aria-hidden="true"></i> +91 96309 7687</li>
+                        <li class="flex items-center"><i data-lucide="map-pin" class="w-4 h-4 mr-2 text-brand-gold" aria-hidden="true"></i> Madhya Pradesh, India</li>
                     </ul>
                 </div>
             </div>
@@ -722,9 +700,82 @@
         </div>
     </footer>
 
-    <!-- Lucide Icons Initialization -->
+    <!-- Interactive Script Bindings & Icon Initialization -->
     <script>
-        lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => {
+            // Safe Lucide icons initialization
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Interactive Form Submission
+            const form = document.getElementById('b2b-wholesale-form');
+            const submitBtn = document.getElementById('submit-btn');
+
+            if (form) {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const company = document.getElementById('company-name')?.value.trim();
+                    const contact = document.getElementById('contact-person')?.value.trim();
+                    const mobile = document.getElementById('mobile-number')?.value.trim();
+                    const email = document.getElementById('email-address')?.value.trim();
+                    const city = document.getElementById('city')?.value.trim();
+                    const state = document.getElementById('state')?.value.trim();
+                    const bType = document.getElementById('business-type')?.value;
+                    const monthlyReq = document.getElementById('monthly-req')?.value.trim();
+                    const remarks = document.getElementById('remarks')?.value.trim();
+
+                    const selectedProducts = Array.from(document.querySelectorAll('input[name="product-interest"]:checked'))
+                        .map(cb => cb.value);
+
+                    if (!company || !contact || !mobile || !email || !city || !state || !bType || !monthlyReq) {
+                        alert('Please fill out all required fields marked with *');
+                        return;
+                    }
+
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Processing Request...';
+                    }
+
+                    const payload = {
+                        schemaVersion: 1,
+                        source: "website",
+                        type: "wholesale_enquiry",
+                        companyName: company,
+                        contactPerson: contact,
+                        mobile: mobile,
+                        email: email,
+                        city: city,
+                        state: state,
+                        businessType: bType,
+                        monthlyRequirement: monthlyReq,
+                        interestedProducts: selectedProducts,
+                        remarks: remarks,
+                        createdAt: new Date().toISOString()
+                    };
+
+                    console.group("Kawad Swad - Wholesale Form Submission");
+                    console.table(payload);
+                    console.groupEnd();
+
+                    setTimeout(() => {
+                        form.innerHTML = `
+                            <div class="p-8 bg-brand-gold/10 border border-brand-gold/40 rounded-xl text-center space-y-4">
+                                <div class="w-12 h-12 bg-brand-gold text-black rounded-full flex items-center justify-center mx-auto font-bold text-xl">
+                                    ✓
+                                </div>
+                                <h3 class="text-2xl font-bold text-white">Enquiry Received!</h3>
+                                <p class="text-sm text-gray-300 max-w-md mx-auto leading-relaxed">
+                                    Thank you for requesting wholesale pricing, <strong>${contact}</strong>. Our B2B commercial team will evaluate your details and respond shortly.
+                                </p>
+                            </div>
+                        `;
+                    }, 800);
+                });
+            }
+        });
     </script>
 </body>
 </html>

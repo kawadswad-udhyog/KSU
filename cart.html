@@ -58,6 +58,7 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+                <!-- Cart Items Table -->
                 <div class="lg:col-span-2 bg-white rounded-sm border border-stone-200/80 p-6 shadow-sm overflow-x-auto">
                     <table class="w-full text-left text-sm" aria-label="Shopping Cart Items">
                         <thead class="bg-brand-cream/50 text-brand-dark font-serif border-b border-stone-200">
@@ -69,12 +70,13 @@
                                 <th scope="col" class="py-3 px-4">Action</th>
                             </tr>
                         </thead>
-                        <tbody id="cart-items-container" class="divide-y divide-stone-200/80">
+                        <tbody id="cart-items-container" aria-live="polite" class="divide-y divide-stone-200/80">
                             <!-- Items rendered dynamically via js/cart.js -->
                         </tbody>
                     </table>
                 </div>
 
+                <!-- Order Summary Sidebar -->
                 <div class="bg-white rounded-sm border border-stone-200/80 p-6 shadow-sm space-y-6">
                     <h2 class="font-serif text-xl font-bold text-brand-dark border-b border-stone-200 pb-3">Order Summary</h2>
                     <div class="space-y-3 text-sm">

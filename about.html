@@ -60,6 +60,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Master Design System Stylesheet -->
+    <link rel="stylesheet" href="css/design-system.css">
+
     <!-- CSS Animation Utilities -->
     <style>
         .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -113,48 +116,47 @@
         <section class="relative bg-gradient-to-br from-brand-cream via-white to-brand-cream border-b border-brand-gold/10 py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full border border-brand-gold/20">
                         Our Heritage &amp; Commitment
                     </span>
                     <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-brand-dark">
-                        About KAWAD SWAD
+                        About <span class="italic text-brand-gold font-normal">Kawad Swad</span>
                     </h1>
                     <p class="text-base sm:text-lg text-brand-muted font-light leading-relaxed">
-                        Authentic Jain Papads crafted with traditional recipes, premium ingredients and a commitment to quality.
+                        Authentic Jain Papads crafted with traditional recipes, premium ingredients and an unwavering commitment to quality.
                     </p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-medium rounded-sm text-white bg-brand-dark hover:bg-brand-gold transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-sm text-white bg-brand-dark hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                             Explore Products
                         </a>
-                        <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-medium rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
+                        <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-xs font-semibold uppercase tracking-wider rounded-sm text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">
                             Contact Us
                         </a>
                     </div>
                 </div>
 
                 <!-- Real About Hero Banner Image -->
-                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-inner relative group fade-in">
-                    <img src="assets/images/about-hero.png" alt="About KAWAD SWAD Hero Banner" class="w-full h-full object-cover">
+                <div class="mt-12 aspect-21/9 bg-stone-200/80 rounded-sm border border-brand-gold/20 flex flex-col items-center justify-center overflow-hidden shadow-luxury relative group fade-in">
+                    <img src="assets/images/about-hero.png" alt="About KAWAD SWAD Hero Banner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
             </div>
         </section>
 
         <!-- OUR STORY -->
-        <section class="py-20 bg-white">
+        <section class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                   <!-- Real Our Story Image -->
-<div class="bg-stone-200 rounded-sm border border-stone-300/60 overflow-hidden shadow-inner flex items-center justify-center">
-    <img src="assets/images/our-story.png" alt="Our Story - KAWAD SWAD" class="w-full h-auto max-h-[400px] object-cover">
-</div>
-
+                    <div class="bg-brand-cream/40 rounded-sm border border-stone-200/80 overflow-hidden shadow-luxury flex items-center justify-center p-2">
+                        <img src="assets/images/our-story.png" alt="Our Story - KAWAD SWAD" class="w-full h-auto max-h-[450px] object-cover rounded-sm">
+                    </div>
                     <div class="space-y-6">
                         <div>
+                            <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full mb-3">Origin</span>
                             <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Our Story</h2>
                             <div class="w-12 h-0.5 bg-brand-gold"></div>
                         </div>
                         <div class="space-y-4 text-brand-muted text-sm sm:text-base leading-relaxed font-light">
-                            <p>Kawad Swad Udhyog was established in the Nimar region of Madhya Pradesh with a commitment to preserving traditional culinary heritage. Rooted in authentic recipes, our business crafts 100% vegetarian Jain papads that deliver crisp, pure taste without compromising on quality or dietary guidelines.</p>
+                            <p>Kawad Swad Udhyog was established in the fertile Nimar region of Madhya Pradesh with a profound commitment to preserving traditional culinary heritage. Rooted in authentic recipes, our enterprise crafts 100% vegetarian Jain papads that deliver crisp, pure taste without compromising on quality or strict dietary guidelines.</p>
                             <p>From sourcing selected quality pulses to employing hygienic processing standards, Kawad Swad has expanded its reach across domestic and regional markets, becoming a trusted brand for households, retailers, and commercial distributors.</p>
                         </div>
                     </div>
@@ -163,22 +165,22 @@
         </section>
 
         <!-- MISSION & VISION -->
-        <section class="py-20 bg-brand-cream border-y border-brand-gold/10">
+        <section class="py-24 bg-brand-cream border-y border-stone-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 sm:p-10 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                    <div class="bg-white p-8 sm:p-12 rounded-sm border border-stone-200/80 shadow-luxury space-y-4">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
-                        <h3 class="font-serif text-2xl font-semibold text-brand-dark mb-4">Our Mission</h3>
+                        <h3 class="font-serif text-2xl font-semibold text-brand-dark">Our Mission</h3>
                         <p class="text-brand-muted text-sm sm:text-base leading-relaxed font-light">To manufacture authentic, high-quality, and 100% vegetarian Jain papads using pure ingredients and hygienic processes, bringing traditional regional taste to every Indian home with trust and transparency.</p>
                     </div>
 
-                    <div class="bg-white p-8 sm:p-10 rounded-sm border border-brand-gold/10 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
+                    <div class="bg-white p-8 sm:p-12 rounded-sm border border-stone-200/80 shadow-luxury space-y-4">
+                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                         </div>
-                        <h3 class="font-serif text-2xl font-semibold text-brand-dark mb-4">Our Vision</h3>
+                        <h3 class="font-serif text-2xl font-semibold text-brand-dark">Our Vision</h3>
                         <p class="text-brand-muted text-sm sm:text-base leading-relaxed font-light">To become a nationally recognized leader in the traditional FMCG food sector by expanding our distribution network, upholding manufacturing excellence, and serving diverse culinary preferences.</p>
                     </div>
                 </div>
@@ -186,166 +188,97 @@
         </section>
 
         <!-- WHY KAWAD SWAD -->
-        <section class="py-20 bg-white">
+        <section class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Why KAWAD SWAD</h2>
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Distinction</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Why KAWAD SWAD</h2>
                     <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/60 hover:shadow-md transition-all duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/></svg>
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-3">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/></svg>
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Premium Ingredients</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Rigorous selection of clean pulses, authentic spices, and uncompromised quality standards.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Premium Ingredients</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">Rigorous selection of clean pulses, authentic spices, and uncompromised quality standards.</p>
                     </div>
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/60 hover:shadow-md transition-all duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-3">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Traditional Recipes</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Formulated with authentic Nimar regional spice ratios for genuine homemade flavor.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Traditional Recipes</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">Formulated with authentic Nimar regional spice ratios for genuine homemade flavor.</p>
                     </div>
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/60 hover:shadow-md transition-all duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-3">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Modern Manufacturing</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Untouched automated rolling and drying equipment operating under strict hygiene controls.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Modern Manufacturing</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">Advanced automated rolling and drying equipment operating under strict hygiene controls.</p>
                     </div>
-                    <div class="bg-brand-cream/50 p-8 rounded-sm border border-stone-200/60 hover:shadow-md transition-all duration-300">
-                        <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mb-6">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                    <div class="bg-brand-cream/40 p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-3">
+                        <div class="w-10 h-10 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
                         </div>
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Consistent Taste</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Multi-stage testing ensuring uniform thickness, crunch, and flavor in every single batch.</p>
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Consistent Taste</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">Multi-stage testing ensuring uniform thickness, crunch, and flavor in every single batch.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- OUR CORE VALUES -->
-        <section class="py-20 bg-brand-cream border-t border-brand-gold/10">
+        <section class="py-24 bg-brand-cream border-t border-stone-200/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Our Core Values</h2>
+                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Principles</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark">Our Core Values</h2>
                     <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Quality</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Unwavering dedication to raw material testing, clean processing, and standard packaging.</p>
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-2">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Quality</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">Unwavering dedication to raw material testing, clean processing, and standard packaging.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Trust</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Building long-term transparent relationships with consumers, stockists, and wholesale partners.</p>
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-2">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Trust</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">Building long-term transparent relationships with consumers, stockists, and wholesale partners.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Integrity</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Strict compliance with 100% vegetarian and Jain dietary principles across all variants.</p>
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-2">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Integrity</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">Strict compliance with 100% vegetarian and Jain dietary principles across all variants.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Hygiene</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Sanitized processing environments adhering strictly to FSSAI food safety regulations.</p>
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-2">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Hygiene</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">Sanitized processing environments adhering strictly to FSSAI food safety regulations.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Innovation</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Integrating modern food processing technology while keeping traditional recipes intact.</p>
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-2">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Innovation</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">Integrating modern food processing technology while keeping traditional recipes intact.</p>
                     </div>
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm hover:border-brand-gold transition-colors duration-300">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Customer First</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Ensuring prompt delivery, fair pricing, and complete satisfaction across all touchpoints.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- MANUFACTURING EXCELLENCE -->
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    <div class="aspect-4/3 bg-stone-200 rounded-sm flex flex-col items-center justify-center p-8 text-center border border-stone-300/60 shadow-inner">
-                        <svg class="w-16 h-16 text-stone-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                        <span class="text-xs font-mono uppercase tracking-wider text-brand-muted">[factory-image-placeholder]</span>
-                    </div>
-                    <div class="space-y-8">
-                        <div>
-                            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-4">Manufacturing Excellence</h2>
-                            <p class="text-brand-muted text-sm leading-relaxed">Our process combines uncompromising hygiene standards with refined traditional methods.</p>
-                        </div>
-                        <div class="space-y-4 text-sm font-medium">
-                            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-brand-gold"></span><span class="text-brand-dark">Premium Ingredients</span></div>
-                            <div class="pl-1 text-brand-gold text-xs">↓</div>
-                            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-brand-gold"></span><span class="text-brand-dark">Mixing</span></div>
-                            <div class="pl-1 text-brand-gold text-xs">↓</div>
-                            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-brand-gold"></span><span class="text-brand-dark">Rolling</span></div>
-                            <div class="pl-1 text-brand-gold text-xs">↓</div>
-                            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-brand-gold"></span><span class="text-brand-dark">Drying</span></div>
-                            <div class="pl-1 text-brand-gold text-xs">↓</div>
-                            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-brand-gold"></span><span class="text-brand-dark">Quality Check</span></div>
-                            <div class="pl-1 text-brand-gold text-xs">↓</div>
-                            <div class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-brand-gold"></span><span class="text-brand-dark">Packaging</span></div>
-                        </div>
-                        <div class="pt-4">
-                            <a href="manufacturing.html" class="inline-flex justify-center items-center px-8 py-4 border border-brand-dark text-sm font-semibold tracking-wider uppercase text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">View Manufacturing</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- QUALITY PROMISE -->
-        <section class="py-20 bg-brand-cream border-t border-brand-gold/10">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-dark mb-3">Our Quality Promise</h2>
-                    <div class="w-12 h-0.5 bg-brand-gold mx-auto"></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm text-center">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Premium Ingredients</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Direct sourcing of clean moong, urad, and chana pulses without artificial preservatives.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm text-center">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Hygienic Production</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Touchless automated processing protocols protecting every product batch.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm text-center">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Food Safety</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Operating strictly under FSSAI license parameters (Lic No. 21425890001224).</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm text-center">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Quality Inspection</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Multi-point verification of moisture content, spice ratio, and physical texture.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm text-center">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">Fresh Packaging</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Moisture-barrier foil and poly packaging sealing in crispness for extended shelf life.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-sm text-center">
-                        <h3 class="font-serif text-xl font-semibold text-brand-dark mb-3">100% Vegetarian</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Guaranteed compliance with pure Jain dietary standards across every variant.</p>
+                    <div class="bg-white p-8 rounded-sm border border-stone-200/80 shadow-luxury space-y-2">
+                        <h3 class="font-serif text-xl font-semibold text-brand-dark">Customer First</h3>
+                        <p class="text-xs text-brand-muted leading-relaxed font-light">Ensuring prompt delivery, fair pricing, and complete satisfaction across all touchpoints.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- FOUNDER MESSAGE -->
-        <section class="py-20 bg-white">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-brand-cream/60 rounded-sm border border-brand-gold/20 p-8 sm:p-12">
+        <section class="py-24 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-brand-cream/60 rounded-sm border border-brand-gold/20 p-8 sm:p-14 shadow-luxury">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                        <div class="aspect-3/4 bg-stone-200 rounded-sm border border-stone-300/60 flex flex-col items-center justify-center p-4 text-center">
-                            <svg class="w-12 h-12 text-stone-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-                            <span class="text-xs font-mono text-brand-muted">[founder-image-placeholder]</span>
+                        <div class="aspect-square bg-stone-200 rounded-sm border border-stone-300/60 flex flex-col items-center justify-center p-4 text-center overflow-hidden">
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-brand-muted">Ankit Jain</span>
                         </div>
                         <div class="md:col-span-2 space-y-4">
+                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full">Leadership</span>
                             <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-dark">A Message From Our Founder</h2>
-                            <div class="w-12 h-0.5 bg-brand-gold"></div>
-                            <p class="text-brand-muted text-sm sm:text-base leading-relaxed italic font-light">"Our pledge at Kawad Swad has always been simple: never compromise on taste or dietary purity. Every papad that leaves our manufacturing facility carries the trust of our tradition and the quality our consumers deserve."</p>
+                            <p class="text-brand-muted text-sm sm:text-base leading-relaxed italic font-light">&ldquo;Our pledge at Kawad Swad has always been simple: never compromise on taste or dietary purity. Every papad that leaves our manufacturing facility carries the trust of our tradition and the quality our consumers deserve.&rdquo;</p>
                             <div class="pt-2">
-                                <span class="block font-semibold text-brand-dark text-sm">Ankit Jain</span>
+                                <span class="block font-serif font-semibold text-brand-dark text-sm">Ankit Jain</span>
                                 <span class="block text-xs text-brand-gold font-medium">Founder &amp; Director, KAWAD SWAD Udhyog</span>
                             </div>
                         </div>
@@ -356,11 +289,12 @@
 
         <!-- CTA -->
         <section class="py-24 bg-gradient-to-r from-brand-dark via-stone-900 to-brand-dark text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-8 leading-tight">Experience the Taste of Tradition</h2>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="shop.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Shop Now</a>
-                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider hover:bg-white hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Become Business Partner</a>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">Experience the Taste of Tradition</h2>
+                <p class="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-light">Join thousands of satisfied households and commercial partners across India.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+                    <a href="shop.html" class="w-full sm:w-auto px-9 py-4 bg-brand-gold text-brand-dark font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Shop Now</a>
+                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider rounded-sm hover:bg-white hover:text-brand-dark transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold">Become Business Partner</a>
                 </div>
             </div>
         </section>
@@ -369,9 +303,9 @@
     <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
+    <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/shop.js"></script>
 </body>
 </html>

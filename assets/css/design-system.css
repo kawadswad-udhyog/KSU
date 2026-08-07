@@ -1,45 +1,45 @@
 /**
  * ============================================================================
- * KAWAD SWAD - Master Design System (Theme: Kawad Heritage)
+ * KAWAD SWAD - Master Design System (Theme: Kawad Heritage 3D Polish)
  * ============================================================================
- * Premium, traditional, warm, authentic modern Indian food brand theme.
- * Updated to incorporate the exact Kawad Heritage color variables and rules.
+ * Color palette extracted precisely from official logo:
+ * Brand Red: #FE330E | Sunshine Yellow: #FBEC0A | Aqua Cyan: #09E4FD
+ * Delivers a warm, traditional, modern, and tactile 3D food brand experience.
  */
 
 /* --- CONSOLIDATED EXTERNAL IMPORTS --- */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* --- 1. KAWAD HERITAGE CORE PALETTE --- */
-  --color-primary: #C62828;       /* Primary buttons, important CTAs, active nav, headings */
-  --color-secondary: #E6B800;     /* Highlights, badges, icons, hover borders, accents */
-  --color-accent: #00B8D9;        /* Trust indicators, links, tiny decorative details (max 3%) */
+  /* --- 1. EXACT LOGO COLOR EXTRACTION --- */
+  --color-primary: #FE330E;       /* Vibrant Logo Red (Primary CTAs, Active States) */
+  --color-secondary: #FBEC0A;     /* Sunshine Yellow (Highlights, Badges, Hover Accents) */
+  --color-accent: #09E4FD;        /* Soft Cyan Aura (Trust indicators, minimal glow details) */
   
-  --color-background: #FFF9F0;    /* Warm Cream Base */
-  --color-surface: #FFFFFF;       /* Clean White Surfaces (Cards, Forms, Modals) */
+  --color-background: #FFFDF7;    /* Warm Cream-White Base */
+  --color-surface: #FFFFFF;       /* Crisp White 3D Cards & Containers */
   
-  --color-heading: #4E342E;       /* Rich Deep Brown for Headings */
-  --color-body: #5F5F5F;          /* Main Body Text */
-  --color-muted: #8B8174;         /* Subtle/Muted Text */
+  --color-heading: #4E342E;       /* Deep Rich Traditional Brown for Headings */
+  --color-body: #5F5F5F;          /* Main Readable Body Text */
+  --color-muted: #8B8174;         /* Subtle Secondary Text */
   
-  --color-border: #E7DCC7;        /* Thin, Elegant, Consistent Borders */
+  --color-border: #F3E6C8;        /* Soft Warm Gold/Cream Borders */
   
-  --color-footer-bg: #2D1F17;     /* Dark Footer Background */
+  --color-footer-bg: #2D1F17;     /* Deep Heritage Footer Background */
   --color-footer-heading: #FFFFFF;
   --color-footer-body: #F5EEDC;
-  --color-footer-link: #E6B800;
+  --color-footer-link: #FBEC0A;
 
-  /* --- 2. SPACING & BORDER RADIUS --- */
-  --radius-card: 18px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
+  /* --- 2. 3D TACTILE SYSTEM --- */
+  --radius-card: 20px;
+  --radius-sm: 8px;
   --radius-full: 9999px;
 
-  /* --- 3. SHADOW SYSTEM (Soft, Minimal Elevation) --- */
-  --shadow-card: 0 4px 20px rgba(78, 52, 46, 0.04);
-  --shadow-hover: 0 8px 30px rgba(78, 52, 46, 0.08);
+  /* Soft 3D layered shadows for modern tactile depth */
+  --shadow-3d: 0 10px 30px -5px rgba(78, 52, 46, 0.07), 0 4px 6px -2px rgba(254, 51, 14, 0.03);
+  --shadow-3d-hover: 0 20px 40px -10px rgba(254, 51, 14, 0.12), 0 8px 12px -4px rgba(78, 52, 46, 0.08);
 
-  /* --- 4. TYPOGRAPHY --- */
+  /* --- 3. TYPOGRAPHY --- */
   --font-main: 'Plus Jakarta Sans', sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
 }
@@ -88,60 +88,65 @@ a:hover {
   color: var(--color-primary);
 }
 
-/* --- ALTERNATING SECTIONS --- */
+/* --- ALTERNATING SECTIONS (Logo-Inspired Cream & White Flow) --- */
 section:nth-of-type(even) {
-  background-color: #FFF9F0; /* Cream */
+  background-color: #FFF9EE; /* Soft warm cream tint */
 }
 
 section:nth-of-type(odd) {
-  background-color: #FFFFFF; /* White */
+  background-color: #FFFFFF; /* Clean white */
 }
 
-/* --- ACTION COMPONENTS (Primary Brand Red) --- */
+/* --- BUTTON SYSTEM (3D Tactile Styling) --- */
 .btn-primary, button:not([class*="bg-"]), a[class*="bg-brand-red"] {
-  background-color: var(--color-primary);
+  background: linear-gradient(135deg, #FE330E 0%, #D92500 100%);
   color: #FFFFFF;
   border-radius: var(--radius-sm);
   font-weight: 600;
+  box-shadow: 0 4px 14px rgba(254, 51, 14, 0.35);
   transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid transparent;
+  border: none;
 }
 
 .btn-primary:hover, button:not([class*="bg-"]):hover {
-  background-color: #A32121; /* Slightly darker red */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(254, 51, 14, 0.5);
+  background: linear-gradient(135deg, #FF4522 0%, #FE330E 100%);
   color: #FFFFFF;
 }
 
 .btn-secondary {
   background-color: var(--color-surface);
-  border: 1px solid var(--color-secondary);
+  border: 2px solid var(--color-secondary);
   color: var(--color-heading);
   border-radius: var(--radius-sm);
   font-weight: 600;
+  box-shadow: 0 2px 8px rgba(251, 236, 10, 0.15);
   transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-secondary:hover {
-  background-color: #FFFDF5; /* Light gold background tint */
-  border-color: var(--color-secondary);
-  color: var(--color-heading);
+  background-color: #FFFDF0;
+  border-color: #CCA000;
+  transform: translateY(-1px);
 }
 
-/* --- CARD SYSTEM --- */
+/* --- 3D CARD SYSTEM --- */
 .card, [class*="bg-white"], .glass-card {
   background-color: var(--color-surface);
   border-radius: var(--radius-card);
   border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-card);
-  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1), border-color 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-3d);
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card:hover, .glass-card:hover {
-  box-shadow: var(--shadow-hover);
-  border-color: var(--color-secondary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-3d-hover);
+  border-color: rgba(251, 236, 10, 0.6); /* Soft yellow accent border glow */
 }
 
-/* --- FORM INPUTS --- */
+/* --- FORM INPUTS (Polished 3D Focus) --- */
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -149,31 +154,29 @@ input[type="number"],
 input[type="url"],
 select,
 textarea {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-sm);
   padding: 12px 16px;
   font-size: 0.875rem;
   color: var(--color-heading);
-  transition: border-color 250ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 2px 4px rgba(78, 52, 46, 0.02);
+  transition: border-color 250ms ease, box-shadow 250ms ease;
 }
 
 input:focus, select:focus, textarea:focus {
   border-color: var(--color-primary);
-  background-color: var(--color-surface);
-  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(254, 51, 14, 0.12), inset 0 1px 2px rgba(0,0,0,0.02);
   outline: none;
 }
 
-/* --- ICONS & BADGES --- */
-.icon-default { color: var(--color-heading); }
-.icon-highlight { color: var(--color-secondary); }
-.icon-trust { color: var(--color-accent); }
-
+/* --- ACCENTS & BADGES --- */
 .badge, span[class*="rounded-full"] {
   border: 1px solid var(--color-border);
-  background-color: #FFFDF5;
+  background-color: #FFFDE6; /* Soft sunshine yellow tint */
   color: var(--color-heading);
+  font-weight: 500;
 }
 
 /* --- LAYOUT UTILITIES --- */
@@ -181,11 +184,11 @@ input:focus, select:focus, textarea:focus {
 .text-brown { color: var(--color-heading); }
 .border-accent { border-color: var(--color-border); }
 
-/* --- FOOTER POLISH --- */
+/* --- FOOTER THEME --- */
 footer {
   background-color: var(--color-footer-bg);
   color: var(--color-footer-body);
-  border-top: 1px solid rgba(231, 220, 199, 0.1);
+  border-top: 3px solid var(--color-secondary);
 }
 
 footer h3, footer h4, footer h5 {
@@ -213,4 +216,3 @@ footer a:hover {
     scroll-behavior: auto !important;
   }
 }
-```[cite: 2]

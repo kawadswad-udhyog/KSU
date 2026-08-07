@@ -1,42 +1,91 @@
 /**
  * ============================================================================
- * KAWAD SWAD - Phase 7 Visual Asset & Polish System Extensions
+ * KAWAD SWAD - Master Production CSS & Design System
  * ============================================================================
+ * Updated to integrate Brand-Specific Logo Palette.
  */
 
-/* --- Uniform Image Presentation Layer --- */
-img {
-  border-radius: var(--radius-sm);
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity var(--duration-normal) ease;
+:root {
+  /* --- 1. COLOR SYSTEM (Logo-Integrated) --- */
+  --color-primary: #1C1917;         /* Deep Stone / Rich Charcoal */
+  --color-secondary: #C5A059;       /* Muted Luxury Gold (Retained for UI) */
+  
+  /* Brand Logo Accents */
+  --color-brand-red: #FF4500;       /* Sunset Red (From Logo) */
+  --color-brand-yellow: #FFD700;    /* Logo Background Yellow */
+  --color-brand-blue: #00BFFF;      /* Logo Sky Blue */
+  
+  --color-success: #2F5233;         /* Deep Olive */
+  --color-warning: #996515;         /* Bronze / Warm Amber */
+  --color-error: #8B0000;           /* Crimson Error */
+  
+  --color-background: #FAF7F2;      /* Warm Ivory */
+  --color-surface: #FFFFFF;         /* Pure White */
+  --color-card: #FFFFFF;            /* Card Background */
+  
+  --color-border: rgba(197, 160, 89, 0.2); 
+  --color-border-subtle: #E7E2D8;
+  
+  --color-muted: #57534E;           /* Muted Text */
+  --color-primary-text: #1C1917;    /* Primary Text */
+  --color-secondary-text: #78716C;  /* Secondary Text */
+  --color-hover: #A37F38;           /* Gold Hover */
+  --color-focus: #C5A059;           /* Focus Ring */
+
+  /* --- 3. SPACING & RADIUS --- */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* --- 5. SHADOW SYSTEM --- */
+  --shadow-sm: 0 4px 12px rgba(28, 25, 23, 0.04);
+  --shadow-md: 0 12px 24px -4px rgba(28, 25, 23, 0.08);
+  --shadow-lg: 0 24px 48px -12px rgba(28, 25, 23, 0.12);
+
+  /* --- 10. MOTION --- */
+  --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-normal: 250ms;
 }
 
-/* Asset Container Card Polish */
+/* --- GLOBAL BASE --- */
+html { scroll-behavior: smooth; background-color: var(--color-background); }
+body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--color-primary-text); }
+
+/* --- LOGO-INTEGRATED INTERACTION --- */
+.btn-primary {
+  background-color: var(--color-brand-red); /* Using Logo Red */
+  color: #FFFFFF;
+}
+.btn-primary:hover { background-color: var(--color-primary); }
+
+.badge-blue { background-color: var(--color-brand-blue); color: #fff; }
+.badge-yellow { background-color: var(--color-brand-yellow); color: var(--color-primary); }
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; }
+
+/* --- FORM SYSTEM --- */
+input:focus, select:focus, textarea:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+}
+
+/* --- ASSET PRESENTATION --- */
 .asset-premium {
   border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  overflow: hidden;
+  transition: transform var(--duration-normal) var(--ease-apple);
 }
 
 .asset-premium:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  border-color: var(--color-brand-yellow); /* Subtle connection to logo */
 }
 
-.asset-premium:hover img {
-  transform: scale(1.04);
-}
-
-/* Texture & Overlay Enhancements */
-.hero-editorial-overlay {
-  background: linear-gradient(180deg, rgba(28, 25, 23, 0.2) 0%, rgba(28, 25, 23, 0.6) 100%);
-}
-
-/* Consistent Iconography Utility */
-.icon-brand {
-  stroke-width: 1.5;
-  transition: stroke var(--duration-normal) ease;
-}
+/* --- UTILITY FALLBACKS --- */
+.bg-brand-red { background-color: var(--color-brand-red); }
+.bg-brand-blue { background-color: var(--color-brand-blue); }
+.bg-brand-yellow { background-color: var(--color-brand-yellow); }

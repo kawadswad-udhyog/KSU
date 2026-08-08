@@ -1,59 +1,91 @@
 <header class="sticky top-0 z-50 bg-[#FFFDF7]/95 backdrop-blur-md border-b border-[#F3E6C8] transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
+        
         <!-- Brand Logo -->
         <a href="index.html" class="flex items-center gap-2 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">
-            <span class="font-serif text-2xl font-bold tracking-wider text-[#4E342E] group-hover:text-[#FE330E] transition-colors duration-300">KAWAD SWAD</span>
+            <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-[#4E342E] group-hover:text-[#FE330E] transition-colors duration-300">
+                KAWAD SWAD
+            </span>
         </a>
 
-        <!-- Desktop Navigation -->
-        <nav aria-label="Main Navigation" class="hidden xl:flex items-center space-x-5 text-xs font-semibold uppercase tracking-wider text-[#4E342E]">
-            <a href="index.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Home</a>
-            <a href="about.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">About</a>
-            <a href="products.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Products</a>
-            <a href="shop.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Shop</a>
-            <a href="business.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Business</a>
-            <a href="manufacturing.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Manufacturing</a>
-            <a href="gallery.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Gallery</a>
-            <a href="blog.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Blog</a>
-            <a href="contact.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Contact</a>
+        <!-- Desktop Navigation (lg & up for better tablet coverage) -->
+        <nav aria-label="Main Navigation" class="hidden lg:flex items-center space-x-3 xl:space-x-5 text-xs font-semibold uppercase tracking-wider text-[#4E342E]">
+            <a href="index.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1 px-1">Home</a>
+            <a href="about.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1 px-1">About</a>
+            <a href="products.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1 px-1">Products</a>
+            <a href="shop.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1 px-1">Shop</a>
+            <a href="business.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1 px-1">Business</a>
+            <a href="manufacturing.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1 px-1">Manufacturing</a>
+            <a href="gallery.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1 px-1">Gallery</a>
+            <a href="blog.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1 px-1">Blog</a>
+            <a href="contact.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1 px-1">Contact</a>
         </nav>
 
-        <!-- Search, Cart Badge & Mobile Menu Controls -->
-        <div class="flex items-center space-x-3">
-            <!-- Search Quick Button -->
+        <!-- Right Controls: Search, Cart & Mobile Menu Button -->
+        <div class="flex items-center space-x-1 sm:space-x-3">
+            <!-- Search Button -->
             <a href="shop.html" class="text-[#4E342E] hover:text-[#FE330E] transition-colors duration-200 p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-full" aria-label="Search Products">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
             </a>
 
-            <!-- Cart Badge Link (Synchronized with js/cart.js) -->
+            <!-- Cart Badge Link -->
             <a href="cart.html" class="relative text-[#4E342E] hover:text-[#FE330E] transition-colors duration-200 p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-full" aria-label="Shopping Cart">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
                 </svg>
-                <span id="cart-badge-count" data-cart-count class="absolute top-0 right-0 bg-[#FE330E] text-white text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center pointer-events-none shadow-sm">0</span>
+                <span id="cart-badge-count" data-cart-count class="absolute top-0.5 right-0.5 bg-[#FE330E] text-white text-[10px] font-bold rounded-full min-w-[1.125rem] h-4 px-1 flex items-center justify-center pointer-events-none shadow-sm">0</span>
             </a>
 
-            <!-- Mobile Menu Toggle -->
-            <button type="button" id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false" class="xl:hidden p-2 text-[#4E342E] hover:text-[#FE330E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg transition-colors duration-200" aria-label="Toggle Navigation Menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <!-- Mobile Menu Toggle Button -->
+            <button type="button" id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden p-2 text-[#4E342E] hover:text-[#FE330E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg transition-colors duration-200" aria-label="Toggle Navigation Menu">
+                <!-- Hamburger Icon -->
+                <svg id="icon-hamburger" class="w-6 h-6 block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <!-- Close (X) Icon -->
+                <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
             </button>
         </div>
     </div>
 
     <!-- Mobile Navigation Dropdown -->
-    <div id="mobile-menu" class="hidden xl:hidden bg-[#FFFDF7]/98 border-b border-[#F3E6C8] px-6 pt-3 pb-6 space-y-3 text-xs font-semibold uppercase tracking-wider text-[#4E342E] shadow-xl">
-        <a href="index.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Home</a>
-        <a href="about.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">About</a>
-        <a href="products.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Products</a>
-        <a href="shop.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Shop</a>
-        <a href="business.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Business</a>
-        <a href="manufacturing.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Manufacturing</a>
-        <a href="gallery.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Gallery</a>
-        <a href="blog.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Blog</a>
-        <a href="contact.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Contact</a>
+    <div id="mobile-menu" class="hidden lg:hidden max-h-[calc(100vh-5rem)] overflow-y-auto bg-[#FFFDF7]/98 border-b border-[#F3E6C8] px-6 py-4 space-y-1 text-xs font-semibold uppercase tracking-wider text-[#4E342E] shadow-xl transition-all duration-300">
+        <a href="index.html" class="block py-2.5 px-3 hover:bg-[#F3E6C8]/40 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Home</a>
+        <a href="about.html" class="block py-2.5 px-3 hover:bg-[#F3E6C8]/40 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">About</a>
+        <a href="products.html" class="block py-2.5 px-3 hover:bg-[#F3E6C8]/40 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Products</a>
+        <a href="shop.html" class="block py-2.5 px-3 hover:bg-[#F3E6C8]/40 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Shop</a>
+        <a href="business.html" class="block py-2.5 px-3 hover:bg-[#F3E6C8]/40 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Business</a>
+        <a href="manufacturing.html" class="block py-2.5 px-3 hover:bg-[#F3E6C8]/40 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Manufacturing</a>
+        <a href="gallery.html" class="block py-2.5 px-3 hover:bg-[#F3E6C8]/40 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Gallery</a>
+        <a href="blog.html" class="block py-2.5 px-3 hover:bg-[#F3E6C8]/40 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Blog</a>
+        <a href="contact.html" class="block py-2.5 px-3 hover:bg-[#F3E6C8]/40 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Contact</a>
     </div>
 </header>
+
+<!-- JavaScript for Mobile Menu Interaction -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconHamburger = document.getElementById('icon-hamburger');
+        const iconClose = document.getElementById('icon-close');
+
+        if (menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                
+                // Toggle state
+                menuBtn.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+                
+                // Toggle icons
+                iconHamburger.classList.toggle('hidden');
+                iconClose.classList.toggle('hidden');
+            });
+        }
+    });
+</script>

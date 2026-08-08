@@ -33,14 +33,15 @@ function initAssetCorrections() {
         oldCss.href = 'assets/css/design-system.css';
     }
 
-    // 2. Inject clean inline favicon to prevent 404 errors from missing favicon files
+    // 2. Inject clean inline favicon referencing assets/favicon/favicon.svg
     const existingFavicon = document.querySelector('link[rel="icon"]');
-    if (!existingFavicon || existingFavicon.href.includes('favicon')) {
+    if (!existingFavicon || existingFavicon.href.includes('favicon') || existingFavicon.href.startsWith('data:image/svg+xml')) {
         if (existingFavicon) existingFavicon.remove();
         
         const newFavicon = document.createElement('link');
         newFavicon.rel = 'icon';
-        newFavicon.href = 'data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%%3E<text y=%22.9em%22 font-size=%2290%22>🥠</text></svg>';
+        newFavicon.type = 'image/svg+xml';
+        newFavicon.href = 'assets/favicon/favicon.svg';
         document.head.appendChild(newFavicon);
     }
 }

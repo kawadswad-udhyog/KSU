@@ -24,13 +24,11 @@
     <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
 
-    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
+    <!-- Master Design System Stylesheet -->
     <link rel="stylesheet" href="assets/css/design-system.css">
     <link rel="stylesheet" href="assets/css/mobile.css">
 
@@ -77,14 +75,14 @@
     }
     </script>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-[#FFFDF7]">
 
     <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO -->
-        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
+        <section class="relative bg-white border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 slide-up">
                 <span class="badge">Direct Store</span>
                 <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#4E342E]">Shop Premium <span class="italic text-[#FE330E] font-normal">Jain Papads</span></h1>
@@ -98,7 +96,7 @@
                 <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
                     <!-- Search -->
                     <div class="w-full lg:w-96 relative">
-                        <input type="text" placeholder="Search products..." aria-label="Search products" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-xl py-3 pl-10 pr-4 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] transition-colors">
+                        <input type="text" placeholder="Search products..." aria-label="Search products" class="form-control pl-10 pr-4">
                         <svg class="w-4 h-4 text-[#8B8174] absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                     </div>
 
@@ -115,7 +113,7 @@
                     <div class="w-full lg:w-auto flex items-center gap-4 text-xs font-bold uppercase tracking-wider">
                         <div class="flex items-center gap-2">
                             <label for="weight-select" class="text-[#8B8174] shrink-0">Weight:</label>
-                            <select id="weight-select" data-filter-weight aria-label="Filter by weight" class="bg-[#FFFDF7] border border-[#F3E6C8] rounded-xl py-2 px-3 text-[#4E342E] focus:outline-none focus:border-[#FE330E] text-xs font-medium">
+                            <select id="weight-select" data-filter-weight aria-label="Filter by weight" class="form-control text-xs font-medium">
                                 <option value="all">All Weights</option>
                                 <option value="200g">200g</option>
                                 <option value="235g">235g</option>
@@ -125,7 +123,7 @@
                         </div>
                         <div class="flex items-center gap-2">
                             <label for="sort-select" class="text-[#8B8174] shrink-0">Sort By:</label>
-                            <select id="sort-select" data-sort aria-label="Sort products" class="bg-[#FFFDF7] border border-[#F3E6C8] rounded-xl py-2 px-3 text-[#4E342E] focus:outline-none focus:border-[#FE330E] text-xs font-medium">
+                            <select id="sort-select" data-sort aria-label="Sort products" class="form-control text-xs font-medium">
                                 <option value="default">Default</option>
                                 <option value="name-asc">Name (A-Z)</option>
                                 <option value="price-low">Price: Low to High</option>

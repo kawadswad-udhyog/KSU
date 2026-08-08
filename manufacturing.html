@@ -24,13 +24,11 @@
     <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
 
-    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
+    <!-- Master Design System Stylesheet -->
     <link rel="stylesheet" href="assets/css/design-system.css">
 
     <!-- CSS Animation Utilities & Motion Safety -->
@@ -76,14 +74,14 @@
     }
     </script>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-[#FFFDF7]">
 
     <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO BANNER -->
-        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
+        <section class="relative bg-white border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
                     <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">
@@ -96,17 +94,17 @@
                         Discover how authentic Jain papads are crafted with traditional recipes, premium ingredients and hygienic manufacturing practices.
                     </p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-lg text-white bg-[#FE330E] hover:bg-[#D92500] transition-all duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                        <a href="products.html" class="btn-primary cta-products">
                             Explore Products
                         </a>
-                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-[#4E342E] text-xs font-semibold uppercase tracking-wider rounded-lg text-[#4E342E] hover:bg-[#4E342E] hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                        <a href="business.html" class="btn-secondary cta-business">
                             Business Enquiry
                         </a>
                     </div>
                 </div>
 
                 <!-- Real Factory Hero Banner Image -->
-                <div class="mt-12 aspect-21/9 bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center overflow-hidden shadow-xl relative group fade-in">
+                <div class="mt-12 aspect-21/9 rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center overflow-hidden shadow-xl relative group fade-in">
                     <img src="assets/images/factory-hero.png" alt="Manufacturing Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
             </div>
@@ -116,7 +114,7 @@
         <section class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    <div class="bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] overflow-hidden shadow-xl flex items-center justify-center p-2">
+                    <div class="rounded-[20px] border border-[#F3E6C8] overflow-hidden shadow-xl flex items-center justify-center p-2">
                         <img src="assets/images/factory-process.png" alt="Manufacturing Process - KAWAD SWAD" class="w-full h-auto max-h-[450px] object-cover rounded-lg">
                     </div>
 
@@ -188,10 +186,10 @@
                 </h2>
                 <p class="text-stone-400 text-sm sm:text-base max-w-xl mx-auto font-light">Partner with our advanced facility for private label and custom bulk manufacturing.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 bg-[#FE330E] text-white font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-[#D92500] transition-colors duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 bg-[#FE330E] text-white font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-[#D92500] transition-colors duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] cta-private-label">
                         Private Label
                     </a>
-                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-white hover:text-[#4E342E] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-white hover:text-[#4E342E] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] cta-business">
                         Business Enquiry
                     </a>
                 </div>

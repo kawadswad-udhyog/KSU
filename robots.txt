@@ -5,7 +5,7 @@ Allow: /
 # Disallow Private & Checkout Pages
 Disallow: /cart.html
 Disallow: /checkout.html
-Disallow: /order-confirmation.html
+Disallow: /order-success.html
 Disallow: /components/
 
 # Sitemap Location

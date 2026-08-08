@@ -30,10 +30,7 @@ async function getProductsDatabase() {
         if (!response.ok) throw new Error(`HTTP status: ${response.status}`);
         const data = await response.json();
         
-        // Handle both wrapped format { products: [...] } and flat array format
         const rawList = Array.isArray(data) ? data : (data.products || []);
-        
-        // Normalize products into family groupings with variants so both individual SKUs and variant selectors work seamlessly
         productsCache = normalizeSKUsToProductFamilies(rawList);
         return productsCache;
     } catch (err) {
@@ -46,13 +43,11 @@ function normalizeSKUsToProductFamilies(rawItems) {
     const families = {};
 
     rawItems.forEach(item => {
-        // If items already have variants structure, use them directly
         if (item.variants && Array.isArray(item.variants)) {
             families[item.id] = item;
             return;
         }
 
-        // Otherwise, group flat SKU records (e.g. MMP-200, MMP-500) into a single product family
         const baseName = item.name.trim();
         const familyKey = baseName.toLowerCase();
 
@@ -151,12 +146,12 @@ function initShopPage(products) {
             const imgSrc = rawImg.startsWith('http') ? rawImg : `./${rawImg.replace(/^\/+/, '')}`;
 
             const variantOptionsHTML = variants.map((v, idx) => `
-                <option value="${idx}" ${idx === 0 ? 'selected' : ''}>${v.weight} - ₹${v.selling}</option>
+                <option value="${idx}" ${idx === 0 ? 'selected' : ''}>${v.weight} - &#8377;${v.selling}</option>
             `).join('');
 
             card.innerHTML = `
                 <div class="aspect-square bg-[#FFFDF7] rounded-lg mb-4 flex items-center justify-center p-2 text-center group-hover:scale-105 transition-transform overflow-hidden border border-[#F3E6C8]">
-                    <img src="${imgSrc}" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-md" onerror="this.src='assets/images/products/MMP.png'">
+                    <img src="${imgSrc}" alt="${product.name} - Traditional Jain Papad" loading="lazy" decoding="async" class="w-full h-full object-cover rounded-md" onerror="this.src='assets/images/products/MMP.png'">
                 </div>
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-[10px] font-bold uppercase tracking-wider text-[#FE330E] bg-[#FFFDE6] px-2.5 py-1 rounded-full border border-[#F3E6C8]">${product.category}</span>
@@ -170,10 +165,10 @@ function initShopPage(products) {
                 <p class="text-xs text-[#5F5F5F] mb-4 flex-grow line-clamp-2 font-light"></p>
                 <div class="flex items-center justify-between mb-4 pt-2 border-t border-[#F3E6C8]">
                     <span data-price-display class="text-base font-bold text-[#FE330E] font-serif">
-                        ₹${activeVariant.selling} ${activeVariant.mrp > activeVariant.selling ? `<span class="text-[#8B8174] line-through text-xs font-normal ml-1">₹${activeVariant.mrp}</span>` : ''}
+                        &#8377;${activeVariant.selling} ${activeVariant.mrp > activeVariant.selling ? `<span class="text-[#8B8174] line-through text-xs font-normal ml-1">&#8377;${activeVariant.mrp}</span>` : ''}
                     </span>
                     <span data-shipping-display class="text-[11px] font-medium text-[#8B8174]">
-                        ${activeVariant.shipping === 'Free' ? 'Free Shipping' : (activeVariant.shipping ? `+₹${activeVariant.shipping} Ship` : '')}
+                        ${activeVariant.shipping === 'Free' ? 'Free Shipping' : (activeVariant.shipping ? `+&#8377;${activeVariant.shipping} Ship` : '')}
                     </span>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
@@ -182,7 +177,6 @@ function initShopPage(products) {
                 </div>
             `;
 
-            // Use Safe DOM textContent assignments to prevent injection vulnerabilities
             card.querySelector('h3').textContent = product.name;
             card.querySelector('p').textContent = product.shortDescription || product.description;
 
@@ -194,8 +188,8 @@ function initShopPage(products) {
 
             selectEl.addEventListener('change', (e) => {
                 const selectedVariant = variants[e.target.value];
-                priceEl.innerHTML = `₹${selectedVariant.selling} ${selectedVariant.mrp > selectedVariant.selling ? `<span class="text-[#8B8174] line-through text-xs font-normal ml-1">₹${selectedVariant.mrp}</span>` : ''}`;
-                shippingEl.textContent = selectedVariant.shipping === 'Free' ? 'Free Shipping' : (selectedVariant.shipping ? `+₹${selectedVariant.shipping} Ship` : '');
+                priceEl.innerHTML = `&#8377;${selectedVariant.selling} ${selectedVariant.mrp > selectedVariant.selling ? `<span class="text-[#8B8174] line-through text-xs font-normal ml-1">&#8377;${selectedVariant.mrp}</span>` : ''}`;
+                shippingEl.textContent = selectedVariant.shipping === 'Free' ? 'Free Shipping' : (selectedVariant.shipping ? `+&#8377;${selectedVariant.shipping} Ship` : '');
 
                 detailLink.href = `product-detail.html?sku=${selectedVariant.sku}`;
                 cartBtn.dataset.sku = selectedVariant.sku;
@@ -219,7 +213,6 @@ function initShopPage(products) {
 
                 if (window.KawadCart && typeof window.KawadCart.addItem === 'function') {
                     window.KawadCart.addItem(item);
-                    showToast(`Added ${item.name} to cart`);
                 }
             });
 
@@ -301,7 +294,7 @@ function initProductDetailPage(products) {
     if (imageContainer) {
         const rawImg = product.image || 'assets/images/products/MMP.png';
         const imgSrc = rawImg.startsWith('http') ? rawImg : `./${rawImg.replace(/^\/+/, '')}`;
-        imageContainer.innerHTML = `<img src="${imgSrc}" alt="" class="w-full h-full object-cover rounded-xl" onerror="this.src='assets/images/products/MMP.png'">`;
+        imageContainer.innerHTML = `<img src="${imgSrc}" alt="${product.name} - Detailed View" class="w-full h-full object-cover rounded-xl" onerror="this.src='assets/images/products/MMP.png'">`;
     }
 
     if (variantContainer && product.variants && product.variants.length > 1) {
@@ -310,7 +303,7 @@ function initProductDetailPage(products) {
             <div class="flex flex-wrap gap-2">
                 ${product.variants.map(v => `
                     <button type="button" class="variant-btn px-4 py-2 text-xs font-semibold rounded-lg border ${v.sku === selectedVariant.sku ? 'bg-[#FE330E] text-white border-[#FE330E]' : 'bg-white text-[#4E342E] border-[#F3E6C8] hover:border-[#FE330E]'}" data-sku="${v.sku}">
-                        ${v.weight} (₹${v.selling})
+                        ${v.weight} (&#8377;${v.selling})
                     </button>
                 `).join('')}
             </div>
@@ -345,26 +338,7 @@ function initProductDetailPage(products) {
 
             if (window.KawadCart && typeof window.KawadCart.addItem === 'function') {
                 window.KawadCart.addItem(item);
-                showToast(`Added ${item.name} to cart`);
             }
         });
     }
-}
-
-function showToast(message) {
-    let toast = document.getElementById('kawad-toast');
-    if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'kawad-toast';
-        toast.className = 'fixed bottom-5 right-5 z-50 bg-[#2D1F17] text-[#FFFDF7] text-xs sm:text-sm px-4 py-3 rounded-xl shadow-lg border border-[#F3E6C8] transition-opacity duration-300 opacity-0 pointer-events-none';
-        document.body.appendChild(toast);
-    }
-    toast.textContent = message;
-    toast.classList.remove('opacity-0');
-    toast.classList.add('opacity-100');
-
-    setTimeout(() => {
-        toast.classList.remove('opacity-100');
-        toast.classList.add('opacity-0');
-    }, 2500);
 }

@@ -24,28 +24,14 @@
     <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.png">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
 
-    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
+    <!-- Master Design System -->
     <link rel="stylesheet" href="assets/css/design-system.css">
 
-    <!-- CSS Animation Utilities -->
-    <style>
-        .fade-in { animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        @media (prefers-reduced-motion: reduce) {
-            .fade-in, .slide-up { animation: none; opacity: 1; transform: none; }
-        }
-    </style>
-
-    <!-- JSON-LD Structured Data: WebPage & BreadcrumbList -->
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -55,40 +41,17 @@
       "description": "Learn about KAWAD SWAD, our journey, quality commitment and authentic Jain papad manufacturing."
     }
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://kawadswad.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "About",
-          "item": "https://kawadswad.com/about.html"
-        }
-      ]
-    }
-    </script>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-[#FFFDF7]">
 
-    <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO BANNER -->
-        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
+        <section class="relative bg-white border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">
-                        Our Heritage &amp; Commitment
-                    </span>
+                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Our Heritage &amp; Commitment</span>
                     <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#4E342E]">
                         About <span class="italic text-[#FE330E] font-normal">Kawad Swad</span>
                     </h1>
@@ -96,18 +59,13 @@
                         Authentic Jain Papads crafted with traditional recipes, premium ingredients and an unwavering commitment to quality.
                     </p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-lg text-white bg-[#FE330E] hover:bg-[#D92500] transition-all duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
-                            Explore Products
-                        </a>
-                        <a href="contact.html" class="inline-flex justify-center items-center px-8 py-4 border border-[#4E342E] text-xs font-semibold uppercase tracking-wider rounded-lg text-[#4E342E] hover:bg-[#4E342E] hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
-                            Contact Us
-                        </a>
+                        <a href="products.html" class="btn-primary">Explore Products</a>
+                        <a href="contact.html" class="btn-secondary">Contact Us</a>
                     </div>
                 </div>
 
-                <!-- Real About Hero Banner Image -->
-                <div class="mt-12 aspect-21/9 bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center overflow-hidden shadow-xl relative group fade-in">
-                    <img src="assets/images/about-hero.png" alt="About KAWAD SWAD Hero Banner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                <div class="mt-12 aspect-21/9 rounded-[20px] border border-[#F3E6C8] flex items-center justify-center overflow-hidden shadow-xl fade-in">
+                    <img src="assets/images/about-hero.png" alt="About KAWAD SWAD" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
@@ -116,8 +74,8 @@
         <section class="py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    <div class="bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] overflow-hidden shadow-xl flex items-center justify-center p-2">
-                        <img src="assets/images/our-story.png" alt="Our Story - KAWAD SWAD" class="w-full h-auto max-h-[450px] object-cover rounded-lg">
+                    <div class="rounded-[20px] border border-[#F3E6C8] overflow-hidden shadow-xl">
+                        <img src="assets/images/our-story.png" alt="Our Story" class="w-full h-auto object-cover">
                     </div>
                     <div class="space-y-6">
                         <div>
@@ -138,18 +96,11 @@
         <section class="py-24 bg-[#FFFDF7] border-y border-[#F3E6C8]">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 sm:p-12 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-4">
-                        <div class="w-12 h-12 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center border border-[#F3E6C8]">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                        </div>
+                    <div class="card p-8 sm:p-12 space-y-4">
                         <h3 class="font-serif text-2xl font-semibold text-[#4E342E]">Our Mission</h3>
-                        <p class="text-[#5F5F5F] text-sm sm:text-base leading-relaxed font-light">To manufacture authentic, high-quality, and 100% vegetarian Jain papads using pure ingredients and hygienic processes, bringing traditional regional taste to every Indian home with trust and transparency.</p>
+                        <p class="text-[#5F5F5F] text-sm sm:text-base leading-relaxed font-light">To manufacture authentic, high-quality, and 100% vegetarian Jain papads using pure ingredients and hygienic processes, bringing traditional regional taste to every Indian home.</p>
                     </div>
-
-                    <div class="bg-white p-8 sm:p-12 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-4">
-                        <div class="w-12 h-12 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center border border-[#F3E6C8]">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-                        </div>
+                    <div class="card p-8 sm:p-12 space-y-4">
                         <h3 class="font-serif text-2xl font-semibold text-[#4E342E]">Our Vision</h3>
                         <p class="text-[#5F5F5F] text-sm sm:text-base leading-relaxed font-light">To become a nationally recognized leader in the traditional FMCG food sector by expanding our distribution network, upholding manufacturing excellence, and serving diverse culinary preferences.</p>
                     </div>
@@ -157,123 +108,20 @@
             </div>
         </section>
 
-        <!-- WHY KAWAD SWAD -->
-        <section class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Distinction</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#4E342E]">Why KAWAD SWAD</h2>
-                    <div class="w-12 h-0.5 bg-[#FBEC0A] mx-auto"></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-white p-8 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-3">
-                        <div class="w-10 h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center border border-[#F3E6C8]">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"/></svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">Premium Ingredients</h3>
-                        <p class="text-xs text-[#5F5F5F] leading-relaxed font-light">Rigorous selection of clean pulses, authentic spices, and uncompromised quality standards.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-3">
-                        <div class="w-10 h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center border border-[#F3E6C8]">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">Traditional Recipes</h3>
-                        <p class="text-xs text-[#5F5F5F] leading-relaxed font-light">Formulated with authentic Nimar regional spice ratios for genuine homemade flavor.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-3">
-                        <div class="w-10 h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center border border-[#F3E6C8]">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">Modern Manufacturing</h3>
-                        <p class="text-xs text-[#5F5F5F] leading-relaxed font-light">Advanced automated rolling and drying equipment operating under strict hygiene controls.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-3">
-                        <div class="w-10 h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center border border-[#F3E6C8]">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-                        </div>
-                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">Consistent Taste</h3>
-                        <p class="text-xs text-[#5F5F5F] leading-relaxed font-light">Multi-stage testing ensuring uniform thickness, crunch, and flavor in every single batch.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- OUR CORE VALUES -->
-        <section class="py-24 bg-[#FFFDF7] border-t border-[#F3E6C8]">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
-                    <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Principles</span>
-                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#4E342E]">Our Core Values</h2>
-                    <div class="w-12 h-0.5 bg-[#FBEC0A] mx-auto"></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-2">
-                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">Quality</h3>
-                        <p class="text-xs text-[#5F5F5F] leading-relaxed font-light">Unwavering dedication to raw material testing, clean processing, and standard packaging.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-2">
-                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">Trust</h3>
-                        <p class="text-xs text-[#5F5F5F] leading-relaxed font-light">Building long-term transparent relationships with consumers, stockists, and wholesale partners.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-2">
-                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">Integrity</h3>
-                        <p class="text-xs text-[#5F5F5F] leading-relaxed font-light">Strict compliance with 100% vegetarian and Jain dietary principles across all variants.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-2">
-                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">Hygiene</h3>
-                        <p class="text-xs text-[#5F5F5F] leading-relaxed font-light">Sanitized processing environments adhering strictly to FSSAI food safety regulations.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-2">
-                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">Innovation</h3>
-                        <p class="text-xs text-[#5F5F5F] leading-relaxed font-light">Integrating modern food processing technology while keeping traditional recipes intact.</p>
-                    </div>
-                    <div class="bg-white p-8 rounded-[20px] border border-[#F3E6C8] shadow-xl space-y-2">
-                        <h3 class="font-serif text-xl font-semibold text-[#4E342E]">Customer First</h3>
-                        <p class="text-xs text-[#5F5F5F] leading-relaxed font-light">Ensuring prompt delivery, fair pricing, and complete satisfaction across all touchpoints.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FOUNDER MESSAGE -->
-        <section class="py-24 bg-white">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] p-8 sm:p-14 shadow-xl">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                        <div class="aspect-square bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center p-4 text-center overflow-hidden">
-                            <span class="text-[10px] font-mono uppercase tracking-wider text-[#8B8174]">Ankit Jain</span>
-                        </div>
-                        <div class="md:col-span-2 space-y-4">
-                            <span class="inline-block text-[10px] font-semibold uppercase tracking-wider text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Leadership</span>
-                            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#4E342E]">A Message From Our Founder</h2>
-                            <p class="text-[#5F5F5F] text-sm sm:text-base leading-relaxed italic font-light">&ldquo;Our pledge at Kawad Swad has always been simple: never compromise on taste or dietary purity. Every papad that leaves our manufacturing facility carries the trust of our tradition and the quality our consumers deserve.&rdquo;</p>
-                            <div class="pt-2">
-                                <span class="block font-serif font-semibold text-[#4E342E] text-sm">Ankit Jain</span>
-                                <span class="block text-xs text-[#E6B800] font-medium">Founder &amp; Director, KAWAD SWAD Udhyog</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- CTA -->
-        <section class="py-24 bg-[#2D1F17] text-[#F5EEDC] relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+        <section class="py-24 bg-[#2D1F17] text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
                 <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight text-white">Experience the Taste of Tradition</h2>
-                <p class="text-[#F5EEDC]/80 text-sm sm:text-base max-w-xl mx-auto font-light">Join thousands of satisfied households and commercial partners across India.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                    <a href="shop.html" class="w-full sm:w-auto px-9 py-4 bg-[#FE330E] text-white font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-[#D92500] transition-colors duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Shop Now</a>
-                    <a href="business.html" class="w-full sm:w-auto px-9 py-4 border border-white text-white font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-white hover:text-[#4E342E] transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Become Business Partner</a>
+                    <a href="shop.html" class="btn-primary">Shop Now</a>
+                    <a href="business.html" class="btn-secondary">Business Partnerships</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
     <footer-component></footer-component>
 
-    <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>

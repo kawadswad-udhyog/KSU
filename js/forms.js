@@ -120,6 +120,7 @@ const FormEngine = {
 document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initBusinessForm();
+    initCareerForm();
     initNewsletterForms();
     initCheckoutForm();
     initReviewForm();
@@ -152,5 +153,51 @@ function initReviewForm() {
     });
 }
 
-// ... include initContactForm, initBusinessForm, initNewsletterForms, 
-//     initCheckoutForm, validateField, and initCharacterCounters from your previous code ...
+function initCareerForm() {
+    const form = document.querySelector('form[data-form="career"], #careerForm');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Custom validation for career form
+        const name = form.querySelector('input[name="name"]');
+        const pos = form.querySelector('select[name="position"]');
+        
+        if (!validateField(name, 'required', 'Full name is required') || 
+            !validateField(pos, 'required', 'Please select a position')) {
+            return;
+        }
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        FormEngine.toggleLoading(submitBtn, true, 'Submit Application');
+
+        // Simulate submission
+        setTimeout(() => {
+            FormEngine.toggleLoading(submitBtn, false, 'Submit Application');
+            FormEngine.showFallbackNotice(
+                form, 
+                'Application Received', 
+                'Thank you for applying to KAWAD SWAD. Our HR team will review your credentials and contact you if your profile matches our requirements.'
+            );
+            form.reset();
+        }, 800);
+    });
+}
+
+function validateField(fieldEl, rule, errorMessage) {
+    if (!fieldEl) return true;
+    const val = fieldEl.value;
+    let isValid = true;
+
+    if (rule === 'required') isValid = FormEngine.validateRequired(val);
+    else if (rule === 'email') isValid = FormEngine.validateEmail(val);
+    else if (rule === 'phone') isValid = FormEngine.validatePhone(val);
+    else if (rule === 'pincode') isValid = FormEngine.validatePinCode(val);
+
+    if (!isValid) FormEngine.showError(fieldEl, errorMessage);
+    else FormEngine.clearError(fieldEl);
+
+    return isValid;
+}
+//     initCheckoutForm, and initCharacterCounters here ...

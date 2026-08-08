@@ -28,7 +28,7 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
 
-    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
+    <!-- Master Design System Stylesheet -->
     <link rel="stylesheet" href="assets/css/design-system.css">
 
     <!-- CSS Animation Utilities & Motion Safety -->
@@ -74,26 +74,26 @@
     }
     </script>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-[#FFFDF7]">
 
     <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO BANNER -->
-        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
+        <section class="relative bg-white border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
                     <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Customer Feedback</span>
                     <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#4E342E]">Customer <span class="italic text-[#FE330E] font-normal">Reviews</span></h1>
                     <p class="text-base sm:text-lg text-[#5F5F5F] font-light leading-relaxed">Every review helps us improve and serve better. We value genuine customer feedback and transparency.</p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-lg text-white bg-[#FE330E] hover:bg-[#D92500] transition-all duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Explore Products</a>
-                        <a href="#submit-review-section" class="inline-flex justify-center items-center px-8 py-4 border border-[#4E342E] text-xs font-semibold uppercase tracking-wider rounded-lg text-[#4E342E] hover:bg-[#4E342E] hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Write a Review</a>
+                        <a href="products.html" class="btn-primary cta-products">Explore Products</a>
+                        <a href="#submit-review-section" class="btn-secondary cta-review">Write a Review</a>
                     </div>
                 </div>
 
-                <div class="mt-12 aspect-21/9 bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center p-8 text-center shadow-xl relative group overflow-hidden fade-in">
+                <div class="mt-12 aspect-21/9 rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center p-8 text-center shadow-xl relative group overflow-hidden fade-in">
                     <img src="assets/images/reviews-hero.png" alt="Customer Reviews Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='assets/images/products/MMP.png'">
                 </div>
             </div>
@@ -179,17 +179,17 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <label for="reviewer-name" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Your Name <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="reviewer-name" name="reviewer-name" required placeholder="e.g. Ankit Sharma" class="w-full">
+                                <input type="text" id="reviewer-name" name="reviewer-name" required placeholder="e.g. Ankit Sharma" class="form-control">
                             </div>
                             <div class="space-y-2">
                                 <label for="reviewer-city" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">City / Location <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="reviewer-city" name="reviewer-city" required placeholder="e.g. Bhopal, MP" class="w-full">
+                                <input type="text" id="reviewer-city" name="reviewer-city" required placeholder="e.g. Bhopal, MP" class="form-control">
                             </div>
                         </div>
 
                         <div class="space-y-2">
                             <label for="review-rating" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Rating <span class="text-[#FE330E]">*</span></label>
-                            <select id="review-rating" name="review-rating" required class="w-full">
+                            <select id="review-rating" name="review-rating" required class="form-control">
                                 <option value="5" selected>★★★★★ - Excellent (5 Stars)</option>
                                 <option value="4">★★★★☆ - Very Good (4 Stars)</option>
                                 <option value="3">★★★☆☆ - Average (3 Stars)</option>
@@ -200,7 +200,7 @@
 
                         <div class="space-y-2">
                             <label for="review-text" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Your Review / Comments <span class="text-[#FE330E]">*</span></label>
-                            <textarea id="review-text" name="review-text" rows="4" required maxlength="500" placeholder="Tell us about the taste, packaging, and your overall experience..." class="w-full"></textarea>
+                            <textarea id="review-text" name="review-text" rows="4" required maxlength="500" placeholder="Tell us about the taste, packaging, and your overall experience..." class="form-control"></textarea>
                         </div>
 
                         <div class="text-center pt-2">

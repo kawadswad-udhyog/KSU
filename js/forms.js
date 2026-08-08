@@ -101,7 +101,6 @@ const FormEngine = {
         text.className = 'text-xs text-[#5F5F5F] leading-relaxed font-light';
         text.textContent = message;
 
-        const whatsappBtn = document.createElement('ahref');
         const waLink = document.createElement('a');
         waLink.href = 'https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%20I%20would%20like%20to%20submit%20my%20form/order%20request.';
         waLink.target = '_blank';

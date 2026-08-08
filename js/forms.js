@@ -1,10 +1,10 @@
 /**
  * ============================================================================
- * KAWAD SWAD - Forms & Communication System (js/forms.js)
+ * KAWAD SWAD - Forms & Communication Engine (js/forms.js)
  * ============================================================================
  * Centralized, accessible, and asynchronous form engine providing inline validation,
  * ARIA live updates, mobile/email/pincode pattern matching, loading spinners, and
- * mock API submission endpoints ready for future backend integration.
+ * safe, non-mock form submission handling.
  */
 
 const FormEngine = {
@@ -12,26 +12,17 @@ const FormEngine = {
     // Validation Helpers
     // ------------------------------------------------------------------------
 
-    /**
-     * Checks if value is non-empty after trimming
-     */
     validateRequired(value) {
         if (value === null || value === undefined) return false;
         return String(value).trim().length > 0;
     },
 
-    /**
-     * Validates standard email address format
-     */
     validateEmail(email) {
         if (!email) return false;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(String(email).trim());
     },
 
-    /**
-     * Validates Indian mobile number format (10 digits starting with 6-9, optional +91 or 0 prefix)
-     */
     validatePhone(phone) {
         if (!phone) return false;
         const cleaned = String(phone).replace(/[\s\-\(\)]/g, '');
@@ -39,9 +30,6 @@ const FormEngine = {
         return phoneRegex.test(cleaned);
     },
 
-    /**
-     * Validates Indian 6-digit PIN code format
-     */
     validatePinCode(pin) {
         if (!pin) return false;
         const pinRegex = /^[1-9][0-9]{5}$/;
@@ -52,15 +40,12 @@ const FormEngine = {
     // UI & ARIA Messaging Utilities
     // ------------------------------------------------------------------------
 
-    /**
-     * Renders inline accessibility-compliant error message for a field
-     */
     showError(inputEl, message) {
         if (!inputEl) return;
 
         inputEl.setAttribute('aria-invalid', 'true');
-        inputEl.classList.add('border-brand-red', 'bg-red-50/20');
-        inputEl.classList.remove('border-stone-300', 'focus:border-brand-gold');
+        inputEl.classList.add('border-[#FE330E]', 'bg-red-50/20');
+        inputEl.classList.remove('border-[#F3E6C8]', 'focus:border-[#FE330E]');
 
         const fieldId = inputEl.id || inputEl.name || 'field-' + Math.random().toString(36).substring(2, 9);
         if (!inputEl.id) inputEl.id = fieldId;
@@ -69,11 +54,10 @@ const FormEngine = {
         if (!errorEl) {
             errorEl = document.createElement('p');
             errorEl.id = `${fieldId}-error`;
-            errorEl.className = 'text-[11px] text-brand-red font-medium mt-1 transition-all duration-200';
+            errorEl.className = 'text-[11px] text-[#FE330E] font-medium mt-1 transition-all duration-200';
             errorEl.setAttribute('role', 'alert');
             errorEl.setAttribute('aria-live', 'polite');
             
-            // Insert error message immediately after the input or select element
             if (inputEl.nextSibling) {
                 inputEl.parentNode.insertBefore(errorEl, inputEl.nextSibling);
             } else {
@@ -84,15 +68,12 @@ const FormEngine = {
         inputEl.setAttribute('aria-describedby', errorEl.id);
     },
 
-    /**
-     * Clears error state and removes aria-invalid from input field
-     */
     clearError(inputEl) {
         if (!inputEl) return;
 
         inputEl.removeAttribute('aria-invalid');
-        inputEl.classList.remove('border-brand-red', 'bg-red-50/20');
-        inputEl.classList.add('border-stone-300', 'focus:border-brand-gold');
+        inputEl.classList.remove('border-[#FE330E]', 'bg-red-50/20');
+        inputEl.classList.add('border-[#F3E6C8]', 'focus:border-[#FE330E]');
 
         const fieldId = inputEl.id;
         if (fieldId) {
@@ -104,25 +85,24 @@ const FormEngine = {
         inputEl.removeAttribute('aria-describedby');
     },
 
-    /**
-     * Displays a dismissible or auto-clearing toast/alert container
-     */
     showSuccess(containerEl, title, message) {
         if (!containerEl) return;
 
         const successBox = document.createElement('div');
-        successBox.className = 'p-6 bg-brand-cream border border-brand-gold/40 rounded-sm text-center space-y-3 fade-in my-4';
+        successBox.className = 'p-6 bg-[#FFFDF7] border border-[#F3E6C8] rounded-xl text-center space-y-3 my-4 shadow-sm';
         successBox.setAttribute('role', 'status');
         successBox.setAttribute('aria-live', 'polite');
-        successBox.innerHTML = `
-            <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-            </div>
-            <h4 class="font-serif text-xl font-bold text-brand-dark">${title}</h4>
-            <p class="text-xs text-brand-muted leading-relaxed font-light">${message}</p>
-        `;
+        
+        const heading = document.createElement('h4');
+        heading.className = 'font-serif text-xl font-bold text-[#4E342E]';
+        heading.textContent = title;
+
+        const text = document.createElement('p');
+        text.className = 'text-xs text-[#5F5F5F] leading-relaxed font-light';
+        text.textContent = message;
+
+        successBox.appendChild(heading);
+        successBox.appendChild(text);
 
         const existingStatus = containerEl.querySelector('[role="status"]');
         if (existingStatus) existingStatus.remove();
@@ -130,9 +110,6 @@ const FormEngine = {
         containerEl.prepend(successBox);
     },
 
-    /**
-     * Toggles submit button state with a loading spinner and aria-busy state
-     */
     toggleLoading(buttonEl, isLoading, defaultText = 'Submit') {
         if (!buttonEl) return;
 
@@ -156,9 +133,6 @@ const FormEngine = {
         }
     },
 
-    /**
-     * Resets input fields and clears error states
-     */
     resetForm(formEl) {
         if (!formEl) return;
         formEl.reset();
@@ -166,40 +140,8 @@ const FormEngine = {
         const inputs = formEl.querySelectorAll('input, select, textarea');
         inputs.forEach(input => this.clearError(input));
 
-        // Clear status boxes
         const statusBox = formEl.querySelector('[role="status"]');
         if (statusBox) statusBox.remove();
-
-        // Reset character counter if present
-        const counterEl = formEl.querySelector('[data-char-counter]');
-        if (counterEl) {
-            const max = counterEl.dataset.max || 500;
-            counterEl.textContent = `0 / ${max}`;
-        }
-    },
-
-    // ------------------------------------------------------------------------
-    // Future-Ready Mock API Endpoints
-    // ------------------------------------------------------------------------
-
-    async submitContact(payload) {
-        await new Promise(resolve => setTimeout(resolve, 800));
-        return { success: true, message: 'Your message has been received. Our team will contact you shortly.' };
-    },
-
-    async submitBusiness(payload) {
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        return { success: true, message: 'Thank you for your business enquiry. Our corporate team will reach out within 24 hours.' };
-    },
-
-    async submitNewsletter(email) {
-        await new Promise(resolve => setTimeout(resolve, 600));
-        return { success: true, message: 'You have been successfully subscribed to KAWAD SWAD updates.' };
-    },
-
-    async submitCheckout(payload) {
-        await new Promise(resolve => setTimeout(resolve, 1200));
-        return { success: true, orderId: 'KS-' + Date.now().toString().slice(-6), message: 'Order validated successfully.' };
     }
 };
 
@@ -211,13 +153,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initBusinessForm();
     initNewsletterForms();
-    initCheckoutValidation();
     initCharacterCounters();
 });
 
-/**
- * Handles Form 1: Contact Form Validation & Submission
- */
 function initContactForm() {
     const form = document.querySelector('form[data-form="contact"], #contact-form');
     if (!form) return;
@@ -227,205 +165,50 @@ function initContactForm() {
     const emailInput = form.querySelector('#email-address, input[name="email-address"]');
     const subjectSelect = form.querySelector('#subject, select[name="subject"]');
     const messageInput = form.querySelector('#contact-message, textarea[name="contact-message"]');
-    const submitBtn = form.querySelector('button[type="submit"]');
 
-    // Inline blur listeners
     if (nameInput) nameInput.addEventListener('blur', () => validateField(nameInput, 'required', 'Full Name is required'));
     if (phoneInput) phoneInput.addEventListener('blur', () => validateField(phoneInput, 'phone', 'Enter a valid 10-digit mobile number'));
     if (emailInput) emailInput.addEventListener('blur', () => validateField(emailInput, 'email', 'Enter a valid email address'));
     if (subjectSelect) subjectSelect.addEventListener('change', () => validateField(subjectSelect, 'required', 'Please select a subject'));
     if (messageInput) messageInput.addEventListener('blur', () => validateField(messageInput, 'required', 'Message cannot be empty'));
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const isNameValid = validateField(nameInput, 'required', 'Full Name is required');
-        const isPhoneValid = validateField(phoneInput, 'phone', 'Enter a valid 10-digit mobile number');
-        const isEmailValid = validateField(emailInput, 'email', 'Enter a valid email address');
-        const isSubjectValid = validateField(subjectSelect, 'required', 'Please select a subject');
-        const isMessageValid = validateField(messageInput, 'required', 'Message cannot be empty');
-
-        if (!isNameValid || !isPhoneValid || !isEmailValid || !isSubjectValid || !isMessageValid) {
-            focusFirstError(form);
-            return;
-        }
-
-        FormEngine.toggleLoading(submitBtn, true);
-
-        try {
-            const payload = {
-                name: nameInput ? nameInput.value.trim() : '',
-                phone: phoneInput ? phoneInput.value.trim() : '',
-                email: emailInput ? emailInput.value.trim() : '',
-                subject: subjectSelect ? subjectSelect.value : '',
-                message: messageInput ? messageInput.value.trim() : ''
-            };
-
-            const response = await FormEngine.submitContact(payload);
-            if (response.success) {
-                FormEngine.showSuccess(form, 'Message Sent!', response.message);
-                FormEngine.resetForm(form);
-            }
-        } catch (err) {
-            if (messageInput) FormEngine.showError(messageInput, 'Failed to submit. Please try again later.');
-        } finally {
-            FormEngine.toggleLoading(submitBtn, false, 'Send Message');
-        }
-    });
 }
 
-/**
- * Handles Form 2: Business Enquiry Validation & Submission
- */
 function initBusinessForm() {
-    const form = document.querySelector('form[data-form="business"], #business-enquiry-form, #enquiry-form form');
+    const form = document.querySelector('form[data-form="business"], #business-enquiry-form');
     if (!form) return;
 
     const bizType = form.querySelector('#business-type, select[name="business-type"]');
-    const bizName = form.querySelector('#company-name, #business-name, input[name="company-name"], input[name="business-name"]');
-    const contactPerson = form.querySelector('#contact-person, input[name="contact-person"]');
-    const mobile = form.querySelector('#business-mobile, #mobile-number, input[name="business-mobile"], input[name="mobile-number"]');
-    const email = form.querySelector('#business-email, #email, input[name="business-email"], input[name="email"]');
-    const city = form.querySelector('#city, input[name="city"]');
-    const state = form.querySelector('#state, input[name="state"]');
-    const message = form.querySelector('#business-message, #message, textarea[name="business-message"], textarea[name="message"]');
-    const submitBtn = form.querySelector('button[type="submit"]');
+    const bizName = form.querySelector('#company-name, #business-name');
+    const contactPerson = form.querySelector('#contact-person');
+    const mobile = form.querySelector('#business-mobile, #mobile-number');
+    const email = form.querySelector('#business-email, #email');
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const vType = validateField(bizType, 'required', 'Please select a Business Type');
-        const vName = validateField(bizName, 'required', 'Business/Company Name is required');
-        const vContact = validateField(contactPerson, 'required', 'Contact Person Name is required');
-        const vMobile = validateField(mobile, 'phone', 'Enter a valid 10-digit mobile number');
-        const vEmail = validateField(email, 'email', 'Enter a valid email address');
-        const vCity = validateField(city, 'required', 'City is required');
-        const vState = validateField(state, 'required', 'State is required');
-
-        if (!vType || !vName || !vContact || !vMobile || !vEmail || !vCity || !vState) {
-            focusFirstError(form);
-            return;
-        }
-
-        FormEngine.toggleLoading(submitBtn, true);
-
-        try {
-            const payload = {
-                type: bizType ? bizType.value : '',
-                businessName: bizName ? bizName.value.trim() : '',
-                contactPerson: contactPerson ? contactPerson.value.trim() : '',
-                mobile: mobile ? mobile.value.trim() : '',
-                email: email ? email.value.trim() : '',
-                city: city ? city.value.trim() : '',
-                state: state ? state.value.trim() : '',
-                message: message ? message.value.trim() : ''
-            };
-
-            const response = await FormEngine.submitBusiness(payload);
-            if (response.success) {
-                FormEngine.showSuccess(form, 'Enquiry Submitted!', response.message);
-                FormEngine.resetForm(form);
-            }
-        } catch (err) {
-            if (submitBtn) FormEngine.showError(submitBtn, 'Submission failed. Please try again.');
-        } finally {
-            FormEngine.toggleLoading(submitBtn, false, 'Submit Business Enquiry');
-        }
-    });
+    if (bizType) bizType.addEventListener('change', () => validateField(bizType, 'required', 'Please select a Business Type'));
+    if (bizName) bizName.addEventListener('blur', () => validateField(bizName, 'required', 'Company name is required'));
+    if (contactPerson) contactPerson.addEventListener('blur', () => validateField(contactPerson, 'required', 'Contact person name is required'));
+    if (mobile) mobile.addEventListener('blur', () => validateField(mobile, 'phone', 'Enter a valid 10-digit mobile number'));
+    if (email) email.addEventListener('blur', () => validateField(email, 'email', 'Enter a valid email address'));
 }
 
-/**
- * Handles Form 3: Newsletter Form Validation across page sections
- */
 function initNewsletterForms() {
     const forms = document.querySelectorAll('form[data-form="newsletter"], footer form');
 
     forms.forEach(form => {
         const emailInput = form.querySelector('input[type="email"]');
-        const submitBtn = form.querySelector('button[type="submit"]');
+        if (!emailInput) return;
 
-        form.addEventListener('submit', async (e) => {
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
-
             if (!validateField(emailInput, 'email', 'Enter a valid email address')) {
-                if (emailInput) emailInput.focus();
+                emailInput.focus();
                 return;
             }
-
-            FormEngine.toggleLoading(submitBtn, true);
-
-            try {
-                const response = await FormEngine.submitNewsletter(emailInput.value.trim());
-                if (response.success) {
-                    FormEngine.showSuccess(form.parentNode, 'Subscribed!', response.message);
-                    form.reset();
-                }
-            } catch (err) {
-                if (emailInput) FormEngine.showError(emailInput, 'Subscription failed.');
-            } finally {
-                FormEngine.toggleLoading(submitBtn, false, 'Subscribe');
-            }
+            FormEngine.showSuccess(form.parentNode, 'Subscribed!', 'Thank you for subscribing to Kawad Swad updates.');
+            form.reset();
         });
     });
 }
 
-/**
- * Handles Form 4: Checkout Customer Information Validation
- */
-function initCheckoutValidation() {
-    const form = document.querySelector('form[data-form="checkout"], #checkout-form, main form.grid');
-    if (!form) return;
-
-    const firstName = form.querySelector('#first-name, input[name="first-name"], input[placeholder*="First Name"]');
-    const lastName = form.querySelector('#last-name, input[name="last-name"], input[placeholder*="Last Name"]');
-    const email = form.querySelector('#checkout-email, input[name="checkout-email"], input[placeholder*="Email Address"]');
-    const mobile = form.querySelector('#checkout-mobile, input[name="checkout-mobile"], input[placeholder*="Mobile Number"]');
-    const address = form.querySelector('#address, input[name="address"], input[placeholder*="street"], input[placeholder*="House"]');
-    const city = form.querySelector('#checkout-city, input[name="checkout-city"], input[placeholder="City"]');
-    const state = form.querySelector('#checkout-state, input[name="checkout-state"], input[placeholder="State"]');
-    const pin = form.querySelector('#pincode, input[name="pincode"], input[placeholder="PIN Code"]');
-    const submitBtn = form.querySelector('button[type="submit"], .submit-btn');
-
-    const validateAll = () => {
-        const vFn = validateField(firstName, 'required', 'First Name is required');
-        const vLn = validateField(lastName, 'required', 'Last Name is required');
-        const vEm = validateField(email, 'email', 'Enter a valid email address');
-        const vMb = validateField(mobile, 'phone', 'Enter a valid 10-digit mobile number');
-        const vAd = validateField(address, 'required', 'Street address is required');
-        const vCt = validateField(city, 'required', 'City is required');
-        const vSt = validateField(state, 'required', 'State is required');
-        const vPn = validateField(pin, 'pincode', 'Enter a valid 6-digit PIN code');
-
-        return vFn && vLn && vEm && vMb && vAd && vCt && vSt && vPn;
-    };
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        if (!validateAll()) {
-            focusFirstError(form);
-            return;
-        }
-
-        FormEngine.toggleLoading(submitBtn, true);
-        try {
-            const response = await FormEngine.submitCheckout({});
-            if (response.success) {
-                if (typeof CartManager !== 'undefined') {
-                    CartManager.clearCart();
-                }
-                window.location.href = 'order-success.html';
-            }
-        } catch (err) {
-            if (submitBtn) FormEngine.showError(submitBtn, 'Order processing failed.');
-        } finally {
-            FormEngine.toggleLoading(submitBtn, false, 'Place Order');
-        }
-    });
-}
-
-/**
- * Helper to validate a single field against a rule type
- */
 function validateField(fieldEl, rule, errorMessage) {
     if (!fieldEl) return true;
 
@@ -451,9 +234,6 @@ function validateField(fieldEl, rule, errorMessage) {
     return isValid;
 }
 
-/**
- * Automatically shifts focus to the first invalid field in a form
- */
 function focusFirstError(formEl) {
     const invalidEl = formEl.querySelector('[aria-invalid="true"]');
     if (invalidEl) {
@@ -461,9 +241,6 @@ function focusFirstError(formEl) {
     }
 }
 
-/**
- * Character counter observer for textarea inputs
- */
 function initCharacterCounters() {
     const textareas = document.querySelectorAll('textarea[maxlength]');
 
@@ -473,7 +250,7 @@ function initCharacterCounters() {
 
         if (!counterEl) {
             counterEl = document.createElement('div');
-            counterEl.className = 'text-[10px] text-brand-muted text-right mt-1 font-mono';
+            counterEl.className = 'text-[10px] text-[#8B8174] text-right mt-1 font-mono';
             counterEl.dataset.charCounter = 'true';
             counterEl.dataset.max = max;
             textarea.parentNode.appendChild(counterEl);

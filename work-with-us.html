@@ -1,29 +1,101 @@
-<!-- ... (previous code unchanged) ... -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work With Us | Careers at KAWAD SWAD</title>
+  <meta name="description" content="Build your career with KAWAD SWAD, one of India's fastest-growing traditional food brands. Explore open positions and apply today.">
+  <meta name="keywords" content="KAWAD SWAD Careers, Work With Us, Food Industry Jobs, Papad Manufacturing Jobs, Job Openings">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://kawadswad.com/work-with-us.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kawadswad.com/work-with-us.html">
+  <meta property="og:title" content="Work With Us | Careers at KAWAD SWAD">
+  <meta property="og:description" content="Build your career with KAWAD SWAD, one of India's fastest-growing traditional food brands.">
+  <meta property="og:image" content="https://kawadswad.com/assets/images/og-image.png">
+  <meta property="og:site_name" content="KAWAD SWAD">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Work With Us | Careers at KAWAD SWAD">
+  <meta name="twitter:description" content="Build your career with KAWAD SWAD, one of India's fastest-growing traditional food brands.">
+  <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.png">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#FE330E">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Master Design System Stylesheet -->
+  <link rel="stylesheet" href="assets/css/design-system.css">
+
+  <style>
+    /* ... (Your existing styles remain unchanged) ... */
+    :root {
+      --primary: #FE330E; --primary-hover: #D92500; --secondary: #E6B800; --dark: #2D1F17; --light-bg: #FFFDF7; --text-main: #4E342E; --text-muted: #5F5F5F; --border-color: #F3E6C8;
+    }
+    /* ... rest of your styles ... */
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <header-component></header-component>
+
+  <main class="flex-grow">
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content slide-up">
+          <span class="section-tagline">Join Our Journey</span>
+          <h1 class="hero-title">Build Your Career With KAWAD SWAD</h1>
+          <p class="hero-subtitle">We're building one of India's fastest-growing traditional food brands. Join us and grow together.</p>
+          <div class="hero-btn-group">
+            <a href="#open-positions" class="btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] cta-positions">
+              <i class="fa-solid fa-briefcase" aria-hidden="true"></i> View Open Positions
+            </a>
+            <a href="#apply-form" class="btn btn-secondary focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] cta-apply">
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Apply Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- (Keep sections: WHY WORK WITH US, LIFE AT KAWAD SWAD, OPEN POSITIONS, HIRING PROCESS, BENEFITS) -->
+
+    <!-- APPLICATION FORM -->
+    <section class="apply-section" id="apply-form">
+      <div class="container">
         <div class="card form-container">
-          <!-- UPDATED: data-form="career" -->
+          <!-- UPDATED FORM ATTRIBUTE -->
           <form id="careerForm" data-form="career" novalidate>
             <div class="form-grid">
-              
               <div class="form-group">
                 <label for="fullName">Full Name *</label>
                 <input type="text" id="fullName" name="name" class="form-control" placeholder="Enter your full name" required>
               </div>
-
               <div class="form-group">
                 <label for="phone">Phone Number *</label>
                 <input type="tel" id="phone" name="mobile" class="form-control" placeholder="Enter 10-digit mobile number" required>
               </div>
-
               <div class="form-group">
                 <label for="email">Email Address *</label>
                 <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
               </div>
-
               <div class="form-group">
                 <label for="city">City / Location *</label>
                 <input type="text" id="city" name="city" class="form-control" placeholder="Current city" required>
               </div>
-
               <div class="form-group">
                 <label for="position">Position Applying For *</label>
                 <select id="position" name="position" class="form-control" required>
@@ -35,7 +107,6 @@
                   <option value="Other / General Application">Other / General Application</option>
                 </select>
               </div>
-
               <div class="form-group">
                 <label for="experience">Total Experience *</label>
                 <select id="experience" name="experience" class="form-control" required>
@@ -46,7 +117,6 @@
                   <option value="5+ Years">5+ Years</option>
                 </select>
               </div>
-
               <div class="form-group full-width">
                 <label for="resume">Resume Upload (PDF / DOCX)</label>
                 <div class="file-upload-wrapper">
@@ -55,19 +125,49 @@
                   <div class="file-upload-text" id="fileText">Drag &amp; drop your resume file here or click to browse</div>
                 </div>
               </div>
-
               <div class="form-group full-width">
                 <label for="message">Cover Note / Message</label>
                 <textarea id="message" name="message" class="form-control" maxlength="500" placeholder="Tell us briefly about your background and why you wish to join KAWAD SWAD..."></textarea>
               </div>
-
               <div class="form-group full-width text-center" style="margin-top: 1rem;">
                 <button type="submit" class="submit-btn btn btn-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" style="width: 100%; max-width: 300px; margin: 0 auto;">
                   Submit Application
                 </button>
               </div>
-
             </div>
           </form>
         </div>
-<!-- ... (rest of the code unchanged) ... -->
+      </div>
+    </section>
+  </main>
+
+  <footer-component></footer-component>
+
+  <script src="js/layout.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+
+  <script>
+    function preselectPosition(jobTitle) {
+      const select = document.getElementById('position');
+      if (select) select.value = jobTitle;
+    }
+
+    function toggleFaq(element) {
+      element.classList.toggle('active');
+    }
+
+    // UPDATED SCRIPT LOGIC FOR CAREER FORM
+    const resumeInput = document.getElementById('resume');
+    const fileText = document.getElementById('fileText');
+    if (resumeInput && fileText) {
+      resumeInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+          fileText.textContent = `Selected file: ${e.target.files[0].name}`;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

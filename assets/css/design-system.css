@@ -42,4 +42,21 @@ footer h3, footer h4, footer h5 { color: #fff; }
 footer p, footer li, footer span { color: var(--brand-footer-text); }
 footer a { color: var(--brand-secondary); }
 footer a:hover { color: #fff; }
+
+/* Compact visual rhythm: existing templates use presentation-scale utilities
+   (text-6xl, py-24 and p-14) on most sections. Keep the utilities available,
+   but normalise page content to an editorial, desktop-friendly scale. */
+body { font-size: 1rem; line-height: 1.5; }
+main h1[class*='text-'] { font-size: clamp(2.25rem, 4vw, 3.25rem) !important; line-height: 1.12; }
+main h2[class*='text-'] { font-size: clamp(1.75rem, 3vw, 2.25rem) !important; line-height: 1.2; }
+main h3[class*='text-'] { font-size: clamp(1.25rem, 2vw, 1.5rem) !important; line-height: 1.3; }
+main section[class~='py-24'] { padding-bottom: 4rem; padding-top: 4rem; }
+main section[class~='py-20'] { padding-bottom: 3.5rem; padding-top: 3.5rem; }
+main [class~='p-14'], main [class~='sm:p-14'] { padding: 2rem; }
+main [class~='p-12'], main [class~='sm:p-12'] { padding: 1.75rem; }
+main [class~='p-10'], main [class~='sm:p-16'] { padding: 1.5rem; }
+main .shadow-xl, main .shadow-2xl { box-shadow: 0 8px 22px rgb(78 52 46 / .08); }
+@media (min-width: 1024px) {
+  main section[class~='lg:py-24'], main section[class~='lg:py-28'] { padding-bottom: 4.5rem; padding-top: 4.5rem; }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }

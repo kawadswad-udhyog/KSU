@@ -28,7 +28,7 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
 
-    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
+    <!-- Master Design System Stylesheet -->
     <link rel="stylesheet" href="assets/css/design-system.css">
 
     <!-- CSS Animation Utilities & Motion Safety -->
@@ -43,27 +43,27 @@
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-[#FFFDF7]">
 
     <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO -->
-        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
+        <section class="relative bg-white border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
                     <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Get In Touch</span>
                     <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#4E342E]">Contact Us</h1>
                     <p class="text-base sm:text-lg text-[#5F5F5F] font-light leading-relaxed">We would love to hear from you. Reach out for product enquiries, business partnerships or general support.</p>
                     <div class="pt-4 flex flex-wrap gap-4 justify-center">
-                        <a href="tel:+919630976867" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-sm font-semibold uppercase tracking-wider rounded-lg text-white bg-[#FE330E] hover:bg-[#D92500] transition-all duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Call Us</a>
-                        <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-4 border border-[#4E342E] text-sm font-semibold uppercase tracking-wider rounded-lg text-[#4E342E] hover:bg-[#4E342E] hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">WhatsApp</a>
-                        <a href="mailto:info.av.kkswad@gmail.com" class="inline-flex justify-center items-center px-8 py-4 border border-[#FBEC0A] text-sm font-semibold uppercase tracking-wider rounded-lg text-[#4E342E] bg-white hover:bg-[#FFFDF0] transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Email Us</a>
+                        <a href="tel:+919630976867" class="btn-primary cta-call">Call Us</a>
+                        <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="btn-secondary cta-whatsapp">WhatsApp</a>
+                        <a href="mailto:info.av.kkswad@gmail.com" class="btn-secondary cta-email">Email Us</a>
                     </div>
                 </div>
 
-                <div class="mt-12 aspect-21/9 bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center overflow-hidden shadow-xl relative group fade-in">
+                <div class="mt-12 aspect-21/9 rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center overflow-hidden shadow-xl relative group fade-in">
                     <img src="assets/images/contact-hero.png" alt="Contact Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='assets/images/products/contact-hero.png'">
                 </div>
             </div>
@@ -128,19 +128,19 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label for="full-name" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E] mb-2">Full Name <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name" class="w-full">
+                                <input type="text" id="full-name" name="full-name" required placeholder="Enter your full name" class="form-control">
                             </div>
                             <div>
                                 <label for="mobile" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E] mb-2">Mobile Number <span class="text-[#FE330E]">*</span></label>
-                                <input type="tel" id="mobile" name="mobile" required placeholder="10-digit Indian Mobile Number" class="w-full">
+                                <input type="tel" id="mobile" name="mobile" required placeholder="10-digit Indian Mobile Number" class="form-control">
                             </div>
                             <div>
                                 <label for="email-address" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E] mb-2">Email Address <span class="text-[#FE330E]">*</span></label>
-                                <input type="email" id="email-address" name="email-address" required placeholder="Enter email address" class="w-full">
+                                <input type="email" id="email-address" name="email-address" required placeholder="Enter email address" class="form-control">
                             </div>
                             <div>
                                 <label for="subject" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E] mb-2">Subject <span class="text-[#FE330E]">*</span></label>
-                                <select id="subject" name="subject" required class="w-full">
+                                <select id="subject" name="subject" required class="form-control">
                                     <option value="" disabled selected>Select Subject</option>
                                     <option value="General Enquiry">General Enquiry</option>
                                     <option value="Product Enquiry">Product Enquiry</option>
@@ -150,7 +150,7 @@
                         </div>
                         <div>
                             <label for="contact-message" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E] mb-2">Message <span class="text-[#FE330E]">*</span></label>
-                            <textarea id="contact-message" name="contact-message" required rows="5" maxlength="500" placeholder="Write your message here..." class="w-full"></textarea>
+                            <textarea id="contact-message" name="contact-message" required rows="5" maxlength="500" placeholder="Write your message here..." class="form-control"></textarea>
                         </div>
                         <div class="flex items-start gap-2">
                             <input type="checkbox" id="consent" name="consent" required class="mt-1 accent-[#FE330E] rounded-sm">

@@ -78,18 +78,16 @@ function normalizeSKUsToProductFamilies(rawItems) {
     return Object.values(families);
 }
 
+// Inside js/shop.js
 document.addEventListener('DOMContentLoaded', async () => {
     const products = await ProductService.getProducts();
     const grid = document.querySelector('[data-shop-grid]');
+    
     if (grid && products.length > 0) {
+        // Keep your existing rendering logic here
         renderProducts(products, grid);
     }
 });
-
-function renderProducts(products, container) {
-    // ... existing rendering logic ...
-}
-
 function initShopPage(products) {
     const productGrid = document.querySelector('[data-shop-grid]') || document.querySelector('.grid');
     if (!productGrid) return;

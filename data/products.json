@@ -1,1 +1,263 @@
-{"version":"1.0.0","lastUpdated":"2026-08-08","products":[{"id":"MMP-200","name":"Moong Master Papad","category":"Moong","weight":"200g","price":45,"originalPrice":55,"rating":4.8,"reviews":234,"image":"assets/images/products/MMP.png","thumbnail":"assets/images/products/MMP-thumb.png","description":"Classic light moong dal papad with traditional Nimari recipe. Pure taste, premium quality, and authentic crunch.","sku":"KS-MMP-200","inStock":true,"tags":["bestseller","vegetarian","jain"]},{"id":"MMP-500","name":"Moong Master Papad","category":"Moong","weight":"500g","price":99,"originalPrice":120,"rating":4.8,"reviews":234,"image":"assets/images/products/MMP.png","thumbnail":"assets/images/products/MMP-thumb.png","description":"Classic light moong dal papad with traditional Nimari recipe. Pure taste, premium quality, and authentic crunch.","sku":"KS-MMP-500","inStock":true,"tags":["bestseller","vegetarian","jain"]},{"id":"MMP-1000","name":"Moong Master Papad","category":"Moong","weight":"1000g","price":189,"originalPrice":230,"rating":4.8,"reviews":234,"image":"assets/images/products/MMP.png","thumbnail":"assets/images/products/MMP-thumb.png","description":"Classic light moong dal papad with traditional Nimari recipe. Pure taste, premium quality, and authentic crunch.","sku":"KS-MMP-1000","inStock":true,"tags":["bestseller","vegetarian","jain","bulk"]},{"id":"MMPG-200","name":"Garlic Special Moong Papad","category":"Moong","weight":"200g","price":48,"originalPrice":60,"rating":4.7,"reviews":189,"image":"assets/images/products/MMPG.png","thumbnail":"assets/images/products/MMPG-thumb.png","description":"Infused with aromatic fresh garlic extract and select traditional spices. Premium moong dal base.","sku":"KS-MMPG-200","inStock":true,"tags":["vegetarian","jain","gourmet"]},{"id":"MMPG-500","name":"Garlic Special Moong Papad","category":"Moong","weight":"500g","price":108,"originalPrice":135,"rating":4.7,"reviews":189,"image":"assets/images/products/MMPG.png","thumbnail":"assets/images/products/MMPG-thumb.png","description":"Infused with aromatic fresh garlic extract and select traditional spices. Premium moong dal base.","sku":"KS-MMPG-500","inStock":true,"tags":["vegetarian","jain","gourmet"]},{"id":"MMPJ-200","name":"Jeera Spiced Crispy Papad","category":"Urad","weight":"200g","price":50,"originalPrice":65,"rating":4.6,"reviews":167,"image":"assets/images/products/MMPJ.png","thumbnail":"assets/images/products/MMPJ-thumb.png","description":"Rich urad dal base generously studded with hand-cleaned cumin seeds. Traditional Nimari recipe.","sku":"KS-MMPJ-200","inStock":true,"tags":["vegetarian","jain","traditional"]},{"id":"MMPJ-500","name":"Jeera Spiced Crispy Papad","category":"Urad","weight":"500g","price":112,"originalPrice":145,"rating":4.6,"reviews":167,"image":"assets/images/products/MMPJ.png","thumbnail":"assets/images/products/MMPJ-thumb.png","description":"Rich urad dal base generously studded with hand-cleaned cumin seeds. Traditional Nimari recipe.","sku":"KS-MMPJ-500","inStock":true,"tags":["vegetarian","jain","traditional"]},{"id":"MMPM-200","name":"Punjabi Special Masala Papad","category":"Moong","weight":"200g","price":55,"originalPrice":70,"rating":4.9,"reviews":312,"image":"assets/images/products/MMPM.png","thumbnail":"assets/images/products/MMPM-thumb.png","description":"Bold, robust spice profile designed for unforgettable roasted or fried crunch. Chef's choice.","sku":"KS-MMPM-200","inStock":true,"tags":["bestseller","vegetarian","jain","spiced"]},{"id":"MMPM-500","name":"Punjabi Special Masala Papad","category":"Moong","weight":"500g","price":125,"originalPrice":165,"rating":4.9,"reviews":312,"image":"assets/images/products/MMPM.png","thumbnail":"assets/images/products/MMPM-thumb.png","description":"Bold, robust spice profile designed for unforgettable roasted or fried crunch. Chef's choice.","sku":"KS-MMPM-500","inStock":true,"tags":["bestseller","vegetarian","jain","spiced"]},{"id":"COMBO-FAMILY","name":"Family Combo Pack","category":"Combo","weight":"1200g","price":299,"originalPrice":350,"rating":4.9,"reviews":456,"image":"assets/images/products/COMBO.png","thumbnail":"assets/images/products/COMBO-thumb.png","description":"Assorted papad combo for families. Includes Moong Master, Garlic Special, and Jeera Spiced varieties.","sku":"KS-COMBO-FAMILY","inStock":true,"tags":["bestseller","vegetarian","jain","combo","value"]},{"id":"COMBO-GIFT","name":"Premium Gift Hamper","category":"Combo","weight":"1500g","price":499,"originalPrice":599,"rating":5.0,"reviews":187,"image":"assets/images/products/COMBO.png","thumbnail":"assets/images/products/COMBO-thumb.png","description":"Premium gift hamper with assorted papads and premium eco-friendly packaging. Perfect for gifting.","sku":"KS-COMBO-GIFT","inStock":true,"tags":["vegetarian","jain","gift","premium"]}]}
+/* ===================================================================
+   KAWAD SWAD - Shop Controller & Product Data Adaptation Layer
+   ================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+    initShop();
+});
+
+async function initShop() {
+    const gridContainer = document.getElementById('products-grid') || document.getElementById('shop-products');
+    if (!gridContainer) return;
+
+    try {
+        const response = await fetch('data/products.json');
+        if (!response.ok) throw new Error('Failed to load product inventory');
+        
+        const data = await response.json();
+        // Support both direct array and wrapped object format { products: [...] }
+        const rawProducts = Array.isArray(data) ? data : (data.products || []);
+
+        // Normalize individual SKU items into unified product family structures for flexible UI handling
+        const products = normalizeProductData(rawProducts);
+
+        renderProducts(products, gridContainer);
+        setupFiltersAndSearch(products, gridContainer);
+
+    } catch (error) {
+        console.error('Shop initialization error:', error);
+        gridContainer.innerHTML = `
+            <div class="col-span-full py-12 text-center text-[#5F5F5F]">
+                <p class="font-serif text-lg text-[#4E342E] mb-2">Unable to load products at the moment.</p>
+                <p class="text-sm">Please check your network connection or try again later.</p>
+            </div>
+        `;
+    }
+}
+
+function normalizeProductData(rawItems) {
+    const groups = {};
+
+    rawItems.forEach(item => {
+        // Group SKUs by base name or category to build product family variants if applicable
+        const baseKey = item.name.toLowerCase().trim();
+        if (!groups[baseKey]) {
+            groups[baseKey] = {
+                id: item.id.split('-')[0] || item.id,
+                name: item.name,
+                category: item.category,
+                description: item.description,
+                image: item.image,
+                thumbnail: item.thumbnail,
+                rating: item.rating || 4.5,
+                reviews: item.reviews || 100,
+                tags: item.tags || [],
+                variants: []
+            };
+        }
+
+        groups[baseKey].variants.push({
+            sku: item.sku,
+            weight: item.weight,
+            price: item.price,
+            originalPrice: item.originalPrice,
+            inStock: item.inStock !== false
+        });
+    });
+
+    return Object.values(groups);
+}
+
+function renderProducts(products, container) {
+    if (products.length === 0) {
+        container.innerHTML = `
+            <div class="col-span-full py-12 text-center text-[#5F5F5F]">
+                <p class="font-serif text-lg text-[#4E342E] mb-2">No products found</p>
+                <p class="text-sm">Try adjusting your filters or search criteria.</p>
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = products.map(product => {
+        const defaultVariant = product.variants[0];
+        const discountPercent = defaultVariant.originalPrice > defaultVariant.price 
+            ? Math.round(((defaultVariant.originalPrice - defaultVariant.price) / defaultVariant.originalPrice) * 100) 
+            : 0;
+
+        return `
+            <div class="card bg-white border border-[#F3E6C8] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+                <div class="relative bg-[#FFFDF7] aspect-square overflow-hidden border-b border-[#F3E6C8]">
+                    <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
+                    ${discountPercent > intToSafe(0) ? `<span class="absolute top-3 left-3 bg-[#FE330E] text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full">${discountPercent}% OFF</span>` : ''}
+                    <span class="absolute top-3 right-3 bg-white/90 backdrop-blur text-[#4E342E] text-[10px] font-semibold px-2 py-1 rounded-md border border-[#F3E6C8]">${escapeHtml(product.category)}</span>
+                </div>
+                
+                <div class="p-4 sm:p-5 flex flex-col flex-grow space-y-3">
+                    <div>
+                        <div class="flex items-center gap-1 text-xs text-amber-500 mb-1">
+                            <span>★</span>
+                            <span class="font-semibold text-[#4E342E]">${product.rating}</span>
+                            <span class="text-[#8B8174]">(${product.reviews})</span>
+                        </div>
+                        <h3 class="font-serif font-bold text-[#4E342E] text-base sm:text-lg line-clamp-1">${escapeHtml(product.name)}</h3>
+                    </div>
+                    
+                    <p class="text-xs text-[#5F5F5F] line-clamp-2 font-light">${escapeHtml(product.description)}</p>
+                    
+                    <div class="pt-2 mt-auto space-y-3">
+                        ${product.variants.length > 1 ? `
+                            <div class="space-y-1">
+                                <label class="text-[10px] font-bold text-[#4E342E] uppercase">Select Weight:</label>
+                                <select class="variant-select w-full text-xs p-2 border border-[#F3E6C8] rounded-lg bg-white text-[#4E342E] font-medium" data-product-id="${escapeHtml(product.id)}">
+                                    ${product.variants.map((v, idx) => `
+                                        <option value="${escapeHtml(v.sku)}" ${idx === 0 ? 'selected' : ''} data-price="${v.price}" data-orig="${v.originalPrice}">
+                                            ${escapeHtml(v.weight)} — ₹${v.price}
+                                        </option>
+                                    `).join('')}
+                                </select>
+                            </div>
+                        ` : ''}
+
+                        <div class="flex items-center justify-between pt-1">
+                            <div>
+                                <span class="product-price font-serif font-bold text-lg text-[#FE330E]">₹${defaultVariant.price}</span>
+                                ${defaultVariant.originalPrice > defaultVariant.price ? `<span class="product-orig-price text-xs text-[#8B8174] line-through ml-1.5">₹${defaultVariant.originalPrice}</span>` : ''}
+                            </div>
+                            <span class="text-[11px] font-medium text-[#8B8174] product-weight-label">${escapeHtml(defaultVariant.weight)}</span>
+                        </div>
+
+                        <button class="add-to-cart-btn btn-primary w-full text-xs py-2.5 justify-center" 
+                            data-sku="${escapeHtml(defaultVariant.sku)}" 
+                            data-name="${escapeHtml(product.name)}" 
+                            data-price="${defaultVariant.price}" 
+                            data-weight="${escapeHtml(defaultVariant.weight)}" 
+                            data-image="${escapeHtml(product.image)}">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    attachDynamicListeners(container);
+}
+
+function attachDynamicListeners(container) {
+    // Handle variant changes
+    container.querySelectorAll('.variant-select').forEach(select => {
+        select.addEventListener('change', (e) => {
+            const selectedOption = e.target.options[e.target.selectedIndex];
+            const sku = selectedOption.value;
+            const price = selectedOption.getAttribute('data-price');
+            const origPrice = selectedOption.getAttribute('data-orig');
+            const weight = selectedOption.text.split('—')[0].trim();
+
+            const card = e.target.closest('.card');
+            if (card) {
+                card.querySelector('.product-price').textContent = `₹${price}`;
+                const origEl = card.querySelector('.product-orig-price');
+                if (origEl) origEl.textContent = origPrice > price ? `₹${origPrice}` : '';
+                
+                const weightLabel = card.querySelector('.product-weight-label');
+                if (weightLabel) weightLabel.textContent = weight;
+
+                const addBtn = card.querySelector('.add-to-cart-btn');
+                if (addBtn) {
+                    addBtn.setAttribute('data-sku', sku);
+                    addBtn.setAttribute('data-price', price);
+                    addBtn.setAttribute('data-weight', weight);
+                }
+            }
+        });
+    });
+
+    // Handle add to cart clicks
+    container.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const btn = e.currentTarget;
+            const item = {
+                sku: btn.getAttribute('data-sku'),
+                name: btn.getAttribute('data-name'),
+                price: parseFloat(btn.getAttribute('data-price')),
+                weight: btn.getAttribute('data-weight'),
+                image: btn.getAttribute('data-image'),
+                quantity: 1
+            };
+
+            if (window.KawadCart && typeof window.KawadCart.addItem === 'function') {
+                window.KawadCart.addItem(item);
+                showToast(`Added ${item.name} (${item.weight}) to cart`);
+            } else {
+                console.warn('KawadCart global instance not found');
+            }
+        });
+    });
+}
+
+function setupFiltersAndSearch(products, container) {
+    const searchInput = document.getElementById('search-input');
+    const categoryButtons = document.querySelectorAll('.category-filter-btn');
+
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    const filterAndRender = () => {
+        let filtered = products.filter(product => {
+            const matchesCat = activeCategory === 'all' || product.category.toLowerCase() === activeCategory.toLowerCase();
+            const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                  product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                  product.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
+            return matchesCat && matchesSearch;
+        });
+        renderProducts(filtered, container);
+    };
+
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            filterAndRender();
+        });
+    }
+
+    categoryButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            categoryButtons.forEach(b => b.classList.remove('active', 'bg-[#FE330E]', 'text-white'));
+            e.currentTarget.classList.add('active', 'bg-[#FE330E]', 'text-white');
+            activeCategory = e.currentTarget.getAttribute('data-category') || 'all';
+            filterAndRender();
+        });
+    });
+}
+
+function escapeHtml(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+function intToSafe(val) {
+    return parseInt(val, 10) || 0;
+}
+
+function showToast(message) {
+    let toast = document.getElementById('kawad-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'kawad-toast';
+        toast.className = 'fixed bottom-5 right-5 z-50 bg-[#2D1F17] text-[#FFFDF7] text-xs sm:text-sm px-4 py-3 rounded-xl shadow-lg border border-[#F3E6C8] transition-opacity duration-300 opacity-0 pointer-events-none';
+        document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.remove('opacity-0');
+    toast.classList.add('opacity-100');
+
+    setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0');
+    }, 2500);
+}

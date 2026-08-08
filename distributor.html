@@ -28,7 +28,7 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
 
-    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
+    <!-- Master Design System Stylesheet -->
     <link rel="stylesheet" href="assets/css/design-system.css">
     
     <!-- Lucide Icons CDN -->
@@ -61,7 +61,7 @@
         }
     </style>
 
-    <!-- JSON-LD Structured Data: WebPage & BreadcrumbList -->
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -71,41 +71,15 @@
       "description": "Apply to become an authorized KAWAD SWAD distributor. Partner with us for premium Jain papads, reliable supply and business growth opportunities."
     }
     </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://kawadswad.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Business",
-          "item": "https://kawadswad.com/business.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Become a Distributor",
-          "item": "https://kawadswad.com/distributor.html"
-        }
-      ]
-    }
-    </script>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-[#FFFDF7]">
 
     <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- Breadcrumb Navigation -->
-        <nav aria-label="Breadcrumb" class="bg-white/40 border-b border-[#F3E6C8] py-3 px-4 sm:px-8 text-xs text-[#8B8174]">
+        <nav aria-label="Breadcrumb" class="bg-white border-b border-[#F3E6C8] py-3 px-4 sm:px-8 text-xs text-[#8B8174]">
             <ol class="flex items-center space-x-2 max-w-7xl mx-auto">
                 <li><a href="index.html" class="hover:text-[#FE330E]">Home</a></li>
                 <li><span class="px-2">/</span></li>
@@ -154,7 +128,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
                     <div class="card p-8 space-y-3">
                         <div class="w-12 h-12 rounded-lg bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] flex items-center justify-center mb-6">
                             <i data-lucide="trending-up" class="w-6 h-6" aria-hidden="true"></i>
@@ -163,7 +136,6 @@
                         <p class="text-[#5F5F5F] text-xs sm:text-sm leading-relaxed font-light">Join a brand experiencing rapid market acceptance and expanding footprint across major regions.</p>
                     </div>
 
-                    <!-- Card 2 -->
                     <div class="card p-8 space-y-3">
                         <div class="w-12 h-12 rounded-lg bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] flex items-center justify-center mb-6">
                             <i data-lucide="shopping-bag" class="w-6 h-6" aria-hidden="true"></i>
@@ -172,7 +144,6 @@
                         <p class="text-[#5F5F5F] text-xs sm:text-sm leading-relaxed font-light">Offer authentic Jain papads with superior taste, ensuring consistent repeat sales and customer loyalty.</p>
                     </div>
 
-                    <!-- Card 3 -->
                     <div class="card p-8 space-y-3">
                         <div class="w-12 h-12 rounded-lg bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] flex items-center justify-center mb-6">
                             <i data-lucide="truck" class="w-6 h-6" aria-hidden="true"></i>
@@ -181,7 +152,6 @@
                         <p class="text-[#5F5F5F] text-xs sm:text-sm leading-relaxed font-light">Count on our streamlined manufacturing and robust supply chain to keep your inventory consistently stocked.</p>
                     </div>
 
-                    <!-- Card 4 -->
                     <div class="card p-8 space-y-3">
                         <div class="w-12 h-12 rounded-lg bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] flex items-center justify-center mb-6">
                             <i data-lucide="megaphone" class="w-6 h-6" aria-hidden="true"></i>
@@ -190,7 +160,6 @@
                         <p class="text-[#5F5F5F] text-xs sm:text-sm leading-relaxed font-light">Gain access to branded marketing collateral, point-of-sale materials, and local promotional assets.</p>
                     </div>
 
-                    <!-- Card 5 -->
                     <div class="card p-8 space-y-3">
                         <div class="w-12 h-12 rounded-lg bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] flex items-center justify-center mb-6">
                             <i data-lucide="badge-percent" class="w-6 h-6" aria-hidden="true"></i>
@@ -199,7 +168,6 @@
                         <p class="text-[#5F5F5F] text-xs sm:text-sm leading-relaxed font-light">Enjoy competitive wholesale pricing structures designed to maximize profit margins for your distribution business.</p>
                     </div>
 
-                    <!-- Card 6 -->
                     <div class="card p-8 space-y-3">
                         <div class="w-12 h-12 rounded-lg bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] flex items-center justify-center mb-6">
                             <i data-lucide="headphones" class="w-6 h-6" aria-hidden="true"></i>
@@ -279,35 +247,30 @@
 
                 <div class="max-w-5xl mx-auto">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                        <!-- Step 1 -->
                         <div class="card p-8 text-center flex flex-col items-center space-y-3">
                             <div class="w-10 h-10 rounded-lg bg-[#2D1F17] text-white font-serif font-bold flex items-center justify-center text-sm shadow-md">1</div>
                             <h3 class="font-serif font-bold text-[#4E342E] text-base">Application</h3>
                             <p class="text-xs text-[#5F5F5F] font-light leading-relaxed">Fill out our enquiry form with business details.</p>
                         </div>
 
-                        <!-- Step 2 -->
                         <div class="card p-8 text-center flex flex-col items-center space-y-3">
                             <div class="w-10 h-10 rounded-lg bg-[#2D1F17] text-white font-serif font-bold flex items-center justify-center text-sm shadow-md">2</div>
                             <h3 class="font-serif font-bold text-[#4E342E] text-base">Review</h3>
                             <p class="text-xs text-[#5F5F5F] font-light leading-relaxed">Commercial team evaluates your market presence.</p>
                         </div>
 
-                        <!-- Step 3 -->
                         <div class="card p-8 text-center flex flex-col items-center space-y-3">
                             <div class="w-10 h-10 rounded-lg bg-[#2D1F17] text-white font-serif font-bold flex items-center justify-center text-sm shadow-md">3</div>
                             <h3 class="font-serif font-bold text-[#4E342E] text-base">Discussion</h3>
                             <p class="text-xs text-[#5F5F5F] font-light leading-relaxed">Direct call to discuss margins and territories.</p>
                         </div>
 
-                        <!-- Step 4 -->
                         <div class="card p-8 text-center flex flex-col items-center space-y-3">
                             <div class="w-10 h-10 rounded-lg bg-[#2D1F17] text-white font-serif font-bold flex items-center justify-center text-sm shadow-md">4</div>
                             <h3 class="font-serif font-bold text-[#4E342E] text-base">Approval</h3>
                             <p class="text-xs text-[#5F5F5F] font-light leading-relaxed">Formal agreement and territory assignment.</p>
                         </div>
 
-                        <!-- Step 5 -->
                         <div class="card p-8 text-center flex flex-col items-center space-y-3">
                             <div class="w-10 h-10 rounded-lg bg-[#FBEC0A] text-[#4E342E] font-serif font-bold flex items-center justify-center text-sm shadow-md border border-[#F3E6C8]">5</div>
                             <h3 class="font-serif font-bold text-[#4E342E] text-base">Dispatch</h3>
@@ -329,9 +292,8 @@
                 </div>
 
                 <div class="space-y-4" id="faq-accordion">
-                    <!-- FAQ Item 1 -->
                     <div class="accordion-item card overflow-hidden transition">
-                        <button class="w-full p-6 text-left font-serif font-bold text-[#4E342E] text-base sm:text-lg flex justify-between items-center gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="toggleAccordion(this)">
+                        <button type="button" class="w-full p-6 text-left font-serif font-bold text-[#4E342E] text-base sm:text-lg flex justify-between items-center gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="toggleAccordion(this)">
                             <span>How do I become a distributor?</span>
                             <i data-lucide="chevron-down" class="w-5 h-5 text-[#FE330E] accordion-icon transition-transform" aria-hidden="true"></i>
                         </button>
@@ -340,9 +302,8 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 2 -->
                     <div class="accordion-item card overflow-hidden transition">
-                        <button class="w-full p-6 text-left font-serif font-bold text-[#4E342E] text-base sm:text-lg flex justify-between items-center gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="toggleAccordion(this)">
+                        <button type="button" class="w-full p-6 text-left font-serif font-bold text-[#4E342E] text-base sm:text-lg flex justify-between items-center gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="toggleAccordion(this)">
                             <span>Is there any investment?</span>
                             <i data-lucide="chevron-down" class="w-5 h-5 text-[#FE330E] accordion-icon transition-transform" aria-hidden="true"></i>
                         </button>
@@ -351,9 +312,8 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 3 -->
                     <div class="accordion-item card overflow-hidden transition">
-                        <button class="w-full p-6 text-left font-serif font-bold text-[#4E342E] text-base sm:text-lg flex justify-between items-center gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="toggleAccordion(this)">
+                        <button type="button" class="w-full p-6 text-left font-serif font-bold text-[#4E342E] text-base sm:text-lg flex justify-between items-center gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="toggleAccordion(this)">
                             <span>Which cities are available?</span>
                             <i data-lucide="chevron-down" class="w-5 h-5 text-[#FE330E] accordion-icon transition-transform" aria-hidden="true"></i>
                         </button>
@@ -362,9 +322,8 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 4 -->
                     <div class="accordion-item card overflow-hidden transition">
-                        <button class="w-full p-6 text-left font-serif font-bold text-[#4E342E] text-base sm:text-lg flex justify-between items-center gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="toggleAccordion(this)">
+                        <button type="button" class="w-full p-6 text-left font-serif font-bold text-[#4E342E] text-base sm:text-lg flex justify-between items-center gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]" onclick="toggleAccordion(this)">
                             <span>How will products be supplied?</span>
                             <i data-lucide="chevron-down" class="w-5 h-5 text-[#FE330E] accordion-icon transition-transform" aria-hidden="true"></i>
                         </button>
@@ -389,46 +348,39 @@
 
                     <form id="business-enquiry-form" data-form="business" novalidate class="space-y-6">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <!-- Full Name -->
                             <div class="space-y-2">
                                 <label for="contact-person" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Full Name <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="contact-person" name="contact-person" placeholder="e.g. Rajesh Kumar" required class="w-full">
+                                <input type="text" id="contact-person" name="contact-person" placeholder="e.g. Rajesh Kumar" required class="form-control">
                             </div>
 
-                            <!-- Company Name -->
                             <div class="space-y-2">
                                 <label for="company-name" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Company Name <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="company-name" name="company-name" placeholder="e.g. Kumar Traders &amp; Logistics" required class="w-full">
+                                <input type="text" id="company-name" name="company-name" placeholder="e.g. Kumar Traders &amp; Logistics" required class="form-control">
                             </div>
 
-                            <!-- Mobile Number -->
                             <div class="space-y-2">
                                 <label for="business-mobile" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Mobile Number <span class="text-[#FE330E]">*</span></label>
-                                <input type="tel" id="business-mobile" name="business-mobile" placeholder="+91 96309 76867" required class="w-full">
+                                <input type="tel" id="business-mobile" name="business-mobile" placeholder="+91 96309 76867" required class="form-control">
                             </div>
 
-                            <!-- Email -->
                             <div class="space-y-2">
                                 <label for="business-email" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Email Address <span class="text-[#FE330E]">*</span></label>
-                                <input type="email" id="business-email" name="business-email" placeholder="info.av.kkswad@gmail.com" required class="w-full">
+                                <input type="email" id="business-email" name="business-email" placeholder="info.av.kkswad@gmail.com" required class="form-control">
                             </div>
 
-                            <!-- City -->
                             <div class="space-y-2">
                                 <label for="city" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">City <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="city" name="city" placeholder="e.g. Indore" required class="w-full">
+                                <input type="text" id="city" name="city" placeholder="e.g. Indore" required class="form-control">
                             </div>
 
-                            <!-- State -->
                             <div class="space-y-2">
                                 <label for="state" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">State <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="state" name="state" placeholder="e.g. Madhya Pradesh" required class="w-full">
+                                <input type="text" id="state" name="state" placeholder="e.g. Madhya Pradesh" required class="form-control">
                             </div>
 
-                            <!-- Business Type -->
                             <div class="space-y-2">
                                 <label for="business-type" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Business Type <span class="text-[#FE330E]">*</span></label>
-                                <select id="business-type" name="business-type" required class="w-full">
+                                <select id="business-type" name="business-type" required class="form-control">
                                     <option value="" disabled selected>Select Business Type</option>
                                     <option value="Distributor">Distributor</option>
                                     <option value="Super Stockist">Super Stockist</option>
@@ -438,25 +390,22 @@
                                 </select>
                             </div>
 
-                            <!-- Monthly Requirement -->
                             <div class="space-y-2">
                                 <label for="monthly-req" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Monthly Capacity</label>
-                                <input type="text" id="monthly-req" name="monthly-req" placeholder="e.g. 500 Kg / 100 Boxes" class="w-full">
+                                <input type="text" id="monthly-req" name="monthly-req" placeholder="e.g. 500 Kg / 100 Boxes" class="form-control">
                             </div>
                         </div>
 
-                        <!-- Message -->
                         <div class="space-y-2">
                             <label for="business-message" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Additional Message / Remarks</label>
-                            <textarea id="business-message" name="business-message" rows="4" maxlength="500" placeholder="Mention preferred territories or additional business details..." class="w-full"></textarea>
+                            <textarea id="business-message" name="business-message" rows="4" maxlength="500" placeholder="Mention preferred territories or additional business details..." class="form-control"></textarea>
                         </div>
 
-                        <!-- Submit Buttons -->
                         <div class="pt-4 flex flex-col sm:flex-row gap-4">
                             <button type="submit" class="submit-btn flex-1 py-4 btn-primary text-xs font-semibold uppercase tracking-wider rounded-lg shadow-lg">
                                 Submit Application
                             </button>
-                            <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20am%20interested%20in%20becoming%20your%20distributor.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="flex-1 py-4 border border-[#FBEC0A] text-[#4E342E] font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-[#FFFDF0] transition-colors duration-300 text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                            <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20am%20interested%20in%20becoming%20your%20distributor.%0A%0APlease%20contact%20me.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="flex-1 py-4 border border-[#FBEC0A] text-[#4E342E] font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-[#FFFDF0] transition-colors duration-300 text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] cta-whatsapp">
                                 WhatsApp Us
                             </a>
                         </div>
@@ -471,10 +420,10 @@
                 <h2 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">Let's Grow Together</h2>
                 <p class="text-stone-300 text-base sm:text-lg max-w-2xl mx-auto font-light">Become an official KAWAD SWAD Distributor and bring authentic Jain papads to more customers.</p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                    <a href="#enquiry-form" class="w-full sm:w-auto bg-[#FE330E] hover:bg-[#D92500] text-white font-semibold text-xs uppercase tracking-wider px-9 py-4 rounded-lg transition-colors duration-300 shadow-lg">
+                    <a href="#enquiry-form" class="w-full sm:w-auto bg-[#FE330E] hover:bg-[#D92500] text-white font-semibold text-xs uppercase tracking-wider px-9 py-4 rounded-lg transition-colors duration-300 shadow-lg cta-apply">
                         Apply Now
                     </a>
-                    <a href="contact.html" class="w-full sm:w-auto border border-white text-white font-semibold text-xs uppercase tracking-wider px-9 py-4 rounded-lg hover:bg-white hover:text-[#4E342E] transition-colors duration-300">
+                    <a href="contact.html" class="w-full sm:w-auto border border-white text-white font-semibold text-xs uppercase tracking-wider px-9 py-4 rounded-lg hover:bg-white hover:text-[#4E342E] transition-colors duration-300 cta-contact">
                         Contact Support
                     </a>
                 </div>
@@ -490,7 +439,6 @@
     <script src="js/forms.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
-    <script src="js/shop.js"></script>
 
     <!-- Interactive Script Bindings & Icon Initialization -->
     <script>

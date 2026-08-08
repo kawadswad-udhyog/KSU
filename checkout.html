@@ -1,274 +1,414 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout | KAWAD SWAD</title>
-    <meta name="description" content="Complete your order for premium Jain Papads from KAWAD SWAD.">
-    <meta name="robots" content="noindex, follow">
-    <link rel="canonical" href="https://kawadswad.com/checkout.html">
 
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
+<html lang="en" class="scroll-smooth">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="theme-color" content="#FE330E">
 
-    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
+    
+
+    <title>KAWAD SWAD | Authentic Traditional Jain Papads Direct from Nimar</title>
+
+    <meta name="description" content="Experience authentic handcrafted Jain Papads from Nimar. Pure ingredients, traditional recipes, and uncompromising hygiene delivered directly across India.">
+
+    <meta name="keywords" content="Jain Papad Online, Kawad Swad, Authentic Nimar Papad, Moong Papad, Urad Papad, Direct Food Brand">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://kawadswad.com/">
+
+
+
+    <!-- Open Graph -->
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:url" content="https://kawadswad.com/">
+
+    <meta property="og:title" content="KAWAD SWAD | Authentic Traditional Jain Papads">
+
+    <meta property="og:description" content="Pure taste, traditional excellence, and artisanal quality from Nimar to your table.">
+
+    <meta property="og:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+
+
+
+    <!-- Twitter Cards -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title" content="KAWAD SWAD | Authentic Traditional Jain Papads">
+
+    <meta name="twitter:description" content="Pure taste, traditional excellence, and artisanal quality from Nimar to your table.">
+
+    <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
+
+
+
+    <!-- Favicons -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+
+    <link rel="manifest" href="site.webmanifest">
+
+
+
+    <!-- Stylesheets -->
+
     <link rel="stylesheet" href="assets/css/design-system.css">
+
     <link rel="stylesheet" href="assets/css/mobile.css">
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script type="text/javascript">
-       (function(){
-          emailjs.init({
-            publicKey: "fB_JSTwuwXae5Xf9W",
-          });
-       })();
+
+
+    <style>
+
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+
+        .slide-up { animation: slideUp 0.8s ease-out forwards; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .fade-in, .slide-up { animation: none; opacity: 1; transform: none; }
+
+        }
+
+    </style>
+
+
+
+    <!-- JSON-LD -->
+
+    <script type="application/ld+json">
+
+    {
+
+      "@context": "https://schema.org",
+
+      "@type": "Organization",
+
+      "name": "KAWAD SWAD Udhyog",
+
+      "url": "https://kawadswad.com/",
+
+      "logo": "https://kawadswad.com/assets/images/products/logo.jpg",
+
+      "description": "Manufacturer of 100% vegetarian authentic Jain papads and spice blends in Madhya Pradesh, India.",
+
+      "address": {
+
+        "@type": "PostalAddress",
+
+        "addressLocality": "Khargone Region",
+
+        "addressRegion": "Madhya Pradesh",
+
+        "addressCountry": "IN"
+
+      },
+
+      "contactPoint": {
+
+        "@type": "ContactPoint",
+
+        "telephone": "+91-9630976867",
+
+        "contactType": "sales & customer support"
+
+      }
+
+    }
+
     </script>
+
 </head>
+
 <body class="flex flex-col min-h-screen">
 
-    <!-- GLOBAL REUSABLE HEADER CONTAINER -->
     <header-component></header-component>
 
-    <main class="flex-grow py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-12 text-center space-y-3">
-                <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Direct Inquiry &amp; COD Request</span>
-                <h1 class="font-serif text-3xl sm:text-4xl font-bold text-[#4E342E]">Complete Your Order</h1>
-                <div class="w-12 h-0.5 bg-[#FBEC0A] mx-auto"></div>
+    
+
+    <main class="flex-grow">
+
+        <!-- HERO SECTION -->
+
+        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] py-12 sm:py-16 lg:py-24 overflow-hidden border-b border-[#F3E6C8]">
+
+            <!-- REDUCED BLUR: 400px max on mobile -->
+
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[500px] lg:h-[500px] bg-[#FBEC0A]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+
+                    <!-- LEFT: Content -->
+
+                    <div class="space-y-4 sm:space-y-6 slide-up">
+
+                        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase text-[#4E342E] bg-[#FFFDE6] px-3 py-1.5 rounded-full border border-[#F3E6C8]">
+
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#FE330E] flex-shrink-0"></span>
+
+                            Crafted in Nimar • 100% Jain
+
+                        </span>
+
+                        
+
+                        <h1 class="font-serif font-bold text-[#4E342E] leading-tight text-2xl sm:text-3xl lg:text-4xl">
+
+                            Pure Taste. <span class="italic text-[#FE330E]">Traditional Crunch.</span> Fresh Delivered.
+
+                        </h1>
+
+                        
+
+                        <p class="text-sm sm:text-base text-[#5F5F5F] font-light leading-relaxed">
+
+                            Handcrafted with premium pulses and authentic spices. Zero compromise on hygiene.
+
+                        </p>
+
+
+
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+
+                            <a href="shop.html" class="btn-primary text-sm px-6 py-3">
+
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+
+                                Shop Online
+
+                            </a>
+
+                            <a href="business.html" class="btn-secondary text-sm px-6 py-3">
+
+                                Become Distributor
+
+                            </a>
+
+                        </div>
+
+
+
+                        <div class="pt-4 border-t border-[#F3E6C8] grid grid-cols-3 gap-2 text-[10px] sm:text-xs font-medium text-[#4E342E]">
+
+                            <div class="flex items-center gap-1.5">
+
+                                <span class="w-2 h-2 rounded-full bg-[#FE330E] flex-shrink-0"></span>
+
+                                <span>FSSAI</span>
+
+                            </div>
+
+                            <div class="flex items-center gap-1.5">
+
+                                <span class="w-2 h-2 rounded-full bg-[#FE330E] flex-shrink-0"></span>
+
+                                <span>Hygienic</span>
+
+                            </div>
+
+                            <div class="flex items-center gap-1.5">
+
+                                <span class="w-2 h-2 rounded-full bg-[#FE330E] flex-shrink-0"></span>
+
+                                <span>PAN-India</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RIGHT: Image -->
+
+                    <div class="relative fade-in">
+
+                        <div class="relative card p-3 sm:p-4 bg-white shadow-lg rounded-2xl border border-[#F3E6C8]">
+
+                            <img src="assets/images/products/MMP.png" alt="Kawad Swad Premium Moong Papad" class="rounded-xl w-full h-56 sm:h-64 lg:h-72 object-cover" loading="lazy">
+
+                            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur p-3 rounded-lg border border-[#F3E6C8] text-xs">
+
+                                <p class="font-bold text-[#FE330E] uppercase">Moong Master</p>
+
+                                <p class="text-xs text-[#4E342E]">From ₹45</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <!-- Accessible Inline Status Banner -->
-            <div id="form-status-banner" role="status" aria-live="polite" class="hidden mb-8 p-4 rounded-xl text-xs sm:text-sm font-medium border"></div>
+        </section>
 
-            <form id="checkout-form" data-form="checkout" novalidate class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-                <!-- Left Details Form -->
-                <div class="lg:col-span-2 space-y-8">
-                    <div class="bg-white rounded-2xl border border-[#F3E6C8] p-6 sm:p-10 shadow-sm space-y-6">
-                        <h2 class="font-serif text-xl font-bold text-[#4E342E] border-b border-[#F3E6C8] pb-3">Shipping &amp; Customer Details</h2>
-                        
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label for="first-name" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">First Name <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="first-name" name="first-name" required aria-describedby="err-fname" placeholder="First Name" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
-                                <span id="err-fname" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter your first name.</span>
-                            </div>
-                            <div class="space-y-2">
-                                <label for="last-name" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Last Name <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="last-name" name="last-name" required aria-describedby="err-lname" placeholder="Last Name" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
-                                <span id="err-lname" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter your last name.</span>
-                            </div>
-                            <div class="space-y-2">
-                                <label for="checkout-mobile" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Mobile Number <span class="text-[#FE330E]">*</span></label>
-                                <input type="tel" id="checkout-mobile" name="checkout-mobile" required aria-describedby="err-cmobile" placeholder="10-digit Indian Mobile Number" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
-                                <span id="err-cmobile" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter a valid 10-digit mobile number.</span>
-                            </div>
-                            <div class="space-y-2">
-                                <label for="checkout-email" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Email Address <span class="text-[#FE330E]">*</span></label>
-                                <input type="email" id="checkout-email" name="checkout-email" required aria-describedby="err-cemail" placeholder="Email Address" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
-                                <span id="err-cemail" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter a valid email address.</span>
-                            </div>
+
+
+        <!-- TRUST STRIP -->
+
+        <section class="bg-white border-b border-[#F3E6C8] py-6 sm:py-8">
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
+
+                    <div class="space-y-2">
+
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center mx-auto border border-[#F3E6C8]">
+
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+
                         </div>
 
-                        <div class="space-y-2">
-                            <label for="address" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Flat / House No / Street Address <span class="text-[#FE330E]">*</span></label>
-                            <input type="text" id="address" name="address" required aria-describedby="err-addr" placeholder="House number, building name, street name" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
-                            <span id="err-addr" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter your delivery address.</span>
-                        </div>
+                        <h4 class="font-serif text-xs sm:text-sm font-semibold text-[#4E342E]">Vegetarian</h4>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                            <div class="space-y-2">
-                                <label for="landmark" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Landmark</label>
-                                <input type="text" id="landmark" name="landmark" placeholder="Nearby landmark" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
-                            </div>
-                            <div class="space-y-2">
-                                <label for="checkout-city" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">City <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="checkout-city" name="checkout-city" required aria-describedby="err-ccity" placeholder="City" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
-                                <span id="err-ccity" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter city.</span>
-                            </div>
-                            <div class="space-y-2">
-                                <label for="checkout-state" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">State <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="checkout-state" name="checkout-state" required aria-describedby="err-cstate" placeholder="State" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
-                                <span id="err-cstate" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter state.</span>
-                            </div>
-                        </div>
+                        <p class="text-[10px] text-[#8B8174] font-light">Jain Pure</p>
 
-                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                            <div class="space-y-2">
-                                <label for="pincode" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">PIN Code <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="pincode" name="pincode" required aria-describedby="err-pin" placeholder="6-digit PIN Code" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
-                                <span id="err-pin" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter a valid 6-digit PIN Code.</span>
-                            </div>
-                            <div class="space-y-2">
-                                <label for="country" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Country</label>
-                                <input type="text" id="country" name="country" value="India" readonly class="w-full bg-stone-100 border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] cursor-not-allowed">
-                            </div>
-                            <div class="space-y-2">
-                                <label for="address-type" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Address Type</label>
-                                <select id="address-type" name="address-type" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
-                                    <option value="Home" selected>Home</option>
-                                    <option value="Office">Office</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label for="order-notes" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Order Notes (Optional)</label>
-                            <input type="text" id="order-notes" name="order-notes" placeholder="Special instructions for delivery" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
-                        </div>
                     </div>
 
-                    <!-- Payment Option Description -->
-                    <div class="bg-white rounded-2xl border border-[#F3E6C8] p-6 sm:p-8 shadow-sm space-y-4">
-                        <h2 class="font-serif text-lg font-bold text-[#4E342E] border-b border-[#F3E6C8] pb-3">Payment Mode</h2>
-                        <div class="p-4 bg-[#FFFDF7] border border-[#F3E6C8] rounded-xl flex items-center justify-between text-xs text-[#5F5F5F]">
-                            <span>Cash on Delivery / Direct WhatsApp &amp; Email Enquiry Fulfillment</span>
-                            <span class="font-bold text-[#4E342E]">COD / Direct</span>
+                    <div class="space-y-2">
+
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center mx-auto border border-[#F3E6C8]">
+
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.5 9.5 2 14 2 20s4.5 10.5 10 10.5 10-4.5 10-10.5-4.5-10.5-10-10.5z"></path></svg>
+
                         </div>
+
+                        <h4 class="font-serif text-xs sm:text-sm font-semibold text-[#4E342E]">Traditional</h4>
+
+                        <p class="text-[10px] text-[#8B8174] font-light">Nimari Taste</p>
+
                     </div>
+
+                    <div class="space-y-2">
+
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center mx-auto border border-[#F3E6C8]">
+
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+
+                        </div>
+
+                        <h4 class="font-serif text-xs sm:text-sm font-semibold text-[#4E342E]">Premium</h4>
+
+                        <p class="text-[10px] text-[#8B8174] font-light">Hand-Selected</p>
+
+                    </div>
+
+                    <div class="space-y-2">
+
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center mx-auto border border-[#F3E6C8]">
+
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+
+                        </div>
+
+                        <h4 class="font-serif text-xs sm:text-sm font-semibold text-[#4E342E]">FSSAI</h4>
+
+                        <p class="text-[10px] text-[#8B8174] font-light">Certified</p>
+
+                    </div>
+
+                    <div class="space-y-2 col-span-2 sm:col-span-1">
+
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center mx-auto border border-[#F3E6C8]">
+
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v1a2 2 0 002 2h4a2 2 0 002-2v-1a2 2 0 012-2 2 2 0 002-2v-1a2 2 0 012-2h1.945"></path></svg>
+
+                        </div>
+
+                        <h4 class="font-serif text-xs sm:text-sm font-semibold text-[#4E342E]">Made in India</h4>
+
+                        <p class="text-[10px] text-[#8B8174] font-light">Heritage</p>
+
+                    </div>
+
                 </div>
 
-                <!-- Order Review Sidebar -->
-                <div class="bg-white rounded-2xl border border-[#F3E6C8] p-6 sm:p-8 shadow-sm space-y-6">
-                    <h2 class="font-serif text-xl font-bold text-[#4E342E] border-b border-[#F3E6C8] pb-3">Order Summary</h2>
-                    
-                    <div id="checkout-items-summary" class="space-y-4 text-sm divide-y divide-[#F3E6C8]">
-                        <!-- Items rendered via js/cart.js -->
-                    </div>
+            </div>
 
-                    <div class="pt-4 border-t border-[#F3E6C8] space-y-3 text-sm font-light">
-                        <div class="flex justify-between text-[#5F5F5F]">
-                            <span>Subtotal</span>
-                            <span class="font-mono font-medium text-[#4E342E]" data-summary="subtotal">[Subtotal]</span>
-                        </div>
-                        <div class="flex justify-between text-[#5F5F5F]">
-                            <span>Shipping</span>
-                            <span class="font-mono font-medium text-[#4E342E]" data-summary="shipping">[Shipping]</span>
-                        </div>
-                        <div class="pt-4 border-t border-[#F3E6C8] flex justify-between font-semibold text-[#4E342E] text-base">
-                            <span>Total Payable</span>
-                            <span class="font-mono text-[#FE330E] font-bold text-lg" data-summary="total">[Total]</span>
-                        </div>
-                    </div>
+        </section>
 
-                    <button type="submit" class="submit-btn w-full text-center py-4 bg-[#FE330E] text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#d92500] transition-colors duration-300 disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] shadow-sm">
-                        Place Order (COD / Enquiry)
-                    </button>
 
-                    <p class="text-[11px] text-[#5F5F5F] text-center italic">
-                        Questions? <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20need%20assistance%20regarding%20my%20order.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="text-[#FE330E] underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Chat with us on WhatsApp</a>
-                    </p>
+
+        <!-- CTA SECTION -->
+
+        <section class="py-12 sm:py-16 bg-gradient-to-r from-[#2D1F17] via-stone-900 to-[#2D1F17] text-white">
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 sm:space-y-6">
+
+                <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
+
+                    Authentic Nimari Crunch Delivered Fresh
+
+                </h2>
+
+                <p class="text-sm text-stone-300 max-w-2xl mx-auto">
+
+                    Premium Jain papads with traditional recipes, pure ingredients, and uncompromising hygiene.
+
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-3 justify-center pt-4">
+
+                    <a href="shop.html" class="btn-primary text-sm px-6 py-3">
+
+                        Shop Now
+
+                    </a>
+
+                    <a href="contact.html" class="btn-secondary text-sm px-6 py-3 bg-transparent text-white border-white/40 hover:bg-white hover:text-[#2D1F17]">
+
+                        Contact Us
+
+                    </a>
+
                 </div>
-            </form>
-        </div>
+
+            </div>
+
+        </section>
+
     </main>
 
-    <!-- GLOBAL REUSABLE FOOTER CONTAINER -->
+
+
     <footer-component></footer-component>
 
-    <!-- JavaScript Engine Load -->
+
+
+    <script src="js/products-loader.js"></script>
+
     <script src="js/layout.js"></script>
+
     <script src="js/main.js"></script>
+
     <script src="js/cart.js"></script>
-    <script src="js/shop.js"></script>
 
-    <!-- Consolidated Checkout Controller -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const checkoutForm = document.getElementById('checkout-form');
-            const statusBanner = document.getElementById('form-status-banner');
-            if (!checkoutForm) return;
-
-            function showBanner(message, isError = false) {
-                if (!statusBanner) return;
-                statusBanner.textContent = message;
-                statusBanner.className = `mb-8 p-4 rounded-xl text-xs sm:text-sm font-medium border ${
-                    isError 
-                        ? 'bg-red-50 border-red-200 text-red-800' 
-                        : 'bg-emerald-50 border-emerald-200 text-emerald-800'
-                }`;
-                statusBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-
-            checkoutForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                // 1. Gather form inputs safely
-                const firstName = document.getElementById('first-name').value.trim();
-                const lastName = document.getElementById('last-name').value.trim();
-                const customerPhone = document.getElementById('checkout-mobile').value.trim();
-                const customerEmail = document.getElementById('checkout-email').value.trim();
-                const streetAddress = document.getElementById('address').value.trim();
-                const landmark = document.getElementById('landmark').value.trim();
-                const city = document.getElementById('checkout-city').value.trim();
-                const state = document.getElementById('checkout-state').value.trim();
-                const pincode = document.getElementById('pincode').value.trim();
-                const addressType = document.getElementById('address-type').value;
-                const orderNotes = document.getElementById('order-notes').value.trim();
-
-                // 2. Validate required fields
-                if (!firstName || !lastName || !customerPhone || !customerEmail || !streetAddress || !city || !state || !pincode) {
-                    showBanner('Please fill in all required shipping fields before submitting your order.', true);
-                    return;
-                }
-
-                // 3. Verify cart items exist
-                const cartItems = window.KawadCart ? window.KawadCart.getItems() : [];
-                if (cartItems.length === 0) {
-                    showBanner('Your shopping cart is empty. Please add items before checking out.', true);
-                    return;
-                }
-
-                // 4. Format order items summary string securely
-                const orderSummary = cartItems.map(item => 
-                    `- ${item.name} | Size: ${item.weight} | Qty: ${item.quantity} | Price: ₹${item.price * item.quantity}`
-                ).join('\n');
-
-                const subtotal = window.KawadCart.calculateSubtotal();
-                const shipping = window.KawadCart.calculateShipping();
-                const grandTotal = window.KawadCart.calculateGrandTotal();
-
-                const templateParams = {
-                    customer_name: `${firstName} ${lastName}`,
-                    customer_phone: customerPhone,
-                    customer_email: customerEmail,
-                    customer_address: `${streetAddress}${landmark ? ', Near ' + landmark : ''}, ${city}, ${state} - ${pincode} (${addressType} Address)`,
-                    order_items: orderSummary,
-                    order_subtotal: `₹${subtotal}`,
-                    shipping_cost: shipping === 0 ? 'FREE' : `₹${shipping}`,
-                    order_total: `₹${grandTotal}`,
-                    customer_message: orderNotes ? orderNotes : 'No special instructions.'
-                };
-
-                const submitBtn = checkoutForm.querySelector('button[type="submit"]');
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.textContent = 'Processing Order...';
-                }
-
-                // 5. Dispatch via EmailJS with strict success handling (cart never cleared until success)
-                emailjs.send('service_sa0scip', 'template_uikgrgl', templateParams)
-                    .then(function(response) {
-                        showBanner('Order placed successfully! Details have been sent to the Kawad Swad team.');
-                        window.KawadCart.clearCart(); // Safe to clear cart only after verified success
-                        setTimeout(() => {
-                            window.location.href = 'index.html';
-                        }, 2000);
-                    }, function(error) {
-                        console.error('EmailJS submission failed:', error);
-                        showBanner('Failed to send order details automatically. Please contact us via WhatsApp or phone.', true);
-                        if (submitBtn) {
-                            submitBtn.disabled = false;
-                            submitBtn.textContent = 'Place Order (COD / Enquiry)';
-                        }
-                    });
-            });
-        });
-    </script>
 </body>
+
 </html>
+

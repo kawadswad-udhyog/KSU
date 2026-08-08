@@ -1,107 +1,22 @@
 /* ===================================================================
-   KAWAD SWAD - Mobile & Responsive Optimizations
+   KAWAD SWAD - Mobile & Component Adjustments (assets/css/mobile.css)
    ================================================================== */
 
-/* Global Overflow Protection */
-body, html {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Safe Container Constraints */
-.max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-/* Header Overflow Protections */
-header {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-header > div {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* Tablet & Mobile Breakpoints */
+/* Named component-scoped overrides only */
 @media (max-width: 768px) {
-  /* Touch Targets */
-  button, a[class*='btn'] {
+  .mobile-nav-drawer {
+    background-color: var(--brand-bg, #fffdf7);
+    border-left: 1px solid var(--brand-border, #f3e6c8);
+  }
+
+  .mobile-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .touch-target-mobile {
     min-height: 44px;
     min-width: 44px;
-    padding: 12px 16px;
-  }
-
-  /* Form inputs - 16px prevents iOS zoom */
-  input, select, textarea {
-    font-size: 16px !important;
-    min-height: 44px;
-    padding: 12px 16px;
-  }
-
-  /* Product Cards & Media */
-  .card {
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .aspect-square {
-    aspect-ratio: 1 / 1;
-  }
-
-  /* Mobile Navigation Spacing */
-  #mobile-menu a {
-    padding: 14px 12px;
-    display: block;
-    border-radius: 8px;
-    margin-bottom: 4px;
-  }
-
-  /* Section Padding */
-  section {
-    padding: 1.5rem 0;
-  }
-}
-
-/* Small Screens (Under 480px) */
-@media (max-width: 479px) {
-  html {
-    font-size: 14px;
-  }
-
-  body {
-    font-size: 0.95rem;
-  }
-
-  /* Mobile Cart Layout */
-  .cart-item {
-    display: flex;
-    flex-direction: column;
-    padding: 12px;
-    margin-bottom: 12px;
-  }
-
-  /* Stacked Checkout Form */
-  .form-row {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  /* SVG Containment */
-  svg {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-/* Tablet Layout Tweaks (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  main section {
-    padding: 2rem 0;
   }
 }

@@ -32,6 +32,7 @@
 
     <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
     <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/mobile.css">
 
     <!-- CSS Animation Utilities & Motion Safety -->
     <style>
@@ -123,7 +124,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
                     <!-- Image Area -->
                     <div class="space-y-4 fade-in">
-                        <div class="aspect-square bg-white rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center p-8 text-center shadow-xl relative group overflow-hidden" data-detail="image-container">
+                        <div class="aspect-square bg-[#FFFDF7] rounded-2xl border border-[#F3E6C8] flex flex-col items-center justify-center p-8 text-center shadow-sm relative group overflow-hidden" data-detail="image-container">
                             <svg class="w-20 h-20 text-[#8B8174] mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                             </svg>
@@ -135,20 +136,25 @@
                     <div class="space-y-6 slide-up">
                         <div class="space-y-3">
                             <div class="flex items-center gap-3">
-                                <span class="inline-block text-xs font-semibold uppercase tracking-wider text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]" data-detail="category">Category</span>
+                                <span class="inline-block text-xs font-bold uppercase tracking-wider text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]" data-detail="category">Category</span>
                                 <span class="inline-block text-xs font-semibold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full" data-detail="diet-type">100% Jain Vegetarian</span>
                             </div>
                             <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#4E342E]" data-detail="title">Product Name</h1>
                             <p class="text-sm sm:text-base text-[#5F5F5F] leading-relaxed font-light" data-detail="description">Loading product specifications...</p>
                         </div>
 
+                        <!-- Variant Selection Block -->
+                        <div data-detail="variants" class="space-y-2">
+                            <!-- Populated dynamically via js/shop.js -->
+                        </div>
+
                         <!-- Price & Shipping Block -->
-                        <div class="card p-6 space-y-2">
+                        <div class="card p-6 space-y-2 border border-[#F3E6C8] rounded-xl bg-[#FFFDF7]">
                             <div class="flex items-baseline gap-3">
-                                <span class="text-3xl font-bold text-[#4E342E] font-mono" data-detail="price">₹--</span>
+                                <span class="text-3xl font-bold text-[#FE330E] font-serif" data-detail="price">₹--</span>
                                 <span class="text-sm text-[#8B8174] line-through font-mono" data-detail="mrp">₹--</span>
                             </div>
-                            <p class="text-xs text-[#E6B800] font-medium" data-detail="shipping">Includes all taxes. Fast shipping available.</p>
+                            <p class="text-xs text-[#5F5F5F] font-medium" data-detail="shipping">Includes all taxes. Fast shipping available.</p>
                         </div>
 
                         <!-- Actions -->
@@ -158,9 +164,24 @@
 
                         <!-- Ingredients List -->
                         <div class="pt-6 border-t border-[#F3E6C8] space-y-4">
-                            <h3 class="font-serif text-xl font-bold text-[#4E342E]">Ingredients</h3>
-                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-[#5F5F5F] font-light" data-detail="ingredients">
-                                <!-- Populated dynamically via js/shop.js -->
+                            <h3 class="font-serif text-xl font-bold text-[#4E342E]">Ingredients & Quality</h3>
+                            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-[#5F5F5F] font-light">
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#FE330E]"></span>
+                                    <span>Premium Pulses (Moong / Urad)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#FE330E]"></span>
+                                    <span>Hand-Cleaned Spices & Hing</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#FE330E]"></span>
+                                    <span>100% Vegetarian & Jain Safe</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-[#FE330E]"></span>
+                                    <span>Zero Artificial Preservatives</span>
+                                </li>
                             </ul>
                         </div>
                     </div>

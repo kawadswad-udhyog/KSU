@@ -4,18 +4,13 @@
   "description": "Manufacturer of premium 100% vegetarian Jain Papads delivering pure taste and traditional excellence from Nimar.",
   "icons": [
     {
-      "src": "assets/favicon/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/favicon/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "assets/favicon/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ],
-  "theme_color": "#C5A059",
-  "background_color": "#FAF7F2",
+  "theme_color": "#FE330E",
+  "background_color": "#FFFDF7",
   "display": "standalone",
   "scope": "./",
   "start_url": "index.html"

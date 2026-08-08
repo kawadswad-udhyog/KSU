@@ -161,7 +161,7 @@ const CartManager = {
                 <tr>
                     <td colspan="5" class="py-12 text-center text-[#8B8174]">
                         <p class="font-serif text-lg mb-4 text-[#4E342E]">Your shopping cart is currently empty.</p>
-                        <a href="${basePath}shop.html" class="inline-block px-6 py-3 bg-[#FE330E] text-white text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#d92500] transition-colors shadow-sm">
+                        <a href="${basePath}shop.html" class="inline-block px-6 py-3 bg-[#FE330E] text-white text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#d92500] transition-colors shadow-sm cta-shop-now">
                             Explore Shop
                         </a>
                     </td>

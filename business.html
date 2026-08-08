@@ -14,7 +14,7 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
 
-    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
+    <!-- Master Design System -->
     <link rel="stylesheet" href="assets/css/design-system.css">
     <link rel="stylesheet" href="assets/css/mobile.css">
 
@@ -32,13 +32,13 @@
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-[#FFFDF7]">
 
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- HERO -->
-        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24">
+        <section class="relative bg-white border-b border-[#F3E6C8] py-16 lg:py-24">
             <div class="max-w-7xl mx-auto px-4 text-center space-y-6 slide-up">
                 <span class="badge">B2B Enterprise Portal</span>
                 <h1 class="font-serif text-5xl lg:text-6xl font-bold text-[#4E342E]">Business <span class="italic text-[#FE330E] font-normal">Hub</span></h1>
@@ -79,38 +79,39 @@
         <!-- ENQUIRY SECTION -->
         <section id="business-form" class="py-24 bg-white border-t border-[#F3E6C8]">
             <div class="max-w-4xl mx-auto px-4 sm:px-6">
-                <div class="card p-8 sm:p-14 rounded-2xl shadow-xl bg-gradient-to-br from-[#FFFDF7] to-white">
+                <div class="card p-8 sm:p-14 shadow-xl">
                     <div class="text-center mb-10 space-y-3">
                         <span class="badge">Direct Partnership</span>
                         <h2 class="font-serif text-3xl sm:text-4xl font-bold text-[#4E342E]">General Business Enquiry</h2>
                         <p class="text-[#5F5F5F] text-sm font-light">Get in touch with our commercial operations team for custom capacity and distribution partnerships.</p>
+                        <div class="w-12 h-0.5 bg-[#FBEC0A] mx-auto mt-3"></div>
                     </div>
 
                     <form id="business-general-form" data-form="business" novalidate class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <label for="gen-name" class="text-xs font-bold uppercase tracking-wider text-[#4E342E]">Full Name *</label>
-                                <input type="text" id="gen-name" name="name" required placeholder="Enter your full name" class="w-full">
+                                <input type="text" id="gen-name" name="name" required placeholder="Enter your full name" class="form-control">
                             </div>
                             <div class="space-y-2">
                                 <label for="gen-company" class="text-xs font-bold uppercase tracking-wider text-[#4E342E]">Company / Organization</label>
-                                <input type="text" id="gen-company" name="company" placeholder="Business name (optional)" class="w-full">
+                                <input type="text" id="gen-company" name="company" placeholder="Business name (optional)" class="form-control">
                             </div>
                             <div class="space-y-2">
                                 <label for="gen-mobile" class="text-xs font-bold uppercase tracking-wider text-[#4E342E]">Mobile Number *</label>
-                                <input type="tel" id="gen-mobile" name="mobile" required placeholder="10-digit mobile number" class="w-full">
+                                <input type="tel" id="gen-mobile" name="mobile" required placeholder="10-digit mobile number" class="form-control">
                             </div>
                             <div class="space-y-2">
                                 <label for="gen-email" class="text-xs font-bold uppercase tracking-wider text-[#4E342E]">Email Address *</label>
-                                <input type="email" id="gen-email" name="email" required placeholder="name@domain.com" class="w-full">
+                                <input type="email" id="gen-email" name="email" required placeholder="name@domain.com" class="form-control">
                             </div>
                         </div>
                         <div class="space-y-2">
                             <label for="gen-message" class="text-xs font-bold uppercase tracking-wider text-[#4E342E]">Message / Proposal Details *</label>
-                            <textarea id="gen-message" name="message" rows="4" required maxlength="500" placeholder="Describe your collaboration proposal, target region, or volume requirements..." class="w-full"></textarea>
+                            <textarea id="gen-message" name="message" rows="4" required maxlength="500" placeholder="Describe your collaboration proposal, target region, or volume requirements..." class="form-control"></textarea>
                         </div>
                         <div class="pt-4">
-                            <button type="submit" class="w-full py-4 btn-primary text-xs uppercase tracking-wider rounded-xl shadow-md">
+                            <button type="submit" class="w-full py-4 btn-primary text-xs uppercase tracking-wider rounded-lg shadow-lg">
                                 Send Business Message
                             </button>
                         </div>

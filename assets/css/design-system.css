@@ -18,7 +18,7 @@
   --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Universal Box-Sizing & Viewport Containment to Fix Zoom/Overflow Issues */
+/* FIX: Universal Box-Sizing */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -28,79 +28,178 @@ html {
   color: var(--brand-text); 
   scroll-behavior: smooth; 
   -webkit-text-size-adjust: 100%; 
-  text-size-adjust: 100%; 
-  max-width: 100vw;
+  text-size-adjust: 100%;
+  width: 100%;
   overflow-x: hidden;
 }
 
 body { 
   margin: 0; 
-  max-width: 100vw;
-  overflow-x: hidden; 
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
   background: var(--brand-bg); 
   color: var(--brand-text); 
   font-family: var(--font-body); 
-  line-height: 1.5; 
+  line-height: 1.6; 
   font-size: 1rem;
 }
 
+/* FIX: Image & Media Responsiveness */
 img, svg, video, canvas, audio { 
   display: block; 
   height: auto; 
-  max-width: 100%; 
+  max-width: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
-h1, h2, h3, h4, h5, h6, .font-serif { color: var(--brand-heading); font-family: var(--font-heading); }
-a { color: var(--brand-primary); }
+/* FIX: SVG Icons should not inherit full width */
+button svg, a svg {
+  width: auto;
+  height: auto;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif { 
+  color: var(--brand-heading); 
+  font-family: var(--font-heading); 
+}
+
+a { color: var(--brand-primary); text-decoration: none; }
 a:hover { color: var(--brand-heading); }
 
 .section-cream { background: var(--brand-bg); }
 .section-white { background: var(--brand-surface); }
 .section-brand { background: var(--brand-primary); color: #fff; }
 .section-dark { background: var(--brand-footer-bg); color: var(--brand-footer-text); }
-.btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border: 1px solid var(--brand-primary); border-radius: .5rem; background: var(--brand-primary); color: #fff; font-weight: 600; padding: .75rem 1.25rem; }
+
+.btn-primary { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 0.5rem; 
+  padding: 12px 24px;
+  border: 1px solid var(--brand-primary); 
+  border-radius: 0.5rem; 
+  background: var(--brand-primary); 
+  color: white; 
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 .btn-primary:hover { background: #d92500; color: #fff; }
-.btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; border: 1px solid var(--brand-border); border-radius: .5rem; background: var(--brand-surface); color: var(--brand-heading); font-weight: 600; padding: .75rem 1.25rem; }
+
+.btn-secondary { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 0.5rem; 
+  padding: 12px 24px;
+  border: 1px solid var(--brand-border); 
+  border-radius: 0.5rem; 
+  background: var(--brand-surface); 
+  color: var(--brand-text); 
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
 .btn-secondary:hover { border-color: var(--brand-primary); color: var(--brand-primary); }
-.card { border: 1px solid var(--brand-border); border-radius: 1rem; background: var(--brand-surface); }
-.badge { border: 1px solid var(--brand-border); border-radius: 9999px; background: #fffde6; color: var(--brand-heading); font-size: .75rem; font-weight: 600; letter-spacing: .05em; padding: .25rem .5rem; text-transform: uppercase; }
 
-input[type='text'], input[type='email'], input[type='tel'], input[type='number'], input[type='url'], select, textarea { box-sizing: border-box; width: 100%; border: 1px solid var(--brand-border); border-radius: .5rem; background: #fff; color: var(--brand-heading); font: inherit; padding: .75rem 1rem; }
-input:focus, select:focus, textarea:focus { border-color: var(--brand-primary); outline: 2px solid transparent; outline-offset: 2px; box-shadow: 0 0 0 3px rgb(254 51 14 / .2); }
-
-footer { background: var(--brand-footer-bg); color: var(--brand-footer-text); }
-footer h3, footer h4, footer h5 { color: #fff; }
-footer p, footer li, footer span { color: var(--brand-footer-text); }
-footer a { color: var(--brand-secondary); }
-footer a:hover { color: #fff; }
-
-/* Compact visual rhythm: existing templates use presentation-scale utilities
-    (text-6xl, py-24 and p-14) on most sections. Keep the utilities available,
-    but normalise page content to an editorial, desktop-friendly scale. */
-main h1[class*='text-'] { font-size: clamp(2rem, 3.2vw, 2.75rem) !important; line-height: 1.12; }
-main h2[class*='text-'] { font-size: clamp(1.5rem, 2.4vw, 2rem) !important; line-height: 1.2; }
-main h3[class*='text-'] { font-size: clamp(1.2rem, 1.8vw, 1.4rem) !important; line-height: 1.3; }
-main section[class~='py-24'] { padding-bottom: 3.5rem; padding-top: 3.5rem; }
-main section[class~='py-20'] { padding-bottom: 3rem; padding-top: 3rem; }
-main [class~='p-14'], main [class~='sm:p-14'] { padding: 2rem; }
-main [class~='p-12'], main [class~='sm:p-12'] { padding: 1.75rem; }
-main [class~='p-10'], main [class~='sm:p-16'] { padding: 1.5rem; }
-main .shadow-xl, main .shadow-2xl { box-shadow: 0 8px 22px rgb(78 52 46 / .08); }
-
-@media (min-width: 1024px) {
-  main section[class~='lg:py-24'], main section[class~='lg:py-28'] { padding-bottom: 4rem; padding-top: 4rem; }
+.card { 
+  border: 1px solid var(--brand-border); 
+  border-radius: 1rem; 
+  background: var(--brand-surface); 
+  overflow: hidden;
 }
 
-@media (max-width: 639px) {
-  body { line-height: 1.45; }
-  main h1[class*='text-'] { font-size: 2rem !important; }
-  main h2[class*='text-'] { font-size: 1.5rem !important; }
-  main section[class~='py-24'], main section[class~='py-20'], main section[class~='py-16'] { padding-bottom: 2.5rem; padding-top: 2.5rem; }
-  main [class~='p-14'], main [class~='sm:p-14'], main [class~='p-12'], main [class~='sm:p-12'], main [class~='p-10'] { padding: 1.25rem; }
+.badge { 
+  border: 1px solid var(--brand-border); 
+  border-radius: 9999px; 
+  background: #fffde6; 
+  color: var(--brand-heading); 
+  font-size: 0.75rem; 
+  font-weight: 600; 
+  letter-spacing: 0.05em; 
+  padding: 0.25rem 0.5rem;
+}
+
+input[type='text'], input[type='email'], input[type='tel'], input[type='number'], input[type='url'], select, textarea { 
+  box-sizing: border-box; 
+  width: 100%; 
+  border: 1px solid var(--brand-border); 
+  border-radius: 0.5rem;
+  padding: 12px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+input:focus, select:focus, textarea:focus { 
+  border-color: var(--brand-primary); 
+  outline: 2px solid transparent; 
+  outline-offset: 2px; 
+  box-shadow: 0 0 0 3px rgb(254 51 14 / 0.2); 
+}
+
+footer { 
+  background: var(--brand-footer-bg); 
+  color: var(--brand-footer-text);
+  width: 100%;
+  overflow-x: hidden;
+}
+footer h3, footer h4, footer h5 { color: #fff; }
+footer p, footer li, footer span { color: var(--brand-footer-text); }
+footer a { color: var(--brand-secondary); text-decoration: none; }
+footer a:hover { color: #fff; }
+
+/* Responsive Typography */
+main h1[class*='text-'] { 
+  font-size: clamp(1.75rem, 5vw, 3rem) !important; 
+  line-height: 1.2;
+}
+main h2[class*='text-'] { 
+  font-size: clamp(1.25rem, 4vw, 2.25rem) !important; 
+  line-height: 1.3;
+}
+main h3[class*='text-'] { 
+  font-size: clamp(1rem, 3vw, 1.5rem) !important; 
+  line-height: 1.4;
+}
+
+main section[class~='py-24'] { padding-bottom: 2rem; padding-top: 2rem; }
+main section[class~='py-20'] { padding-bottom: 1.5rem; padding-top: 1.5rem; }
+main [class~='p-14'], main [class~='sm:p-14'] { padding: 1rem; }
+main [class~='p-12'], main [class~='sm:p-12'] { padding: 1rem; }
+main [class~='p-10'], main [class~='sm:p-16'] { padding: 1rem; }
+main .shadow-xl, main .shadow-2xl { box-shadow: 0 4px 12px rgb(78 52 46 / 0.08); }
+
+@media (min-width: 768px) {
+  main section[class~='py-24'], main section[class~='lg:py-24'], main section[class~='lg:py-28'] { 
+    padding-bottom: 3rem; 
+    padding-top: 3rem; 
+  }
+  main [class~='p-14'], main [class~='sm:p-14'] { padding: 1.75rem; }
+  main [class~='p-12'], main [class~='sm:p-12'] { padding: 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  main section[class~='py-24'], main section[class~='lg:py-24'], main section[class~='lg:py-28'] { 
+    padding-bottom: 4rem; 
+    padding-top: 4rem; 
+  }
+}
+
+@media (max-width: 767px) {
+  body { font-size: 0.95rem; line-height: 1.5; }
+  main h1[class*='text-'] { font-size: 1.5rem !important; }
+  main h2[class*='text-'] { font-size: 1.25rem !important; }
+  main h3[class*='text-'] { font-size: 1rem !important; }
   #back-to-top { bottom: 1rem; right: 1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) { 
   html { scroll-behavior: auto; } 
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } 
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } 
 }

@@ -78,16 +78,25 @@ function normalizeSKUsToProductFamilies(rawItems) {
     return Object.values(families);
 }
 
-// Inside js/shop.js
 document.addEventListener('DOMContentLoaded', async () => {
     const products = await ProductService.getProducts();
     const grid = document.querySelector('[data-shop-grid]');
     
     if (grid && products.length > 0) {
-        // Keep your existing rendering logic here
         renderProducts(products, grid);
+        initShopFilters(products);
     }
 });
+
+function renderProducts(products, container) {
+    container.innerHTML = products.map(p => `
+        <div class="card p-4">
+            <img src="${p.image}" alt="${p.name}">
+            <h3>${p.name}</h3>
+            <p>₹${p.price || '89.00'}</p>
+        </div>
+    `).join('');
+}
 function initShopPage(products) {
     const productGrid = document.querySelector('[data-shop-grid]') || document.querySelector('.grid');
     if (!productGrid) return;

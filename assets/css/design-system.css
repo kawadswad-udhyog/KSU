@@ -1,5 +1,7 @@
-/* KAWAD SWAD - Core Design System */
-@import url('./tailwind.css');
+/* =================================================================ating
+   KAWAD SWAD - Core Design System (Production Pipeline)
+   ================================================================== */
+@import url('./tailwind');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -18,75 +20,24 @@
   --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* CRITICAL FIX: Box-sizing & Width Constraints */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* Base Document Setup */
 html {
-  width: 100vw;
-  overflow-x: hidden;
   background: var(--brand-bg);
   color: var(--brand-text);
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
 }
 
 body {
-  width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
   background: var(--brand-bg);
   color: var(--brand-text);
   font-family: var(--font-body);
   line-height: 1.6;
   font-size: 1rem;
-}
-
-main {
-  width: 100%;
-  max-width: 100%;
   overflow-x: hidden;
 }
 
-/* CRITICAL FIX: Section & Container Width */
-section {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-.max-w-7xl,
-.max-w-6xl,
-.max-w-5xl,
-.max-w-4xl,
-.max-w-3xl {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  overflow-x: hidden;
-}
-
-/* CRITICAL FIX: Media Responsiveness */
-img, svg, video, canvas, audio {
-  display: block;
-  height: auto;
-  max-width: 100%;
-  width: 100%;
-}
-
-button svg,
-a svg,
-.icon svg {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-}
-
+/* Typography Foundations */
 h1, h2, h3, h4, h5, h6, .font-serif {
   color: var(--brand-heading);
   font-family: var(--font-heading);
@@ -95,19 +46,20 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 a {
   color: var(--brand-primary);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   color: var(--brand-heading);
 }
 
-/* Section Backgrounds */
+/* Section Theme Classes */
 .section-cream { background: var(--brand-bg); }
 .section-white { background: var(--brand-surface); }
 .section-brand { background: var(--brand-primary); color: #fff; }
-.section-dark { background: var(--brand-footer-bg); color: var(--brand-footer-text); }
+.section-dark  { background: var(--brand-footer-bg); color: var(--brand-footer-text); }
 
-/* Button Styles */
+/* Component: Buttons */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -154,7 +106,7 @@ a:hover {
   color: var(--brand-primary);
 }
 
-/* Card Styles */
+/* Component: Cards & Badges */
 .card {
   border: 1px solid var(--brand-border);
   border-radius: 1rem;
@@ -182,13 +134,14 @@ input[type='number'],
 input[type='url'],
 select,
 textarea {
-  box-sizing: border-box;
   width: 100%;
   border: 1px solid var(--brand-border);
   border-radius: 0.5rem;
   padding: 12px;
   font-family: var(--font-body);
   font-size: 1rem;
+  background-color: var(--brand-surface);
+  color: var(--brand-text);
 }
 
 input:focus,
@@ -200,72 +153,10 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgb(254 51 14 / 0.2);
 }
 
-/* Footer Styles */
-footer {
-  background: var(--brand-footer-bg);
-  color: var(--brand-footer-text);
-  width: 100%;
-  overflow-x: hidden;
-}
-
-footer h3,
-footer h4,
-footer h5 {
-  color: #fff;
-}
-
-footer p,
-footer li,
-footer span {
-  color: var(--brand-footer-text);
-}
-
-footer a {
-  color: var(--brand-secondary);
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: #fff;
-}
-
-/* RESPONSIVE TYPOGRAPHY */
-main h1 {
-  font-size: clamp(1.5rem, 5vw, 3.5rem);
-  line-height: 1.2;
-}
-
-main h2 {
-  font-size: clamp(1.25rem, 4vw, 2.5rem);
-  line-height: 1.3;
-}
-
-main h3 {
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  line-height: 1.4;
-}
-
-/* RESPONSIVE PADDING */
-main section {
-  padding: 1.5rem 0;
-}
-
-@media (min-width: 640px) {
-  main section {
-    padding: 2rem 0;
-  }
-}
-
-@media (min-width: 768px) {
-  main section {
-    padding: 2.5rem 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  main section {
-    padding: 3rem 0;
-  }
+/* Accessibility Focus States */
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 2px;
 }
 
 /* Motion Safety */
@@ -273,7 +164,9 @@ main section {
   html {
     scroll-behavior: auto;
   }
-  * {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

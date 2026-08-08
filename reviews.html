@@ -24,9 +24,7 @@
     <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
 
@@ -96,9 +94,7 @@
                 </div>
 
                 <div class="mt-12 aspect-21/9 bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center p-8 text-center shadow-xl relative group overflow-hidden fade-in">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-[#FBEC0A]/10 to-transparent pointer-events-none"></div>
-                    <svg class="w-16 h-16 text-[#FE330E]/60 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
-                    <span class="text-xs font-mono uppercase tracking-wider text-[#8B8174]">[reviews-hero-placeholder]</span>
+                    <img src="assets/images/reviews-hero.jpg" alt="Customer Reviews Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='assets/images/products/MMP.png'">
                 </div>
             </div>
         </section>
@@ -204,7 +200,7 @@
 
                         <div class="space-y-2">
                             <label for="review-text" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Your Review / Comments <span class="text-[#FE330E]">*</span></label>
-                            <textarea id="review-text" name="review-text" rows="4" required placeholder="Tell us about the taste, packaging, and your overall experience..." class="w-full"></textarea>
+                            <textarea id="review-text" name="review-text" rows="4" required maxlength="500" placeholder="Tell us about the taste, packaging, and your overall experience..." class="w-full"></textarea>
                         </div>
 
                         <div class="text-center pt-2">
@@ -223,6 +219,7 @@
 
     <!-- JavaScript Engine Load -->
     <script src="js/layout.js"></script>
+    <script src="js/forms.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
 </body>

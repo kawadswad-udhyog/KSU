@@ -134,7 +134,7 @@ function getFallbackHeader(basePath) {
                     </a>
 
                     <!-- Cart Badge Link (Synchronized with js/cart.js) -->
-                    <a href="${basePath}cart.html" class="relative text-[#4E342E] hover:text-[#FE330E] transition-colors duration-200 p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-full" aria-label="Shopping Cart">
+                    <a href="${basePath}cart.html" class="relative text-[#4E342E] hover:text-[#FE330E] transition-colors duration-200 p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg cta-cart" aria-label="Shopping Cart">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
                         </svg>
@@ -171,7 +171,7 @@ function getFallbackHeader(basePath) {
  */
 function getFallbackFooter(basePath) {
     return `
-        <footer class="bg-[#2D1F17] text-[#F5EEDC] text-sm border-t border-[#F3E6C8]/10">
+        <footer class="bg-[#2D1F17] text-[#F5EEDC] text-sm border-t border-[#F3E6C8]/15">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
                     <!-- Brand Overview & Compliance -->
@@ -191,11 +191,11 @@ function getFallbackFooter(basePath) {
                     <nav aria-label="Quick Links">
                         <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Quick Links</h4>
                         <ul class="space-y-2.5 text-xs font-light">
-                            <li><a href="${basePath}index.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Home</a></li>
-                            <li><a href="${basePath}about.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">About Us</a></li>
-                            <li><a href="${basePath}products.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Products</a></li>
-                            <li><a href="${basePath}shop.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Shop</a></li>
-                            <li><a href="${basePath}contact.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Contact Us</a></li>
+                            <li><a href="${basePath}index.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Home</a></li>
+                            <li><a href="${basePath}about.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">About Us</a></li>
+                            <li><a href="${basePath}products.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Products</a></li>
+                            <li><a href="${basePath}shop.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Shop</a></li>
+                            <li><a href="${basePath}contact.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Contact Us</a></li>
                         </ul>
                     </nav>
 
@@ -203,14 +203,14 @@ function getFallbackFooter(basePath) {
                     <nav aria-label="Business & Media">
                         <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Business &amp; Media</h4>
                         <ul class="space-y-2.5 text-xs font-light">
-                            <li><a href="${basePath}business.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Business Solutions</a></li>
-                            <li><a href="${basePath}distributor.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Distributor Portal</a></li>
-                            <li><a href="${basePath}bulk.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Bulk Orders</a></li>
-                            <li><a href="${basePath}media.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Media &amp; Press</a></li>
-                            <li><a href="${basePath}work-with-us.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Work With Us</a></li>
-                            <li><a href="${basePath}manufacturing.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Manufacturing</a></li>
-                            <li><a href="${basePath}gallery.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Gallery</a></li>
-                            <li><a href="${basePath}blog.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Blog &amp; Recipes</a></li>
+                            <li><a href="${basePath}business.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Business Solutions</a></li>
+                            <li><a href="${basePath}distributor.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Distributor Portal</a></li>
+                            <li><a href="${basePath}bulk.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Bulk Orders</a></li>
+                            <li><a href="${basePath}media.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Media &amp; Press</a></li>
+                            <li><a href="${basePath}work-with-us.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Work With Us</a></li>
+                            <li><a href="${basePath}manufacturing.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Manufacturing</a></li>
+                            <li><a href="${basePath}gallery.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Gallery</a></li>
+                            <li><a href="${basePath}blog.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Blog &amp; Recipes</a></li>
                         </ul>
                     </nav>
 
@@ -218,34 +218,34 @@ function getFallbackFooter(basePath) {
                     <nav aria-label="Support & Legal">
                         <h4 class="text-xs font-semibold uppercase tracking-widest text-white mb-4">Support &amp; Legal</h4>
                         <ul class="space-y-2.5 text-xs font-light">
-                            <li><a href="${basePath}faq.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">FAQ</a></li>
-                            <li><a href="${basePath}policies.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Privacy Policy</a></li>
-                            <li><a href="${basePath}policies.html#terms-and-conditions" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Terms &amp; Conditions</a></li>
-                            <li><a href="${basePath}policies.html#shipping-policy" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Shipping &amp; Returns</a></li>
+                            <li><a href="${basePath}faq.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">FAQ</a></li>
+                            <li><a href="${basePath}policies.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Privacy Policy</a></li>
+                            <li><a href="${basePath}policies.html#terms-and-conditions" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Terms &amp; Conditions</a></li>
+                            <li><a href="${basePath}policies.html#shipping-policy" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Shipping &amp; Returns</a></li>
                         </ul>
                     </nav>
                 </div>
 
                 <!-- Newsletter Section -->
-                <div class="mt-12 pt-8 border-t border-[#F3E6C8]/10 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <div class="mt-12 pt-8 border-t border-[#F3E6C8]/15 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                     <div>
                         <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Subscribe to Our Newsletter</h5>
                         <p class="text-xs text-[#F5EEDC]/80 mt-1 font-light">Receive authentic Jain recipes and business updates directly.</p>
                     </div>
                     <form data-form="newsletter" novalidate class="flex gap-2">
                         <input type="email" placeholder="Enter your email" required aria-label="Email address for newsletter" class="bg-[#1E1510] border border-[#F3E6C8]/30 rounded-lg px-4 py-3 text-xs text-white focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E] flex-grow">
-                        <button type="submit" class="px-6 py-3 bg-[#FE330E] text-white font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-[#D92500] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] shadow-lg">
+                        <button type="submit" class="px-6 py-3 bg-[#FE330E] text-white font-semibold text-xs uppercase tracking-wider rounded-lg hover:bg-[#D92500] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] shadow-lg cta-newsletter">
                             Subscribe
                         </button>
                     </form>
                 </div>
 
                 <!-- Copyright & Social Deep Links -->
-                <div class="mt-12 pt-8 border-t border-[#F3E6C8]/10 flex flex-col sm:flex-row justify-between items-center text-xs text-[#F5EEDC]/70 font-light gap-4">
+                <div class="mt-12 pt-8 border-t border-[#F3E6C8]/15 flex flex-col sm:flex-row justify-between items-center text-xs text-[#F5EEDC]/70 font-light gap-4">
                     <p>&copy; 2026 KAWAD SWAD Udhyog. All rights reserved.</p>
                     <div class="flex space-x-6">
-                        <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20am%20visiting%20your%20website%20and%20need%20assistance." target="_blank" rel="noopener noreferrer" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">WhatsApp</a>
-                        <a href="${basePath}contact.html" class="hover:text-[#E6B800] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Support</a>
+                        <a href="https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%0A%0AI%20am%20visiting%20your%20website%20and%20need%20assistance." target="_blank" rel="noopener noreferrer" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] cta-whatsapp">WhatsApp</a>
+                        <a href="${basePath}contact.html" class="hover:text-[#FBEC0A] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] cta-contact">Support</a>
                     </div>
                 </div>
             </div>

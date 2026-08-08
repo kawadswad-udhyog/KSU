@@ -24,9 +24,7 @@
   <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#FE330E">
   
@@ -191,7 +189,7 @@
       padding: 10rem 0 6rem 0;
       position: relative;
       background: linear-gradient(135deg, rgba(255, 253, 247, 0.95) 0%, rgba(243, 230, 200, 0.3) 100%),
-                  url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+                  url('assets/images/products/MMP.png') center/cover no-repeat;
       overflow: hidden;
     }
 
@@ -519,7 +517,7 @@
         <div class="gallery-grid">
           <!-- Factory -->
           <div class="gallery-item col-8">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" alt="KAWAD SWAD Factory Floor">
+            <img src="assets/images/products/MMP.png" alt="KAWAD SWAD Factory Floor" onerror="this.src='assets/images/products/MMP.png'">
             <div class="gallery-overlay">
               <h4>Modern Manufacturing Plant</h4>
             </div>
@@ -527,7 +525,7 @@
 
           <!-- Team -->
           <div class="gallery-item col-4">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="KAWAD SWAD Team">
+            <img src="assets/images/products/COMBO.png" alt="KAWAD SWAD Team" onerror="this.src='assets/images/products/COMBO.png'">
             <div class="gallery-overlay">
               <h4>Collaborative Teamwork</h4>
             </div>
@@ -702,32 +700,32 @@
         </div>
 
         <div class="card form-container">
-          <form id="careerForm" data-form="career" novalidate>
+          <form id="careerForm" data-form="business" novalidate>
             <div class="form-grid">
               
               <div class="form-group">
                 <label for="fullName">Full Name *</label>
-                <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
+                <input type="text" id="fullName" name="name" class="form-control" placeholder="Enter your full name" required>
               </div>
 
               <div class="form-group">
                 <label for="phone">Phone Number *</label>
-                <input type="tel" id="phone" class="form-control" placeholder="Enter 10-digit mobile number" required>
+                <input type="tel" id="phone" name="mobile" class="form-control" placeholder="Enter 10-digit mobile number" required>
               </div>
 
               <div class="form-group">
                 <label for="email">Email Address *</label>
-                <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
               </div>
 
               <div class="form-group">
                 <label for="city">City / Location *</label>
-                <input type="text" id="city" class="form-control" placeholder="Current city" required>
+                <input type="text" id="city" name="city" class="form-control" placeholder="Current city" required>
               </div>
 
               <div class="form-group">
                 <label for="position">Position Applying For *</label>
-                <select id="position" class="form-control" required>
+                <select id="position" name="position" class="form-control" required>
                   <option value="" disabled selected>Select a position</option>
                   <option value="Production Executive">Production Executive</option>
                   <option value="Sales Executive">Sales Executive</option>
@@ -739,7 +737,7 @@
 
               <div class="form-group">
                 <label for="experience">Total Experience *</label>
-                <select id="experience" class="form-control" required>
+                <select id="experience" name="experience" class="form-control" required>
                   <option value="" disabled selected>Select experience level</option>
                   <option value="Fresher">Fresher (0 Years)</option>
                   <option value="1-2 Years">1 - 2 Years</option>
@@ -751,7 +749,7 @@
               <div class="form-group full-width">
                 <label for="resume">Resume Upload (PDF / DOCX)</label>
                 <div class="file-upload-wrapper">
-                  <input type="file" id="resume" accept=".pdf,.doc,.docx">
+                  <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
                   <div class="file-upload-icon"><i class="fa-solid fa-cloud-arrow-up" aria-hidden="true"></i></div>
                   <div class="file-upload-text" id="fileText">Drag &amp; drop your resume file here or click to browse</div>
                 </div>
@@ -759,7 +757,7 @@
 
               <div class="form-group full-width">
                 <label for="message">Cover Note / Message</label>
-                <textarea id="message" class="form-control" placeholder="Tell us briefly about your background and why you wish to join KAWAD SWAD..."></textarea>
+                <textarea id="message" name="message" class="form-control" maxlength="500" placeholder="Tell us briefly about your background and why you wish to join KAWAD SWAD..."></textarea>
               </div>
 
               <div class="form-group full-width text-center" style="margin-top: 1rem;">
@@ -826,6 +824,7 @@
 
   <!-- ENGINE SCRIPTS -->
   <script src="js/layout.js"></script>
+  <script src="js/forms.js"></script>
   <script src="js/main.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/shop.js"></script>
@@ -861,22 +860,6 @@
         }
       });
     }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('careerForm');
-      if (form) {
-        form.addEventListener('submit', function(event) {
-          event.preventDefault();
-          alert('Thank you for applying to KAWAD SWAD. Our Talent Acquisition team will review your application shortly.');
-          form.reset();
-          if (fileText) {
-            fileText.textContent = 'Drag & drop your resume file here or click to browse';
-            fileText.style.color = 'var(--text-muted)';
-            fileText.style.fontWeight = 'normal';
-          }
-        });
-      }
-    });
   </script>
 </body>
 </html>

@@ -111,7 +111,7 @@ function getFallbackHeader(basePath) {
                 </a>
 
                 <!-- Desktop Navigation -->
-                <nav aria-label="Main Navigation" class="hidden lg:flex items-center space-x-7 text-xs font-semibold uppercase tracking-wider text-[#4E342E]">
+                <nav aria-label="Main Navigation" class="hidden xl:flex items-center space-x-5 text-xs font-semibold uppercase tracking-wider text-[#4E342E]">
                     <a href="${basePath}index.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Home</a>
                     <a href="${basePath}about.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">About</a>
                     <a href="${basePath}products.html" class="hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg py-1">Products</a>
@@ -141,7 +141,7 @@ function getFallbackHeader(basePath) {
                     </a>
 
                     <!-- Mobile Menu Toggle -->
-                    <button type="button" id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false" class="lg:hidden p-2 text-[#4E342E] hover:text-[#FE330E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg transition-colors duration-200" aria-label="Toggle Navigation Menu">
+                    <button type="button" id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false" class="xl:hidden p-2 text-[#4E342E] hover:text-[#FE330E] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg transition-colors duration-200" aria-label="Toggle Navigation Menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                         </svg>
@@ -150,7 +150,7 @@ function getFallbackHeader(basePath) {
             </div>
 
             <!-- Mobile Navigation Dropdown -->
-            <div id="mobile-menu" class="hidden lg:hidden bg-[#FFFDF7]/98 border-b border-[#F3E6C8] px-6 pt-3 pb-6 space-y-3 text-xs font-semibold uppercase tracking-wider text-[#4E342E] shadow-xl">
+            <div id="mobile-menu" class="hidden xl:hidden bg-[#FFFDF7]/98 border-b border-[#F3E6C8] px-6 pt-3 pb-6 space-y-3 text-xs font-semibold uppercase tracking-wider text-[#4E342E] shadow-xl">
                 <a href="${basePath}index.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Home</a>
                 <a href="${basePath}about.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">About</a>
                 <a href="${basePath}products.html" class="block py-2 hover:text-[#FE330E] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] rounded-lg">Products</a>

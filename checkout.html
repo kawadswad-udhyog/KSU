@@ -17,6 +17,7 @@
 
     <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
     <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/mobile.css">
 
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -36,76 +37,79 @@
     <main class="flex-grow py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-12 text-center space-y-3">
-                <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Secure Checkout</span>
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Direct Inquiry &amp; COD Request</span>
                 <h1 class="font-serif text-3xl sm:text-4xl font-bold text-[#4E342E]">Complete Your Order</h1>
                 <div class="w-12 h-0.5 bg-[#FBEC0A] mx-auto"></div>
             </div>
 
+            <!-- Accessible Inline Status Banner -->
+            <div id="form-status-banner" role="status" aria-live="polite" class="hidden mb-8 p-4 rounded-xl text-xs sm:text-sm font-medium border"></div>
+
             <form id="checkout-form" data-form="checkout" novalidate class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
                 <!-- Left Details Form -->
                 <div class="lg:col-span-2 space-y-8">
-                    <div class="bg-white rounded-[20px] border border-[#F3E6C8] p-8 sm:p-12 shadow-xl space-y-6">
+                    <div class="bg-white rounded-2xl border border-[#F3E6C8] p-6 sm:p-10 shadow-sm space-y-6">
                         <h2 class="font-serif text-xl font-bold text-[#4E342E] border-b border-[#F3E6C8] pb-3">Shipping &amp; Customer Details</h2>
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div class="space-y-2">
-                                <label for="first-name" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">First Name <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="first-name" name="first-name" required aria-describedby="err-fname" placeholder="First Name" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                                <label for="first-name" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">First Name <span class="text-[#FE330E]">*</span></label>
+                                <input type="text" id="first-name" name="first-name" required aria-describedby="err-fname" placeholder="First Name" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
                                 <span id="err-fname" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter your first name.</span>
                             </div>
                             <div class="space-y-2">
-                                <label for="last-name" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Last Name <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="last-name" name="last-name" required aria-describedby="err-lname" placeholder="Last Name" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                                <label for="last-name" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Last Name <span class="text-[#FE330E]">*</span></label>
+                                <input type="text" id="last-name" name="last-name" required aria-describedby="err-lname" placeholder="Last Name" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
                                 <span id="err-lname" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter your last name.</span>
                             </div>
                             <div class="space-y-2">
-                                <label for="checkout-mobile" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Mobile Number <span class="text-[#FE330E]">*</span></label>
-                                <input type="tel" id="checkout-mobile" name="checkout-mobile" required aria-describedby="err-cmobile" placeholder="10-digit Indian Mobile Number" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                                <label for="checkout-mobile" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Mobile Number <span class="text-[#FE330E]">*</span></label>
+                                <input type="tel" id="checkout-mobile" name="checkout-mobile" required aria-describedby="err-cmobile" placeholder="10-digit Indian Mobile Number" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
                                 <span id="err-cmobile" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter a valid 10-digit mobile number.</span>
                             </div>
                             <div class="space-y-2">
-                                <label for="checkout-email" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Email Address <span class="text-[#FE330E]">*</span></label>
-                                <input type="email" id="checkout-email" name="checkout-email" required aria-describedby="err-cemail" placeholder="Email Address" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                                <label for="checkout-email" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Email Address <span class="text-[#FE330E]">*</span></label>
+                                <input type="email" id="checkout-email" name="checkout-email" required aria-describedby="err-cemail" placeholder="Email Address" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
                                 <span id="err-cemail" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter a valid email address.</span>
                             </div>
                         </div>
 
                         <div class="space-y-2">
-                            <label for="address" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Flat / House No / Street Address <span class="text-[#FE330E]">*</span></label>
-                            <input type="text" id="address" name="address" required aria-describedby="err-addr" placeholder="House number, building name, street name" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                            <label for="address" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Flat / House No / Street Address <span class="text-[#FE330E]">*</span></label>
+                            <input type="text" id="address" name="address" required aria-describedby="err-addr" placeholder="House number, building name, street name" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
                             <span id="err-addr" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter your delivery address.</span>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                             <div class="space-y-2">
-                                <label for="landmark" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Landmark</label>
-                                <input type="text" id="landmark" name="landmark" placeholder="Nearby landmark" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                                <label for="landmark" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Landmark</label>
+                                <input type="text" id="landmark" name="landmark" placeholder="Nearby landmark" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
                             </div>
                             <div class="space-y-2">
-                                <label for="checkout-city" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">City <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="checkout-city" name="checkout-city" required aria-describedby="err-ccity" placeholder="City" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                                <label for="checkout-city" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">City <span class="text-[#FE330E]">*</span></label>
+                                <input type="text" id="checkout-city" name="checkout-city" required aria-describedby="err-ccity" placeholder="City" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
                                 <span id="err-ccity" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter city.</span>
                             </div>
                             <div class="space-y-2">
-                                <label for="checkout-state" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">State <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="checkout-state" name="checkout-state" required aria-describedby="err-cstate" placeholder="State" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                                <label for="checkout-state" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">State <span class="text-[#FE330E]">*</span></label>
+                                <input type="text" id="checkout-state" name="checkout-state" required aria-describedby="err-cstate" placeholder="State" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
                                 <span id="err-cstate" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter state.</span>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                             <div class="space-y-2">
-                                <label for="pincode" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">PIN Code <span class="text-[#FE330E]">*</span></label>
-                                <input type="text" id="pincode" name="pincode" required aria-describedby="err-pin" placeholder="6-digit PIN Code" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                                <label for="pincode" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">PIN Code <span class="text-[#FE330E]">*</span></label>
+                                <input type="text" id="pincode" name="pincode" required aria-describedby="err-pin" placeholder="6-digit PIN Code" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
                                 <span id="err-pin" role="alert" aria-live="polite" class="error-msg text-[11px] text-[#FE330E] hidden mt-1">Please enter a valid 6-digit PIN Code.</span>
                             </div>
                             <div class="space-y-2">
-                                <label for="country" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Country</label>
+                                <label for="country" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Country</label>
                                 <input type="text" id="country" name="country" value="India" readonly class="w-full bg-stone-100 border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] cursor-not-allowed">
                             </div>
                             <div class="space-y-2">
-                                <label for="address-type" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Address Type</label>
-                                <select id="address-type" name="address-type" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                                <label for="address-type" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Address Type</label>
+                                <select id="address-type" name="address-type" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
                                     <option value="Home" selected>Home</option>
                                     <option value="Office">Office</option>
                                     <option value="Other">Other</option>
@@ -114,23 +118,23 @@
                         </div>
 
                         <div class="space-y-2">
-                            <label for="order-notes" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E]">Order Notes (Optional)</label>
-                            <input type="text" id="order-notes" name="order-notes" placeholder="Special instructions for delivery" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E] focus-visible:ring-2 focus-visible:ring-[#FE330E]">
+                            <label for="order-notes" class="block text-xs font-bold uppercase tracking-wider text-[#4E342E]">Order Notes (Optional)</label>
+                            <input type="text" id="order-notes" name="order-notes" placeholder="Special instructions for delivery" class="w-full bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg px-4 py-3 text-sm text-[#4E342E] focus:outline-none focus:border-[#FE330E]">
                         </div>
                     </div>
 
-                    <!-- Payment Option Placeholder -->
-                    <div class="bg-white rounded-[20px] border border-[#F3E6C8] p-8 shadow-xl space-y-4">
-                        <h2 class="font-serif text-lg font-bold text-[#4E342E] border-b border-[#F3E6C8] pb-3">Payment Option</h2>
-                        <div class="p-4 bg-[#FFFDF7] border border-[#F3E6C8] rounded-lg flex items-center justify-between text-xs text-[#5F5F5F]">
-                            <span>Cash on Delivery / Direct Contact Processing</span>
-                            <span class="font-semibold text-[#4E342E]">Standard Mode</span>
+                    <!-- Payment Option Description -->
+                    <div class="bg-white rounded-2xl border border-[#F3E6C8] p-6 sm:p-8 shadow-sm space-y-4">
+                        <h2 class="font-serif text-lg font-bold text-[#4E342E] border-b border-[#F3E6C8] pb-3">Payment Mode</h2>
+                        <div class="p-4 bg-[#FFFDF7] border border-[#F3E6C8] rounded-xl flex items-center justify-between text-xs text-[#5F5F5F]">
+                            <span>Cash on Delivery / Direct WhatsApp &amp; Email Enquiry Fulfillment</span>
+                            <span class="font-bold text-[#4E342E]">COD / Direct</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Order Review Sidebar -->
-                <div class="bg-white rounded-[20px] border border-[#F3E6C8] p-8 shadow-xl space-y-6">
+                <div class="bg-white rounded-2xl border border-[#F3E6C8] p-6 sm:p-8 shadow-sm space-y-6">
                     <h2 class="font-serif text-xl font-bold text-[#4E342E] border-b border-[#F3E6C8] pb-3">Order Summary</h2>
                     
                     <div id="checkout-items-summary" class="space-y-4 text-sm divide-y divide-[#F3E6C8]">
@@ -152,8 +156,8 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="submit-btn w-full text-center py-4 bg-[#FE330E] text-white text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#D92500] transition-colors duration-300 disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] shadow-lg">
-                        Place Order
+                    <button type="submit" class="submit-btn w-full text-center py-4 bg-[#FE330E] text-white text-xs font-semibold uppercase tracking-wider rounded-xl hover:bg-[#d92500] transition-colors duration-300 disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E] shadow-sm">
+                        Place Order (COD / Enquiry)
                     </button>
 
                     <p class="text-[11px] text-[#5F5F5F] text-center italic">
@@ -173,16 +177,28 @@
     <script src="js/cart.js"></script>
     <script src="js/shop.js"></script>
 
-    <!-- EmailJS Order Submission Script -->
+    <!-- Consolidated Checkout Controller -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const checkoutForm = document.getElementById('checkout-form');
+            const statusBanner = document.getElementById('form-status-banner');
             if (!checkoutForm) return;
+
+            function showBanner(message, isError = false) {
+                if (!statusBanner) return;
+                statusBanner.textContent = message;
+                statusBanner.className = `mb-8 p-4 rounded-xl text-xs sm:text-sm font-medium border ${
+                    isError 
+                        ? 'bg-red-50 border-red-200 text-red-800' 
+                        : 'bg-emerald-50 border-emerald-200 text-emerald-800'
+                }`;
+                statusBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
 
             checkoutForm.addEventListener('submit', function(event) {
                 event.preventDefault();
 
-                // 1. Gather customer details from input fields
+                // 1. Gather form inputs safely
                 const firstName = document.getElementById('first-name').value.trim();
                 const lastName = document.getElementById('last-name').value.trim();
                 const customerPhone = document.getElementById('checkout-mobile').value.trim();
@@ -195,29 +211,28 @@
                 const addressType = document.getElementById('address-type').value;
                 const orderNotes = document.getElementById('order-notes').value.trim();
 
-                // Simple validation check
+                // 2. Validate required fields
                 if (!firstName || !lastName || !customerPhone || !customerEmail || !streetAddress || !city || !state || !pincode) {
-                    alert('Please fill in all required shipping fields.');
+                    showBanner('Please fill in all required shipping fields before submitting your order.', true);
                     return;
                 }
 
-                // 2. Fetch current cart items from CartManager
-                const cartItems = CartManager.getItems();
+                // 3. Verify cart items exist
+                const cartItems = window.KawadCart ? window.KawadCart.getItems() : [];
                 if (cartItems.length === 0) {
-                    alert('Your cart is empty. Please add items before checking out.');
+                    showBanner('Your shopping cart is empty. Please add items before checking out.', true);
                     return;
                 }
 
-                // 3. Format order items summary string
+                // 4. Format order items summary string securely
                 const orderSummary = cartItems.map(item => 
-                    `- ${item.name} | Pack Size: ${item.weight} | Qty: ${item.quantity} | Price: ₹${item.price * item.quantity}`
+                    `- ${item.name} | Size: ${item.weight} | Qty: ${item.quantity} | Price: ₹${item.price * item.quantity}`
                 ).join('\n');
 
-                const subtotal = CartManager.calculateSubtotal();
-                const shipping = CartManager.calculateShipping();
-                const grandTotal = CartManager.calculateGrandTotal();
+                const subtotal = window.KawadCart.calculateSubtotal();
+                const shipping = window.KawadCart.calculateShipping();
+                const grandTotal = window.KawadCart.calculateGrandTotal();
 
-                // 4. Set up template parameters matching your EmailJS template variables
                 const templateParams = {
                     customer_name: `${firstName} ${lastName}`,
                     customer_phone: customerPhone,
@@ -230,15 +245,27 @@
                     customer_message: orderNotes ? orderNotes : 'No special instructions.'
                 };
 
-                // 5. Trigger EmailJS dispatch to info.av.kkswad@gmail.com using provided IDs
+                const submitBtn = checkoutForm.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Processing Order...';
+                }
+
+                // 5. Dispatch via EmailJS with strict success handling (cart never cleared until success)
                 emailjs.send('service_sa0scip', 'template_uikgrgl', templateParams)
                     .then(function(response) {
-                        alert('Order placed successfully! Details have been securely sent to the Kawad Swad team.');
-                        CartManager.clearCart(); // Clear local storage cart
-                        window.location.href = 'index.html'; // Redirect to home page
+                        showBanner('Order placed successfully! Details have been sent to the Kawad Swad team.');
+                        window.KawadCart.clearCart(); // Safe to clear cart only after verified success
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 2000);
                     }, function(error) {
                         console.error('EmailJS submission failed:', error);
-                        alert('Failed to send order details automatically. Please try contacting us via WhatsApp or phone.');
+                        showBanner('Failed to send order details automatically. Please contact us via WhatsApp or phone.', true);
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Place Order (COD / Enquiry)';
+                        }
                     });
             });
         });

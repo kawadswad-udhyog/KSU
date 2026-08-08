@@ -1,12 +1,14 @@
-/* Mobile & Responsive Optimizations for KAWAD SWAD */
+/* ===================================================================
+   KAWAD SWAD - Mobile & Responsive Optimizations
+   ================================================================== */
 
-/* FIX: Prevent horizontal overflow */
+/* Global Overflow Protection */
 body, html {
   width: 100%;
   overflow-x: hidden;
 }
 
-/* FIX: Container constraints */
+/* Safe Container Constraints */
 .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl {
   margin-left: auto;
   margin-right: auto;
@@ -14,7 +16,7 @@ body, html {
   padding-right: 1rem;
 }
 
-/* FIX: Header overflow */
+/* Header Overflow Protections */
 header {
   width: 100%;
   overflow-x: hidden;
@@ -25,8 +27,9 @@ header > div {
   overflow-x: hidden;
 }
 
-/* FIX: Touch-Friendly Sizes (but not on inline SVG icons) */
+/* Tablet & Mobile Breakpoints */
 @media (max-width: 768px) {
+  /* Touch Targets */
   button, a[class*='btn'] {
     min-height: 44px;
     min-width: 44px;
@@ -40,7 +43,7 @@ header > div {
     padding: 12px 16px;
   }
 
-  /* Better product cards on mobile */
+  /* Product Cards & Media */
   .card {
     border-radius: 12px;
     overflow: hidden;
@@ -50,7 +53,7 @@ header > div {
     aspect-ratio: 1 / 1;
   }
 
-  /* Better mobile navigation spacing */
+  /* Mobile Navigation Spacing */
   #mobile-menu a {
     padding: 14px 12px;
     display: block;
@@ -58,30 +61,13 @@ header > div {
     margin-bottom: 4px;
   }
 
-  /* Improved section padding on mobile */
+  /* Section Padding */
   section {
     padding: 1.5rem 0;
   }
-
-  main h1[class*='text-'] {
-    font-size: 1.5rem !important;
-  }
-
-  main h2[class*='text-'] {
-    font-size: 1.25rem !important;
-  }
-
-  /* Hero section image size */
-  .lg\:col-span-5 {
-    padding: 0 1rem;
-  }
-
-  .h-80, .h-96 {
-    height: 240px !important;
-  }
 }
 
-/* Small screens (under 480px) */
+/* Small Screens (Under 480px) */
 @media (max-width: 479px) {
   html {
     font-size: 14px;
@@ -91,19 +77,7 @@ header > div {
     font-size: 0.95rem;
   }
 
-  main h1[class*='text-'] {
-    font-size: 1.35rem !important;
-  }
-
-  main h2[class*='text-'] {
-    font-size: 1.1rem !important;
-  }
-
-  .grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* Better mobile cart */
+  /* Mobile Cart Layout */
   .cart-item {
     display: flex;
     flex-direction: column;
@@ -111,38 +85,23 @@ header > div {
     margin-bottom: 12px;
   }
 
-  /* Stacked checkout form */
+  /* Stacked Checkout Form */
   .form-row {
     display: flex;
     flex-direction: column;
     gap: 12px;
   }
 
-  /* Reduce icon sizes on very small screens */
+  /* SVG Containment */
   svg {
     max-width: 100%;
     height: auto;
   }
 }
 
-/* Tablet optimization (768px - 1024px) */
+/* Tablet Layout Tweaks (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
   main section {
     padding: 2rem 0;
-  }
-}
-
-/* Desktop optimizations */
-@media (min-width: 1024px) {
-  main h1[class*='text-'] {
-    font-size: clamp(2rem, 5vw, 3.5rem) !important;
-  }
-
-  main h2[class*='text-'] {
-    font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
   }
 }

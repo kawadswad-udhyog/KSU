@@ -1,263 +1,285 @@
-/* ===================================================================
-   KAWAD SWAD - Shop Controller & Product Data Adaptation Layer
-   ================================================================== */
-
-document.addEventListener('DOMContentLoaded', () => {
-    initShop();
-});
-
-async function initShop() {
-    const gridContainer = document.getElementById('products-grid') || document.getElementById('shop-products');
-    if (!gridContainer) return;
-
-    try {
-        const response = await fetch('data/products.json');
-        if (!response.ok) throw new Error('Failed to load product inventory');
-        
-        const data = await response.json();
-        // Support both direct array and wrapped object format { products: [...] }
-        const rawProducts = Array.isArray(data) ? data : (data.products || []);
-
-        // Normalize individual SKU items into unified product family structures for flexible UI handling
-        const products = normalizeProductData(rawProducts);
-
-        renderProducts(products, gridContainer);
-        setupFiltersAndSearch(products, gridContainer);
-
-    } catch (error) {
-        console.error('Shop initialization error:', error);
-        gridContainer.innerHTML = `
-            <div class="col-span-full py-12 text-center text-[#5F5F5F]">
-                <p class="font-serif text-lg text-[#4E342E] mb-2">Unable to load products at the moment.</p>
-                <p class="text-sm">Please check your network connection or try again later.</p>
-            </div>
-        `;
-    }
-}
-
-function normalizeProductData(rawItems) {
-    const groups = {};
-
-    rawItems.forEach(item => {
-        // Group SKUs by base name or category to build product family variants if applicable
-        const baseKey = item.name.toLowerCase().trim();
-        if (!groups[baseKey]) {
-            groups[baseKey] = {
-                id: item.id.split('-')[0] || item.id,
-                name: item.name,
-                category: item.category,
-                description: item.description,
-                image: item.image,
-                thumbnail: item.thumbnail,
-                rating: item.rating || 4.5,
-                reviews: item.reviews || 100,
-                tags: item.tags || [],
-                variants: []
-            };
-        }
-
-        groups[baseKey].variants.push({
-            sku: item.sku,
-            weight: item.weight,
-            price: item.price,
-            originalPrice: item.originalPrice,
-            inStock: item.inStock !== false
-        });
-    });
-
-    return Object.values(groups);
-}
-
-function renderProducts(products, container) {
-    if (products.length === 0) {
-        container.innerHTML = `
-            <div class="col-span-full py-12 text-center text-[#5F5F5F]">
-                <p class="font-serif text-lg text-[#4E342E] mb-2">No products found</p>
-                <p class="text-sm">Try adjusting your filters or search criteria.</p>
-            </div>
-        `;
-        return;
-    }
-
-    container.innerHTML = products.map(product => {
-        const defaultVariant = product.variants[0];
-        const discountPercent = defaultVariant.originalPrice > defaultVariant.price 
-            ? Math.round(((defaultVariant.originalPrice - defaultVariant.price) / defaultVariant.originalPrice) * 100) 
-            : 0;
-
-        return `
-            <div class="card bg-white border border-[#F3E6C8] rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
-                <div class="relative bg-[#FFFDF7] aspect-square overflow-hidden border-b border-[#F3E6C8]">
-                    <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy">
-                    ${discountPercent > intToSafe(0) ? `<span class="absolute top-3 left-3 bg-[#FE330E] text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded-full">${discountPercent}% OFF</span>` : ''}
-                    <span class="absolute top-3 right-3 bg-white/90 backdrop-blur text-[#4E342E] text-[10px] font-semibold px-2 py-1 rounded-md border border-[#F3E6C8]">${escapeHtml(product.category)}</span>
-                </div>
-                
-                <div class="p-4 sm:p-5 flex flex-col flex-grow space-y-3">
-                    <div>
-                        <div class="flex items-center gap-1 text-xs text-amber-500 mb-1">
-                            <span>★</span>
-                            <span class="font-semibold text-[#4E342E]">${product.rating}</span>
-                            <span class="text-[#8B8174]">(${product.reviews})</span>
-                        </div>
-                        <h3 class="font-serif font-bold text-[#4E342E] text-base sm:text-lg line-clamp-1">${escapeHtml(product.name)}</h3>
-                    </div>
-                    
-                    <p class="text-xs text-[#5F5F5F] line-clamp-2 font-light">${escapeHtml(product.description)}</p>
-                    
-                    <div class="pt-2 mt-auto space-y-3">
-                        ${product.variants.length > 1 ? `
-                            <div class="space-y-1">
-                                <label class="text-[10px] font-bold text-[#4E342E] uppercase">Select Weight:</label>
-                                <select class="variant-select w-full text-xs p-2 border border-[#F3E6C8] rounded-lg bg-white text-[#4E342E] font-medium" data-product-id="${escapeHtml(product.id)}">
-                                    ${product.variants.map((v, idx) => `
-                                        <option value="${escapeHtml(v.sku)}" ${idx === 0 ? 'selected' : ''} data-price="${v.price}" data-orig="${v.originalPrice}">
-                                            ${escapeHtml(v.weight)} — ₹${v.price}
-                                        </option>
-                                    `).join('')}
-                                </select>
-                            </div>
-                        ` : ''}
-
-                        <div class="flex items-center justify-between pt-1">
-                            <div>
-                                <span class="product-price font-serif font-bold text-lg text-[#FE330E]">₹${defaultVariant.price}</span>
-                                ${defaultVariant.originalPrice > defaultVariant.price ? `<span class="product-orig-price text-xs text-[#8B8174] line-through ml-1.5">₹${defaultVariant.originalPrice}</span>` : ''}
-                            </div>
-                            <span class="text-[11px] font-medium text-[#8B8174] product-weight-label">${escapeHtml(defaultVariant.weight)}</span>
-                        </div>
-
-                        <button class="add-to-cart-btn btn-primary w-full text-xs py-2.5 justify-center" 
-                            data-sku="${escapeHtml(defaultVariant.sku)}" 
-                            data-name="${escapeHtml(product.name)}" 
-                            data-price="${defaultVariant.price}" 
-                            data-weight="${escapeHtml(defaultVariant.weight)}" 
-                            data-image="${escapeHtml(product.image)}">
-                            Add to Cart
-                        </button>
-                    </div>
-                </div>
-            </div>
-        `;
-    }).join('');
-
-    attachDynamicListeners(container);
-}
-
-function attachDynamicListeners(container) {
-    // Handle variant changes
-    container.querySelectorAll('.variant-select').forEach(select => {
-        select.addEventListener('change', (e) => {
-            const selectedOption = e.target.options[e.target.selectedIndex];
-            const sku = selectedOption.value;
-            const price = selectedOption.getAttribute('data-price');
-            const origPrice = selectedOption.getAttribute('data-orig');
-            const weight = selectedOption.text.split('—')[0].trim();
-
-            const card = e.target.closest('.card');
-            if (card) {
-                card.querySelector('.product-price').textContent = `₹${price}`;
-                const origEl = card.querySelector('.product-orig-price');
-                if (origEl) origEl.textContent = origPrice > price ? `₹${origPrice}` : '';
-                
-                const weightLabel = card.querySelector('.product-weight-label');
-                if (weightLabel) weightLabel.textContent = weight;
-
-                const addBtn = card.querySelector('.add-to-cart-btn');
-                if (addBtn) {
-                    addBtn.setAttribute('data-sku', sku);
-                    addBtn.setAttribute('data-price', price);
-                    addBtn.setAttribute('data-weight', weight);
-                }
-            }
-        });
-    });
-
-    // Handle add to cart clicks
-    container.querySelectorAll('.add-to-cart-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const btn = e.currentTarget;
-            const item = {
-                sku: btn.getAttribute('data-sku'),
-                name: btn.getAttribute('data-name'),
-                price: parseFloat(btn.getAttribute('data-price')),
-                weight: btn.getAttribute('data-weight'),
-                image: btn.getAttribute('data-image'),
-                quantity: 1
-            };
-
-            if (window.KawadCart && typeof window.KawadCart.addItem === 'function') {
-                window.KawadCart.addItem(item);
-                showToast(`Added ${item.name} (${item.weight}) to cart`);
-            } else {
-                console.warn('KawadCart global instance not found');
-            }
-        });
-    });
-}
-
-function setupFiltersAndSearch(products, container) {
-    const searchInput = document.getElementById('search-input');
-    const categoryButtons = document.querySelectorAll('.category-filter-btn');
-
-    let activeCategory = 'all';
-    let searchQuery = '';
-
-    const filterAndRender = () => {
-        let filtered = products.filter(product => {
-            const matchesCat = activeCategory === 'all' || product.category.toLowerCase() === activeCategory.toLowerCase();
-            const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                                  product.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                                  product.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
-            return matchesCat && matchesSearch;
-        });
-        renderProducts(filtered, container);
-    };
-
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            searchQuery = e.target.value.trim();
-            filterAndRender();
-        });
-    }
-
-    categoryButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            categoryButtons.forEach(b => b.classList.remove('active', 'bg-[#FE330E]', 'text-white'));
-            e.currentTarget.classList.add('active', 'bg-[#FE330E]', 'text-white');
-            activeCategory = e.currentTarget.getAttribute('data-category') || 'all';
-            filterAndRender();
-        });
-    });
-}
-
-function escapeHtml(str) {
-    return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-}
-
-function intToSafe(val) {
-    return parseInt(val, 10) || 0;
-}
-
-function showToast(message) {
-    let toast = document.getElementById('kawad-toast');
-    if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'kawad-toast';
-        toast.className = 'fixed bottom-5 right-5 z-50 bg-[#2D1F17] text-[#FFFDF7] text-xs sm:text-sm px-4 py-3 rounded-xl shadow-lg border border-[#F3E6C8] transition-opacity duration-300 opacity-0 pointer-events-none';
-        document.body.appendChild(toast);
-    }
-    toast.textContent = message;
-    toast.classList.remove('opacity-0');
-    toast.classList.add('opacity-100');
-
-    setTimeout(() => {
-        toast.classList.remove('opacity-100');
-        toast.classList.add('opacity-0');
-    }, 2500);
-}
+[
+  {
+    "sku": "KS-MMP-200",
+    "slug": "moong-master-papad",
+    "name": "Moong Master Papad",
+    "variant": "Master",
+    "category": "Moong",
+    "baseType": "Papad",
+    "description": "Authentic traditional Moong Master Papad crafted from selected quality moong dal and seasoned with pure traditional spices.",
+    "shortDescription": "Light, crispy, and infused with traditional spices.",
+    "ingredients": ["Moong Dal Flour", "Urad Dal Flour", "Salt", "Black Pepper", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/MMP.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-MMP-200", "mrp": 110, "selling": 89, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-MMP-500", "mrp": 249, "selling": 199, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-MMP-1000", "mrp": 499, "selling": 429, "shipping": "Free" }
+    ],
+    "displayOrder": 1
+  },
+  {
+    "sku": "KS-MGP-200",
+    "slug": "moong-garlic-papad",
+    "name": "Moong Garlic Papad",
+    "variant": "Garlic",
+    "category": "Moong",
+    "baseType": "Papad",
+    "description": "Rich moong papad infused with aromatic garlic flavoring components for a distinct zesty punch.",
+    "shortDescription": "Zesty garlic-infused moong papad.",
+    "ingredients": ["Moong Dal Flour", "Garlic Extract", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/MMPG.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-MGP-200", "mrp": 125, "selling": 99, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-MGP-500", "mrp": 309, "selling": 259, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-MGP-1000", "mrp": 619, "selling": 539, "shipping": "Free" }
+    ],
+    "displayOrder": 2
+  },
+  {
+    "sku": "KS-MJP-200",
+    "slug": "moong-jeera-papad",
+    "name": "Moong Jeera Papad",
+    "variant": "Jeera",
+    "category": "Moong",
+    "baseType": "Papad",
+    "description": "Traditional moong papad flavored with aromatic cumin seeds.",
+    "shortDescription": "Aromatic cumin-infused moong papad.",
+    "ingredients": ["Moong Dal Flour", "Jeera", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/MMPJ.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-MJP-200", "mrp": 109, "selling": 89, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-MJP-500", "mrp": 279, "selling": 229, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-MJP-1000", "mrp": 559, "selling": 489, "shipping": "Free" }
+    ],
+    "displayOrder": 3
+  },
+  {
+    "sku": "KS-MPP-200",
+    "slug": "moong-pudhina-papad",
+    "name": "Moong Pudhina Papad",
+    "variant": "Pudhina",
+    "category": "Moong",
+    "baseType": "Papad",
+    "description": "Refreshing mint infused moong papad delivering a cooling twist.",
+    "shortDescription": "Refreshing mint-infused moong papad.",
+    "ingredients": ["Moong Dal Flour", "Pudhina Flakes", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/MMPP.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-MPP-200", "mrp": 105, "selling": 85, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-MPP-500", "mrp": 265, "selling": 219, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-MPP-1000", "mrp": 529, "selling": 459, "shipping": "Free" }
+    ],
+    "displayOrder": 4
+  },
+  {
+    "sku": "KS-MGCP-200",
+    "slug": "moong-green-chilli-papad",
+    "name": "Moong Green Chilli Papad",
+    "variant": "Green Chilli",
+    "category": "Moong",
+    "baseType": "Papad",
+    "description": "Spicy green chilli seasoned moong papad for those who love an extra kick of heat.",
+    "shortDescription": "Spicy green chilli moong papad.",
+    "ingredients": ["Moong Dal Flour", "Green Chilli Paste", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/MGCP.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-MGCP-200", "mrp": 105, "selling": 85, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-MGCP-500", "mrp": 265, "selling": 219, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-MGCP-1000", "mrp": 529, "selling": 459, "shipping": "Free" }
+    ],
+    "displayOrder": 5
+  },
+  {
+    "sku": "KS-MKMP-200",
+    "slug": "moong-kasuri-methi-papad",
+    "name": "Moong Kasuri Methi Papad",
+    "variant": "Kasuri Methi",
+    "category": "Moong",
+    "baseType": "Papad",
+    "description": "Fragrant moong papad blended with dried fenugreek leaves.",
+    "shortDescription": "Fenugreek-infused aromatic moong papad.",
+    "ingredients": ["Moong Dal Flour", "Kasuri Methi", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/MKMP.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-MKMP-200", "mrp": 109, "selling": 89, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-MKMP-500", "mrp": 229, "selling": 189, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-MKMP-1000", "mrp": 559, "selling": 489, "shipping": "Free" }
+    ],
+    "displayOrder": 6
+  },
+  {
+    "sku": "KS-MPMP-200",
+    "slug": "moong-punjabi-masala-papad",
+    "name": "Moong Punjabi Masala Papad",
+    "variant": "Punjabi Masala",
+    "category": "Moong",
+    "baseType": "Papad",
+    "description": "Bold and zesty Punjabi masala blend embedded into crispy moong papad.",
+    "shortDescription": "Bold and zesty Punjabi masala moong papad.",
+    "ingredients": ["Moong Dal Flour", "Punjabi Masala", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/MMPM.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-MPMP-200", "mrp": 119, "selling": 99, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-MPMP-500", "mrp": 299, "selling": 249, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-MPMP-1000", "mrp": 599, "selling": 529, "shipping": "Free" }
+    ],
+    "displayOrder": 7
+  },
+  {
+    "sku": "KS-CCP-200",
+    "slug": "chana-chotu-papad",
+    "name": "Chana Chotu Papad",
+    "variant": "Chotu",
+    "category": "Chana",
+    "baseType": "Papad",
+    "description": "Wholesome chana dal papad offering rich protein texture and classic crunch.",
+    "shortDescription": "Rich protein blend with a classic crunch.",
+    "ingredients": ["Chana Dal Flour", "Urad Dal Flour", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/CCP.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-CCP-200", "mrp": 110, "selling": 89, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-CCP-500", "mrp": 249, "selling": 199, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-CCP-1000", "mrp": 499, "selling": 429, "shipping": "Free" }
+    ],
+    "displayOrder": 8
+  },
+  {
+    "sku": "KS-CGP-200",
+    "slug": "chana-garlic-papad",
+    "name": "Chana Garlic Papad",
+    "variant": "Garlic",
+    "category": "Chana",
+    "baseType": "Papad",
+    "description": "Chana dal papad enhanced with robust garlic seasoning.",
+    "shortDescription": "Garlic-infused chana dal papad.",
+    "ingredients": ["Chana Dal Flour", "Garlic Extract", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/CCPG.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-CGP-200", "mrp": 125, "selling": 99, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-CGP-500", "mrp": 309, "selling": 259, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-CGP-1000", "mrp": 619, "selling": 539, "shipping": "Free" }
+    ],
+    "displayOrder": 9
+  },
+  {
+    "sku": "KS-CKM-200",
+    "slug": "chana-khata-mitha-papad",
+    "name": "Chana Khata Mitha Papad",
+    "variant": "Khata Mitha",
+    "category": "Chana",
+    "baseType": "Papad",
+    "description": "Tangy and sweet flavored chana papad.",
+    "shortDescription": "Tangy and sweet chana papad.",
+    "ingredients": ["Chana Dal Flour", "Tangy Seasoning", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/CCKM.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-CKM-200", "mrp": 99, "selling": 79, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-CKM-500", "mrp": 249, "selling": 199, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-CKM-1000", "mrp": 499, "selling": 429, "shipping": "Free" }
+    ],
+    "displayOrder": 10
+  },
+  {
+    "sku": "KS-CTP-200",
+    "slug": "chana-tomato-papad",
+    "name": "Chana Tomato Papad",
+    "variant": "Tomato",
+    "category": "Chana",
+    "baseType": "Papad",
+    "description": "Flavorful chana papad infused with zesty tomato seasoning.",
+    "shortDescription": "Zesty tomato-flavored chana papad.",
+    "ingredients": ["Chana Dal Flour", "Tomato Powder", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/CCTP.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-CTP-200", "mrp": 99, "selling": 79, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-CTP-500", "mrp": 249, "selling": 199, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-CTP-1000", "mrp": 499, "selling": 429, "shipping": "Free" }
+    ],
+    "displayOrder": 11
+  },
+  {
+    "sku": "KS-CPM-200",
+    "slug": "chana-punjabi-masala-papad",
+    "name": "Chana Punjabi Masala Papad",
+    "variant": "Punjabi Masala",
+    "category": "Chana",
+    "baseType": "Papad",
+    "description": "Bold Punjabi masala blend crafted with wholesome chana dal.",
+    "shortDescription": "Bold Punjabi masala chana papad.",
+    "ingredients": ["Chana Dal Flour", "Punjabi Masala", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/CCPM.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-CPM-200", "mrp": 119, "selling": 99, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-CPM-500", "mrp": 299, "selling": 249, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-CPM-1000", "mrp": 599, "selling": 529, "shipping": "Free" }
+    ],
+    "displayOrder": 12
+  },
+  {
+    "sku": "KS-UGP-200",
+    "slug": "urad-guru-papad",
+    "name": "Urad Guru Papad",
+    "variant": "Guru",
+    "category": "Urad",
+    "baseType": "Papad",
+    "description": "Robust flavor crafted from selected quality urad dal.",
+    "shortDescription": "Robust flavor crafted from selected quality urad dal.",
+    "ingredients": ["Urad Dal Flour", "Salt", "Black Pepper", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/UGP.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-UGP-200", "mrp": 119, "selling": 99, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-UGP-500", "mrp": 299, "selling": 249, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-UGP-1000", "mrp": 599, "selling": 529, "shipping": "Free" }
+    ],
+    "displayOrder": 13
+  },
+  {
+    "sku": "KS-UGG-200",
+    "slug": "urad-garlic-papad",
+    "name": "Urad Garlic Papad",
+    "variant": "Garlic",
+    "category": "Urad",
+    "baseType": "Papad",
+    "description": "Robust urad dal papad infused with aromatic garlic.",
+    "shortDescription": "Garlic-infused robust urad dal papad.",
+    "ingredients": ["Urad Dal Flour", "Garlic Extract", "Salt", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/UGPG.png",
+    "variants": [
+      { "weight": "200g", "sku": "KS-UGG-200", "mrp": 125, "selling": 99, "shipping": 49 },
+      { "weight": "500g", "sku": "KS-UGG-500", "mrp": 319, "selling": 269, "shipping": 49 },
+      { "weight": "1000g", "sku": "KS-UGG-1000", "mrp": 639, "selling": 559, "shipping": "Free" }
+    ],
+    "displayOrder": 14
+  },
+  {
+    "sku": "KS-COMB-235",
+    "slug": "kawad-swad-combo-pack",
+    "name": "Kawad Swad Combo Pack",
+    "variant": "Combo",
+    "category": "Combo",
+    "baseType": "Combo Pack",
+    "description": "Curated assortment of our finest papad variants packaged together for family sampling and gifting.",
+    "shortDescription": "Curated assortment of finest papad variants.",
+    "ingredients": ["Moong Dal Flour", "Chana Dal Flour", "Urad Dal Flour", "Spices"],
+    "dietType": "100% Vegetarian",
+    "image": "assets/images/products/COMBO.png",
+    "variants": [
+      { "weight": "235g", "sku": "KS-COMB-235", "mrp": 199, "selling": 189, "shipping": 49 }
+    ],
+    "displayOrder": 15
+  }
+]

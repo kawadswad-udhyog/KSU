@@ -24,9 +24,7 @@
     <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
 
@@ -66,7 +64,7 @@
                 </div>
 
                 <div class="mt-12 aspect-21/9 bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center overflow-hidden shadow-xl relative group fade-in">
-                    <img src="assets/images/contact-hero.png" alt="Contact Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <img src="assets/images/contact-hero.jpg" alt="Contact Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='assets/images/products/MMP.png'">
                 </div>
             </div>
         </section>
@@ -152,7 +150,7 @@
                         </div>
                         <div>
                             <label for="contact-message" class="block text-xs font-semibold uppercase tracking-wider text-[#4E342E] mb-2">Message <span class="text-[#FE330E]">*</span></label>
-                            <textarea id="contact-message" name="contact-message" required rows="5" placeholder="Write your message here..." class="w-full"></textarea>
+                            <textarea id="contact-message" name="contact-message" required rows="5" maxlength="500" placeholder="Write your message here..." class="w-full"></textarea>
                         </div>
                         <div class="flex items-start gap-2">
                             <input type="checkbox" id="consent" name="consent" required class="mt-1 accent-[#FE330E] rounded-sm">
@@ -183,6 +181,7 @@
     <footer-component></footer-component>
 
     <script src="js/layout.js"></script>
+    <script src="js/forms.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
     <script src="js/shop.js"></script>

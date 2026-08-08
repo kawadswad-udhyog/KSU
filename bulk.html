@@ -13,7 +13,7 @@
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
     
-    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
+    <!-- Master Design System -->
     <link rel="stylesheet" href="assets/css/design-system.css">
 
     <!-- Lucide Icons CDN -->
@@ -23,7 +23,6 @@
         body {
             background-color: #0F0F11;
             color: #F3F4F6;
-            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         .glass-card {
@@ -49,9 +48,9 @@
 
         .glass-input:focus {
             outline: none;
-            border-color: #C62828;
+            border-color: #FE330E;
             background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.15);
+            box-shadow: 0 0 0 3px rgba(254, 51, 14, 0.15);
         }
 
         .fade-in-up {
@@ -93,7 +92,6 @@
                         <span class="text-[#E6B800] font-semibold uppercase tracking-wider text-xs px-3 py-1 rounded-full bg-[#E6B800]/10 border border-[#E6B800]/20 inline-block">
                             Wholesale Papad Supply
                         </span>
-                        <!-- RESOLVED: H1 Tag correctly structured for SEO compliance -->
                         <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
                             Wholesale Papad Supply for Growing Businesses
                         </h1>
@@ -110,7 +108,6 @@
                         </div>
                     </div>
                     
-                    <!-- Hero Image Placeholder -->
                     <div class="fade-in-up">
                         <div class="w-full h-[380px] sm:h-[450px] glass-card rounded-[20px] border border-white/10 flex flex-col items-center justify-center p-6 text-center group shadow-2xl">
                             <i data-lucide="package" class="w-16 h-16 text-[#E6B800]/60 mb-4 group-hover:scale-110 transition-transform duration-500" aria-hidden="true"></i>
@@ -221,7 +218,7 @@
                             </div>
                             <div class="space-y-2">
                                 <label for="business-type" class="text-xs font-semibold uppercase tracking-wider text-gray-300">Business Type *</label>
-                                <select id="business-type" name="business-type" required class="w-full px-4 py-3 rounded-lg glass-input text-sm text-gray-300 bg-neutral-900">
+                                <select id="business-type" name="business-type" required class="w-full px-4 py-3 rounded-lg glass-input text-sm text-gray-300 bg-[#0F0F11]">
                                     <option value="" disabled selected>Select business type</option>
                                     <option value="retail">Retail Store</option>
                                     <option value="supermarket">Supermarket</option>

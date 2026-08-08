@@ -10,9 +10,7 @@
     <link rel="canonical" href="https://kawadswad.com/business.html">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
 
@@ -109,7 +107,7 @@
                         </div>
                         <div class="space-y-2">
                             <label for="gen-message" class="text-xs font-bold uppercase tracking-wider text-[#4E342E]">Message / Proposal Details *</label>
-                            <textarea id="gen-message" name="message" rows="4" required placeholder="Describe your collaboration proposal, target region, or volume requirements..." class="w-full"></textarea>
+                            <textarea id="gen-message" name="message" rows="4" required maxlength="500" placeholder="Describe your collaboration proposal, target region, or volume requirements..." class="w-full"></textarea>
                         </div>
                         <div class="pt-4">
                             <button type="submit" class="w-full py-4 btn-primary text-xs uppercase tracking-wider rounded-xl shadow-md">
@@ -125,6 +123,7 @@
     <footer-component></footer-component>
 
     <script src="js/layout.js"></script>
+    <script src="js/forms.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cart.js"></script>
 </body>

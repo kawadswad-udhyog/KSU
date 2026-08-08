@@ -24,13 +24,11 @@
     <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#FE330E">
 
-    <!-- Master Design System Stylesheet (Handles Fonts & Global Theme) -->
+    <!-- Master Design System Stylesheet -->
     <link rel="stylesheet" href="assets/css/design-system.css">
 
     <!-- CSS Animation Utilities & Motion Safety -->
@@ -76,13 +74,13 @@
     }
     </script>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-[#FFFDF7]">
 
     <header-component></header-component>
 
     <main class="flex-grow">
         <!-- Breadcrumb Navigation -->
-        <nav aria-label="Breadcrumb" class="bg-white/40 border-b border-[#F3E6C8] py-3 px-4 sm:px-8 text-xs text-[#8B8174]">
+        <nav aria-label="Breadcrumb" class="bg-white border-b border-[#F3E6C8] py-3 px-4 sm:px-8 text-xs text-[#8B8174]">
             <ol class="flex items-center space-x-2 max-w-7xl mx-auto">
                 <li><a href="index.html" class="hover:text-[#FE330E]">Home</a></li>
                 <li><span class="px-2">/</span></li>
@@ -91,20 +89,19 @@
         </nav>
 
         <!-- HERO BANNER -->
-        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
+        <section class="relative bg-white border-b border-[#F3E6C8] py-16 lg:py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto space-y-6 slide-up">
                     <span class="inline-block text-xs font-semibold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 py-1 rounded-full border border-[#F3E6C8]">Visual Journey</span>
                     <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#4E342E]">Photo &amp; Video <span class="italic text-[#FE330E] font-normal">Gallery</span></h1>
-                    <p class="text-base sm:text-lg text-[#5F5F5F] font-light leading-relaxed">Explore the journey of KAWAD SWAD through our factory, products, exhibitions and behind-the-scenes moments. Also visit our <a href="media.html" class="text-[#FE330E] underline font-medium">Media Center</a> or read our latest updates on the <a href="blog.html" class="text-[#FE330E] underline font-medium">Blog</a>.</p>
+                    <p class="text-base sm:text-lg text-[#5F5F5F] font-light leading-relaxed">Explore the journey of KAWAD SWAD through our factory, products, exhibitions and behind-the-scenes moments. Also visit our <a href="media.html" class="text-[#FE330E] underline font-medium cta-media">Media Center</a> or read our latest updates on the <a href="blog.html" class="text-[#FE330E] underline font-medium cta-blog">Blog</a>.</p>
                     <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="products.html" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-xs font-semibold uppercase tracking-wider rounded-lg text-white bg-[#FE330E] hover:bg-[#D92500] transition-all duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">View Products</a>
-                        <a href="business.html" class="inline-flex justify-center items-center px-8 py-4 border border-[#4E342E] text-xs font-semibold uppercase tracking-wider rounded-lg text-[#4E342E] hover:bg-[#4E342E] hover:text-white transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FE330E]">Business Enquiry</a>
+                        <a href="products.html" class="btn-primary cta-products">View Products</a>
+                        <a href="business.html" class="btn-secondary cta-business">Business Enquiry</a>
                     </div>
                 </div>
 
-                <!-- Real Gallery Hero Image -->
-                <div class="mt-12 aspect-21/9 bg-[#FFFDF7] rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center overflow-hidden shadow-xl relative group fade-in">
+                <div class="mt-12 aspect-21/9 rounded-[20px] border border-[#F3E6C8] flex flex-col items-center justify-center overflow-hidden shadow-xl relative group fade-in">
                     <img src="assets/images/gallery-hero.png" alt="Gallery Hero Banner - KAWAD SWAD" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                 </div>
             </div>
@@ -121,26 +118,25 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Amazon Product Links as Gallery Items -->
-                    <a href="https://www.amazon.in/Kawad-Swad-Premium-Traditional-Microwave/dp/B0HBZG5P38" target="_blank" rel="noopener noreferrer" class="group relative aspect-4/3 card p-3 flex flex-col justify-between">
+                    <a href="https://www.amazon.in/Kawad-Swad-Premium-Traditional-Microwave/dp/B0HBZG5P38" target="_blank" rel="noopener noreferrer" class="group relative aspect-4/3 card p-3 flex flex-col justify-between cta-amazon">
                         <div class="w-full h-full overflow-hidden rounded-lg flex items-center justify-center">
                             <img src="assets/images/products/MMP.png" alt="Moong Papad Product View" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <span class="text-[11px] font-mono text-[#8B8174] text-center mt-3 block">Moong Papad (200g)</span>
                     </a>
-                    <a href="https://www.amazon.in/Kawad-Swad-Premium-Traditional-Microwave/dp/B0HBXMXZF9" target="_blank" rel="noopener noreferrer" class="group relative aspect-4/3 card p-3 flex flex-col justify-between">
+                    <a href="https://www.amazon.in/Kawad-Swad-Premium-Traditional-Microwave/dp/B0HBXMXZF9" target="_blank" rel="noopener noreferrer" class="group relative aspect-4/3 card p-3 flex flex-col justify-between cta-amazon">
                         <div class="w-full h-full overflow-hidden rounded-lg flex items-center justify-center">
                             <img src="assets/images/products/MMPG.png" alt="Moong Garlic Papad Product View" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <span class="text-[11px] font-mono text-[#8B8174] text-center mt-3 block">Moong Garlic Papad</span>
                     </a>
-                    <a href="https://www.amazon.in/Kawad-Swad-Seasoning-Product-Garlic/dp/B0H6ZPGH92" target="_blank" rel="noopener noreferrer" class="group relative aspect-4/3 card p-3 flex flex-col justify-between">
+                    <a href="https://www.amazon.in/Kawad-Swad-Seasoning-Product-Garlic/dp/B0H6ZPGH92" target="_blank" rel="noopener noreferrer" class="group relative aspect-4/3 card p-3 flex flex-col justify-between cta-amazon">
                         <div class="w-full h-full overflow-hidden rounded-lg flex items-center justify-center">
                             <img src="assets/images/products/MMPJ.png" alt="Special Jeera Papad Product View" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
                         <span class="text-[11px] font-mono text-[#8B8174] text-center mt-3 block">Special Jeera Papad</span>
                     </a>
-                    <a href="https://www.amazon.in/Kawad-Swad-Punjabi-Traditional-Microwave/dp/B0HBVLGLQT" target="_blank" rel="noopener noreferrer" class="group relative aspect-4/3 card p-3 flex flex-col justify-between">
+                    <a href="https://www.amazon.in/Kawad-Swad-Punjabi-Traditional-Microwave/dp/B0HBVLGLQT" target="_blank" rel="noopener noreferrer" class="group relative aspect-4/3 card p-3 flex flex-col justify-between cta-amazon">
                         <div class="w-full h-full overflow-hidden rounded-lg flex items-center justify-center">
                             <img src="assets/images/products/MMPM.png" alt="Punjabi Masala Papad Product View" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         </div>
@@ -163,7 +159,7 @@
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M6.5 20h11a2.5 2.5 0 002.5-2.5v-11a2.5 2.5 0 00-2.5-2.5h-11A2.5 2.5 0 004 6.5v11A2.5 2.5 0 006.5 20z"/></svg>
                     </div>
                     <p class="text-sm text-[#5F5F5F] font-light leading-relaxed">Stay connected with our daily updates, behind-the-scenes reels, and festive recipe ideas.</p>
-                    <a href="https://www.instagram.com/kawadswad/" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center px-8 py-4 btn-primary text-xs font-semibold uppercase tracking-wider rounded-lg shadow-lg">View Instagram Profile</a>
+                    <a href="https://www.instagram.com/kawadswad/" target="_blank" rel="noopener noreferrer" class="btn-primary cta-instagram">View Instagram Profile</a>
                 </div>
             </div>
         </section>

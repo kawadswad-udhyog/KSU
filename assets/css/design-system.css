@@ -1,23 +1,25 @@
-/* =================================================================ating
-   KAWAD SWAD - Core Design System (Production Pipeline)
+/* ===================================================================
+   KAWAD SWAD - Core Design System (Premium Visual System Upgrade)
    ================================================================== */
 @import url('./tailwind');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --brand-primary: #fe330e;
-  --brand-secondary: #fbec0a;
+  --brand-primary: #fe330e;     /* Terracotta Red */
+  --brand-secondary: #fbec0a;   /* Restrained Turmeric Gold */
   --brand-accent: #09e4fd;
-  --brand-bg: #fffdf7;
+  --brand-bg: #fffdf7;          /* Tactile Warm Ivory */
   --brand-surface: #ffffff;
-  --brand-heading: #4e342e;
+  --brand-heading: #4e342e;     /* Espresso Brown */
   --brand-text: #5f5f5f;
   --brand-muted: #8b8174;
   --brand-border: #f3e6c8;
-  --brand-footer-bg: #2d1f17;
+  --brand-footer-bg: #2d1f17;   /* Deep Heritage Espresso */
   --brand-footer-text: #f5eedc;
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
+  --shadow-subtle: 0 10px 30px -5px rgba(78, 52, 46, 0.05);
+  --shadow-elevated: 0 20px 40px -10px rgba(78, 52, 46, 0.08);
 }
 
 /* Base Document Setup */
@@ -41,6 +43,7 @@ body {
 h1, h2, h3, h4, h5, h6, .font-serif {
   color: var(--brand-heading);
   font-family: var(--font-heading);
+  letter-spacing: -0.01em;
 }
 
 a {
@@ -59,7 +62,7 @@ a:hover {
 .section-brand { background: var(--brand-primary); color: #fff; }
 .section-dark  { background: var(--brand-footer-bg); color: var(--brand-footer-text); }
 
-/* Component: Buttons */
+/* Component: Buttons with tactile depth */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -67,20 +70,25 @@ a:hover {
   gap: 0.5rem;
   padding: 12px 24px;
   border: 1px solid var(--brand-primary);
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   background: var(--brand-primary);
   color: white;
   font-weight: 600;
   font-size: 0.875rem;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(254, 51, 14, 0.25);
 }
 
 .btn-primary:hover {
   background: #d92500;
+  border-color: #d92500;
   color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(254, 51, 14, 0.35);
 }
 
 .btn-secondary {
@@ -90,27 +98,45 @@ a:hover {
   gap: 0.5rem;
   padding: 12px 24px;
   border: 1px solid var(--brand-border);
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   background: var(--brand-surface);
-  color: var(--brand-text);
+  color: var(--brand-heading);
   font-weight: 600;
   font-size: 0.875rem;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
   cursor: pointer;
-  transition: border-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+  box-shadow: var(--shadow-subtle);
 }
 
 .btn-secondary:hover {
   border-color: var(--brand-primary);
   color: var(--brand-primary);
+  transform: translateY(-1px);
 }
 
-/* Component: Cards & Badges */
+/* Component: Elevated Cards & Product Stages */
 .card {
   border: 1px solid var(--brand-border);
-  border-radius: 1rem;
+  border-radius: 1.25rem;
   background: var(--brand-surface);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.product-stage {
+  background: linear-gradient(135deg, #FFFDF7 0%, #FFFFFF 100%);
+  border: 1px solid var(--brand-border);
+  border-radius: 1.5rem;
+  position: relative;
   overflow: hidden;
 }
 
@@ -122,8 +148,23 @@ a:hover {
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.05em;
-  padding: 0.25rem 0.5rem;
-  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* 3D Perspective & Spatial Depth (Restrained) */
+.perspective-container {
+  perspective: 1000px;
+}
+
+.transform-3d-hover {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.transform-3d-hover:hover {
+  transform: translateY(-4px) rotateX(1deg) rotateY(-1deg);
 }
 
 /* Form Elements */
@@ -136,12 +177,13 @@ select,
 textarea {
   width: 100%;
   border: 1px solid var(--brand-border);
-  border-radius: 0.5rem;
-  padding: 12px;
+  border-radius: 0.75rem;
+  padding: 12px 16px;
   font-family: var(--font-body);
   font-size: 1rem;
   background-color: var(--brand-surface);
-  color: var(--brand-text);
+  color: var(--brand-heading);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 input:focus,
@@ -150,7 +192,7 @@ textarea:focus {
   border-color: var(--brand-primary);
   outline: 2px solid transparent;
   outline-offset: 2px;
-  box-shadow: 0 0 0 3px rgb(254 51 14 / 0.2);
+  box-shadow: 0 0 0 4px rgba(254, 51, 14, 0.12);
 }
 
 /* Accessibility Focus States */
@@ -170,5 +212,8 @@ textarea:focus {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transform: none !important;
   }
 }
+
+assets/css/design-system.css

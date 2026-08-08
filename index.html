@@ -2,10 +2,8 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#FE330E">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <title>KAWAD SWAD | Authentic Traditional Jain Papads Direct from Nimar</title>
     <meta name="description" content="Experience authentic handcrafted Jain Papads from Nimar. Pure ingredients, traditional recipes, and uncompromising hygiene delivered directly across India.">
@@ -13,13 +11,12 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://kawadswad.com/">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kawadswad.com/">
     <meta property="og:title" content="KAWAD SWAD | Authentic Traditional Jain Papads">
     <meta property="og:description" content="Pure taste, traditional excellence, and artisanal quality from Nimar to your table.">
     <meta property="og:image" content="https://kawadswad.com/assets/images/og-image.jpg">
-    <meta property="og:site_name" content="KAWAD SWAD">
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
@@ -33,22 +30,21 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
 
-    <!-- Design System & Mobile CSS -->
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/design-system.css">
     <link rel="stylesheet" href="assets/css/mobile.css">
 
-    <!-- CSS Animations -->
     <style>
-        .fade-in { animation: fadeIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .slide-up { animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .slide-up { animation: slideUp 0.8s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @media (prefers-reduced-motion: reduce) {
             .fade-in, .slide-up { animation: none; opacity: 1; transform: none; }
         }
     </style>
 
-    <!-- JSON-LD Structured Data -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -73,58 +69,63 @@
 </head>
 <body class="flex flex-col min-h-screen">
     <header-component></header-component>
-    <main class="flex-grow w-full">
-        <!-- Hero Section -->
-        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] py-12 sm:py-20 lg:py-28 overflow-hidden border-b border-[#F3E6C8]">
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] lg:w-[600px] lg:h-[600px] bg-[#FBEC0A]/10 rounded-full blur-3xl pointer-events-none"></div>
+    
+    <main class="flex-grow">
+        <!-- HERO SECTION -->
+        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] py-12 sm:py-16 lg:py-24 overflow-hidden border-b border-[#F3E6C8]">
+            <!-- REDUCED BLUR: 400px max on mobile -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[500px] lg:h-[500px] bg-[#FBEC0A]/10 rounded-full blur-3xl pointer-events-none"></div>
+
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-                    <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-left slide-up">
-                        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#4E342E] bg-[#FFFDE6] px-3 sm:px-4 py-1.5 rounded-full border border-[#F3E6C8]">
-                            <span class="w-1.5 h-1.5 rounded-full bg-[#FE330E]"></span>
-                            Crafted in Nimar • 100% Authentic
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <!-- LEFT: Content -->
+                    <div class="space-y-4 sm:space-y-6 slide-up">
+                        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase text-[#4E342E] bg-[#FFFDE6] px-3 py-1.5 rounded-full border border-[#F3E6C8]">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#FE330E] flex-shrink-0"></span>
+                            Crafted in Nimar • 100% Jain
                         </span>
+                        
                         <h1 class="font-serif font-bold text-[#4E342E] leading-tight text-2xl sm:text-3xl lg:text-4xl">
-                            Pure Taste. <span class="italic text-[#FE330E]">Traditional Crunch.</span> Delivered Fresh.
+                            Pure Taste. <span class="italic text-[#FE330E]">Traditional Crunch.</span> Fresh Delivered.
                         </h1>
-                        <p class="text-sm sm:text-base text-[#5F5F5F] font-light max-w-xl leading-relaxed">
-                            Handcrafted with premium pulses, handpicked spices, and zero compromise on hygiene. Discover authentic Jain Papads from our traditional facility.
+                        
+                        <p class="text-sm sm:text-base text-[#5F5F5F] font-light leading-relaxed">
+                            Handcrafted with premium pulses and authentic spices. Zero compromise on hygiene.
                         </p>
-                        <div class="flex flex-col sm:flex-row flex-wrap items-center gap-3 pt-2">
-                            <a href="shop.html" class="btn-primary text-sm">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <a href="shop.html" class="btn-primary text-sm px-6 py-3">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
                                 Shop Online
                             </a>
-                            <a href="business.html" class="btn-secondary text-sm">
+                            <a href="business.html" class="btn-secondary text-sm px-6 py-3">
                                 Become Distributor
                             </a>
                         </div>
-                        <div class="pt-6 border-t border-[#F3E6C8]/60 grid grid-cols-3 gap-3 text-xs font-medium text-[#4E342E]">
-                            <div class="flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-[#FE330E]"></span>
-                                <span>FSSAI Certified</span>
+
+                        <div class="pt-4 border-t border-[#F3E6C8] grid grid-cols-3 gap-2 text-[10px] sm:text-xs font-medium text-[#4E342E]">
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-[#FE330E] flex-shrink-0"></span>
+                                <span>FSSAI</span>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-[#FE330E]"></span>
-                                <span>100% Hygienic</span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-[#FE330E] flex-shrink-0"></span>
+                                <span>Hygienic</span>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-[#FE330E]"></span>
+                            <div class="flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-[#FE330E] flex-shrink-0"></span>
                                 <span>PAN-India</span>
                             </div>
                         </div>
                     </div>
-                    <div class="lg:col-span-5 relative fade-in">
-                        <div class="relative mx-auto max-w-xs sm:max-w-sm lg:max-w-none">
-                            <div class="relative card p-2 sm:p-4 bg-white shadow-xl rounded-2xl border border-[#F3E6C8]">
-                                <img src="assets/images/products/MMP.png" alt="Kawad Swad Premium Jain Papads - Moong Master Papad" class="rounded-xl w-full h-48 sm:h-64 lg:h-80 object-cover shadow-inner" loading="lazy">
-                                <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/90 backdrop-blur-md p-2 sm:p-3 rounded-lg border border-[#F3E6C8] shadow-lg">
-                                    <div>
-                                        <p class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#FE330E]">Signature Range</p>
-                                        <p class="font-serif text-xs sm:text-sm font-bold text-[#4E342E]">Moong &amp; Masala</p>
-                                    </div>
-                                    <span class="text-xs font-bold bg-[#4E342E] text-white px-2 py-1 rounded inline-block mt-1">From ₹45</span>
-                                </div>
+
+                    <!-- RIGHT: Image -->
+                    <div class="relative fade-in">
+                        <div class="relative card p-3 sm:p-4 bg-white shadow-lg rounded-2xl border border-[#F3E6C8]">
+                            <img src="assets/images/products/MMP.png" alt="Kawad Swad Premium Moong Papad" class="rounded-xl w-full h-56 sm:h-64 lg:h-72 object-cover" loading="lazy">
+                            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur p-3 rounded-lg border border-[#F3E6C8] text-xs">
+                                <p class="font-bold text-[#FE330E] uppercase">Moong Master</p>
+                                <p class="text-xs text-[#4E342E]">From ₹45</p>
                             </div>
                         </div>
                     </div>
@@ -132,72 +133,72 @@
             </div>
         </section>
 
-        <!-- Trust Strip -->
+        <!-- TRUST STRIP -->
         <section class="bg-white border-b border-[#F3E6C8] py-6 sm:py-8">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
-                    <div class="flex flex-col items-center space-y-2 px-1">
-                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] flex items-center justify-center flex-shrink-0">
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 text-center">
+                    <div class="space-y-2">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center mx-auto border border-[#F3E6C8]">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <h4 class="font-serif font-semibold text-[#4E342E] text-xs sm:text-sm text-center">Vegetarian</h4>
-                        <p class="text-[10px] sm:text-[11px] text-[#5F5F5F] font-light text-center">Jain Pure</p>
+                        <h4 class="font-serif text-xs sm:text-sm font-semibold text-[#4E342E]">Vegetarian</h4>
+                        <p class="text-[10px] text-[#8B8174] font-light">Jain Pure</p>
                     </div>
-                    <div class="flex flex-col items-center space-y-2 px-1">
-                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] flex items-center justify-center flex-shrink-0">
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 6.253v13m0-13C6.5 9.5 2 14 2 20s4.5 10.5 10 10.5 10-4.5 10-10.5-4.5-10.5-10-10.5z"></path></svg>
+                    <div class="space-y-2">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center mx-auto border border-[#F3E6C8]">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.5 9.5 2 14 2 20s4.5 10.5 10 10.5 10-4.5 10-10.5-4.5-10.5-10-10.5z"></path></svg>
                         </div>
-                        <h4 class="font-serif font-semibold text-[#4E342E] text-xs sm:text-sm text-center">Traditional</h4>
-                        <p class="text-[10px] sm:text-[11px] text-[#5F5F5F] font-light text-center">Nimar Taste</p>
+                        <h4 class="font-serif text-xs sm:text-sm font-semibold text-[#4E342E]">Traditional</h4>
+                        <p class="text-[10px] text-[#8B8174] font-light">Nimari Taste</p>
                     </div>
-                    <div class="flex flex-col items-center space-y-2 px-1">
-                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] flex items-center justify-center flex-shrink-0">
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.757 .7a1 1 0 0 1 .936 1.236l-2.33 12.159a1 1 0 0 1-.93.805H9m14 0a2 2 0 0 1 -1.447 1.894l-.894 .149"></path></svg>
+                    <div class="space-y-2">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center mx-auto border border-[#F3E6C8]">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         </div>
-                        <h4 class="font-serif font-semibold text-[#4E342E] text-xs sm:text-sm text-center">Premium</h4>
-                        <p class="text-[10px] sm:text-[11px] text-[#5F5F5F] font-light text-center">Hand-selected</p>
+                        <h4 class="font-serif text-xs sm:text-sm font-semibold text-[#4E342E]">Premium</h4>
+                        <p class="text-[10px] text-[#8B8174] font-light">Hand-Selected</p>
                     </div>
-                    <div class="flex flex-col items-center space-y-2 px-1">
-                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] flex items-center justify-center flex-shrink-0">
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12l2 2 4-4m7.5-4.5A9 9 0 1 0 2.5 12"></path></svg>
+                    <div class="space-y-2">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center mx-auto border border-[#F3E6C8]">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
-                        <h4 class="font-serif font-semibold text-[#4E342E] text-xs sm:text-sm text-center">FSSAI</h4>
-                        <p class="text-[10px] sm:text-[11px] text-[#5F5F5F] font-light text-center">Certified</p>
+                        <h4 class="font-serif text-xs sm:text-sm font-semibold text-[#4E342E]">FSSAI</h4>
+                        <p class="text-[10px] text-[#8B8174] font-light">Certified</p>
                     </div>
-                    <div class="flex flex-col items-center space-y-2 px-1 col-span-2 sm:col-span-1">
-                        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#FFFDE6] text-[#FE330E] border border-[#F3E6C8] flex items-center justify-center flex-shrink-0">
-                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3.055 11H5a2 2 0 0 1 2 2v1a2 2 0 0 0 2 2 2 2 0 0 1 2 2v1a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-1a2 2 0 0 1 2-2 2 2 0 0 0 2-2v-1a2 2 0 0 1 2-2h1.945"></path></svg>
+                    <div class="space-y-2 col-span-2 sm:col-span-1">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-[#FFFDE6] text-[#FE330E] rounded-full flex items-center justify-center mx-auto border border-[#F3E6C8]">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v1a2 2 0 002 2h4a2 2 0 002-2v-1a2 2 0 012-2 2 2 0 002-2v-1a2 2 0 012-2h1.945"></path></svg>
                         </div>
-                        <h4 class="font-serif font-semibold text-[#4E342E] text-xs sm:text-sm text-center">Made in India</h4>
-                        <p class="text-[10px] sm:text-[11px] text-[#5F5F5F] font-light text-center">Heritage</p>
+                        <h4 class="font-serif text-xs sm:text-sm font-semibold text-[#4E342E]">Made in India</h4>
+                        <p class="text-[10px] text-[#8B8174] font-light">Heritage</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="py-12 sm:py-20 bg-gradient-to-r from-[#2D1F17] via-stone-900 to-[#2D1F17] text-white relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-4 sm:space-y-6">
+        <!-- CTA SECTION -->
+        <section class="py-12 sm:py-16 bg-gradient-to-r from-[#2D1F17] via-stone-900 to-[#2D1F17] text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 sm:space-y-6">
                 <h2 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">
-                    Experience Authentic Nimari Crunch
+                    Authentic Nimari Crunch Delivered Fresh
                 </h2>
-                <p class="text-xs sm:text-sm text-stone-300 max-w-2xl mx-auto font-light">
-                    Premium Jain papads made with pure ingredients, traditional recipes, and uncompromising hygiene.
+                <p class="text-sm text-stone-300 max-w-2xl mx-auto">
+                    Premium Jain papads with traditional recipes, pure ingredients, and uncompromising hygiene.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center pt-3">
-                    <a href="shop.html" class="btn-primary w-full sm:w-auto text-sm">
-                        Shop Products
+                <div class="flex flex-col sm:flex-row gap-3 justify-center pt-4">
+                    <a href="shop.html" class="btn-primary text-sm px-6 py-3">
+                        Shop Now
                     </a>
-                    <a href="contact.html" class="btn-secondary w-full sm:w-auto text-sm bg-transparent text-white border-white/30 hover:bg-white hover:text-[#2D1F17]">
+                    <a href="contact.html" class="btn-secondary text-sm px-6 py-3 bg-transparent text-white border-white/40 hover:bg-white hover:text-[#2D1F17]">
                         Contact Us
                     </a>
                 </div>
             </div>
         </section>
     </main>
+
     <footer-component></footer-component>
 
-    <!-- Scripts -->
     <script src="js/products-loader.js"></script>
     <script src="js/layout.js"></script>
     <script src="js/main.js"></script>

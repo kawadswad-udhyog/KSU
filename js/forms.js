@@ -4,7 +4,7 @@
  * ============================================================================
  * Centralized, accessible, and asynchronous form engine providing inline validation,
  * ARIA live updates, mobile/email/pincode pattern matching, loading spinners, and
- * safe, non-mock form submission handling.
+ * safe inquiry/checkout submission handling with explicit WhatsApp/email fallbacks.
  */
 
 const FormEngine = {
@@ -85,13 +85,13 @@ const FormEngine = {
         inputEl.removeAttribute('aria-describedby');
     },
 
-    showSuccess(containerEl, title, message) {
+    showFallbackNotice(containerEl, title, message) {
         if (!containerEl) return;
 
-        const successBox = document.createElement('div');
-        successBox.className = 'p-6 bg-[#FFFDF7] border border-[#F3E6C8] rounded-xl text-center space-y-3 my-4 shadow-sm';
-        successBox.setAttribute('role', 'status');
-        successBox.setAttribute('aria-live', 'polite');
+        const box = document.createElement('div');
+        box.className = 'p-6 bg-[#FFFDF7] border border-[#F3E6C8] rounded-xl text-center space-y-4 my-4 shadow-sm';
+        box.setAttribute('role', 'status');
+        box.setAttribute('aria-live', 'polite');
         
         const heading = document.createElement('h4');
         heading.className = 'font-serif text-xl font-bold text-[#4E342E]';
@@ -101,13 +101,22 @@ const FormEngine = {
         text.className = 'text-xs text-[#5F5F5F] leading-relaxed font-light';
         text.textContent = message;
 
-        successBox.appendChild(heading);
-        successBox.appendChild(text);
+        const whatsappBtn = document.createElement('ahref');
+        const waLink = document.createElement('a');
+        waLink.href = 'https://wa.me/919630976867?text=Hello%20Kawad%20Swad%20Team%2C%20I%20would%20like%20to%20submit%20my%20form/order%20request.';
+        waLink.target = '_blank';
+        waLink.rel = 'noopener noreferrer';
+        waLink.className = 'inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#FE330E] text-white text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#d92500] transition-colors shadow-sm';
+        waLink.innerHTML = `<span>Continue via WhatsApp</span>`;
+
+        box.appendChild(heading);
+        box.appendChild(text);
+        box.appendChild(waLink);
 
         const existingStatus = containerEl.querySelector('[role="status"]');
         if (existingStatus) existingStatus.remove();
 
-        containerEl.prepend(successBox);
+        containerEl.prepend(box);
     },
 
     toggleLoading(buttonEl, isLoading, defaultText = 'Submit') {
@@ -153,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initBusinessForm();
     initNewsletterForms();
+    initCheckoutForm();
     initCharacterCounters();
 });
 
@@ -171,23 +181,65 @@ function initContactForm() {
     if (emailInput) emailInput.addEventListener('blur', () => validateField(emailInput, 'email', 'Enter a valid email address'));
     if (subjectSelect) subjectSelect.addEventListener('change', () => validateField(subjectSelect, 'required', 'Please select a subject'));
     if (messageInput) messageInput.addEventListener('blur', () => validateField(messageInput, 'required', 'Message cannot be empty'));
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const v1 = validateField(nameInput, 'required', 'Full Name is required');
+        const v2 = validateField(phoneInput, 'phone', 'Enter a valid 10-digit mobile number');
+        const v3 = validateField(emailInput, 'email', 'Enter a valid email address');
+        const v4 = validateField(messageInput, 'required', 'Message cannot be empty');
+
+        if (!v1 || !v2 || !v3 || !v4) return;
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        FormEngine.toggleLoading(submitBtn, true);
+
+        setTimeout(() => {
+            FormEngine.toggleLoading(submitBtn, false, 'Send Message');
+            FormEngine.showFallbackNotice(
+                form, 
+                'Direct Submission Notice', 
+                'Automated server endpoint is currently offline. Please click below to send your enquiry instantly via WhatsApp or email info.av.kkswad@gmail.com.'
+            );
+        }, 800);
+    });
 }
 
 function initBusinessForm() {
-    const form = document.querySelector('form[data-form="business"], #business-enquiry-form');
+    const form = document.querySelector('form[data-form="business"], #business-enquiry-form, #business-general-form');
     if (!form) return;
 
-    const bizType = form.querySelector('#business-type, select[name="business-type"]');
-    const bizName = form.querySelector('#company-name, #business-name');
-    const contactPerson = form.querySelector('#contact-person');
-    const mobile = form.querySelector('#business-mobile, #mobile-number');
-    const email = form.querySelector('#business-email, #email');
+    const nameInput = form.querySelector('#gen-name, input[name="name"]');
+    const mobileInput = form.querySelector('#gen-mobile, input[name="mobile"]');
+    const emailInput = form.querySelector('#gen-email, input[name="email"]');
+    const messageInput = form.querySelector('#gen-message, textarea[name="message"]');
 
-    if (bizType) bizType.addEventListener('change', () => validateField(bizType, 'required', 'Please select a Business Type'));
-    if (bizName) bizName.addEventListener('blur', () => validateField(bizName, 'required', 'Company name is required'));
-    if (contactPerson) contactPerson.addEventListener('blur', () => validateField(contactPerson, 'required', 'Contact person name is required'));
-    if (mobile) mobile.addEventListener('blur', () => validateField(mobile, 'phone', 'Enter a valid 10-digit mobile number'));
-    if (email) email.addEventListener('blur', () => validateField(email, 'email', 'Enter a valid email address'));
+    if (nameInput) nameInput.addEventListener('blur', () => validateField(nameInput, 'required', 'Full Name is required'));
+    if (mobileInput) mobileInput.addEventListener('blur', () => validateField(mobileInput, 'phone', 'Enter a valid 10-digit mobile number'));
+    if (emailInput) emailInput.addEventListener('blur', () => validateField(emailInput, 'email', 'Enter a valid email address'));
+    if (messageInput) messageInput.addEventListener('blur', () => validateField(messageInput, 'required', 'Message is required'));
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const v1 = validateField(nameInput, 'required', 'Full Name is required');
+        const v2 = validateField(mobileInput, 'phone', 'Enter a valid 10-digit mobile number');
+        const v3 = validateField(emailInput, 'email', 'Enter a valid email address');
+        const v4 = validateField(messageInput, 'required', 'Message is required');
+
+        if (!v1 || !v2 || !v3 || !v4) return;
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        FormEngine.toggleLoading(submitBtn, true);
+
+        setTimeout(() => {
+            FormEngine.toggleLoading(submitBtn, false, 'Send Business Message');
+            FormEngine.showFallbackNotice(
+                form, 
+                'Commercial Enquiry Notice', 
+                'B2B endpoint pending server linkage. Connect with our corporate team instantly via WhatsApp or direct email.'
+            );
+        }, 800);
+    });
 }
 
 function initNewsletterForms() {
@@ -203,9 +255,58 @@ function initNewsletterForms() {
                 emailInput.focus();
                 return;
             }
-            FormEngine.showSuccess(form.parentNode, 'Subscribed!', 'Thank you for subscribing to Kawad Swad updates.');
+            FormEngine.showFallbackNotice(form.parentNode, 'Subscription Notice', 'Newsletter server active sync pending. Reach out directly via WhatsApp.');
             form.reset();
         });
+    });
+}
+
+function initCheckoutForm() {
+    const form = document.getElementById('checkout-form');
+    if (!form) return;
+
+    const fn = form.querySelector('#first-name');
+    const ln = form.querySelector('#last-name');
+    const mob = form.querySelector('#checkout-mobile');
+    const em = form.querySelector('#checkout-email');
+    const addr = form.querySelector('#address');
+    const city = form.querySelector('#checkout-city');
+    const state = form.querySelector('#checkout-state');
+    const pin = form.querySelector('#pincode');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const v1 = validateField(fn, 'required', 'First name required');
+        const v2 = validateField(ln, 'required', 'Last name required');
+        const v3 = validateField(mob, 'phone', 'Valid 10-digit mobile required');
+        const v4 = validateField(em, 'email', 'Valid email required');
+        const v5 = validateField(addr, 'required', 'Address required');
+        const v6 = validateField(city, 'required', 'City required');
+        const v7 = validateField(state, 'required', 'State required');
+        const v8 = validateField(pin, 'pincode', 'Valid 6-digit PIN required');
+
+        if (!v1 || !v2 || !v3 || !v4 || !v5 || !v6 || !v7 || !v8) {
+            return;
+        }
+
+        const cartItems = typeof KawadCart !== 'undefined' ? KawadCart.getItems() : [];
+        if (cartItems.length === 0) {
+            alert('Your shopping cart is empty.');
+            return;
+        }
+
+        const submitBtn = form.querySelector('button[type="submit"]');
+        FormEngine.toggleLoading(submitBtn, true, 'Submit Order Request (COD)');
+
+        setTimeout(() => {
+            FormEngine.toggleLoading(submitBtn, false, 'Submit Order Request (COD)');
+            FormEngine.showFallbackNotice(
+                form, 
+                'Order Request Prepared (COD / Direct)', 
+                'To complete your Cash on Delivery order immediately without server delay, send your summary directly to our sales desk via WhatsApp.'
+            );
+        }, 1000);
     });
 }
 
@@ -232,13 +333,6 @@ function validateField(fieldEl, rule, errorMessage) {
     }
 
     return isValid;
-}
-
-function focusFirstError(formEl) {
-    const invalidEl = formEl.querySelector('[aria-invalid="true"]');
-    if (invalidEl) {
-        invalidEl.focus();
-    }
 }
 
 function initCharacterCounters() {

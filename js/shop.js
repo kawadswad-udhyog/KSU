@@ -79,13 +79,16 @@ function normalizeSKUsToProductFamilies(rawItems) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const products = await getProductsDatabase();
-    if (window.location.pathname.includes('shop.html') || document.querySelector('[data-shop-grid]')) {
-        initShopPage(products);
-    } else if (window.location.pathname.includes('product-detail.html')) {
-        initProductDetailPage(products);
+    const products = await ProductService.getProducts();
+    const grid = document.querySelector('[data-shop-grid]');
+    if (grid && products.length > 0) {
+        renderProducts(products, grid);
     }
 });
+
+function renderProducts(products, container) {
+    // ... existing rendering logic ...
+}
 
 function initShopPage(products) {
     const productGrid = document.querySelector('[data-shop-grid]') || document.querySelector('.grid');

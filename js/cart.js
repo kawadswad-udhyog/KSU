@@ -11,7 +11,7 @@ const CART_VERSION = 1;
 
 const CartManager = {
     /**
-     * Helper to resolve dynamic base path for GitHub Pages hosting (/KSU/).
+     * Helper to resolve dynamic base path for GitHub Pages hosting (/KSU/) or local server.
      */
     getBasePath() {
         const isGitHubPages = window.location.pathname.includes('/KSU/');
@@ -159,9 +159,9 @@ const CartManager = {
         if (items.length === 0) {
             tableBody.innerHTML = `
                 <tr>
-                    <td colspan="5" class="py-12 text-center text-brand-muted">
-                        <p class="font-serif text-lg mb-4">Your shopping cart is currently empty.</p>
-                        <a href="${basePath}shop.html" class="inline-block px-6 py-2.5 bg-brand-dark text-white text-xs font-semibold uppercase tracking-wider rounded-sm hover:bg-brand-gold transition-colors">
+                    <td colspan="5" class="py-12 text-center text-[#8B8174]">
+                        <p class="font-serif text-lg mb-4 text-[#4E342E]">Your shopping cart is currently empty.</p>
+                        <a href="${basePath}shop.html" class="inline-block px-6 py-3 bg-[#FE330E] text-white text-xs font-semibold uppercase tracking-wider rounded-lg hover:bg-[#d92500] transition-colors shadow-sm">
                             Explore Shop
                         </a>
                     </td>
@@ -175,28 +175,27 @@ const CartManager = {
         items.forEach(item => {
             const priceNum = parseFloat(item.price) || 0;
             const lineTotal = priceNum * item.quantity;
-            const imageMarkup = item.image && item.image.trim() !== ''
-                ? `<img src="${basePath}${item.image.replace(/^\/+/, '')}" alt="${item.name}" class="w-full h-full object-cover rounded-xs" onerror="this.outerHTML='<span class=\\'text-[8px] font-mono text-brand-muted\\'>${item.sku}</span>'">`
-                : `<span class="text-[8px] font-mono text-brand-muted uppercase">${item.sku}</span>`;
+            const rawImg = item.image || 'assets/images/products/MMP.png';
+            const imgSrc = rawImg.startsWith('http') ? rawImg : `${basePath}${rawImg.replace(/^\/+/, '')}`;
 
             html += `
-                <tr data-sku="${item.sku}" class="border-b border-stone-100">
+                <tr data-sku="${item.sku}" class="border-b border-[#F3E6C8]">
                     <td class="py-4 px-4 flex items-center gap-3">
-                        <div class="w-12 h-12 bg-stone-200 rounded-xs shrink-0 flex items-center justify-center overflow-hidden border border-stone-300/60">
-                            ${imageMarkup}
+                        <div class="w-12 h-12 bg-[#FFFDF7] rounded-lg shrink-0 flex items-center justify-center overflow-hidden border border-[#F3E6C8]">
+                            <img src="${imgSrc}" alt="" class="w-full h-full object-cover rounded-md" onerror="this.src='assets/images/products/MMP.png'">
                         </div>
                         <div>
-                            <span class="font-medium text-brand-dark block">${item.name}</span>
-                            <span class="text-[10px] font-mono text-stone-400">SKU: ${item.sku}</span>
+                            <span class="font-medium text-[#4E342E] block">${item.name}</span>
+                            <span class="text-[10px] font-mono text-[#8B8174]">SKU: ${item.sku}</span>
                         </div>
                     </td>
-                    <td class="py-4 px-4 text-brand-muted">${item.weight}</td>
+                    <td class="py-4 px-4 text-[#5F5F5F]">${item.weight}</td>
                     <td class="py-4 px-4">
-                        <input type="number" value="${item.quantity}" min="1" aria-label="Quantity for ${item.name}" class="qty-input w-16 bg-brand-cream/30 border border-stone-300 rounded-xs px-2 py-1 text-center text-xs">
+                        <input type="number" value="${item.quantity}" min="1" aria-label="Quantity for ${item.name}" class="qty-input w-16 bg-white border border-[#F3E6C8] rounded-lg px-2 py-1 text-center text-xs text-[#4E342E]">
                     </td>
-                    <td class="py-4 px-4 font-mono text-brand-muted">${priceNum > 0 ? '₹' + lineTotal : '[Quote]'}</td>
+                    <td class="py-4 px-4 font-mono text-[#4E342E]">${priceNum > 0 ? '₹' + lineTotal : '[Quote]'}</td>
                     <td class="py-4 px-4">
-                        <button type="button" class="remove-btn text-xs text-brand-red hover:underline" aria-label="Remove ${item.name}">Remove</button>
+                        <button type="button" class="remove-btn text-xs text-[#FE330E] hover:underline" aria-label="Remove ${item.name}">Remove</button>
                     </td>
                 </tr>
             `;
@@ -217,7 +216,7 @@ const CartManager = {
 
         const items = this.getItems();
         if (items.length === 0) {
-            checkoutItemsContainer.innerHTML = `<p class="text-xs text-brand-muted">No items in cart.</p>`;
+            checkoutItemsContainer.innerHTML = `<p class="text-xs text-[#8B8174]">No items in cart.</p>`;
             return;
         }
 
@@ -226,10 +225,10 @@ const CartManager = {
             return `
                 <div class="flex justify-between items-center pt-2">
                     <div>
-                        <span class="block font-medium text-brand-dark">${item.name}</span>
-                        <span class="text-xs text-brand-muted">Qty: ${item.quantity} | Size: ${item.weight}</span>
+                        <span class="block font-medium text-[#4E342E]">${item.name}</span>
+                        <span class="text-xs text-[#8B8174]">Qty: ${item.quantity} | Size: ${item.weight}</span>
                     </div>
-                    <span class="font-mono text-brand-muted">${priceNum > 0 ? '₹' + (priceNum * item.quantity) : '[Quote]'}</span>
+                    <span class="font-mono text-[#4E342E]">${priceNum > 0 ? '₹' + (priceNum * item.quantity) : '[Quote]'}</span>
                 </div>
             `;
         }).join('');
@@ -244,11 +243,11 @@ const CartManager = {
     updateSummaryUI(subtotal, shipping, grandTotal) {
         const subtotalEls = document.querySelectorAll('[data-summary="subtotal"]');
         const shippingEls = document.querySelectorAll('[data-summary="shipping"]');
-        const totalEls = document.querySelectorAll('[data-summary="total"], .font-mono.text-brand-gold');
+        const totalEls = document.querySelectorAll('[data-summary="total"], .font-mono.text-[#FE330E]');
 
-        subtotalEls.forEach(el => el.textContent = subtotal ? `₹${subtotal}` : '[Subtotal]');
-        shippingEls.forEach(el => el.textContent = shipping === 0 ? 'FREE' : (shipping ? `₹${shipping}` : '[Shipping]'));
-        totalEls.forEach(el => el.textContent = grandTotal ? `₹${grandTotal}` : '[Total]');
+        subtotalEls.forEach(el => el.textContent = subtotal ? `₹${subtotal}` : '₹0');
+        shippingEls.forEach(el => el.textContent = shipping === 0 ? 'FREE' : (shipping ? `₹${shipping}` : '₹0'));
+        totalEls.forEach(el => el.textContent = grandTotal ? `₹${grandTotal}` : '₹0');
     },
 
     showToastNotification(message) {
@@ -258,26 +257,29 @@ const CartManager = {
             toast.id = 'cart-toast';
             toast.setAttribute('role', 'status');
             toast.setAttribute('aria-live', 'polite');
-            toast.className = 'fixed top-24 right-6 z-50 bg-brand-dark text-white px-5 py-3 rounded-sm shadow-xl text-xs font-semibold tracking-wider uppercase border border-brand-gold flex items-center gap-2 transition-all duration-300 opacity-0 transform translate-y-2';
+            toast.className = 'fixed bottom-5 right-5 z-50 bg-[#2D1F17] text-[#FFFDF7] text-xs sm:text-sm px-4 py-3 rounded-xl shadow-lg border border-[#F3E6C8] transition-opacity duration-300 opacity-0 pointer-events-none flex items-center gap-2';
             document.body.appendChild(toast);
         }
 
         toast.innerHTML = `
-            <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <svg class="w-4 h-4 text-[#FBEC0A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
             <span>${message}</span>
         `;
 
-        toast.classList.remove('opacity-0', 'translate-y-2');
-        toast.classList.add('opacity-100', 'translate-y-0');
+        toast.classList.remove('opacity-0');
+        toast.classList.add('opacity-100');
 
         setTimeout(() => {
-            toast.classList.add('opacity-0', 'translate-y-2');
-            toast.classList.remove('opacity-100', 'translate-y-0');
+            toast.classList.remove('opacity-100');
+            toast.classList.add('opacity-0');
         }, 2500);
     }
 };
+
+// Expose globally for cross-module coordination
+window.KawadCart = CartManager;
 
 document.addEventListener('DOMContentLoaded', () => {
     CartManager.updateCartBadge();
@@ -304,19 +306,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
-    document.addEventListener('click', (e) => {
-        const addBtn = e.target.closest('[data-action="add-to-cart"]');
-        if (!addBtn) return;
-
-        CartManager.addItem({
-            sku: addBtn.dataset.sku,
-            name: addBtn.dataset.name,
-            price: addBtn.dataset.price,
-            weight: addBtn.dataset.weight || '200g',
-            shipping: addBtn.dataset.shipping || '49',
-            image: addBtn.dataset.image || '',
-            quantity: 1
-        });
-    });
 });

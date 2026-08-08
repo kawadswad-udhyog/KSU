@@ -25,9 +25,7 @@
     <meta name="twitter:image" content="https://kawadswad.com/assets/images/og-image.jpg">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
     <link rel="manifest" href="site.webmanifest">
 
     <!-- Stylesheets -->
@@ -67,12 +65,12 @@
     }
     </script>
 </head>
-<body class="flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen bg-[#FFFDF7]">
     <header-component></header-component>
     
     <main class="flex-grow">
         <!-- 1. HERO SECTION + PROOF -->
-        <section class="relative bg-gradient-to-br from-[#FFFDF7] via-white to-[#FFFDF7] py-12 sm:py-16 lg:py-24 overflow-hidden border-b border-[#F3E6C8]">
+        <section class="relative bg-white py-12 sm:py-16 lg:py-24 overflow-hidden border-b border-[#F3E6C8]">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[500px] lg:h-[500px] bg-[#FBEC0A]/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -93,11 +91,11 @@
                         </p>
 
                         <div class="flex flex-col sm:flex-row gap-3 pt-2">
-                            <a href="shop.html" class="btn-primary text-sm px-6 py-3">
+                            <a href="shop.html" class="btn-primary text-sm px-6 py-3 cta-shop">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
                                 Shop Online
                             </a>
-                            <a href="business.html" class="btn-secondary text-sm px-6 py-3">
+                            <a href="business.html" class="btn-secondary text-sm px-6 py-3 cta-business">
                                 Become Distributor
                             </a>
                         </div>
@@ -120,8 +118,8 @@
 
                     <!-- RIGHT: 3D Pedestal Product Stage -->
                     <div class="relative fade-in perspective-container">
-                        <div class="product-stage p-6 sm:p-8 shadow-xl transform-3d-hover">
-                            <div class="relative aspect-square bg-white rounded-xl overflow-hidden border border-[#F3E6C8] shadow-sm flex items-center justify-center p-4">
+                        <div class="product-stage p-6 sm:p-8 shadow-xl transform-3d-hover card">
+                            <div class="relative aspect-square bg-[#FFFDF7] rounded-xl overflow-hidden border border-[#F3E6C8] shadow-sm flex items-center justify-center p-4">
                                 <img src="assets/images/products/MMP.png" width="400" height="400" alt="Kawad Swad Premium Moong Papad" class="rounded-lg w-full h-full object-cover" loading="eager">
                                 <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur p-3 rounded-xl border border-[#F3E6C8] text-xs shadow-sm">
                                     <p class="font-bold text-[#FE330E] uppercase">Moong Master Signature</p>
@@ -200,7 +198,7 @@
                         <p class="text-xs text-[#5F5F5F] mb-4 font-light">Classic light moong dal papad with traditional Nimari recipe. Pure taste and crisp crunch.</p>
                         <div class="flex items-center justify-between mt-auto pt-4 border-t border-[#F3E6C8]">
                             <span class="font-serif font-bold text-lg text-[#FE330E]">From ₹45</span>
-                            <a href="shop.html" class="btn-primary text-xs py-2 px-4">View Sizes</a>
+                            <a href="shop.html" class="btn-primary text-xs py-2 px-4 cta-view">View Sizes</a>
                         </div>
                     </div>
 
@@ -217,7 +215,7 @@
                         <p class="text-xs text-[#5F5F5F] mb-4 font-light">Infused with aromatic fresh garlic extract and select traditional spices over a premium moong base.</p>
                         <div class="flex items-center justify-between mt-auto pt-4 border-t border-[#F3E6C8]">
                             <span class="font-serif font-bold text-lg text-[#FE330E]">From ₹48</span>
-                            <a href="shop.html" class="btn-primary text-xs py-2 px-4">View Sizes</a>
+                            <a href="shop.html" class="btn-primary text-xs py-2 px-4 cta-view">View Sizes</a>
                         </div>
                     </div>
 
@@ -234,13 +232,13 @@
                         <p class="text-xs text-[#5F5F5F] mb-4 font-light">Assorted papad combo for families. Includes Moong Master, Garlic Special, and Punjabi Masala variants.</p>
                         <div class="flex items-center justify-between mt-auto pt-4 border-t border-[#F3E6C8]">
                             <span class="font-serif font-bold text-lg text-[#FE330E]">₹299 <span class="text-xs text-[#8B8174] line-through font-normal">₹350</span></span>
-                            <a href="shop.html" class="btn-primary text-xs py-2 px-4">View Combo</a>
+                            <a href="shop.html" class="btn-primary text-xs py-2 px-4 cta-view">View Combo</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="text-center mt-12">
-                    <a href="shop.html" class="btn-secondary text-sm px-8 py-3.5">
+                    <a href="shop.html" class="btn-secondary text-sm px-8 py-3.5 cta-catalog">
                         Browse Complete Catalog →
                     </a>
                 </div>
@@ -269,7 +267,7 @@
                         </div>
                     </div>
 
-                    <div class="product-stage p-6 sm:p-8 perspective-container">
+                    <div class="product-stage p-6 sm:p-8 perspective-container card">
                         <div class="relative bg-white rounded-xl overflow-hidden border border-[#F3E6C8] p-4 shadow-sm transform-3d-hover">
                             <img src="assets/images/products/COMBO.png" width="500" height="400" alt="Kawad Swad Manufacturing Facility" class="rounded-lg w-full h-72 object-cover" loading="lazy">
                             <div class="mt-4 text-center">
@@ -328,7 +326,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-3 lg:justify-end">
-                        <a href="business.html" class="btn-primary text-sm px-8 py-4 bg-[#FBEC0A] text-[#2D1F17] border-[#FBEC0A] hover:bg-white">
+                        <a href="business.html" class="btn-primary text-sm px-8 py-4 bg-[#FBEC0A] text-[#2D1F17] border-[#FBEC0A] hover:bg-white cta-distributor">
                             Distributor Enquiry Portal →
                         </a>
                     </div>
@@ -348,17 +346,17 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="card p-6 bg-white space-y-3">
                         <div class="text-amber-500 text-sm">★★★★★</div>
-                        <p class="text-xs text-[#5F5F5F] italic font-light">"The crunch and aroma of the Moong Master papad reminds me of homemade traditional preparations. Absolutely pure and delicious!"</p>
+                        <p class="text-xs text-[#5F5F5F] italic font-light">&ldquo;The crunch and aroma of the Moong Master papad reminds me of homemade traditional preparations. Absolutely pure and delicious!&rdquo;</p>
                         <p class="text-xs font-bold text-[#4E342E]">— Rajesh Mehta, Mumbai</p>
                     </div>
                     <div class="card p-6 bg-white space-y-3">
                         <div class="text-amber-500 text-sm">★★★★★</div>
-                        <p class="text-xs text-[#5F5F5F] italic font-light">"We stock Kawad Swad papads in our specialty store in Indore. Customer repeat rate is exceptionally high due to uncompromised Jain quality."</p>
+                        <p class="text-xs text-[#5F5F5F] italic font-light">&ldquo;We stock Kawad Swad papads in our specialty store in Indore. Customer repeat rate is exceptionally high due to uncompromised Jain quality.&rdquo;</p>
                         <p class="text-xs font-bold text-[#4E342E]">— Alok Jain, Retail Stockist</p>
                     </div>
                     <div class="card p-6 bg-white space-y-3">
                         <div class="text-amber-500 text-sm">★★★★★</div>
-                        <p class="text-xs text-[#5F5F5F] italic font-light">"Clean packaging, prompt delivery, and authentic Nimari spice blend. The Garlic Special variant is a family favorite."</p>
+                        <p class="text-xs text-[#5F5F5F] italic font-light">&ldquo;Clean packaging, prompt delivery, and authentic Nimari spice blend. The Garlic Special variant is a family favorite.&rdquo;</p>
                         <p class="text-xs font-bold text-[#4E342E]">— Sunita Rathore, Bhopal</p>
                     </div>
                 </div>
@@ -375,10 +373,10 @@
                     Order directly from our Nimar production center with secure Cash on Delivery and pan-India shipping.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-3 justify-center pt-4">
-                    <a href="shop.html" class="btn-primary text-sm px-8 py-4">
+                    <a href="shop.html" class="btn-primary text-sm px-8 py-4 cta-shop">
                         Shop Online Now
                     </a>
-                    <a href="contact.html" class="btn-secondary text-sm px-8 py-4 bg-transparent text-white border-white/40 hover:bg-white hover:text-[#2D1F17]">
+                    <a href="contact.html" class="btn-secondary text-sm px-8 py-4 bg-transparent text-white border-white/40 hover:bg-white hover:text-[#2D1F17] cta-contact">
                         Contact Our Team
                     </a>
                 </div>
